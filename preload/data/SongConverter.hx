@@ -5,6 +5,7 @@ import sys.io.File;
 class SongConverter
 {
 	// TODO
+	// Accomodate for files with no hard/easy/normal charts
 	// Update engine shit, to accomodate single file
 	static function main()
 	{
