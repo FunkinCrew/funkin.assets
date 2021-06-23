@@ -57,10 +57,40 @@ class SongConverter
 		fileNormal.song.speed.push(fileEasy.song.speed);
 		fileNormal.song.speed.push(daOgSpeed);
 		fileNormal.song.speed.push(fileHard.song.speed);
+		fileNormal.song.hasDialogue = false;
+		fileNormal.song.stageDefault = getStage(songName);
 
 		// trace(fileNormal.song.speed);
 
 		var daJson = Json.stringify(fileNormal);
 		File.saveContent('$songName/$songName-new.json', daJson);
+	}
+
+	/**
+	 * Quicky lil function just for me formatting the old songs hehehe	
+	 */
+	static function getStage(songName:String):String
+	{
+		switch (songName)
+		{
+			case 'spookeez' | 'monster' | 'south':
+				return "spooky";
+			case 'pico' | 'blammed' | 'philly':
+				return 'philly';
+			case "milf" | 'satin-panties' | 'high':
+				return 'limo';
+			case "cocoa" | 'eggnog':
+				return 'mall';
+			case 'winter-horrorland':
+				return 'mallEvil';
+			case 'senpai' | 'roses':
+				return 'school';
+			case 'thorns':
+				return 'schoolEvil';
+			case 'guns' | 'stress' | 'ugh':
+				return 'tank';
+			default:
+				return 'stage';
+		}
 	}
 }
