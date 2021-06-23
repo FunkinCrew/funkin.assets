@@ -1,4 +1,5 @@
 import haxe.Json;
+import haxe.Log;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -50,6 +51,10 @@ class SongConverter
 		fileNormal.song.notes = [];
 		fileNormal.song.speed = [];
 
+		// fileEasy.song.notes = noteCleaner(fileEasy.song.notes);
+		// daOgNotes = noteCleaner(daOgNotes);
+		// fileHard.song.notes = noteCleaner(fileHard.song.notes);
+
 		fileNormal.song.notes.push(fileEasy.song.notes);
 		fileNormal.song.notes.push(daOgNotes);
 		fileNormal.song.notes.push(fileHard.song.notes);
@@ -57,13 +62,25 @@ class SongConverter
 		fileNormal.song.speed.push(fileEasy.song.speed);
 		fileNormal.song.speed.push(daOgSpeed);
 		fileNormal.song.speed.push(fileHard.song.speed);
-		fileNormal.song.hasDialogue = false;
+		fileNormal.song.hasDialogueFile = false;
 		fileNormal.song.stageDefault = getStage(songName);
 
 		// trace(fileNormal.song.speed);
 
 		var daJson = Json.stringify(fileNormal);
 		File.saveContent('$songName/$songName-new.json', daJson);
+	}
+
+	static function noteCleaner(notes:Array<Dynamic>):Array<Dynamic>
+	{
+		var swagArray:Array<Dynamic> = [];
+		for (i in notes)
+		{
+			if (i.sectionNotes.length > 0)
+				swagArray.push(i);
+		}
+
+		return swagArray;
 	}
 
 	/**
