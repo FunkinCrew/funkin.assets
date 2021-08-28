@@ -42,6 +42,38 @@
             "y": 0,
             "scrollX": 0.35,
             "scrollY": 0.35
+        },
+        {
+            "propname": "smokeLeft",
+            "path":"smokeLeft",
+            "scaleX": 1, 
+            "scaleY": 0,
+            "x": -200,
+            "y": -100,
+            "scrollX": 0.4,
+            "scrollY": 0.4,
+            "animBullshit": 
+            {
+                "isLooping": true,
+                "anims": ["SmokeBlurLeft"]
+            }
+
+        },
+        {
+            "propname": "smokeRight",
+            "path":"smokeRight",
+            "scaleX": 1, 
+            "scaleY": 0,
+            "x": 1100,
+            "y": -100,
+            "scrollX": 0.4,
+            "scrollY": 0.4,
+            "animBullshit": 
+            {
+                "isLooping": true,
+                "anims": ["SmokeRight"]
+            }
+
         }
     ]
 }
