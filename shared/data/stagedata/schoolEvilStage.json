@@ -1,0 +1,25 @@
+{
+    "camZoom": 0.9,
+    "propsBackground": 
+    [
+        {
+            "propname": "bg",
+            "path":"weeb/animatedEvilSchool",
+            "scaleX": 6, 
+            "scaleY": 6,
+            "x": -900,
+            "y": -1000,
+            "scrollX": 0.8,
+            "scrollY": 0.9,
+            "antialiasing": false,
+            "animBullshit": 
+            {
+                "isLooping": true,
+                "anims": ["background 2"]
+            }
+
+
+        }
+        
+    ]
+}
