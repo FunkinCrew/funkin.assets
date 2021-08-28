@@ -1,0 +1,37 @@
+{
+    "camZoom": 1,
+    "propsBackground": 
+    [
+        {
+            "propname": "bg",
+            "path":"christmas/evilBG",
+            "scaleX": 0.8, 
+            "scaleY": 0,
+            "x": -400,
+            "y": -500,
+            "scrollX": 0.2,
+            "scrollY": 0.2
+
+        },
+        {
+            "propname": "evilTree",
+            "path": "christmas/evilTree",
+            "scaleX": 1,
+            "scaleY": 1,
+            "x": 300,
+            "y": -300,
+            "scrollX": 0.2,
+            "scrollY": 0.2
+        },
+        {
+            "propname": "stagecurtains",
+            "path": "christmas/evilSnow",
+            "scaleX": 1,
+            "scaleY": 0,
+            "x": -200,
+            "y": 700,
+            "scrollX": 1,
+            "scrollY": 1
+        }
+    ]
+}
