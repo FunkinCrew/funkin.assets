@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="darnell.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Darnell Idle0000" x="2004" y="1392" width="373" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0001" x="2335" y="1867" width="373" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0002" x="1580" y="3512" width="394" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0003" x="1580" y="3512" width="394" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0004" x="1547" y="2042" width="391" height="482" frameX="-2" frameY="-5" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0005" x="1547" y="2042" width="391" height="482" frameX="-2" frameY="-5" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0006" x="1192" y="2530" width="387" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0007" x="1192" y="2530" width="387" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0008" x="1927" y="472" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0009" x="1927" y="472" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0010" x="1192" y="3021" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0011" x="1192" y="3021" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0012" x="1192" y="3512" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Idle0013" x="1192" y="3512" width="384" height="487" frameX="-2" frameY="0" frameWidth="394" frameHeight="487"/>
+	<SubTexture name="Darnell Pose Down0000" x="2315" y="429" width="424" height="421" frameX="0" frameY="-5" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0001" x="2420" y="0" width="424" height="421" frameX="0" frameY="-5" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0002" x="1993" y="0" width="423" height="425" frameX="-3" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0003" x="1968" y="3019" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0004" x="1968" y="3019" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0005" x="1971" y="2485" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0006" x="1971" y="2485" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0007" x="1978" y="3448" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0008" x="1978" y="3448" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0009" x="2393" y="2914" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0010" x="2393" y="2914" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0011" x="2403" y="3343" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0012" x="2403" y="3343" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0013" x="2004" y="963" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0014" x="2004" y="963" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell Pose Down0015" x="1978" y="3448" width="421" height="425" frameX="-5" frameY="0" frameWidth="426" frameHeight="426"/>
+	<SubTexture name="Darnell pose right0000" x="446" y="494" width="419" height="462" frameX="0" frameY="-6" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0001" x="426" y="1968" width="419" height="462" frameX="0" frameY="-6" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0002" x="781" y="2983" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0003" x="781" y="3455" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0004" x="1136" y="2058" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0005" x="1204" y="1098" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0006" x="1204" y="1570" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0007" x="1204" y="1570" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0008" x="1516" y="549" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0009" x="1516" y="549" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0010" x="1582" y="0" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0011" x="1582" y="0" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0012" x="1204" y="1098" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose right0013" x="1204" y="1098" width="407" height="468" frameX="-16" frameY="0" frameWidth="423" frameHeight="468"/>
+	<SubTexture name="Darnell pose up0000" x="0" y="980" width="376" height="552" frameX="0" frameY="0" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0001" x="0" y="1536" width="376" height="552" frameX="0" frameY="0" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0002" x="806" y="960" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0003" x="872" y="0" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0004" x="426" y="2434" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0005" x="426" y="2983" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0006" x="426" y="3532" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0007" x="781" y="2434" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0008" x="849" y="1509" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0009" x="849" y="1509" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0010" x="1161" y="549" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0011" x="1161" y="549" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0012" x="1227" y="0" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0013" x="1227" y="0" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0014" x="781" y="2434" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="Darnell pose up0015" x="781" y="2434" width="351" height="545" frameX="-29" frameY="-7" frameWidth="380" frameHeight="552"/>
+	<SubTexture name="darnell laugh0000" x="1942" y="2001" width="389" height="480" frameX="0" frameY="-7" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell laugh0001" x="1942" y="2001" width="389" height="480" frameX="0" frameY="-7" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell laugh0002" x="1615" y="1021" width="385" height="486" frameX="-2" frameY="-1" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell laugh0003" x="1615" y="1511" width="385" height="486" frameX="-2" frameY="-1" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell laugh0004" x="1580" y="3021" width="384" height="487" frameX="-2" frameY="0" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell laugh0005" x="1583" y="2528" width="384" height="487" frameX="-2" frameY="0" frameWidth="389" frameHeight="487"/>
+	<SubTexture name="darnell pose left0000" x="0" y="0" width="442" height="486" frameX="0" frameY="-4" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0001" x="0" y="490" width="442" height="486" frameX="0" frameY="-4" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0002" x="0" y="2092" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0003" x="380" y="980" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0004" x="380" y="1474" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0005" x="446" y="0" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0006" x="0" y="2586" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0007" x="0" y="2586" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0008" x="0" y="3080" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0009" x="0" y="3080" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0010" x="0" y="3574" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0011" x="0" y="3574" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0012" x="446" y="0" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0013" x="446" y="0" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+	<SubTexture name="darnell pose left0014" x="0" y="2586" width="422" height="490" frameX="-23" frameY="0" frameWidth="445" frameHeight="490"/>
+</TextureAtlas>
