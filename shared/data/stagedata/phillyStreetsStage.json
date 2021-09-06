@@ -1,0 +1,47 @@
+{
+    "camZoom": 0.9,
+    "propsBackground": 
+    [
+        {
+            "propname": "bg",
+            "path":"phillyStreets/streetsWhole",
+            "scaleX": 0.5, 
+            "scaleY": 0,
+            "x": -500,
+            "y": 0,
+            "scrollX": 0.1,
+            "scrollY": 0.1
+
+        },
+        {
+            "propname": "highway",
+            "path":"phillyStreets/highWay",
+            "scaleX": 0.5, 
+            "scaleY": 0,
+            "x": -300,
+            "y": -100,
+            "scrollX": 0.6,
+            "scrollY": 0.6
+        },
+        {
+            "propname": "car",
+            "path":"phillyStreets/streetLight",
+            "scaleX": 0.5, 
+            "scaleY": 0,
+            "x": 1000,
+            "y": 300,
+            "scrollX": 0.8,
+            "scrollY": 0.8
+        },
+        {
+            "propname": "fence",
+            "path":"phillyStreets/street",
+            "scaleX": 0.5, 
+            "scaleY": 0,
+            "x": -500,
+            "y": 0,
+            "scrollX": 1,
+            "scrollY": 1
+        }
+    ]
+}
