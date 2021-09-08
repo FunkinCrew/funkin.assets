@@ -1,6 +1,6 @@
 idle -2 0
-singRIGHT 17 8
-singDOWN 10 -50
 laugh -1 1
-singLEFT 42 -16
+singDOWN 15 -45
+singRIGHT 12 8
 singUP 26 72
+singLEFT 47 -16
