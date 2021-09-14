@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Nene_assets.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="nenebeforeyougetawoopin0000" x="816" y="3366" width="812" height="663" frameX="-2" frameY="-7" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0001" x="3264" y="673" width="814" height="663" frameX="0" frameY="-7" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0002" x="3264" y="1340" width="814" height="663" frameX="0" frameY="-7" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0003" x="1632" y="2690" width="812" height="663" frameX="-2" frameY="-7" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0004" x="1632" y="2021" width="812" height="665" frameX="-2" frameY="-5" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0005" x="2448" y="1347" width="812" height="665" frameX="-2" frameY="-5" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0006" x="816" y="2695" width="812" height="667" frameX="-2" frameY="-3" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0007" x="0" y="2696" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0008" x="816" y="2022" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0009" x="1632" y="1348" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0010" x="0" y="0" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0011" x="0" y="674" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0012" x="816" y="0" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0013" x="0" y="1348" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0014" x="816" y="674" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0015" x="3266" y="2664" width="812" height="652" frameX="-2" frameY="-18" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0016" x="3266" y="3320" width="812" height="652" frameX="-2" frameY="-18" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0017" x="2448" y="2676" width="814" height="651" frameX="0" frameY="-19" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0018" x="2448" y="3331" width="814" height="651" frameX="0" frameY="-19" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0019" x="3264" y="2007" width="812" height="653" frameX="-2" frameY="-17" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0020" x="1632" y="3357" width="812" height="653" frameX="-2" frameY="-17" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0021" x="2448" y="2016" width="812" height="656" frameX="-2" frameY="-14" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0022" x="2448" y="674" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0023" x="3264" y="0" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0024" x="0" y="3369" width="812" height="669" frameX="-2" frameY="-1" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0025" x="1632" y="0" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0026" x="0" y="2022" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0027" x="816" y="1348" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0028" x="1632" y="674" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+	<SubTexture name="nenebeforeyougetawoopin0029" x="2448" y="0" width="812" height="670" frameX="-2" frameY="0" frameWidth="814" frameHeight="670"/>
+</TextureAtlas>
