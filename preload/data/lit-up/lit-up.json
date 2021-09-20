@@ -1,0 +1,41 @@
+{
+    "song": {
+        "bpm": 88,
+        "needsVoices": true,
+        "notes": [
+            {
+                "altAnim": false,
+                "bpm": 150,
+                "changeBPM": false,
+                "lengthInSteps": 16,
+                "mustHitSection": true,
+                "sectionNotes": [],
+                "typeOfSection": 0
+            },
+            {
+                "altAnim": false,
+                "bpm": 88,
+                "changeBPM": false,
+                "lengthInSteps": 16,
+                "mustHitSection": true,
+                "sectionNotes": [],
+                "typeOfSection": 0
+            },
+            {
+                "altAnim": false,
+                "bpm": 88,
+                "changeBPM": false,
+                "lengthInSteps": 16,
+                "mustHitSection": true,
+                "sectionNotes": [],
+                "typeOfSection": 0
+            }
+        ],
+        "player1": "bf",
+        "player2": "darnell",
+        "song": "lit-up",
+        "speed": 1,
+        "validScore": false,
+        "voiceList": ["Pico", "Darnell"]
+    }
+}
