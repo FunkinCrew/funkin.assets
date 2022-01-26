@@ -14,10 +14,6 @@
 	<SubTexture name="%0001" x="214" y="2" width="58" height="64"/>
 	<SubTexture name="%0002" x="274" y="2" width="58" height="64"/>
 	<SubTexture name="%0003" x="274" y="2" width="58" height="64"/>
-	<SubTexture name="&0000" x="334" y="2" width="36" height="58"/>
-	<SubTexture name="&0001" x="334" y="2" width="36" height="58"/>
-	<SubTexture name="&0002" x="372" y="2" width="36" height="58"/>
-	<SubTexture name="&0003" x="372" y="2" width="36" height="58"/>
 	<SubTexture name="(0000" x="410" y="2" width="38" height="69"/>
 	<SubTexture name="(0001" x="410" y="2" width="38" height="69"/>
 	<SubTexture name="(0002" x="450" y="2" width="38" height="69"/>
@@ -34,6 +30,10 @@
 	<SubTexture name="+0001" x="140" y="80" width="42" height="39"/>
 	<SubTexture name="+0002" x="184" y="80" width="42" height="39"/>
 	<SubTexture name="+0003" x="184" y="80" width="42" height="39"/>
+	<SubTexture name="-andpersand-0000" x="334" y="2" width="36" height="58"/>
+	<SubTexture name="-andpersand-0001" x="334" y="2" width="36" height="58"/>
+	<SubTexture name="-andpersand-0002" x="372" y="2" width="36" height="58"/>
+	<SubTexture name="-andpersand-0003" x="372" y="2" width="36" height="58"/>
 	<SubTexture name="-angry faic-0000" x="228" y="80" width="54" height="54"/>
 	<SubTexture name="-angry faic-0001" x="228" y="80" width="54" height="54"/>
 	<SubTexture name="-angry faic-0002" x="284" y="80" width="54" height="54"/>
