@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<!--Add list of files you're including in your localization here
+	    The engine will NOT load any files that are not listed.	
+	-->
+	
+	<file id="data" value="data.tsv"/>
+	<file id="data" value="more_data.tsv"/>
+	
+	<file id="fonts" value="fonts.xml"/>
+	
+	
+	<!--Add locale entries here.
+	
+	The locale id is the ISO 639-1 country language code with 2-letter country suffix:
+	http://en.wikipedia.org/wiki/ISO_639-1
+	
+	1) Add the locale entry
+	2) Add a corresponding folder with localization content matching the id
+	3) Add a corresponding flag image in the _flags folder matching the id
+	4) Add any labels you want to display the language text in the menu
+	
+	-->
+	
+	<!--
+		American English
+	-->
+	<locale id="en-US" is_default="true" sort="0">	
+		<!--
+			The words for 'language', 'region', and 'accept' in the target locale.
+			These are used to make the language select menu efficient.
+		-->
+		<ui language="Language" region="Region" accept="Accept" />
+
+		<!--
+			The names of each language and their associated location, for this locale.
+			For example, the English locale should include labels for every language, in English.
+		-->
+		<label id="en-US" language="English" region="United States"/>
+		<label id="pt-BR" language="Portuguese" region="Brazil"/>
+		<label id="ja-JP" language="Japanese" region="Japan"/>
+	</locale>
+	
+	<!--
+		Brazilian Portuguese
+		I made these in Google Translate so they're probably close but should be reviewed or redone.
+	-->
+	<locale id="pt-BR" sort="1"> 
+		<ui language="Língua" region="Região" accept="Aceitar" />
+
+		<label id="en-US" language="Inglês" region="Estados Unidos"/>
+		<label id="pt-BR" language="Português" region="Brasil"/>
+		<label id="ja-JP" language="Japonês" region="Japão"/>
+	</locale>
+
+	<!--
+		Japanese
+	-->
+	<locale id="ja-JP" sort="2"> 
+		<ui language="言語" region="領域" accept="承認" />
+
+		<label id="en-US" language="英語" region="アメリカ"/>
+		<label id="pt-BR" language="ポルトガル語" region="ブラジル"/>
+		<label id="ja-JP" language="日本語" region="日本"/>
+	</locale>
+	
+</data>
