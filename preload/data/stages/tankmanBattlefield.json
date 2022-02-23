@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "name": "Tankman Battlefield",
+  "cameraZoom": 0.9,
+  "props": [
+    {
+      "name": "tankSky",
+      "assetPath": "tankSky",
+      "position": [-400, -400],
+      "scale": [1, 1],
+      "zIndex": -1000,
+      "scroll": [0, 0]
+    },
+    {
+      "assetPath": "tankMountains",
+      "position": [-300, -20],
+      "scale": [1.2, 1],
+      "scroll": [0.2, 0.2]
+    },
+    {
+      "assetPath": "tankBuildings",
+      "position": [-200, 0],
+      "scale": [1.1, 1],
+      "scroll": [0.3, 0.3]
+    },
+    {
+      "assetPath": "tankRuins",
+      "position": [-200, 0],
+      "scale": [1.1, 1],
+      "scroll": [0.35, 0.35]
+    },
+    {
+      "name": "smokeLeft",
+      "assetPath": "smokeLeft",
+      "position": [-200, 0],
+      "scale": [1.1, 1],
+      "scroll": [0.4, 0.4],
+      "animations": [
+        {
+          "name": "smokeLeft",
+          "prefix": "SmokeBlurLeft",
+          "frameRate": 24,
+          "loop": true,
+          "flipX": false,
+          "flipY": false
+        }
+      ],
+      "startingAnimation": "smokeLeft"
+    },
+    {
+      "name": "smokeRight",
+      "assetPath": "smokeRight",
+      "position": [1100, -100],
+      "scale": [1, 1],
+      "scroll": [0.4, 0.4],
+      "animations": [
+        {
+          "name": "smokeRight",
+          "prefix": "SmokeRight"
+        }
+      ],
+      "startingAnimation": "smokeRight"
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 100,
+      "position": [40, 0]
+    },
+    "dad": { "zIndex": 100, "position": [60, -80] },
+    "gf": { "zIndex": 100, "position": [10, -30] }
+  }
+}

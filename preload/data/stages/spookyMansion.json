@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "name": "Spooky Mansion",
+  "cameraZoom": 0.9,
+  "props": [
+    {
+      "name": "halloweenBG",
+      "assetPath": "halloween_bg",
+      "position": [-200, 0],
+      "scale": [1.1, 1],
+      "scroll": [0.4, 0.4],
+      "zIndex": -100,
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "halloweem bg",
+          "frameRate": 24,
+          "loop": true,
+          "flipX": false,
+          "flipY": false
+        },
+        {
+          "name": "lightning",
+          "prefix": "halloweem bg lightning strike",
+          "frameRate": 24,
+          "loop": false,
+          "flipX": false,
+          "flipY": false
+        }
+      ],
+      "startingAnimation": "idle"
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 100,
+      "position": [810, 450]
+    },
+    "dad": { "zIndex": 100, "position": [60, -80] },
+    "gf": { "zIndex": -200, "position": [10, -30] }
+  }
+}
