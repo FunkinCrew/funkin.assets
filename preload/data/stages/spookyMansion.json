@@ -13,7 +13,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "halloweem bg",
+          "prefix": "halloweem bg0",
           "frameRate": 24,
           "loop": true,
           "flipX": false,
@@ -33,10 +33,10 @@
   ],
   "characters": {
     "bf": {
-      "zIndex": 100,
+      "zIndex": 200,
       "position": [810, 450]
     },
-    "dad": { "zIndex": 100, "position": [60, -80] },
-    "gf": { "zIndex": -200, "position": [10, -30] }
+    "dad": { "zIndex": 200, "position": [160, 320] },
+    "gf": { "zIndex": 100, "position": [410, 100] }
   }
 }
