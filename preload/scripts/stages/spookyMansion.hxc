@@ -38,7 +38,7 @@ class SpookyMansionStage extends Stage {
 		}
 
 		// Play lightning on sync at the start of this specific song.
-		if (curBeat == 3 && PlayState.SONG.song.toLowerCase() == "spookeez") {
+		if (curBeat == 4 && PlayState.SONG.song.toLowerCase() == "spookeez") {
 			doLightningStrike(false);
 		}
 

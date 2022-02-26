@@ -9,13 +9,13 @@
       "position": [-600, -200],
       "scale": [1, 1],
       "scroll": [0.9, 0.9],
-      "zIndex": 30
+      "zIndex": 10
     },
     {
       "name": "stageFront",
       "assetPath": "stagefront",
       "position": [-650, 600],
-      "scale": [1.1, 0],
+      "scale": [1.1, 1.1],
       "scroll": [0.9, 0.9],
       "zIndex": 20
     },
@@ -23,17 +23,17 @@
       "name": "stageCurtains",
       "assetPath": "stagecurtains",
       "position": [-500, -300],
-      "scale": [0.9, 0],
+      "scale": [0.9, 0.9],
       "scroll": [1.3, 1.3],
-      "zIndex": 10
+      "zIndex": 30
     }
   ],
   "characters": {
     "bf": {
-      "zIndex": 100,
-      "position": [40, 0]
+      "zIndex": 300,
+      "position": [770, 400]
     },
-    "dad": { "zIndex": 100, "position": [60, -80] },
-    "gf": { "zIndex": 100, "position": [10, -30] }
+    "gf": { "zIndex": 100, "position": [410, 100] },
+    "dad": { "zIndex": 200, "position": [110, 30] }
   }
 }

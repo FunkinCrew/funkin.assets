@@ -1,0 +1,48 @@
+import flixel.FlxG;
+import flixel.system.FlxSound;
+import Paths;
+import PlayState;
+import Conductor;
+import shaderslmfao.BuildingShaders;
+
+import play.stage.Stage;
+
+class PhillyTrainStage extends Stage {
+	public function new() {
+		super('phillyTrain');
+	}
+
+	var lightShader:BuildingShaders;
+	var trainSound:FlxSound;
+
+	override function buildStage() {
+		super.buildStage();
+
+		lightShader = new BuildingShaders();
+		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+		FlxG.sound.list.add(trainSound);
+
+		for (i in 0...5) {
+			var light:FlxSprite = getNamedProp('lights' + i);
+			light.shader = lightShader;
+			light.visible = true;
+		}
+	}
+
+	override function fetchAssetPaths():Array<String> {
+		var results:Array<String> = super.fetchAssetPaths();
+		results.push(Paths.sound('train_passes'));
+		return results;
+	}
+
+	override function onUpdate(elapsed:Float):Void {
+		var shaderInput:Float = (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
+		trace('Updating lightShader: ' + shaderInput);
+		lightShader.update(shaderInput);
+	}
+
+	override function kill() {
+		super.kill();
+		lightShader = null;
+	}
+}
