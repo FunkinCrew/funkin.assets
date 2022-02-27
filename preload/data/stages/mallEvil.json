@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "name": "Christmas Mall (Naughty)",
+  "cameraZoom": 1.0,
+  "props": [
+    {
+      "name": "bg",
+      "assetPath": "christmas/evilBg",
+      "position": [-400, -500],
+      "scale": [0.8, 0.8],
+      "scroll": [0.2, 0.2],
+      "zIndex": 10
+    },
+    {
+      "name": "evilTree",
+      "assetPath": "christmas/evilTree",
+      "position": [300, -300],
+      "scale": [1, 1],
+      "scroll": [0.2, 0.2],
+      "zIndex": 20
+    },
+    {
+      "name": "evilTree",
+      "assetPath": "christmas/evilTree",
+      "position": [-200, 700],
+      "scale": [1, 1],
+      "scroll": [1, 1],
+      "zIndex": 20
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [970, 400]
+    },
+    "gf": { "zIndex": 100, "position": [400, 130] },
+    "dad": { "zIndex": 200, "position": [20, 100] }
+  }
+}
