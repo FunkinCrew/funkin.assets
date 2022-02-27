@@ -28,6 +28,13 @@ class SpookyMansionStage extends Stage {
 		getGirlfriend().playAnim('scared', true);
 	}
 
+	override function fetchAssetPaths():Array<String> {
+		var results:Array<String> = super.fetchAssetPaths();
+		results.push(Paths.sound('thunder_1'));
+		results.push(Paths.sound('thunder_2'));
+		return results;
+	}
+
 	override function onBeatHit(curBeat:Int):Void {
 		trace('Boo!');
 
