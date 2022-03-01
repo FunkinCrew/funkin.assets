@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "name": "School (Date)",
+  "cameraZoom": 1,
+  "props": [
+    {
+      "isPixel": true,
+      "name": "sky",
+      "assetPath": "weeb/weebSky",
+      "position": [-50, -50],
+      "scale": [6, 6],
+      "scroll": [0.1, 0.1],
+      "zIndex": 10
+    },
+    {
+      "isPixel": true,
+      "name": "school",
+      "assetPath": "weeb/weebSchool",
+      "position": [-200, 0],
+      "scale": [6, 6],
+      "scroll": [0.6, 0.9],
+      "zIndex": 20
+    },
+    {
+      "isPixel": true,
+      "name": "street",
+      "assetPath": "weeb/weebStreet",
+      "position": [-200, 0],
+      "scale": [6, 6],
+      "scroll": [0.95, 0.95],
+      "zIndex": 30
+    },
+    {
+      "isPixel": true,
+      "name": "treesFG",
+      "assetPath": "weeb/weebTreesBack",
+      "position": [-180, 30],
+      "scale": [6, 6],
+      "scroll": [0.9, 0.9],
+      "zIndex": 40
+    },
+    {
+      "isPixel": true,
+      "name": "treesBG",
+      "assetPath": "weeb/weebTrees",
+      "position": [-780, -1000],
+      "scale": [6, 6],
+      "scroll": [0.85, 0.85],
+      "zIndex": 60,
+      "animations": [
+        {
+          "name": "treeLoop",
+          "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+          "frameRate": 12
+        }
+      ],
+      "startingAnimation": "treeLoop",
+      "animType": "packer"
+    },
+    {
+      "isPixel": true,
+      "name": "petals",
+      "assetPath": "weeb/petals",
+      "position": [-250, -90],
+      "scale": [6, 6],
+      "scroll": [0.85, 0.85],
+      "zIndex": 70,
+      "animations": [
+        {
+          "name": "leaves",
+          "prefix": "PETALS ALL",
+          "frameRate": 24,
+          "loop": true,
+          "flipX": false,
+          "flipY": false
+        }
+      ],
+      "startingAnimation": "leaves"
+    },
+    {
+      "isPixel": true,
+      "name": "freaks",
+      "danceEvery": 1,
+      "assetPath": "weeb/bgFreaks",
+      "position": [-100, 190],
+      "scale": [6, 6],
+      "scroll": [0.9, 0.9],
+      "zIndex": 80,
+      "animations": [
+        {
+          "name": "danceLeft",
+          "prefix": "BG girls group",
+          "frameRate": 24,
+          "loop": false,
+          "flipX": false,
+          "flipY": false
+        },
+        {
+          "name": "danceRight",
+          "prefix": "BG girls group",
+          "frameRate": 24,
+          "loop": false,
+          "flipX": false,
+          "flipY": false
+        },
+        {
+          "name": "danceLeft-scared",
+          "prefix": "BG fangirls dissuaded",
+          "frameRate": 24,
+          "loop": false,
+          "flipX": false,
+          "flipY": false
+        },
+        {
+          "name": "danceRight-scared",
+          "prefix": "BG fangirls dissuaded",
+          "frameRate": 24,
+          "loop": false,
+          "flipX": false,
+          "flipY": false
+        }
+      ],
+      "startingAnimation": "danceLeft"
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [990, 645]
+    },
+    "gf": { "zIndex": 100, "position": [580, 430] },
+    "dad": { "zIndex": 200, "position": [225, 450] }
+  }
+}

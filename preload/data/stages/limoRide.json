@@ -78,7 +78,7 @@
           "flipY": false
         },
         {
-          "name": "danceLeft",
+          "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
           "frameRate": 24,
           "frameIndices": [
@@ -111,7 +111,7 @@
           "flipY": false
         },
         {
-          "name": "danceLeft",
+          "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
           "frameRate": 24,
           "frameIndices": [
@@ -144,7 +144,7 @@
           "flipY": false
         },
         {
-          "name": "danceLeft",
+          "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
           "frameRate": 24,
           "frameIndices": [
@@ -177,7 +177,7 @@
           "flipY": false
         },
         {
-          "name": "danceLeft",
+          "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
           "frameRate": 24,
           "frameIndices": [

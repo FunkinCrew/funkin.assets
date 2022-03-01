@@ -1,0 +1,17 @@
+import PlayState;
+
+import play.stage.Stage;
+
+class SchoolStage extends Stage {
+	public function new() {
+		super('school');
+	}
+
+	override function buildStage() {
+		super.buildStage();
+
+		if (PlayState.SONG.song.toLowerCase() == "roses") {
+			getNamedProp('freaks').idleSuffix = '-scared';
+		}
+	}
+}
