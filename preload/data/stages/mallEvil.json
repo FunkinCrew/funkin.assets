@@ -5,7 +5,7 @@
   "props": [
     {
       "name": "bg",
-      "assetPath": "christmas/evilBg",
+      "assetPath": "christmas/evilBG",
       "position": [-400, -500],
       "scale": [0.8, 0.8],
       "scroll": [0.2, 0.2],
@@ -20,9 +20,9 @@
       "zIndex": 20
     },
     {
-      "name": "evilTree",
-      "assetPath": "christmas/evilTree",
-      "position": [-200, 700],
+      "name": "evilSnow",
+      "assetPath": "christmas/evilSnow",
+      "position": [-400, 700],
       "scale": [1, 1],
       "scroll": [1, 1],
       "zIndex": 20
