@@ -7,7 +7,7 @@
       "isPixel": true,
       "name": "evilSchoolBG",
       "assetPath": "weeb/evilSchoolBG",
-      "position": [-200, 0],
+      "position": [-200, -100],
       "scale": [6, 6],
       "scroll": [0.7, 0.1],
       "zIndex": 10
@@ -25,9 +25,9 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [990, 645]
+      "position": [970, 670]
     },
     "gf": { "zIndex": 100, "position": [580, 430] },
-    "dad": { "zIndex": 200, "position": [225, 450] }
+    "dad": { "zIndex": 200, "position": [-125, 250] }
   }
 }
