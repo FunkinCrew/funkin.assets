@@ -2,8 +2,7 @@ import flixel.math.FlxAngle;
 import Paths;
 import PlayState;
 import flixel.FlxG;
-import flixel.util.FlxTimer;
-import shaderslmfao.OverlayBlend;
+import modding.base.ScriptedFlxSpriteGroup;
 import play.stage.Stage;
 
 class TankmanBattlefieldStage extends Stage
@@ -12,6 +11,8 @@ class TankmanBattlefieldStage extends Stage
 	{
 		super('tankmanBattlefield');
 	}
+
+	var tankmanGroup:TankmanSpriteGroup;
 
 	override function buildStage()
 	{
@@ -23,18 +24,33 @@ class TankmanBattlefieldStage extends Stage
 		clouds.x = FlxG.random.int(-700, -100);
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
+
+		tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+		add(tankmanGroup);
+
+		tankAngle = FlxG.random.int(-90, 45);
+		tankSpeed = FlxG.random.float(5, 7);
 	}
 
 	override function onUpdate(elapsed:Float):Void
 	{
+		super.onUpdate(elapsed);
 		moveTank();
 	}
 
-	var tankResetShit:Bool = false;
 	var tankMoving:Bool = false;
 	var tankAngle:Float = FlxG.random.int(-90, 45);
 	var tankSpeed:Float = FlxG.random.float(5, 7);
 	var tankX:Float = 400;
+
+	override function onBeatHit(curBeat:Int):Void
+	{
+		super.onBeatHit(curBeat);
+		if (curBeat == 0 && tankmanGroup != null)
+		{
+			tankmanGroup.scriptCall('reset');
+		}
+	}
 
 	function moveTank():Void
 	{
@@ -47,5 +63,14 @@ class TankmanBattlefieldStage extends Stage
 		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
 	}
 
-	override function kill():Void {}
+	override function kill()
+	{
+		super.kill();
+
+		if (tankmanGroup != null)
+		{
+			tankmanGroup.destroy();
+			tankmanGroup = null;
+		}
+	}
 }

@@ -1,14 +1,16 @@
 import flixel.FlxG;
 import flixel.system.FlxSound;
+import flixel.FlxSprite;
 import Paths;
 import PlayState;
 import Conductor;
 import shaderslmfao.BuildingShaders;
-
 import play.stage.Stage;
 
-class PhillyTrainStage extends Stage {
-	public function new() {
+class PhillyTrainStage extends Stage
+{
+	public function new()
+	{
 		super('phillyTrain');
 	}
 
@@ -17,21 +19,24 @@ class PhillyTrainStage extends Stage {
 	var lightShader:BuildingShaders;
 	var trainSound:FlxSound;
 
-	override function buildStage() {
+	override function buildStage()
+	{
 		super.buildStage();
 
 		lightShader = new BuildingShaders();
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
 		FlxG.sound.list.add(trainSound);
 
-		for (i in 0...LIGHT_COUNT) {
+		for (i in 0...LIGHT_COUNT)
+		{
 			var light:FlxSprite = getNamedProp('lights' + i);
 			light.setShader(lightShader.shader);
 			light.visible = false;
 		}
 	}
 
-	override function fetchAssetPaths():Array<String> {
+	override function fetchAssetPaths():Array<String>
+	{
 		var results:Array<String> = super.fetchAssetPaths();
 		results.push(Paths.sound('train_passes'));
 		return results;
@@ -43,65 +48,78 @@ class PhillyTrainStage extends Stage {
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
 
-	override function onUpdate(elapsed:Float):Void {
+	override function onUpdate(elapsed:Float):Void
+	{
+		super.onUpdate(elapsed);
 		// Update beat lights
 		var shaderInput:Float = (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
-		trace('Updating lightShader: ' + shaderInput);
 		lightShader.update(shaderInput);
 
 		// Update train
-		if (trainMoving) {
+		if (trainMoving)
+		{
 			trainFrameTiming += elapsed;
 
-			if (trainFrameTiming >= 1 / 24) {
+			if (trainFrameTiming >= 1 / 24)
+			{
 				updateTrainPos();
 				trainFrameTiming = 0;
 			}
 		}
 	}
 
-	override function onBeatHit(curBeat:Int):Void {
+	override function onBeatHit(curBeat:Int):Void
+	{
+		super.onBeatHit(curBeat);
 		// Update train cooldown
 		if (!trainMoving)
 			trainCooldown += 1;
 
 		// Start train
-		if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8) {
+		if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+		{
 			trainCooldown = FlxG.random.int(-4, 0);
 			trainStart();
 		}
 
 		// Update lights
-		if (curBeat % 4 == 0) {
+		if (curBeat % 4 == 0)
+		{
 			// Reset opacity
 			lightShader.reset();
 
 			// Switch to a different light
 			curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
-			for (i in 0...LIGHT_COUNT) {
+			for (i in 0...LIGHT_COUNT)
+			{
 				getNamedProp('lights' + i).visible = (i == curLight);
 			}
 		}
 	}
 
-	function trainStart():Void {
+	function trainStart():Void
+	{
 		trainMoving = true;
 		trainSound.play(true);
 	}
 
 	var startedMoving:Bool = false;
 
-	function updateTrainPos():Void {
-		if (trainSound.time >= 4700) {
+	function updateTrainPos():Void
+	{
+		if (trainSound.time >= 4700)
+		{
 			startedMoving = true;
 			getGirlfriend().playAnim('hairBlow');
 		}
 
-		if (startedMoving) {
+		if (startedMoving)
+		{
 			var train:FlxSprite = getNamedProp('train');
 			train.x -= 400;
 
-			if (train.x < -2000 && !trainFinishing) {
+			if (train.x < -2000 && !trainFinishing)
+			{
 				train.x = -1150;
 				trainCars -= 1;
 
@@ -114,7 +132,8 @@ class PhillyTrainStage extends Stage {
 		}
 	}
 
-	function trainReset():Void {
+	function trainReset():Void
+	{
 		getGirlfriend().playAnim('hairFall');
 		getNamedProp('train').x = FlxG.width + 200;
 
@@ -124,7 +143,8 @@ class PhillyTrainStage extends Stage {
 		startedMoving = false;
 	}
 
-	override function kill() {
+	override function kill()
+	{
 		super.kill();
 		lightShader = null;
 	}

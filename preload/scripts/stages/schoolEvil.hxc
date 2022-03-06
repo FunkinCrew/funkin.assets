@@ -1,17 +1,19 @@
 import PlayState;
-
 import play.stage.Stage;
 import shaderslmfao.WiggleEffect;
 import shaderslmfao.WiggleEffectType;
 
-class SchoolEvilStage extends Stage {
-	public function new() {
+class SchoolEvilStage extends Stage
+{
+	public function new()
+	{
 		super('schoolEvil');
 	}
 
 	var wiggle = null;
 
-	override function buildStage() {
+	override function buildStage()
+	{
 		super.buildStage();
 
 		wiggle = new WiggleEffect(2, 4, 0.017, WiggleEffectType.DREAMY);
@@ -19,16 +21,20 @@ class SchoolEvilStage extends Stage {
 		getNamedProp('evilSchoolBG').shader = wiggle.shader;
 		getNamedProp('evilSchoolFG').shader = wiggle.shader;
 	}
-	
-	override function onUpdate(elapsed:Float) {
+
+	override function onUpdate(elapsed:Float)
+	{
 		super.onUpdate(elapsed);
 
-		if (wiggle != null) {
+		if (wiggle != null)
+		{
 			wiggle.update(elapsed);
 		}
 	}
 
-	override function kill() {
+	override function kill()
+	{
+		super.kill();
 		wiggle = null;
 	}
 }

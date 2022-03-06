@@ -1,21 +1,24 @@
 import flixel.FlxG;
 import Paths;
 import PlayState;
-
 import play.stage.Stage;
 
-class SpookyMansionStage extends Stage {
-	public function new() {
+class SpookyMansionStage extends Stage
+{
+	public function new()
+	{
 		super('spookyMansion');
 	}
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningStrikeOffset:Int = 8;
 
-	function doLightningStrike(playSound:Bool):Void {
+	function doLightningStrike(playSound:Bool):Void
+	{
 		trace('Lightning strike!');
 
-		if (playSound) {
+		if (playSound)
+		{
 			FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
 		}
 
@@ -28,29 +31,34 @@ class SpookyMansionStage extends Stage {
 		getGirlfriend().playAnim('scared', true);
 	}
 
-	override function fetchAssetPaths():Array<String> {
+	override function fetchAssetPaths():Array<String>
+	{
 		var results:Array<String> = super.fetchAssetPaths();
 		results.push(Paths.sound('thunder_1'));
 		results.push(Paths.sound('thunder_2'));
 		return results;
 	}
 
-	override function onBeatHit(curBeat:Int):Void {
-		trace('Boo!');
+	override function onBeatHit(curBeat:Int):Void
+	{
+		super.onBeatHit(curBeat);
 
 		// Properly reset lightning when restarting the song.
-		if (curBeat == 0) {
+		if (curBeat == 0)
+		{
 			lightningStrikeBeat = 0;
 			lightningStrikeOffset = 8;
 		}
 
 		// Play lightning on sync at the start of this specific song.
-		if (curBeat == 4 && PlayState.SONG.song.toLowerCase() == "spookeez") {
+		if (curBeat == 4 && PlayState.SONG.song.toLowerCase() == "spookeez")
+		{
 			doLightningStrike(false);
 		}
 
 		// Play lightning at random intervals.
-		if (FlxG.random.bool(10) && curBeat > (lightningStrikeBeat + lightningStrikeOffset)) {
+		if (FlxG.random.bool(10) && curBeat > (lightningStrikeBeat + lightningStrikeOffset))
+		{
 			doLightningStrike(true);
 		}
 	}

@@ -2,33 +2,20 @@ import Paths;
 import PlayState;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
+import flixel.FlxSprite;
 import shaderslmfao.OverlayBlend;
-
 import play.stage.Stage;
 
-class LimoRideStage extends Stage {
-	public function new() {
+class LimoRideStage extends Stage
+{
+	public function new()
+	{
 		super('limoRide');
 	}
 
-	var limoDancers:Array<Bopper> = [];
-
-	override function buildStage() {
+	override function buildStage()
+	{
 		super.buildStage();
-
-		limoDancers = [];
-
-		for (index in 0...5) {
-			// Defined in scripts/props/limoDancer.hxc
-			var dancer = new LimoDancer();
-			dancer.x = 130 + (370 * index);
-			dancer.y = -100; // TODO: Correct
-			dancer.scrollFactor.set(0.4, 0.4);
-
-			limoDancers.push(dancer);
-			this.add(dancer);
-		}
-		trace('Added ' + limoDancers.length + ' limo dancers');
 
 		// Apply sky shader.
 		var skyOverlay:OverlayBlend = new OverlayBlend();
@@ -36,7 +23,7 @@ class LimoRideStage extends Stage {
 		sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
 		sunOverlay.updateHitbox();
 		skyOverlay.funnyShit.input = sunOverlay.pixels;
-		getNamedProp('limoSunset').shader = skyOverlay;
+		getNamedProp('limaoSunset').shader = skyOverlay;
 
 		// There's some commented-out shader BS in the original code.
 		// I don't know what it's for, but it's not used in the game.
@@ -45,21 +32,28 @@ class LimoRideStage extends Stage {
 		resetFastCar();
 	}
 
-	override function onBeatHit(curBeat:Int) {
+	override function onBeatHit(curBeat:Int)
+	{
+		// When overriding onBeatHit, make sure to call super.onBeatHit,
+		// otherwise boppers will not work.
+		super.onBeatHit(curBeat);
+
 		if (FlxG.random.bool(10) && fastCarCanDrive)
 			fastCarDrive();
 	}
 
 	var fastCarCanDrive:Bool = false;
 
-	function resetFastCar():Void {
+	function resetFastCar():Void
+	{
 		var fastCar = getNamedProp('fastCar');
 		fastCar.y = FlxG.random.int(140, 250);
 		fastCar.velocity.x = 0;
 		fastCarCanDrive = true;
 	}
 
-	function fastCarDrive():Void {
+	function fastCarDrive():Void
+	{
 		FlxG.sound.play(Paths.soundRandom('carPass', 0, 1), 0.7);
 
 		getNamedProp('fastCar').velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
@@ -70,24 +64,15 @@ class LimoRideStage extends Stage {
 		});
 	}
 
-	override function fetchAssetPaths():Array<String> {
+	override function fetchAssetPaths():Array<String>
+	{
 		var results:Array<String> = super.fetchAssetPaths();
 
-		// The limo dancer isn't built by the default stage function, so we need to add it here.
-		results.push(Paths.image('limo/limoDancer'));
 		// This graphic is applied by shader to the background, so it's not included in the default stage function.
 		results.push(Paths.image('limo/limoOverlay'));
 		results.push(Paths.sound('carPass0'));
 		results.push(Paths.sound('carPass1'));
 
 		return results;
-	}
-
-	override function kill():Void {
-		// NOOOOO!!! Don't kill the limo dancers! They're doing their best!
-		for (bopper in limoDancers) {
-			bopper.kill();
-		}
-		limoDancers = [];
 	}
 }
