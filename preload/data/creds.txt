@@ -13,7 +13,7 @@ IvanAlmighty - Misc. UI Design
 
 MtH - Additional Programming, Additional Charting
 Geokureli - Additional Programming
-MasterEric - Additional Programming, Mod Framework
+MasterEric - Additional Programming
 
 M&M - Extra Programming
 
