@@ -30,7 +30,7 @@ class PhillyTrainStage extends Stage
 		for (i in 0...LIGHT_COUNT)
 		{
 			var light:FlxSprite = getNamedProp('lights' + i);
-			light.setShader(lightShader.shader);
+			light.shader = lightShader.shader;
 			light.visible = false;
 		}
 	}
