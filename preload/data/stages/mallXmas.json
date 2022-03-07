@@ -44,7 +44,7 @@
       "assetPath": "christmas/christmasTree",
       "position": [370, -250],
       "scale": [1, 1],
-      "scroll": [0.3, 0.3],
+      "scroll": [0.4, 0.4],
       "zIndex": 40
     },
     {
@@ -76,7 +76,7 @@
       "zIndex": 60
     },
     {
-      "name": "bottomBoppers",
+      "name": "santa",
       "assetPath": "christmas/santa",
       "position": [-840, 150],
       "scale": [1, 1],
@@ -99,9 +99,9 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1090, 400]
+      "position": [970, 450]
     },
     "gf": { "zIndex": 100, "position": [400, 130] },
-    "dad": { "zIndex": 200, "position": [-390, 30] }
+    "dad": { "zIndex": 200, "position": [-400, 100] }
   }
 }

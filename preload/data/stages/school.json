@@ -1,13 +1,13 @@
 {
   "version": "1.0",
   "name": "School (Date)",
-  "cameraZoom": 1,
+  "cameraZoom": 1.05,
   "props": [
     {
       "isPixel": true,
       "name": "sky",
       "assetPath": "weeb/weebSky",
-      "position": [-50, -50],
+      "position": [0, 0],
       "scale": [6, 6],
       "scroll": [0.1, 0.1],
       "zIndex": 10
@@ -34,8 +34,8 @@
       "isPixel": true,
       "name": "treesFG",
       "assetPath": "weeb/weebTreesBack",
-      "position": [-180, 30],
-      "scale": [6, 6],
+      "position": [-30, 130],
+      "scale": [4.797, 4.797],
       "scroll": [0.9, 0.9],
       "zIndex": 40
     },
@@ -43,8 +43,8 @@
       "isPixel": true,
       "name": "treesBG",
       "assetPath": "weeb/weebTrees",
-      "position": [-780, -1000],
-      "scale": [6, 6],
+      "position": [-580, -800],
+      "scale": [5.102, 5.102],
       "scroll": [0.85, 0.85],
       "zIndex": 60,
       "animations": [
@@ -63,7 +63,7 @@
       "isPixel": true,
       "name": "petals",
       "assetPath": "weeb/petals",
-      "position": [-250, -90],
+      "position": [-20, -40],
       "scale": [6, 6],
       "scroll": [0.85, 0.85],
       "zIndex": 70,
@@ -128,9 +128,9 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [990, 645]
+      "position": [970, 670]
     },
     "gf": { "zIndex": 100, "position": [580, 430] },
-    "dad": { "zIndex": 200, "position": [225, 450] }
+    "dad": { "zIndex": 200, "position": [250, 460] }
   }
 }

@@ -226,7 +226,7 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [550, 710]
+      "position": [1030, 230]
     },
     "gf": { "zIndex": 100, "position": [400, 130] },
     "dad": { "zIndex": 200, "position": [100, 100] }

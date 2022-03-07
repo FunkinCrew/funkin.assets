@@ -7,18 +7,18 @@
       "isPixel": true,
       "name": "evilSchoolBG",
       "assetPath": "weeb/evilSchoolBG",
-      "position": [-200, -100],
+      "position": [206, -853],
       "scale": [6, 6],
-      "scroll": [0.7, 0.1],
+      "scroll": [0.8, 0.9],
       "zIndex": 10
     },
     {
       "isPixel": true,
       "name": "evilSchoolFG",
       "assetPath": "weeb/evilSchoolFG",
-      "position": [-250, 20],
+      "position": [-206, 853],
       "scale": [6, 6],
-      "scroll": [1, 1],
+      "scroll": [0.8, 0.9],
       "zIndex": 20
     }
   ],
@@ -28,6 +28,6 @@
       "position": [970, 670]
     },
     "gf": { "zIndex": 100, "position": [580, 430] },
-    "dad": { "zIndex": 200, "position": [-125, 250] }
+    "dad": { "zIndex": 200, "position": [-50, 200] }
   }
 }

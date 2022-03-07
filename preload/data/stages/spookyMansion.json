@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "name": "Spooky Mansion",
-  "cameraZoom": 0.9,
+  "cameraZoom": 1.05,
   "props": [
     {
       "name": "halloweenBG",
       "assetPath": "halloween_bg",
-      "position": [-200, 0],
-      "scale": [1.1, 1],
-      "scroll": [0.4, 0.4],
+      "position": [-200, -100],
+      "scale": [1, 1],
+      "scroll": [1, 1],
       "zIndex": -100,
       "animations": [
         {
@@ -34,9 +34,9 @@
   "characters": {
     "bf": {
       "zIndex": 200,
-      "position": [810, 450]
+      "position": [770, 450]
     },
-    "dad": { "zIndex": 200, "position": [160, 320] },
-    "gf": { "zIndex": 100, "position": [410, 100] }
+    "dad": { "zIndex": 200, "position": [100, 300] },
+    "gf": { "zIndex": 100, "position": [400, 130] }
   }
 }
