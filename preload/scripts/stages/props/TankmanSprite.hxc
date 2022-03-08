@@ -1,7 +1,7 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
-import Paths;
-import Conductor;
+import funkin.Conductor;
+import funkin.Paths;
 
 /**
  * A sprite which plays the 'run' animation while moving in the specified direction.

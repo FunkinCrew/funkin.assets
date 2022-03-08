@@ -1,12 +1,12 @@
-import Note.NoteData;
-import Conductor;
-import Section.SwagSection;
-import flixel.group.FlxTypedSpriteGroup;
-import modding.base.ScriptedFlxSprite;
-import flixel.FlxSprite;
 import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
-import PlayState;
+import funkin.Conductor;
+import funkin.modding.base.ScriptedFlxSprite;
+import funkin.Note.NoteData;
+import funkin.play.PlayState;
+import funkin.Section.SwagSection;
 import Lambda;
 
 class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
@@ -26,8 +26,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 	{
 		group.clear();
 
-		// Create one tankman right away.
-		createTankman(20, 200, 10, true);
 		// Create the other tankmen.
 		initTimemap();
 	}

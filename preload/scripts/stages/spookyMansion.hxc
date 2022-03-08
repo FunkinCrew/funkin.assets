@@ -1,7 +1,7 @@
 import flixel.FlxG;
-import Paths;
-import PlayState;
-import play.stage.Stage;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
 
 class SpookyMansionStage extends Stage
 {

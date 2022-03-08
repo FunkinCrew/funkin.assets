@@ -1,10 +1,10 @@
-import Paths;
-import PlayState;
 import flixel.FlxG;
-import flixel.util.FlxTimer;
 import flixel.FlxSprite;
-import shaderslmfao.OverlayBlend;
-import play.stage.Stage;
+import flixel.util.FlxTimer;
+import funkin.Paths;
+import funkin.play.stage.Stage;
+import funkin.PlayState;
+import funkin.shaderslmfao.OverlayBlend;
 
 class LimoRideStage extends Stage
 {
@@ -23,7 +23,8 @@ class LimoRideStage extends Stage
 		sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
 		sunOverlay.updateHitbox();
 		skyOverlay.funnyShit.input = sunOverlay.pixels;
-		getNamedProp('limaoSunset').shader = skyOverlay;
+		trace(getNamedProp('limoSunset'));
+		getNamedProp('limoSunset').shader = skyOverlay;
 
 		// There's some commented-out shader BS in the original code.
 		// I don't know what it's for, but it's not used in the game.

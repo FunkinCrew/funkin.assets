@@ -1,9 +1,9 @@
-import flixel.math.FlxAngle;
-import Paths;
-import PlayState;
 import flixel.FlxG;
-import modding.base.ScriptedFlxSpriteGroup;
-import play.stage.Stage;
+import flixel.math.FlxAngle;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
 
 class TankmanBattlefieldStage extends Stage
 {

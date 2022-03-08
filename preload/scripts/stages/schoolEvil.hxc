@@ -1,5 +1,5 @@
-import PlayState;
-import play.stage.Stage;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
 import shaderslmfao.WiggleEffect;
 
 class SchoolEvilStage extends Stage
