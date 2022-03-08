@@ -7,18 +7,18 @@
       "isPixel": true,
       "name": "evilSchoolBG",
       "assetPath": "weeb/evilSchoolBG",
-      "position": [206, -853],
+      "position": [-200, 0],
       "scale": [6, 6],
-      "scroll": [0.8, 0.9],
+      "scroll": [0.6, 0.9],
       "zIndex": 10
     },
     {
       "isPixel": true,
       "name": "evilSchoolFG",
       "assetPath": "weeb/evilSchoolFG",
-      "position": [-206, 853],
+      "position": [-200, 0],
       "scale": [6, 6],
-      "scroll": [0.8, 0.9],
+      "scroll": [0.95, 0.95],
       "zIndex": 20
     }
   ],
