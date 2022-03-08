@@ -1,7 +1,6 @@
 import PlayState;
 import play.stage.Stage;
 import shaderslmfao.WiggleEffect;
-import shaderslmfao.WiggleEffectType;
 
 class SchoolEvilStage extends Stage
 {
@@ -16,7 +15,7 @@ class SchoolEvilStage extends Stage
 	{
 		super.buildStage();
 
-		wiggle = new WiggleEffect(2, 4, 0.017, WiggleEffectType.DREAMY);
+		wiggle = new WiggleEffect(2, 4, 0.017);
 
 		getNamedProp('evilSchoolBG').shader = wiggle.shader;
 		getNamedProp('evilSchoolFG').shader = wiggle.shader;
