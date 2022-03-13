@@ -25,7 +25,7 @@ class TankmanBattlefieldStage extends Stage
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
 
-		if (PlayState.SONG.song.toLowerCase() == "stress")
+		if (PlayState.currentSong.song.toLowerCase() == "stress")
 		{
 			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
 			add(tankmanGroup);
@@ -35,10 +35,10 @@ class TankmanBattlefieldStage extends Stage
 		tankSpeed = FlxG.random.float(5, 7);
 	}
 
-	override function onUpdate(elapsed:Float):Void
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
-		super.onUpdate(elapsed);
-		moveTank();
+		super.onUpdate(event);
+		moveTank(event.elapsed);
 	}
 
 	var tankMoving:Bool = false;
@@ -51,10 +51,10 @@ class TankmanBattlefieldStage extends Stage
 		super.onBeatHit(event.beat);
 	}
 
-	function moveTank():Void
+	function moveTank(elapsed:Float):Void
 	{
 		var daAngleOffset:Float = 1;
-		tankAngle += FlxG.elapsed * tankSpeed;
+		tankAngle += elapsed * tankSpeed;
 
 		var tankRolling = getNamedProp('tankRolling');
 		tankRolling.angle = tankAngle - 90 + 15;
@@ -62,8 +62,10 @@ class TankmanBattlefieldStage extends Stage
 		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
 	}
 
-	override function onSongReset(event)
+	override function onSongReset(event:ScriptEvent)
 	{
+		super.onSongReset(event);
+
 		// resets the clouds!
 		var clouds = getNamedProp('clouds');
 		clouds.active = true;

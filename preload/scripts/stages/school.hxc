@@ -12,7 +12,7 @@ class SchoolStage extends Stage
 	{
 		super.buildStage();
 
-		if (PlayState.SONG.song.toLowerCase() == "roses")
+		if (PlayState.currentSong.song.toLowerCase() == "roses")
 		{
 			getNamedProp('freaks').idleSuffix = '-scared';
 		} else {

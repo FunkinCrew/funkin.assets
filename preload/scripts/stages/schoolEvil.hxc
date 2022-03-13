@@ -21,13 +21,13 @@ class SchoolEvilStage extends Stage
 		getNamedProp('evilSchoolFG').shader = wiggle.shader;
 	}
 
-	override function onUpdate(elapsed:Float)
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
-		super.onUpdate(elapsed);
+		super.onUpdate(event);
 
 		if (wiggle != null)
 		{
-			wiggle.update(elapsed);
+			wiggle.update(event.elapsed);
 		}
 	}
 
