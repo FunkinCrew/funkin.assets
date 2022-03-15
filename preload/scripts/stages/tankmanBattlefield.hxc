@@ -29,6 +29,9 @@ class TankmanBattlefieldStage extends Stage
 		{
 			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
 			add(tankmanGroup);
+			
+			// resets the tankmen!
+			tankmanGroup.scriptCall('reset');
 		}
 
 		tankAngle = FlxG.random.int(-90, 45);
