@@ -1,0 +1,86 @@
+import flixel.FlxG;
+import flixel.math.FlxAngle;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+
+class TankmanBattlefieldStage extends Stage
+{
+	public function new()
+	{
+		super('tankmanBattlefield');
+	}
+
+	var tankmanGroup:TankmanSpriteGroup;
+
+	override function buildStage()
+	{
+		super.buildStage();
+
+		// Give the clouds a random position, and a velocity to make them move.
+		var clouds = getNamedProp('clouds');
+		clouds.active = true;
+		clouds.x = FlxG.random.int(-700, -100);
+		clouds.y = FlxG.random.int(-20, 20);
+		clouds.velocity.x = FlxG.random.float(5, 15);
+
+		tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+		add(tankmanGroup);
+
+		tankAngle = FlxG.random.int(-90, 45);
+		tankSpeed = FlxG.random.float(5, 7);
+	}
+
+	override function onUpdate(elapsed:Float):Void
+	{
+		super.onUpdate(elapsed);
+		moveTank();
+	}
+
+	var tankMoving:Bool = false;
+	var tankAngle:Float = FlxG.random.int(-90, 45);
+	var tankSpeed:Float = FlxG.random.float(5, 7);
+	var tankX:Float = 400;
+
+	override function onBeatHit(curBeat:Int):Void
+	{
+		super.onBeatHit(curBeat);
+		if (curBeat == 0 && tankmanGroup != null)
+		{
+			tankmanGroup.scriptCall('reset');
+		}
+	}
+
+	function moveTank():Void
+	{
+		var daAngleOffset:Float = 1;
+		tankAngle += FlxG.elapsed * tankSpeed;
+
+		var tankRolling = getNamedProp('tankRolling');
+		tankRolling.angle = tankAngle - 90 + 15;
+		tankRolling.x = tankX + Math.cos(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1500;
+		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
+	}
+
+	override function resetStage()
+	{
+		// resets the clouds!
+		var clouds = getNamedProp('clouds');
+		clouds.active = true;
+		clouds.x = FlxG.random.int(-700, -100);
+		clouds.y = FlxG.random.int(-20, 20);
+		clouds.velocity.x = FlxG.random.float(5, 15);
+	}
+
+	override function kill()
+	{
+		super.kill();
+
+		if (tankmanGroup != null)
+		{
+			tankmanGroup.destroy();
+			tankmanGroup = null;
+		}
+	}
+}

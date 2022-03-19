@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "name": "Main Stage",
+  "cameraZoom": 0.9,
+  "props": [
+    {
+      "name": "stageBack",
+      "assetPath": "stageback",
+      "position": [-600, -200],
+      "scale": [1, 1],
+      "scroll": [0.9, 0.9],
+      "zIndex": 10
+    },
+    {
+      "name": "stageFront",
+      "assetPath": "stagefront",
+      "position": [-650, 600],
+      "scale": [1.1, 1.1],
+      "scroll": [0.9, 0.9],
+      "zIndex": 20
+    },
+    {
+      "name": "stageCurtains",
+      "assetPath": "stagecurtains",
+      "position": [-500, -300],
+      "scale": [0.9, 0.9],
+      "scroll": [1.3, 1.3],
+      "zIndex": 30
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [770, 450]
+    },
+    "gf": { "zIndex": 100, "position": [400, 130] },
+    "dad": { "zIndex": 200, "position": [100, 100] }
+  }
+}

@@ -1,0 +1,98 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.Conductor;
+import funkin.Paths;
+
+/**
+ * A sprite which plays the 'run' animation while moving in the specified direction.
+ * It then plays the 'shot' animation at a specific time in the song, then destroys itself.
+ */
+class TankmanSprite extends FlxSprite
+{
+	// Randomize the horizontal position of the tankman when 'shot' plays.
+	public var endingOffset:Float = 0;
+	// Randomize the speed that the tankman moves to where it will be shot.
+	public var runSpeed:Float = 0;
+	// The time in milliseconds when the 'shot' animation should play.
+	public var strumTime:Float = 0;
+
+	public function new()
+	{
+		super();
+		frames = Paths.getSparrowAtlas('tankmanKilled1');
+		antialiasing = true;
+		animation.addByPrefix('run', 'tankman running', 24, true);
+		animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
+
+		initAnim();
+
+		setGraphicSize(Std.int(width * 0.4));
+
+		updateHitbox();
+	}
+
+	function initAnim()
+	{
+		// Called when the sprite is created as well as when it is revived.
+
+		animation.play('run');
+		animation.curAnim.curFrame = FlxG.random.int(0, animation.curAnim.numFrames - 1);
+
+		offset.y = 0;
+		offset.x = 0;
+	}
+
+	override function revive()
+	{
+		// Sprite has been revived! This allows it to be reused without reinstantiating.
+		super.revive();
+		// trace('Revived tankman!');
+		initAnim();
+	}
+
+	override function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+
+		var goingRight:Bool = this.flipX;
+
+		// Kill the sprite when the animation is done.
+		// This tells the sprite group we can recycle it.
+		if (animation.curAnim.name == 'shot' && animation.curAnim.curFrame >= animation.curAnim.frames.length - 1)
+		{
+			kill();
+		}
+
+		// Check if we've reached the time when the tankman should be shot.
+		if (Conductor.songPosition >= strumTime && animation.curAnim.name == 'run')
+		{
+			animation.play('shot');
+
+			offset.y = 200;
+			offset.x = 300;
+		}
+
+		// Move the sprite while it is running.
+		if (animation.curAnim.name == 'run')
+		{
+			// Here, the position is set to the target position where it will be shot.
+			// Then, we move the sprite away from that position in the direction it's coming from.
+			// songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
+
+			if (goingRight)
+			{
+				x = (FlxG.width * 0.02) - endingOffset + (Conductor.songPosition - strumTime) * runSpeed;
+			}
+			else
+			{
+				x = (FlxG.width * 0.74) + endingOffset - (Conductor.songPosition - strumTime) * runSpeed;
+			}
+		}
+
+		// Hide this sprite if it is out of view.
+		// if (x >= FlxG.width * 1.2 || x <= FlxG.width * -0.5)
+		// 	visible = false;
+		// else
+		// 	visible = true;
+	}
+}

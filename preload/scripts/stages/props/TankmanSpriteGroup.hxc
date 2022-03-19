@@ -1,0 +1,136 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
+import flixel.util.FlxSort;
+import funkin.Conductor;
+import funkin.modding.base.ScriptedFlxSprite;
+import funkin.Note.NoteData;
+import funkin.play.PlayState;
+import funkin.Section.SwagSection;
+import Lambda;
+
+class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
+{
+	var tankmanTimes:Array<Float> = [];
+	var tankmanDirs:Array<Bool> = [];
+
+	var MAX_SIZE = 4;
+
+	public function new()
+	{
+		super(0, 0, 4);
+		this.zIndex = 30;
+	}
+
+	public function reset()
+	{
+		group.clear();
+
+		// Create the other tankmen.
+		initTimemap();
+	}
+
+	public function initTimemap()
+	{
+		trace('Initializing Tankman timings...');
+		tankmanTimes = [];
+		// The tankmen's timings and directions are determined
+		// by the chart, specifically the internal "picospeaker" difficulty.
+		var animChart:Array<SwagSection> = PlayState.SONG.noteMap.get('picospeaker');
+		if (animChart == null)
+		{
+			trace('Skip initializing tankman timings: no picospeaker chart.');
+			return;
+		}
+		var animNotesSections:Array<Array<NoteData>> = animChart.map(section -> section.sectionNotes);
+		var animNotes:Array<NoteData> = Lambda.flatten(animNotesSections);
+
+		// You HAVE to use an anonymous function here.
+		// There is a bug where using a class function destroys the local context.
+		animNotes.sort(function(a:NoteData, b:NoteData)
+		{
+			return FlxSort.byValues(FlxSort.ASCENDING, x.strumTime, y.strumTime);
+		});
+
+		for (note in animNotes)
+		{
+			// Only one out of every 16 notes, on average, is a tankman.
+			if (FlxG.random.bool(16))
+			{
+				trace('  Adding Tankman: ' + note.strumTime);
+				tankmanTimes.push(note.strumTime);
+				var noteData:Int = note.noteData; // Forgot cast() isn't necessary in HScript.
+				var goingRight:Bool = noteData < 2;
+				tankmanDirs.push(goingRight);
+			}
+		}
+	}
+
+	/**
+	 * Creates a Tankman sprite and adds it to the group. 
+	 */
+	public function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool)
+	{
+		// recycle() is neat; it looks for a sprite which has completed its animation and resets it,
+		// rather than calling the constructor again. It only calls the constructor if it can't find one.
+
+		var tankman:ScriptedFlxSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
+
+		// We can directly set values which are defined by the script's superclass.
+		tankman.x = initX;
+		tankman.y = initY;
+		tankman.flipX = goingRight;
+		// We need to use scriptSet for values which were defined in a script.
+		tankman.scriptSet('strumTime', strumTime);
+		tankman.scriptSet('endingOffset', FlxG.random.float(50, 200));
+		tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
+
+		this.add(tankman);
+	}
+
+	function _initTankmanObj():ScriptedFlxSprite
+	{
+		var result:ScriptedFlxSprite = ScriptedFlxSprite.init('TankmanSprite');
+		return result;
+	}
+
+	var timer:Float = 0;
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		// DEBUG: Print the size of the group every second.
+		timer += elapsed;
+		if (timer >= 1)
+		{
+			timer = 0;
+			trace('TankmanSpriteGroup: Items in group: ' + group.length);
+		}
+
+		while (true)
+		{
+			// Create tankmen 10 seconds in advance.
+			var cutoff:Float = Conductor.songPosition + (1000 * 3);
+			if (tankmanTimes.length > 0 && tankmanTimes[0] <= cutoff)
+			{
+				var nextTime:Float = tankmanTimes.shift();
+				var goingRight:Bool = tankmanDirs.shift();
+				var xPos = 500;
+				var yPos:Float = 200; // + FlxG.random.int(50, 100);
+				createTankman(xPos, yPos, nextTime, goingRight);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	public override function kill()
+	{
+		super.kill();
+		trace('TankmanSpriteGroup.kill()');
+		tankmanTimes = [];
+	}
+}
