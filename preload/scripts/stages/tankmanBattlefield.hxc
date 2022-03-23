@@ -65,9 +65,9 @@ class TankmanBattlefieldStage extends Stage
 		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
 	}
 
-	override function onSongReset(event:ScriptEvent)
+	override function onSongRetry(event:ScriptEvent)
 	{
-		super.onSongReset(event);
+		super.onSongRetry(event);
 
 		// resets the clouds!
 		var clouds = getNamedProp('clouds');

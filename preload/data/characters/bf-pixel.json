@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend (Pixel)",
+  "assetPath": "characters/bfPixel",
+  "renderType": "multisparrow",
+  "singTime": 2.0,
+  "isPixel": true,
+  "scale": 6,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "BF IDLE",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "BF UP NOTE",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "BF LEFT NOTE",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "BF RIGHT NOTE",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "BF DOWN NOTE",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "BF UP MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "BF LEFT MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "BF RIGHT MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "BF DOWN MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": "BF Dies pixel",
+      "assetPath": "characters/bfPixelsDEAD",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "Retry Loop",
+      "assetPath": "characters/bfPixelsDEAD",
+      "looped": true,
+      "offsets": [-30, -12]
+    },
+    {
+      "name": "deathConfirm",
+      "prefix": "RETRY CONFIRM",
+      "assetPath": "characters/bfPixelsDEAD",
+      "offsets": [-30, -12]
+    }
+  ]
+}

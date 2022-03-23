@@ -357,20 +357,23 @@
 						[
 							19500,
 							3,
-							150
+							150,
+							"alt"
 						],
 						[
 							19800,
 							1,
-							450
+							450,
+							"alt"
 						],
 						[
 							20400,
 							2,
-							1050
+							1050,
+							"alt"
 						]
 					],
-					"altAnim": true,
+					"altAnim": false,
 					"lengthInSteps": 16,
 					"mustHitSection": false
 				},
@@ -379,30 +382,35 @@
 						[
 							22500,
 							1,
-							0
+							0,
+							"alt"
 						],
 						[
 							22800,
 							0,
-							150
+							150,
+							"alt"
 						],
 						[
 							23100,
 							1,
-							0
+							0,
+							"alt"
 						],
 						[
 							23400,
 							3,
-							0
+							0,
+							"alt"
 						],
 						[
 							23700,
 							1,
-							0
+							0,
+							"alt"
 						]
 					],
-					"altAnim": true,
+					"altAnim": false,
 					"lengthInSteps": 16,
 					"mustHitSection": false
 				},
@@ -411,45 +419,53 @@
 						[
 							24000,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							24300,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							24600,
 							2,
-							0
+							0,
+							"alt"
 						],
 						[
 							24900,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							25200,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							25500,
 							2,
-							0
+							0,
+							"alt"
 						],
 						[
 							25800,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							26100,
 							0,
-							0
+							0,
+							"alt"
 						]
 					],
-					"altAnim": true,
+					"altAnim": false,
 					"lengthInSteps": 16,
 					"mustHitSection": false
 				},
@@ -458,45 +474,53 @@
 						[
 							26400,
 							2,
-							0
+							0,
+							"alt"
 						],
 						[
 							26700,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							27000,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							27300,
 							2,
-							0
+							0,
+							"alt"
 						],
 						[
 							27600,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							27900,
 							0,
-							0
+							0,
+							"alt"
 						],
 						[
 							28200,
 							2,
-							0
+							0,
+							"alt"
 						],
 						[
 							28500,
 							1,
-							0
+							0,
+							"alt"
 						]
 					],
-					"altAnim": true,
+					"altAnim": false,
 					"lengthInSteps": 16,
 					"mustHitSection": false
 				},
@@ -505,25 +529,29 @@
 						[
 							28800,
 							6,
-							600
+							600,
+							"alt"
 						],
 						[
 							29100,
 							3,
-							150
+							150,
+							"alt"
 						],
 						[
 							29400,
 							1,
-							450
+							450,
+							"alt"
 						],
 						[
 							30000,
 							2,
-							1050
+							1050,
+							"alt"
 						]
 					],
-					"altAnim": true,
+					"altAnim": false,
 					"lengthInSteps": 16,
 					"mustHitSection": true
 				},

@@ -110,7 +110,7 @@ class PhillyTrainStage extends Stage
 		if (trainSound.time >= 4700)
 		{
 			startedMoving = true;
-			getGirlfriend().playAnim('hairBlow');
+			getGirlfriend().playAnimation('hairBlow');
 		}
 
 		if (startedMoving)
@@ -134,7 +134,7 @@ class PhillyTrainStage extends Stage
 
 	function trainReset():Void
 	{
-		getGirlfriend().playAnim('hairFall');
+		getGirlfriend().playAnimation('hairFall');
 		getNamedProp('train').x = FlxG.width + 200;
 
 		trainMoving = false;
