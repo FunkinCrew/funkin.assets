@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "name": "Senpai",
-  "assetPath": "characters/senpai",
+  "name": "Spirit",
+  "assetPath": "characters/spirit",
   "singTime": 2.0,
   "renderType": "packer",
   "isPixel": true,
