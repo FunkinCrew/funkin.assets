@@ -23,5 +23,4 @@
 	<SubTexture name="NOTE COMBO animation instance 10018" x="1370" y="324" width="485" height="338" frameX="-298" frameY="-33" frameWidth="1061" frameHeight="385"/>
 	<SubTexture name="NOTE COMBO animation instance 10019" x="1370" y="324" width="485" height="338" frameX="-298" frameY="-33" frameWidth="1061" frameHeight="385"/>
 	<SubTexture name="NOTE COMBO animation instance 10020" x="954" y="666" width="497" height="226" frameX="-564" frameY="0" frameWidth="1061" frameHeight="385"/>
-	<SubTexture name="NOTE COMBO animation instance 10021" x="0" y="0" width="0" height="0" frameX="659" frameY="507" frameWidth="1061" frameHeight="385"/>
 </TextureAtlas>
