@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfHoldingGF-DEAD.png">
-	<!-- Created with Adobe Animate version 21.0.4.39603 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="BF Dead with GF Loop0000" x="611" y="500" width="591" height="467"/>
 	<SubTexture name="BF Dead with GF Loop0001" x="0" y="503" width="591" height="467"/>
 	<SubTexture name="BF Dead with GF Loop0002" x="0" y="503" width="591" height="467"/>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="NOTE_assets.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="arrow static instance 10000" x="488" y="238" width="155" height="158"/>
 	<SubTexture name="arrow static instance 20000" x="647" y="238" width="157" height="155"/>
 	<SubTexture name="arrow static instance 30000" x="808" y="238" width="155" height="157"/>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="freeplayCapsule.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="mp3 capsule w backing0000" x="0" y="544" width="585" height="131" frameX="-14" frameY="-1" frameWidth="612" frameHeight="132"/>
 	<SubTexture name="mp3 capsule w backing0001" x="585" y="0" width="585" height="131" frameX="-14" frameY="-1" frameWidth="612" frameHeight="132"/>
 	<SubTexture name="mp3 capsule w backing0002" x="0" y="0" width="581" height="132" frameX="-18" frameY="0" frameWidth="612" frameHeight="132"/>

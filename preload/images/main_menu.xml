@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="FNF_main_menu_assets.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="kickstarter selected0000" x="0" y="0" width="838" height="216" frameX="-3" frameY="0" frameWidth="841" frameHeight="216"/>
 	<SubTexture name="kickstarter selected0001" x="0" y="220" width="836" height="216" frameX="0" frameY="0" frameWidth="841" frameHeight="216"/>
 	<SubTexture name="kickstarter selected0002" x="0" y="440" width="833" height="207" frameX="-2" frameY="-6" frameWidth="841" frameHeight="216"/>

@@ -60,9 +60,9 @@ class SpookyMansionStage extends Stage
 		}
 	}
 
-	override function onSongReset(event:ScriptEvent)
+	override function onSongRetry(event:ScriptEvent)
 	{
-		super.onSongReset(event);
+		super.onSongRetry(event);
 
 		// Properly reset lightning when restarting the song.
 		lightningStrikeBeat = 0;

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="speech_bubble_talking.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="AHH speech bubble0000" x="0" y="0" width="1231" height="408" frameX="-9" frameY="-5" frameWidth="1241" frameHeight="421"/>
 	<SubTexture name="AHH speech bubble0001" x="1241" y="0" width="1228" height="421" frameX="-9" frameY="0" frameWidth="1241" frameHeight="421"/>
 	<SubTexture name="AHH speech bubble0002" x="2479" y="0" width="1241" height="393" frameX="0" frameY="-15" frameWidth="1241" frameHeight="421"/>

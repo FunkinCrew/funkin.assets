@@ -36,7 +36,7 @@ class LimoRideStage extends Stage
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
-		super.onBeatHit(event.beat);
+		super.onBeatHit(event);
 
 		if (FlxG.random.bool(10) && fastCarCanDrive)
 			fastCarDrive();
@@ -47,6 +47,12 @@ class LimoRideStage extends Stage
 	function resetFastCar():Void
 	{
 		var fastCar = getNamedProp('fastCar');
+		
+		// Props are inactive by default.
+		// Set active to true so position is calculated based on velocity.
+		fastCar.active = true;
+
+		fastCar.x = -12600;
 		fastCar.y = FlxG.random.int(140, 250);
 		fastCar.velocity.x = 0;
 		fastCarCanDrive = true;
@@ -56,7 +62,9 @@ class LimoRideStage extends Stage
 	{
 		FlxG.sound.play(Paths.soundRandom('carPass', 0, 1), 0.7);
 
-		getNamedProp('fastCar').velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
+		var fastCar = getNamedProp('fastCar');
+		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
+		trace(fastCar.velocity.x);
 		fastCarCanDrive = false;
 		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{

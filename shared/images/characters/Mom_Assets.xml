@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Mom_Assets.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="MOM DOWN POSE0000" x="0" y="0" width="410" height="613" frameX="-4" frameY="0" frameWidth="414" frameHeight="613"/>
 	<SubTexture name="MOM DOWN POSE0001" x="0" y="0" width="410" height="613" frameX="-4" frameY="0" frameWidth="414" frameHeight="613"/>
 	<SubTexture name="MOM DOWN POSE0002" x="420" y="0" width="403" height="597" frameX="0" frameY="-16" frameWidth="414" frameHeight="613"/>

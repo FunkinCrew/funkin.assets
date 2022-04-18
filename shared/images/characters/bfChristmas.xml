@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfChristmas.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="BF HEY!!0000" x="0" y="0" width="395" height="419" frameX="0" frameY="0" frameWidth="415" frameHeight="421"/>
 	<SubTexture name="BF HEY!!0001" x="0" y="0" width="395" height="419" frameX="0" frameY="0" frameWidth="415" frameHeight="421"/>
 	<SubTexture name="BF HEY!!0002" x="405" y="0" width="413" height="413" frameX="-1" frameY="-8" frameWidth="415" frameHeight="421"/>

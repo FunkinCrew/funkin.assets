@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="petals.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="PETALS ALL0000" x="0" y="0" width="311" height="161"/>
 	<SubTexture name="PETALS ALL0001" x="0" y="0" width="311" height="161"/>
 	<SubTexture name="PETALS ALL0002" x="313" y="0" width="311" height="161"/>

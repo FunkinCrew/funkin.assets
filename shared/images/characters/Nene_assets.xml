@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Nene_assets.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="nenebeforeyougetawoopin0000" x="816" y="3366" width="812" height="663" frameX="-2" frameY="-7" frameWidth="814" frameHeight="670"/>
 	<SubTexture name="nenebeforeyougetawoopin0001" x="3264" y="673" width="814" height="663" frameX="0" frameY="-7" frameWidth="814" frameHeight="670"/>
 	<SubTexture name="nenebeforeyougetawoopin0002" x="3264" y="1340" width="814" height="663" frameX="0" frameY="-7" frameWidth="814" frameHeight="670"/>

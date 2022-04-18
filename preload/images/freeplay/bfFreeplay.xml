@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfFreeplay.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="Boyfriend DJ0000" x="796" y="1788" width="394" height="439" frameX="0" frameY="-19" frameWidth="394" frameHeight="458"/>
 	<SubTexture name="Boyfriend DJ0001" x="796" y="1788" width="394" height="439" frameX="0" frameY="-19" frameWidth="394" frameHeight="458"/>
 	<SubTexture name="Boyfriend DJ0002" x="874" y="3107" width="394" height="432" frameX="0" frameY="-26" frameWidth="394" frameHeight="458"/>

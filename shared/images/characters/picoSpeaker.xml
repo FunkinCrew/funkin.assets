@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="picoSpeaker.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="Pico shoot 10000" x="6865" y="667" width="899" height="711" frameX="-2" frameY="-80" frameWidth="1178" frameHeight="791"/>
 	<SubTexture name="Pico shoot 10001" x="2326" y="667" width="901" height="711" frameX="0" frameY="-80" frameWidth="1178" frameHeight="791"/>
 	<SubTexture name="Pico shoot 10002" x="3604" y="0" width="1066" height="791" frameX="-2" frameY="0" frameWidth="1178" frameHeight="791"/>

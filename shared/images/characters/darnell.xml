@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="darnell.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="Darnell Idle0000" x="2004" y="1392" width="373" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
 	<SubTexture name="Darnell Idle0001" x="2335" y="1867" width="373" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
 	<SubTexture name="Darnell Idle0002" x="1580" y="3512" width="394" height="471" frameX="0" frameY="-16" frameWidth="394" frameHeight="487"/>
