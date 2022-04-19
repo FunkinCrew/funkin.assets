@@ -86,6 +86,7 @@ class TankmanBattlefieldStage extends Stage
 
 		if (tankmanGroup != null)
 		{
+			remove(tankmanGroup);
 			tankmanGroup.destroy();
 			tankmanGroup = null;
 		}
