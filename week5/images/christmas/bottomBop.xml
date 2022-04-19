@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bottomBop.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="Bottom Level Boppers0000" x="0" y="0" width="1975" height="661" frameX="-3" frameY="-13" frameWidth="1978" frameHeight="674"/>
 	<SubTexture name="Bottom Level Boppers0001" x="0" y="0" width="1975" height="661" frameX="-3" frameY="-13" frameWidth="1978" frameHeight="674"/>
 	<SubTexture name="Bottom Level Boppers0002" x="1985" y="0" width="1972" height="664" frameX="-4" frameY="-10" frameWidth="1978" frameHeight="674"/>

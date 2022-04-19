@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="gfTankmen.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="GF Crying at Gunpoint 0000" x="1824" y="1926" width="911" height="625" frameX="0" frameY="-5" frameWidth="911" frameHeight="630"/>
 	<SubTexture name="GF Crying at Gunpoint 0001" x="1824" y="1926" width="911" height="625" frameX="0" frameY="-5" frameWidth="911" frameHeight="630"/>
 	<SubTexture name="GF Crying at Gunpoint 0002" x="0" y="1925" width="911" height="629" frameX="0" frameY="-1" frameWidth="911" frameHeight="630"/>

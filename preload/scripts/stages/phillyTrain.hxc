@@ -48,17 +48,17 @@ class PhillyTrainStage extends Stage
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
 
-	override function onUpdate(elapsed:Float):Void
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
-		super.onUpdate(elapsed);
+		super.onUpdate(event);
 		// Update beat lights
-		var shaderInput:Float = (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
+		var shaderInput:Float = (Conductor.crochet / 1000) * event.elapsed * 1.5;
 		lightShader.update(shaderInput);
 
 		// Update train
 		if (trainMoving)
 		{
-			trainFrameTiming += elapsed;
+			trainFrameTiming += event.elapsed;
 
 			if (trainFrameTiming >= 1 / 24)
 			{
@@ -68,22 +68,22 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
-	override function onBeatHit(curBeat:Int):Void
+	override function onBeatHit(event:SongTimeScriptEvent):Void
 	{
-		super.onBeatHit(curBeat);
+		super.onBeatHit(event);
 		// Update train cooldown
 		if (!trainMoving)
 			trainCooldown += 1;
 
 		// Start train
-		if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
 		{
 			trainCooldown = FlxG.random.int(-4, 0);
 			trainStart();
 		}
 
 		// Update lights
-		if (curBeat % 4 == 0)
+		if (event.beat % 4 == 0)
 		{
 			// Reset opacity
 			lightShader.reset();

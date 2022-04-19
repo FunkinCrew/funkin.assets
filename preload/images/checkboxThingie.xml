@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="checkboxThingie.png">
-	<!-- Created with Adobe Animate version 21.0.4.39603 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Check Box Selected Static0000" x="0" y="198" width="120" height="174" frameX="0" frameY="0" frameWidth="140" frameHeight="225"/>
 	<SubTexture name="Check Box Selected Static0001" x="0" y="198" width="120" height="174" frameX="0" frameY="0" frameWidth="140" frameHeight="225"/>
 	<SubTexture name="Check Box selecting animation0000" x="371" y="0" width="121" height="82" frameX="-15" frameY="-133" frameWidth="140" frameHeight="225"/>

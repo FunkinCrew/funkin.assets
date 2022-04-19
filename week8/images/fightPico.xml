@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="fightPico.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="block pico0000" x="504" y="795" width="191" height="265" frameX="-7" frameY="0" frameWidth="198" frameHeight="265"/>
 	<SubTexture name="block pico0001" x="504" y="795" width="191" height="265" frameX="-7" frameY="0" frameWidth="198" frameHeight="265"/>
 	<SubTexture name="block pico0002" x="699" y="795" width="195" height="259" frameX="0" frameY="-6" frameWidth="198" frameHeight="265"/>

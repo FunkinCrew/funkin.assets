@@ -23,7 +23,6 @@ class LimoRideStage extends Stage
 		sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
 		sunOverlay.updateHitbox();
 		skyOverlay.funnyShit.input = sunOverlay.pixels;
-		trace(getNamedProp('limoSunset'));
 		getNamedProp('limoSunset').shader = skyOverlay;
 
 		// There's some commented-out shader BS in the original code.
@@ -33,11 +32,11 @@ class LimoRideStage extends Stage
 		resetFastCar();
 	}
 
-	override function onBeatHit(curBeat:Int)
+	override function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
-		super.onBeatHit(curBeat);
+		super.onBeatHit(event);
 
 		if (FlxG.random.bool(10) && fastCarCanDrive)
 			fastCarDrive();
@@ -48,6 +47,12 @@ class LimoRideStage extends Stage
 	function resetFastCar():Void
 	{
 		var fastCar = getNamedProp('fastCar');
+		
+		// Props are inactive by default.
+		// Set active to true so position is calculated based on velocity.
+		fastCar.active = true;
+
+		fastCar.x = -12600;
 		fastCar.y = FlxG.random.int(140, 250);
 		fastCar.velocity.x = 0;
 		fastCarCanDrive = true;
@@ -57,7 +62,9 @@ class LimoRideStage extends Stage
 	{
 		FlxG.sound.play(Paths.soundRandom('carPass', 0, 1), 0.7);
 
-		getNamedProp('fastCar').velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
+		var fastCar = getNamedProp('fastCar');
+		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
+		trace(fastCar.velocity.x);
 		fastCarCanDrive = false;
 		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{
@@ -65,6 +72,10 @@ class LimoRideStage extends Stage
 		});
 	}
 
+	/**
+	 * If your stage uses additional assets not specified in the JSON,
+	 * make sure to specify them like this, or they won't get cached in the loading screen.
+	 */
 	override function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();

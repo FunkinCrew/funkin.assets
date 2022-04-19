@@ -13,7 +13,7 @@ class SpookyMansionStage extends Stage
 	var lightningStrikeBeat:Int = 0;
 	var lightningStrikeOffset:Int = 8;
 
-	function doLightningStrike(playSound:Bool):Void
+	function doLightningStrike(playSound:Bool, beat:Int):Void
 	{
 		trace('Lightning strike!');
 
@@ -24,13 +24,17 @@ class SpookyMansionStage extends Stage
 
 		getNamedProp('halloweenBG').animation.play('lightning');
 
-		lightningStrikeBeat = curBeat;
+		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
 
 		getBoyfriend().playAnim('scared', true);
 		getGirlfriend().playAnim('scared', true);
 	}
 
+	/**
+	 * If your stage uses additional assets not specified in the JSON,
+	 * make sure to specify them like this, or they won't get cached in the loading screen.
+	 */
 	override function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
@@ -39,27 +43,29 @@ class SpookyMansionStage extends Stage
 		return results;
 	}
 
-	override function onBeatHit(curBeat:Int):Void
+	override function onBeatHit(event:SongTimeScriptEvent)
 	{
-		super.onBeatHit(curBeat);
-
-		// Properly reset lightning when restarting the song.
-		if (curBeat == 0)
-		{
-			lightningStrikeBeat = 0;
-			lightningStrikeOffset = 8;
-		}
+		super.onBeatHit(event);
 
 		// Play lightning on sync at the start of this specific song.
-		if (curBeat == 4 && PlayState.SONG.song.toLowerCase() == "spookeez")
+		if (event.beat == 4 && PlayState.currentSong.song.toLowerCase() == "spookeez")
 		{
-			doLightningStrike(false);
+			doLightningStrike(false, event.beat);
 		}
 
 		// Play lightning at random intervals.
-		if (FlxG.random.bool(10) && curBeat > (lightningStrikeBeat + lightningStrikeOffset))
+		if (FlxG.random.bool(10) && event.beat > (lightningStrikeBeat + lightningStrikeOffset))
 		{
-			doLightningStrike(true);
+			doLightningStrike(true, event.beat);
 		}
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
+
+		// Properly reset lightning when restarting the song.
+		lightningStrikeBeat = 0;
+		lightningStrikeOffset = 8;
 	}
 }

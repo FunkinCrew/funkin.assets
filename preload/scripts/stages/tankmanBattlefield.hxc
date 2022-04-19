@@ -14,9 +14,9 @@ class TankmanBattlefieldStage extends Stage
 
 	var tankmanGroup:TankmanSpriteGroup;
 
-	override function buildStage()
+	override function onCreate(event:ScriptEvent):Void
 	{
-		super.buildStage();
+		super.buildStage(event);
 
 		// Give the clouds a random position, and a velocity to make them move.
 		var clouds = getNamedProp('clouds');
@@ -25,17 +25,23 @@ class TankmanBattlefieldStage extends Stage
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
 
-		tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
-		add(tankmanGroup);
+		if (PlayState.currentSong.song.toLowerCase() == "stress")
+		{
+			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+			add(tankmanGroup);
+			
+			// resets the tankmen!
+			tankmanGroup.scriptCall('reset');
+		}
 
 		tankAngle = FlxG.random.int(-90, 45);
 		tankSpeed = FlxG.random.float(5, 7);
 	}
 
-	override function onUpdate(elapsed:Float):Void
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
-		super.onUpdate(elapsed);
-		moveTank();
+		super.onUpdate(event);
+		moveTank(event.elapsed);
 	}
 
 	var tankMoving:Bool = false;
@@ -43,19 +49,15 @@ class TankmanBattlefieldStage extends Stage
 	var tankSpeed:Float = FlxG.random.float(5, 7);
 	var tankX:Float = 400;
 
-	override function onBeatHit(curBeat:Int):Void
+	override function onBeatHit(event:SongTimeScriptEvent):Void
 	{
-		super.onBeatHit(curBeat);
-		if (curBeat == 0 && tankmanGroup != null)
-		{
-			tankmanGroup.scriptCall('reset');
-		}
+		super.onBeatHit(event);
 	}
 
-	function moveTank():Void
+	function moveTank(elapsed:Float):Void
 	{
 		var daAngleOffset:Float = 1;
-		tankAngle += FlxG.elapsed * tankSpeed;
+		tankAngle += elapsed * tankSpeed;
 
 		var tankRolling = getNamedProp('tankRolling');
 		tankRolling.angle = tankAngle - 90 + 15;
@@ -63,14 +65,19 @@ class TankmanBattlefieldStage extends Stage
 		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
 	}
 
-	override function resetStage()
+	override function onSongReset(event:ScriptEvent)
 	{
+		super.onSongReset(event);
+
 		// resets the clouds!
 		var clouds = getNamedProp('clouds');
 		clouds.active = true;
 		clouds.x = FlxG.random.int(-700, -100);
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
+
+		// resets the tankmen!
+		tankmanGroup.scriptCall('reset');
 	}
 
 	override function kill()
@@ -79,6 +86,7 @@ class TankmanBattlefieldStage extends Stage
 
 		if (tankmanGroup != null)
 		{
+			remove(tankmanGroup);
 			tankmanGroup.destroy();
 			tankmanGroup = null;
 		}

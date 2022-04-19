@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="smokeLeft.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="SmokeBlurLeft instance 10000" x="1005" y="812" width="446" height="617" frameX="-43" frameY="-204" frameWidth="511" frameHeight="843"/>
 	<SubTexture name="SmokeBlurLeft instance 10001" x="1005" y="812" width="446" height="617" frameX="-43" frameY="-204" frameWidth="511" frameHeight="843"/>
 	<SubTexture name="SmokeBlurLeft instance 10002" x="1005" y="812" width="446" height="617" frameX="-43" frameY="-204" frameWidth="511" frameHeight="843"/>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="animatedEvilSchool.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="background 2 instance 10000" x="0" y="0" width="513" height="512"/>
 	<SubTexture name="background 2 instance 10001" x="523" y="0" width="513" height="512"/>
 	<SubTexture name="background 2 instance 10002" x="1046" y="0" width="513" height="512"/>

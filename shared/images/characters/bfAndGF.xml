@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfAndGF.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="BF NOTE DOWN0000" x="0" y="3300" width="518" height="421" frameX="-1" frameY="-10" frameWidth="520" frameHeight="431"/>
 	<SubTexture name="BF NOTE DOWN0001" x="0" y="3300" width="518" height="421" frameX="-1" frameY="-10" frameWidth="520" frameHeight="431"/>
 	<SubTexture name="BF NOTE DOWN0002" x="1576" y="3302" width="520" height="411" frameX="0" frameY="-15" frameWidth="520" frameHeight="431"/>

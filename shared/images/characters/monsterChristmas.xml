@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="monsterChristmas.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="Monster Right note0000" x="0" y="0" width="375" height="719" frameX="-4" frameY="0" frameWidth="381" frameHeight="719"/>
 	<SubTexture name="Monster Right note0001" x="385" y="0" width="375" height="719" frameX="-4" frameY="0" frameWidth="381" frameHeight="719"/>
 	<SubTexture name="Monster Right note0002" x="770" y="0" width="381" height="713" frameX="0" frameY="-3" frameWidth="381" frameHeight="719"/>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="tank5.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="fg tankhead far right instance 10000" x="633" y="457" width="312" height="437" frameX="0" frameY="-13" frameWidth="315" frameHeight="450"/>
 	<SubTexture name="fg tankhead far right instance 10001" x="633" y="457" width="312" height="437" frameX="0" frameY="-13" frameWidth="315" frameHeight="450"/>
 	<SubTexture name="fg tankhead far right instance 10002" x="0" y="460" width="307" height="440" frameX="-5" frameY="-10" frameWidth="315" frameHeight="450"/>

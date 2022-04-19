@@ -36,7 +36,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		tankmanTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:Array<SwagSection> = PlayState.SONG.noteMap.get('picospeaker');
+		var animChart:Array<SwagSection> = PlayState.currentSong.noteMap.get('picospeaker');
 		if (animChart == null)
 		{
 			trace('Skip initializing tankman timings: no picospeaker chart.');

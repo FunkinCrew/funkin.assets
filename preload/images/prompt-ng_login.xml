@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="prompt-ng_login.png">
-	<!-- Created with Adobe Animate version 19.2.1.408 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="back0000" x="2" y="2" width="1157" height="645"/>
 	<SubTexture name="no idle0000" x="1161" y="2" width="210" height="197"/>
 	<SubTexture name="no selected0000" x="1373" y="2" width="210" height="197" frameX="-1" frameY="-14" frameWidth="212" frameHeight="215"/>

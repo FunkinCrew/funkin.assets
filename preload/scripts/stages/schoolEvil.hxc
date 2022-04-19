@@ -26,8 +26,7 @@ class SchoolEvilStage extends Stage
 
 	override function addCharacter(char:Character, charType:CharacterType)
 	{
-
-		// i put it in the script, cuz really it shouldnt be exactly tied to PlayState!!
+		// TODO: Once scripted characters are implemented, move this to the Spirit script.
 		if (charType == charType.DAD)
 		{
 			var evilTrail = new FlxTrail(char, null, 4, 24, 0.3, 0.069);
@@ -42,11 +41,11 @@ class SchoolEvilStage extends Stage
 
 	override function onUpdate(elapsed:Float)
 	{
-		super.onUpdate(elapsed);
+		super.onUpdate(event);
 
 		if (wiggle != null)
 		{
-			wiggle.update(elapsed);
+			wiggle.update(event.elapsed);
 		}
 	}
 
