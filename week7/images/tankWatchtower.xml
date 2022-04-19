@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="tankWatchtower.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="watchtower gradient color instance 10000" x="0" y="0" width="369" height="679" frameX="0" frameY="-3" frameWidth="369" frameHeight="682"/>
 	<SubTexture name="watchtower gradient color instance 10001" x="0" y="0" width="369" height="679" frameX="0" frameY="-3" frameWidth="369" frameHeight="682"/>
 	<SubTexture name="watchtower gradient color instance 10002" x="373" y="0" width="367" height="680" frameX="-1" frameY="-2" frameWidth="369" frameHeight="682"/>

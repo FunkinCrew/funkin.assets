@@ -51,7 +51,7 @@ class TankmanBattlefieldStage extends Stage
 
 	override function onBeatHit(event:SongTimeScriptEvent):Void
 	{
-		super.onBeatHit(event.beat);
+		super.onBeatHit(event);
 	}
 
 	function moveTank(elapsed:Float):Void
@@ -86,6 +86,7 @@ class TankmanBattlefieldStage extends Stage
 
 		if (tankmanGroup != null)
 		{
+			remove(tankmanGroup);
 			tankmanGroup.destroy();
 			tankmanGroup = null;
 		}

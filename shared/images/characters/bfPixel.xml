@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfPixel.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="BF DOWN MISS instance 10000" x="166" y="0" width="73" height="73"/>
 	<SubTexture name="BF DOWN MISS instance 10001" x="0" y="0" width="73" height="73"/>
 	<SubTexture name="BF DOWN MISS instance 10002" x="0" y="0" width="73" height="73"/>

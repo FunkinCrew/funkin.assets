@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="tankmanCaptain.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="PRETTY GOOD tankman instance 10000" x="487" y="1180" width="432" height="563" frameX="-99" frameY="-26" frameWidth="533" frameHeight="589"/>
 	<SubTexture name="PRETTY GOOD tankman instance 10001" x="0" y="1186" width="432" height="563" frameX="-99" frameY="-26" frameWidth="533" frameHeight="589"/>
 	<SubTexture name="PRETTY GOOD tankman instance 10002" x="1473" y="1587" width="403" height="589" frameX="-130" frameY="0" frameWidth="533" frameHeight="589"/>

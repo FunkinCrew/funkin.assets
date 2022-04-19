@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="noteCombo.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="NOTE COMBO animation instance 10000" x="0" y="0" width="859" height="277" frameX="0" frameY="-74" frameWidth="1061" frameHeight="385"/>
 	<SubTexture name="NOTE COMBO animation instance 10001" x="1370" y="0" width="560" height="320" frameX="-174" frameY="-58" frameWidth="1061" frameHeight="385"/>
 	<SubTexture name="NOTE COMBO animation instance 10002" x="495" y="370" width="455" height="318" frameX="-313" frameY="-38" frameWidth="1061" frameHeight="385"/>

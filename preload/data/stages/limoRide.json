@@ -23,9 +23,7 @@
           "name": "drive",
           "prefix": "background limo pink",
           "frameRate": 24,
-          "loop": true,
-          "flipX": false,
-          "flipY": false
+          "loop": true
         }
       ],
       "startingAnimation": "drive"
@@ -42,9 +40,7 @@
           "name": "drive",
           "prefix": "Limo stage",
           "frameRate": 24,
-          "loop": true,
-          "flipX": false,
-          "flipY": false
+          "loop": true
         }
       ],
       "startingAnimation": "drive"
@@ -52,16 +48,16 @@
     {
       "name": "fastCar",
       "assetPath": "limo/fastCarLol",
-      "position": [-12600, 160],
+      "position": [-300, 160],
       "scale": [1, 1],
       "scroll": [1, 1],
-      "zIndex": 90
+      "zIndex": 500
     },
 
     {
       "name": "limoDancer1",
       "assetPath": "limo/limoDancer",
-      "position": [500, 80],
+      "position": [100, 100],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 30,
@@ -71,22 +67,14 @@
         {
           "name": "danceLeft",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "looped": false
         },
         {
           "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
-          "frameIndices": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-          ],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "looped": false
         }
       ]
     },
@@ -94,7 +82,7 @@
     {
       "name": "limoDancer2",
       "assetPath": "limo/limoDancer",
-      "position": [870, 80],
+      "position": [400, 100],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 30,
@@ -104,22 +92,14 @@
         {
           "name": "danceLeft",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "looped": false
         },
         {
           "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
-          "frameIndices": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-          ],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "looped": false
         }
       ]
     },
@@ -127,7 +107,7 @@
     {
       "name": "limoDancer3",
       "assetPath": "limo/limoDancer",
-      "position": [1240, 80],
+      "position": [700, 100],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 30,
@@ -137,22 +117,14 @@
         {
           "name": "danceLeft",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "looped": false
         },
         {
           "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
-          "frameIndices": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-          ],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "looped": false
         }
       ]
     },
@@ -160,7 +132,7 @@
     {
       "name": "limoDancer4",
       "assetPath": "limo/limoDancer",
-      "position": [1610, 80],
+      "position": [1000, 100],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 30,
@@ -170,22 +142,14 @@
         {
           "name": "danceLeft",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "looped": false
         },
         {
           "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
-          "frameIndices": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-          ],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "looped": false
         }
       ]
     },
@@ -193,7 +157,7 @@
     {
       "name": "limoDancer5",
       "assetPath": "limo/limoDancer",
-      "position": [1980, 80],
+      "position": [1300, 100],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 30,
@@ -203,31 +167,20 @@
         {
           "name": "danceLeft",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "looped": false
         },
         {
           "name": "danceRight",
           "prefix": "bg dancer sketch PINK",
-          "frameRate": 24,
-          "frameIndices": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-          ],
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+          "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+          "looped": false
         }
       ]
     }
   ],
   "characters": {
-    "bf": {
-      "zIndex": 300,
-      "position": [1030, 230]
-    },
+    "bf": { "zIndex": 300, "position": [1030, 230] },
     "gf": { "zIndex": 100, "position": [400, 130] },
     "dad": { "zIndex": 200, "position": [100, 100] }
   }

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="smokeRight.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="SmokeRight instance 10000" x="0" y="897" width="533" height="885" frameX="-35" frameY="-47" frameWidth="568" frameHeight="938"/>
 	<SubTexture name="SmokeRight instance 10001" x="1619" y="0" width="510" height="871" frameX="-38" frameY="-40" frameWidth="568" frameHeight="938"/>
 	<SubTexture name="SmokeRight instance 10002" x="1619" y="0" width="510" height="871" frameX="-38" frameY="-40" frameWidth="568" frameHeight="938"/>

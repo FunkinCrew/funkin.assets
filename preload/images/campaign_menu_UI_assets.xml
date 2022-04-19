@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="campaign_menu_UI_assets.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+
 	<SubTexture name="EASY0000" x="0" y="0" width="196" height="65"/>
 	<SubTexture name="HARD0000" x="206" y="0" width="211" height="67"/>
 	<SubTexture name="NORMAL0000" x="427" y="0" width="308" height="67"/>
