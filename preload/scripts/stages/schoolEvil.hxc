@@ -39,7 +39,7 @@ class SchoolEvilStage extends Stage
 		super.addCharacter(char, charType);
 	}
 
-	override function onUpdate(elapsed:Float)
+	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
 
