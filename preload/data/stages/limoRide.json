@@ -1,10 +1,8 @@
 {
-	"version": "1.0.0",
-	"cameraZoom": 0.9,
 	"props": [
 		{
-			"zIndex": 10,
 			"danceEvery": 0,
+			"zIndex": 10,
 			"position": [
 				-120,
 				-50
@@ -13,19 +11,19 @@
 				1,
 				1
 			],
-			"name": "limoSunset",
 			"animType": "sparrow",
+			"name": "limoSunset",
 			"isPixel": false,
+			"assetPath": "limo/limoSunset",
 			"scroll": [
 				0.1,
 				0.1
 			],
-			"assetPath": "limo/limoSunset",
 			"animations": []
 		},
 		{
-			"zIndex": 20,
 			"danceEvery": 0,
+			"zIndex": 20,
 			"position": [
 				-200,
 				480
@@ -34,34 +32,34 @@
 				1,
 				1
 			],
-			"name": "bgLimo",
 			"animType": "sparrow",
+			"name": "bgLimo",
 			"isPixel": false,
 			"startingAnimation": "drive",
+			"assetPath": "limo/bgLimo",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/bgLimo",
 			"animations": [
 				{
-					"loop": true,
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
+					"loop": true,
 					"frameRate": 24,
 					"prefix": "background limo pink",
-					"name": "drive",
+					"flipX": false,
 					"looped": true,
-					"flipX": false
+					"name": "drive"
 				}
 			]
 		},
 		{
-			"zIndex": 150,
 			"danceEvery": 0,
+			"zIndex": 150,
 			"position": [
 				-120,
 				550
@@ -70,34 +68,34 @@
 				1,
 				1
 			],
-			"name": "limo",
 			"animType": "sparrow",
+			"name": "limo",
 			"isPixel": false,
 			"startingAnimation": "drive",
+			"assetPath": "limo/limoDrive",
 			"scroll": [
 				1,
 				1
 			],
-			"assetPath": "limo/limoDrive",
 			"animations": [
 				{
-					"loop": true,
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
+					"loop": true,
 					"frameRate": 24,
 					"prefix": "Limo stage",
-					"name": "drive",
+					"flipX": false,
 					"looped": true,
-					"flipX": false
+					"name": "drive"
 				}
 			]
 		},
 		{
-			"zIndex": 500,
 			"danceEvery": 0,
+			"zIndex": 500,
 			"position": [
 				-300,
 				160
@@ -106,19 +104,19 @@
 				1,
 				1
 			],
-			"name": "fastCar",
 			"animType": "sparrow",
+			"name": "fastCar",
 			"isPixel": false,
+			"assetPath": "limo/fastCarLol",
 			"scroll": [
 				1,
 				1
 			],
-			"assetPath": "limo/fastCarLol",
 			"animations": []
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 1,
+			"zIndex": 30,
 			"position": [
 				100,
 				100
@@ -127,23 +125,24 @@
 				1,
 				1
 			],
-			"name": "limoDancer1",
 			"animType": "sparrow",
+			"name": "limoDancer1",
 			"isPixel": false,
 			"startingAnimation": "danceLeft",
+			"assetPath": "limo/limoDancer",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/limoDancer",
 			"animations": [
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						0,
 						1,
@@ -161,18 +160,18 @@
 						13,
 						14
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceLeft",
-					"flipX": false
+					"looped": false
 				},
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						15,
 						16,
@@ -190,16 +189,15 @@
 						28,
 						29
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceRight",
-					"flipX": false
+					"looped": false
 				}
 			]
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 1,
+			"zIndex": 30,
 			"position": [
 				400,
 				100
@@ -208,23 +206,24 @@
 				1,
 				1
 			],
-			"name": "limoDancer2",
 			"animType": "sparrow",
+			"name": "limoDancer2",
 			"isPixel": false,
 			"startingAnimation": "danceLeft",
+			"assetPath": "limo/limoDancer",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/limoDancer",
 			"animations": [
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						0,
 						1,
@@ -242,18 +241,18 @@
 						13,
 						14
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceLeft",
-					"flipX": false
+					"looped": false
 				},
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						15,
 						16,
@@ -271,16 +270,15 @@
 						28,
 						29
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceRight",
-					"flipX": false
+					"looped": false
 				}
 			]
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 1,
+			"zIndex": 30,
 			"position": [
 				700,
 				100
@@ -289,23 +287,24 @@
 				1,
 				1
 			],
-			"name": "limoDancer3",
 			"animType": "sparrow",
+			"name": "limoDancer3",
 			"isPixel": false,
 			"startingAnimation": "danceLeft",
+			"assetPath": "limo/limoDancer",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/limoDancer",
 			"animations": [
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						0,
 						1,
@@ -323,18 +322,18 @@
 						13,
 						14
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceLeft",
-					"flipX": false
+					"looped": false
 				},
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						15,
 						16,
@@ -352,16 +351,15 @@
 						28,
 						29
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceRight",
-					"flipX": false
+					"looped": false
 				}
 			]
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 1,
+			"zIndex": 30,
 			"position": [
 				1000,
 				100
@@ -370,23 +368,24 @@
 				1,
 				1
 			],
-			"name": "limoDancer4",
 			"animType": "sparrow",
+			"name": "limoDancer4",
 			"isPixel": false,
 			"startingAnimation": "danceLeft",
+			"assetPath": "limo/limoDancer",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/limoDancer",
 			"animations": [
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						0,
 						1,
@@ -404,18 +403,18 @@
 						13,
 						14
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceLeft",
-					"flipX": false
+					"looped": false
 				},
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						15,
 						16,
@@ -433,16 +432,15 @@
 						28,
 						29
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceRight",
-					"flipX": false
+					"looped": false
 				}
 			]
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 1,
+			"zIndex": 30,
 			"position": [
 				1300,
 				100
@@ -451,23 +449,24 @@
 				1,
 				1
 			],
-			"name": "limoDancer5",
 			"animType": "sparrow",
+			"name": "limoDancer5",
 			"isPixel": false,
 			"startingAnimation": "danceLeft",
+			"assetPath": "limo/limoDancer",
 			"scroll": [
 				0.4,
 				0.4
 			],
-			"assetPath": "limo/limoDancer",
 			"animations": [
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						0,
 						1,
@@ -485,18 +484,18 @@
 						13,
 						14
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceLeft",
-					"flipX": false
+					"looped": false
 				},
 				{
+					"flipY": false,
 					"offsets": [
 						0,
 						0
 					],
-					"flipY": false,
 					"frameRate": 24,
+					"prefix": "bg dancer sketch PINK",
 					"frameIndices": [
 						15,
 						16,
@@ -514,46 +513,47 @@
 						28,
 						29
 					],
-					"prefix": "bg dancer sketch PINK",
-					"looped": false,
+					"flipX": false,
 					"name": "danceRight",
-					"flipX": false
+					"looped": false
 				}
 			]
 		}
 	],
+	"cameraZoom": 0.9,
+	"version": "1.0.0",
 	"characters": {
 		"bf": {
 			"zIndex": 300,
-			"position": [
-				1365,
-				554
-			],
 			"cameraOffsets": [
 				0,
 				0
-			]
-		},
-		"gf": {
-			"zIndex": 100,
-			"position": [
-				853,
-				790
 			],
-			"cameraOffsets": [
-				0,
-				0
+			"position": [
+				1218,
+				562
 			]
 		},
 		"dad": {
 			"zIndex": 200,
-			"position": [
-				429,
-				660
-			],
 			"cameraOffsets": [
 				0,
 				0
+			],
+			"position": [
+				429,
+				660
+			]
+		},
+		"gf": {
+			"zIndex": 100,
+			"cameraOffsets": [
+				0,
+				0
+			],
+			"position": [
+				853,
+				790
 			]
 		}
 	},

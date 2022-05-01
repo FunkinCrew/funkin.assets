@@ -1,10 +1,8 @@
 {
-	"version": "1.0.0",
-	"cameraZoom": 0.9,
 	"props": [
 		{
-			"zIndex": 10,
 			"danceEvery": 0,
+			"zIndex": 10,
 			"position": [
 				-600,
 				-200
@@ -13,19 +11,19 @@
 				1,
 				1
 			],
-			"name": "stageBack",
 			"animType": "sparrow",
+			"name": "stageBack",
 			"isPixel": false,
+			"assetPath": "stageback",
 			"scroll": [
 				0.9,
 				0.9
 			],
-			"assetPath": "stageback",
 			"animations": []
 		},
 		{
-			"zIndex": 20,
 			"danceEvery": 0,
+			"zIndex": 20,
 			"position": [
 				-650,
 				600
@@ -34,19 +32,19 @@
 				1.1,
 				1.1
 			],
-			"name": "stageFront",
 			"animType": "sparrow",
+			"name": "stageFront",
 			"isPixel": false,
+			"assetPath": "stagefront",
 			"scroll": [
 				0.9,
 				0.9
 			],
-			"assetPath": "stagefront",
 			"animations": []
 		},
 		{
-			"zIndex": 30,
 			"danceEvery": 0,
+			"zIndex": 30,
 			"position": [
 				-500,
 				-300
@@ -55,49 +53,51 @@
 				0.9,
 				0.9
 			],
-			"name": "stageCurtains",
 			"animType": "sparrow",
+			"name": "stageCurtains",
 			"isPixel": false,
+			"assetPath": "stagecurtains",
 			"scroll": [
 				1.3,
 				1.3
 			],
-			"assetPath": "stagecurtains",
 			"animations": []
 		}
 	],
+	"cameraZoom": 0.9,
+	"version": "1.0.0",
 	"characters": {
 		"bf": {
 			"zIndex": 300,
-			"position": [
-				1153,
-				827
-			],
 			"cameraOffsets": [
 				0,
 				0
-			]
-		},
-		"gf": {
-			"zIndex": 100,
-			"position": [
-				400,
-				130
 			],
-			"cameraOffsets": [
-				0,
-				0
+			"position": [
+				996,
+				834
 			]
 		},
 		"dad": {
 			"zIndex": 200,
-			"position": [
-				329,
-				780
-			],
 			"cameraOffsets": [
 				0,
 				0
+			],
+			"position": [
+				359,
+				765
+			]
+		},
+		"gf": {
+			"zIndex": 100,
+			"cameraOffsets": [
+				0,
+				0
+			],
+			"position": [
+				688,
+				727
 			]
 		}
 	},
