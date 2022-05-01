@@ -1,95 +1,252 @@
 {
-  "version": "1.0.0",
-  "name": "Philly (Train)",
-  "cameraZoom": 1.0,
-  "props": [
-    {
-      "name": "sky",
-      "assetPath": "philly/sky",
-      "position": [-100, 0],
-      "scale": [1, 1],
-      "scroll": [0.1, 0.1],
-      "zIndex": 10
-    },
-    {
-      "name": "city",
-      "assetPath": "philly/city",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 20
-    },
-    {
-      "name": "lights0",
-      "assetPath": "philly/win0",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 30
-    },
-    {
-      "name": "lights1",
-      "assetPath": "philly/win1",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 30
-    },
-    {
-      "name": "lights2",
-      "assetPath": "philly/win2",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 30
-    },
-    {
-      "name": "lights3",
-      "assetPath": "philly/win3",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 30
-    },
-    {
-      "name": "lights4",
-      "assetPath": "philly/win4",
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
-      "scroll": [0.3, 0.3],
-      "zIndex": 30
-    },
-    {
-      "name": "behindTrain",
-      "assetPath": "philly/behindTrain",
-      "position": [-40, 50],
-      "scale": [1, 1],
-      "scroll": [1, 1],
-      "zIndex": 50
-    },
-    {
-      "name": "train",
-      "assetPath": "philly/train",
-      "position": [2000, 360],
-      "scale": [1, 1],
-      "scroll": [1, 1],
-      "zIndex": 60
-    },
-    {
-      "name": "street",
-      "assetPath": "philly/street",
-      "position": [-40, 50],
-      "scale": [1, 1],
-      "scroll": [1, 1],
-      "zIndex": 70
-    }
-  ],
-  "characters": {
-    "bf": {
-      "zIndex": 300,
-      "position": [770, 450]
-    },
-    "gf": { "zIndex": 100, "position": [400, 130] },
-    "dad": { "zIndex": 200, "position": [100, 400] }
-  }
+	"props": [
+		{
+			"danceEvery": 0,
+			"zIndex": 10,
+			"position": [
+				-100,
+				0
+			],
+			"scale": [
+				1,
+				1
+			],
+			"animType": "sparrow",
+			"name": "sky",
+			"isPixel": false,
+			"assetPath": "philly/sky",
+			"scroll": [
+				0.1,
+				0.1
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 20,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "city",
+			"isPixel": false,
+			"assetPath": "philly/city",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 30,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "lights0",
+			"isPixel": false,
+			"assetPath": "philly/win0",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 30,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "lights1",
+			"isPixel": false,
+			"assetPath": "philly/win1",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 30,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "lights2",
+			"isPixel": false,
+			"assetPath": "philly/win2",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 30,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "lights3",
+			"isPixel": false,
+			"assetPath": "philly/win3",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 30,
+			"position": [
+				-10,
+				0
+			],
+			"scale": [
+				0.85,
+				0.85
+			],
+			"animType": "sparrow",
+			"name": "lights4",
+			"isPixel": false,
+			"assetPath": "philly/win4",
+			"scroll": [
+				0.3,
+				0.3
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 50,
+			"position": [
+				-40,
+				50
+			],
+			"scale": [
+				1,
+				1
+			],
+			"animType": "sparrow",
+			"name": "behindTrain",
+			"isPixel": false,
+			"assetPath": "philly/behindTrain",
+			"scroll": [
+				1,
+				1
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 60,
+			"position": [
+				2000,
+				360
+			],
+			"scale": [
+				1,
+				1
+			],
+			"animType": "sparrow",
+			"name": "train",
+			"isPixel": false,
+			"assetPath": "philly/train",
+			"scroll": [
+				1,
+				1
+			],
+			"animations": []
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 70,
+			"position": [
+				-40,
+				50
+			],
+			"scale": [
+				1,
+				1
+			],
+			"animType": "sparrow",
+			"name": "street",
+			"isPixel": false,
+			"assetPath": "philly/street",
+			"scroll": [
+				1,
+				1
+			],
+			"animations": []
+		}
+	],
+	"cameraZoom": 1,
+	"version": "1.0.0",
+	"characters": {
+		"bf": {
+			"zIndex": 300,
+			"cameraOffsets": [
+				0,
+				0
+			],
+			"position": [
+				1251,
+				846
+			]
+		},
+		"dad": {
+			"zIndex": 200,
+			"cameraOffsets": [
+				0,
+				0
+			],
+			"position": [
+				633,
+				762
+			]
+		},
+		"gf": {
+			"zIndex": 100,
+			"cameraOffsets": [
+				0,
+				0
+			],
+			"position": [
+				870,
+				731
+			]
+		}
+	},
+	"name": "Philly (Train)"
 }
