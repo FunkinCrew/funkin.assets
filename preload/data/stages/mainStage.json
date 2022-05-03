@@ -1,105 +1,89 @@
 {
-	"props": [
-		{
-			"danceEvery": 0,
-			"zIndex": 10,
-			"position": [
-				-600,
-				-200
-			],
-			"scale": [
-				1,
-				1
-			],
-			"animType": "sparrow",
-			"name": "stageBack",
-			"isPixel": false,
-			"assetPath": "stageback",
-			"scroll": [
-				0.9,
-				0.9
-			],
-			"animations": []
-		},
-		{
-			"danceEvery": 0,
-			"zIndex": 20,
-			"position": [
-				-650,
-				600
-			],
-			"scale": [
-				1.1,
-				1.1
-			],
-			"animType": "sparrow",
-			"name": "stageFront",
-			"isPixel": false,
-			"assetPath": "stagefront",
-			"scroll": [
-				0.9,
-				0.9
-			],
-			"animations": []
-		},
-		{
-			"danceEvery": 0,
-			"zIndex": 30,
-			"position": [
-				-500,
-				-300
-			],
-			"scale": [
-				0.9,
-				0.9
-			],
-			"animType": "sparrow",
-			"name": "stageCurtains",
-			"isPixel": false,
-			"assetPath": "stagecurtains",
-			"scroll": [
-				1.3,
-				1.3
-			],
-			"animations": []
-		}
-	],
-	"cameraZoom": 0.9,
-	"version": "1.0.0",
-	"characters": {
-		"bf": {
-			"zIndex": 300,
-			"cameraOffsets": [
-				0,
-				0
-			],
-			"position": [
-				996,
-				834
-			]
-		},
-		"dad": {
-			"zIndex": 200,
-			"cameraOffsets": [
-				0,
-				0
-			],
-			"position": [
-				359,
-				765
-			]
-		},
-		"gf": {
-			"zIndex": 100,
-			"cameraOffsets": [
-				0,
-				0
-			],
-			"position": [
-				688,
-				727
-			]
-		}
-	},
-	"name": "Main Stage"
+    "props": [{
+            "danceEvery": 0,
+            "zIndex": 10,
+            "position": [-600, -200],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "stageBack",
+            "isPixel": false,
+            "assetPath": "stageback",
+            "scroll": [
+                0.9,
+                0.9
+            ],
+            "animations": []
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": 20,
+            "position": [-650,
+                600
+            ],
+            "scale": [
+                1.1,
+                1.1
+            ],
+            "animType": "sparrow",
+            "name": "stageFront",
+            "isPixel": false,
+            "assetPath": "stagefront",
+            "scroll": [
+                0.9,
+                0.9
+            ],
+            "animations": []
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": 30,
+            "position": [-500, -300],
+            "scale": [
+                0.9,
+                0.9
+            ],
+            "animType": "sparrow",
+            "name": "stageCurtains",
+            "isPixel": false,
+            "assetPath": "stagecurtains",
+            "scroll": [
+                1.3,
+                1.3
+            ],
+            "animations": []
+        }
+    ],
+    "cameraZoom": 0.9,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                996,
+                834
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                359,
+                765
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                0
+            ],
+            "position": [
+                688,
+                727
+            ]
+        }
+    },
+    "name": "Main Stage"
 }
