@@ -1,52 +1,52 @@
 {
-  "version": "1.0.0",
-  "name": "Pico",
-  "assetPath": "characters/Pico_FNF_assetss",
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Pico Idle Dance",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Pico Note Right0",
-      "offsets": [65, 9]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Pico Down Note0",
-      "offsets": [195, -70]
-    },
-    {
-      "name": "singUP",
-      "prefix": "pico Up note0",
-      "offsets": [-29, 27]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [-68, -7]
-    },
-    {
-      "name": "singLEFTmiss",
-      "prefix": "Pico Note Right Miss",
-      "offsets": [62, 54]
-    },
-    {
-      "name": "singDOWNmiss",
-      "prefix": "Pico Down Note MISS",
-      "offsets": [200, -28]
-    },
-    {
-      "name": "singUPmiss",
-      "prefix": "pico Up note miss",
-      "offsets": [-19, 67]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "Pico NOTE LEFT miss",
-      "offsets": [-60, 31]
-    }
-  ]
+    "version": "1.0.0",
+    "name": "Pico",
+    "assetPath": "characters/Pico_FNF_assetss",
+    "flipX": true,
+    "animations": [{
+            "name": "idle",
+            "prefix": "Pico Idle Dance",
+            "offsets": [0, 0]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Pico Note Right0",
+            "offsets": [65, 9]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Pico Down Note0",
+            "offsets": [195, -70]
+        },
+        {
+            "name": "singUP",
+            "prefix": "pico Up note0",
+            "offsets": [-29, 27]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Pico NOTE LEFT0",
+            "offsets": [-68, -7]
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "Pico Note Right Miss",
+            "offsets": [62, 54]
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "Pico Down Note MISS",
+            "offsets": [200, -28]
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "pico Up note miss",
+            "offsets": [-19, 67]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "Pico NOTE LEFT miss",
+            "offsets": [-60, 31]
+        }
+    ]
 }
