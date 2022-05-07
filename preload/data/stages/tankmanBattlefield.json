@@ -219,9 +219,9 @@
   "characters": {
     "bf": {
       "zIndex": 100,
-      "position": [810, 450]
+      "position": [1029.5, 885]
     },
-    "dad": { "zIndex": 100, "position": [20, 340] },
-    "gf": { "zIndex": 100, "position": [230, 55] }
+    "dad": { "zIndex": 100, "position": [286.5, 929] },
+    "gf": { "zIndex": 100, "position": [685.5, 685] }
   }
 }
