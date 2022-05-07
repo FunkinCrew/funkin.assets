@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "name": "Boyfriend",
   "assetPath": "characters/BOYFRIEND",
+  "flipX": true,
   "singTime": 2.0,
   "animations": [
     {

@@ -2,6 +2,7 @@
     "version": "1.0.0",
     "name": "Boyfriend (Car)",
     "assetPath": "characters/bfCar",
+    "flipX": true,
     "renderType": "multisparrow",
     "singTime": 2.0,
     "healthIcon": {

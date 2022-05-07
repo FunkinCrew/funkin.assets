@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "name": "Pico",
   "assetPath": "characters/Pico_FNF_assetss",
+  "flipX": true,
   "animations": [
     {
       "name": "idle",
