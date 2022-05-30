@@ -67,6 +67,12 @@
             "offsets": [-37, 11]
         },
         {
+            "name": "dodge",
+            "prefix": "boyfriend dodge",
+            "assetPath": "characters/BOYFRIEND",
+            "offsets": [0, 0]
+        },
+        {
             "name": "deathLoop",
             "prefix": "BF Dead Loop",
             "assetPath": "characters/BOYFRIEND",

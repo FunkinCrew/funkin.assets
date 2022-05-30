@@ -61,6 +61,11 @@
       "offsets": [0, 0]
     },
     {
+      "name": "dodge",
+      "prefix": "boyfriend dodge",
+      "offsets": [0, 0]
+    },
+    {
       "name": "hey",
       "prefix": "BF HEY",
       "offsets": [7, 4]
