@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "name": "Darnell",
+  "assetPath": "characters/darnell",
+  "singTime": 2.0,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Darnell Idle",
+      "offsets": [-2, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "darnell pose right",
+      "offsets": [47, -16]
+    },
+    {
+      "name": "singLEFT-end",
+      "prefix": "darnell pose right",
+      "frameIndices": [6, 7, 8, 9, 10, 11, 12, 13],
+      "offsets": [47, -16]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Darnell Pose Down",
+      "offsets": [15, -45]
+    },
+    {
+      "name": "singDOWN-end",
+      "prefix": "Darnell Pose Down",
+      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
+      "offsets": [15, -45]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Darnell pose up",
+      "offsets": [26, 72]
+    },
+    {
+      "name": "singUP-end",
+      "prefix": "Darnell pose up",
+      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
+      "offsets": [26, 72]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Darnell pose right",
+      "offsets": [12, 8]
+    },
+    {
+      "name": "singRIGHT-end",
+      "prefix": "Darnell pose right",
+      "frameIndices": [7, 8, 9, 10, 11, 12, 13, 14],
+      "offsets": [12, 8]
+    },
+    {
+      "name": "laugh",
+      "prefix": "darnell laugh",
+      "offsets": [-1, 1]
+    }
+  ]
+}

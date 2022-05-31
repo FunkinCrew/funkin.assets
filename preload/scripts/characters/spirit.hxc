@@ -1,0 +1,22 @@
+import funkin.play.character.PackerCharacter;
+import funkin.play.PlayState;
+import flixel.addons.effects.FlxTrail;
+
+class SpiritCharacter extends PackerCharacter {
+	public function new() {
+		super('spirit');
+	}
+
+	var trailMade = false;
+
+	public function onCreate(event:UpdateScriptEvent) {
+		super.onCreate(event);
+		
+		// Weird workaround because `this` is a PolymodScriptClass and not a ScriptedPackerCharacter.
+		var evilTrail = new FlxTrail(this.superClass, null, 4, 24, 0.3, 0.069);
+
+		// Go behind Spirit.
+		evilTrail.zIndex = this.zIndex - 10;
+		PlayState.instance.currentStage.add(evilTrail);
+	}
+}

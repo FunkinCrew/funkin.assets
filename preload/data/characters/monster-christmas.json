@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "name": "Monster (Christmas)",
+  "assetPath": "characters/monsterChristmas",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "monster idle",
+      "offset": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Monster left note",
+      "offset": [-30, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "monster down",
+      "offset": [-40, -94]
+    },
+    {
+      "name": "singUP",
+      "prefix": "monster up note",
+      "offset": [-20, 50]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Monster Right note",
+      "offset": [-51, 0]
+    }
+  ]
+}

@@ -1,42 +1,73 @@
 {
-  "version": "1.0.0",
-  "name": "Spooky Mansion",
-  "cameraZoom": 1.05,
-  "props": [
-    {
-      "name": "halloweenBG",
-      "assetPath": "halloween_bg",
-      "position": [-200, -100],
-      "scale": [1, 1],
-      "scroll": [1, 1],
-      "zIndex": -100,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "halloweem bg0",
-          "frameRate": 24,
-          "loop": true,
-          "flipX": false,
-          "flipY": false
+    "props": [{
+        "danceEvery": 0,
+        "zIndex": -100,
+        "position": [-200, -100],
+        "scale": [
+            1,
+            1
+        ],
+        "animType": "sparrow",
+        "name": "halloweenBG",
+        "isPixel": false,
+        "startingAnimation": "idle",
+        "assetPath": "halloween_bg",
+        "scroll": [
+            1,
+            1
+        ],
+        "animations": [{
+                "offsets": [
+                    0,
+                    0
+                ],
+                "flipY": false,
+                "loop": true,
+                "frameRate": 24,
+                "prefix": "halloweem bg0",
+                "looped": true,
+                "flipX": false,
+                "name": "idle"
+            },
+            {
+                "offsets": [
+                    0,
+                    0
+                ],
+                "flipY": false,
+                "loop": false,
+                "frameRate": 24,
+                "prefix": "halloweem bg lightning strike",
+                "looped": false,
+                "flipX": false,
+                "name": "lightning"
+            }
+        ]
+    }],
+    "cameraZoom": 1.05,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 200,
+            "position": [
+                989.5,
+                885
+            ]
         },
-        {
-          "name": "lightning",
-          "prefix": "halloweem bg lightning strike",
-          "frameRate": 24,
-          "loop": false,
-          "flipX": false,
-          "flipY": false
+        "gf": {
+            "zIndex": 100,
+            "position": [
+                751.5,
+                787
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                382,
+                831
+            ]
         }
-      ],
-      "startingAnimation": "idle"
-    }
-  ],
-  "characters": {
-    "bf": {
-      "zIndex": 200,
-      "position": [770, 450]
     },
-    "dad": { "zIndex": 200, "position": [100, 300] },
-    "gf": { "zIndex": 100, "position": [400, 130] }
-  }
+    "name": "Spooky Mansion"
 }
