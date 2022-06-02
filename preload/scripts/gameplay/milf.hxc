@@ -1,8 +1,9 @@
 import flixel.FlxG;
+import funkin.Conductor;
 import funkin.Paths;
-import funkin.play.PlayState;
-
+import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
 import funkin.modding.module.Module;
+import funkin.play.PlayState;
 
 /**
  * TODO: After redoing the chart format, add a ScriptedSong class,
@@ -10,127 +11,231 @@ import funkin.modding.module.Module;
  */
 class MILFGameplayModule extends Module
 {
-	public function new() {
+	public function new()
+	{
 		super('vanilla-gameplay-milf');
 	}
 
 	/**
 	 * Health lost when hit by lamp.
-	 */ 
+	 */
 	var HEALTH_LOSS = 0.25 * 2;
 
 	/**
-	 * Start the animation # steps before the impact sound and dodge animation play.
+	 * How many henchmen there are.
+	 * We could just hard-code this, but making it a variable improves readability.
 	 */
-	var WINDUP_TIME = 1;
+	var HENCHMEN_COUNT = 5;
+
+	/**
+	 * How many milliseconds to wait until resetting the lamp for the next hit.
+	 */
+	var LAMP_RESET_DELAY = 1000 * 3;
+
+	/**
+	 * The lamp will move this many pixels per millisecond towards Boyfriend/Henchmen.
+	 */
+	var LAMP_VELOCITY = 5.0;
+
+	/**
+	 * Increase this number to make the henchman die later.
+	 */
+	var HENCHMAN_COLLISION_OFFSET = 300;
 
 	/*
-	 * The step numbers at which the lamp passes by.
+	 * The millisecond times at which the lamp passes by.
 	 */
-	var LAMP_TIMES = [
-		8, // Beginning of the song for testing.
-		225, // First hold note, during second BF segment.
-		1050 // The proper part of the song to do the hold note. 80 seconds into the song is annoying to test so we're testing earlier.
+	var BOYFRIEND_LAMP_TIMES = [
+		500, // Beginning of the song for testing.
+		87900 // The duet down note.
+	];
+	var HENCHMEN_LAMP_TIMES = [
+		1000,
+		87900
 	];
 
-	public function isCorrectSong() {
+	/**
+	 * Returns true if we are in a level we should use the lamp on.
+	 */
+	public function isCorrectSong()
+	{
+		// Don't run the script if we aren't in a song.
 		if (PlayState.currentSong == null)
 			return false;
 
+		// Don't run the script if we aren't on Hard difficulty.
+		if (PlayState.storyDifficulty != 2)
+			return false;
 
-		return PlayState.currentSong.song.toLowerCase() == "milf"
-			// Uncomment this line to only enable the feature on Hard!	
-			&& PlayState.storyDifficulty == 2;
+		// Don't run the script if we aren't on the song MILF
+		if (PlayState.currentSong.song.toLowerCase() != "milf")
+			return false;
+
+		return true;
 	}
 
 	/**
-	 * Returns true if the player is currently holding the 
+	 * Returns true if the player is currently holding a down note to avoid the lamp.
 	 */
-	public function isPlayerDucking() {
-		// If this returns false, the player will be hit by the light.
-
-		// If the player hits the start of the hold note, and continues to hold it, they will dodge.
-		// If the player hits the start of the hold note, but stops holding it, and isn't holding it at the right time, they won't dodge.
-
-		// What if the player misses the start of the hold note, then starts holding it halfway through and is holding it at the right time?
-		// What if the player hits the start of the hold note, releases for a bit, then presses it again and is holding it at the right time?
-
+	public function isPlayerDucking()
+	{
 		// Right now we just assume if they're holding down at the right time, it counts.
 		return PlayState.instance.controls.NOTE_DOWN;
 	}
 
-	var nextLampIndex = 0;
+	var nextBFLampIndex = 0;
+	var nextHenchLampIndex = 0;
 
-	public function onStepHit(event:SongTimeScriptEvent) {
-		super.onStepHit(event);
+	var hasCurrentBFLampHit = false;
+	var currentHenchmenIndex = 1;
 
-		if (isCorrectSong()) {
-			var NEXT_LAMP_TIME = LAMP_TIMES[nextLampIndex];
+	public function onUpdate(event:UpdateScriptEvent)
+	{
+		super.onUpdate(event);
 
-			if (event.step == NEXT_LAMP_TIME) {
-				doLampHit();
-
-				nextLampIndex++;
-			} else if (event.step == NEXT_LAMP_TIME - WINDUP_TIME) {
-				playLampAnim();
-			}
-		}
-	}
-	
-	/**
-	 * Make the lamp move across the screen.
-	 */
-	public function playLampAnim() {
-		resetLamp();
-		
-		var lamp = PlayState.instance.currentStage.getNamedProp('highwayLight');
-		lamp.velocity.x = 300 / FlxG.elapsed;
-
-		// We could add some code to make it stop but nobody cares.
-	}
-
-	/**
-	 * Resets the lamp's position to the far left, and makes it stop moving.
-	 */
-	public function resetLamp() {
-		var lamp = PlayState.instance.currentStage.getNamedProp('highwayLight');
-
-		if (lamp == null)
+		if (PlayState.instance == null || PlayState.instance.currentStage == null)
 			return;
 
-		// Set active to true so position is calculated based on velocity.
-		lamp.active = true;
+		if (!isCorrectSong())
+			return;
 
-		// Reset the position.
-		lamp.x = -1000;
-		lamp.y = 200;
-		lamp.velocity.x = 0;
+		if (nextBFLampIndex < BOYFRIEND_LAMP_TIMES.length) {
+			if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] && !hasCurrentBFLampHit) {
+				// Do the actual lamp collision animation and gameplay.
+				doLampHit();
+				hasCurrentBFLampHit = true;
+			}
+			
+			if (Conductor.songPosition >= (BOYFRIEND_LAMP_TIMES[nextBFLampIndex] + LAMP_RESET_DELAY)) {
+				nextBFLampIndex++;
+				hasCurrentBFLampHit = false;
+			}
+			// Move the lamp across the screen
+			var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
+			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+			var boyfriendXPos = boyfriend.x;
+			var lampDelay = BOYFRIEND_LAMP_TIMES[nextBFLampIndex] - Conductor.songPosition;
+			var lampDistance = lampDelay * LAMP_VELOCITY;
+			lamp.x = boyfriendXPos - lampDistance;
+		} else {
+			// Stop doing lamp logic after the last lamp passes.
+		}
+
+		if (nextHenchLampIndex < HENCHMEN_LAMP_TIMES.length) {
+			// The time when the next lamp hits.
+			var nextHenchLampTime = HENCHMEN_LAMP_TIMES[nextHenchLampIndex];
+			var nextHenchLampReset = nextHenchLampTime + LAMP_RESET_DELAY;
+			if (Conductor.songPosition >= nextHenchLampReset) {
+				currentHenchmenIndex = 1;
+
+				for (i in 1...(HENCHMEN_COUNT + 1)) {
+					var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+					henchman.visible = true;
+					henchman.animOffsets = [0, 0];
+					henchman.resetPosition();
+					henchman.playAnimation('danceLeft', true);
+				}
+				nextHenchLampIndex++;
+			} else {
+				// Move the lamp across the screen
+				var lamp = PlayState.instance.currentStage.getNamedProp('henchmenLight');
+				var HENCHMAN_BASE_X_POS = 0;
+				var lampDelay = nextHenchLampTime - Conductor.songPosition;
+				var lampDistance = lampDelay * LAMP_VELOCITY;
+				lamp.x = HENCHMAN_BASE_X_POS - lampDistance;
+
+				// Move hit henchmen with the lamp.
+				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
+					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+					if (henchmen.visible) {
+						henchmen.x = lamp.x + henchmen.animOffsets[0];
+					}
+				}
+
+				// Gib the henchmen if they're in the lamp.
+				if (currentHenchmenIndex <= HENCHMEN_COUNT) {
+					var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + currentHenchmenIndex);
+					var henchmanCenterX = henchman.x + (henchman.width / 2) + HENCHMAN_COLLISION_OFFSET;
+					var lampCenterX = lamp.x + (lamp.width / 2);
+					if (lampCenterX >= henchmanCenterX) {
+						// Lamp has reached the henchman.
+						trace('Hit henchmen sprite ' + currentHenchmenIndex);
+						
+						if (/*FlxG.random.bool()*/true) {
+							// Move henchman along with lamp.
+							
+							if (FlxG.random.bool()) {
+								trace('FLING1');
+							  henchman.forceAnimationForDuration('hit1', 2.0);
+							} else {
+								trace('FLING2');
+								henchman.forceAnimationForDuration('hit2', 2.0);
+							}
+						} else {
+							trace('EXPLODE');
+							// Explode henchman into gibs.
+							henchman.visible = false;
+						}
+
+						// Play the gib sound if this is the first henchman.
+						if (currentHenchmenIndex == 1) {
+							FlxG.sound.play(Paths.sound('Henchmen_Wipe'), 1.0);
+						}
+						currentHenchmenIndex++;
+					}
+				}
+			}
+		} else {
+			// Stop doing lamp logic after the last lamp passes.
+		}
 	}
 
 	/**
 	 * Check whether the player hit or dodged the lamp, and play the appropriate sound.
 	 * Also plays an animation and lowers the player's health.
 	 */
-	public function doLampHit() {
+	public function doLampHit()
+	{
 		trace("LAMP TIME!");
 
-		if (isPlayerDucking()) {
+		if (isPlayerDucking())
+		{
 			trace("Player dodged!");
 			FlxG.sound.play(Paths.soundRandom('Light_Pass_Head_', 1, 4), 1.0);
 
 			trace(PlayState.instance.currentStage.getBoyfriend().animation.getNameList());
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('dodge', true, true);
-		} else {
+		}
+		else
+		{
 			trace("Player hit!");
 			FlxG.sound.play(Paths.sound('BF_Hit_by_Passing_Light'), 1.0);
 
 			// Lose health when hit.
 			PlayState.instance.health -= HEALTH_LOSS;
 
+			// White flash on screen.
+			FlxG.camera.fade(0xFFFFFFFF, 0.6, true);
+
 			// Play the miss animation.
-			// PlayState.instance.currentStage.getBoyfriend().playAnimation('singDOWNmiss', true);
-			PlayState.instance.currentStage.getBoyfriend().playAnimation('dodge', true, true);
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('hit', true, true);
 		}
+	}
+
+	function hardResetSong() {
+			trace('Resetting lamps');
+			hasCurrentBFLampHit = false;
+			nextBFLampIndex = 0;
+			nextHenchLampIndex = 0;
+			currentHenchmenIndex = 1;
+
+			for (i in 1...(HENCHMEN_COUNT + 1)) {
+				var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+				henchman.visible = true;
+				henchman.animOffsets = [0, 0];
+				henchman.resetPosition();
+				henchman.playAnimation('danceLeft', true);
+			}
 	}
 
 	/**
@@ -140,7 +245,11 @@ class MILFGameplayModule extends Module
 	{
 		super.onCreate(event);
 
-		resetLamp();
+		// Properly reset lights and collision when starting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
 	}
 
 	/**
@@ -150,8 +259,10 @@ class MILFGameplayModule extends Module
 	{
 		super.onSongRetry(event);
 
-		// Properly reset lightning when restarting the song.
-		nextLampIndex = 0;
-		resetLamp();
+		// Properly reset lights and collision when restarting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
 	}
 }
