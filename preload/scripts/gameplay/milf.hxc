@@ -93,10 +93,15 @@ class MILFGameplayModule extends Module
 
 	function createGib(type:Int):FlxSprite {
 		var gibSprite:FlxSprite = new FlxSprite();
+		gibSprite.antialiasing = true;
+		gibSprite.angle = FlxG.random.int(0, 360);
 		gibSprite.active = true;
-		gibSprite.velocity.x = 100;
-		gibSprite.velocity.y = 100;
-		// gibSprite.acceleration.y = -10; // Gravity, baby!
+		gibSprite.velocity.x = FlxG.random.int(-20, -1000);
+		// gibSprite.velocity.x = FlxG.random.int(-400, -850);
+		gibSprite.velocity.y = FlxG.random.int(-20, -260);
+		gibSprite.maxVelocity.x = gibSprite.maxVelocity.y = 0; // no cap on velocity...
+		gibSprite.acceleration.y = FlxG.random.int(400, 1400); // Gravity, baby!
+		gibSprite.acceleration.x = 8000; // Wind, baby!
 		gibSprite.frames = frames = Paths.getSparrowAtlas('limo/henchmen');
 
 		var random:Bool = FlxG.random.bool();
@@ -112,7 +117,7 @@ class MILFGameplayModule extends Module
 				trace('BAD TYPE '+type);
 		}
 
-		gibSprite.animation.addByPrefix(animationName, animationName, 24, true);
+		gibSprite.animation.addByPrefix(animationName, animationName, FlxG.random.int(15, 45), true);
 		gibSprite.animation.play(animationName);
 
 		return gibSprite;
@@ -120,20 +125,20 @@ class MILFGameplayModule extends Module
 
 	function gibHenchman(target:FlxSprite) {
 		var headGib = createGib(0);
-		headGib.x = target.x;
-		headGib.y = target.y;
+		headGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		headGib.y = target.getGraphicMidpoint().y - 150;
 		headGib.zIndex = target.zIndex;
 		PlayState.instance.currentStage.add(headGib);
 		
 		var armGib = createGib(1);
-		armGib.x = target.x;
-		armGib.y = target.y;
+		armGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		armGib.y = target.getGraphicMidpoint().y - 100;
 		armGib.zIndex = target.zIndex;
 		PlayState.instance.currentStage.add(armGib);
 
 		var legGib = createGib(2);
-		legGib.x = target.x;
-		legGib.y = target.y;
+		legGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		legGib.y = target.getGraphicMidpoint().y;
 		legGib.zIndex = target.zIndex;
 		PlayState.instance.currentStage.add(legGib);
 
