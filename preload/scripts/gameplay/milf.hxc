@@ -1,4 +1,6 @@
+import flixel.FlxSprite;
 import flixel.FlxG;
+import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.Paths;
 import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
@@ -89,6 +91,64 @@ class MILFGameplayModule extends Module
 	var hasCurrentBFLampHit = false;
 	var currentHenchmenIndex = 1;
 
+	function createGib(type:Int):FlxSprite {
+		var gibSprite:FlxSprite = new FlxSprite();
+		gibSprite.active = true;
+		gibSprite.velocity.x = 100;
+		gibSprite.velocity.y = 100;
+		// gibSprite.acceleration.y = -10; // Gravity, baby!
+		gibSprite.frames = frames = Paths.getSparrowAtlas('limo/henchmen');
+
+		var random:Bool = FlxG.random.bool();
+		var animationName = "";
+		switch(type) {
+			case 0:
+				animationName = "hench head spin " + (random ? "1" : "2");
+			case 1:
+				animationName = "hench arm spin " + (random ? "1" : "2");
+			case 2:
+				animationName = "hench leg spin " + (random ? "1" : "2");
+			default:
+				trace('BAD TYPE '+type);
+		}
+
+		gibSprite.animation.addByPrefix(animationName, animationName, 24, true);
+		gibSprite.animation.play(animationName);
+
+		return gibSprite;
+	}
+
+	function gibHenchman(target:FlxSprite) {
+		var headGib = createGib(0);
+		headGib.x = target.x;
+		headGib.y = target.y;
+		headGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(headGib);
+		
+		var armGib = createGib(1);
+		armGib.x = target.x;
+		armGib.y = target.y;
+		armGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(armGib);
+
+		var legGib = createGib(2);
+		legGib.x = target.x;
+		legGib.y = target.y;
+		legGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(legGib);
+
+		// Refresh the stage to reorganize props by z-index.
+		PlayState.instance.currentStage.refresh();
+
+		// Cleanup after a few seconds.
+		var timer = new FlxTimer();
+		timer.start(5, function() {
+			PlayState.instance.currentStage.remove(headGib);
+			PlayState.instance.currentStage.remove(armGib);
+			PlayState.instance.currentStage.remove(legGib);
+		});
+	}
+
 	public function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
@@ -161,12 +221,14 @@ class MILFGameplayModule extends Module
 						// Lamp has reached the henchman.
 						trace('Hit henchmen sprite ' + currentHenchmenIndex);
 						
-						if (/*FlxG.random.bool()*/true) {
+						// TODO: True knocks the henchman back, false explodes them into gibs.
+						// Make the result random once both are implemented and look how we want them.
+						if (/*FlxG.random.bool()*/false) {
 							// Move henchman along with lamp.
 							
 							if (FlxG.random.bool()) {
 								trace('FLING1');
-							  henchman.forceAnimationForDuration('hit1', 2.0);
+							  	henchman.forceAnimationForDuration('hit1', 2.0);
 							} else {
 								trace('FLING2');
 								henchman.forceAnimationForDuration('hit2', 2.0);
@@ -174,6 +236,7 @@ class MILFGameplayModule extends Module
 						} else {
 							trace('EXPLODE');
 							// Explode henchman into gibs.
+							gibHenchman(henchman);
 							henchman.visible = false;
 						}
 
