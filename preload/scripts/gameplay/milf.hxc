@@ -228,7 +228,7 @@ class MILFGameplayModule extends Module
 						
 						// TODO: True knocks the henchman back, false explodes them into gibs.
 						// Make the result random once both are implemented and look how we want them.
-						if (/*FlxG.random.bool()*/false) {
+						if (FlxG.random.bool()) {
 							// Move henchman along with lamp.
 							
 							if (FlxG.random.bool()) {
