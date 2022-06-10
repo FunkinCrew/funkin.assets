@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Effects_Assets.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blood 10000" x="881" y="456" width="75" height="190" frameX="0" frameY="-108" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10001" x="214" y="344" width="131" height="200" frameX="-22" frameY="-53" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10002" x="0" y="344" width="202" height="181" frameX="-46" frameY="-5" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10003" x="0" y="529" width="210" height="143" frameX="-62" frameY="0" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10004" x="0" y="529" width="210" height="143" frameX="-62" frameY="0" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10005" x="214" y="570" width="219" height="135" frameX="-89" frameY="-18" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10006" x="214" y="570" width="219" height="135" frameX="-89" frameY="-18" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10007" x="735" y="271" width="224" height="181" frameX="-113" frameY="-35" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10008" x="679" y="456" width="198" height="179" frameX="-161" frameY="-100" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10009" x="437" y="570" width="163" height="143" frameX="-217" frameY="-175" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="blood 10010" x="604" y="639" width="152" height="121" frameX="-231" frameY="-259" frameWidth="383" frameHeight="380"/>
+	<SubTexture name="impact particles0000" x="371" y="327" width="304" height="239" frameX="0" frameY="-39" frameWidth="414" frameHeight="340"/>
+	<SubTexture name="impact particles0001" x="371" y="0" width="360" height="323" frameX="-21" frameY="-3" frameWidth="414" frameHeight="340"/>
+	<SubTexture name="impact particles0002" x="0" y="0" width="367" height="340" frameX="-47" frameY="0" frameWidth="414" frameHeight="340"/>
+	<SubTexture name="impact particles0003" x="735" y="0" width="256" height="267" frameX="-98" frameY="-59" frameWidth="414" frameHeight="340"/>
+</TextureAtlas>
