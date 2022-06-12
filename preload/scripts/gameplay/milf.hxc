@@ -50,6 +50,16 @@ class MILFGameplayModule extends Module
 	var LIMO_BASE_X_POS = -200;
 
 	/**
+	 * GF ducks this many milliseconds before the lamp hits BF.
+	 */
+	var GF_DUCK_DELAY = 250;
+
+	/**
+	 * GF ducks for this many seconds (not ms!!!)
+	 */
+	var GF_DUCK_DURATION = 0.25;
+
+	/**
 	 * The lamp will move this many pixels per millisecond towards Boyfriend/Henchmen.
 	 */
 	var LAMP_VELOCITY = 5.0;
@@ -104,6 +114,7 @@ class MILFGameplayModule extends Module
 	var nextHenchLampIndex = 0;
 
 	var hasCurrentBFLampHit = false;
+	var hasCurrentGFLampDucked = false;
 	var currentHenchmenIndex = 1;
 
 	function createGib(type:Int):FlxSprite {
@@ -230,15 +241,20 @@ class MILFGameplayModule extends Module
 		if (nextBFLampIndex < BOYFRIEND_LAMP_TIMES.length) {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
 			if (boyfriend != null) {
-
-				//if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] && !hasCurrentGFLampDucked) {
-				//
-				//}
 				
 				if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
 					hasCurrentBFLampHit = true;
+				}
+
+				if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+					// Have GF play the duck animation.
+					PlayState.instance.currentStage.getGirlfriend().playAnimation('duck', true, true);
+					// Make sure she resets after the duration.
+					new FlxTimer().start(GF_DUCK_DURATION, function() {
+						PlayState.instance.currentStage.getGirlfriend().playAnimation('danceLeft', false);
+					});
 				}
 				
 				if (Conductor.songPosition >= (BOYFRIEND_LAMP_TIMES[nextBFLampIndex] + LAMP_RESET_DELAY)) {
