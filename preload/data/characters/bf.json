@@ -71,6 +71,12 @@
       "offsets": [7, 4]
     },
     {
+      "name": "hit",
+      "prefix": "BF hit",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [0, 0]
+    },
+    {
       "name": "firstDeath",
       "prefix": "BF dies",
       "offsets": [-37, 11]
