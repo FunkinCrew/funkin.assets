@@ -201,7 +201,7 @@
             "animations": []
         }
     ],
-    "cameraZoom": 1,
+    "cameraZoom": 1.1,
     "version": "1.0.0",
     "characters": {
         "bf": {
@@ -210,14 +210,15 @@
                 989.5,
                 885
             ],
-            "cameraOffsets": [-100, -200]
+            "cameraOffsets": [-200, -100]
         },
         "dad": {
             "zIndex": 200,
             "position": [
                 468,
-                792
-            ]
+                885
+            ],
+            "cameraOffsets": [200, -100]
         },
         "gf": {
             "zIndex": 100,

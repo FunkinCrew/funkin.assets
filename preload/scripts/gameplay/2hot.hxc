@@ -1,0 +1,97 @@
+import flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.util.FlxTimer;
+import funkin.Conductor;
+import funkin.Paths;
+import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
+import funkin.modding.module.Module;
+import funkin.play.PlayState;
+
+/**
+ * TODO: After redoing the chart format, add a ScriptedSong class,
+ * make this extend that, and have the constructor call `super('2hot')`.
+ * 
+ * TODO: Move kicking to song events/custom notes after those are implemented.
+ */
+class TwoHOTGameplayModule extends Module
+{
+	public function new()
+	{
+		super('vanilla-gameplay-2hot');
+	}
+
+	/**
+	 * Health lost when hit by can.
+	 */
+	var HEALTH_LOSS = 0.25 * 2;
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
+	}
+
+	var gunCocked:Bool = false;
+
+	/**
+     * Every time a new can is spawned, it is added to this queue, and its state is stored.
+	 * Whenever a state change is requested (i.e. an appropriate note is hit),
+	 * the first applicable can in the queue has its state updated.
+	 *
+	 * This allows for multiple cans to be in different states at the same time.
+	 */
+	var canQueue:Array<FlxSprite> = [];
+
+	/**
+	 * Every time the song starts, the list of notes is skimmed and the times of each firegun note are stored.
+	 * Every time a new
+	 */
+	var canEndTimes:Array<Float> = [];
+
+	override function onNoteHit(event:NoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		switch(event.note.data.noteKind) {
+			case "weekend-1-lightcan":
+				var newCan:ScriptedFlxSprite = ScriptedFlxSprite.init('SpraycanSprite');
+				var darnellPos:FlxPoint = new FlxPoint(
+					PlayState.instance.currentStage.getDad().x,
+					PlayState.instance.currentStage.getDad().y
+				);
+				var picoPos:FlxPoint = new FlxPoint(
+					PlayState.instance.currentStage.getBoyfriend().x,
+					PlayState.instance.currentStage.getBoyfriend().y
+				);
+				var startArcTime:Float = Conductor.songPosition;
+				var endArcTime:Float = Conductor.songPosition + 3.0;
+				newCan.setArcProperties(darnellPos, startArcTime, picoPos, endArcTime);
+			case "weekend-1-kickcan":
+			case "weekend-1-kneecan":
+				// spawnCan();
+			case "weekend-1-cockgun": // lol
+				gunCocked = true;
+			case "weekend-1-firegun":
+				if (gunCocked) {
+					gunCocked = false;
+				} else {
+					// The player cannot hit this note.
+					event.cancelEvent();
+				}
+		}
+	}
+	
+	override function onNoteMiss(event:NoteScriptEvent)
+	{
+		super.onNoteMiss(event.note);
+
+		switch(event.note.data.noteKind) {
+			case "weekend-1-cockgun":
+				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
+				PlayState.instance.health += 0.0775;
+			case "weekend-1-firegun":
+				gunCocked = false;
+				PlayState.instance.health -= HEALTH_LOSS;
+				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
+				PlayState.instance.health += 0.0775;
+		}
+	}
+}

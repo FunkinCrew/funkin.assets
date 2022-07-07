@@ -1,0 +1,54 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import funkin.Paths;
+import flixel.FlxG;
+
+class DarnellCharacter extends SparrowCharacter {
+	public function new() {
+		super('darnell');
+	}
+
+	override function onNoteHit(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		if (!event.note.mustPress && characterType == CharacterType.DAD) {
+			// Override the hit note animation.
+			switch(event.note.data.noteKind) {
+				case "weekend-1-lightcan":
+					playLightCanAnim();
+				case "weekend-1-kickcan":
+					playKickCanAnim();
+				case "weekend-1-kneecan":
+					playKneeCanAnim();
+				default:
+					super.onNoteHit(event);
+			}
+		}
+	}
+
+	/**
+	 * Play the animation where Darnell kneels down to light the can.
+	 */
+	function playLightCanAnim() {
+		this.playAnimation('lightCan', true, true);
+		FlxG.sound.play(Paths.sound('Darnell_Lighter'), 1.0);
+	}
+
+	/**
+	 * Play the animation where Darnell kicks the can into the air.
+	 */
+	function playKickCanAnim() {
+		this.playAnimation('kickCan', true, true);
+		FlxG.sound.play(Paths.sound('Kick_Can_UP'), 1.0);
+	}
+
+	/**
+	 * Play the animation where Darnell knees the can in Pico's direction.
+	 */
+	function playKneeCanAnim() {
+		this.playAnimation('kneeCan', true, true);
+		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
+	}
+}

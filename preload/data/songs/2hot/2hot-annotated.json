@@ -4,7 +4,7 @@
       "normal": 1.5,
       "hard": 1.5
     },
-    "stageDefault": "pyro",
+    "stageDefault": "phillyStreets",
     "validScore": true,
     "player1": "pico-playable",
     "player2": "darnell",
@@ -1806,6 +1806,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [0, 2, 0],
             [247, 1, 0],
             [494, 1, 0],
@@ -1822,6 +1823,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [1318, 2, 0],
             [1565, 1, 0],
             [1813, 1, 0],
@@ -1838,6 +1840,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [2637, 2, 0],
             [2884, 1, 0],
             [3131, 1, 0],
@@ -1854,6 +1857,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [3956.04395604396, 6, 0],
             [4203.2967032967, 5, 0],
             [4450.54945054945, 5, 0],
@@ -1861,6 +1865,7 @@
             [4945.05494505495, 4, 0],
             [5109.89010989011, 4, 0],
             
+            // Pico: Da da da da (chord notes)
             [3956.04395604396, 0, 0],
             [3968.40659340659, 2, 0],
             [4120.87912087912, 0, 0],
@@ -1870,6 +1875,7 @@
             [4450.54945054945, 0, 0],
             [4473.21428571429, 2, 0],
 
+            // Pico: Do do do do (chord notes)
             [4615.38461538462, 1, 0],
             [4635.98901098901, 3, 0],
             [4780.21978021978, 1, 0],
@@ -1889,6 +1895,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Pico: Daaa dooo, da dai
             [5274.72527472528, 2, 164.835164835165],
             [5604.39560439561, 0, 164.835164835165],
             [5934.06593406593, 3, 0],
@@ -1903,6 +1910,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Pico: Daaa dooo, da dai
             [6593.40659340659, 2, 164.835164835165],
             [6923.07692307692, 0, 164.835164835165],
             [7252.74725274725, 3, 0],
@@ -1917,12 +1925,14 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Pico: Da da da da (DARNELL LIGHT)
             [7912.08791208791, 3, 0],
             [7912.08791208791, 5, 0, "weekend-1-lightcan"],
             [8076.92307692308, 2, 0],
             [8241.75824175824, 3, 0],
             [8406.59340659341, 2, 0],
 
+            // Pico: Da da dadidadi (DARNELL KICK)
             [8571.42857142857, 0, 0],
             [8571.42857142857, 6, 0, "weekend-1-kickcan"],
             [8736.26373626374, 0, 0],
@@ -1940,9 +1950,15 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Pico: Daaa dooo (Darnell KNEE)
             [9230.76923076923, 7, 0, "weekend-1-kneecan"],
+            // [9230.76923076923, 2, 164.835164835165],
+            // [9560.43956043956, 0, 164.835164835165],
+            // Pico reload in between above
             [9400, 1, 0, "weekend-1-cockgun"],
-            [9890.10989010989, 0, 0, "weekend-1-firegun"]
+            // Pico: Da dai (Pico Shoot)
+            [9890.10989010989, 0, 0, "weekend-1-firegun"],
+            // [10219.7802197802, 1, 0]
           ],
           "bpm": 182,
           "mustHitSection": true,
@@ -1953,6 +1969,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [10549, 2, 0],
             [10796, 1, 0],
             [11043, 1, 0],
@@ -1969,6 +1986,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [11868, 2, 0],
             [12115, 1, 0],
             [12362, 1, 0],
@@ -1985,6 +2003,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [13186, 2, 0],
             [13434, 1, 0],
             [13681, 1, 0],
@@ -2001,6 +2020,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Darnell: Be boo boo, bo ba da
             [14505, 2, 0],
             [14752, 1, 0],
             [15000, 1, 0],
@@ -2017,6 +2037,7 @@
           "typeOfSection": 0,
           "lengthInSteps": 16,
           "sectionNotes": [
+            // Pico: Di dit do do do do
             [15824.1758241758, 2, 0],
             [15989.010989011, 3, 0],
             [16153.8461538462, 1, 0],
@@ -2024,6 +2045,7 @@
             [16483.5164835165, 1, 0],
             [16648.3516483517, 1, 0],
 
+            // Pico: Di dah
             [16813.1868131868, 0, 0],
             [16978.021978022, 1, 0]
           ],

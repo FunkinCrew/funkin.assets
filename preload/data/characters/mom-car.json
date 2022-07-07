@@ -32,7 +32,7 @@
             "offsets": [10, -60]
         },
         {
-            "name": "idle-end",
+            "name": "idle-hold",
             "prefix": "Mom Idle",
             "looped": true,
             "frameIndices": [10, 11, 12, 13],

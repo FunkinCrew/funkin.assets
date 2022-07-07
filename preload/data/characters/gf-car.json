@@ -17,7 +17,7 @@
       "offsets": [0, 0]
     },
     {
-      "name": "idle-end",
+      "name": "idle-hold",
       "prefix": "GF Dancing Beat Hair blowing CAR",
       "looped": true,
       "frameIndices": [10, 11, 12, 25, 26, 27],

@@ -9,7 +9,7 @@ class SpiritCharacter extends PackerCharacter {
 
 	var trailMade = false;
 
-	public function onCreate(event:UpdateScriptEvent) {
+	public function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		
 		// Weird workaround because `this` is a PolymodScriptClass and not a ScriptedPackerCharacter.
