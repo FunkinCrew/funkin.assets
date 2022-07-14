@@ -1,11 +1,15 @@
-import flixel.FlxSprite;
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
-import funkin.Paths;
+import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
 import funkin.modding.module.Module;
+import funkin.Paths;
 import funkin.play.PlayState;
+
+// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
+import flixel.math.FlxBasePoint;
 
 /**
  * TODO: After redoing the chart format, add a ScriptedSong class,
@@ -25,9 +29,42 @@ class TwoHOTGameplayModule extends Module
 	 */
 	var HEALTH_LOSS = 0.25 * 2;
 
-	override function onSongRetry(event:ScriptEvent)
-	{
+	override function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onSongLoaded(event);
+
+		populateCanEndTimes();
+		placeSpraycanPile();
+	}
+
+	override function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
+
+		removeCans();
+		populateCanEndTimes();
+		gunCocked = false;
+	}
+
+	function removeCans() {
+		for (can in canQueue) {
+			can.kill();
+		}
+		canQueue = [];
+	}
+
+	override function onStateChangeEnd(event:StateChangeScriptEvent) {
+		super.onStateChangeEnd(event);
+
+		if ((Std.isOfType(event.targetState, PlayState))) {
+			return;
+		}
+		hardClear();
+	}
+
+	function hardClear() {
+		removeCans();
+		spraycanPile = null;
+		canEndTimes = [];
+		gunCocked = false;
 	}
 
 	var gunCocked:Bool = false;
@@ -43,7 +80,8 @@ class TwoHOTGameplayModule extends Module
 
 	/**
 	 * Every time the song starts, the list of notes is skimmed and the times of each firegun note are stored.
-	 * Every time a new
+	 * Every time a new can is spawned, the first element in this list is popped and used as the time
+	 * when the can is projected to reach its destination.
 	 */
 	var canEndTimes:Array<Float> = [];
 
@@ -52,30 +90,104 @@ class TwoHOTGameplayModule extends Module
 		super.onNoteHit(event);
 		switch(event.note.data.noteKind) {
 			case "weekend-1-lightcan":
+				// We define the behavior of the can in a separate scripted class,
+				// which allows the can to track and manage its own properties.
 				var newCan:ScriptedFlxSprite = ScriptedFlxSprite.init('SpraycanSprite');
-				var darnellPos:FlxPoint = new FlxPoint(
-					PlayState.instance.currentStage.getDad().x,
-					PlayState.instance.currentStage.getDad().y
+
+				var initialPos:FlxBasePoint = new FlxBasePoint(
+					PlayState.instance.currentStage.getDad().x + 300,
+					PlayState.instance.currentStage.getDad().y + 300
 				);
-				var picoPos:FlxPoint = new FlxPoint(
-					PlayState.instance.currentStage.getBoyfriend().x,
-					PlayState.instance.currentStage.getBoyfriend().y
-				);
-				var startArcTime:Float = Conductor.songPosition;
-				var endArcTime:Float = Conductor.songPosition + 3.0;
-				newCan.setArcProperties(darnellPos, startArcTime, picoPos, endArcTime);
+
+				newCan.scriptSet('initialPosition', initialPos);
+
+				PlayState.instance.currentStage.add(newCan);
+				PlayState.instance.currentStage.refresh(); // Apply z-index.
+				canQueue.push(newCan);
 			case "weekend-1-kickcan":
+				kickNextCan();
 			case "weekend-1-kneecan":
-				// spawnCan();
+				kneeNextCan();
 			case "weekend-1-cockgun": // lol
 				gunCocked = true;
 			case "weekend-1-firegun":
 				if (gunCocked) {
+					trace('Firing gun!');
 					gunCocked = false;
+					shootNextCan();
 				} else {
+					trace('Cannot fire gun!');
 					// The player cannot hit this note.
 					event.cancelEvent();
 				}
+		}
+	}
+	
+	public var STATE_IDLE:Int = 0;
+	public var STATE_KICKED:Int = 1;
+	public var STATE_ARCING:Int = 2;
+	public var STATE_SHOT:Int = 3;
+	public var STATE_IMPACTED:Int = 4;
+
+	function kickNextCan() {
+		for (can in canQueue) {
+			var canState = can.scriptGet('currentState');
+			if (canState == STATE_IDLE) {
+				trace('Kicking can!');
+				trace(can.x + ': ' + can.y);
+				can.scriptSet('currentState', STATE_KICKED);
+				// Only set the first valid can.
+				return;
+			}
+		}
+	}
+
+	function kneeNextCan() {
+		for (can in canQueue) {
+			var canState = can.scriptGet('currentState');
+			if (canState == STATE_KICKED) {
+				can.scriptSet('currentState', STATE_ARCING);
+
+				var startPos:FlxBasePoint = new FlxBasePoint(
+					PlayState.instance.currentStage.getDad().x + 300,
+					PlayState.instance.currentStage.getDad().y + 100
+				);
+				var endPos:FlxBasePoint = new FlxBasePoint(
+					PlayState.instance.currentStage.getBoyfriend().x,
+					PlayState.instance.currentStage.getBoyfriend().y
+				);
+				var startArcTime:Float = Conductor.songPosition;
+				var endArcTime:Float = canEndTimes.pop();
+				// Remember, to call a custom function on a scripted class,
+				// you need to use scriptCall.
+				can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
+
+				// Only set the first valid can.
+				return;
+			}
+		}
+	}
+
+	function shootNextCan() {
+		for (can in canQueue) {
+			var canState = can.scriptGet('currentState');
+			trace('Can state: ' + canState);
+			if (canState == STATE_ARCING) {
+				can.scriptSet('currentState', STATE_SHOT);
+				// Only set the first valid can.
+				return;
+			}
+		}
+	}
+
+	function missNextCan() {
+		for (can in canQueue) {
+			var canState = can.scriptGet('currentState');
+			if (canState == STATE_ARCING) {
+				can.scriptSet('currentState', STATE_IMPACTED);
+				// Only set the first valid can.
+				return;
+			}
 		}
 	}
 	
@@ -89,9 +201,40 @@ class TwoHOTGameplayModule extends Module
 				PlayState.instance.health += 0.0775;
 			case "weekend-1-firegun":
 				gunCocked = false;
+				missNextCan();
 				PlayState.instance.health -= HEALTH_LOSS;
 				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
 				PlayState.instance.health += 0.0775;
+		}
+	}
+
+	function populateCanEndTimes() {
+		canEndTimes = [];
+		if (PlayState.instance == null || PlayState.instance.inactiveNotes == null
+			|| PlayState.instance.inactiveNotes.length == 0) {
+			return;
+		}
+		var songNotes:Song = PlayState.instance.inactiveNotes;
+		for (note in songNotes) {
+			if (note.data.noteKind == "weekend-1-firegun") {
+				canEndTimes.push(note.data.strumTime);
+			}
+		}
+	}
+
+	var spraycanPile:FlxSprite = null;
+	function placeSpraycanPile() {
+		if (canEndTimes != null && canEndTimes.length > 0) {
+			trace('Placing spraycan pile...');
+			if (spraycanPile == null) {
+				spraycanPile = new FlxSprite(0, 0);
+				spraycanPile.loadGraphic(Paths.image('SpraycanPile'));
+				spraycanPile.x = PlayState.instance.currentStage.getDad().x + 300;
+				spraycanPile.y = PlayState.instance.currentStage.getDad().y + 300;
+				spraycanPile.zIndex = 2000;
+				spraycanPile.active = false;
+			}
+			PlayState.instance.currentStage.add(spraycanPile);
 		}
 	}
 }

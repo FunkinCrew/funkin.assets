@@ -61,17 +61,17 @@
     {
       "name": "lightCan",
       "prefix": "Darnell lighting can",
-      "offsets": [0, 0]
+      "offsets": [0, -30]
     },
     {
       "name": "kickCan",
       "prefix": "Darnell can kick up",
-      "offsets": [0, 0]
+      "offsets": [10, 10]
     },
     {
       "name": "kneeCan",
       "prefix": "Darnell knee action",
-      "offsets": [0, 0]
+      "offsets": [0, -20]
     }
   ]
 }

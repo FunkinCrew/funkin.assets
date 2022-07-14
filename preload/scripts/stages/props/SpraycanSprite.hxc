@@ -3,15 +3,23 @@ import flixel.FlxSprite;
 import funkin.Conductor;
 import funkin.Paths;
 
+// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
+import flixel.math.FlxBasePoint;
+
 /**
  * A sprite which represents a spraycan flying through the air that Pico must shoot.
  */
 class SpraycanSprite extends FlxSprite
 {
 	/**
+	 * The position of the can when it is in the pile ready to be thrown.
+	 */
+	public var initialPosition:FlxPoint;
+
+	/**
 	 * The position on screen that the spray can should start arcing at.
 	 */
-	public var startingPosition:FlxPoint;
+	public var arcStartingPosition:FlxPoint;
 	/**
 	 * The Conductor time at which the spray can should reach the ending position.
 	 */
@@ -19,7 +27,7 @@ class SpraycanSprite extends FlxSprite
 	/**
 	 * The position on screen that the spray can should finish arcing at.
 	 */
-	public var endingPosition:FlxPoint;
+	public var arcEndingPosition:FlxPoint;
 	/**
 	 * The Conductor time at which the spray can should reach the ending position.
 	 */
@@ -35,14 +43,17 @@ class SpraycanSprite extends FlxSprite
 
 	public function new()
 	{
-		super();
+		super(0, 0);
+
+		zIndex = 1900;
+
 		frames = Paths.getSparrowAtlas('Spraypaint_Can_Assets');
 		antialiasing = true;
 
 		// Stationary can
 		animation.addByPrefix('idle', 'singular can', 24, true);
 		// Can kicked upward, with smear
-		animation.addByPrefix('kick', 'can kicked up', 24, false);
+		animation.addByPrefix('kick', 'can kicked up', 24, true);
 		// Can with lit fuse
 		animation.addByPrefix('fire', 'can on fire', 24, true);
 		// Can bouncing off Pico before exploding
@@ -51,32 +62,94 @@ class SpraycanSprite extends FlxSprite
 		animation.addByPrefix('shot', 'can shot bend', 24, false);
 	}
 
-	public function setArcProperties(startPos:FlxPoint, startTime:Float, endPos:FlxPoint, endTime:Float)
+	public function setArcProperties(startPos:FlxBasePoint, startTime:Float, endPos:FlxBasePoint, endTime:Float)
 	{
-		startingPosition = startPos;
+		arcStartingPosition = startPos;
 		startingTime = startTime;
-		endingPosition = endPos;
+		arcEndingPosition = endPos;
 		endingTime = endTime;
 	}
 
 	public function playOptional(name:String) {
-		if (animation.curAnim == null || animation.curAnim.name == name) {
+		if (animation.curAnim == null || animation.curAnim.name != name) {
+			trace("Playing can animation: " + name);
 			animation.play(name);
 		}
 	}
 
-	override function onUpdate(event:ScriptEvent) {
+	override function update(elapsed:Float) {
+		super.update(elapsed);
+
 		switch(currentState) {
 			case STATE_IDLE:
 				playOptional('idle');
+				updatePosition_IDLE();
 			case STATE_KICKED:
 				playOptional('kick');
+				updatePosition_KICKED();
 			case STATE_ARCING:
 				playOptional('fire');
+				updatePosition_ARCING();
 			case STATE_SHOT:
+				cleanup(1000);
 				playOptional('shot');
+				updatePosition_SHOT();
 			case STATE_IMPACTED:
+				cleanup(1000);
 				playOptional('bounce');
+				updatePosition_IMPACTED();
 		}		
+	}
+
+	var startCleanupTime:Float = null;
+	function cleanup(delayMs:Float) {
+		if (startCleanupTime == null) {
+			startCleanupTime = Conductor.songPosition;
+		}
+		if (Conductor.songPosition > startCleanupTime + delayMs) {
+			kill();
+		}
+	}
+
+	function getCanProgress() {
+		var time:Float = Conductor.songPosition;
+		var progress:Float = (time - startingTime) / (endingTime - startingTime);
+		return progress;
+	}
+
+	function updatePosition_IDLE() {
+		// Start at starting position.
+		this.x = initialPosition.x;
+		this.y = initialPosition.y;
+	}
+
+	function updatePosition_KICKED() {
+		// Move up to compensate for larger animation.
+		this.x = initialPosition.x;
+		this.y = initialPosition.y - 200;
+	}
+
+	function updatePosition_ARCING() {
+		// Lerp between start and end position.
+		var progress:Float = getCanProgress();
+		trace(progress);
+		this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
+		this.y = arcStartingPosition.y + (arcEndingPosition.y - arcStartingPosition.y) * progress;
+	}
+
+	function updatePosition_SHOT() {
+		// Maintain can position.
+		// This makes early can shots explode far away and late ones explode closer,
+		// for basically no work!
+		this.x = this.x - 300;
+		this.y = this.y - 300;
+	}
+
+	function updatePosition_IMPACTED() {
+		// Maintain can position.
+
+		// 0,0 is actually very close if not exactly the correct offset.
+		this.x = this.x + 0;
+		this.y = this.y + 0;
 	}
 }

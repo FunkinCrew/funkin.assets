@@ -12,8 +12,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 	override function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-
-		createDeathSprites();
 	}
 
 	var deathSpriteRetry:FlxSprite;
@@ -25,18 +23,24 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function createDeathSprites() {
 		deathSpriteRetry = new FlxSprite(0, 0);
+		deathSpriteRetry.x = this.x + 196.5;
+		deathSpriteRetry.y = this.y - 85;
 		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry_Text");
-		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop", 24, true);
-		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm", 24, false);
+		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
+		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
 
 		deathSpriteRetry.visible = false;
 
-		// deathSpriteNene = new FlxSprite(this.x + 196.5, this.y - 85);
-		// deathSpriteNene.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry_Text");
-		// deathSpriteNene.animation.addByPrefix('idle', "Retry Text Loop", 24, true);
-		// deathSpriteNene.animation.addByPrefix('confirm', "Retry Text Confirm", 24, false);
-
-		// deathSpriteRetry.visible = false;
+		deathSpriteNene = new FlxSprite(0, 0);
+		var gf = PlayState.instance.currentStage.getGirlfriend();
+		deathSpriteNene.x = gf.originalPosition.x + 125;
+		deathSpriteNene.y = gf.originalPosition.y;
+		deathSpriteNene.frames = Paths.getSparrowAtlas("characters/NeneKnifeToss");
+		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
+		deathSpriteNene.visible = true;
+		deathSpriteNene.animation.finishCallback = function(name:String) {
+			deathSpriteNene.visible = false;
+		}
 	}
 
 	override function onNoteHit(event:NoteScriptEvent)
@@ -71,16 +75,18 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 		if (name == "firstDeath") {
+			createDeathSprites();
+
 			FlxG.state.subState.add(deathSpriteRetry);
-			deathSpriteRetry.x = this.x + 196.5;
-			deathSpriteRetry.y = this.y - 85;
+			FlxG.state.subState.add(deathSpriteNene);
+			deathSpriteNene.animation.play("throw");
 		} else if (name == "deathConfirm") {
 			trace(deathSpriteRetry);
 			deathSpriteRetry.animation.play('confirm');
 			// I think the glow makes the overall animation larger,
 			// but a plain FlxSprite doesn't have an animation offset option so we do it manually.
-			deathSpriteRetry.x -= 150;
-			deathSpriteRetry.y -= 150;
+			deathSpriteRetry.x -= 250;
+			deathSpriteRetry.y -= 200;
 
 			// Skip playing the animation.
 			return;
