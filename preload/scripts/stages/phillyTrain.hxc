@@ -5,7 +5,8 @@ import funkin.Conductor;
 import funkin.Paths;
 import funkin.play.stage.Stage;
 import funkin.PlayState;
-import funkin.shaderslmfao.BuildingShaders;
+import flixel.addons.display.FlxRuntimeShader;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
 
 class PhillyTrainStage extends Stage
 {
@@ -16,21 +17,21 @@ class PhillyTrainStage extends Stage
 
 	var LIGHT_COUNT:Int = 5;
 
-	var lightShader:BuildingShaders;
+	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
 
 	override function buildStage()
 	{
 		super.buildStage();
 
-		lightShader = new BuildingShaders();
+		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', [1.0]);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
 		FlxG.sound.list.add(trainSound);
 
 		for (i in 0...LIGHT_COUNT)
 		{
 			var light:FlxSprite = getNamedProp('lights' + i);
-			light.shader = lightShader.shader;
+			light.shader = lightShader;
 			light.visible = false;
 		}
 	}
@@ -53,7 +54,7 @@ class PhillyTrainStage extends Stage
 		super.onUpdate(event);
 		// Update beat lights
 		var shaderInput:Float = (Conductor.crochet / 1000) * event.elapsed * 1.5;
-		lightShader.update(shaderInput);
+		lightShader.scriptCall('update', [shaderInput]);
 
 		// Update train
 		if (trainMoving)
@@ -86,7 +87,7 @@ class PhillyTrainStage extends Stage
 		if (event.beat % 4 == 0)
 		{
 			// Reset opacity
-			lightShader.reset();
+			lightShader.scriptCall('reset');
 
 			// Switch to a different light
 			curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
