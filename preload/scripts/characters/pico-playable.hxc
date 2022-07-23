@@ -1,17 +1,20 @@
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.play.GameOverSubstate;
 import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter {
-	public function new() {
+	function new() {
 		super('pico-playable');
 	}
 
-	override function onCreate(event:ScriptEvent) {
+	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
+
+		GameOverSubstate.musicSuffix = 'Pico';
 	}
 
 	var deathSpriteRetry:FlxSprite;
@@ -43,7 +46,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	override function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:NoteScriptEvent)
 	{
 		holdTimer = 0;
 
@@ -60,7 +63,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	override function onNoteMiss(event:NoteScriptEvent)
+	function onNoteMiss(event:NoteScriptEvent)
 	{
 		// Override the miss note animation.
 		switch(event.note.data.noteKind) {
@@ -73,7 +76,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 		if (name == "firstDeath") {
 			createDeathSprites();
 
@@ -95,12 +98,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super.playAnimation(name, restart, ignoreOther);
 	}
 
-	override function onSongRetry(event:ScriptEvent)
+	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
 	}
 
-	override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
+	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
 		if (name == "firstDeath" && frameNumber == 36 - 1) {

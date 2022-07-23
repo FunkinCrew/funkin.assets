@@ -5,7 +5,7 @@ import funkin.play.stage.Stage;
 
 class SpookyMansionStage extends Stage
 {
-	public function new()
+	function new()
 	{
 		super('spookyMansion');
 	}
@@ -35,7 +35,7 @@ class SpookyMansionStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	override function fetchAssetPaths():Array<String>
+	function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 		results.push(Paths.sound('thunder_1'));
@@ -43,7 +43,7 @@ class SpookyMansionStage extends Stage
 		return results;
 	}
 
-	override function onBeatHit(event:SongTimeScriptEvent)
+	function onBeatHit(event:SongTimeScriptEvent)
 	{
 		super.onBeatHit(event);
 
@@ -60,7 +60,7 @@ class SpookyMansionStage extends Stage
 		}
 	}
 
-	override function onSongRetry(event:ScriptEvent)
+	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
 

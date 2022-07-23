@@ -10,7 +10,7 @@ import funkin.modding.base.ScriptedFlxRuntimeShader;
 
 class PhillyTrainStage extends Stage
 {
-	public function new()
+	function new()
 	{
 		super('phillyTrain');
 	}
@@ -20,7 +20,7 @@ class PhillyTrainStage extends Stage
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
 
-	override function buildStage()
+	function buildStage()
 	{
 		super.buildStage();
 
@@ -36,7 +36,7 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
-	override function fetchAssetPaths():Array<String>
+	function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 		results.push(Paths.sound('train_passes'));
@@ -49,7 +49,7 @@ class PhillyTrainStage extends Stage
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
 
-	override function onUpdate(event:UpdateScriptEvent):Void
+	function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
 		// Update beat lights
@@ -69,7 +69,7 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
-	override function onBeatHit(event:SongTimeScriptEvent):Void
+	function onBeatHit(event:SongTimeScriptEvent):Void
 	{
 		super.onBeatHit(event);
 		// Update train cooldown
@@ -144,7 +144,7 @@ class PhillyTrainStage extends Stage
 		startedMoving = false;
 	}
 
-	override function kill()
+	function kill()
 	{
 		super.kill();
 		lightShader = null;

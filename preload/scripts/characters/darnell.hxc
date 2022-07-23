@@ -5,11 +5,11 @@ import funkin.Paths;
 import flixel.FlxG;
 
 class DarnellCharacter extends SparrowCharacter {
-	public function new() {
+	function new() {
 		super('darnell');
 	}
 
-	override function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:NoteScriptEvent)
 	{
 		holdTimer = 0;
 

@@ -8,12 +8,12 @@ import funkin.shaderslmfao.OverlayBlend;
 
 class LimoRideStage extends Stage
 {
-	public function new()
+	function new()
 	{
 		super('limoRide');
 	}
 
-	override function buildStage()
+	function buildStage()
 	{
 		super.buildStage();
 
@@ -32,7 +32,7 @@ class LimoRideStage extends Stage
 		resetFastCar();
 	}
 
-	override function onBeatHit(event:SongTimeScriptEvent)
+	function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
@@ -76,7 +76,7 @@ class LimoRideStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	override function fetchAssetPaths():Array<String>
+	function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 
@@ -86,5 +86,21 @@ class LimoRideStage extends Stage
 		results.push(Paths.sound('carPass1'));
 
 		return results;
+	}
+
+	/**
+	 * Make sure the fast car is reset when the song restarts.
+	 */
+	function onSongRetry(event:ScriptEvent) {
+		super.onSongRetry(event);
+		resetFastCar();
+	}
+	
+	/**
+	 * Make sure the fast car is reset when the song restarts.
+	 */
+	function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onCountdownStart(event);
+		resetFastCar();
 	}
 }

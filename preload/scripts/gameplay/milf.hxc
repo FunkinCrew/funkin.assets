@@ -18,7 +18,7 @@ import flixel.tweens.FlxEase;
  */
 class MILFGameplayModule extends Module
 {
-	public function new()
+	function new()
 	{
 		super('vanilla-gameplay-milf');
 	}
@@ -58,11 +58,6 @@ class MILFGameplayModule extends Module
 	var GF_DUCK_DELAY = 250;
 
 	/**
-	 * GF ducks for this many seconds (not ms!!!)
-	 */
-	var GF_DUCK_DURATION = 0.25;
-
-	/**
 	 * The lamp will move this many pixels per millisecond towards Boyfriend/Henchmen.
 	 */
 	var LAMP_VELOCITY = 5.0;
@@ -94,8 +89,8 @@ class MILFGameplayModule extends Module
 			return false;
 
 		// Don't run the script if we aren't on Hard difficulty.
-		if (PlayState.storyDifficulty != 2)
-			return false;
+		// if (PlayState.storyDifficulty != 2)
+		// 	 return false;
 
 		// Don't run the script if we aren't on the song MILF
 		if (PlayState.currentSong.song.toLowerCase() != "milf")
@@ -275,12 +270,11 @@ class MILFGameplayModule extends Module
 				}
 
 				if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+					// Ensure this code only runs once.
+					hasCurrentGFLampDucked = true;
+
 					// Have GF play the duck animation.
 					PlayState.instance.currentStage.getGirlfriend().playAnimation('duck', true, true);
-					// Make sure she resets after the duration.
-					new FlxTimer().start(GF_DUCK_DURATION, function() {
-						PlayState.instance.currentStage.getGirlfriend().playAnimation('danceLeft', false);
-					});
 				}
 				
 				if (Conductor.songPosition >= (BOYFRIEND_LAMP_TIMES[nextBFLampIndex] + LAMP_RESET_DELAY)) {
@@ -445,6 +439,7 @@ class MILFGameplayModule extends Module
 
 	function hardResetSong() {
 		hasCurrentBFLampHit = false;
+		hasCurrentGFLampDucked = false;
 		nextBFLampIndex = 0;
 		nextHenchLampIndex = 0;
 		currentHenchmenIndex = 1;
@@ -464,7 +459,7 @@ class MILFGameplayModule extends Module
 	/**
 	 * Make sure the lamp is properly instantiated when the song starts.
 	 */
-	override function onCreate(event:ScriptEvent):Void
+	function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
 
@@ -478,9 +473,19 @@ class MILFGameplayModule extends Module
 	/**
 	 * Make sure the lamp is reset when the song restarts.
 	 */
-	override function onSongRetry(event:ScriptEvent)
+	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
+
+		// Properly reset lights and collision when restarting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
+	}
+
+	function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onCountdownStart(event);
 
 		// Properly reset lights and collision when restarting the song.
 		if (isCorrectSong())

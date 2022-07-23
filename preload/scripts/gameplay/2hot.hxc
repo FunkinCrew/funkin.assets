@@ -19,7 +19,7 @@ import flixel.math.FlxBasePoint;
  */
 class TwoHOTGameplayModule extends Module
 {
-	public function new()
+	function new()
 	{
 		super('vanilla-gameplay-2hot');
 	}
@@ -29,14 +29,14 @@ class TwoHOTGameplayModule extends Module
 	 */
 	var HEALTH_LOSS = 0.25 * 2;
 
-	override function onCountdownStart(event:SongLoadScriptEvent) {
+	function onCountdownStart(event:SongLoadScriptEvent) {
 		super.onSongLoaded(event);
 
 		populateCanEndTimes();
 		placeSpraycanPile();
 	}
 
-	override function onSongRetry(event:ScriptEvent) {
+	function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 
 		removeCans();
@@ -51,7 +51,7 @@ class TwoHOTGameplayModule extends Module
 		canQueue = [];
 	}
 
-	override function onStateChangeEnd(event:StateChangeScriptEvent) {
+	function onStateChangeEnd(event:StateChangeScriptEvent) {
 		super.onStateChangeEnd(event);
 
 		if ((Std.isOfType(event.targetState, PlayState))) {
@@ -85,7 +85,7 @@ class TwoHOTGameplayModule extends Module
 	 */
 	var canEndTimes:Array<Float> = [];
 
-	override function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
 		switch(event.note.data.noteKind) {
@@ -133,8 +133,6 @@ class TwoHOTGameplayModule extends Module
 		for (can in canQueue) {
 			var canState = can.scriptGet('currentState');
 			if (canState == STATE_IDLE) {
-				trace('Kicking can!');
-				trace(can.x + ': ' + can.y);
 				can.scriptSet('currentState', STATE_KICKED);
 				// Only set the first valid can.
 				return;
@@ -153,11 +151,12 @@ class TwoHOTGameplayModule extends Module
 					PlayState.instance.currentStage.getDad().y + 100
 				);
 				var endPos:FlxBasePoint = new FlxBasePoint(
-					PlayState.instance.currentStage.getBoyfriend().x,
+					PlayState.instance.currentStage.getBoyfriend().x + 100,
 					PlayState.instance.currentStage.getBoyfriend().y
 				);
 				var startArcTime:Float = Conductor.songPosition;
-				var endArcTime:Float = canEndTimes.pop();
+				var hitWindow = (10/60 * 1000);
+				var endArcTime:Float = canEndTimes.shift() + hitWindow; // pop removes the last element, so we need to shift.
 				// Remember, to call a custom function on a scripted class,
 				// you need to use scriptCall.
 				can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
@@ -171,7 +170,6 @@ class TwoHOTGameplayModule extends Module
 	function shootNextCan() {
 		for (can in canQueue) {
 			var canState = can.scriptGet('currentState');
-			trace('Can state: ' + canState);
 			if (canState == STATE_ARCING) {
 				can.scriptSet('currentState', STATE_SHOT);
 				// Only set the first valid can.
@@ -191,7 +189,7 @@ class TwoHOTGameplayModule extends Module
 		}
 	}
 	
-	override function onNoteMiss(event:NoteScriptEvent)
+	function onNoteMiss(event:NoteScriptEvent)
 	{
 		super.onNoteMiss(event.note);
 
@@ -225,7 +223,7 @@ class TwoHOTGameplayModule extends Module
 	var spraycanPile:FlxSprite = null;
 	function placeSpraycanPile() {
 		if (canEndTimes != null && canEndTimes.length > 0) {
-			trace('Placing spraycan pile...');
+			// trace('Placing spraycan pile...');
 			if (spraycanPile == null) {
 				spraycanPile = new FlxSprite(0, 0);
 				spraycanPile.loadGraphic(Paths.image('SpraycanPile'));

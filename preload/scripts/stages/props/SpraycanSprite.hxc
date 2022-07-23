@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import funkin.Conductor;
 import funkin.Paths;
+import funkin.util.BezierUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 import flixel.math.FlxBasePoint;
@@ -41,7 +42,7 @@ class SpraycanSprite extends FlxSprite
 
 	public var currentState:Int = 0;
 
-	public function new()
+	function new()
 	{
 		super(0, 0);
 
@@ -62,22 +63,26 @@ class SpraycanSprite extends FlxSprite
 		animation.addByPrefix('shot', 'can shot bend', 24, false);
 	}
 
-	public function setArcProperties(startPos:FlxBasePoint, startTime:Float, endPos:FlxBasePoint, endTime:Float)
+	function setArcProperties(startPos:FlxBasePoint, startTime:Float, endPos:FlxBasePoint, endTime:Float)
 	{
 		arcStartingPosition = startPos;
 		startingTime = startTime;
 		arcEndingPosition = endPos;
 		endingTime = endTime;
+
+		var xDiff = endPos.x - startPos.x;
+
+		trace('Duration: ' + (endTime - startTime));
 	}
 
-	public function playOptional(name:String) {
+	function playOptional(name:String) {
 		if (animation.curAnim == null || animation.curAnim.name != name) {
 			trace("Playing can animation: " + name);
 			animation.play(name);
 		}
 	}
 
-	override function update(elapsed:Float) {
+	function update(elapsed:Float) {
 		super.update(elapsed);
 
 		switch(currentState) {
@@ -114,7 +119,7 @@ class SpraycanSprite extends FlxSprite
 	function getCanProgress() {
 		var time:Float = Conductor.songPosition;
 		var progress:Float = (time - startingTime) / (endingTime - startingTime);
-		return progress;
+		return Math.min(progress, 1.0);
 	}
 
 	function updatePosition_IDLE() {
@@ -129,27 +134,55 @@ class SpraycanSprite extends FlxSprite
 		this.y = initialPosition.y - 200;
 	}
 
+	function updateCanArcPosition() {
+		var progress:Float = getCanProgress();
+
+		// Made this a piecewise quadratic function but there's probably a better way.
+		// I just futzed around in a graphing calculator until it looked good.
+		var yPosition = (progress < 0.8)
+			? -3.125 * progress * progress + 5 * progress + 0
+			: -12 * progress * progress + 12.1 * progress + 0;
+
+		// X is linear while Y is based on a piecewise curve.
+		this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
+		this.y = yPosition * -400 + arcStartingPosition.y;
+	}
+
 	function updatePosition_ARCING() {
 		// Lerp between start and end position.
 		var progress:Float = getCanProgress();
 		trace(progress);
-		this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
-		this.y = arcStartingPosition.y + (arcEndingPosition.y - arcStartingPosition.y) * progress;
+		updateCanArcPosition();
 	}
+
+	var shotPos:FlxBasePoint = null;
 
 	function updatePosition_SHOT() {
 		// Maintain can position.
 		// This makes early can shots explode far away and late ones explode closer,
 		// for basically no work!
-		this.x = this.x - 300;
-		this.y = this.y - 300;
+		if (shotPos == null) {
+			shotPos = new FlxBasePoint(this.x, this.y);
+			var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
+			debugIcon.makeGraphic(8, 8, 0xffff00ff);
+			FlxG.state.add(debugIcon);
+		}
+
+		this.x = shotPos.x - 325; // Apply animation offset.
+		this.y = shotPos.y - 100; // Apply animation offset.
 	}
 
 	function updatePosition_IMPACTED() {
 		// Maintain can position.
+		if (shotPos == null) {
+			shotPos = new FlxBasePoint(this.x, this.y);
+			var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
+			debugIcon.makeGraphic(8, 8, 0xffff00ff);
+			FlxG.state.add(debugIcon);
+		}
 
 		// 0,0 is actually very close if not exactly the correct offset.
-		this.x = this.x + 0;
-		this.y = this.y + 0;
+		this.x = shotPos.x + 0;
+		this.y = shotPos.y - 50;
 	}
 }

@@ -4,7 +4,7 @@ import funkin.play.PlayState;
 import flixel.FlxG;
 
 class NeneCharacter extends SparrowCharacter {
-	public function new() {
+	function new() {
 		super('nene');
 	}
 
@@ -77,7 +77,7 @@ class NeneCharacter extends SparrowCharacter {
 	var MAX_BLINK_DELAY:Int = 7;
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
-	override function dance(forceRestart:Bool) {
+	function dance(forceRestart:Bool) {
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
 			case STATE_DEFAULT:
@@ -102,7 +102,7 @@ class NeneCharacter extends SparrowCharacter {
 		}
 	}
 
-	override function onUpdate(event:UpdateScriptEvent) {
+	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
 		transitionState();
@@ -110,7 +110,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	var animationFinished:Bool = false;
 
-	override function onAnimationFinished(name:String) {
+	function onAnimationFinished(name:String) {
 		switch(currentState) {
 			case STATE_RAISE:
 				if (name == "raiseKnife") {
@@ -127,7 +127,7 @@ class NeneCharacter extends SparrowCharacter {
 		}
 	}
 
-	override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
+	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 		
 		switch(currentState) {

@@ -3,11 +3,11 @@ import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
 class ParentsChristmasCharacter extends SparrowCharacter {
-	public function new() {
+	function new() {
 		super('parents-christmas');
 	}
 
-	override function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:NoteScriptEvent)
 	{
 		if (!event.note.mustPress && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
