@@ -37,19 +37,18 @@ class MILFGameplayModule extends Module
 	/**
 	 * How many milliseconds to wait until resetting the lamp for the next hit.
 	 */
-	var LAMP_RESET_DELAY = 1000 * 1;
+	var LAMP_RESET_DELAY = 1000;
 
 	/**
-	 * How far off-screen the limo moves before returning.
+	 * How far off-screen, in pixels, the limo moves before returning.
 	 * Change this number to change the amount of time it takes for the limo to return.
 	 */
 	var LIMO_OFFSET_X = 2000;
 
 	/**
 	 * The limo will move this many pixels per millisecond offscreen.
+   * NO magic numbers!
 	 */
-	var LIMO_VELOCITY = 3.0;
-
 	var LIMO_BASE_X_POS = -200;
 
 	/**
@@ -59,13 +58,24 @@ class MILFGameplayModule extends Module
 
 	/**
 	 * The lamp will move this many pixels per millisecond towards Boyfriend/Henchmen.
+	 * We don't use tweening because we want to impact at a precise time.
 	 */
 	var LAMP_VELOCITY = 5.0;
 
 	/**
-	 * Increase this number to make the henchman die later.
+	 * Push the lamp's sprite forward or backward to accomodate for padding on the sprite.
 	 */
-	var HENCHMAN_COLLISION_OFFSET = 300;
+	var LAMP_X_OFFSET = 120;
+
+	/**
+	 * The X position relative to the henchman's center where the lamp is considered to be colliding with it.
+	 */
+	var HENCHMAN_COLLISION_X_OFFSET = 300;
+
+	/**
+   * The delay in milliseconds between the henchman impacting the lamp and the sound effect playing.
+	 */
+	var HENCHMAN_DEATH_SOUND_OFFSET = -300;
 
 	/*
 	 * The millisecond times at which the lamp passes by.
@@ -73,10 +83,6 @@ class MILFGameplayModule extends Module
 	var BOYFRIEND_LAMP_TIMES = [
 		800, // Beginning of the song for testing.
 		87900 // The duet down note.
-	];
-	var HENCHMEN_LAMP_TIMES = [
-		500,
-		87900
 	];
 
 	/**
@@ -265,15 +271,20 @@ class MILFGameplayModule extends Module
 
 		if (nextBFLampIndex < BOYFRIEND_LAMP_TIMES.length) {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
-			if (boyfriend != null) {
+			var nextLampTime = BOYFRIEND_LAMP_TIMES[nextBFLampIndex];
+			var nextLampReset = nextLampTime + LAMP_RESET_DELAY;
+			if (Conductor.songPosition >= nextLampReset) {
+				nextBFLampIndex++;
+				hasCurrentBFLampHit = false;
+			} else if (boyfriend != null) {
 				
-				if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] && !hasCurrentBFLampHit) {
+				if (Conductor.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
 					hasCurrentBFLampHit = true;
 				}
 
-				if (Conductor.songPosition >= BOYFRIEND_LAMP_TIMES[nextBFLampIndex] - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+				if (Conductor.songPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
 					// Ensure this code only runs once.
 					hasCurrentGFLampDucked = true;
 
@@ -281,17 +292,57 @@ class MILFGameplayModule extends Module
 					PlayState.instance.currentStage.getGirlfriend().playAnimation('duck', true, true);
 				}
 				
-				if (Conductor.songPosition >= (BOYFRIEND_LAMP_TIMES[nextBFLampIndex] + LAMP_RESET_DELAY)) {
-					nextBFLampIndex++;
-					hasCurrentBFLampHit = false;
-				}
 				// Move the lamp across the screen
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 				
 				var boyfriendXPos = boyfriend.x;
-				var lampDelay = BOYFRIEND_LAMP_TIMES[nextBFLampIndex] - Conductor.songPosition;
+				var lampDelay = nextLampTime - Conductor.songPosition;
 				var lampDistance = lampDelay * LAMP_VELOCITY;
-				lamp.x = boyfriendXPos - lampDistance;
+				lamp.x = boyfriendXPos - lampDistance - 120;
+
+				// Move hit henchmen with the lamp.
+				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
+					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+					if (henchmen.visible) {
+						trace('Move henchman with lamp');
+						henchmen.x = lamp.x + henchmen.animOffsets[0];
+					}
+				}
+
+				// Gib the henchmen if they're in the lamp.
+				if (currentHenchmenIndex <= HENCHMEN_COUNT) {
+					var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + currentHenchmenIndex);
+					var henchmanCenterX = henchman.x + (henchman.width / 2) + HENCHMAN_COLLISION_X_OFFSET;
+					var lampCenterX = lamp.x + (lamp.width / 2);
+					if (lampCenterX >= henchmanCenterX) {
+						// Lamp has reached the henchman.
+						
+						// True knocks the henchman back, false explodes them into gibs.
+						if (FlxG.random.bool()) {
+							// Move henchman along with lamp.
+							
+							if (FlxG.random.bool()) {
+							  	henchman.forceAnimationForDuration('hit1', 2.0);
+							} else {
+								henchman.forceAnimationForDuration('hit2', 2.0);
+							}
+						} else {
+							// Explode henchman into gibs.
+							gibHenchman(henchman);
+							henchman.visible = false;
+						}
+
+						// Play the gib sound if this is the first henchman.
+						if (currentHenchmenIndex == 1) {
+							FlxG.sound.play(Paths.sound('Henchmen_Wipe'), 1.0);
+						}
+						if (currentHenchmenIndex == HENCHMEN_COUNT) {
+							// Last henchman has been hit.
+							limoState = 1;
+						}
+						currentHenchmenIndex++;
+					}
+				}
 			}
 		} else {
 			// Stop doing lamp logic after the last lamp passes.
@@ -314,6 +365,9 @@ class MILFGameplayModule extends Module
 								// wait a second until new limo pulls up
 								new FlxTimer().start(1, function(_)
 								{
+									if (PlayState.instance.currentStage == null)
+										return;
+
 									limoState = 2;
 									isTweeningLimo = false;
 									currentHenchmenIndex = 1;
@@ -350,9 +404,9 @@ class MILFGameplayModule extends Module
 					
 					for (i in 1...(HENCHMEN_COUNT + 1)) {
 						var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
-						// henchman.x -= LIMO_VELOCITY;
+
 						// Set the position relative to the limo.
-						henchman.x = henchman.originalPosition.x + limo.x + 200;
+						henchman.x = henchman.originalPosition.x + limo.x - LIMO_BASE_X_POS;
 						if (i == 1) {
 							trace('Shifting henchmen back on screen: ' + henchman.x);
 						}
@@ -362,67 +416,17 @@ class MILFGameplayModule extends Module
 				{
 					isTweeningLimo = false;
 				}
-
 			}
 		}
-		if (nextHenchLampIndex < HENCHMEN_LAMP_TIMES.length) {
-			// The time when the next lamp hits.
-			var nextHenchLampTime = HENCHMEN_LAMP_TIMES[nextHenchLampIndex];
-			var nextHenchLampReset = nextHenchLampTime + LAMP_RESET_DELAY;
-			if (Conductor.songPosition >= nextHenchLampReset) {
-				nextHenchLampIndex++;
-			} else {
-				// Move the lamp across the screen
-				var lamp = PlayState.instance.currentStage.getNamedProp('henchmenLight');
-				var HENCHMAN_BASE_X_POS = 0;
-				var lampDelay = nextHenchLampTime - Conductor.songPosition;
-				var lampDistance = lampDelay * LAMP_VELOCITY;
-				lamp.x = HENCHMAN_BASE_X_POS - lampDistance;
 
-				// Move hit henchmen with the lamp.
-				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
-					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
-					if (henchmen.visible) {
-						trace('Move henchman with lamp');
-						henchmen.x = lamp.x + henchmen.animOffsets[0];
-					}
-				}
+		// Make sure the light pole is ALWAYS in the right place.
+		var lightPole = PlayState.instance.currentStage.getNamedProp('boyfriendLightPole');
+		if (lightPole != null) {
+			var light = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 
-				// Gib the henchmen if they're in the lamp.
-				if (currentHenchmenIndex <= HENCHMEN_COUNT) {
-					var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + currentHenchmenIndex);
-					var henchmanCenterX = henchman.x + (henchman.width / 2) + HENCHMAN_COLLISION_OFFSET;
-					var lampCenterX = lamp.x + (lamp.width / 2);
-					if (lampCenterX >= henchmanCenterX) {
-						// Lamp has reached the henchman.
-						
-						// True knocks the henchman back, false explodes them into gibs.
-						if (FlxG.random.bool()) {
-							// Move henchman along with lamp.
-							
-							if (FlxG.random.bool()) {
-							  	henchman.forceAnimationForDuration('hit1', 2.0);
-							} else {
-								henchman.forceAnimationForDuration('hit2', 2.0);
-							}
-						} else {
-							// Explode henchman into gibs.
-							gibHenchman(henchman);
-							henchman.visible = false;
-						}
-
-						// Play the gib sound if this is the first henchman.
-						if (currentHenchmenIndex == 1) {
-							FlxG.sound.play(Paths.sound('Henchmen_Wipe'), 1.0);
-						}
-						if (currentHenchmenIndex == HENCHMEN_COUNT) {
-							// Last henchman has been hit.
-							limoState = 1;
-						}
-						currentHenchmenIndex++;
-					}
-				}
-			}
+			// Add parallax offset to light pole.
+			var parallaxOffset = ((FlxG.width / 3) - light.x) * -0.05;
+			lightPole.x = light.x + parallaxOffset + LAMP_X_OFFSET * 1.5;
 		}
 	}
 
