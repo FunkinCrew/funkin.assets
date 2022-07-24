@@ -126,12 +126,16 @@ class SpraycanSprite extends FlxSprite
 		// Start at starting position.
 		this.x = initialPosition.x;
 		this.y = initialPosition.y;
+
+		this.visible = false;
 	}
 
 	function updatePosition_KICKED() {
 		// Move up to compensate for larger animation.
 		this.x = initialPosition.x;
-		this.y = initialPosition.y - 200;
+		this.y = initialPosition.y - 400;
+		
+		this.visible = true;
 	}
 
 	function updateCanArcPosition() {
@@ -163,9 +167,9 @@ class SpraycanSprite extends FlxSprite
 		// for basically no work!
 		if (shotPos == null) {
 			shotPos = new FlxBasePoint(this.x, this.y);
-			var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
-			debugIcon.makeGraphic(8, 8, 0xffff00ff);
-			FlxG.state.add(debugIcon);
+			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
+			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
+			// FlxG.state.add(debugIcon);
 		}
 
 		this.x = shotPos.x - 325; // Apply animation offset.
@@ -176,13 +180,13 @@ class SpraycanSprite extends FlxSprite
 		// Maintain can position.
 		if (shotPos == null) {
 			shotPos = new FlxBasePoint(this.x, this.y);
-			var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
-			debugIcon.makeGraphic(8, 8, 0xffff00ff);
-			FlxG.state.add(debugIcon);
+			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
+			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
+			// FlxG.state.add(debugIcon);
 		}
 
 		// 0,0 is actually very close if not exactly the correct offset.
-		this.x = shotPos.x + 0;
+		this.x = shotPos.x - 100;
 		this.y = shotPos.y - 50;
 	}
 }

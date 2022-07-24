@@ -47,7 +47,10 @@ class LimoRideStage extends Stage
 	function resetFastCar():Void
 	{
 		var fastCar = getNamedProp('fastCar');
-		
+	
+		if (fastCar == null)
+			return;
+
 		// Props are inactive by default.
 		// Set active to true so position is calculated based on velocity.
 		fastCar.active = true;

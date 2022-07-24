@@ -204,6 +204,7 @@ class MILFGameplayModule extends Module
 
 	function hardResetLimo() {
 		limoState = 0;
+		isTweeningLimo = false;
 		
 		var limo = PlayState.instance.currentStage.getNamedProp('bgLimo');
 		if (limoTween != null)
@@ -232,21 +233,22 @@ class MILFGameplayModule extends Module
 	var limoTween:FlxTween;
 	var isTweeningLimo:Bool = false;
 
-
 	function onPause(event:ScriptEvent)
 	{
 		super.onPause(event);
 
-		if (limoTween != null)
+		if (limoTween != null) {
 			limoTween.active = false;
+		}
 	}
 
 	function onResume(event:ScriptEvent)
 	{
 		super.onResume(event);
 
-		if (limoTween != null)
+		if (limoTween != null) {
 			limoTween.active = true;
+		}
 	}
 
 	function onUpdate(event:UpdateScriptEvent)
@@ -315,6 +317,7 @@ class MILFGameplayModule extends Module
 								currentHenchmenIndex = 1;
 											
 								for (i in 1...(HENCHMEN_COUNT + 1)) {
+									trace('Respawn henchmen ' + i + ' offscreen');
 									var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
 									henchman.visible = true;
 									henchman.animOffsets = [0, 0];
@@ -341,12 +344,20 @@ class MILFGameplayModule extends Module
 						isTweeningLimo = true;
 					}
 
+					
 					for (i in 1...(HENCHMEN_COUNT + 1)) {
-							var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
-							henchman.x -= LIMO_VELOCITY;
-							// FlxTween.tween(henchman, {x: henchman.originalPosition.x}, 3, {ease: FlxEase.quartOut});
+						var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+						henchman.x -= LIMO_VELOCITY;
+						if (i == 1)
+							trace('Shifting henchmen back on screen: ' + henchman.x);
+						// FlxTween.tween(henchman, {x: henchman.originalPosition.x}, 3, {ease: FlxEase.quartOut});
 					}
 				}
+				case 0:
+				{
+					isTweeningLimo = false;
+				}
+
 			}
 		}
 		if (nextHenchLampIndex < HENCHMEN_LAMP_TIMES.length) {

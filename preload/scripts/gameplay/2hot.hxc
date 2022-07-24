@@ -110,10 +110,12 @@ class TwoHOTGameplayModule extends Module
 				kneeNextCan();
 			case "weekend-1-cockgun": // lol
 				gunCocked = true;
+				new FlxTimer().start(1.0, function() {
+					gunCocked = false;
+				});
 			case "weekend-1-firegun":
 				if (gunCocked) {
 					trace('Firing gun!');
-					gunCocked = false;
 					shootNextCan();
 				} else {
 					trace('Cannot fire gun!');
@@ -182,6 +184,7 @@ class TwoHOTGameplayModule extends Module
 		for (can in canQueue) {
 			var canState = can.scriptGet('currentState');
 			if (canState == STATE_ARCING) {
+				spawnImpactParticle();
 				can.scriptSet('currentState', STATE_IMPACTED);
 				// Only set the first valid can.
 				return;
@@ -189,6 +192,20 @@ class TwoHOTGameplayModule extends Module
 		}
 	}
 	
+	function spawnImpactParticle() {
+		var impactParticle = new FlxSprite(0, 0);
+		impactParticle.frames = Paths.getSparrowAtlas('CanImpactParticle');
+		impactParticle.animation.addByPrefix('idle', 'CanImpactParticle0', 24, false);
+		impactParticle.animation.play('idle');
+		impactParticle.x = PlayState.instance.currentStage.getBoyfriend().x + 400;
+		impactParticle.y = PlayState.instance.currentStage.getBoyfriend().y - 200;
+		PlayState.instance.currentStage.add(impactParticle);
+
+		impactParticle.animation.finishCallback = function () {
+			impactParticle.kill();
+		};
+	}
+
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		super.onNoteMiss(event.note);
