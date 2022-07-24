@@ -37,7 +37,7 @@ class MILFGameplayModule extends Module
 	/**
 	 * How many milliseconds to wait until resetting the lamp for the next hit.
 	 */
-	var LAMP_RESET_DELAY = 1000 * 3;
+	var LAMP_RESET_DELAY = 1000 * 1;
 
 	/**
 	 * How far off-screen the limo moves before returning.
@@ -238,6 +238,7 @@ class MILFGameplayModule extends Module
 		super.onPause(event);
 
 		if (limoTween != null) {
+			trace("Pausing limo tween");
 			limoTween.active = false;
 		}
 	}
@@ -247,6 +248,7 @@ class MILFGameplayModule extends Module
 		super.onResume(event);
 
 		if (limoTween != null) {
+			trace('Resuming limo tween');
 			limoTween.active = true;
 		}
 	}
@@ -304,30 +306,29 @@ class MILFGameplayModule extends Module
 				{
 					if (!isTweeningLimo)
 					{
+						trace('Start pull-away tween');
 						limoTween = FlxTween.tween(limo, {x: 2000 + LIMO_BASE_X_POS}, 1, {ease:FlxEase.backIn, 
 							onComplete: function(_)
 							{
+								trace('Complete pull-away tween');
 								// wait a second until new limo pulls up
 								new FlxTimer().start(1, function(_)
 								{
 									limoState = 2;
 									isTweeningLimo = false;
+									currentHenchmenIndex = 1;
+									for (i in 1...(HENCHMEN_COUNT + 1)) {
+										trace('Respawn henchmen ' + i + ' offscreen');
+										var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+										henchman.visible = true;
+										henchman.animOffsets = [0, 0];
+										henchman.resetPosition();
+										henchman.x += 2000;
+										henchman.playAnimation('danceLeft', true);
+									}
 								});
-
-								currentHenchmenIndex = 1;
-											
-								for (i in 1...(HENCHMEN_COUNT + 1)) {
-									trace('Respawn henchmen ' + i + ' offscreen');
-									var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
-									henchman.visible = true;
-									henchman.animOffsets = [0, 0];
-									henchman.resetPosition();
-									henchman.x += 2000;
-									henchman.playAnimation('danceLeft', true);
-								}
-
-								
-							}});
+							}
+						});
 						isTweeningLimo = true;
 					}
 				}
@@ -335,22 +336,26 @@ class MILFGameplayModule extends Module
 				{
 					if (!isTweeningLimo)
 					{
+						trace('Start pull-back tween');
 						limoTween = FlxTween.tween(limo, {x: LIMO_BASE_X_POS}, 3, {
 							ease:FlxEase.backOut, 
 							onComplete:function(_)
 								{
+									trace('Complete pull-back tween');
 									limoState = 0;
 								}});
+
 						isTweeningLimo = true;
 					}
-
 					
 					for (i in 1...(HENCHMEN_COUNT + 1)) {
 						var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
-						henchman.x -= LIMO_VELOCITY;
-						if (i == 1)
+						// henchman.x -= LIMO_VELOCITY;
+						// Set the position relative to the limo.
+						henchman.x = henchman.originalPosition.x + limo.x + 200;
+						if (i == 1) {
 							trace('Shifting henchmen back on screen: ' + henchman.x);
-						// FlxTween.tween(henchman, {x: henchman.originalPosition.x}, 3, {ease: FlxEase.quartOut});
+						}
 					}
 				}
 				case 0:
@@ -378,6 +383,7 @@ class MILFGameplayModule extends Module
 				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
 					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
 					if (henchmen.visible) {
+						trace('Move henchman with lamp');
 						henchmen.x = lamp.x + henchmen.animOffsets[0];
 					}
 				}
