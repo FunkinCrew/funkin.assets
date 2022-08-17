@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "name": "Mommy Mearest",
-    "assetPath": "characters/Mom_Assets",
+    "name": "Mommy Mearest (Car)",
+    "assetPath": "characters/Mom",
     "singTime": 2.0,
     "healthIcon": {
         "id": "mom"
@@ -18,7 +18,7 @@
         },
         {
             "name": "singDOWN",
-            "prefix": "MOM DOWN POSE",
+            "prefix": "Mom Down Pose",
             "offsets": [20, -160]
         },
         {
@@ -28,7 +28,7 @@
         },
         {
             "name": "singRIGHT",
-            "prefix": "Mom Pose Left",
+            "prefix": "Mom Right Pose",
             "offsets": [10, -60]
         },
         {

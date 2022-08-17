@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Effects_Assets.png">
-	<!-- Created with Adobe Animate version 21.0.0.35450 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="blood 10000" x="881" y="456" width="75" height="190" frameX="0" frameY="-108" frameWidth="383" frameHeight="380"/>
 	<SubTexture name="blood 10001" x="214" y="344" width="131" height="200" frameX="-22" frameY="-53" frameWidth="383" frameHeight="380"/>
 	<SubTexture name="blood 10002" x="0" y="344" width="202" height="181" frameX="-46" frameY="-5" frameWidth="383" frameHeight="380"/>

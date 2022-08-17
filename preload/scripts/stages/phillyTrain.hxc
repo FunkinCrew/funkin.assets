@@ -24,7 +24,8 @@ class PhillyTrainStage extends Stage
 	{
 		super.buildStage();
 
-		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', [1.0]);
+		// NOTE: You pass the constructor variables directly, not as an array.
+		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
 		FlxG.sound.list.add(trainSound);
 

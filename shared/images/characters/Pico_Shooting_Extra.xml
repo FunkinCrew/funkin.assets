@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="Pico_Shooting_Extra.png" width="1910" height="1641">
+  <SubTexture name="Pico Shoot Far Arm0001" x="400" y="258" width="387" height="271" frameX="-24" frameY="-0" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0002" x="701" y="4" width="409" height="246" frameX="-0" frameY="-22" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0003" x="4" y="256" width="388" height="266" frameX="-28" frameY="-20" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0004" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0005" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0006" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0007" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0008" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0009" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0010" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0011" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0012" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0013" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0014" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Arm0015" x="1459" y="4" width="390" height="265" frameX="-26" frameY="-21" frameWidth="416" frameHeight="286" />
+  <SubTexture name="Pico Shoot Far Flare0001" x="1239" y="823" width="501" height="566" frameX="-134" frameY="-67" frameWidth="670" frameHeight="633" />
+  <SubTexture name="Pico Shoot Far Flare0002" x="4" y="537" width="670" height="519" frameX="-0" frameY="-0" frameWidth="670" frameHeight="633" />
+  <SubTexture name="Pico Shoot Hip Arm0001" x="795" y="258" width="308" height="274" frameX="-46" frameY="-0" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0002" x="795" y="258" width="308" height="274" frameX="-46" frameY="-0" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0003" x="4" y="4" width="343" height="238" frameX="-0" frameY="-42" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0004" x="355" y="4" width="338" height="244" frameX="-5" frameY="-36" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0005" x="1118" y="4" width="333" height="248" frameX="-9" frameY="-32" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0006" x="1118" y="4" width="333" height="248" frameX="-9" frameY="-32" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Arm0007" x="1118" y="4" width="333" height="248" frameX="-9" frameY="-32" frameWidth="354" frameHeight="280" />
+  <SubTexture name="Pico Shoot Hip Flare0001" x="1528" y="277" width="378" height="538" frameX="-124" frameY="-94" frameWidth="549" frameHeight="632" />
+  <SubTexture name="Pico Shoot Hip Flare0002" x="682" y="715" width="549" height="528" frameX="-0" frameY="-0" frameWidth="549" frameHeight="632" />
+  <SubTexture name="Pico Shoot Repeat Flare0001" x="1111" y="277" width="409" height="430" frameX="-112" frameY="-69" frameWidth="591" frameHeight="573" />
+  <SubTexture name="Pico Shoot Repeat Flare0002" x="4" y="1064" width="591" height="573" frameX="-0" frameY="-0" frameWidth="591" frameHeight="573" />
+</TextureAtlas>

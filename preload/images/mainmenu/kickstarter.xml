@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="kickstarter.png">
-	<!-- Created with Adobe Animate version 22.0.2.168 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="kickstarter idle0000" x="837" y="440" width="558" height="139"/>
 	<SubTexture name="kickstarter idle0001" x="837" y="440" width="558" height="139"/>
 	<SubTexture name="kickstarter idle0002" x="837" y="440" width="558" height="139"/>

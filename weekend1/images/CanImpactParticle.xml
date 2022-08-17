@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
 <TextureAtlas imagePath="CanImpactParticle.png" width="1342" height="347">
   <SubTexture name="CanImpactParticle0001" x="761" y="4"  width="300" height="246" frameX="-0" frameY="-45" frameWidth="423" frameHeight="339"/>
   <SubTexture name="CanImpactParticle0002" x="389" y="4"  width="364" height="327" frameX="-26" frameY="-4" frameWidth="423" frameHeight="339"/>

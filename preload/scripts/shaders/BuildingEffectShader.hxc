@@ -24,6 +24,7 @@ class BuildingEffectShader extends FlxRuntimeShader
 	function update(elapsed:Float):Void
 	{
 		setAlpha(alphaShit + effectSpeed * elapsed);
+		trace(this.alphaShit);
 	}
 
 	function reset()

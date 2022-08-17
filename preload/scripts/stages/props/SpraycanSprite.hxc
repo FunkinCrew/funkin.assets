@@ -77,7 +77,6 @@ class SpraycanSprite extends FlxSprite
 
 	function playOptional(name:String) {
 		if (animation.curAnim == null || animation.curAnim.name != name) {
-			trace("Playing can animation: " + name);
 			animation.play(name);
 		}
 	}
@@ -155,7 +154,6 @@ class SpraycanSprite extends FlxSprite
 	function updatePosition_ARCING() {
 		// Lerp between start and end position.
 		var progress:Float = getCanProgress();
-		trace(progress);
 		updateCanArcPosition();
 	}
 

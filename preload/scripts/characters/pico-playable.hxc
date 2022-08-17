@@ -4,7 +4,9 @@ import funkin.play.PlayState;
 import funkin.play.GameOverSubstate;
 import funkin.Paths;
 import flixel.FlxSprite;
+import funkin.modding.base.ScriptedFlxSprite;
 import flixel.FlxG;
+import flixel.group.FlxTypedSpriteGroup;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
@@ -15,6 +17,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super.onCreate(event);
 
 		GameOverSubstate.musicSuffix = 'Pico';
+		GameOverSubstate.blueBallSuffix = '-Pico';
+
+		createShootingExtraSprites();
 	}
 
 	var deathSpriteRetry:FlxSprite;
@@ -28,7 +33,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		deathSpriteRetry = new FlxSprite(0, 0);
 		deathSpriteRetry.x = this.x + 196.5;
 		deathSpriteRetry.y = this.y - 85;
-		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry_Text");
+		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry");
 		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
 		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
 
@@ -44,6 +49,35 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		deathSpriteNene.animation.finishCallback = function(name:String) {
 			deathSpriteNene.visible = false;
 		}
+	}
+
+	var shootingArm:FlxSprite;
+	var shootingFlare:FlxSprite;
+	function createShootingExtraSprites() {
+		shootingArm = new FlxSprite(0, 0);
+		shootingArm.x = this.x + 585;
+		shootingArm.y = this.y + 350;
+		shootingArm.zIndex = 200 - 1;
+		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
+		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
+		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
+		//shootingArm.visible = false;
+
+		shootingArm.origin.x = shootingArm.width;
+		shootingArm.origin.y = shootingArm.height;
+
+		PlayState.instance.currentStage.add(shootingArm);
+
+		shootingFlare = new FlxSprite(0, 0);
+		shootingFlare.x = this.x + 10;
+		shootingFlare.y = this.y + 10;
+		shootingFlare.zIndex = 10000;
+		shootingFlare.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
+		shootingFlare.animation.addByPrefix('far', "Pico Shoot Far Flare0", 24, false);
+		shootingFlare.animation.addByPrefix('repeat', "Pico Shoot Repeat Flare0", 24, false);
+		shootingFlare.visible = false;
+		
+		PlayState.instance.currentStage.add(shootingFlare);
 	}
 
 	function onNoteHit(event:NoteScriptEvent)
@@ -72,7 +106,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			case "weekend-1-firegun":
 				playCanExplodeAnim();
 			default:
-				super.onNoteHit(event);
+				super.onNoteMiss(event);
 		}
 	}
 
@@ -94,13 +128,28 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			// Skip playing the animation.
 			return;
 		}
-		
+
 		super.playAnimation(name, restart, ignoreOther);
+
+		if (shootingArm != null) {
+			if (this.getCurrentAnimation() == "shoot") {
+				if (!shootingArm.visible) {
+					// Using the .visible flag ITSELF as a one-shot! Sneaky.
+					shootingArm.animation.play("far");
+					// Calculate the shooting angle.
+					shootingArm.angle = FlxG.random.int(-45, 90);
+				}
+				shootingArm.visible = true;
+			} else {
+				shootingArm.visible = false;
+			}
+		}
 	}
 
 	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
+		clearCasings();
 	}
 
 	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
@@ -108,9 +157,37 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			deathSpriteRetry.animation.play('idle');
-		}
-		if (name == "firstDeath" && frameNumber == 36) {
 			deathSpriteRetry.visible = true;
+			// GameOverSubstate
+			FlxG.state.subState.startDeathMusic(1.0, false);
+		}
+
+		if (name == "cock" && frameNumber == 3) {
+			createCasing();
+		}
+	}
+
+	var casingGroup:FlxTypedSpriteGroup;
+
+	function createCasing() {
+		if (casingGroup == null) {
+			casingGroup = new FlxTypedSpriteGroup();
+			casingGroup.x = this.x + 250;
+			casingGroup.y = this.y + 100;
+			casingGroup.zIndex = 1000;
+			PlayState.instance.currentStage.add(casingGroup);
+		}
+
+		var casing = ScriptedFlxSprite.init('CasingSprite', [0, 0]);
+		if (casing != null)
+			casingGroup.add(casing);
+	}
+
+	function clearCasings() {
+		// Clear the casing group.
+		if (casingGroup != null) {
+			casingGroup.clear();
+			casingGroup = null;
 		}
 	}
 
@@ -133,5 +210,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function playCanExplodeAnim() {
 		this.playAnimation('shootMISS', true, true);
+		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
 	}
 }
