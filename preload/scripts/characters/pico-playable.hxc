@@ -7,6 +7,7 @@ import flixel.FlxSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import flixel.FlxG;
 import flixel.group.FlxTypedSpriteGroup;
+import funkin.modding.module.ModuleHandler;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
@@ -63,19 +64,31 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
 		//shootingArm.visible = false;
 
+		// Set the rotation point to the shoulder.
 		shootingArm.origin.x = shootingArm.width;
 		shootingArm.origin.y = shootingArm.height;
 
 		PlayState.instance.currentStage.add(shootingArm);
 
 		shootingFlare = new FlxSprite(0, 0);
-		shootingFlare.x = this.x + 10;
-		shootingFlare.y = this.y + 10;
+		shootingFlare.x = this.x + 250;
+		shootingFlare.y = this.y + 190;
 		shootingFlare.zIndex = 10000;
 		shootingFlare.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
 		shootingFlare.animation.addByPrefix('far', "Pico Shoot Far Flare0", 24, false);
 		shootingFlare.animation.addByPrefix('repeat', "Pico Shoot Repeat Flare0", 24, false);
 		shootingFlare.visible = false;
+
+		shootingFlare.animation.finishCallback = function(name:String) {
+			shootingFlare.visible = false;
+		}
+
+		// Set the rotation point to match the arm.
+		shootingFlare.origin.x = shootingArm.origin.x + shootingArm.x - shootingFlare.x;
+		shootingFlare.origin.y = shootingArm.origin.y + shootingArm.y - shootingFlare.y;
+
+		shootingFlare.active = true;
+		//shootingFlare.angularVelocity = 10-0;
 		
 		PlayState.instance.currentStage.add(shootingFlare);
 	}
@@ -137,13 +150,41 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 					// Using the .visible flag ITSELF as a one-shot! Sneaky.
 					shootingArm.animation.play("far");
 					// Calculate the shooting angle.
-					shootingArm.angle = FlxG.random.int(-45, 90);
+					shootingArm.angle = calculateShootingAngle();
+
+					// Only show the shooting flare once per animation.
+					shootingFlare.animation.play("far");
+					shootingFlare.angle = shootingArm.angle;
+					shootingFlare.visible = true;
 				}
 				shootingArm.visible = true;
 			} else {
 				shootingArm.visible = false;
 			}
 		}
+	}
+
+	function calculateShootingAngle() {
+		var twoHotModule = ModuleHandler.getModule("vanilla-gameplay-2hot");
+		if (twoHotModule == null) {
+			trace('Could not get 2hot module.');
+			return 0;
+		}
+
+		var targetCan = twoHotModule.scriptCall('getNextCanWithState', [3]);
+
+		var targetCanX = targetCan.x;
+		var targetCanY = targetCan.y;
+		var shootingArmX = shootingArm.x + shootingArm.origin.x;
+		var shootingArmY = shootingArm.y + shootingArm.origin.y;
+
+		var angleRad = Math.atan2(shootingArmY - targetCanY, shootingArmX - targetCanX
+			);
+		var angleDeg = angleRad * 180 / Math.PI - 15;
+
+		trace('Shooting angle: ' + angleDeg);
+
+		return angleDeg;
 	}
 
 	function onSongRetry(event:ScriptEvent)

@@ -131,64 +131,62 @@ class TwoHOTGameplayModule extends Module
 	public var STATE_SHOT:Int = 3;
 	public var STATE_IMPACTED:Int = 4;
 
-	function kickNextCan() {
+	function getNextCanWithState(desiredState:Int) {
 		for (can in canQueue) {
 			var canState = can.scriptGet('currentState');
-			if (canState == STATE_IDLE) {
-				can.scriptSet('currentState', STATE_KICKED);
-				// Only set the first valid can.
-				return;
+			if (canState == desiredState) {
+				return can;
 			}
+		}
+		return null;
+	}
+
+	function kickNextCan() {
+		var can = getNextCanWithState(STATE_IDLE);
+
+		if (can != null) {
+			can.scriptSet('currentState', STATE_KICKED);
 		}
 	}
 
 	function kneeNextCan() {
-		for (can in canQueue) {
-			var canState = can.scriptGet('currentState');
-			if (canState == STATE_KICKED) {
-				can.scriptSet('currentState', STATE_ARCING);
+		var can = getNextCanWithState(STATE_KICKED);
 
-				var startPos:FlxBasePoint = new FlxBasePoint(
-					PlayState.instance.currentStage.getDad().x + 300,
-					PlayState.instance.currentStage.getDad().y + 100
-				);
-				var endPos:FlxBasePoint = new FlxBasePoint(
-					PlayState.instance.currentStage.getBoyfriend().x + 100,
-					PlayState.instance.currentStage.getBoyfriend().y
-				);
-				var startArcTime:Float = Conductor.songPosition;
-				var hitWindow = (10/60 * 1000);
-				var endArcTime:Float = canEndTimes.shift() + hitWindow; // pop removes the last element, so we need to shift.
-				// Remember, to call a custom function on a scripted class,
-				// you need to use scriptCall.
-				can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
+		if (can != null) {
+			can.scriptSet('currentState', STATE_ARCING);
 
-				// Only set the first valid can.
-				return;
-			}
+			var startPos:FlxBasePoint = new FlxBasePoint(
+				PlayState.instance.currentStage.getDad().x + 300,
+				PlayState.instance.currentStage.getDad().y + 100
+			);
+			var endPos:FlxBasePoint = new FlxBasePoint(
+				PlayState.instance.currentStage.getBoyfriend().x + 100,
+				PlayState.instance.currentStage.getBoyfriend().y
+			);
+			var startArcTime:Float = Conductor.songPosition;
+			var hitWindow = (10/60 * 1000);
+			var endArcTime:Float = canEndTimes.shift() + hitWindow; // pop removes the last element, so we need to shift.
+			// Remember, to call a custom function on a scripted class,
+			// you need to use scriptCall.
+			can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
 		}
 	}
 
 	function shootNextCan() {
-		for (can in canQueue) {
-			var canState = can.scriptGet('currentState');
-			if (canState == STATE_ARCING) {
-				can.scriptSet('currentState', STATE_SHOT);
-				// Only set the first valid can.
-				return;
-			}
+		trace('ShootNextCan');
+		var can = getNextCanWithState(STATE_ARCING);
+
+		if (can != null) {
+			can.scriptSet('currentState', STATE_SHOT);
 		}
 	}
 
 	function missNextCan() {
-		for (can in canQueue) {
-			var canState = can.scriptGet('currentState');
-			if (canState == STATE_ARCING) {
-				spawnImpactParticle();
-				can.scriptSet('currentState', STATE_IMPACTED);
-				// Only set the first valid can.
-				return;
-			}
+		var can = getNextCanWithState(STATE_ARCING);
+
+		if (can != null) {
+			spawnImpactParticle();
+			can.scriptSet('currentState', STATE_IMPACTED);
 		}
 	}
 	
