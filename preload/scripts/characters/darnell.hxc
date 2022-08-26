@@ -22,6 +22,10 @@ class DarnellCharacter extends SparrowCharacter {
 					playKickCanAnim();
 				case "weekend-1-kneecan":
 					playKneeCanAnim();
+				case "weekend-1-kneecan-high":
+					playKneeCanAnim();
+				case "weekend-1-kneecan-low":
+					playKneeCanAnim();
 				default:
 					super.onNoteHit(event);
 			}

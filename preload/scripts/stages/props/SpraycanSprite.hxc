@@ -42,6 +42,8 @@ class SpraycanSprite extends FlxSprite
 
 	public var currentState:Int = 0;
 
+	var arcControl:FlxSprite = null;
+
 	function new()
 	{
 		super(0, 0);
@@ -61,6 +63,65 @@ class SpraycanSprite extends FlxSprite
 		animation.addByPrefix('bounce', 'can bounce off head', 24, false);
 		// Can that has been shot
 		animation.addByPrefix('shot', 'can shot bend', 24, false);
+
+		arcControl = new FlxSprite(0, 0);
+		arcControl.frames = Paths.getSparrowAtlas('SpraycanArc');
+		arcControl.animation.addByPrefix('primary', 'Can Kick Arc 10', 24, true);
+		arcControl.animation.addByPrefix('high', 'Can Kick Arc high0', 24, true);
+		arcControl.animation.addByPrefix('low', 'Can Kick Arc Shallow0', 24, true);
+
+		// We play the animation to get data from it,
+		// like the height of the curve and position at each frame.
+		// It needs to be IN the scene for the animation to play,
+		// but we don't want it to be visible.
+		arcControl.visible = false;
+		// FlxG.state.add(arcControl);
+	}
+
+	function getArcControlFrame(animationName:String, percent:Float):FlxBasePoint {
+		var animation = arcControl.animation.getByName(animationName);
+
+		trace('Animation: ' + animationName + ' ' + animation.frames.length);
+
+		// Interpolate between the two offsets
+		// For example, if we are 3.4 frames in, we want to return a value
+		// 40% of the way between the third and fourth frame.
+
+		var frameFraction = (percent * (animation.frames.length - 1)) % 1.0;
+
+		var prevFramePointer = Math.floor(percent * (animation.frames.length - 1));
+		var nextFramePointer = Math.ceil(percent * (animation.frames.length - 1));
+		
+		var prevFrameIndex = animation.frames[prevFramePointer];
+		var nextFrameIndex = animation.frames[nextFramePointer];
+
+		var prevFrame = arcControl.frames.frames[prevFrameIndex];
+		var nextFrame = arcControl.frames.frames[nextFrameIndex];
+		
+		var prevOffset = prevFrame.offset;
+		var nextOffset = nextFrame.offset;
+
+		var finalOffset = new FlxBasePoint(0, 0);
+		finalOffset.x = prevOffset.x + (nextOffset.x - prevOffset.x) * frameFraction;
+		finalOffset.y = prevOffset.y + (nextOffset.y - prevOffset.y) * frameFraction;
+
+		return finalOffset;
+	}
+
+	function getArcHeight(animationName:String) {
+		// TODO: This one causes an unhandled exception in Polymod and crashes the game.
+		// arcControl.animation.frames.frames[0].sourceSize.x
+		// It's wrong but we still need to handle the problem gracefully instead of crashing.
+		// TODO: Excluding a semicolon throws an "unexpected token" error and crashes the game.
+
+		var animation = arcControl.animation.getByName(animationName);
+		var animFramePointer = animation.frames[1];
+		var animFrame = arcControl.frames.frames[animFramePointer];
+		var animHeight = animFrame.sourceSize.y;
+		trace(animFrame);
+		trace('Height: ' + animHeight);
+
+		return animHeight;
 	}
 
 	function setArcProperties(startPos:FlxBasePoint, startTime:Float, endPos:FlxBasePoint, endTime:Float)
@@ -71,8 +132,6 @@ class SpraycanSprite extends FlxSprite
 		endingTime = endTime;
 
 		var xDiff = endPos.x - startPos.x;
-
-		trace('Duration: ' + (endTime - startTime));
 	}
 
 	function playOptional(name:String) {
@@ -137,9 +196,23 @@ class SpraycanSprite extends FlxSprite
 		this.visible = true;
 	}
 
+	// sprayCan.scriptSet('arcVariant', 'high');
+	var arcVariant:String = 'primary';
+
 	function updateCanArcPosition() {
 		var progress:Float = getCanProgress();
 
+		var arcFrameOffset = getArcControlFrame(arcVariant, progress);
+	
+		this.x = arcStartingPosition.x + arcFrameOffset.x;
+		this.y = arcStartingPosition.y + arcFrameOffset.y;
+
+		// The arc starting position is at the bottom left,
+		// so we need to adjust for the height of the arc.
+		// Note the height of the arc is different depending on the variant.
+		this.y -= getArcHeight(arcVariant);
+
+		/*
 		// Made this a piecewise quadratic function but there's probably a better way.
 		// I just futzed around in a graphing calculator until it looked good.
 		var yPosition = (progress < 0.8)
@@ -149,6 +222,7 @@ class SpraycanSprite extends FlxSprite
 		// X is linear while Y is based on a piecewise curve.
 		this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
 		this.y = yPosition * -400 + arcStartingPosition.y;
+		*/
 	}
 
 	function updatePosition_ARCING() {
@@ -178,12 +252,8 @@ class SpraycanSprite extends FlxSprite
 		// Maintain can position.
 		if (shotPos == null) {
 			shotPos = new FlxBasePoint(this.x, this.y);
-			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
-			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
-			// FlxG.state.add(debugIcon);
 		}
 
-		// 0,0 is actually very close if not exactly the correct offset.
 		this.x = shotPos.x - 100;
 		this.y = shotPos.y - 50;
 	}

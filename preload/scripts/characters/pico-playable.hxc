@@ -17,6 +17,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
+		// NOTE: this.x and this.y are not properly set here.
+
 		GameOverSubstate.musicSuffix = 'Pico';
 		GameOverSubstate.blueBallSuffix = '-Pico';
 
@@ -56,8 +58,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var shootingFlare:FlxSprite;
 	function createShootingExtraSprites() {
 		shootingArm = new FlxSprite(0, 0);
-		shootingArm.x = this.x + 585;
-		shootingArm.y = this.y + 350;
 		shootingArm.zIndex = 200 - 1;
 		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
 		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
@@ -67,6 +67,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Set the rotation point to the shoulder.
 		shootingArm.origin.x = shootingArm.width;
 		shootingArm.origin.y = shootingArm.height;
+
+		shootingArm.active = true;
+		// shootingArm.angularVelocity = 100;
 
 		PlayState.instance.currentStage.add(shootingArm);
 
@@ -97,13 +100,22 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	{
 		holdTimer = 0;
 
+		if (event.eventCanceled) {
+			// onNoteHit event was cancelled by the gameplay module.
+			return;
+		}
+
 		if (event.note.mustPress && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.data.noteKind) {
 				case "weekend-1-cockgun":
 					playCockGunAnim();
 				case "weekend-1-firegun":
-					playFireGunAnim();
+					playFireGunAnim(false);
+				case "weekend-1-firegun-far":
+					playFireGunAnim(false);
+				case "weekend-1-firegun-hip":
+					playFireGunAnim(true);
 				default:
 					super.onNoteHit(event);
 			}
@@ -118,6 +130,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				// playCockMissAnim();
 			case "weekend-1-firegun":
 				playCanExplodeAnim();
+			case "weekend-1-firegun-far":
+				playCanExplodeAnim();
+			case "weekend-1-firegun-hip":
+				playCanExplodeAnim();
 			default:
 				super.onNoteMiss(event);
 		}
@@ -131,7 +147,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			FlxG.state.subState.add(deathSpriteNene);
 			deathSpriteNene.animation.play("throw");
 		} else if (name == "deathConfirm") {
-			trace(deathSpriteRetry);
 			deathSpriteRetry.animation.play('confirm');
 			// I think the glow makes the overall animation larger,
 			// but a plain FlxSprite doesn't have an animation offset option so we do it manually.
@@ -145,18 +160,39 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super.playAnimation(name, restart, ignoreOther);
 
 		if (shootingArm != null) {
-			if (this.getCurrentAnimation() == "shoot") {
+			if (this.getCurrentAnimation() == "shootFar") {
 				if (!shootingArm.visible) {
-					// Using the .visible flag ITSELF as a one-shot! Sneaky.
-					shootingArm.animation.play("far");
-					// Calculate the shooting angle.
+					// Shooting arm has a different position in the Far animation.
+					shootingArm.x = this.x - 300;
+					shootingArm.y = this.y - 50;
 					shootingArm.angle = calculateShootingAngle();
 
+					shootingArm.animation.play("far");
+					// Calculate the shooting angle.
+					
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
 					shootingFlare.angle = shootingArm.angle;
 					shootingFlare.visible = true;
 				}
+				// Using the .visible flag ITSELF as a one-shot! Sneaky.
+				shootingArm.visible = true;
+			} else if (this.getCurrentAnimation() == "shootHip") {
+				if (!shootingArm.visible) {
+					// Shooting arm has a different position in the Hip animation.
+					shootingArm.x = this.x - 75; //+ 585;
+					shootingArm.y = this.y + 100; //+ 350;
+					shootingArm.angle = calculateShootingAngle();
+
+					shootingArm.animation.play("hip");
+					// Calculate the shooting angle.
+					
+					// Only show the shooting flare once per animation.
+					shootingFlare.animation.play("far");
+					shootingFlare.angle = shootingArm.angle;
+					shootingFlare.visible = true;
+				}
+				// Using the .visible flag ITSELF as a one-shot! Sneaky.
 				shootingArm.visible = true;
 			} else {
 				shootingArm.visible = false;
@@ -182,7 +218,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			);
 		var angleDeg = angleRad * 180 / Math.PI - 15;
 
-		trace('Shooting angle: ' + angleDeg);
+		// angleDeg = FlxG.random.int(-45, 90);
 
 		return angleDeg;
 	}
@@ -242,8 +278,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
-	function playFireGunAnim() {
-		this.playAnimation('shoot', true, true);
+	function playFireGunAnim(hip:Bool) {
+		this.playAnimation(hip ? 'shootHip' : 'shootFar', true, true);
 		FlxG.sound.play(Paths.soundRandom('Shoot_', 1, 4), 1.0);
 	}
 	/**

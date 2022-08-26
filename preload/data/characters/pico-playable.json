@@ -88,9 +88,15 @@
       "offsets": [0, 0]
     },
     {
-      "name": "shoot",
+      "name": "shootFar",
       "assetPath": "characters/Pico_Shooting",
       "prefix": "Pico Shoot Far Stub0",
+      "offsets": [-37, 14]
+    },
+    {
+      "name": "shootHip",
+      "assetPath": "characters/Pico_Shooting",
+      "prefix": "Pico Shoot Hip Stub0",
       "offsets": [-37, 14]
     },
     {

@@ -107,24 +107,36 @@ class TwoHOTGameplayModule extends Module
 			case "weekend-1-kickcan":
 				kickNextCan();
 			case "weekend-1-kneecan":
-				kneeNextCan();
+				kneeNextCan('primary');
+			case "weekend-1-kneecan-high":
+				kneeNextCan('high');
+			case "weekend-1-kneecan-low":
+				kneeNextCan('low');
 			case "weekend-1-cockgun": // lol
 				gunCocked = true;
 				new FlxTimer().start(1.0, function() {
 					gunCocked = false;
 				});
 			case "weekend-1-firegun":
-				if (gunCocked) {
-					trace('Firing gun!');
-					shootNextCan();
-				} else {
-					trace('Cannot fire gun!');
-					// The player cannot hit this note.
-					event.cancelEvent();
-				}
+				weekend1FireGun();
+			case "weekend-1-firegun-far":
+				weekend1FireGun();
+			case "weekend-1-firegun-hip":
+				weekend1FireGun();
 		}
 	}
 	
+	function weekend1FireGun() {
+		if (gunCocked) {
+			trace('Firing gun!');
+			shootNextCan();
+		} else {
+			trace('Cannot fire gun!');
+			// The player cannot hit this note.
+			event.cancelEvent();
+		}
+	}
+
 	public var STATE_IDLE:Int = 0;
 	public var STATE_KICKED:Int = 1;
 	public var STATE_ARCING:Int = 2;
@@ -149,7 +161,7 @@ class TwoHOTGameplayModule extends Module
 		}
 	}
 
-	function kneeNextCan() {
+	function kneeNextCan(variant) {
 		var can = getNextCanWithState(STATE_KICKED);
 
 		if (can != null) {
@@ -169,11 +181,12 @@ class TwoHOTGameplayModule extends Module
 			// Remember, to call a custom function on a scripted class,
 			// you need to use scriptCall.
 			can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
+
+			can.scriptSet('arcVariant', variant);
 		}
 	}
 
 	function shootNextCan() {
-		trace('ShootNextCan');
 		var can = getNextCanWithState(STATE_ARCING);
 
 		if (can != null) {
@@ -218,9 +231,22 @@ class TwoHOTGameplayModule extends Module
 				PlayState.instance.health -= HEALTH_LOSS;
 				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
 				PlayState.instance.health += 0.0775;
+			case "weekend-1-firegun-hip":
+				gunCocked = false;
+				missNextCan();
+				PlayState.instance.health -= HEALTH_LOSS;
+				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
+				PlayState.instance.health += 0.0775;
+			case "weekend-1-firegun-far":
+				gunCocked = false;
+				missNextCan();
+				PlayState.instance.health -= HEALTH_LOSS;
+				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
+				PlayState.instance.health += 0.0775;
 		}
 	}
 
+	var GUN_NOTES = ["weekend-1-firegun", "weekend-1-firegun-far", "weekend-1-firegun-hip"];
 	function populateCanEndTimes() {
 		canEndTimes = [];
 		if (PlayState.instance == null || PlayState.instance.inactiveNotes == null
@@ -229,7 +255,7 @@ class TwoHOTGameplayModule extends Module
 		}
 		var songNotes:Song = PlayState.instance.inactiveNotes;
 		for (note in songNotes) {
-			if (note.data.noteKind == "weekend-1-firegun") {
+			if (GUN_NOTES.contains(note.data.noteKind)) {
 				canEndTimes.push(note.data.strumTime);
 			}
 		}
@@ -238,7 +264,6 @@ class TwoHOTGameplayModule extends Module
 	var spraycanPile:FlxSprite = null;
 	function placeSpraycanPile() {
 		if (canEndTimes != null && canEndTimes.length > 0) {
-			// trace('Placing spraycan pile...');
 			if (spraycanPile == null) {
 				spraycanPile = new FlxSprite(0, 0);
 				spraycanPile.loadGraphic(Paths.image('SpraycanPile'));
