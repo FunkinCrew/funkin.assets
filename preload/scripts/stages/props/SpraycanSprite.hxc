@@ -1,11 +1,11 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.math.FlxBasePoint;
 import funkin.Conductor;
 import funkin.Paths;
 import funkin.util.BezierUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
-import flixel.math.FlxBasePoint;
 
 /**
  * A sprite which represents a spraycan flying through the air that Pico must shoot.
@@ -21,14 +21,17 @@ class SpraycanSprite extends FlxSprite
 	 * The position on screen that the spray can should start arcing at.
 	 */
 	public var arcStartingPosition:FlxPoint;
+
 	/**
 	 * The Conductor time at which the spray can should reach the ending position.
 	 */
-	 public var startingTime:Float;
+	public var startingTime:Float;
+
 	/**
 	 * The position on screen that the spray can should finish arcing at.
 	 */
 	public var arcEndingPosition:FlxPoint;
+
 	/**
 	 * The Conductor time at which the spray can should reach the ending position.
 	 */
@@ -78,10 +81,9 @@ class SpraycanSprite extends FlxSprite
 		// FlxG.state.add(arcControl);
 	}
 
-	function getArcControlFrame(animationName:String, percent:Float):FlxBasePoint {
+	function getArcControlFrame(animationName:String, percent:Float):FlxBasePoint
+	{
 		var animation = arcControl.animation.getByName(animationName);
-
-		trace('Animation: ' + animationName + ' ' + animation.frames.length);
 
 		// Interpolate between the two offsets
 		// For example, if we are 3.4 frames in, we want to return a value
@@ -91,13 +93,13 @@ class SpraycanSprite extends FlxSprite
 
 		var prevFramePointer = Math.floor(percent * (animation.frames.length - 1));
 		var nextFramePointer = Math.ceil(percent * (animation.frames.length - 1));
-		
+
 		var prevFrameIndex = animation.frames[prevFramePointer];
 		var nextFrameIndex = animation.frames[nextFramePointer];
 
 		var prevFrame = arcControl.frames.frames[prevFrameIndex];
 		var nextFrame = arcControl.frames.frames[nextFrameIndex];
-		
+
 		var prevOffset = prevFrame.offset;
 		var nextOffset = nextFrame.offset;
 
@@ -108,7 +110,8 @@ class SpraycanSprite extends FlxSprite
 		return finalOffset;
 	}
 
-	function getArcHeight(animationName:String) {
+	function getArcHeight(animationName:String)
+	{
 		// TODO: This one causes an unhandled exception in Polymod and crashes the game.
 		// arcControl.animation.frames.frames[0].sourceSize.x
 		// It's wrong but we still need to handle the problem gracefully instead of crashing.
@@ -118,9 +121,6 @@ class SpraycanSprite extends FlxSprite
 		var animFramePointer = animation.frames[1];
 		var animFrame = arcControl.frames.frames[animFramePointer];
 		var animHeight = animFrame.sourceSize.y;
-		trace(animFrame);
-		trace('Height: ' + animHeight);
-
 		return animHeight;
 	}
 
@@ -134,16 +134,20 @@ class SpraycanSprite extends FlxSprite
 		var xDiff = endPos.x - startPos.x;
 	}
 
-	function playOptional(name:String) {
-		if (animation.curAnim == null || animation.curAnim.name != name) {
+	function playOptional(name:String)
+	{
+		if (animation.curAnim == null || animation.curAnim.name != name)
+		{
 			animation.play(name);
 		}
 	}
 
-	function update(elapsed:Float) {
+	function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
-		switch(currentState) {
+		switch (currentState)
+		{
 			case STATE_IDLE:
 				playOptional('idle');
 				updatePosition_IDLE();
@@ -161,26 +165,32 @@ class SpraycanSprite extends FlxSprite
 				cleanup(1000);
 				playOptional('bounce');
 				updatePosition_IMPACTED();
-		}		
+		}
 	}
 
 	var startCleanupTime:Float = null;
-	function cleanup(delayMs:Float) {
-		if (startCleanupTime == null) {
+
+	function cleanup(delayMs:Float)
+	{
+		if (startCleanupTime == null)
+		{
 			startCleanupTime = Conductor.songPosition;
 		}
-		if (Conductor.songPosition > startCleanupTime + delayMs) {
+		if (Conductor.songPosition > startCleanupTime + delayMs)
+		{
 			kill();
 		}
 	}
 
-	function getCanProgress() {
+	function getCanProgress()
+	{
 		var time:Float = Conductor.songPosition;
 		var progress:Float = (time - startingTime) / (endingTime - startingTime);
 		return Math.min(progress, 1.0);
 	}
 
-	function updatePosition_IDLE() {
+	function updatePosition_IDLE()
+	{
 		// Start at starting position.
 		this.x = initialPosition.x;
 		this.y = initialPosition.y;
@@ -188,22 +198,23 @@ class SpraycanSprite extends FlxSprite
 		this.visible = false;
 	}
 
-	function updatePosition_KICKED() {
+	function updatePosition_KICKED()
+	{
 		// Move up to compensate for larger animation.
 		this.x = initialPosition.x;
 		this.y = initialPosition.y - 400;
-		
+
 		this.visible = true;
 	}
 
-	// sprayCan.scriptSet('arcVariant', 'high');
 	var arcVariant:String = 'primary';
 
-	function updateCanArcPosition() {
+	function updateCanArcPosition()
+	{
 		var progress:Float = getCanProgress();
 
 		var arcFrameOffset = getArcControlFrame(arcVariant, progress);
-	
+
 		this.x = arcStartingPosition.x + arcFrameOffset.x;
 		this.y = arcStartingPosition.y + arcFrameOffset.y;
 
@@ -213,19 +224,20 @@ class SpraycanSprite extends FlxSprite
 		this.y -= getArcHeight(arcVariant);
 
 		/*
-		// Made this a piecewise quadratic function but there's probably a better way.
-		// I just futzed around in a graphing calculator until it looked good.
-		var yPosition = (progress < 0.8)
-			? -3.125 * progress * progress + 5 * progress + 0
-			: -12 * progress * progress + 12.1 * progress + 0;
+			// Made this a piecewise quadratic function but there's probably a better way.
+			// I just futzed around in a graphing calculator until it looked good.
+			var yPosition = (progress < 0.8)
+				? -3.125 * progress * progress + 5 * progress + 0
+				: -12 * progress * progress + 12.1 * progress + 0;
 
-		// X is linear while Y is based on a piecewise curve.
-		this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
-		this.y = yPosition * -400 + arcStartingPosition.y;
-		*/
+			// X is linear while Y is based on a piecewise curve.
+			this.x = arcStartingPosition.x + (arcEndingPosition.x - arcStartingPosition.x) * progress;
+			this.y = yPosition * -400 + arcStartingPosition.y;
+		 */
 	}
 
-	function updatePosition_ARCING() {
+	function updatePosition_ARCING()
+	{
 		// Lerp between start and end position.
 		var progress:Float = getCanProgress();
 		updateCanArcPosition();
@@ -233,11 +245,13 @@ class SpraycanSprite extends FlxSprite
 
 	var shotPos:FlxBasePoint = null;
 
-	function updatePosition_SHOT() {
+	function updatePosition_SHOT()
+	{
 		// Maintain can position.
 		// This makes early can shots explode far away and late ones explode closer,
 		// for basically no work!
-		if (shotPos == null) {
+		if (shotPos == null)
+		{
 			shotPos = new FlxBasePoint(this.x, this.y);
 			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
 			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
@@ -248,9 +262,11 @@ class SpraycanSprite extends FlxSprite
 		this.y = shotPos.y - 100; // Apply animation offset.
 	}
 
-	function updatePosition_IMPACTED() {
+	function updatePosition_IMPACTED()
+	{
 		// Maintain can position.
-		if (shotPos == null) {
+		if (shotPos == null)
+		{
 			shotPos = new FlxBasePoint(this.x, this.y);
 		}
 
