@@ -1,0 +1,108 @@
+import flixel.FlxG;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.character.CharacterType;
+import funkin.play.character.SparrowCharacter;
+
+class PicoBlazinCharacter extends SparrowCharacter
+{
+	function new()
+	{
+		super('pico-blazin');
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		// Override the hit note animation.
+
+		// Each note type is named from Pico's perspective (to keep myself sane).
+		switch (event.note.data.noteKind)
+		{
+			case "weekend-1-punchlow":
+				playPunchLowAnim();
+			case "weekend-1-punchlowblocked":
+				playPunchLowAnim();
+			case "weekend-1-punchhigh":
+				playPunchHighAnim();
+			case "weekend-1-punchhighblocked":
+				playPunchHighAnim();
+			case "weekend-1-blockhigh":
+				playBlockHitAnim();
+			case "weekend-1-dodgelow":
+				playSpinAnim();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		// Override the hit note animation.
+		switch (event.note.data.noteKind)
+		{
+			case "weekend-1-punchlow":
+				playPunchLowAnim();
+			case "weekend-1-punchlowblocked":
+				playPunchLowAnim();
+			case "weekend-1-punchhigh":
+				playPunchHighAnim();
+			case "weekend-1-punchhighblocked":
+				playPunchHighAnim();
+			case "weekend-1-blockhigh":
+				playHitHighAnim();
+			case "weekend-1-dodgelow":
+				playHitLowAnim();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function playBeforeUppercutAnim()
+	{
+		this.playAnimation('beforeUppercut', true, true);
+	}
+
+	function playBlockHitAnim()
+	{
+		this.playAnimation('blockHit', true, true);
+	}
+
+	function playFakeOutAnim()
+	{
+		this.playAnimation('fakeOut', true, true);
+	}
+
+	function playHitHighAnim()
+	{
+		this.playAnimation('hitHigh', true, true);
+	}
+
+	function playHitLowAnim()
+	{
+		this.playAnimation('hitLow', true, true);
+	}
+
+	function playPunchHighAnim()
+	{
+		this.playAnimation('punchHigh', true, true);
+	}
+
+	function playPunchLowAnim()
+	{
+		this.playAnimation('punchLow', true, true);
+	}
+
+	function playSpinAnim()
+	{
+		this.playAnimation('spin', true, true);
+	}
+
+	function playUppercutAnim()
+	{
+		this.playAnimation('uppercut', true, true);
+	}
+}

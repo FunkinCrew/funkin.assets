@@ -3,6 +3,7 @@ import flixel.FlxSprite;
 import flixel.math.FlxBasePoint;
 import funkin.Conductor;
 import funkin.Paths;
+import funkin.play.PlayState;
 import funkin.util.BezierUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
@@ -189,11 +190,24 @@ class SpraycanSprite extends FlxSprite
 		return Math.min(progress, 1.0);
 	}
 
+	function getBoyfriendAngle()
+	{
+		var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+		var angleRad = Math.atan2(boyfriend.y - y, boyfriend.x - x);
+		var angleDeg = angleRad * 180.0 / Math.PI;
+
+		angleDeg -= 15;
+
+		return angleDeg;
+	}
+
 	function updatePosition_IDLE()
 	{
 		// Start at starting position.
 		this.x = initialPosition.x;
 		this.y = initialPosition.y;
+		this.angle = 0;
+		this.angularVelocity = 0;
 
 		this.visible = false;
 	}
@@ -203,6 +217,8 @@ class SpraycanSprite extends FlxSprite
 		// Move up to compensate for larger animation.
 		this.x = initialPosition.x;
 		this.y = initialPosition.y - 400;
+		this.angle = 0;
+		this.angularVelocity = 0;
 
 		this.visible = true;
 	}
@@ -241,9 +257,24 @@ class SpraycanSprite extends FlxSprite
 		// Lerp between start and end position.
 		var progress:Float = getCanProgress();
 		updateCanArcPosition();
+
+		// this.angle = 0;
+		this.angularVelocity = 50; // # degrees per second.
 	}
 
 	var shotPos:FlxBasePoint = null;
+
+	function setShotRotationOrigin()
+	{
+		var anim = this.animation.getByName('shot');
+		var animFramePointer = anim.frames[0];
+		var animFrame = this.frames.frames[animFramePointer];
+		var animWidth = animFrame.sourceSize.x;
+		var animHeight = animFrame.sourceSize.y;
+
+		this.origin.x = animWidth / 2;
+		this.origin.y = animHeight / 2;
+	}
 
 	function updatePosition_SHOT()
 	{
@@ -256,10 +287,13 @@ class SpraycanSprite extends FlxSprite
 			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
 			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
 			// FlxG.state.add(debugIcon);
+			setShotRotationOrigin();
+			this.angle = getBoyfriendAngle();
 		}
 
 		this.x = shotPos.x - 325; // Apply animation offset.
 		this.y = shotPos.y - 100; // Apply animation offset.
+		this.angularVelocity = 0;
 	}
 
 	function updatePosition_IMPACTED()
@@ -272,5 +306,7 @@ class SpraycanSprite extends FlxSprite
 
 		this.x = shotPos.x - 100;
 		this.y = shotPos.y - 50;
+		this.angle = 0;
+		this.angularVelocity = 0;
 	}
 }

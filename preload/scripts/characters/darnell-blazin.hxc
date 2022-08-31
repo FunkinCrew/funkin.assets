@@ -1,0 +1,113 @@
+import flixel.FlxG;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.character.CharacterType;
+import funkin.play.character.SparrowCharacter;
+
+class DarnellBlazinCharacter extends SparrowCharacter
+{
+	function new()
+	{
+		super('darnell-blazin');
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		// Override the hit note animation.
+		switch (event.note.data.noteKind)
+		{
+			case "weekend-1-punchlow":
+				playHitLowAnim();
+			case "weekend-1-punchlowblocked":
+				playDodgeAnim();
+			case "weekend-1-punchhigh":
+				playHitHighAnim();
+			case "weekend-1-punchhighblocked":
+				playBlockAnim();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		// Override the hit note animation.
+		switch (event.note.data.noteKind)
+		{
+			case "weekend-1-punchlow":
+				playDodgeAnim();
+			case "weekend-1-punchlowblocked":
+				playDodgeAnim();
+			case "weekend-1-punchhigh":
+				playBlockHitAnim();
+			case "weekend-1-punchhighblocked":
+				playBlockHitAnim();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function playBeforeUppercutAnim()
+	{
+		this.playAnimation('beforeUppercut', true, true);
+	}
+
+	function playBlockHitAnim()
+	{
+		this.playAnimation('blockHit', true, true);
+	}
+
+	function playCringeAnim()
+	{
+		this.playAnimation('cringe', true, true);
+	}
+
+	function playDodgeAnim()
+	{
+		this.playAnimation('dodge', true, true);
+	}
+
+	function playFakeOutAnim()
+	{
+		this.playAnimation('fakeOut', true, true);
+	}
+
+	function playHitHighAnim()
+	{
+		this.playAnimation('hitHigh', true, true);
+	}
+
+	function playHitLowAnim()
+	{
+		this.playAnimation('hitLow', true, true);
+	}
+
+	function playLaughingAnim()
+	{
+		this.playAnimation('laughing', true, true);
+	}
+
+	function playPunchHighAnim()
+	{
+		this.playAnimation('punchHigh', true, true);
+	}
+
+	function playPunchLowAnim()
+	{
+		this.playAnimation('punchLow', true, true);
+	}
+
+	function playSpinAnim()
+	{
+		this.playAnimation('spin', true, true);
+	}
+
+	function playUppercutAnim()
+	{
+		this.playAnimation('uppercut', true, true);
+	}
+}
