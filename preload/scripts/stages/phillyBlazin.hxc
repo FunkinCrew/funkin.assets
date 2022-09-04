@@ -1,0 +1,77 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import funkin.Paths;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.shaderslmfao.OverlayBlend;
+import openfl.filters.ShaderFilter;
+
+class PhillyBlazinStage extends Stage
+{
+	function new()
+	{
+		super('phillyBlazin');
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+
+		this.hasHidden = false;
+		this.hasDarkened = false;
+	}
+
+	var hasHidden = false;
+	var hasDarkened = false;
+
+	function onUpdate(event:ScriptEvent):Void
+	{
+		if (!this.hasHidden)
+		{
+			this.hasHidden = true;
+			hideEnemyStrumline();
+			centerPlayerStrumline();
+		}
+		if (!this.hasDarkened && FlxG.camera != null)
+		{
+			darkenCamera();
+			this.hasDarkened = true;
+		}
+	}
+
+	var multiplyBG:FlxRuntimeShader = null;
+	var multiplyChar:FlxRuntimeShader = null;
+
+	function darkenCamera()
+	{
+		multiplyBG = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF333333);
+		multiplyChar = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF999999);
+
+		PlayState.instance.currentStage.setShader(multiplyBG);
+		PlayState.instance.currentStage.getBoyfriend().shader = multiplyChar;
+		PlayState.instance.currentStage.getDad().shader = multiplyChar;
+	}
+
+	function hideEnemyStrumline()
+	{
+		var enemyStrumline:FlxSprite = PlayState.instance.enemyStrumline;
+		if (enemyStrumline != null)
+		{
+			for (arrow in enemyStrumline.members)
+			{
+				arrow.visible = false;
+			}
+		}
+	}
+
+	function centerPlayerStrumline()
+	{
+		var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
+		if (playerStrumline != null)
+		{
+			playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
+		}
+	}
+}

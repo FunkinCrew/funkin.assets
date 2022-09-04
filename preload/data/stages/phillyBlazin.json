@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "name": "Philly (Streets Blazin)",
+  "cameraZoom": 0.9,
+  "props": [
+    {
+      "name": "streetsWhole",
+      "assetPath": "phillyStreets/streetsWhole",
+      "position": [-500, 0],
+      "scale": [1, 1],
+      "scroll": [0.1, 0.1],
+      "zIndex": 10
+    },
+    {
+      "name": "highWay",
+      "assetPath": "phillyStreets/highWay",
+      "position": [-300, -100],
+      "scale": [0.5, 0.5],
+      "scroll": [0.1, 0.1],
+      "zIndex": 20
+    },
+    {
+      "name": "streetLight",
+      "assetPath": "phillyStreets/streetLight",
+      "position": [1000, 300],
+      "scale": [0.5, 0.5],
+      "scroll": [0.8, 0.8],
+      "zIndex": 30
+    },
+    {
+      "name": "fence",
+      "assetPath": "phillyStreets/street",
+      "position": [-500, 0],
+      "scale": [0.5, 0.5],
+      "scroll": [1, 1],
+      "zIndex": 40
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [770, 450]
+    },
+    "gf": { "zIndex": 100, "position": [0, 0] },
+    "dad": { "zIndex": 200, "position": [100, 400] }
+  }
+}

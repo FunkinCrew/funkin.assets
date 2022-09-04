@@ -1,5 +1,6 @@
 import flixel.FlxG;
 import funkin.Paths;
+import funkin.play.GameOverSubstate;
 import funkin.play.PlayState;
 import funkin.play.character.CharacterType;
 import funkin.play.character.SparrowCharacter;
@@ -9,6 +10,17 @@ class PicoBlazinCharacter extends SparrowCharacter
 	function new()
 	{
 		super('pico-blazin');
+	}
+
+	function onCreate(event:ScriptEvent)
+	{
+		trace('CallSuperOnCreate');
+		super.onCreate(event);
+
+		// NOTE: this.x and this.y are not properly set here.
+
+		GameOverSubstate.musicSuffix = 'Pico';
+		GameOverSubstate.blueBallSuffix = '-Pico';
 	}
 
 	function onNoteHit(event:NoteScriptEvent)
@@ -31,9 +43,11 @@ class PicoBlazinCharacter extends SparrowCharacter
 			case "weekend-1-blockhigh":
 				playBlockHitAnim();
 			case "weekend-1-dodgelow":
-				playSpinAnim();
+				playDodgeAnim();
+			case "weekend-1-fakeout":
+				playFakeOutAnim();
 			default:
-				super.onNoteHit(event);
+				// super.onNoteHit(event);
 		}
 	}
 
@@ -56,53 +70,111 @@ class PicoBlazinCharacter extends SparrowCharacter
 				playHitHighAnim();
 			case "weekend-1-dodgelow":
 				playHitLowAnim();
+			case "weekend-1-fakeout":
+				playFakeOutAnim();
 			default:
-				super.onNoteHit(event);
+				// super.onNoteMiss(event);
 		}
 	}
+
+	function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
+	{
+		playHitHighAnim();
+		trace(getDarnell().characterId);
+		getDarnell().scriptCall("playPunchHighAnim", []);
+	}
+
+	override function onAnimationFinished(name:String)
+	{
+		if (name == "fakeOut")
+		{
+			playLaughingAnim();
+		}
+		super.onAnimationFinished(name);
+	}
+
+	function getDarnell()
+	{
+		return PlayState.instance.currentStage.getDad();
+	}
+
+	function moveToBack()
+	{
+		this.zIndex = 200;
+		PlayState.instance.currentStage.refresh();
+	}
+
+	function moveToFront()
+	{
+		this.zIndex = 300;
+		PlayState.instance.currentStage.refresh();
+	}
+
+	// ANIMATIONS
 
 	function playBeforeUppercutAnim()
 	{
 		this.playAnimation('beforeUppercut', true, true);
+		moveToFront();
 	}
 
 	function playBlockHitAnim()
 	{
 		this.playAnimation('blockHit', true, true);
+		moveToBack();
+	}
+
+	function playDodgeAnim()
+	{
+		this.playAnimation('dodge', true, true);
+		moveToBack();
 	}
 
 	function playFakeOutAnim()
 	{
 		this.playAnimation('fakeOut', true, true);
+		moveToFront();
 	}
 
 	function playHitHighAnim()
 	{
 		this.playAnimation('hitHigh', true, true);
+		moveToBack();
 	}
 
 	function playHitLowAnim()
 	{
 		this.playAnimation('hitLow', true, true);
+		moveToBack();
+	}
+
+	function playLaughingAnim()
+	{
+		this.playAnimation('laughing', true, true);
+		moveToFront();
 	}
 
 	function playPunchHighAnim()
 	{
 		this.playAnimation('punchHigh', true, true);
+		moveToFront();
 	}
 
 	function playPunchLowAnim()
 	{
 		this.playAnimation('punchLow', true, true);
+		moveToFront();
 	}
 
 	function playSpinAnim()
 	{
 		this.playAnimation('spin', true, true);
+		moveToBack();
 	}
 
 	function playUppercutAnim()
 	{
 		this.playAnimation('uppercut', true, true);
+		moveToFront();
 	}
 }

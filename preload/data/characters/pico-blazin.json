@@ -25,6 +25,11 @@
       "offsets": [0, 0]
     },
     {
+      "name": "dodge",
+      "prefix": "Pico Dodge0",
+      "offsets": [0, 0]
+    },
+    {
       "name": "fakeOut",
       "prefix": "Pico Fake Out0",
       "offsets": [0, 0]
