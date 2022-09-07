@@ -1,6 +1,7 @@
 {
   "song": {
     "speed": {
+      "easy": 1.5,
       "normal": 1.5,
       "hard": 1.5
     },

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dialog width="500" title="About">
+	<hbox width="100%">
+		<label text="32px bold" horizontalAlign="center">Friday Night Funkin'</label>
+		<label horizontalAlign="center">Chart Editor</label>
+	</hbox>
+</dialog>

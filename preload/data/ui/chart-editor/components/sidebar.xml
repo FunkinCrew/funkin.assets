@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hbox width="300" height="100%" horizontalAlign="right">
+	<style>
+			.collapse-button {
+				border-radius: 0px;
+				padding: 4px;
+			}
+		</style>
+	<tabview id="sidebarTabView" width="300" height="90%">
+		<box text="Page 1" icon="haxeui-core/styles/default/haxeui_tiny.png">
+			<button text="Page 1" />
+		</box>
+		<box text="Page 2" icon="haxeui-core/styles/default/haxeui_tiny.png">
+			<button text="Page 2" />
+		</box>
+		<box text="Page 3" icon="haxeui-core/styles/default/haxeui_tiny.png">
+			<button text="Page 3" />
+		</box>
+		<box text="Page 4" icon="haxeui-core/styles/default/haxeui_tiny.png">
+			<button text="Page 4" />
+		</box>
+	</tabview>
+</hbox>

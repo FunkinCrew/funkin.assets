@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menubar width="100%" paddingLeft="172">
+  <style>
+	.menu {
+    // The width of the individual menu items
+		width: 120px;
+	}
+	</style>
+  <menu text="File">
+    <menu-item text="New" shortcutText="Ctrl+N" />
+    <menu-separator />
+    <menu-item text="Open File..." shortcutText="Ctrl+O" />
+    <menu text="Open Recent">
+      <menu-item text="D:/Funkin/charts/expurgated.json" />
+      <menu-item text="D:/Funkin/charts/fatal-error.json" />
+      <menu-item text="C:/Downloads/bad-bash.json" />
+      <menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
+    </menu>
+    <menu-separator />
+    <menu-item text="Save" shortcutText="Ctrl+S" />
+    <menu-item text="Save As..." shortcutText="Ctrl+Shift+S" />
+    <menu-separator />
+    <menu-item text="Exit" shortcutText="Ctrl+Q" />
+  </menu>
+  <menu text="View">
+    <menu-item text="Toggle Sidebar" shortcutText="B" />
+  </menu>
+  <menu text="Song">
+    <menu-checkbox disabled="true" text="Enable Metronome" />
+    <menu-checkbox disabled="true" text="Enable Player Note Sounds" />
+    <menu-checkbox disabled="true" text="Enable Opponent Note Sounds" />
+    <menu-separator />
+    <vbox width="100%" style="padding: 5px;">
+      <label text="Instrumental" />
+      <horizontal-slider width="100%" majorTicks="10" minorTicks="5" pos="70" />
+      <label text="Vocals - Darnell"/>
+      <horizontal-slider width="100%" majorTicks="10" minorTicks="5" pos="20" />
+      <label text="Vocals - Pico"/>
+      <horizontal-slider width="100%" majorTicks="10" minorTicks="5" pos="50" />
+    </vbox>
+    <menu-separator />
+    <menu-item text="Song Properties" />
+  </menu>
+  <menu text="Test">
+    <menu-item disabled="true" text="Test in Play State" shortcutText="Enter" />
+  </menu>
+  <menu text="Help">
+    <menu-item id="menuItemUserGuide" text="User Guide" />
+    <menu-item id="menuItemAbout" text="About..." />
+  </menu>
+</menubar>
