@@ -9,6 +9,11 @@
                 </data>
             </dropdown>
         </vbox>
+        <section-header text="CHARACTER"/>
+        <dropdown id='characterDropdown' width = "200">
+            <data>
+            </data>
+        </dropdown>
     </vbox>
     <vbox>
 
