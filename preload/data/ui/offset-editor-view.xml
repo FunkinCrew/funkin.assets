@@ -1,0 +1,16 @@
+<hbox id="funny">
+    <vbox>
+        <section-header text="Modes"/>
+        <vbox>
+            <dropdown id='swapper' width="200">
+                <data>
+                    <item curView="SPRITESHEET" text="SPRITESHEET" tooltip="Shortcut: 1"/>
+                    <item curView="OFFSETSHIT" text="ANIMATIONS" tooltip="Shortcut: 2"/>
+                </data>
+            </dropdown>
+        </vbox>
+    </vbox>
+    <vbox>
+
+    </vbox>
+</hbox>
