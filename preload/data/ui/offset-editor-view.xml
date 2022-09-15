@@ -1,0 +1,21 @@
+<hbox id="funny">
+    <vbox>
+        <section-header text="Modes"/>
+        <vbox>
+            <dropdown id='swapper' width="200">
+                <data>
+                    <item curView="SPRITESHEET" text="SPRITESHEET" tooltip="Shortcut: 1"/>
+                    <item curView="OFFSETSHIT" text="ANIMATIONS" tooltip="Shortcut: 2"/>
+                </data>
+            </dropdown>
+        </vbox>
+        <section-header text="CHARACTER"/>
+        <dropdown id='characterDropdown' width = "200">
+            <data>
+            </data>
+        </dropdown>
+    </vbox>
+    <vbox>
+
+    </vbox>
+</hbox>
