@@ -1,0 +1,487 @@
+{
+  "notes": {
+
+  },
+  "events": [
+    {
+      "t": 0,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 2400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 4800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 7200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 9600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 12000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 14400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 16800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 19200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 21600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 24000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 26400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 28800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 31200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 33600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 36000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 38400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 40800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 43200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 45600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 48000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 50400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 52800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 55200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 57600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 60000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 62400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 64800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 67200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 69600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 72000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 74400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 0,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 2400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 4800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 7200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 9600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 12000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 14400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 16800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 19200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 21600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 24000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 26400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 28800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 31200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 33600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 36000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 38400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 40800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 43200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 45600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 48000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 50400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 52800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 55200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 57600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 60000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 62400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 64800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 67200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 69600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 72000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 74400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 0,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 2400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 4800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 7200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 9600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 12000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 14400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 16800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 19200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 21600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 24000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 26400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 28800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 31200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 33600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 36000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 38400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 40800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 43200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 45600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 48000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 50400,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 52800,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 55200,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 57600,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 60000,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 62400,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 64800,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 67200,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 69600,
+      "e": "FocusCamera",
+      "v": 0
+    },
+    {
+      "t": 72000,
+      "e": "FocusCamera",
+      "v": 1
+    },
+    {
+      "t": 74400,
+      "e": "FocusCamera",
+      "v": 0
+    }
+  ]
+}
