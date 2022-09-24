@@ -1,7 +1,0 @@
-{
-    "events":
-    [
-        {"t":2000, "e":"Trace", "v":"OK I PULL UP"},
-        {"t":5000, "e":"Trace", "v":"YEAH FR I PULL UP"}
-    ]
-}
