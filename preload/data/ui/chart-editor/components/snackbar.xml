@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	This component imitates a Google Material Design snackbar.
+	It is used to convey messages to the user in an unobtrusive way.
+	@see https://material.io/archive/guidelines/components/snackbars-toasts.html
+-->
+<box>
+	<style>
+		.snackbar {
+			background-color: #323232;
+			border: 1px solid #000000;
+		}
+	</style>
+	<hbox width="100%" styleName="snackbar">
+		<!--<spacer width="100%" />-->
+		<label id="snackbarText" text="This is a notification" />
+		<hbox id="snackbarActionBox">
+			<button id="snackbarAction1" text="Close"/>
+		</hbox>
+	</hbox>
+</box>

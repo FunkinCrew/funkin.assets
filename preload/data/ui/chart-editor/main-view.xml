@@ -3,4 +3,5 @@
 <vbox width="100%" height="100%">
 	<import source="components/menubar.xml" />
 	<import source="components/sidebar.xml" />
+	<import source="components/snackbar.xml" />
 </vbox>
