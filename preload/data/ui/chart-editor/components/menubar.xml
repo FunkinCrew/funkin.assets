@@ -76,7 +76,7 @@
   </menu>
   <menu text="View">
     <menu-checkbox id="menubarItemToggleSidebar" text="Show Sidebar" shortcutText="B" />
-    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" />
+    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" />

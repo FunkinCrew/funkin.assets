@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	This component imitates a Google Material Design snackbar.
+	It is used to convey messages to the user in an unobtrusive way.
+	@see https://material.io/archive/guidelines/components/snackbars-toasts.html
+-->
+<sidebar id="notifBar" method="float" position="bottom" width="25%" height="56" styleName="notifbar">
+	<vbox height="48" width="100%" styleName="notifbarBox">
+		<label id="notifBarText" text="Insert text here" />
+		<spacer />
+		<hbox width="100%">
+			<spacer width="100%" />
+			<button id="notifBarAction2" text="Action" visible="false" />
+			<button id="notifBarAction1" text="Dismiss" />
+		</hbox>
+	</vbox>
+</sidebar>

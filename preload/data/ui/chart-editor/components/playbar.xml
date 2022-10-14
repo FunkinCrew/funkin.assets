@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	This component imitates the playback controls like on a music player.
+-->
+<hbox id="playbar" width="100%" height="48" styleName="playbar">
+	<label id="playbarSongPos" text="0:32" styleName="playbarDuration" />
+
+	<spacer width="100%" />
+	
+	<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
+	<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
+	<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
+	<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
+	<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
+
+	<spacer width="100%" />
+
+	<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
+</hbox>

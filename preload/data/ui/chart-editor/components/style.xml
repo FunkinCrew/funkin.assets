@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<style>
+	.notifbar {
+		margin: 0px;
+		padding: 0px;
+		border-left: 1px solid #000;
+		border-top: 1px solid #000;
+
+		border-right: 0px solid #000;
+		border-bottom: 0px solid #000;
+	}
+	.notifbarBox {
+		margin: 8px;
+	}
+	.playbar {
+		background-color: $solid-background-color;
+		padding: 8px;
+	}
+	.playbarDuration {
+		font-size: 24px;
+		font-bold: true;
+	}
+	.playbarButton {
+		font-size: 16px;
+	}
+</style>

@@ -141,9 +141,11 @@
 				</vbox>
 			</frame>
 		</vbox>
+		<!--
 		<vbox text="Patterns">
 			<button text="Button" />
 		</vbox>
+		-->
 		<vbox text="Notes">
 			<grid>
 				<label text="Note Kind:" verticalAlign="center" />
