@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	This component imitates the slider head on a music player.
+	This is inserted and positioned manually by the Chart Editor state.
+-->
+<box>
+	<style>
+		#playbarHead {
+			border-radius: 0px;
+		}
+		#playbarHead .button {
+			height: 16px;
+			width: 16px;
+			background-image: "shared:assets/shared/images/ui/chart-editor/playbar-head.png";
+		}
+		#playbarHead .range-value {
+			background-color: #8844DD;
+		}
+		#playbarHead .slider-value {
+			background-color: #442277;
+		}
+	</style>
+	<slider id="playbarHead" styleName="playhead-slider" />
+</box>
