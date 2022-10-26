@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<collapsible-dialog id="toolboxEvents" title="Events" width="300" height="200">
+	<vbox width="100%" height="100%">
+		<label text="Event Toolbox" />
+	</vbox>
+</collapsible-dialog>

@@ -8,23 +8,23 @@
 	}
 	</style>
   <menu text="File">
-    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
+    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" disabled="true" />
     <menu-separator />
-    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
-    <menu text="Open Recent">
+    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" disabled="true" />
+    <menu text="Open Recent" disabled="true" >
       <menu-item text="D:/Funkin/charts/expurgated.json" />
       <menu-item text="D:/Funkin/charts/fatal-error.json" />
       <menu-item text="C:/Downloads/bad-bash.json" />
       <menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
     </menu>
     <menu-separator />
-    <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
-    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
+    <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" disabled="true" />
+    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" disabled="true" />
     <menu-separator />
-    <menu-item id="menubarItemLoadMusic" text="Load Music" />
-    <menu-item id="menubarItemImportChart" text="Import Chart" />
+    <menu-item id="menubarItemLoadMusic" text="Load Music" disabled="true" />
+    <menu-item id="menubarItemImportChart" text="Import Chart" disabled="true" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" />
+    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
@@ -40,21 +40,19 @@
     <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
     <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
     <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
-    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" />
-    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" />
-    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" />
+    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
+    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
+    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
-    <menu text="Input Style">
-      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
-      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleDFJK" text="ASDF + JKL;" group="menubarItemInputStyleGroup" />
+    <menu text="Input Style" disabled="true" >
+      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleDFJK" text="ASDF + JKL;" group="menubarItemInputStyleGroup" disabled="true" />
     </menu>
   </menu>
-  <menu text="Chart">
-    <menu-item text="Something to manage multiple difficulties?" />
-    <menu-item text="Something to merge multiple chart files?" />
-    <menu-item text="Something to manage metadata?" />
+  <menu text="View">
+    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
   </menu>
   <menu text="Audio">
     <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
@@ -74,9 +72,11 @@
     <menu-item disabled="true" id="menubarItemTestInEditor" text="Test in Editor" shortcutText="Enter" />
     <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
   </menu>
-  <menu text="View">
-    <menu-checkbox id="menubarItemToggleSidebar" text="Show Sidebar" shortcutText="B" />
-    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+  <menu text="Window">
+    <menu-checkbox id="menubarItemToggleToolboxTools" text="Tools" />
+    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
+    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxSong" text="Song" />
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" />

@@ -11,14 +11,16 @@
 		#playbarHead .button {
 			height: 16px;
 			width: 16px;
-			background-image: "shared:assets/shared/images/ui/chart-editor/playbar-head.png";
-		}
-		#playbarHead .range-value {
-			background-color: #8844DD;
+			border-radius: 8px;
+			background: #8844DD #6622BB vertical;
 		}
 		#playbarHead .slider-value {
-			background-color: #442277;
+			background: #442277 #220055 vertical;
+		}
+		#playbarHead .range-value {
+			background: #8844DD #6622BB vertical;
 		}
 	</style>
-	<slider id="playbarHead" styleName="playhead-slider" />
+	<!-- background-image: "shared:assets/shared/images/ui/chart-editor/playbar-head.png"; -->
+	<horizontal-slider id="playbarHead" styleName="playhead-slider" />
 </box>

@@ -4,7 +4,13 @@
 	<import source="components/style.xml" />
 
 	<import source="components/menubar.xml" />
+
+	<!--
 	<import source="components/sidebar.xml" />
+	-->
+
+	<spacer height="100%" />
+
 	<import source="components/playbar.xml" />
 
 	<!--
