@@ -91,18 +91,19 @@ class MILFGameplayModule extends Module
 	function isCorrectSong()
 	{
 		// Don't run the script if we aren't in a song.
-		if (PlayState.currentSong == null)
-			return false;
+		if (PlayState.currentSong == null) {
+			if (PlayState.currentSong_NEW == null) {
+				return false;
+			} else {
+				return PlayState.currentSong_NEW.songId == 'milf';
+			}
+		} else {
+			return PlayState.currentSong.song.toLowerCase() == 'milf';
+		}
 
 		// Don't run the script if we aren't on Hard difficulty.
 		// if (PlayState.storyDifficulty != 2)
 		// 	 return false;
-
-		// Don't run the script if we aren't on the song MILF
-		if (PlayState.currentSong.song.toLowerCase() != "milf")
-			return false;
-
-		return true;
 	}
 
 	/**
@@ -262,6 +263,8 @@ class MILFGameplayModule extends Module
 	function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
+
+		trace('MILF: onUpdate');
 
 		if (PlayState.instance == null || PlayState.instance.currentStage == null)
 			return;
@@ -451,7 +454,7 @@ class MILFGameplayModule extends Module
 			PlayState.instance.health -= HEALTH_LOSS;
 
 			// White flash on screen.
-			FlxG.camera.fade(0xFFFFFFFF, 0.6, true);
+			FlxG.camera.fade(0x70FFFFFF, 0.6, true);
 
 			// Play the miss animation.
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('hit', true, true);
