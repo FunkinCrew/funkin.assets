@@ -1,0 +1,520 @@
+import flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.util.FlxTimer;
+import funkin.Conductor;
+import funkin.Paths;
+import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
+import funkin.modding.module.Module;
+import funkin.play.PlayState;
+import flixel.tweens.FlxTween;
+
+import flixel.tweens.FlxEase;
+
+/**
+ * TODO: After redoing the chart format, add a ScriptedSong class,
+ * make this extend that, and have the constructor call `super('milf')`.
+ * 
+ * TODO: Move henchmen killing to song events after those are implemented.
+ */
+class MILFGameplayModule extends Module
+{
+	function new()
+	{
+		super('vanilla-gameplay-milf');
+	}
+
+	/**
+	 * Health lost when hit by lamp.
+	 */
+	var HEALTH_LOSS = 0.25 * 2;
+
+	/**
+	 * How many henchmen there are.
+	 * We could just hard-code this, but making it a variable improves readability.
+	 */
+	var HENCHMEN_COUNT = 5;
+
+	/**
+	 * How many milliseconds to wait until resetting the lamp for the next hit.
+	 */
+	var LAMP_RESET_DELAY = 1000;
+
+	/**
+	 * How far off-screen, in pixels, the limo moves before returning.
+	 * Change this number to change the amount of time it takes for the limo to return.
+	 */
+	var LIMO_OFFSET_X = 2000;
+
+	/**
+	 * The limo will move this many pixels per millisecond offscreen.
+   * NO magic numbers!
+	 */
+	var LIMO_BASE_X_POS = -200;
+
+	/**
+	 * GF ducks this many milliseconds before the lamp hits BF.
+	 */
+	var GF_DUCK_DELAY = 250;
+
+	/**
+	 * The lamp will move this many pixels per millisecond towards Boyfriend/Henchmen.
+	 * We don't use tweening because we want to impact at a precise time.
+	 */
+	var LAMP_VELOCITY = 5.0;
+
+	/**
+	 * Push the lamp's sprite forward or backward to accomodate for padding on the sprite.
+	 */
+	var LAMP_X_OFFSET = 120;
+
+	/**
+	 * The X position relative to the henchman's center where the lamp is considered to be colliding with it.
+	 */
+	var HENCHMAN_COLLISION_X_OFFSET = 300;
+
+	/**
+   * The delay in milliseconds between the henchman impacting the lamp and the sound effect playing.
+	 */
+	var HENCHMAN_DEATH_SOUND_OFFSET = -300;
+
+	/*
+	 * The millisecond times at which the lamp passes by.
+	 */
+	var BOYFRIEND_LAMP_TIMES = [
+		800, // Beginning of the song for testing.
+		87900 // The duet down note.
+	];
+
+	/**
+	 * Returns true if we are in a level we should use the lamp on.
+	 */
+	function isCorrectSong()
+	{
+		// Don't run the script if we aren't in a song.
+		if (PlayState.currentSong == null) {
+			if (PlayState.currentSong_NEW == null) {
+				return false;
+			} else {
+				return PlayState.currentSong_NEW.songId == 'milf';
+			}
+		} else {
+			return PlayState.currentSong.song.toLowerCase() == 'milf';
+		}
+
+		// Don't run the script if we aren't on Hard difficulty.
+		// if (PlayState.storyDifficulty != 2)
+		// 	 return false;
+	}
+
+	/**
+	 * Returns true if the player is currently holding a down note to avoid the lamp.
+	 */
+	function isPlayerDucking()
+	{
+		// Right now we just assume if they're holding down at the right time, it counts.
+		return PlayState.instance.controls.NOTE_DOWN;
+	}
+
+	var nextBFLampIndex = 0;
+	var nextHenchLampIndex = 0;
+
+	var hasCurrentBFLampHit = false;
+	var hasCurrentGFLampDucked = false;
+	var currentHenchmenIndex = 1;
+
+	function createGib(type:Int):FlxSprite {
+		var gibSprite:FlxSprite = new FlxSprite();
+		gibSprite.antialiasing = true;
+		gibSprite.angle = FlxG.random.int(0, 360);
+		gibSprite.active = true;
+		gibSprite.velocity.x = FlxG.random.int(-20, -1000);
+		// gibSprite.velocity.x = FlxG.random.int(-400, -850);
+		gibSprite.velocity.y = FlxG.random.int(-20, -260);
+		gibSprite.maxVelocity.x = gibSprite.maxVelocity.y = 0; // no cap on velocity...
+		gibSprite.acceleration.y = FlxG.random.int(400, 1400); // Gravity, baby!
+		gibSprite.acceleration.x = 8000; // Wind, baby!
+		gibSprite.frames = Paths.getSparrowAtlas('limo/henchmen');
+
+		var random:Bool = FlxG.random.bool();
+		var animationName = "";
+		switch(type) {
+			case 0:
+				animationName = "hench head spin " + (random ? "1" : "2");
+			case 1:
+				animationName = "hench arm spin " + (random ? "1" : "2");
+			case 2:
+				animationName = "hench leg spin " + (random ? "1" : "2");
+			default:
+				trace('BAD TYPE '+type);
+		}
+
+		// Randomize the spin speed by choosing a random frame rate to play the animation at.
+		var animSpeed = FlxG.random.int(15, 45);
+
+		gibSprite.animation.addByPrefix(animationName, animationName, animSpeed, true);
+		gibSprite.animation.play(animationName);
+
+		return gibSprite;
+	}
+
+	var gibs:Array<FlxSprite> = [];
+
+	function gibHenchman(target:FlxSprite) {
+		var headGib = createGib(0);
+		headGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		headGib.y = target.getGraphicMidpoint().y - 150;
+		headGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(headGib);
+		gibs.push(headGib);
+		
+		var armGib = createGib(1);
+		armGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		armGib.y = target.getGraphicMidpoint().y - 100;
+		armGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(armGib);
+		gibs.push(armGib);
+
+		var legGib = createGib(2);
+		legGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
+		legGib.y = target.getGraphicMidpoint().y;
+		legGib.zIndex = target.zIndex;
+		PlayState.instance.currentStage.add(legGib);
+		gibs.push(legGib);
+
+		var bloodEffect = new FlxSprite();
+		bloodEffect.frames = Paths.getSparrowAtlas('limo/effects');
+		bloodEffect.x = target.getGraphicMidpoint().x - 100;
+		bloodEffect.y = target.getGraphicMidpoint().y - 200;
+		bloodEffect.angle = -90;
+		bloodEffect.flipX = true;
+		bloodEffect.zIndex = target.zIndex;
+		bloodEffect.animation.addByPrefix("blood", "blood 1", 24, false);
+		bloodEffect.animation.play("blood");
+		PlayState.instance.currentStage.add(bloodEffect);
+		gibs.push(bloodEffect);
+		bloodEffect.animation.finishCallback = function(_name) {
+			PlayState.instance.currentStage.remove(bloodEffect);
+			gibs.remove(bloodEffect);
+		}
+
+		// Refresh the stage to reorganize props by z-index.
+		PlayState.instance.currentStage.refresh();
+
+		// Cleanup after a few seconds.
+		var timer = new FlxTimer();
+		timer.start(LAMP_RESET_DELAY, function() {
+			destroyAllGibs();
+		});
+	}
+
+
+
+	function hardResetLimo() {
+		limoState = 0;
+		isTweeningLimo = false;
+		
+		var limo = PlayState.instance.currentStage.getNamedProp('bgLimo');
+		if (limoTween != null)
+			limoTween.cancel();
+		limo.x = LIMO_BASE_X_POS;
+	}
+
+	/**
+	 * Destroys all existing gibs immediately. Called either when gibs are done animating,
+	 * or when the player restarts the song.
+	 */
+	function destroyAllGibs() {
+		for (gib in gibs) {
+			PlayState.instance.currentStage.remove(gib);
+		}
+		gibs = [];
+	}
+
+	/**
+	 * 0 - not moving
+	 * 1 - moving away
+	 * 2 - moving back
+	 */
+	var limoState = 0;
+
+	var limoTween:FlxTween;
+	var isTweeningLimo:Bool = false;
+
+	function onPause(event:ScriptEvent)
+	{
+		super.onPause(event);
+
+		if (limoTween != null) {
+			trace("Pausing limo tween");
+			limoTween.active = false;
+		}
+	}
+
+	function onResume(event:ScriptEvent)
+	{
+		super.onResume(event);
+
+		if (limoTween != null) {
+			trace('Resuming limo tween');
+			limoTween.active = true;
+		}
+	}
+
+	function onUpdate(event:UpdateScriptEvent)
+	{
+		super.onUpdate(event);
+
+		trace('MILF: onUpdate');
+
+		if (PlayState.instance == null || PlayState.instance.currentStage == null)
+			return;
+
+		if (!isCorrectSong())
+			return;
+
+		if (nextBFLampIndex < BOYFRIEND_LAMP_TIMES.length) {
+			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+			var nextLampTime = BOYFRIEND_LAMP_TIMES[nextBFLampIndex];
+			var nextLampReset = nextLampTime + LAMP_RESET_DELAY;
+			if (Conductor.songPosition >= nextLampReset) {
+				nextBFLampIndex++;
+				hasCurrentBFLampHit = false;
+			} else if (boyfriend != null) {
+				
+				if (Conductor.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
+					// Do the actual lamp collision animation and gameplay.
+					doLampHit();
+					hasCurrentBFLampHit = true;
+				}
+
+				if (Conductor.songPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+					// Ensure this code only runs once.
+					hasCurrentGFLampDucked = true;
+
+					// Have GF play the duck animation.
+					PlayState.instance.currentStage.getGirlfriend().playAnimation('duck', true, true);
+				}
+				
+				// Move the lamp across the screen
+				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
+				
+				var boyfriendXPos = boyfriend.x;
+				var lampDelay = nextLampTime - Conductor.songPosition;
+				var lampDistance = lampDelay * LAMP_VELOCITY;
+				lamp.x = boyfriendXPos - lampDistance - 120;
+
+				// Move hit henchmen with the lamp.
+				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
+					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+					if (henchmen.visible) {
+						trace('Move henchman with lamp');
+						henchmen.x = lamp.x + henchmen.animOffsets[0];
+					}
+				}
+
+				// Gib the henchmen if they're in the lamp.
+				if (currentHenchmenIndex <= HENCHMEN_COUNT) {
+					var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + currentHenchmenIndex);
+					var henchmanCenterX = henchman.x + (henchman.width / 2) + HENCHMAN_COLLISION_X_OFFSET;
+					var lampCenterX = lamp.x + (lamp.width / 2);
+					if (lampCenterX >= henchmanCenterX) {
+						// Lamp has reached the henchman.
+						
+						// True knocks the henchman back, false explodes them into gibs.
+						if (FlxG.random.bool()) {
+							// Move henchman along with lamp.
+							
+							if (FlxG.random.bool()) {
+							  	henchman.forceAnimationForDuration('hit1', 2.0);
+							} else {
+								henchman.forceAnimationForDuration('hit2', 2.0);
+							}
+						} else {
+							// Explode henchman into gibs.
+							gibHenchman(henchman);
+							henchman.visible = false;
+						}
+
+						// Play the gib sound if this is the first henchman.
+						if (currentHenchmenIndex == 1) {
+							FlxG.sound.play(Paths.sound('Henchmen_Wipe'), 1.0);
+						}
+						if (currentHenchmenIndex == HENCHMEN_COUNT) {
+							// Last henchman has been hit.
+							limoState = 1;
+						}
+						currentHenchmenIndex++;
+					}
+				}
+			}
+		} else {
+			// Stop doing lamp logic after the last lamp passes.
+		}
+
+		if (limoState != 0) {
+			// Handle the limo moving away and coming back, now that the lamp has passed.
+			var limo = PlayState.instance.currentStage.getNamedProp('bgLimo');
+			switch (limoState)
+			{
+				case 1: // moving OFFSCREEN
+				{
+					if (!isTweeningLimo)
+					{
+						trace('Start pull-away tween');
+						limoTween = FlxTween.tween(limo, {x: 2000 + LIMO_BASE_X_POS}, 1, {ease:FlxEase.backIn, 
+							onComplete: function(_)
+							{
+								trace('Complete pull-away tween');
+								// wait a second until new limo pulls up
+								new FlxTimer().start(1, function(_)
+								{
+									if (PlayState.instance.currentStage == null)
+										return;
+
+									limoState = 2;
+									isTweeningLimo = false;
+									currentHenchmenIndex = 1;
+									for (i in 1...(HENCHMEN_COUNT + 1)) {
+										trace('Respawn henchmen ' + i + ' offscreen');
+										var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+										henchman.visible = true;
+										henchman.animOffsets = [0, 0];
+										henchman.resetPosition();
+										henchman.x += 2000;
+										henchman.playAnimation('danceLeft', true);
+									}
+								});
+							}
+						});
+						isTweeningLimo = true;
+					}
+				}
+				case 2: // moving BACK on screen
+				{
+					if (!isTweeningLimo)
+					{
+						trace('Start pull-back tween');
+						limoTween = FlxTween.tween(limo, {x: LIMO_BASE_X_POS}, 3, {
+							ease:FlxEase.backOut, 
+							onComplete:function(_)
+								{
+									trace('Complete pull-back tween');
+									limoState = 0;
+								}});
+
+						isTweeningLimo = true;
+					}
+					
+					for (i in 1...(HENCHMEN_COUNT + 1)) {
+						var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+
+						// Set the position relative to the limo.
+						henchman.x = henchman.originalPosition.x + limo.x - LIMO_BASE_X_POS;
+						if (i == 1) {
+							trace('Shifting henchmen back on screen: ' + henchman.x);
+						}
+					}
+				}
+				case 0:
+				{
+					isTweeningLimo = false;
+				}
+			}
+		}
+
+		// Make sure the light pole is ALWAYS in the right place.
+		var lightPole = PlayState.instance.currentStage.getNamedProp('boyfriendLightPole');
+		if (lightPole != null) {
+			var light = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
+
+			// Add parallax offset to light pole.
+			var parallaxOffset = ((FlxG.width / 3) - light.x) * -0.05;
+			lightPole.x = light.x + parallaxOffset + LAMP_X_OFFSET * 1.5;
+		}
+	}
+
+	/**
+	 * Check whether the player hit or dodged the lamp, and play the appropriate sound.
+	 * Also plays an animation and lowers the player's health.
+	 */
+	function doLampHit()
+	{
+		if (isPlayerDucking())
+		{
+			trace("Player dodged!");
+			FlxG.sound.play(Paths.soundRandom('Light_Pass_Head_', 1, 4), 1.0);
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('dodge', true, true);
+		}
+		else
+		{
+			trace("Player hit!");
+			FlxG.sound.play(Paths.sound('BF_Hit_by_Passing_Light'), 1.0);
+
+			// Lose health when hit.
+			PlayState.instance.health -= HEALTH_LOSS;
+
+			// White flash on screen.
+			FlxG.camera.fade(0x70FFFFFF, 0.6, true);
+
+			// Play the miss animation.
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('hit', true, true);
+		}
+	}
+
+	function hardResetSong() {
+		hasCurrentBFLampHit = false;
+		hasCurrentGFLampDucked = false;
+		nextBFLampIndex = 0;
+		nextHenchLampIndex = 0;
+		currentHenchmenIndex = 1;
+
+		for (i in 1...(HENCHMEN_COUNT + 1)) {
+			var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+			henchman.visible = true;
+			henchman.animOffsets = [0, 0];
+			henchman.resetPosition();
+			henchman.playAnimation('danceLeft', true);
+		}
+
+		destroyAllGibs();
+		hardResetLimo();
+	}
+
+	/**
+	 * Make sure the lamp is properly instantiated when the song starts.
+	 */
+	function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		// Properly reset lights and collision when starting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
+	}
+
+	/**
+	 * Make sure the lamp is reset when the song restarts.
+	 */
+	function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
+
+		// Properly reset lights and collision when restarting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
+	}
+
+	function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onCountdownStart(event);
+
+		// Properly reset lights and collision when restarting the song.
+		if (isCorrectSong())
+		{
+			hardResetSong();
+		}
+	}
+}

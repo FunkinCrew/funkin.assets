@@ -8,12 +8,12 @@ import funkin.shaderslmfao.OverlayBlend;
 
 class LimoRideStage extends Stage
 {
-	public function new()
+	function new()
 	{
 		super('limoRide');
 	}
 
-	override function buildStage()
+	function buildStage()
 	{
 		super.buildStage();
 
@@ -32,7 +32,21 @@ class LimoRideStage extends Stage
 		resetFastCar();
 	}
 
-	override function onBeatHit(event:SongTimeScriptEvent)
+	function onUpdate(event:ScriptEvent) {
+		// Move background lamps.
+		for (i in 1...(4 + 1)) {
+			var lamp = getNamedProp('bgLight' + i);
+			lamp.active = true;
+			lamp.velocity.x = 3000;
+			if (lamp.x > 2000) {
+				lamp.x = -1000;
+			}
+			var pole = getNamedProp('bgPole' + i);
+			pole.x = lamp.x + 190;
+		}
+	}
+
+	function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
@@ -47,7 +61,10 @@ class LimoRideStage extends Stage
 	function resetFastCar():Void
 	{
 		var fastCar = getNamedProp('fastCar');
-		
+	
+		if (fastCar == null)
+			return;
+
 		// Props are inactive by default.
 		// Set active to true so position is calculated based on velocity.
 		fastCar.active = true;
@@ -76,7 +93,7 @@ class LimoRideStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	override function fetchAssetPaths():Array<String>
+	function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 
@@ -86,5 +103,21 @@ class LimoRideStage extends Stage
 		results.push(Paths.sound('carPass1'));
 
 		return results;
+	}
+
+	/**
+	 * Make sure the fast car is reset when the song restarts.
+	 */
+	function onSongRetry(event:ScriptEvent) {
+		super.onSongRetry(event);
+		resetFastCar();
+	}
+	
+	/**
+	 * Make sure the fast car is reset when the song restarts.
+	 */
+	function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onCountdownStart(event);
+		resetFastCar();
 	}
 }

@@ -11,14 +11,14 @@
     },
     {
       "name": "singLEFT",
-      "prefix": "darnell pose right",
-      "offsets": [47, -16]
+      "prefix": "darnell pose left",
+      "offsets": [25, -5]
     },
     {
-      "name": "singLEFT-end",
-      "prefix": "darnell pose right",
+      "name": "singLEFT-hold",
+      "prefix": "darnell pose left",
       "frameIndices": [6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [47, -16]
+      "offsets": [25, -5]
     },
     {
       "name": "singDOWN",
@@ -26,7 +26,7 @@
       "offsets": [15, -45]
     },
     {
-      "name": "singDOWN-end",
+      "name": "singDOWN-hold",
       "prefix": "Darnell Pose Down",
       "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
       "offsets": [15, -45]
@@ -37,7 +37,7 @@
       "offsets": [26, 72]
     },
     {
-      "name": "singUP-end",
+      "name": "singUP-hold",
       "prefix": "Darnell pose up",
       "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
       "offsets": [26, 72]
@@ -45,10 +45,10 @@
     {
       "name": "singRIGHT",
       "prefix": "Darnell pose right",
-      "offsets": [12, 8]
+      "offsets": [28, -16]
     },
     {
-      "name": "singRIGHT-end",
+      "name": "singRIGHT-hold",
       "prefix": "Darnell pose right",
       "frameIndices": [7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [12, 8]
@@ -57,6 +57,21 @@
       "name": "laugh",
       "prefix": "darnell laugh",
       "offsets": [-1, 1]
+    },
+    {
+      "name": "lightCan",
+      "prefix": "Darnell lighting can",
+      "offsets": [0, -30]
+    },
+    {
+      "name": "kickCan",
+      "prefix": "Darnell can kick up",
+      "offsets": [10, 10]
+    },
+    {
+      "name": "kneeCan",
+      "prefix": "Darnell knee action",
+      "offsets": [0, -20]
     }
   ]
 }

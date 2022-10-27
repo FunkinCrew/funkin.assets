@@ -14,7 +14,7 @@
             "offsets": [-5, 0]
         },
         {
-            "name": "idle-end",
+            "name": "idle-hold",
             "prefix": "BF idle dance",
             "frameIndices": [10, 11, 12, 13],
             "looped": true,
@@ -65,6 +65,18 @@
             "prefix": "BF dies",
             "assetPath": "characters/BOYFRIEND",
             "offsets": [-37, 11]
+        },
+        {
+            "name": "dodge",
+            "prefix": "boyfriend dodge",
+            "assetPath": "characters/BOYFRIEND",
+            "offsets": [0, 0]
+        },
+        {
+            "name": "hit",
+            "prefix": "BF hit",
+            "assetPath": "characters/BOYFRIEND",
+            "offsets": [0, 0]
         },
         {
             "name": "deathLoop",

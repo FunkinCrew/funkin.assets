@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<collapsible-dialog id="toolboxNotes" title="Notes" width="175" height="100">
+	<vbox width="100%" height="100%">
+		<hbox width="100%" height="24">
+			<label text="Note Kind" vertical-align="center" />
+			<dropdown id="toolboxNotesNoteKind" width="100%" value="normal">
+				<data>
+					<item id="normal" text="Default" />
+					<item id="alt" text="Alt Note" />
+					<item id="weekend-1-lightcan" text="Light Can (2hot)" />
+					<item id="weekend-1-kickcan" text="Kick Can (2hot)" />
+					<item id="weekend-1-kneecan" text="Knee Can (2hot)" />
+					<item id="weekend-1-cockgun" text="Cock Gun (2hot)" />
+					<item id="weekend-1-firegun-hip" text="Fire Gun Hip (2hot)" />
+					<item id="weekend-1-firegun-far" text="Fire Gun Far (2hot)" />
+					<item id="weekend-1-punchlow" text="Punch Low (Blazin)" />
+					<item id="weekend-1-punchhigh" text="Punch High (Blazin)" />
+					<item id="weekend-1-punchlowblocked" text="Punch Low Blocked (Blazin)" />
+					<item id="weekend-1-punchhighblocked" text="Punch High Blocked (Blazin)" />
+					<item id="weekend-1-dodgelow" text="Dodge Low (Blazin)" />
+					<item id="weekend-1-blockhigh" text="Block High (Blazin)" />
+					<item id="weekend-1-fakeout" text="Fakeout (Blazin)" />
+				</data>
+			</dropdown>
+		</hbox>
+	</vbox>
+</collapsible-dialog>

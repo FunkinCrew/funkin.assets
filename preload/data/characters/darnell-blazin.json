@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "name": "Darnell (Blazin)",
+  "assetPath": "characters/Darnell_Blazin",
+  "healthIcon": {
+    "id": "darnell",
+    "flipX": true
+  },
+  "flipX": false,
+  "renderType": "sparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Darnell Idle0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "beforeUppercut",
+      "prefix": "Darnell Before Uppercut0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "blockHit",
+      "prefix": "Darnell Block Hit0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "cringe",
+      "prefix": "Darnell Cringe0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "dodge",
+      "prefix": "Darnell Dodge0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "fakeOut",
+      "prefix": "Darnell Fake Out0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitHigh",
+      "prefix": "Darnell Hit High0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitLow",
+      "prefix": "Darnell Hit Low0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchHigh",
+      "prefix": "Darnell Punch High0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchLow",
+      "prefix": "Darnell Punch Low0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "spin",
+      "prefix": "Darnell Spin0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "uppercut",
+      "prefix": "Darnell Uppercut0",
+      "offsets": [0, 0]
+    }
+  ]
+}

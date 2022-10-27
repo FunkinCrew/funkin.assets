@@ -1,0 +1,292 @@
+import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import funkin.play.GameOverSubstate;
+import funkin.Paths;
+import flixel.FlxSprite;
+import funkin.modding.base.ScriptedFlxSprite;
+import flixel.FlxG;
+import flixel.group.FlxTypedSpriteGroup;
+import funkin.modding.module.ModuleHandler;
+
+class PicoPlayerCharacter extends MultiSparrowCharacter {
+	function new() {
+		super('pico-playable');
+	}
+
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+
+		// NOTE: this.x and this.y are not properly set here.
+
+		GameOverSubstate.musicSuffix = 'Pico';
+		GameOverSubstate.blueBallSuffix = '-Pico';
+
+		createShootingExtraSprites();
+	}
+
+	var deathSpriteRetry:FlxSprite;
+	var deathSpriteNene:FlxSprite;
+
+	/**
+     * Initialize and cache sprites used for the death animation,
+	 * for use later.
+	 */
+	function createDeathSprites() {
+		deathSpriteRetry = new FlxSprite(0, 0);
+		deathSpriteRetry.x = this.x + 196.5;
+		deathSpriteRetry.y = this.y - 85;
+		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry");
+		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
+		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
+
+		deathSpriteRetry.visible = false;
+
+		deathSpriteNene = new FlxSprite(0, 0);
+		var gf = PlayState.instance.currentStage.getGirlfriend();
+		deathSpriteNene.x = gf.originalPosition.x + 125;
+		deathSpriteNene.y = gf.originalPosition.y;
+		deathSpriteNene.frames = Paths.getSparrowAtlas("characters/NeneKnifeToss");
+		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
+		deathSpriteNene.visible = true;
+		deathSpriteNene.animation.finishCallback = function(name:String) {
+			deathSpriteNene.visible = false;
+		}
+	}
+
+	var shootingArm:FlxSprite;
+	var shootingFlare:FlxSprite;
+	function createShootingExtraSprites() {
+		shootingArm = new FlxSprite(0, 0);
+		shootingArm.zIndex = 200 - 1;
+		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
+		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
+		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
+		//shootingArm.visible = false;
+
+		// Set the rotation point to the shoulder.
+		shootingArm.origin.x = shootingArm.width;
+		shootingArm.origin.y = shootingArm.height;
+
+		shootingArm.active = true;
+		// shootingArm.angularVelocity = 100;
+
+		PlayState.instance.currentStage.add(shootingArm);
+
+		shootingFlare = new FlxSprite(0, 0);
+		shootingFlare.x = this.x + 250;
+		shootingFlare.y = this.y + 190;
+		shootingFlare.zIndex = 10000;
+		shootingFlare.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
+		shootingFlare.animation.addByPrefix('far', "Pico Shoot Far Flare0", 24, false);
+		shootingFlare.animation.addByPrefix('repeat', "Pico Shoot Repeat Flare0", 24, false);
+		shootingFlare.visible = false;
+
+		shootingFlare.animation.finishCallback = function(name:String) {
+			shootingFlare.visible = false;
+		}
+
+		// Set the rotation point to match the arm.
+		shootingFlare.origin.x = shootingArm.origin.x + shootingArm.x - shootingFlare.x;
+		shootingFlare.origin.y = shootingArm.origin.y + shootingArm.y - shootingFlare.y;
+
+		shootingFlare.active = true;
+		//shootingFlare.angularVelocity = 10-0;
+		
+		PlayState.instance.currentStage.add(shootingFlare);
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		holdTimer = 0;
+
+		if (event.eventCanceled) {
+			// onNoteHit event was cancelled by the gameplay module.
+			return;
+		}
+
+		if (event.note.mustPress && characterType == CharacterType.BF) {
+			// Override the hit note animation.
+			switch(event.note.data.noteKind) {
+				case "weekend-1-cockgun":
+					playCockGunAnim();
+				case "weekend-1-firegun":
+					playFireGunAnim(false);
+				case "weekend-1-firegun-far":
+					playFireGunAnim(false);
+				case "weekend-1-firegun-hip":
+					playFireGunAnim(true);
+				default:
+					super.onNoteHit(event);
+			}
+		}
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		// Override the miss note animation.
+		switch(event.note.data.noteKind) {
+			case "weekend-1-cockgun":
+				// playCockMissAnim();
+			case "weekend-1-firegun":
+				playCanExplodeAnim();
+			case "weekend-1-firegun-far":
+				playCanExplodeAnim();
+			case "weekend-1-firegun-hip":
+				playCanExplodeAnim();
+			default:
+				super.onNoteMiss(event);
+		}
+	}
+
+	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		if (name == "firstDeath") {
+			createDeathSprites();
+
+			FlxG.state.subState.add(deathSpriteRetry);
+			FlxG.state.subState.add(deathSpriteNene);
+			deathSpriteNene.animation.play("throw");
+		} else if (name == "deathConfirm") {
+			deathSpriteRetry.animation.play('confirm');
+			// I think the glow makes the overall animation larger,
+			// but a plain FlxSprite doesn't have an animation offset option so we do it manually.
+			deathSpriteRetry.x -= 250;
+			deathSpriteRetry.y -= 200;
+
+			// Skip playing the animation.
+			return;
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+
+		if (shootingArm != null) {
+			if (this.getCurrentAnimation() == "shootFar") {
+				if (!shootingArm.visible) {
+					// Shooting arm has a different position in the Far animation.
+					shootingArm.x = this.x - 300;
+					shootingArm.y = this.y - 50;
+					shootingArm.angle = calculateShootingAngle();
+
+					shootingArm.animation.play("far");
+					// Calculate the shooting angle.
+					
+					// Only show the shooting flare once per animation.
+					shootingFlare.animation.play("far");
+					shootingFlare.angle = shootingArm.angle;
+					shootingFlare.visible = true;
+				}
+				// Using the .visible flag ITSELF as a one-shot! Sneaky.
+				shootingArm.visible = true;
+			} else if (this.getCurrentAnimation() == "shootHip") {
+				if (!shootingArm.visible) {
+					// Shooting arm has a different position in the Hip animation.
+					shootingArm.x = this.x - 75; //+ 585;
+					shootingArm.y = this.y + 100; //+ 350;
+					shootingArm.angle = calculateShootingAngle();
+
+					shootingArm.animation.play("hip");
+					// Calculate the shooting angle.
+					
+					// Only show the shooting flare once per animation.
+					shootingFlare.animation.play("far");
+					shootingFlare.angle = shootingArm.angle;
+					shootingFlare.visible = true;
+				}
+				// Using the .visible flag ITSELF as a one-shot! Sneaky.
+				shootingArm.visible = true;
+			} else {
+				shootingArm.visible = false;
+			}
+		}
+	}
+
+	function calculateShootingAngle() {
+		var twoHotModule = ModuleHandler.getModule("vanilla-gameplay-2hot");
+		if (twoHotModule == null) {
+			trace('Could not get 2hot module.');
+			return 0;
+		}
+
+		var targetCan = twoHotModule.scriptCall('getNextCanWithState', [3]);
+
+		var targetCanX = targetCan.x;
+		var targetCanY = targetCan.y;
+		var shootingArmX = shootingArm.x + shootingArm.origin.x;
+		var shootingArmY = shootingArm.y + shootingArm.origin.y;
+
+		var angleRad = Math.atan2(shootingArmY - targetCanY, shootingArmX - targetCanX
+			);
+		var angleDeg = angleRad * 180 / Math.PI - 15;
+
+		// angleDeg = FlxG.random.int(-45, 90);
+
+		return angleDeg;
+	}
+
+	function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
+		clearCasings();
+	}
+
+	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
+		super.onAnimationFrame(name, frameNumber, frameIndex);
+
+		if (name == "firstDeath" && frameNumber == 36 - 1) {
+			deathSpriteRetry.animation.play('idle');
+			deathSpriteRetry.visible = true;
+			// GameOverSubstate
+			FlxG.state.subState.startDeathMusic(1.0, false);
+		}
+
+		if (name == "cock" && frameNumber == 3) {
+			createCasing();
+		}
+	}
+
+	var casingGroup:FlxTypedSpriteGroup;
+
+	function createCasing() {
+		if (casingGroup == null) {
+			casingGroup = new FlxTypedSpriteGroup();
+			casingGroup.x = this.x + 250;
+			casingGroup.y = this.y + 100;
+			casingGroup.zIndex = 1000;
+			PlayState.instance.currentStage.add(casingGroup);
+		}
+
+		var casing = ScriptedFlxSprite.init('CasingSprite', [0, 0]);
+		if (casing != null)
+			casingGroup.add(casing);
+	}
+
+	function clearCasings() {
+		// Clear the casing group.
+		if (casingGroup != null) {
+			casingGroup.clear();
+			casingGroup = null;
+		}
+	}
+
+	/**
+	 * Play the animation where Pico readies his gun to shoot the can.
+	 */
+	function playCockGunAnim() {
+		this.playAnimation('cock', true, true);
+		FlxG.sound.play(Paths.sound('Gun_Prep'), 1.0);
+	}	
+	/**
+	 * Play the animation where Pico shoots the can successfully.
+	 */
+	function playFireGunAnim(hip:Bool) {
+		this.playAnimation(hip ? 'shootHip' : 'shootFar', true, true);
+		FlxG.sound.play(Paths.soundRandom('Shoot_', 1, 4), 1.0);
+	}
+	/**
+	 * Play the animation where Pico is hit by the exploding can.
+	 */
+	function playCanExplodeAnim() {
+		this.playAnimation('shootMISS', true, true);
+		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
+	}
+}

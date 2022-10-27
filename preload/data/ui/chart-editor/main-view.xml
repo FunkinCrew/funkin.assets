@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<vbox width="100%" height="100%">
+	<import source="components/style.xml" />
+
+	<import source="components/menubar.xml" />
+
+	<!--
+	<import source="components/sidebar.xml" />
+	-->
+
+	<spacer height="100%" />
+
+	<import source="components/playbar.xml" />
+
+	<!--
+	<import source="components/notifbar.xml" />
+	-->
+</vbox>

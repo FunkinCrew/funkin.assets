@@ -17,17 +17,18 @@
       "offsets": [0, 0]
     },
     {
-      "name": "singUP",
-      "prefix": "GF Dancing Beat Hair blowing CAR",
-      "frameIndices": [0],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "idle-end",
+      "name": "idle-hold",
       "prefix": "GF Dancing Beat Hair blowing CAR",
       "looped": true,
       "frameIndices": [10, 11, 12, 25, 26, 27],
       "offsets": [0, 0]
+    },
+    {
+      "name": "duck",
+      "prefix": "GF Duck",
+      "looped": false,
+      "frameIndices": [0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "offsets": [0, -100]
     }
   ]
 }

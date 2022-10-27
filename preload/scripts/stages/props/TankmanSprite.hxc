@@ -16,7 +16,7 @@ class TankmanSprite extends FlxSprite
 	// The time in milliseconds when the 'shot' animation should play.
 	public var strumTime:Float = 0;
 
-	public function new()
+	function new()
 	{
 		super();
 		frames = Paths.getSparrowAtlas('tankmanKilled1');
@@ -42,7 +42,7 @@ class TankmanSprite extends FlxSprite
 		offset.x = 0;
 	}
 
-	override function revive()
+	function revive()
 	{
 		// Sprite has been revived! This allows it to be reused without reinstantiating.
 		super.revive();
@@ -50,7 +50,7 @@ class TankmanSprite extends FlxSprite
 		initAnim();
 	}
 
-	override function update(elapsed:Float):Void
+	function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 

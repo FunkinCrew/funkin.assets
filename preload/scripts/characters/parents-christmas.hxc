@@ -1,0 +1,24 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+
+class ParentsChristmasCharacter extends SparrowCharacter {
+	function new() {
+		super('parents-christmas');
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		if (!event.note.mustPress && characterType == CharacterType.DAD) {
+			// Override the hit note animation.
+			switch(event.note.data.noteKind) {
+				case "mom":
+					holdTimer = 0;
+					this.playSingAnimation(event.note.data.noteData, false, 'alt');
+					return;
+			}
+		}
+		
+		super.onNoteHit(event);
+	}
+}

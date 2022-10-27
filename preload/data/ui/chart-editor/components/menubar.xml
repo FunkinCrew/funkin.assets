@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menubar id="menubar" width="100%" paddingLeft="172">
+  <style>
+	.menu {
+    // The width of the individual menu items
+		width: 120px;
+	}
+	</style>
+  <menu text="File">
+    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" disabled="true" />
+    <menu-separator />
+    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" disabled="true" />
+    <menu text="Open Recent" disabled="true" >
+      <menu-item text="D:/Funkin/charts/expurgated.json" />
+      <menu-item text="D:/Funkin/charts/fatal-error.json" />
+      <menu-item text="C:/Downloads/bad-bash.json" />
+      <menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
+    </menu>
+    <menu-separator />
+    <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" disabled="true" />
+    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" disabled="true" />
+    <menu-separator />
+    <menu-item id="menubarItemLoadMusic" text="Load Music" disabled="true" />
+    <menu-item id="menubarItemImportChart" text="Import Chart" disabled="true" />
+    <menu-separator />
+    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-separator />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
+  </menu>
+  <menu text="Edit">
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
+    <menu-separator />
+    <menu-item id="menubarItemCut" text="Cut" shortcutText="Ctrl+X" />
+    <menu-item id="menubarItemCopy" text="Copy" shortcutText="Ctrl+C" />
+    <menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
+    <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
+    <menu-separator />
+    <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
+    <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
+    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
+    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
+    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
+    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+    <menu-separator />
+    <menu text="Input Style" disabled="true" >
+      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" disabled="true" />
+      <menuoptionbox id="menuBarItemInputStyleDFJK" text="ASDF + JKL;" group="menubarItemInputStyleGroup" disabled="true" />
+    </menu>
+  </menu>
+  <menu text="View">
+    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+  </menu>
+  <menu text="Audio">
+    <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
+    <menu-checkbox disabled="true" text="Enable Player Note Sounds" />
+    <menu-checkbox disabled="true" text="Enable Opponent Note Sounds" />
+    <menu-separator />
+    <vbox width="100%" style="padding: 5px;">
+      <label text="Instrumental - 100%" />
+      <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+      <label text="Vocal Volume - 100%" />
+      <slider id="menubarItemVolumeVocals" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+      <label text="Playback Speed - 100%" />
+      <slider id="menubarItemPlaybackSpeed" disabled="true" width="100%" majorTicks="10" minorTicks="5" pos="50" />
+    </vbox>
+  </menu>
+  <menu text="Test">
+    <menu-item disabled="true" id="menubarItemTestInEditor" text="Test in Editor" shortcutText="Enter" />
+    <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
+  </menu>
+  <menu text="Window">
+    <menu-checkbox id="menubarItemToggleToolboxTools" text="Tools" />
+    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
+    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxSong" text="Song" />
+  </menu>
+  <menu text="Help">
+    <menu-item id="menubarItemUserGuide" text="User Guide" />
+    <menu-item id="menubarItemAbout" text="About..." />
+  </menu>
+  <spacer width="100%" />
+  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+</menubar>

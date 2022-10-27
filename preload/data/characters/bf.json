@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend",
+  "renderType": "multisparrow",
   "assetPath": "characters/BOYFRIEND",
   "flipX": true,
   "singTime": 2.0,
@@ -61,9 +62,26 @@
       "offsets": [0, 0]
     },
     {
+      "name": "dodge",
+      "prefix": "boyfriend dodge",
+      "offsets": [0, 0]
+    },
+    {
       "name": "hey",
       "prefix": "BF HEY",
       "offsets": [7, 4]
+    },
+    {
+      "name": "cheer",
+      "prefix": "Cheer",
+      "assetPath": "characters/BFCheer",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hit",
+      "prefix": "BF hit",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [0, 0]
     },
     {
       "name": "firstDeath",

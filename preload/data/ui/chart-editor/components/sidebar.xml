@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hbox id="sidebar" width="325" height="100%" horizontalAlign="right">
+	<style>
+			.hazard-button {
+				padding: 4px;
+
+				border: 1px solid #DD0000;
+				background-color: #660000;
+				color: #FFFFFF;
+			}
+		</style>
+	<tabview id="sidebarTabView" width="325" height="90%">
+		<!-- icon="haxeui-core/styles/default/haxeui_tiny.png" -->
+		<vbox text="Song">
+			<frame text="Select Difficulty">
+				<tree-view id="sidebarDifficulties" width="260" height="400" />
+			</frame>
+			<hbox>
+				<button allowFocus="false" text="Add Variation" />
+				<button allowFocus="false" text="Add Difficulty" />
+			</hbox>
+			<hbox>
+				<button allowFocus="false" id="sidebarSaveMetadata" text="Save Metadata" />
+				<button allowFocus="false" id="sidebarSaveChart" text="Save Chart" />
+			</hbox>
+			<hbox>
+				<button allowFocus="false" id="sidebarLoadMetadata" text="Load Metadata" />
+				<button allowFocus="false" id="sidebarLoadChart" text="Load Chart" />
+			</hbox>
+		</vbox>
+		<vbox text="Variation">
+			<frame text="Variation: DEFAULT">
+				<grid columns="2" width="100%">
+					<label text="Song Name:" verticalAlign="center" horizontalAlign="right"/>
+					<textfield id="sidebarSongName" value="Bopeebo" />
+
+					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right"/>
+					<textfield id="sidebarSongArtist" value="Kawai Sprite" />
+
+					<label text="Stage:" verticalAlign="center" horizontalAlign="right"/>
+					<dropdown id="sidebarStage" value="Main Stage" horizontalAlign="right" >
+						<data>
+							<item text="Main Stage" />
+							<item text="Spooky Mansion" />
+							<item text="Philly Train" />
+							<item text="Limo Ride" />
+							<item text="Mall (Xmas)" />
+							<item text="Mall (Evil)" />
+							<item text="School" />
+							<item text="School (Evil)" />
+							<item text="Tankman Battlefield" />
+							<item text="Philly Streets" />
+							<item text="Philly Streets (Blazin')" />
+						</data>
+					</dropdown>
+
+					<label text="Note Skin:" verticalAlign="center" horizontalAlign="right"/>
+					<dropdown id="sidebarNoteSkin" value="Normal" horizontalAlign="right">
+						<data>
+							<item text="Normal" />
+							<item text="Pixel" />
+						</data>
+					</dropdown>
+				</grid>
+			</frame>
+
+			<frame text="Instrumental">
+				<button text="Load Instrumental" />
+				<hbox>
+					<label text="BPM" />
+					<number-stepper pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
+				</hbox>
+			</frame>
+
+			<frame text="Characters/Vocals">
+				<vbox>
+					<property-grid width="250" height="300">
+						<property-group text="Boyfriend">
+							<property label="Player" type="list" value="Boyfriend">
+								<data>
+									<item text="Boyfriend" />
+									<item text="Pico" />
+									<item text="Tankman" />
+								</data>
+							</property>
+							<property label="Opponent" type="list" value="Dad">
+								<data>
+									<item text="Daddy Dearest" />
+									<item text="Spooky Kids" />
+									<item text="Monster" />
+									<item text="Pico" />
+									<item text="Mommy Mearest" />
+									<item text="Darnell" />
+								</data>
+							</property>
+							<property label="Girlfriend" type="list" value="Girlfriend">
+								<data>
+									<item text="None" />
+									<item text="Girlfriend" />
+									<item text="Nene" />
+								</data>
+							</property>
+							<button text="Remove Character"/>
+						</property-group>
+						<property-group text="Pico">
+							<property label="Player" type="list" value="Pico">
+								<data>
+									<item text="Boyfriend" />
+									<item text="Pico" />
+									<item text="Tankman" />
+								</data>
+							</property>
+							<property label="Opponent" type="list" value="Daddy Dearest">
+								<data>
+									<item text="Daddy Dearest" />
+									<item text="Spooky Kids" />
+									<item text="Monster" />
+									<item text="Pico" />
+									<item text="Mommy Mearest" />
+									<item text="Darnell" />
+								</data>
+							</property>
+							<property label="Girlfriend" type="list" value="Nene">
+								<data>
+									<item text="None" />
+									<item text="Girlfriend" />
+									<item text="Nene" />
+								</data>
+							</property>
+						</property-group>
+					</property-grid>
+					<button text="Add Character" horizontalAlign="right" />
+				</vbox>
+			</frame>
+		</vbox>
+		<vbox text="Difficulty">
+			<frame text="Difficulty: Normal">
+				<vbox>
+					<label text="Scroll Speed: 1.3" />
+					<slider pos="50" minorTicks="5" majorTicks="10" />
+				</vbox>
+			</frame>
+		</vbox>
+		<!--
+		<vbox text="Patterns">
+			<button text="Button" />
+		</vbox>
+		-->
+		<vbox text="Notes">
+			<grid>
+				<label text="Note Kind:" verticalAlign="center" />
+				<dropdown value="normal">
+					<data>
+						<item text="normal" />
+						<item text="alt" />
+						<item text="weekend-1-lightcan" />
+						<item text="weekend-1-kickcan" />
+						<item text="weekend-1-kneecan" />
+						<item text="weekend-1-cockgun" />
+						<item text="weekend-1-firegun-hip" />
+						<item text="weekend-1-firegun-far" />
+						<item text="weekend-1-punchlow" />
+						<item text="weekend-1-punchhigh" />
+						<item text="weekend-1-punchlowblocked" />
+						<item text="weekend-1-punchhighblocked" />
+						<item text="weekend-1-dodgelow" />
+						<item text="weekend-1-blockhigh" />
+						<item text="weekend-1-fakeout" />
+					</data>
+				</dropdown>
+			</grid>
+			<button text="Clear All Notes" styleName="hazard-button" />
+		</vbox>
+		<vbox text="Events">
+			<button text="Clear All Events" styleName="hazard-button" />
+		</vbox>
+	</tabview>
+</hbox>

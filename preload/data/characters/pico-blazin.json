@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Blazin)",
+  "assetPath": "characters/Pico_Blazin",
+  "healthIcon": {
+    "id": "pico",
+    "flipX": true
+  },
+  "flipX": true,
+  "renderType": "sparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Pico Idle0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "beforeUppercut",
+      "prefix": "Pico Before Uppercut0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "blockHit",
+      "prefix": "Pico Block Hit0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "dodge",
+      "prefix": "Pico Dodge0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "fakeOut",
+      "prefix": "Pico Fake Out0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitHigh",
+      "prefix": "Pico Hit High0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitLow",
+      "prefix": "Pico Hit Low0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "laughing",
+      "prefix": "Pico Laughing0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchHigh",
+      "prefix": "Pico Punch High0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchLow",
+      "prefix": "Pico Punch Low0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "spin",
+      "prefix": "Pico Spin0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "uppercut",
+      "prefix": "Pico Uppercut0",
+      "offsets": [0, 0]
+    }
+  ]
+}

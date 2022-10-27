@@ -3,12 +3,12 @@ import funkin.play.stage.Stage;
 
 class SchoolStage extends Stage
 {
-	public function new()
+	function new()
 	{
 		super('school');
 	}
 
-	override function buildStage()
+	function buildStage()
 	{
 		super.buildStage();
 

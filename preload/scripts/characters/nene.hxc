@@ -1,0 +1,186 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import flixel.FlxG;
+
+class NeneCharacter extends SparrowCharacter {
+	function new() {
+		super('nene');
+	}
+
+	/**
+	 * At this amount of life, Nene will raise her knife.
+	 */
+	var VULTURE_THRESHOLD = 0.25 * 2;
+	
+	/**
+	 * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
+	 * or maybe her 'combo' or 'drop' animations are active.
+	 * 
+	 * Transitions:
+	 * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
+	 */
+	var STATE_DEFAULT = 0;
+
+	/**
+	 * Nene has recognized the player is at low health,
+	 * but has to wait for the appropriate point in the animation to move on.
+	 * 
+	 * Transitions:
+	 * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
+	 * If current animation is combo or drop, transition when animation completes.
+	 * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
+	 * If current animation is danceRight, wait until danceLeft starts.
+	 */
+	var STATE_PRE_RAISE = 1;
+
+	/**
+	 * Nene is raising her knife.
+	 * When moving to this state, immediately play the 'raiseKnife' animation.
+	 * 
+	 * Transitions:
+	 * Once 'raiseKnife' animation completes, transition to STATE_READY.
+	 */
+	var STATE_RAISE = 2;
+
+	/**
+	 * Nene is holding her knife ready to strike.
+	 * During this state, hold the animation on the first frame, and play it at random intervals.
+	 * This makes the blink look less periodic.
+	 * 
+	 * Transitions:
+	 * If the player runs out of health, move to the GameOverSubstate. No transition needed.
+	 * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
+	 */
+	var STATE_READY = 3;
+
+	/**
+	 * Nene is raising her knife.
+	 * When moving to this state, immediately play the 'lowerKnife' animation.
+	 * 
+	 * Transitions:
+	 * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
+	 */
+	var STATE_LOWER = 4;
+
+	/**
+	 * Nene's animations are tracked in a simple state machine.
+	 * Given the current state and an incoming event, the state changes.
+	 */
+	var currentState:Int = STATE_DEFAULT;
+
+	/**
+	 * Nene blinks every X beats, with X being randomly generated each time.
+	 * This keeps the animation from looking too periodic.
+	 */
+	var MIN_BLINK_DELAY:Int = 3;
+	var MAX_BLINK_DELAY:Int = 7;
+	var blinkCountdown:Int = MIN_BLINK_DELAY;
+
+	function dance(forceRestart:Bool) {
+		// Then, perform the appropriate animation for the current state.
+		switch(currentState) {
+			case STATE_DEFAULT:
+				if (hasDanced) {
+					playAnimation('danceRight', forceRestart);
+				} else {
+					playAnimation('danceLeft', forceRestart);
+				}
+				hasDanced = !hasDanced;
+			case STATE_PRE_RAISE:
+				playAnimation('danceLeft', false);
+				hasDanced = false;
+			case STATE_READY:
+				if (blinkCountdown == 0) {
+					playAnimation('idleKnife', false);
+					blinkCountdown = FlxG.random.int(MIN_BLINK_DELAY, MAX_BLINK_DELAY);
+				} else {
+					blinkCountdown--;
+				}
+			default:
+				// In other states, don't interrupt the existing animation.
+		}
+	}
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		transitionState();
+	}
+
+	var animationFinished:Bool = false;
+
+	function onAnimationFinished(name:String) {
+		switch(currentState) {
+			case STATE_RAISE:
+				if (name == "raiseKnife") {
+					animationFinished = true;
+					transitionState();
+				}
+			case STATE_LOWER:
+				if (name == "lowerKnife") {
+					animationFinished = true;
+					transitionState();
+				}
+			default:
+				// Ignore.
+		}
+	}
+
+	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
+		super.onAnimationFrame(name, frameNumber, frameIndex);
+		
+		switch(currentState) {
+			case STATE_PRE_RAISE:
+				if (name == "danceLeft" && frameNumber == 14) {
+					animationFinished = true;
+					transitionState();
+				}
+			default:
+				// Ignore.
+		}
+	}
+
+	function transitionState() {
+		switch (currentState) {
+			case STATE_DEFAULT:
+				if (PlayState.instance.health <= VULTURE_THRESHOLD) {
+					trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
+					currentState = STATE_PRE_RAISE;
+				} else {
+					currentState = STATE_DEFAULT;
+				}
+			case STATE_PRE_RAISE:
+				if (PlayState.instance.health > VULTURE_THRESHOLD) {
+					trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
+					currentState = STATE_DEFAULT;
+				} else if (animationFinished) {
+					trace('NENE: Animation finished, transitioning to STATE_RAISE');
+					currentState = STATE_RAISE;
+					playAnimation('raiseKnife');
+					animationFinished = false;
+				}
+			case STATE_RAISE:
+				if (animationFinished) {
+					trace('NENE: Animation finished, transitioning to STATE_READY');
+					currentState = STATE_READY;
+					animationFinished = false;
+				}
+			case STATE_READY:
+				if (PlayState.instance.health > VULTURE_THRESHOLD) {
+					trace('NENE: Health went back up, transitioning to STATE_LOWER');
+					currentState = STATE_LOWER;
+					playAnimation('lowerKnife');
+				}
+			case STATE_LOWER:
+				if (animationFinished) {
+					trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
+					currentState = STATE_DEFAULT;
+					animationFinished = false;
+				}
+			default:
+				trace('UKNOWN STATE ' + currentState);
+				currentState = STATE_DEFAULT;
+		}
+	}
+}

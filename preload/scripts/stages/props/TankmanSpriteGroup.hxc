@@ -4,7 +4,7 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxSprite;
-import funkin.Note.NoteData;
+import funkin.noteStuff.NoteBasic.NoteData;
 import funkin.play.PlayState;
 import funkin.Section.SwagSection;
 import Lambda;
@@ -16,13 +16,13 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 
 	var MAX_SIZE = 4;
 
-	public function new()
+	function new()
 	{
 		super(0, 0, 4);
 		this.zIndex = 30;
 	}
 
-	public function reset()
+	function reset()
 	{
 		group.clear();
 
@@ -30,7 +30,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		initTimemap();
 	}
 
-	public function initTimemap()
+	function initTimemap()
 	{
 		trace('Initializing Tankman timings...');
 		tankmanTimes = [];
@@ -69,7 +69,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 	/**
 	 * Creates a Tankman sprite and adds it to the group. 
 	 */
-	public function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool)
+	function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool)
 	{
 		// recycle() is neat; it looks for a sprite which has completed its animation and resets it,
 		// rather than calling the constructor again. It only calls the constructor if it can't find one.
@@ -96,7 +96,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 
 	var timer:Float = 0;
 
-	override function update(elapsed:Float)
+	function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
@@ -127,7 +127,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		}
 	}
 
-	public override function kill()
+	function kill()
 	{
 		super.kill();
 		trace('TankmanSpriteGroup.kill()');

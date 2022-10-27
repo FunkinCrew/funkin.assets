@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	Note that CSS styles are GLOBAL.
+	You can either define a style class name or use `#id` to target a specific element.
+	You can also use the `.html5` class to apply platform-specific styling.
+-->
+<style>
+	.notifbar {
+		margin: 0px;
+		padding: 0px;
+		border-left: 1px solid #000;
+		border-top: 1px solid #000;
+
+		border-right: 0px solid #000;
+		border-bottom: 0px solid #000;
+	}
+	.notifbarBox {
+		margin: 8px;
+	}
+
+	.playbar {
+		background-color: $solid-background-color;
+		padding: 8px;
+	}
+	.playbarDuration {
+		font-size: 24px;
+		font-bold: true;
+	}
+	.playbarButton {
+		font-size: 16px;
+	}
+
+	.dialog-close-button {
+    resource: "haxeui-flixel/styles/flixel-ui/images/close.png";
+		vertical-align: "center";
+    cursor: "pointer";
+    pointer-events: true;
+    padding: 3px;
+    border-radius: 2px;
+	}
+
+	.dialog-close-button:hover {
+    resource: $close-hover;
+    background-color: $selection-background-color;
+	}
+
+	.dialog-minimize-button {
+		resource: "shared:assets/shared/images/ui/chart-editor/minimize.png";
+		vertical-align: "center";
+    cursor: "pointer";
+    pointer-events: true;
+    padding: 3px;
+    border-radius: 2px;
+	}
+
+	.dialog-minimize-button:hover {
+    resource: "shared:assets/shared/images/ui/chart-editor/minimize.png";
+    background-color: $selection-background-color;
+	}
+
+	.dialog-maximize-button {
+		resource: "shared:assets/shared/images/ui/chart-editor/maximize.png";
+		vertical-align: "center";
+    cursor: "pointer";
+    pointer-events: true;
+    padding: 3px;
+    border-radius: 2px;
+	}
+
+	.dialog-maximize-button:hover {
+    resource: "shared:assets/shared/images/ui/chart-editor/maximize.png";
+    background-color: $selection-background-color;
+	}
+
+	#toolboxTools .dialog-title, #toolboxSong .dialog-title, #toolboxNotes .dialog-title, #toolboxEvents .dialog-title {
+		padding: 4px;
+	}
+
+	#toolboxSong .dialog-content {
+		padding: 0px;
+	}
+</style>
