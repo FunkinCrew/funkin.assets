@@ -79,7 +79,7 @@
     <menu-checkbox id="menubarItemToggleToolboxSong" text="Song" />
   </menu>
   <menu text="Help">
-    <menu-item id="menubarItemUserGuide" text="User Guide" />
+    <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
