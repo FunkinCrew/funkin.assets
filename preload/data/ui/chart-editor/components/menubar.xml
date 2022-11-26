@@ -8,7 +8,7 @@
 	}
 	</style>
   <menu text="File">
-    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" disabled="true" />
+    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
     <menu-separator />
     <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" disabled="true" />
     <menu text="Open Recent" disabled="true" >
@@ -21,7 +21,7 @@
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" disabled="true" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" disabled="true" />
     <menu-separator />
-    <menu-item id="menubarItemLoadMusic" text="Load Music" disabled="true" />
+    <menu-item id="menubarItemLoadInst" text="Load Instrumental" />
     <menu-item id="menubarItemImportChart" text="Import Chart" disabled="true" />
     <menu-separator />
     <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />

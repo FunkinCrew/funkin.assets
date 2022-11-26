@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dialog width="800" height="500" title="Chart Editor - New Song">
+	<vbox width="100%" height="100%">
+		<!-- Body -->
+		<hbox width="100%" height="100%">
+			<card id="splashSectionLeft" width="25%" height="100%" text="Open Recent">
+				<link width="100%" text="D:/Funkin/charts/expurgated.json" disabled="true" />
+				<link width="100%" text="D:/Funkin/charts/fatal-error.json" disabled="true" />
+				<link width="100%" text="C:/Downloads/bad-bash.json" disabled="true" />
+				<link width="100%" text="D:/Funkin/charts/lullaby/monochrome.json" disabled="true" />
+				<button text="Browse" />
+			</card>
+			<card id="splashSectionCenter" width="25%" height="100%" text="Create From Template">
+				<link id="splashCreateFromSongBasic" width="100%" text="Easy/Normal/Hard" />
+				<link id="splashCreateFromSongErect" width="100%" text="Easy/Normal/Hard + Erect/Nightmare" disabled="true" />
+			</card>
+			<card id="splashSectionRight" width="25%" height="100%" text="Create From Song">
+				<scrollview width="100%" height="100%" contentWidth="100%">
+					<vbox width="100%">
+						<link text="Bopeebo" disabled="true" />
+						<link text="Fresh" disabled="true" />
+						<link text="Dadbattle" disabled="true" />
+						<link text="Spookeez" disabled="true" />
+						<link text="South" disabled="true" />
+						<link text="Monster" disabled="true" />
+						<link text="Pico" disabled="true" />
+						<link text="Philly" disabled="true" />
+						<link text="Blammed" disabled="true" />
+						<link text="Satin Panties" disabled="true" />
+						<link text="High" disabled="true" />
+						<link text="M.I.L.F." disabled="true" />
+						<link text="Cocoa" disabled="true" />
+						<link text="Eggnog" disabled="true" />
+						<link text="Winter Horrorland" disabled="true" />
+						<link text="Senpai" disabled="true" />
+						<link text="Roses" disabled="true" />
+						<link text="Thorns" disabled="true" />
+						<link text="Ugh" disabled="true" />
+						<link text="Guns" disabled="true" />
+						<link text="Stress" disabled="true" />
+						<link text="Darnell" disabled="true" />
+						<link text="Lit Up" disabled="true" />
+						<link text="2Hot" disabled="true" />
+						<link text="Blazin'" disabled="true" />
+					</vbox>
+				</scrollview>
+			</card>
+			<vbox width="10%" height="100%" id="spriteBox">
+				<image id="bfSprite" resource="freeplay/bfFreeplay" width="200" height="200" />
+			</vbox>
+		</hbox>
+	</vbox>
+</dialog>

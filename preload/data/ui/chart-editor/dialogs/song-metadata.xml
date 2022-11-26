@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dialog id="metadataDialog" width="600" height="400" title="New Chart - Provide Song Metadata">
+	<frame text="Variation: DEFAULT">
+		<grid columns="2" width="100%">
+			<label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
+			<textfield id="dialogSongName" placeholder="Song name..." />
+
+			<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
+			<textfield id="dialogSongArtist" placeholder="Song artist..." />
+
+			<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
+			<dropdown id="dialogStage" value="Stage..." horizontalAlign="right">
+				<data>
+					<item text="Main Stage" />
+					<item text="Spooky Mansion" />
+					<item text="Philly Train" />
+					<item text="Limo Ride" />
+					<item text="Mall (Xmas)" />
+					<item text="Mall (Evil)" />
+					<item text="School" />
+					<item text="School (Evil)" />
+					<item text="Tankman Battlefield" />
+					<item text="Philly Streets" />
+					<item text="Philly Streets (Blazin')" />
+				</data>
+			</dropdown>
+
+			<label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
+			<dropdown id="sidebarNoteSkin" value="Normal" horizontalAlign="right">
+				<data>
+					<item text="Normal" />
+					<item text="Pixel" />
+				</data>
+			</dropdown>
+		</grid>
+	</frame>
+
+	<frame text="Instrumental">
+		<button text="Load Instrumental" />
+		<hbox>
+			<label text="BPM" />
+			<number-stepper pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
+		</hbox>
+	</frame>
+</dialog>
