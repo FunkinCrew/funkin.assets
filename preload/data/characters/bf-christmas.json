@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Christmas)",
+  "types": ["player"],
   "assetPath": "characters/bfChristmas",
   "flipX": true,
   "renderType": "multisparrow",

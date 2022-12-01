@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Monster (Christmas)",
+  "types": ["opponent"],
   "assetPath": "characters/monsterChristmas",
   "animations": [
     {

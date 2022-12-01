@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<property-group id="charGroup" text="Boyfriend">
+	<property id="charGroupPlayer" label="Player" value="bf" type="list">
+		<data>
+			<item id="bf" text="Boyfriend" />
+			<item id="pico" text="Pico" />
+			<item id="tankman" text="Tankman" />
+		</data>
+	</property>
+	<property id="charGroupOpponent" label="Opponent" value="dad" type="list">
+		<data>
+			<item id="dad" text="Daddy Dearest" />
+			<item id="spooky" text="Spooky Kids" />
+			<item id="monster" text="Monster" />
+			<item id="pico" text="Pico" />
+			<item id="mom" text="Mommy Mearest" />
+			<item id="parents-christmas" text="Parents (Christmas)" />
+			<item id="senpai" text="Senpai" />
+			<item id="spirit" text="Spirit" />
+			<item id="darnell" text="Darnell" />
+		</data>
+	</property>
+	<property id="charGroupGirlfriend" label="Girlfriend" value="" type="list">
+		<data>
+			<item id="" text="None" />
+			<item id="gf" text="Girlfriend" />
+			<item id="nene" text="Nene" />
+		</data>
+	</property>
+	<button id="charGroupRemove" text="Remove Character" horizontalAlign="right" />
+</property-group>

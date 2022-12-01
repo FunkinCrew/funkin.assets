@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Pixel)",
+  "types": ["girlfriend"],
   "assetPath": "characters/gfPixel",
   "startingAnimation": "danceRight",
   "isPixel": true,

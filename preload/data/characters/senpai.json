@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Senpai",
+  "types": ["opponent"],
   "assetPath": "characters/senpai",
   "singTime": 2.0,
   "isPixel": true,

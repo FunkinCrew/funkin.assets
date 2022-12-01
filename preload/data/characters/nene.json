@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Nene",
+  "types": ["girlfriend"],
   "assetPath": "characters/Nene",
   "startingAnimation": "danceRight",
   "animations": [

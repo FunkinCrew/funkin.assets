@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <dialog id="metadataDialog" width="600" height="400" title="New Chart - Provide Song Metadata">
-	<frame text="Variation: DEFAULT">
-		<grid columns="2" width="100%">
-			<label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
-			<textfield id="dialogSongName" placeholder="Song name..." />
+	<hbox width="100%" height="100%">
+		<vbox width="100%" height="100%">
+			<grid columns="2" width="100%" height="100%">
+				<label text="Song Name:" style="font-size: 10px" verticalAlign="center" horizontalAlign="right" />
+				<textfield id="dialogSongName" style="font-size: 10px" placeholder="Song name..." width="100%" />
 
-			<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
-			<textfield id="dialogSongArtist" placeholder="Song artist..." />
+				<label text="Song Artist:" style="font-size: 10px" verticalAlign="center" horizontalAlign="right" />
+				<textfield id="dialogSongArtist" style="font-size: 10px" placeholder="Song artist..." width="100%" />
 
-			<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-			<dropdown id="dialogStage" value="Stage..." horizontalAlign="right">
-				<data>
-					<item text="Main Stage" />
-					<item text="Spooky Mansion" />
-					<item text="Philly Train" />
-					<item text="Limo Ride" />
-					<item text="Mall (Xmas)" />
-					<item text="Mall (Evil)" />
-					<item text="School" />
-					<item text="School (Evil)" />
-					<item text="Tankman Battlefield" />
-					<item text="Philly Streets" />
-					<item text="Philly Streets (Blazin')" />
-				</data>
-			</dropdown>
+				<label text="Stage:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
+				<dropdown id="dialogStage" text="Stage..." style="font-size: 10px" horizontalAlign="right" width="100%">
+					<data>
+						<item id="mainStage" text="Main Stage" />
+						<item id="spookyMansion" text="Spooky Mansion" />
+						<item id="phillyTrain" text="Philly Train" />
+						<item id="limoRide" text="Limo Ride" />
+						<item id="mallXmas" text="Mall (Xmas)" />
+						<item id="mallEvil" text="Mall (Evil)" />
+						<item id="school" text="School" />
+						<item id="schoolEvil" text="School (Evil)" />
+						<item id="tankmanBattlefield" text="Tankman Battlefield" />
+						<item id="phillyStreets" text="Philly Streets" />
+						<item id="phillyBlazin" text="Philly Streets (Blazin')" />
+					</data>
+				</dropdown>
 
-			<label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
-			<dropdown id="sidebarNoteSkin" value="Normal" horizontalAlign="right">
-				<data>
-					<item text="Normal" />
-					<item text="Pixel" />
-				</data>
-			</dropdown>
-		</grid>
-	</frame>
+				<label text="Note Skin:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
+				<dropdown id="dialogNoteSkin" value="normal" style="font-size: 10px" horizontalAlign="right" width="100%">
+					<data>
+						<item id="Normal" text="Normal" />
+						<item id="Pixel" text="Pixel" />
+					</data>
+				</dropdown>
 
-	<frame text="Instrumental">
-		<button text="Load Instrumental" />
-		<hbox>
-			<label text="BPM" />
-			<number-stepper pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
-		</hbox>
-	</frame>
+				<label text="BPM:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
+				<number-stepper id="dialogBPM" style="font-size: 10px" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" />
+			</grid>
+			<label text="If your song changes BPM, use the starting value." style="font-size: 8px" horizontalAlign="left" />
+		</vbox>
+
+		<vbox width="100%" height="100%">
+			<frame text="Characters">
+				<vbox>
+					<property-grid id="dialogCharGrid" width="250" height="280"></property-grid>
+					<button id="dialogCharAdd" text="Add Character" horizontalAlign="right" />
+				</vbox>
+			</frame>
+			<button text="Continue" id="dialogContinue" horizontalAlign="right" />
+		</vbox>
+	</hbox>
 </dialog>

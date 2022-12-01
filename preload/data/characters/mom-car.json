@@ -1,6 +1,7 @@
 {
     "version": "1.0.0",
     "name": "Mommy Mearest (Car)",
+    "types": ["opponent"],
     "assetPath": "characters/Mom",
     "singTime": 2.0,
     "healthIcon": {
