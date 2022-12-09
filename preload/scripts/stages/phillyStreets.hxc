@@ -1,0 +1,22 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import funkin.Paths;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.shaderslmfao.OverlayBlend;
+import openfl.filters.ShaderFilter;
+
+class PhillyStreetsStage extends Stage
+{
+	function new()
+	{
+		super('phillyStreets');
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+	}
+}
