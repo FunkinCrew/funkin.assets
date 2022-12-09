@@ -60,12 +60,12 @@
     <menu-checkbox disabled="true" text="Enable Opponent Note Sounds" />
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
-      <label text="Instrumental - 100%" />
+      <label id="menubarLabelVolumeInstrumental" text="Instrumental - 100%" />
       <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      <label text="Vocal Volume - 100%" />
+      <label id="menubarLabelVolumeVocals" text="Vocal Volume - 100%" />
       <slider id="menubarItemVolumeVocals" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      <label text="Playback Speed - 100%" />
-      <slider id="menubarItemPlaybackSpeed" disabled="true" width="100%" majorTicks="10" minorTicks="5" pos="50" />
+      <label id="menubarLabelPlaybackSpeed" text="Playback Speed - 100%" />
+      <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
   </menu>
   <menu text="Test">
