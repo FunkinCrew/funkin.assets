@@ -56,8 +56,8 @@
   </menu>
   <menu text="Audio">
     <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
-    <menu-checkbox disabled="true" text="Enable Player Note Sounds" />
-    <menu-checkbox disabled="true" text="Enable Opponent Note Sounds" />
+    <menu-checkbox id="menubarItemPlayerHitsounds" text="Enable Player Note Sounds" />
+    <menu-checkbox id="menubarItemOpponentHitsounds" text="Enable Opponent Note Sounds" />
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
       <label id="menubarLabelVolumeInstrumental" text="Instrumental - 100%" />
