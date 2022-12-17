@@ -18,8 +18,7 @@
       <menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
     </menu>
     <menu-separator />
-    <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" disabled="true" />
-    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" disabled="true" />
+    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
     <menu-item id="menubarItemLoadInst" text="Load Instrumental" />
     <menu-item id="menubarItemImportChart" text="Import Chart" disabled="true" />
@@ -53,6 +52,10 @@
   </menu>
   <menu text="View">
     <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    <menu text="Theme">
+      <menuoptionbox id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
+      <menuoptionbox id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
+    </menu>
   </menu>
   <menu text="Audio">
     <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
@@ -73,10 +76,14 @@
     <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
   </menu>
   <menu text="Window">
-    <menu-checkbox id="menubarItemToggleToolboxTools" text="Tools" />
-    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
-    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
-    <menu-checkbox id="menubarItemToggleToolboxSong" text="Song" />
+    <menu-checkbox disabled="true" id="menubarItemToggleToolboxTools" text="Tools" />
+    <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
+    <menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
+    <menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
+    <menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
+    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <menu-checkbox disabled="true" id="menubarItemToggleToolboxNotes" text="Notes" />
+    <menu-checkbox disabled="true" id="menubarItemToggleToolboxEvents" text="Events" />
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />

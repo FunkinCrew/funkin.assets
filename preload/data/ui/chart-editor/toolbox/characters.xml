@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<collapsible-dialog id="toolboxCharacters" title="Characters" width="300" height="400">
+    <vbox>
+        <property-grid width="250" height="300">
+            <property-group text="Boyfriend">
+                <property label="Player" type="list" value="Boyfriend">
+                    <data>
+                        <item text="Boyfriend" />
+                        <item text="Pico" />
+                        <item text="Tankman" />
+                    </data>
+                </property>
+                <property label="Opponent" type="list" value="Dad">
+                    <data>
+                        <item text="Daddy Dearest" />
+                        <item text="Spooky Kids" />
+                        <item text="Monster" />
+                        <item text="Pico" />
+                        <item text="Mommy Mearest" />
+                        <item text="Darnell" />
+                    </data>
+                </property>
+                <property label="Girlfriend" type="list" value="Girlfriend">
+                    <data>
+                        <item text="None" />
+                        <item text="Girlfriend" />
+                        <item text="Nene" />
+                    </data>
+                </property>
+                <button text="Remove Character" />
+            </property-group>
+            <property-group text="Pico">
+                <property label="Player" type="list" value="Pico">
+                    <data>
+                        <item text="Boyfriend" />
+                        <item text="Pico" />
+                        <item text="Tankman" />
+                    </data>
+                </property>
+                <property label="Opponent" type="list" value="Daddy Dearest">
+                    <data>
+                        <item text="Daddy Dearest" />
+                        <item text="Spooky Kids" />
+                        <item text="Monster" />
+                        <item text="Pico" />
+                        <item text="Mommy Mearest" />
+                        <item text="Darnell" />
+                    </data>
+                </property>
+                <property label="Girlfriend" type="list" value="Nene">
+                    <data>
+                        <item text="None" />
+                        <item text="Girlfriend" />
+                        <item text="Nene" />
+                    </data>
+                </property>
+            </property-group>
+        </property-grid>
+        <button text="Add Character" horizontalAlign="right" />
+    </vbox>
+</collapsible-dialog>

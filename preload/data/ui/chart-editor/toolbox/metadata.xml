@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<collapsible-dialog id="toolboxMetadata" title="Song" width="300" height="400">
+    <vbox width="100%" height="100%">
+        <frame text="Variation: Default">
+            <grid columns="2" width="100%">
+                <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
+                <textfield id="inputSongName" value="Bopeebo" />
+
+                <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
+                <textfield id="inputSongArtist" value="Kawai Sprite" />
+
+                <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
+                <dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
+                    <data>
+                        <item text="Main Stage" />
+                        <item text="Spooky Mansion" />
+                        <item text="Philly Train" />
+                        <item text="Limo Ride" />
+                        <item text="Mall (Xmas)" />
+                        <item text="Mall (Evil)" />
+                        <item text="School" />
+                        <item text="School (Evil)" />
+                        <item text="Tankman Battlefield" />
+                        <item text="Philly Streets" />
+                        <item text="Philly Streets (Blazin')" />
+                    </data>
+                </dropdown>
+
+                <label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
+                <dropdown id="inputNoteSkin" value="Normal" horizontalAlign="right">
+                    <data>
+                        <item text="Normal" />
+                        <item text="Pixel" />
+                    </data>
+                </dropdown>
+
+                <label text="Starting BPM" />
+                <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
+            </grid>
+        </frame>
+
+        <frame text="Difficulty: Normal">
+            <grid columns="2" width="100%">
+                <label text="Starting Scroll Speed: 0.5" />
+                <slider id="inputScrollSpeed" pos="0" minorTicks="5" majorTicks="10" />
+            </grid>
+        </frame>
+    </vbox>
+</collapsible-dialog>
