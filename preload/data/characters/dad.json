@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Daddy Dearest",
+  "types": ["opponent"],
   "assetPath": "characters/DADDY_DEAREST",
   "singTime": 3.0,
   "animations": [

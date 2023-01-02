@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico",
+  "types": ["player"],
   "assetPath": "characters/Pico_Basic",
   "healthIcon": {
     "id": "pico",

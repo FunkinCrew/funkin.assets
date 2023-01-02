@@ -80,4 +80,11 @@
 	#toolboxSong .dialog-content {
 		padding: 0px;
 	}
+
+	.upload-bg {
+		background-color: #666666;
+	}
+	.upload-bg-hover {
+		background-color: #444444;
+	}
 </style>

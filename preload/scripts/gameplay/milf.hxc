@@ -264,7 +264,7 @@ class MILFGameplayModule extends Module
 	{
 		super.onUpdate(event);
 
-		trace('MILF: onUpdate');
+		// trace('MILF: onUpdate');
 
 		if (PlayState.instance == null || PlayState.instance.currentStage == null)
 			return;

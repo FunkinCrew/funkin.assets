@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Pixel)",
+  "types": ["player"],
   "assetPath": "characters/bfPixel",
   "flipX": true,
   "renderType": "multisparrow",

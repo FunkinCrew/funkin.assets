@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Mommy and Daddy (Festive)",
+  "types": ["opponent"],
   "assetPath": "characters/mom_dad_christmas_assets",
   "animations": [
     {

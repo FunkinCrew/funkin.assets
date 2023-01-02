@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Darnell (Blazin)",
+  "types": ["opponent"],
   "assetPath": "characters/Darnell_Blazin",
   "healthIcon": {
     "id": "darnell",

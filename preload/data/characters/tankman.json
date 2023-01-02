@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Tankman",
+  "types": ["opponent"],
   "assetPath": "characters/tankmanCaptain",
   "flipX": true,
   "singTime": 2.0,
