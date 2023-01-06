@@ -33,6 +33,9 @@ class SpraycanSprite extends FlxSprite
 	 */
 	public var arcEndingPosition:FlxPoint;
 
+	
+	var angularVelFrameByFrame:Float = 0;
+
 	/**
 	 * The Conductor time at which the spray can should reach the ending position.
 	 */
@@ -67,6 +70,8 @@ class SpraycanSprite extends FlxSprite
 		animation.addByPrefix('bounce', 'can bounce off head', 24, false);
 		// Can that has been shot
 		animation.addByPrefix('shot', 'can shot bend', 24, false);
+
+		updateHitbox();
 
 		arcControl = new FlxSprite(0, 0);
 		arcControl.frames = Paths.getSparrowAtlas('SpraycanArc');
@@ -140,12 +145,24 @@ class SpraycanSprite extends FlxSprite
 		if (animation.curAnim == null || animation.curAnim.name != name)
 		{
 			animation.play(name);
+			updateHitbox();
 		}
 	}
 
+
+	var canRotateTmr:Float = 0;
 	function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		canRotateTmr += elapsed;
+
+
+		if (canRotateTmr >= 2/24)
+		{
+			canRotateTmr = 0;
+			this.angle += angularVelFrameByFrame;
+		}
 
 		switch (currentState)
 		{
@@ -207,7 +224,7 @@ class SpraycanSprite extends FlxSprite
 		this.x = initialPosition.x;
 		this.y = initialPosition.y;
 		this.angle = 0;
-		this.angularVelocity = 0;
+		angularVelFrameByFrame = 0;
 
 		this.visible = false;
 	}
@@ -218,7 +235,7 @@ class SpraycanSprite extends FlxSprite
 		this.x = initialPosition.x;
 		this.y = initialPosition.y - 400;
 		this.angle = 0;
-		this.angularVelocity = 0;
+		angularVelFrameByFrame = 0;
 
 		this.visible = true;
 	}
@@ -259,7 +276,7 @@ class SpraycanSprite extends FlxSprite
 		updateCanArcPosition();
 
 		// this.angle = 0;
-		this.angularVelocity = 50; // # degrees per second.
+		angularVelFrameByFrame = 65; // # degrees per second.
 	}
 
 	var shotPos:FlxBasePoint = null;
@@ -287,13 +304,13 @@ class SpraycanSprite extends FlxSprite
 			// var debugIcon:FlxSprite = new FlxSprite(shotPos.x, shotPos.y);
 			// debugIcon.makeGraphic(8, 8, 0xffff00ff);
 			// FlxG.state.add(debugIcon);
-			setShotRotationOrigin();
-			this.angle = getBoyfriendAngle();
+			//setShotRotationOrigin();
+			//this.angle = getBoyfriendAngle();
 		}
 
 		this.x = shotPos.x - 325; // Apply animation offset.
 		this.y = shotPos.y - 100; // Apply animation offset.
-		this.angularVelocity = 0;
+		angularVelFrameByFrame = 0;
 	}
 
 	function updatePosition_IMPACTED()
@@ -307,6 +324,6 @@ class SpraycanSprite extends FlxSprite
 		this.x = shotPos.x - 100;
 		this.y = shotPos.y - 50;
 		this.angle = 0;
-		this.angularVelocity = 0;
+		angularVelFrameByFrame = 0;
 	}
 }
