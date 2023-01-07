@@ -110,8 +110,8 @@ class SpraycanSprite extends FlxSprite
 		var nextOffset = nextFrame.offset;
 
 		var finalOffset = new FlxBasePoint(0, 0);
-		finalOffset.x = prevOffset.x + (nextOffset.x - prevOffset.x) * frameFraction;
-		finalOffset.y = prevOffset.y + (nextOffset.y - prevOffset.y) * frameFraction;
+		finalOffset.x = prevOffset.x + (nextOffset.x - prevOffset.x) * 1;
+		finalOffset.y = prevOffset.y + (nextOffset.y - prevOffset.y) * 1;
 
 		return finalOffset;
 	}

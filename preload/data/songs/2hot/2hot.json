@@ -3,7 +3,7 @@
         "speed": {
             "easy": 1.0,
             "normal": 1.5,
-            "hard": 1.5
+            "hard": 2.5
         },
         "stageDefault": "phillyStreets",
         "validScore": true,

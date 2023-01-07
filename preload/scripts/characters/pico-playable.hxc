@@ -60,6 +60,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingArm = new FlxSprite(0, 0);
 		shootingArm.zIndex = 200 - 1;
 		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
+		shootingArm.antialiasing = true;
 		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
 		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
 		//shootingArm.visible = false;
@@ -74,12 +75,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		PlayState.instance.currentStage.add(shootingArm);
 
 		shootingFlare = new FlxSprite(0, 0);
-		shootingFlare.x = this.x + 250;
+		shootingFlare.x = this.x + 650;
 		shootingFlare.y = this.y + 190;
 		shootingFlare.zIndex = 10000;
 		shootingFlare.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
 		shootingFlare.animation.addByPrefix('far', "Pico Shoot Far Flare0", 24, false);
 		shootingFlare.animation.addByPrefix('repeat', "Pico Shoot Repeat Flare0", 24, false);
+		shootingFlare.updateHitbox();
 		shootingFlare.visible = false;
 
 		shootingFlare.animation.finishCallback = function(name:String) {
@@ -172,10 +174,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 					
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
+					shootingFlare.updateHitbox();
+					shootingFlare.x = shootingArm.x - 40;
+					shootingFlare.y = shootingArm.y - 480;
 					shootingFlare.angle = shootingArm.angle;
 					shootingFlare.visible = true;
 				}
 				// Using the .visible flag ITSELF as a one-shot! Sneaky.
+				// bro calling his own code sneaky.
 				shootingArm.visible = true;
 			} else if (this.getCurrentAnimation() == "shootHip") {
 				if (!shootingArm.visible) {
@@ -189,6 +195,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 					
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
+					shootingFlare.updateHitbox();
+					shootingFlare.x = shootingArm.x + 300;
+					shootingFlare.y = shootingArm.y - 900;
 					shootingFlare.angle = shootingArm.angle;
 					shootingFlare.visible = true;
 				}
