@@ -209,11 +209,11 @@ class SpraycanSprite extends FlxSprite
 
 	function getBoyfriendAngle()
 	{
-		var boyfriend = PlayState.instance.currentStage.getBoyfriend();
-		var angleRad = Math.atan2(boyfriend.y - y, boyfriend.x - x);
+		var boyfriend = PlayState.instance.currentStage.getBoyfriend().getGraphicMidpoint();
+		var angleRad = Math.atan2((boyfriend.y - 40) - y, (boyfriend.x - 40) - x);
 		var angleDeg = angleRad * 180.0 / Math.PI;
 
-		angleDeg -= 15;
+		//angleDeg -= 15;
 
 		return angleDeg;
 	}
@@ -308,8 +308,31 @@ class SpraycanSprite extends FlxSprite
 			//this.angle = getBoyfriendAngle();
 		}
 
+		this.angle = -25 + getBoyfriendAngle();
+
 		this.x = shotPos.x - 325; // Apply animation offset.
 		this.y = shotPos.y - 100; // Apply animation offset.
+
+
+		var bf = PlayState.instance.currentStage.getBoyfriend().getGraphicMidpoint();
+		var dx = (bf.x - 40) - this.x;
+		var dy = (bf.y - 10) - this.y;
+
+		var angle = Math.atan2(dy, dx);
+
+		this.x -= 300 * Math.cos(angle);
+		this.y -= 300 * Math.sin(angle);
+
+		// var length = Math.sqrt(dx*dx + dy*dy);
+		// dx /= length;
+		// dy /= length;
+
+		// dx *= 100;
+		// dy *= 100;
+		// this.x += dx;
+		// this.y += dy;
+
+
 		angularVelFrameByFrame = 0;
 	}
 
