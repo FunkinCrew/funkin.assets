@@ -8,6 +8,8 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.events.ScriptEvent.UpdateScriptEvent;
 import funkin.modding.module.Module;
 import funkin.play.PlayState;
+import flixel.tweens.FlxTween;
+// import flixel.util.FlxColor;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
@@ -231,6 +233,48 @@ class TwoHOTGameplayModule extends Module
 		if (can != null)
 		{
 			can.scriptSet('currentState', STATE_SHOT);
+
+			new FlxTimer().start(1/24, function(tmr)
+			{
+
+				
+				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad()); 
+				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getGirlfriend()); 
+				// PlayState.
+				// PlayState.instance.currentStage.getBoyfriend().color = 0xFFFFA500;
+				// PlayState.instance.currentStage.getDad().color = 0xFFFFA500;
+				// PlayState.instance.currentStage.getGirlfriend().color = 0xFFFFA500;
+
+				// FlxTween.color(PlayState.instance.currentStage.getBoyfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
+				// FlxTween.color(PlayState.instance.currentStage.getDad(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
+				// FlxTween.color(PlayState.instance.currentStage.getGirlfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
+				
+
+				var explodeEZ:FlxSprite = new FlxSprite(can.x, can.y);
+				explodeEZ.frames = Paths.getSparrowAtlas("spraypaintExplosionEZ");
+				explodeEZ.animation.addByPrefix("idle", "explosion", 24, false);
+				explodeEZ.animation.play("idle");
+
+				// explodeEZ.x -= explodeEZ.width;
+				// explodeEZ.y -= explodeEZ.height;
+
+				PlayState.instance.currentStage.add(explodeEZ);
+				explodeEZ.animation.finishCallback = () -> explodeEZ.kill();
+
+				var explode:FlxSprite = new FlxSprite(can.x, can.y);
+				explode.frames = Paths.getSparrowAtlas("spraypaintExplosion");
+				explode.animation.addByPrefix("idle", "Explosion", 24, false);
+				explode.animation.play("idle");
+
+				// explode.x -= explode.width;
+				// explode.y -= explode.height;
+
+				PlayState.instance.currentStage.add(explode);
+				explode.animation.finishCallback = () -> explode.kill();
+
+				can.kill();
+			});
+
 		}
 	}
 
