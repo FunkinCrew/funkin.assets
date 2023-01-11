@@ -44,8 +44,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		deathSpriteNene = new FlxSprite(0, 0);
 		var gf = PlayState.instance.currentStage.getGirlfriend();
-		deathSpriteNene.x = gf.originalPosition.x + 125;
-		deathSpriteNene.y = gf.originalPosition.y;
+		deathSpriteNene.x = gf.originalPosition.x + 280;
+		deathSpriteNene.y = gf.originalPosition.y + 70;
 		deathSpriteNene.frames = Paths.getSparrowAtlas("characters/NeneKnifeToss");
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
@@ -289,7 +289,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation(hip ? 'shootHip' : 'shootFar', true, true);
-		FlxG.sound.play(Paths.soundRandom('Shoot_', 1, 4), 1.0);
+		FlxG.sound.play(Paths.sound('Can_Shot_1'), 1.0);
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.

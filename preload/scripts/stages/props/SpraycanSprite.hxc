@@ -249,7 +249,7 @@ class SpraycanSprite extends FlxSprite
 		var arcFrameOffset = getArcControlFrame(arcVariant, progress);
 
 		this.x = arcStartingPosition.x + (arcFrameOffset.x * 1.58);
-		this.y = arcStartingPosition.y + arcFrameOffset.y + (200 * progress);
+		this.y = arcStartingPosition.y + arcFrameOffset.y + (200);
 
 		// The arc starting position is at the bottom left,
 		// so we need to adjust for the height of the arc.
