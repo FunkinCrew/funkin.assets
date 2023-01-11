@@ -236,6 +236,23 @@ class TwoHOTGameplayModule extends Module
 
 			new FlxTimer().start(1/24, function(tmr)
 			{
+				
+				for (stageProp in PlayState.instance.currentStage.members)
+				{
+					if (stageProp.zIndex < PlayState.instance.currentStage.getGirlfriend().zIndex)
+					{
+						stageProp.color = 0xFF111111;
+
+						new FlxTimer().start(1/24, (tmr) -> 
+						{	
+							stageProp.color = 0xFF222222;
+							FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
+						});
+
+						
+					}
+						
+				}
 
 				
 				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad()); 
