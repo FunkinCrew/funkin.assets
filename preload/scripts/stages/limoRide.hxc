@@ -3,7 +3,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.Paths;
 import funkin.play.stage.Stage;
-import funkin.PlayState;
+import funkin.play.PlayState;
 import funkin.shaderslmfao.OverlayBlend;
 
 class LimoRideStage extends Stage

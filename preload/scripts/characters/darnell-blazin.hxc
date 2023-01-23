@@ -1,7 +1,6 @@
 import flixel.FlxG;
 import funkin.Paths;
 import funkin.play.PlayState;
-import funkin.play.character.CharacterType;
 import funkin.play.character.SparrowCharacter;
 
 class DarnellBlazinCharacter extends SparrowCharacter
