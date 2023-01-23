@@ -76,14 +76,14 @@
     <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
   </menu>
   <menu text="Window">
-    <menu-checkbox disabled="true" id="menubarItemToggleToolboxTools" text="Tools" />
+    <menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
     <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
     <menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
     <menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
     <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
-    <menu-checkbox disabled="true" id="menubarItemToggleToolboxNotes" text="Notes" />
-    <menu-checkbox disabled="true" id="menubarItemToggleToolboxEvents" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
+    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />

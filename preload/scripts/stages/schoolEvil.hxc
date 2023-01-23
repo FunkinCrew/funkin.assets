@@ -2,8 +2,6 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.shaderslmfao.WiggleEffectRuntime;
 import funkin.shaderslmfao.WiggleEffectType;
-import funkin.play.character.Character.CharacterType;
-import funkin.play.character.Character;
 import flixel.addons.effects.FlxTrail;
 
 class SchoolEvilStage extends Stage
@@ -15,7 +13,7 @@ class SchoolEvilStage extends Stage
 
 	var wiggle:FlxRuntimeShader = null;
 
-	function buildStage()
+	override function buildStage()
 	{
 		super.buildStage();
 
@@ -25,7 +23,7 @@ class SchoolEvilStage extends Stage
 		getNamedProp('evilSchoolFG').shader = wiggle;
 	}
 
-	function addCharacter(char:Character, charType:CharacterType)
+	override function addCharacter(char:BaseCharacter, charType:CharacterType)
 	{
 		// TODO: Once scripted characters are implemented, move this to the Spirit script.
 		if (charType == charType.DAD)
@@ -39,7 +37,7 @@ class SchoolEvilStage extends Stage
 		super.addCharacter(char, charType);
 	}
 
-	function onUpdate(event:UpdateScriptEvent) {
+	override function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
 		if (wiggle != null) {

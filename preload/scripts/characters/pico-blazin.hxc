@@ -2,7 +2,6 @@ import flixel.FlxG;
 import funkin.Paths;
 import funkin.play.GameOverSubstate;
 import funkin.play.PlayState;
-import funkin.play.character.CharacterType;
 import funkin.play.character.SparrowCharacter;
 
 class PicoBlazinCharacter extends SparrowCharacter

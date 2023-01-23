@@ -1,5 +1,4 @@
 import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubstate;
 import funkin.Paths;
