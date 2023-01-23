@@ -14,7 +14,9 @@
     {
       "name": "danceRight",
       "prefix": "GF Dancing Beat",
-      "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+      "frameIndices": [
+        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+      ],
       "offsets": [0, -9]
     },
     {

@@ -29,16 +29,12 @@
           "mustHitSection": true
         },
         {
-          "sectionNotes": [
-
-          ],
+          "sectionNotes": [],
           "lengthInSteps": 16,
           "mustHitSection": false
         },
         {
-          "sectionNotes": [
-            [75600, 1, 0]
-          ],
+          "sectionNotes": [[75600, 1, 0]],
           "lengthInSteps": 16,
           "mustHitSection": true
         }

@@ -1,80 +1,48 @@
 {
-    "props": [{
-            "danceEvery": 0,
-            "zIndex": 10,
-            "position": [-200,
-                0
-            ],
-            "scale": [
-                6,
-                6
-            ],
-            "animType": "sparrow",
-            "name": "evilSchoolBG",
-            "isPixel": true,
-            "assetPath": "weeb/evilSchoolBG",
-            "scroll": [
-                0.6,
-                0.9
-            ],
-            "animations": []
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 20,
-            "position": [-200,
-                0
-            ],
-            "scale": [
-                6,
-                6
-            ],
-            "animType": "sparrow",
-            "name": "evilSchoolFG",
-            "isPixel": true,
-            "assetPath": "weeb/evilSchoolFG",
-            "scroll": [
-                0.95,
-                0.95
-            ],
-            "animations": []
-        }
-    ],
-    "cameraZoom": 1,
-    "version": "1.0.0",
-    "characters": {
-        "bf": {
-            "zIndex": 300,
-            "position": [
-                1139,
-                1008
-            ],
-            "cameraOffsets": [-200,
-                0
-            ]
-        },
-        "dad": {
-            "zIndex": 200,
-            "position": [
-                334,
-                968
-            ],
-            "cameraOffsets": [
-                160,
-                0
-            ]
-        },
-        "gf": {
-            "zIndex": 100,
-            "cameraOffsets": [
-                0,
-                0
-            ],
-            "position": [
-                940,
-                1066
-            ]
-        }
+  "props": [
+    {
+      "danceEvery": 0,
+      "zIndex": 10,
+      "position": [-200, 0],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "evilSchoolBG",
+      "isPixel": true,
+      "assetPath": "weeb/evilSchoolBG",
+      "scroll": [0.6, 0.9],
+      "animations": []
     },
-    "name": "School (Hate)"
+    {
+      "danceEvery": 0,
+      "zIndex": 20,
+      "position": [-200, 0],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "evilSchoolFG",
+      "isPixel": true,
+      "assetPath": "weeb/evilSchoolFG",
+      "scroll": [0.95, 0.95],
+      "animations": []
+    }
+  ],
+  "cameraZoom": 1,
+  "version": "1.0.0",
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [1139, 1008],
+      "cameraOffsets": [-200, 0]
+    },
+    "dad": {
+      "zIndex": 200,
+      "position": [334, 968],
+      "cameraOffsets": [160, 0]
+    },
+    "gf": {
+      "zIndex": 100,
+      "cameraOffsets": [0, 0],
+      "position": [940, 1066]
+    }
+  },
+  "name": "School (Hate)"
 }
