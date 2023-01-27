@@ -1,5 +1,0 @@
-
-<hbox id="funny" style="padding-left: 100px">
-    <button id="lol" text="SAVE DEVELOP"/>
-    <button id="saveAs" text="SAVE AS..."/>
-</hbox>

@@ -1,0 +1,5 @@
+
+<hbox id="funny" style="padding-left: 100px">
+    <import source="components/menubar.xml" />
+
+</hbox>
