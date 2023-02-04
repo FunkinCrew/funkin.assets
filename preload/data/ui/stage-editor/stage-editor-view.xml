@@ -33,8 +33,8 @@
                     <section-header text="Character Properties" />
                     <property-grid width="100%" height="100%">
                         <property-group text="Positioning">
-                            <property id="intProp" label="X pos" type="int" value="0"/>
-                            <property id="intProp" label="Y pos" type="int" value="0"/>
+                            <property id="propXPos" label="X pos" type="int" value="0"/>
+                            <property id="propYPos" label="Y pos" type="int" value="0"/>
                         </property-group>
                         
                     </property-grid>
