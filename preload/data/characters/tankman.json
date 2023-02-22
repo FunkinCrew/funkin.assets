@@ -2,64 +2,42 @@
   "version": "1.0.0",
   "name": "Tankman",
   "types": ["opponent"],
-  "assetPath": "characters/tankmanCaptain",
+  "renderType": "animateatlas",
+  "assetPath": "characters/tankman",
   "flipX": true,
   "singTime": 2.0,
+  "offsets": [200, -550],
+  "cameraOffsets": [200, 500],
   "animations": [
     {
       "name": "idle",
-      "prefix": "Tankman Idle Dance",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
-      "prefix": "Tankman Right Note ",
-      "offsets": [100, -14]
+      "prefix": "singRIGHT",
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWN",
-      "prefix": "Tankman DOWN note ",
-      "offsets": [98, -90]
+      "offsets": [0, 0]
     },
     {
       "name": "singUP",
-      "prefix": "Tankman UP note ",
-      "offsets": [24, 56]
+      "offsets": [0, 0]
     },
     {
       "name": "singRIGHT",
-      "prefix": "Tankman Note Left ",
-      "offsets": [-1, -7]
+      "prefix": "singLEFT",
+      "offsets": [0, 0]
     },
     {
-      "name": "singLEFTmiss",
-      "prefix": "Tankman Right Note MISS",
-      "offsets": [-30, 16]
+      "name": "hehPrettyGood",
+      "offsets": [0, 0]
     },
     {
-      "name": "singDOWNmiss",
-      "prefix": "Tankman DOWN note MISS",
-      "offsets": [69, -99]
-    },
-    {
-      "name": "singUPmiss",
-      "prefix": "Tankman UP note MISS",
-      "offsets": [53, 84]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "Tankman Note Left MISS",
-      "offsets": [-1, -3]
-    },
-    {
-      "name": "singDOWN-alt",
-      "prefix": "PRETTY GOOD",
-      "offsets": [98, -90]
-    },
-    {
-      "name": "singUP-alt",
-      "prefix": "TANKMAN UGH",
-      "offsets": [24, 56]
+      "name": "ugh",
+      "offsets": [0, 0]
     }
   ]
 }
