@@ -29,7 +29,11 @@
 				</scrollview>
 			</card>
 			<vbox width="10%" height="100%" id="spriteBox">
-				<image id="bfSprite" resource="freeplay/bfFreeplay" width="200" height="200" />
+				<sparrow-player id="boyfriendDJ" xmlFile="assets/images/freeplay/bfFreeplay.xml" pngFile="assets/images/freeplay/bfFreeplay.png" animationName="idle" width="192px">
+					<data>
+							<set name="idle" prefix="Boyfriend DJ0" frameRate="24" looped="true" />
+					</data>
+				</sparrow-player>
 			</vbox>
 		</hbox>
 	</vbox>
