@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <dialog id="metadataDialog" width="600" height="400" title="New Chart - Provide Song Metadata">
-	<hbox width="100%" height="100%">
-		<vbox width="100%" height="100%">
+	<vbox width="100%" height="100%">
+		<hbox width="100%" height="100%">
 			<grid columns="2" width="100%" height="100%">
 				<label text="Song Name:" style="font-size: 10px" verticalAlign="center" horizontalAlign="right" />
 				<textfield id="dialogSongName" style="font-size: 10px" placeholder="Song name..." width="100%" />
@@ -38,17 +38,19 @@
 				<label text="BPM:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
 				<number-stepper id="dialogBPM" style="font-size: 10px" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" />
 			</grid>
-			<label text="If your song changes BPM, use the starting value." style="font-size: 8px" horizontalAlign="left" />
-		</vbox>
 
-		<vbox width="100%" height="100%">
 			<frame text="Characters">
 				<vbox>
-					<property-grid id="dialogCharGrid" width="250" height="280"></property-grid>
+					<property-grid id="dialogCharGrid" width="250" height="260" />
 					<button id="dialogCharAdd" text="Add Character" horizontalAlign="right" />
 				</vbox>
 			</frame>
+		</hbox>
+		<label text="If your song changes BPM, use the starting value." style="font-size: 8px" horizontalAlign="left" />
+		<hbox width="100%">
+			<button text="Cancel" id="dialogCancel" />
+			<spacer width="100%" />
 			<button text="Continue" id="dialogContinue" horizontalAlign="right" />
-		</vbox>
-	</hbox>
+		</hbox>
+	</vbox>
 </dialog>
