@@ -1,5 +1,5 @@
 {
-  "name": "sticker-set-1",
+  "name": "stickers-set-1",
   "artist": "PhantomArcade3K",
   "stickers": {
     "bf": ["bfSticker1", "bfSticker2", "bfSticker3"],
@@ -9,7 +9,7 @@
     "monster": ["monsterSticker1", "monsterSticker2", "monsterSticker3"],
     "gf": ["gfSticker1", "gfSticker2", "gfSticker3"]
   },
-  "sticker-packs": {
+  "stickerPacks": {
     "bf-gf": ["bf", "gf"],
     "parents": ["dad", "mom"],
     "all": ["bf", "gf", "dad", "mom", "monster", "pico"]
