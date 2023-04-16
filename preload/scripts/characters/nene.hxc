@@ -1,10 +1,29 @@
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
 
 class NeneCharacter extends SparrowCharacter {
 	function new() {
 		super('nene');
+	}
+
+	var abot:FlxAtlasSprite;
+
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+		trace('LET HIM COOK');
+		trace(this.x);
+		trace(this.y);
+		trace(this.zIndex);
+		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
+		abot.x = this.x;
+		abot.y = this.y;
+		abot.zIndex = this.zIndex - 1;
+		
+		
+
+		PlayState.instance.currentStage.refresh();
 	}
 
 	/**
@@ -101,8 +120,28 @@ class NeneCharacter extends SparrowCharacter {
 		}
 	}
 
+	var refershedLol:Bool = false;
+
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
+
+		abot.visible = this.visible;
+
+		// refreshes just for the zIndex shit!
+		if (!refershedLol)
+		{
+			trace("^_^");
+			trace(this.x);
+			trace(this.y);
+			trace(this.zIndex);
+
+			abot.x = this.x - 100;
+			abot.y = this.y + 340;
+			abot.zIndex = this.zIndex - 10;
+			PlayState.instance.currentStage.add(abot);
+			PlayState.instance.currentStage.refresh();
+			refershedLol = true;
+		} 
 
 		transitionState();
 	}

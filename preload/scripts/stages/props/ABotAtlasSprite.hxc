@@ -1,0 +1,10 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.Paths;
+
+class ABotAtlasSprite extends FlxAtlasSprite
+{
+  function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("characters/abot/abotSystem", "shared"));
+  }
+}
