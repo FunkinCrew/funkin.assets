@@ -22,6 +22,10 @@ class NeneCharacter extends SparrowCharacter {
 
 	var abot:FlxAtlasSprite;
 	var stereoBG:FlxSprite;
+	var eyeWhites:FlxSprite;
+	var pupil:FlxAtlasSprite;
+	var abot:FlxAtlasSprite;
+
 
 
 	function onCreate(event:ScriptEvent) {
