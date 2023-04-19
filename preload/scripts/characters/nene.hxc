@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxSprite;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 
 class NeneCharacter extends SparrowCharacter {
@@ -11,18 +12,25 @@ class NeneCharacter extends SparrowCharacter {
 		super('nene');
 	}
 
-	var abot:FlxAtlasSprite;
 	var stereoBG:FlxSprite;
+	var eyeWhites:FlxSprite;
+	var pupil:FlxAtlasSprite;
+	var abot:FlxAtlasSprite;
+
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		trace('LET HIM COOK');
-		trace(this.x);
-		trace(this.y);
-		trace(this.zIndex);
 
 		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
+		eyeWhites = new FlxSprite().makeGraphic(160, 60);
+
+		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+		pupil.x = this.x;
+		pupil.y = this.y;
+		pupil.zIndex = this.zIndex - 1;
+		
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
 		abot.y = this.y;
@@ -141,6 +149,16 @@ class NeneCharacter extends SparrowCharacter {
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
 			
+			eyeWhites.x = abot.x + 40;
+			eyeWhites.y = abot.y + 250;
+			eyeWhites.zIndex = abot.zIndex - 10;
+			PlayState.instance.currentStage.add(eyeWhites);
+
+			pupil.x = this.x - 600;
+			pupil.y = this.y - 150;
+			pupil.zIndex = eyeWhites.zIndex + 5;
+			PlayState.instance.currentStage.add(pupil);
+
 			stereoBG.x = abot.x + 150;
 			stereoBG.y = abot.y + 30;
 			stereoBG.zIndex = abot.zIndex - 10;
