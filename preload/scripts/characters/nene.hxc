@@ -1,7 +1,10 @@
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
 
 class NeneCharacter extends SparrowCharacter {
 	function new() {
@@ -9,6 +12,7 @@ class NeneCharacter extends SparrowCharacter {
 	}
 
 	var abot:FlxAtlasSprite;
+	var stereoBG:FlxSprite;
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
@@ -16,14 +20,13 @@ class NeneCharacter extends SparrowCharacter {
 		trace(this.x);
 		trace(this.y);
 		trace(this.zIndex);
+
+		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
 		abot.y = this.y;
 		abot.zIndex = this.zIndex - 1;
-		
-		
-
-		PlayState.instance.currentStage.refresh();
 	}
 
 	/**
@@ -96,6 +99,9 @@ class NeneCharacter extends SparrowCharacter {
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
 	function dance(forceRestart:Bool) {
+
+		abot.playAnimation("", forceRestart);
+
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
 			case STATE_DEFAULT:
@@ -130,15 +136,16 @@ class NeneCharacter extends SparrowCharacter {
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
 		{
-			trace("^_^");
-			trace(this.x);
-			trace(this.y);
-			trace(this.zIndex);
-
 			abot.x = this.x - 100;
 			abot.y = this.y + 340;
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
+			
+			stereoBG.x = abot.x + 150;
+			stereoBG.y = abot.y + 30;
+			stereoBG.zIndex = abot.zIndex - 10;
+			PlayState.instance.currentStage.add(stereoBG);
+
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
 		} 
