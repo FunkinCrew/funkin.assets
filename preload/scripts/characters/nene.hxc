@@ -30,6 +30,7 @@ class NeneCharacter extends SparrowCharacter {
 		pupil.x = this.x;
 		pupil.y = this.y;
 		pupil.zIndex = this.zIndex - 1;
+		pupil.playAnimation("");
 		
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
@@ -154,8 +155,8 @@ class NeneCharacter extends SparrowCharacter {
 			eyeWhites.zIndex = abot.zIndex - 10;
 			PlayState.instance.currentStage.add(eyeWhites);
 
-			pupil.x = this.x - 600;
-			pupil.y = this.y - 150;
+			pupil.x = this.x - 607;
+			pupil.y = this.y - 152;
 			pupil.zIndex = eyeWhites.zIndex + 5;
 			PlayState.instance.currentStage.add(pupil);
 
