@@ -15,6 +15,11 @@ class NeneCharacter extends SparrowCharacter {
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
+	var pupilState:Int = 0;
+
+	var PUPIL_STATE_NORMAL = 0;
+	var PUPIL_STATE_LEFT = 1;
+
 	var abot:FlxAtlasSprite;
 
 
@@ -30,7 +35,6 @@ class NeneCharacter extends SparrowCharacter {
 		pupil.x = this.x;
 		pupil.y = this.y;
 		pupil.zIndex = this.zIndex - 1;
-		pupil.playAnimation("");
 		
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
@@ -141,6 +145,39 @@ class NeneCharacter extends SparrowCharacter {
 		super.onUpdate(event);
 
 		abot.visible = this.visible;
+
+		if (FlxG.keys.justPressed.SPACE)
+		{
+			trace("PUPILS " + pupilState);
+			// pupilState = pupilState == PUPIL_STATE_NORMAL ? PUPIL_STATE_LEFT : PUPIL_STATE_NORMAL;
+
+			pupil.playAnimation("");
+			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
+		}
+			
+
+		if (pupil.anim.isPlaying)
+		{
+			switch (pupilState)
+			{
+				case PUPIL_STATE_NORMAL:
+					if (pupil.anim.curFrame >= 17)
+					{
+						trace("PAUSED, ON LEFT!");
+						pupilState = PUPIL_STATE_LEFT;
+						pupil.anim.pause();
+					}
+						
+				case PUPIL_STATE_LEFT:
+					if (pupil.anim.curFrame >= 31)
+					{
+						trace("PAUSED, ON RIGHT!");
+						pupilState = PUPIL_STATE_NORMAL;
+						pupil.anim.pause();
+					}
+						
+			}
+		}
 
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
