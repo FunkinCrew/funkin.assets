@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "name": "TUTORIAL",
+  "titleAsset": "storymenu/titles/tutorial",
+  "props": [
+    {
+      "assetPath": "storymenu/props/gf",
+      "scale": 0.6,
+      "bopEvery": 2,
+      "offsets": [-450, -130],
+      "animations": [
+        {
+          "name": "danceLeft",
+          "prefix": "GF Dancing Beat WHITE",
+          "frameIndices": [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+        },
+        {
+          "name": "danceRight",
+          "prefix": "GF Dancing Beat WHITE",
+          "frameIndices": [
+            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
+          ]
+        }
+      ]
+    },
+    {
+      "assetPath": "storymenu/props/bf",
+      "scale": 0.9,
+      "bopEvery": 2,
+      "offsets": [-225, 0],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "BF idle dance white",
+          "frameRate": 24
+        },
+        {
+          "name": "confirm",
+          "prefix": "BF HEY!!",
+          "frameRate": 24
+        }
+      ]
+    },
+    null
+  ],
+  "backgroundAsset": "#F9CF51",
+  "songs": ["tutorial"]
+}
