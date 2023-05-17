@@ -1,0 +1,20 @@
+{
+  "variation": "default",
+  "timeFormat": "ms",
+  "artist": "Kawai Sprite",
+  "playData": {
+    "stage": "mainStage",
+    "playableChars": { "bf": { "g": "", "i": "", "o": "gf" } },
+    "songVariations": [],
+    "difficulties": ["easy", "normal", "hard"],
+    "noteSkin": "Normal"
+  },
+  "songName": "Tutorial",
+  "timeChanges": [
+    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }
+  ],
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "looped": false,
+  "version": "2.0.0",
+  "divisions": 96
+}
