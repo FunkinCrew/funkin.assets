@@ -1,14 +1,15 @@
 {
   "version": "2.0.0",
-  "songName": "DadBattle",
+  "variation": "erect",
+  "songName": "Bopeebo",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
   "timeChanges": [
-    { "t": -1, "b": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+    { "t": -1, "b": 0, "bpm": 100, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ],
   "playData": {
-    "songVariations": ["erect"],
-    "difficulties": ["easy", "normal", "hard"],
+    "songVariations": [],
+    "difficulties": ["erect"],
     "playableChars": {
       "bf": { "g": "gf", "o": "dad" }
     },
