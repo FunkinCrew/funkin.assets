@@ -7,7 +7,7 @@
     "stage": "mainStage",
     "playableChars": { "bf": { "g": "gf", "i": "", "o": "dad" } },
     "songVariations": [],
-    "difficulties": ["erect"],
+    "difficulties": ["erect", "nightmare"],
     "noteSkin": "Normal"
   },
   "songName": "Fresh",

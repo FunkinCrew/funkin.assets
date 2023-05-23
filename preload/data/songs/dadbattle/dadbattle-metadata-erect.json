@@ -13,7 +13,7 @@
       "bf": { "g": "gf", "i": "", "o": "dad" }
     },
     "songVariations": [],
-    "difficulties": ["erect"],
+    "difficulties": ["erect", "nightmare"],
     "noteSkin": "Normal"
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE"
