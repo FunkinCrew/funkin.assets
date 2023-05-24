@@ -1,33 +1,20 @@
 {
+  "version": "2.0.0",
   "variation": "erect",
+  "songName": "DadBattle (Erect Mix)",
+  "artist": "KawaiSprite",
   "timeFormat": "ms",
-  "artist": "Kawai Sprite",
+  "timeChanges": [
+    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 190 }
+  ],
   "playData": {
     "stage": "mainStage",
     "playableChars": {
-      "bf": {
-        "g": "gf",
-        "i": "",
-        "o": "dad"
-      }
+      "bf": { "g": "gf", "i": "", "o": "dad" }
     },
     "songVariations": [],
-    "difficulties": ["normal"],
+    "difficulties": ["erect", "nightmare"],
     "noteSkin": "Normal"
   },
-  "songName": "Dad Battle",
-  "timeChanges": [
-    {
-      "b": 0,
-      "d": 4,
-      "n": 4,
-      "t": -1,
-      "bt": [4, 4, 4, 4],
-      "bpm": 100
-    }
-  ],
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE",
-  "loop": false,
-  "version": "2.0.0",
-  "divisions": 96
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE"
 }
