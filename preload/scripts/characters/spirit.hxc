@@ -17,6 +17,16 @@ class SpiritCharacter extends PackerCharacter {
 
 		// Go behind Spirit.
 		evilTrail.zIndex = this.zIndex - 10;
-		PlayState.instance.currentStage.add(evilTrail);
+		addToStage(evilTrail);
+	}
+
+	function addToStage(sprite:FlxSprite) {
+		if (this.debug) {
+			// We are in the chart editor or something.
+			FlxG.stage.add(sprite);
+		} else {
+			PlayState.instance.currentStage.add(sprite);
+		}
+	}
 	}
 }
