@@ -28,5 +28,4 @@ class SpiritCharacter extends PackerCharacter {
 			PlayState.instance.currentStage.add(sprite);
 		}
 	}
-	}
 }
