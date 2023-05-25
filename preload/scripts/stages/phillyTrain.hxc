@@ -1,7 +1,7 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import funkin.Conductor;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
