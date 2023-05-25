@@ -1,18 +1,18 @@
 {
   "version": "2.0.0",
-  "variation": "default",
+  "variation": "erect",
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "playData": {
     "stage": "mainStage",
     "playableChars": { "bf": { "g": "gf", "i": "", "o": "dad" } },
-    "songVariations": ["erect"],
-    "difficulties": ["easy", "normal", "hard"],
+    "songVariations": [],
+    "difficulties": ["erect", "nightmare"],
     "noteSkin": "Normal"
   },
   "songName": "Fresh",
   "timeChanges": [
-    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }
+    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 125 }
   ],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "MasterEric (By Hand)"
 }

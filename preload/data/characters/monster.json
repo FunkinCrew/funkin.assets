@@ -7,27 +7,27 @@
     {
       "name": "idle",
       "prefix": "monster idle",
-      "offset": [0, 0]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "Monster left note",
-      "offset": [-30, 20]
+      "offsets": [-30, 20]
     },
     {
       "name": "singDOWN",
       "prefix": "monster down",
-      "offset": [-50, -80]
+      "offsets": [-50, -80]
     },
     {
       "name": "singUP",
       "prefix": "monster up note",
-      "offset": [-20, 94]
+      "offsets": [-20, 94]
     },
     {
       "name": "singRIGHT",
       "prefix": "Monster Right note",
-      "offset": [-51, 30]
+      "offsets": [-51, 30]
     }
   ]
 }

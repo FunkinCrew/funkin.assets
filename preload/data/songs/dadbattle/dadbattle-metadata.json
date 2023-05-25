@@ -6,7 +6,6 @@
   "timeChanges": [
     { "t": -1, "b": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ],
-  "looped": false,
   "playData": {
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
