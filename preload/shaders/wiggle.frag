@@ -32,8 +32,8 @@ vec2 sineWave(vec2 pt) {
 	float y = 0.0;
 			
 	if (effectType == EFFECT_TYPE_DREAMY) {
-		float w = 1 / openfl_TextureSize.y;
-    float h = 1 / openfl_TextureSize.x;
+		float w = 1.0 / openfl_TextureSize.y;
+		float h = 1.0 / openfl_TextureSize.x;
 
 		// look mom, I know how to write shaders now
 
