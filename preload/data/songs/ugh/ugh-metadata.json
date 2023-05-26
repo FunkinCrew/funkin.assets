@@ -6,13 +6,11 @@
   "timeChanges": [
     { "t": -1, "b": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ],
-  "loop": false,
+  "looped": false,
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": {
-      "bf": { "g": "gf-tankmen", "o": "tankman" }
-    },
+    "playableChars": { "bf": { "g": "gf-tankmen", "o": "tankman" } },
     "stage": "tankmanBattlefield",
     "noteSkin": "Normal"
   },

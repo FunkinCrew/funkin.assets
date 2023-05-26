@@ -69,12 +69,14 @@ class DarnellBlazinCharacter extends SparrowCharacter
 
 	function moveToBack()
 	{
+		if (this.debug) return;
 		this.zIndex = 200;
 		PlayState.instance.currentStage.refresh();
 	}
 
 	function moveToFront()
 	{
+		if (this.debug) return;
 		this.zIndex = 300;
 		PlayState.instance.currentStage.refresh();
 	}

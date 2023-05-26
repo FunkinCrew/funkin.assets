@@ -6,13 +6,11 @@
   "timeChanges": [
     { "t": -1, "b": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ],
-  "loop": false,
+  "looped": false,
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": {
-      "bf-car": { "g": "gf-car", "o": "mom-car" }
-    },
+    "playableChars": { "bf-car": { "g": "gf-car", "o": "mom-car" } },
     "stage": "limoRide",
     "noteSkin": "Normal"
   },

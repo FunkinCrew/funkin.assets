@@ -75,7 +75,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingArm.active = true;
 		// shootingArm.angularVelocity = 100;
 
-		PlayState.instance.currentStage.add(shootingArm);
+		addToStage(shootingArm);
 
 		shootingFlare = new FlxSprite(0, 0);
 		shootingFlare.x = this.x + 650;
@@ -98,7 +98,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingFlare.active = true;
 		//shootingFlare.angularVelocity = 10-0;
 		
-		PlayState.instance.currentStage.add(shootingFlare);
+		addToStage(shootingFlare);
 	}
 
 	function onNoteHit(event:NoteScriptEvent)
@@ -213,6 +213,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	}
 
 	function calculateShootingAngle() {
+		if (this.debug) {
+			// We are in debug mode, so we skip angle calculation.
+			// This is used for things like the chart editor or animation editor.
+			return 0;
+		}
+
 		var twoHotModule = ModuleHandler.getModule("vanilla-gameplay-2hot");
 		if (twoHotModule == null) {
 			trace('Could not get 2hot module.');
@@ -226,8 +232,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		var shootingArmX = shootingArm.x + shootingArm.origin.x;
 		var shootingArmY = shootingArm.y + shootingArm.origin.y;
 
-		var angleRad = Math.atan2(shootingArmY - targetCanY, shootingArmX - targetCanX
-			);
+		var angleRad = Math.atan2(shootingArmY - targetCanY, shootingArmX - targetCanX);
 		var angleDeg = angleRad * 180 / Math.PI - 15;
 
 		// angleDeg = FlxG.random.int(-45, 90);
@@ -264,7 +269,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			casingGroup.x = this.x + 250;
 			casingGroup.y = this.y + 100;
 			casingGroup.zIndex = 1000;
-			PlayState.instance.currentStage.add(casingGroup);
+			addToStage(casingGroup);
 		}
 
 		var casing = ScriptedFlxSprite.init('CasingSprite', [0, 0]);
@@ -295,7 +300,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// picoFade.stamp(this, 0, 0);
 		picoFade.alpha = 0.3;
 		picoFade.zIndex = this.zIndex - 1;
-		PlayState.instance.currentStage.add(picoFade);
+		addToStage(picoFade);
 		FlxTween.tween(picoFade.scale, {x: 1.3, y: 1.3}, 0.4);
 		FlxTween.tween(picoFade, {alpha: 0}, 0.4);
 
@@ -315,5 +320,16 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function playCanExplodeAnim() {
 		this.playAnimation('shootMISS', true, true);
 		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
+	}
+
+	function addToStage(sprite:FlxSprite) {
+		if (this.debug) {
+			// We are in the chart editor or something.
+			// TODO: Make this work properly.
+		} else if (PlayState.instance != null && PlayState.instance.currentStage != null) {
+			PlayState.instance.currentStage.add(sprite);
+		} else {
+			trace('Could not add Pico sprite to stage.');
+		}
 	}
 }
