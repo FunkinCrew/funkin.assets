@@ -9,9 +9,7 @@
   "playData": {
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": {
-      "bf": { "g": "gf", "o": "dad" }
-    },
+    "playableChars": { "bf": { "g": "gf", "o": "dad" } },
     "stage": "mainStage",
     "noteSkin": "Normal"
   },

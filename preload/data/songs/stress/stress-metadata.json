@@ -1,0 +1,22 @@
+{
+  "variation": "default",
+  "timeFormat": "ms",
+  "artist": "Kawai Sprite",
+  "playData": {
+    "stage": "tankmanBattlefield",
+    "playableChars": {
+      "bf-holding-gf": { "g": "pico-speaker", "i": "", "o": "tankman" }
+    },
+    "songVariations": [],
+    "difficulties": ["easy", "normal", "hard"],
+    "noteSkin": "Normal"
+  },
+  "songName": "Stress",
+  "timeChanges": [
+    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 178 }
+  ],
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "looped": false,
+  "version": "2.0.0",
+  "divisions": 96
+}

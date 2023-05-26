@@ -6,6 +6,7 @@
     "hard": 2
   },
   "events": [
+    { "e": "FocusCamera", "t": 0, "v": { "char": 0 } },
     {
       "t": 3840,
       "e": "FocusCamera",
