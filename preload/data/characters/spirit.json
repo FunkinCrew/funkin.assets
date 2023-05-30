@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Spirit",
-  "types": ["opponent"],
   "assetPath": "characters/spirit",
   "singTime": 2.0,
   "renderType": "packer",

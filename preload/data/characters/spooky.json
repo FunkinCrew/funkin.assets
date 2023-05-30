@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Spooky Kids",
-  "types": ["opponent"],
   "assetPath": "characters/SpookyKids",
   "singTime": 2.0,
   "startingAnimation": "danceRight",
