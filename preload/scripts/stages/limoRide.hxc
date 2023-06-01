@@ -23,7 +23,12 @@ class LimoRideStage extends Stage
 		sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
 		sunOverlay.updateHitbox();
 		skyOverlay.funnyShit.input = sunOverlay.pixels;
-		getNamedProp('limoSunset').shader = skyOverlay;
+		var limoSunset:FlxSprite = getNamedProp('limoSunset');
+		if (limoSunset == null) {
+			trace('[WARN] Could not retrieve limoSunset');
+		} else {
+			limoSunset.shader = skyOverlay;
+		}
 
 		// There's some commented-out shader BS in the original code.
 		// I don't know what it's for, but it's not used in the game.
