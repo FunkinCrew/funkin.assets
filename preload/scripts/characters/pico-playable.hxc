@@ -1,7 +1,7 @@
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import funkin.play.GameOverSubstate;
+import funkin.play.GameOverSubState;
 import funkin.Paths;
 import flixel.FlxSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -20,8 +20,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubstate.musicSuffix = 'Pico';
-		GameOverSubstate.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.blueBallSuffix = '-Pico';
 
 		createShootingExtraSprites();
 	}
@@ -252,7 +252,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			deathSpriteRetry.animation.play('idle');
 			deathSpriteRetry.visible = true;
-			// GameOverSubstate
+			// GameOverSubState
 			FlxG.state.subState.startDeathMusic(1.0, false);
 		}
 
