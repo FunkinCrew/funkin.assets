@@ -25,7 +25,7 @@
           "name": "idle",
           "prefix": "Upper Crowd Bob",
           "frameRate": 24,
-          "loop": false,
+          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -61,7 +61,7 @@
           "name": "idle",
           "prefix": "Bottom Level Boppers",
           "frameRate": 24,
-          "loop": false,
+          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -89,7 +89,7 @@
           "name": "idle",
           "prefix": "santa idle in fear",
           "frameRate": 24,
-          "loop": false,
+          "looped": false,
           "flipX": false,
           "flipY": false
         }

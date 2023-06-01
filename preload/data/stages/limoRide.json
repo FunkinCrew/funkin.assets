@@ -115,7 +115,6 @@
       "assetPath": "limo/bgLimo",
       "animations": [
         {
-          "loop": true,
           "offsets": [0, 0],
           "flipY": false,
           "frameRate": 24,
@@ -139,7 +138,6 @@
       "assetPath": "limo/limoDrive",
       "animations": [
         {
-          "loop": true,
           "offsets": [0, 0],
           "flipY": false,
           "frameRate": 24,

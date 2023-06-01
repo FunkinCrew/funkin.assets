@@ -30,19 +30,11 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1139, 1008],
-      "cameraOffsets": [-200, 0]
+      "position": [1139, 908],
+      "cameraOffsets": [-200, -100]
     },
-    "dad": {
-      "zIndex": 200,
-      "position": [334, 968],
-      "cameraOffsets": [160, 0]
-    },
-    "gf": {
-      "zIndex": 100,
-      "cameraOffsets": [0, 0],
-      "position": [940, 1066]
-    }
+    "dad": { "zIndex": 200, "position": [334, 968], "cameraOffsets": [160, 0] },
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 766] }
   },
   "name": "School (Hate)"
 }
