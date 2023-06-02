@@ -48,7 +48,7 @@ class NeneCharacter extends SparrowCharacter {
 	 * This makes the blink look less periodic.
 	 * 
 	 * Transitions:
-	 * If the player runs out of health, move to the GameOverSubstate. No transition needed.
+	 * If the player runs out of health, move to the GameOverSubState. No transition needed.
 	 * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
 	 */
 	var STATE_READY = 3;
