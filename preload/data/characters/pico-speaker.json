@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Pico (Speaker Shooter)",
-  "types": ["girlfriend"],
   "assetPath": "characters/picoSpeaker",
   "startingAnimation": "idle",
   "singTime": 2.0,

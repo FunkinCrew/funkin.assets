@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Monster",
-  "types": ["opponent"],
   "assetPath": "characters/Monster_Assets",
   "animations": [
     {

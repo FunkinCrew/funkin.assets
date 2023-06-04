@@ -1,12 +1,15 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Pixel)",
-  "types": ["player"],
   "assetPath": "characters/bfPixel",
   "flipX": true,
   "renderType": "multisparrow",
   "singTime": 2.0,
   "isPixel": true,
+  "healthIcon": {
+    "id": "bf-pixel",
+    "isPixel": true
+  },
   "scale": 6,
   "animations": [
     {

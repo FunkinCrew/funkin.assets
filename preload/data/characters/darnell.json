@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Darnell",
-  "types": ["opponent"],
   "assetPath": "characters/darnell",
   "singTime": 2.0,
   "animations": [

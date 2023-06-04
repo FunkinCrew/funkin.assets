@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend",
-  "types": ["opponent", "girlfriend"],
   "assetPath": "characters/GF_assets",
   "startingAnimation": "danceRight",
   "singTime": 2.0,

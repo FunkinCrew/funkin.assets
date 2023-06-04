@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Pico",
-  "types": ["opponent"],
   "assetPath": "characters/Pico_Basic",
   "flipX": true,
   "animations": [
