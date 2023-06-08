@@ -13,7 +13,7 @@
 
 				<data>
 					<item action="Show User Guide" keybind="F1" />
-					
+
 					<item action="Move Up" keybind="Up Arrow"	/>
 					<item action="Move Up (Fast)" keybind="Shift + Up Arrow" />
 					<item action="Move Up (Precise)" keybind="Ctrl + Up Arrow" />
@@ -40,7 +40,7 @@
 					<item action="Cut Selection" keybind="Ctrl + X" />
 					<item action="Paste" keybind="Ctrl + V" />
 					<item action="Delete Selection" keybind="Delete" />
-					
+
 					<item action="Select All" keybind="Ctrl + A" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />

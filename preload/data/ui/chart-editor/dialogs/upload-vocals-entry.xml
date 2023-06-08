@@ -2,6 +2,6 @@
 	<label
 		id="vocalsEntryLabel"
 		width="100%" style="font-size: 24px"
-		verticalAlign="center" horizontalAlign="center" textAlign="center" 
+		verticalAlign="center" horizontalAlign="center" textAlign="center"
 		text="Click to browse for a vocal track for Boyfriend." />
 </box>

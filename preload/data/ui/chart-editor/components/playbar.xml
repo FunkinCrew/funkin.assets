@@ -6,7 +6,7 @@
 	<label id="playbarSongPos" text="0:32" styleName="playbarDuration" />
 
 	<spacer width="100%" />
-	
+
 	<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
 	<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
 	<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />

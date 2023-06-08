@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 	This component imitates a Google Material Design snackbar.
 	It is used to convey messages to the user in an unobtrusive way.
