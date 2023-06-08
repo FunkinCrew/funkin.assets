@@ -5,50 +5,39 @@
 			<label text="No one's around to help." />
 		</box>
 		<box width="100%" text="Hotkeys">
-			<tableview width="100%" height="400" contentWidth="100%">
+			<tableview width="100%" height="550" contentWidth="100%">
 				<header width="100%">
 					<column id="action" text="Action" width="50%" />
 					<column id="keybind" text="Keybind" width="50%" />
 				</header>
-
 				<data>
 					<item action="Show User Guide" keybind="F1" />
-					
-					<item action="Move Up" keybind="Up Arrow"	/>
+					<item action="Move Up" keybind="Up Arrow" />
 					<item action="Move Up (Fast)" keybind="Shift + Up Arrow" />
 					<item action="Move Up (Precise)" keybind="Ctrl + Up Arrow" />
-
 					<item action="Move Down" keybind="Down Arrow" />
 					<item action="Move Down (Fast)" keybind="Shift + Down Arrow" />
 					<item action="Move Down (Precise)" keybind="Ctrl + Down Arrow" />
-
 					<item action="Jump to Top" keybind="Home" />
 					<item action="Jump to Bottom" keybind="End" />
-
 					<item action="Play/Pause Music" keybind="Space" />
-
 					<item action="New Chart" keybind="Ctrl + N" />
 					<item action="Open Chart" keybind="Ctrl + O" />
 					<item action="Save Chart" keybind="Ctrl + S" />
 					<item action="Save Chart As..." keybind="Ctrl + Shift + S" />
 					<item action="Quit to Menu" keybind="Ctrl + Q" />
-
 					<item action="Undo" keybind="Ctrl + Z" />
 					<item action="Redo" keybind="Ctrl + Y" />
-
 					<item action="Copy Selection" keybind="Ctrl + C" />
 					<item action="Cut Selection" keybind="Ctrl + X" />
 					<item action="Paste" keybind="Ctrl + V" />
 					<item action="Delete Selection" keybind="Delete" />
-					
 					<item action="Select All" keybind="Ctrl + A" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />
 					<item action="Select Region" keybind="Tab" />
-
 					<item action="Toggle Sidebar" keybind="B" />
-
-					<item action="Test in Editor" keybind="Enter"	/>
+					<item action="Test in Editor" keybind="Enter" />
 					<item action="Test in Stage" keybind="Alt + Enter" />
 				</data>
 			</tableview>
