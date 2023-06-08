@@ -2,16 +2,16 @@
 <TextureAtlas imagePath="highscoreNew.png">
 	<!-- Created with Adobe Animate version 21.0.9.42677 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="NEW HIGHSCORE0000" x="0" y="0" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0001" x="0" y="0" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0002" x="0" y="58" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0003" x="0" y="58" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0004" x="0" y="116" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0005" x="0" y="116" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0006" x="0" y="174" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0007" x="0" y="174" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0008" x="0" y="232" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0009" x="0" y="232" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0010" x="0" y="290" width="531" height="53"/>
-	<SubTexture name="NEW HIGHSCORE0011" x="0" y="290" width="531" height="53"/>
+	<SubTexture name="NEW HIGHSCORE0000" x="0" y="0" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0001" x="0" y="0" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0002" x="0" y="58" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0003" x="0" y="58" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0004" x="0" y="116" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0005" x="0" y="116" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0006" x="0" y="174" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0007" x="0" y="174" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0008" x="0" y="232" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0009" x="0" y="232" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0010" x="0" y="290" width="531" height="53" />
+	<SubTexture name="NEW HIGHSCORE0011" x="0" y="290" width="531" height="53" />
 </TextureAtlas>

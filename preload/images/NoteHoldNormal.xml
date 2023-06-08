@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="NoteHoldNormal.png">
-	<SubTexture name="LeftHoldEnd0000" x="4" y="72" width="50" height="64"/>
-	<SubTexture name="LeftHoldPiece0000" x="58" y="72" width="50" height="44"/>
-	<SubTexture name="DownHoldEnd0000" x="4" y="4" width="50" height="64"/>
-	<SubTexture name="DownHoldPiece0000" x="58" y="4" width="50" height="44"/>
-	<SubTexture name="UpHoldEnd0000" x="112" y="4" width="50" height="64"/>
-	<SubTexture name="UpHoldPiece0000" x="166" y="4" width="50" height="44"/>
-	<SubTexture name="RightHoldEnd0000" x="112" y="72" width="50" height="64"/>
-	<SubTexture name="RightHoldPiece0000" x="166" y="72" width="50" height="44"/>
+	<SubTexture name="LeftHoldEnd0000" x="4" y="72" width="50" height="64" />
+	<SubTexture name="LeftHoldPiece0000" x="58" y="72" width="50" height="44" />
+	<SubTexture name="DownHoldEnd0000" x="4" y="4" width="50" height="64" />
+	<SubTexture name="DownHoldPiece0000" x="58" y="4" width="50" height="44" />
+	<SubTexture name="UpHoldEnd0000" x="112" y="4" width="50" height="64" />
+	<SubTexture name="UpHoldPiece0000" x="166" y="4" width="50" height="44" />
+	<SubTexture name="RightHoldEnd0000" x="112" y="72" width="50" height="64" />
+	<SubTexture name="RightHoldPiece0000" x="166" y="72" width="50" height="44" />
 </TextureAtlas>
