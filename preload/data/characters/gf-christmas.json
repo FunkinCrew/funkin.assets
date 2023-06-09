@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Christmas)",
-  "types": ["girlfriend"],
   "assetPath": "characters/gfChristmas",
   "startingAnimation": "danceLeft",
   "animations": [

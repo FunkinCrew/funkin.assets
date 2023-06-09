@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Tankman",
-  "types": ["opponent"],
   "renderType": "animateatlas",
   "assetPath": "characters/tankman",
   "flipX": true,

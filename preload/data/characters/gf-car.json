@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Car)",
-  "types": ["girlfriend"],
   "assetPath": "characters/gfCar",
   "startingAnimation": "danceRight",
   "animations": [

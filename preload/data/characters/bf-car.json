@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Car)",
-  "types": ["player"],
   "assetPath": "characters/bfCar",
   "flipX": true,
   "renderType": "multisparrow",

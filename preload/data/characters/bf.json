@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend",
-  "types": ["player"],
   "renderType": "multisparrow",
   "assetPath": "characters/BOYFRIEND",
   "flipX": true,

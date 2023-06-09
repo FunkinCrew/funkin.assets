@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Pico (Blazin)",
-  "types": ["player"],
   "assetPath": "characters/Pico_Blazin",
   "healthIcon": {
     "id": "pico",
