@@ -2,78 +2,78 @@
 <TextureAtlas imagePath="resultBoyfriendGOOD.png">
 	<!-- Created with Adobe Animate version 21.0.9.42677 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Boyfriend Good Anim0000" x="1942" y="578" width="451" height="464" frameX="-114" frameY="0" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0001" x="1942" y="578" width="451" height="464" frameX="-114" frameY="-96" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0002" x="1924" y="0" width="447" height="573" frameX="-114" frameY="-196" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0003" x="507" y="1776" width="511" height="430" frameX="-56" frameY="-507" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0004" x="507" y="1776" width="511" height="430" frameX="-56" frameY="-507" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0005" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0006" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0007" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0008" x="1281" y="1686" width="496" height="455" frameX="-56" frameY="-479" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0009" x="1281" y="1686" width="496" height="455" frameX="-56" frameY="-479" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0010" x="0" y="1683" width="502" height="456" frameX="-53" frameY="-478" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0011" x="0" y="1683" width="502" height="456" frameX="-53" frameY="-478" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0012" x="1282" y="637" width="655" height="524" frameX="0" frameY="-396" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0013" x="1282" y="637" width="655" height="524" frameX="0" frameY="-396" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0014" x="0" y="0" width="637" height="634" frameX="-11" frameY="-290" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0015" x="1285" y="0" width="634" height="632" frameX="-11" frameY="-292" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0016" x="642" y="0" width="638" height="629" frameX="-11" frameY="-295" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0017" x="642" y="634" width="635" height="617" frameX="-11" frameY="-307" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0018" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0019" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0020" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0021" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0022" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0023" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0024" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0025" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0026" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0027" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0028" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0029" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0030" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0031" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0032" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0033" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0034" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0035" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0036" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0037" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0038" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0039" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0040" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0041" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0042" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0043" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0044" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0045" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0046" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0047" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0048" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0049" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0050" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0051" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0052" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0053" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0054" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0055" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0056" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0057" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0058" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0059" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0060" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0061" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0062" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0063" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0064" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0065" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0066" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0067" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0068" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0069" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0070" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0071" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0072" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937"/>
-	<SubTexture name="Boyfriend Good Anim0073" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937"/>
+	<SubTexture name="Boyfriend Good Anim0000" x="1942" y="578" width="451" height="464" frameX="-114" frameY="0" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0001" x="1942" y="578" width="451" height="464" frameX="-114" frameY="-96" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0002" x="1924" y="0" width="447" height="573" frameX="-114" frameY="-196" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0003" x="507" y="1776" width="511" height="430" frameX="-56" frameY="-507" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0004" x="507" y="1776" width="511" height="430" frameX="-56" frameY="-507" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0005" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0006" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0007" x="1782" y="1686" width="496" height="450" frameX="-56" frameY="-484" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0008" x="1281" y="1686" width="496" height="455" frameX="-56" frameY="-479" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0009" x="1281" y="1686" width="496" height="455" frameX="-56" frameY="-479" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0010" x="0" y="1683" width="502" height="456" frameX="-53" frameY="-478" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0011" x="0" y="1683" width="502" height="456" frameX="-53" frameY="-478" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0012" x="1282" y="637" width="655" height="524" frameX="0" frameY="-396" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0013" x="1282" y="637" width="655" height="524" frameX="0" frameY="-396" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0014" x="0" y="0" width="637" height="634" frameX="-11" frameY="-290" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0015" x="1285" y="0" width="634" height="632" frameX="-11" frameY="-292" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0016" x="642" y="0" width="638" height="629" frameX="-11" frameY="-295" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0017" x="642" y="634" width="635" height="617" frameX="-11" frameY="-307" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0018" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0019" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0020" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0021" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0022" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0023" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0024" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0025" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0026" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0027" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0028" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0029" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0030" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0031" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0032" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0033" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0034" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0035" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0036" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0037" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0038" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0039" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0040" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0041" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0042" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0043" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0044" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0045" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0046" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0047" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0048" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0049" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0050" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0051" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0052" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0053" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0054" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0055" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0056" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0057" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0058" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0059" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0060" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0061" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0062" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0063" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0064" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0065" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0066" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0067" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0068" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0069" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0070" x="0" y="1162" width="637" height="516" frameX="-11" frameY="-408" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0071" x="642" y="1256" width="634" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0072" x="1282" y="1166" width="638" height="515" frameX="-11" frameY="-409" frameWidth="655" frameHeight="937" />
+	<SubTexture name="Boyfriend Good Anim0073" x="0" y="639" width="635" height="518" frameX="-11" frameY="-406" frameWidth="655" frameHeight="937" />
 </TextureAtlas>
