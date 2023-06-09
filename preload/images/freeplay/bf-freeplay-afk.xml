@@ -3,143 +3,143 @@
 Created with Free texture packer v0.6.7 http://free-tex-packer.com
 -->
 <TextureAtlas imagePath="bf-freeplay-afk.png" width="8274" height="2654">
-  <SubTexture name="bf dj afk0003.png" x="0" y="0"  width="394" height="432" frameX="-0" frameY="-179" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0096.png" x="394" y="0"  width="394" height="435" frameX="-0" frameY="-176" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0073.png" x="788" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0074.png" x="1182" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0076.png" x="1576" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0078.png" x="1970" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0080.png" x="2364" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0093.png" x="2758" y="0"  width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0094.png" x="3152" y="0"  width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0059.png" x="3546" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0060.png" x="3940" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0061.png" x="4334" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0062.png" x="4728" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0064.png" x="5122" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0066.png" x="5516" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0068.png" x="5910" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0070.png" x="6304" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0071.png" x="6698" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0072.png" x="7092" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0081.png" x="7486" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0082.png" x="7880" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0083.png" x="0" y="432"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0084.png" x="394" y="435"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0088.png" x="788" y="437"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0090.png" x="1182" y="437"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0092.png" x="1576" y="437"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0001.png" x="1970" y="437"  width="394" height="440" frameX="-0" frameY="-171" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0058.png" x="2364" y="437"  width="394" height="443" frameX="-0" frameY="-168" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0098.png" x="2758" y="438"  width="394" height="444" frameX="-0" frameY="-167" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0057.png" x="3152" y="438"  width="394" height="446" frameX="-0" frameY="-165" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0130.png" x="3546" y="439"  width="394" height="448" frameX="-0" frameY="-163" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0011.png" x="3940" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0012.png" x="4334" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0013.png" x="4728" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0014.png" x="5122" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0136.png" x="5516" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0138.png" x="5910" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0009.png" x="6304" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0101.png" x="6698" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0102.png" x="7092" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0104.png" x="7486" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0106.png" x="7880" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0108.png" x="0" y="871"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0110.png" x="394" y="874"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0112.png" x="788" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0114.png" x="1182" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0116.png" x="1576" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0118.png" x="1970" y="877"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0120.png" x="2364" y="880"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0122.png" x="2758" y="882"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0124.png" x="3152" y="884"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0127.png" x="3546" y="887"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0128.png" x="3940" y="890"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0099.png" x="4334" y="890"  width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0100.png" x="4728" y="890"  width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0126.png" x="5122" y="890"  width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0007.png" x="5516" y="890"  width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0005.png" x="5910" y="890"  width="394" height="458" frameX="-0" frameY="-153" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0015.png" x="6304" y="891"  width="441" height="535" frameX="-0" frameY="-76" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0016.png" x="6745" y="891"  width="441" height="535" frameX="-0" frameY="-76" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0054.png" x="7186" y="891"  width="521" height="571" frameX="-0" frameY="-40" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0017.png" x="7707" y="891"  width="503" height="572" frameX="-0" frameY="-39" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0018.png" x="0" y="1326"  width="503" height="572" frameX="-0" frameY="-39" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0019.png" x="503" y="1328"  width="519" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0021.png" x="1022" y="1328"  width="532" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0023.png" x="1554" y="1329"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0025.png" x="2087" y="1332"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0026.png" x="2621" y="1336"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0027.png" x="3155" y="1339"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0028.png" x="3695" y="1342"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0029.png" x="4235" y="1344"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0031.png" x="4773" y="1344"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0033.png" x="5306" y="1347"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0035.png" x="5839" y="1426"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0036.png" x="6373" y="1426"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0037.png" x="6907" y="1462"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0038.png" x="7447" y="1463"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0056.png" x="0" y="1898"  width="494" height="611" frameX="-0" frameY="-0" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0039.png" x="494" y="1919"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0041.png" x="1032" y="1921"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0043.png" x="1565" y="1924"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0045.png" x="2098" y="1928"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0046.png" x="2632" y="1931"  width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0047.png" x="3166" y="1934"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0048.png" x="3706" y="1936"  width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0049.png" x="4246" y="1936"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0050.png" x="4784" y="1939"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0051.png" x="5322" y="2018"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0052.png" x="5855" y="2018"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0053.png" x="6388" y="2054"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0055.png" x="6921" y="2055"  width="531" height="599" frameX="-0" frameY="-12" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0002.png" x="1970" y="437"  width="394" height="440" frameX="-0" frameY="-171" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0004.png" x="0" y="0"  width="394" height="432" frameX="-0" frameY="-179" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0006.png" x="5910" y="890"  width="394" height="458" frameX="-0" frameY="-153" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0008.png" x="5516" y="890"  width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0132.png" x="5516" y="890"  width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0133.png" x="5516" y="890"  width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0010.png" x="6304" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0134.png" x="6304" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0135.png" x="6304" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0020.png" x="503" y="1328"  width="519" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0022.png" x="1022" y="1328"  width="532" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0024.png" x="1554" y="1329"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0030.png" x="4235" y="1344"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0032.png" x="4773" y="1344"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0034.png" x="5306" y="1347"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0040.png" x="494" y="1919"  width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0042.png" x="1032" y="1921"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0044.png" x="1565" y="1924"  width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0063.png" x="4728" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0065.png" x="5122" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0067.png" x="5516" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0069.png" x="5910" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0086.png" x="6304" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0087.png" x="6304" y="0"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0075.png" x="1182" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0077.png" x="1576" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0079.png" x="1970" y="0"  width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0085.png" x="394" y="435"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0089.png" x="788" y="437"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0091.png" x="1182" y="437"  width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0095.png" x="3152" y="0"  width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0097.png" x="394" y="0"  width="394" height="435" frameX="-0" frameY="-176" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0103.png" x="7092" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0105.png" x="7486" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0107.png" x="7880" y="439"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0109.png" x="0" y="871"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0111.png" x="394" y="874"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0113.png" x="788" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0115.png" x="1182" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0117.png" x="1576" y="876"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0119.png" x="1970" y="877"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0121.png" x="2364" y="880"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0123.png" x="2758" y="882"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0125.png" x="3152" y="884"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0129.png" x="3940" y="890"  width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0131.png" x="3546" y="439"  width="394" height="448" frameX="-0" frameY="-163" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0137.png" x="5516" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
-  <SubTexture name="bf dj afk0139.png" x="5910" y="439"  width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611"/>
+  <SubTexture name="bf dj afk0003.png" x="0" y="0" width="394" height="432" frameX="-0" frameY="-179" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0096.png" x="394" y="0" width="394" height="435" frameX="-0" frameY="-176" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0073.png" x="788" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0074.png" x="1182" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0076.png" x="1576" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0078.png" x="1970" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0080.png" x="2364" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0093.png" x="2758" y="0" width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0094.png" x="3152" y="0" width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0059.png" x="3546" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0060.png" x="3940" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0061.png" x="4334" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0062.png" x="4728" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0064.png" x="5122" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0066.png" x="5516" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0068.png" x="5910" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0070.png" x="6304" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0071.png" x="6698" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0072.png" x="7092" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0081.png" x="7486" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0082.png" x="7880" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0083.png" x="0" y="432" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0084.png" x="394" y="435" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0088.png" x="788" y="437" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0090.png" x="1182" y="437" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0092.png" x="1576" y="437" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0001.png" x="1970" y="437" width="394" height="440" frameX="-0" frameY="-171" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0058.png" x="2364" y="437" width="394" height="443" frameX="-0" frameY="-168" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0098.png" x="2758" y="438" width="394" height="444" frameX="-0" frameY="-167" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0057.png" x="3152" y="438" width="394" height="446" frameX="-0" frameY="-165" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0130.png" x="3546" y="439" width="394" height="448" frameX="-0" frameY="-163" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0011.png" x="3940" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0012.png" x="4334" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0013.png" x="4728" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0014.png" x="5122" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0136.png" x="5516" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0138.png" x="5910" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0009.png" x="6304" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0101.png" x="6698" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0102.png" x="7092" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0104.png" x="7486" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0106.png" x="7880" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0108.png" x="0" y="871" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0110.png" x="394" y="874" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0112.png" x="788" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0114.png" x="1182" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0116.png" x="1576" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0118.png" x="1970" y="877" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0120.png" x="2364" y="880" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0122.png" x="2758" y="882" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0124.png" x="3152" y="884" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0127.png" x="3546" y="887" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0128.png" x="3940" y="890" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0099.png" x="4334" y="890" width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0100.png" x="4728" y="890" width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0126.png" x="5122" y="890" width="394" height="454" frameX="-0" frameY="-157" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0007.png" x="5516" y="890" width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0005.png" x="5910" y="890" width="394" height="458" frameX="-0" frameY="-153" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0015.png" x="6304" y="891" width="441" height="535" frameX="-0" frameY="-76" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0016.png" x="6745" y="891" width="441" height="535" frameX="-0" frameY="-76" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0054.png" x="7186" y="891" width="521" height="571" frameX="-0" frameY="-40" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0017.png" x="7707" y="891" width="503" height="572" frameX="-0" frameY="-39" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0018.png" x="0" y="1326" width="503" height="572" frameX="-0" frameY="-39" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0019.png" x="503" y="1328" width="519" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0021.png" x="1022" y="1328" width="532" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0023.png" x="1554" y="1329" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0025.png" x="2087" y="1332" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0026.png" x="2621" y="1336" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0027.png" x="3155" y="1339" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0028.png" x="3695" y="1342" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0029.png" x="4235" y="1344" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0031.png" x="4773" y="1344" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0033.png" x="5306" y="1347" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0035.png" x="5839" y="1426" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0036.png" x="6373" y="1426" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0037.png" x="6907" y="1462" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0038.png" x="7447" y="1463" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0056.png" x="0" y="1898" width="494" height="611" frameX="-0" frameY="-0" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0039.png" x="494" y="1919" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0041.png" x="1032" y="1921" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0043.png" x="1565" y="1924" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0045.png" x="2098" y="1928" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0046.png" x="2632" y="1931" width="534" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0047.png" x="3166" y="1934" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0048.png" x="3706" y="1936" width="540" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0049.png" x="4246" y="1936" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0050.png" x="4784" y="1939" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0051.png" x="5322" y="2018" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0052.png" x="5855" y="2018" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0053.png" x="6388" y="2054" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0055.png" x="6921" y="2055" width="531" height="599" frameX="-0" frameY="-12" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0002.png" x="1970" y="437" width="394" height="440" frameX="-0" frameY="-171" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0004.png" x="0" y="0" width="394" height="432" frameX="-0" frameY="-179" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0006.png" x="5910" y="890" width="394" height="458" frameX="-0" frameY="-153" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0008.png" x="5516" y="890" width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0132.png" x="5516" y="890" width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0133.png" x="5516" y="890" width="394" height="457" frameX="-0" frameY="-154" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0010.png" x="6304" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0134.png" x="6304" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0135.png" x="6304" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0020.png" x="503" y="1328" width="519" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0022.png" x="1022" y="1328" width="532" height="591" frameX="-0" frameY="-20" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0024.png" x="1554" y="1329" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0030.png" x="4235" y="1344" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0032.png" x="4773" y="1344" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0034.png" x="5306" y="1347" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0040.png" x="494" y="1919" width="538" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0042.png" x="1032" y="1921" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0044.png" x="1565" y="1924" width="533" height="592" frameX="-0" frameY="-19" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0063.png" x="4728" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0065.png" x="5122" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0067.png" x="5516" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0069.png" x="5910" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0086.png" x="6304" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0087.png" x="6304" y="0" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0075.png" x="1182" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0077.png" x="1576" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0079.png" x="1970" y="0" width="394" height="437" frameX="-0" frameY="-174" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0085.png" x="394" y="435" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0089.png" x="788" y="437" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0091.png" x="1182" y="437" width="394" height="439" frameX="-0" frameY="-172" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0095.png" x="3152" y="0" width="394" height="438" frameX="-0" frameY="-173" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0097.png" x="394" y="0" width="394" height="435" frameX="-0" frameY="-176" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0103.png" x="7092" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0105.png" x="7486" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0107.png" x="7880" y="439" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0109.png" x="0" y="871" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0111.png" x="394" y="874" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0113.png" x="788" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0115.png" x="1182" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0117.png" x="1576" y="876" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0119.png" x="1970" y="877" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0121.png" x="2364" y="880" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0123.png" x="2758" y="882" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0125.png" x="3152" y="884" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0129.png" x="3940" y="890" width="394" height="452" frameX="-0" frameY="-159" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0131.png" x="3546" y="439" width="394" height="448" frameX="-0" frameY="-163" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0137.png" x="5516" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
+  <SubTexture name="bf dj afk0139.png" x="5910" y="439" width="394" height="451" frameX="-0" frameY="-160" frameWidth="540" frameHeight="611" />
 </TextureAtlas>

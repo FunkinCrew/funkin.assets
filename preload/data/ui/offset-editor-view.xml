@@ -1,21 +1,18 @@
 <hbox id="funny">
     <vbox>
-        <section-header text="Modes"/>
+        <section-header text="Modes" />
         <vbox>
-            <dropdown id='swapper' width="200">
+            <dropdown id="swapper" width="200">
                 <data>
-                    <item curView="SPRITESHEET" text="SPRITESHEET" tooltip="Shortcut: 1"/>
-                    <item curView="OFFSETSHIT" text="ANIMATIONS" tooltip="Shortcut: 2"/>
+                    <item curView="SPRITESHEET" text="SPRITESHEET" tooltip="Shortcut: 1" />
+                    <item curView="OFFSETSHIT" text="ANIMATIONS" tooltip="Shortcut: 2" />
                 </data>
             </dropdown>
         </vbox>
-        <section-header text="CHARACTER"/>
-        <dropdown id='characterDropdown' width = "200">
-            <data>
-            </data>
+        <section-header text="CHARACTER" />
+        <dropdown id="characterDropdown" width="200">
+            <data />
         </dropdown>
     </vbox>
-    <vbox>
-
-    </vbox>
+    <vbox />
 </hbox>
