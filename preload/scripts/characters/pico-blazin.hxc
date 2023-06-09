@@ -1,6 +1,6 @@
 import flixel.FlxG;
 import funkin.Paths;
-import funkin.play.GameOverSubstate;
+import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.play.character.SparrowCharacter;
 
@@ -18,8 +18,8 @@ class PicoBlazinCharacter extends SparrowCharacter
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubstate.musicSuffix = 'Pico';
-		GameOverSubstate.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.blueBallSuffix = '-Pico';
 	}
 
 	function onNoteHit(event:NoteScriptEvent)

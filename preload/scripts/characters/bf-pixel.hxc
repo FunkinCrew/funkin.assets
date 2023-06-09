@@ -1,6 +1,6 @@
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.PlayState;
-import funkin.play.GameOverSubstate;
+import funkin.play.GameOverSubState;
 import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
@@ -13,7 +13,7 @@ class BFPixelCharacter extends MultiSparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
-		GameOverSubstate.musicSuffix = '-pixel';
-		GameOverSubstate.blueBallSuffix = '-pixel';
+		GameOverSubState.musicSuffix = '-pixel';
+		GameOverSubState.blueBallSuffix = '-pixel';
 	}
 }
