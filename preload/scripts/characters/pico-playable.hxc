@@ -1,7 +1,7 @@
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import funkin.play.GameOverSubstate;
+import funkin.play.GameOverSubState;
 import funkin.Paths;
 import flixel.FlxSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -20,8 +20,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubstate.musicSuffix = 'Pico';
-		GameOverSubstate.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.blueBallSuffix = '-Pico';
 
 		createShootingExtraSprites();
 	}
@@ -97,7 +97,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		shootingFlare.active = true;
 		//shootingFlare.angularVelocity = 10-0;
-		
+
 		addToStage(shootingFlare);
 	}
 
@@ -174,7 +174,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 					shootingArm.animation.play("far");
 					// Calculate the shooting angle.
-					
+
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
 					shootingFlare.updateHitbox();
@@ -195,7 +195,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 					shootingArm.animation.play("hip");
 					// Calculate the shooting angle.
-					
+
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
 					shootingFlare.updateHitbox();
@@ -252,7 +252,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			deathSpriteRetry.animation.play('idle');
 			deathSpriteRetry.visible = true;
-			// GameOverSubstate
+			// GameOverSubState
 			FlxG.state.subState.startDeathMusic(1.0, false);
 		}
 
@@ -306,7 +306,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 
 		FlxG.sound.play(Paths.sound('Gun_Prep'), 1.0);
-	}	
+	}
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
