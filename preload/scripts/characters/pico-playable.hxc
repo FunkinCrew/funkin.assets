@@ -97,7 +97,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		shootingFlare.active = true;
 		//shootingFlare.angularVelocity = 10-0;
-		
+
 		addToStage(shootingFlare);
 	}
 
@@ -174,7 +174,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 					shootingArm.animation.play("far");
 					// Calculate the shooting angle.
-					
+
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
 					shootingFlare.updateHitbox();
@@ -195,7 +195,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 					shootingArm.animation.play("hip");
 					// Calculate the shooting angle.
-					
+
 					// Only show the shooting flare once per animation.
 					shootingFlare.animation.play("far");
 					shootingFlare.updateHitbox();
@@ -306,7 +306,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 
 		FlxG.sound.play(Paths.sound('Gun_Prep'), 1.0);
-	}	
+	}
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
