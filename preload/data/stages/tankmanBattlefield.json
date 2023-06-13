@@ -48,11 +48,7 @@
       "scroll": [0.4, 0.4],
       "zIndex": 14,
       "animations": [
-        {
-          "name": "smokeLeft",
-          "prefix": "SmokeBlurLeft",
-          "loop": true
-        }
+        { "name": "smokeLeft", "prefix": "SmokeBlurLeft", "looped": false }
       ],
       "startingAnimation": "smokeLeft"
     },
@@ -64,11 +60,7 @@
       "zIndex": 15,
       "scroll": [0.4, 0.4],
       "animations": [
-        {
-          "name": "smokeRight",
-          "prefix": "SmokeRight",
-          "loop": true
-        }
+        { "name": "smokeRight", "prefix": "SmokeRight", "looped": false }
       ],
       "startingAnimation": "smokeRight"
     },
@@ -84,7 +76,7 @@
         {
           "name": "idle",
           "prefix": "watchtower gradient color",
-          "loop": false
+          "looped": false
         }
       ],
       "startingAnimation": "idle"
@@ -97,11 +89,7 @@
       "zIndex": 22,
       "scroll": [0.5, 0.5],
       "animations": [
-        {
-          "name": "roll",
-          "prefix": "BG tank w lighting",
-          "loop": true
-        }
+        { "name": "roll", "prefix": "BG tank w lighting", "looped": false }
       ],
       "startingAnimation": "roll"
     },
@@ -121,13 +109,7 @@
       "scale": [1, 1],
       "scroll": [1.7, 1.5],
       "danceEvery": 1,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "fg",
-          "loop": false
-        }
-      ],
+      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
       "startingAnimation": "idle"
     },
     {
@@ -138,13 +120,7 @@
       "scale": [1, 1],
       "scroll": [2.0, 0.2],
       "danceEvery": 1,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "fg",
-          "loop": false
-        }
-      ],
+      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
       "startingAnimation": "idle"
     },
     {
@@ -156,11 +132,7 @@
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
       "animations": [
-        {
-          "name": "idle",
-          "prefix": "foreground",
-          "loop": false
-        }
+        { "name": "idle", "prefix": "foreground", "looped": false }
       ],
       "startingAnimation": "idle"
     },
@@ -172,13 +144,7 @@
       "scale": [1, 1],
       "scroll": [3.5, 2.5],
       "danceEvery": 1,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "fg",
-          "loop": false
-        }
-      ],
+      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
       "startingAnimation": "idle"
     },
     {
@@ -189,13 +155,7 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "fg",
-          "loop": false
-        }
-      ],
+      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
       "startingAnimation": "idle"
     },
     {
@@ -206,21 +166,12 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [
-        {
-          "name": "idle",
-          "prefix": "fg",
-          "loop": false
-        }
-      ],
+      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
       "startingAnimation": "idle"
     }
   ],
   "characters": {
-    "bf": {
-      "zIndex": 100,
-      "position": [1029.5, 885]
-    },
+    "bf": { "zIndex": 100, "position": [1029.5, 885] },
     "dad": { "zIndex": 100, "position": [286.5, 929] },
     "gf": { "zIndex": 100, "position": [685.5, 685] }
   }

@@ -80,7 +80,7 @@ class MILFGameplayModule extends Module
 	 * The millisecond times at which the lamp passes by.
 	 */
 	var BOYFRIEND_LAMP_TIMES = [
-		800, // Beginning of the song for testing.
+		// 800, // Beginning of the song for testing.
 		87900 // The duet down note.
 	];
 
@@ -90,19 +90,10 @@ class MILFGameplayModule extends Module
 	function isCorrectSong()
 	{
 		// Don't run the script if we aren't in a song.
-		if (PlayState.currentSong == null) {
-			if (PlayState.currentSong_NEW == null) {
-				return false;
-			} else {
-				return PlayState.currentSong_NEW.songId == 'milf';
-			}
-		} else {
-			return PlayState.currentSong.song.toLowerCase() == 'milf';
-		}
+		if (PlayState.instance == null) return false;
+		if (PlayState.instance.currentSong == null) return false;
 
-		// Don't run the script if we aren't on Hard difficulty.
-		// if (PlayState.storyDifficulty != 2)
-		// 	 return false;
+		return PlayState.instance.currentSong.songId == 'milf';
 	}
 
 	/**
@@ -306,7 +297,6 @@ class MILFGameplayModule extends Module
 				for (i in 1...(currentHenchmenIndex + 1 - 1)) {
 					var henchmen = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
 					if (henchmen.visible) {
-						trace('Move henchman with lamp');
 						henchmen.x = lamp.x + henchmen.animOffsets[0];
 					}
 				}
@@ -409,9 +399,6 @@ class MILFGameplayModule extends Module
 
 						// Set the position relative to the limo.
 						henchman.x = henchman.originalPosition.x + limo.x - LIMO_BASE_X_POS;
-						if (i == 1) {
-							trace('Shifting henchmen back on screen: ' + henchman.x);
-						}
 					}
 				}
 				case 0:
@@ -469,6 +456,7 @@ class MILFGameplayModule extends Module
 
 		for (i in 1...(HENCHMEN_COUNT + 1)) {
 			var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
+			if (henchman == null) continue;
 			henchman.visible = true;
 			henchman.animOffsets = [0, 0];
 			henchman.resetPosition();
