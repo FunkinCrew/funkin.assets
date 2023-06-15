@@ -1,9 +1,11 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Christmas)",
-  "types": ["player"],
   "assetPath": "characters/bfChristmas",
   "flipX": true,
+  "healthIcon": {
+    "id": "bf"
+  },
   "renderType": "multisparrow",
   "singTime": 2.0,
   "animations": [

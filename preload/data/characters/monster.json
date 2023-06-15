@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Monster",
-  "types": ["opponent"],
   "assetPath": "characters/Monster_Assets",
   "animations": [
     {
@@ -11,7 +10,7 @@
     },
     {
       "name": "singLEFT",
-      "prefix": "Monster left note",
+      "prefix": "Monster Right note",
       "offsets": [-30, 20]
     },
     {
@@ -26,7 +25,7 @@
     },
     {
       "name": "singRIGHT",
-      "prefix": "Monster Right note",
+      "prefix": "Monster left note",
       "offsets": [-51, 30]
     }
   ]

@@ -88,7 +88,6 @@
         {
           "offsets": [0, 0],
           "flipY": false,
-          "loop": true,
           "frameRate": 24,
           "prefix": "PETALS ALL",
           "looped": true,
@@ -116,7 +115,6 @@
           "looped": true,
           "flipX": false,
           "name": "danceLeft",
-          "loop": false,
           "flipY": false,
           "frameRate": 24
         },
@@ -129,7 +127,6 @@
           "looped": true,
           "flipX": false,
           "name": "danceRight",
-          "loop": false,
           "flipY": false,
           "frameRate": 24
         },
@@ -140,7 +137,6 @@
           "looped": true,
           "flipX": false,
           "name": "danceLeft-scared",
-          "loop": false,
           "flipY": false,
           "frameRate": 24
         },
@@ -153,7 +149,6 @@
           "looped": true,
           "flipX": false,
           "name": "danceRight-scared",
-          "loop": false,
           "flipY": false,
           "frameRate": 24
         }
@@ -165,19 +160,15 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "cameraOffsets": [-200, 0],
-      "position": [1139, 1008]
+      "cameraOffsets": [-200, -100],
+      "position": [1139, 908]
     },
     "dad": {
       "zIndex": 200,
       "cameraOffsets": [160, 0],
-      "position": [625, 1444]
+      "position": [525, 1044]
     },
-    "gf": {
-      "zIndex": 100,
-      "cameraOffsets": [0, 0],
-      "position": [940, 1066]
-    }
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 866] }
   },
   "name": "School (Date)"
 }

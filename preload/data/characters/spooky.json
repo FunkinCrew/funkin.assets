@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "name": "Spooky Kids",
-  "types": ["opponent"],
   "assetPath": "characters/SpookyKids",
   "singTime": 2.0,
   "startingAnimation": "danceRight",
@@ -9,15 +8,15 @@
     {
       "name": "danceLeft",
       "prefix": "Idle",
-      "frameIndices": [0, 2, 6],
-      "frameRate": 12,
+      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7],
+      "frameRate": 24,
       "offsets": [0, 0]
     },
     {
       "name": "danceRight",
       "prefix": "Idle",
-      "frameIndices": [8, 10, 12, 14],
-      "frameRate": 12,
+      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
+      "frameRate": 24,
       "offsets": [0, 0]
     },
     {

@@ -1,8 +1,10 @@
 {
   "version": "1.0.0",
   "name": "Monster (Christmas)",
-  "types": ["opponent"],
   "assetPath": "characters/monsterChristmas",
+  "healthIcon": {
+    "id": "monster"
+  },
   "animations": [
     {
       "name": "idle",
@@ -10,7 +12,7 @@
       "offsets": [0, 0]
     },
     {
-      "name": "singLEFT",
+      "name": "singRIGHT",
       "prefix": "Monster left note",
       "offsets": [-30, 0]
     },
@@ -25,7 +27,7 @@
       "offsets": [-20, 50]
     },
     {
-      "name": "singRIGHT",
+      "name": "singLEFT",
       "prefix": "Monster Right note",
       "offsets": [-51, 0]
     }

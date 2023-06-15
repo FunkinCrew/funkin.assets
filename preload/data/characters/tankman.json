@@ -1,43 +1,47 @@
 {
   "version": "1.0.0",
   "name": "Tankman",
-  "types": ["opponent"],
-  "renderType": "animateatlas",
-  "assetPath": "characters/tankman",
+  "renderType": "sparrow",
+  "assetPath": "characters/tankmanCaptain",
   "flipX": true,
   "singTime": 2.0,
-  "offsets": [200, -550],
-  "cameraOffsets": [200, 500],
+  "offsets": [0, -50],
+  "cameraOffsets": [0, 0],
   "animations": [
     {
       "name": "idle",
+      "prefix": "Tankman Idle Dance instance 1",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
-      "prefix": "singRIGHT",
-      "offsets": [0, 0]
+      "prefix": "Tankman Right Note instance 1",
+      "offsets": [100, -14]
     },
     {
       "name": "singDOWN",
-      "offsets": [0, 0]
+      "prefix": "Tankman DOWN note instance 1",
+      "offsets": [98, -90]
     },
     {
       "name": "singUP",
-      "offsets": [0, 0]
+      "prefix": "Tankman UP note instance 1",
+      "offsets": [24, 56]
     },
     {
       "name": "singRIGHT",
-      "prefix": "singLEFT",
-      "offsets": [0, 0]
+      "prefix": "Tankman Note Left instance 1",
+      "offsets": [-1, -7]
     },
     {
       "name": "hehPrettyGood",
-      "offsets": [0, 0]
+      "prefix": "PRETTY GOOD tankman instance 1",
+      "offsets": [98, -90]
     },
     {
       "name": "ugh",
-      "offsets": [0, 0]
+      "prefix": "TANKMAN UGH instance 1",
+      "offsets": [24, 56]
     }
   ]
 }

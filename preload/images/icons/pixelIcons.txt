@@ -1,6 +1,0 @@
-// any file here, game automatically assumes that it's a pixel icon (64x32)
-// it uses that 64x32, and automatically scales it up in-game
-// can be used to replace icons with pixel perfect ones if you want!!
-senpai
-spirit
-bf-pixel
