@@ -89,6 +89,11 @@
       "offsets": [-37, 11]
     },
     {
+      "name": "fakeoutDeath",
+      "prefix": "BF dies",
+      "offsets": [-37, 11]
+    },
+    {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
       "looped": true,
