@@ -29,7 +29,7 @@ class PicoBlazinCharacter extends SparrowCharacter
 		// Override the hit note animation.
 
 		// Each note type is named from Pico's perspective (to keep myself sane).
-		switch (event.note.data.noteKind)
+		switch (event.note.noteData.noteKind)
 		{
 			case "weekend-1-punchlow":
 				playPunchLowAnim();

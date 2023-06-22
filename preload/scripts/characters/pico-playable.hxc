@@ -112,7 +112,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		if (event.note.mustPress && characterType == CharacterType.BF) {
 			// Override the hit note animation.
-			switch(event.note.data.noteKind) {
+			switch(event.note.noteData.noteKind) {
 				case "weekend-1-cockgun":
 					playCockGunAnim();
 				case "weekend-1-firegun":
@@ -130,7 +130,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		// Override the miss note animation.
-		switch(event.note.data.noteKind) {
+		switch(event.note.noteData.noteKind) {
 			case "weekend-1-cockgun":
 				// playCockMissAnim();
 			case "weekend-1-firegun":
