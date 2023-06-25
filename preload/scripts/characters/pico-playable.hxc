@@ -63,7 +63,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingArm = new FlxSprite(0, 0);
 		shootingArm.zIndex = 200 - 1;
 		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
-		shootingArm.antialiasing = true;
 		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
 		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
 		//shootingArm.visible = false;

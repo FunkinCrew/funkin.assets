@@ -19,7 +19,6 @@ class CasingSprite extends FlxSprite
 		zIndex = 1900;
 
 		frames = Paths.getSparrowAtlas('PicoBullet');
-		antialiasing = true;
 
 		// Active needs to be true to enable updates.
 		// This includes velocity/acceleration and frame animations.
@@ -43,7 +42,7 @@ class CasingSprite extends FlxSprite
 		this.y = this.y + this.frame.offset.y + 1;
 
 		this.angle = 125.1; // Copied from FLA
-		
+
 		// Okay this is the neat part, we can set the velocity and angular acceleration to make it roll without editing update().
 		var randomFactorA = FlxG.random.float(3, 10);
 		var randomFactorB = FlxG.random.float(1.0, 2.0);

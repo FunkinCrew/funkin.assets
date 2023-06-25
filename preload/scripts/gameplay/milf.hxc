@@ -12,7 +12,7 @@ import flixel.tweens.FlxEase;
 /**
  * TODO: After redoing the chart format, add a ScriptedSong class,
  * make this extend that, and have the constructor call `super('milf')`.
- * 
+ *
  * TODO: Move henchmen killing to song events after those are implemented.
  */
 class MILFGameplayModule extends Module
@@ -114,7 +114,6 @@ class MILFGameplayModule extends Module
 
 	function createGib(type:Int):FlxSprite {
 		var gibSprite:FlxSprite = new FlxSprite();
-		gibSprite.antialiasing = true;
 		gibSprite.angle = FlxG.random.int(0, 360);
 		gibSprite.active = true;
 		gibSprite.velocity.x = FlxG.random.int(-20, -1000);
@@ -156,7 +155,7 @@ class MILFGameplayModule extends Module
 		headGib.zIndex = target.zIndex;
 		PlayState.instance.currentStage.add(headGib);
 		gibs.push(headGib);
-		
+
 		var armGib = createGib(1);
 		armGib.x = target.getGraphicMidpoint().x + FlxG.random.int(-20, 20);
 		armGib.y = target.getGraphicMidpoint().y - 100;
@@ -202,7 +201,7 @@ class MILFGameplayModule extends Module
 	function hardResetLimo() {
 		limoState = 0;
 		isTweeningLimo = false;
-		
+
 		var limo = PlayState.instance.currentStage.getNamedProp('bgLimo');
 		if (limoTween != null)
 			limoTween.cancel();
@@ -270,7 +269,7 @@ class MILFGameplayModule extends Module
 				nextBFLampIndex++;
 				hasCurrentBFLampHit = false;
 			} else if (boyfriend != null) {
-				
+
 				if (Conductor.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
@@ -284,10 +283,10 @@ class MILFGameplayModule extends Module
 					// Have GF play the duck animation.
 					PlayState.instance.currentStage.getGirlfriend().playAnimation('duck', true, true);
 				}
-				
+
 				// Move the lamp across the screen
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
-				
+
 				var boyfriendXPos = boyfriend.x;
 				var lampDelay = nextLampTime - Conductor.songPosition;
 				var lampDistance = lampDelay * LAMP_VELOCITY;
@@ -308,11 +307,11 @@ class MILFGameplayModule extends Module
 					var lampCenterX = lamp.x + (lamp.width / 2);
 					if (lampCenterX >= henchmanCenterX) {
 						// Lamp has reached the henchman.
-						
+
 						// True knocks the henchman back, false explodes them into gibs.
 						if (FlxG.random.bool()) {
 							// Move henchman along with lamp.
-							
+
 							if (FlxG.random.bool()) {
 							  	henchman.forceAnimationForDuration('hit1', 2.0);
 							} else {
@@ -350,7 +349,7 @@ class MILFGameplayModule extends Module
 					if (!isTweeningLimo)
 					{
 						trace('Start pull-away tween');
-						limoTween = FlxTween.tween(limo, {x: 2000 + LIMO_BASE_X_POS}, 1, {ease:FlxEase.backIn, 
+						limoTween = FlxTween.tween(limo, {x: 2000 + LIMO_BASE_X_POS}, 1, {ease:FlxEase.backIn,
 							onComplete: function(_)
 							{
 								trace('Complete pull-away tween');
@@ -384,7 +383,7 @@ class MILFGameplayModule extends Module
 					{
 						trace('Start pull-back tween');
 						limoTween = FlxTween.tween(limo, {x: LIMO_BASE_X_POS}, 3, {
-							ease:FlxEase.backOut, 
+							ease:FlxEase.backOut,
 							onComplete:function(_)
 								{
 									trace('Complete pull-back tween');
@@ -393,7 +392,7 @@ class MILFGameplayModule extends Module
 
 						isTweeningLimo = true;
 					}
-					
+
 					for (i in 1...(HENCHMEN_COUNT + 1)) {
 						var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + i);
 
