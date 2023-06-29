@@ -1,6 +1,5 @@
 import flixel.FlxG;
 import flixel.math.FlxAngle;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -12,8 +11,6 @@ class TankmanBattlefieldStage extends Stage
 		super('tankmanBattlefield');
 	}
 
-	var tankmanGroup:TankmanSpriteGroup;
-
 	function onCreate(event:ScriptEvent):Void
 	{
 		super.buildStage(event);
@@ -24,15 +21,6 @@ class TankmanBattlefieldStage extends Stage
 		clouds.x = FlxG.random.int(-700, -100);
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
-
-		if (PlayState.currentSong_NEW.songId.toLowerCase() == "stress")
-		{
-			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
-			add(tankmanGroup);
-			
-			// resets the tankmen!
-			tankmanGroup.scriptCall('reset');
-		}
 
 		tankAngle = FlxG.random.int(-90, 45);
 		tankSpeed = FlxG.random.float(5, 7);
@@ -75,22 +63,5 @@ class TankmanBattlefieldStage extends Stage
 		clouds.x = FlxG.random.int(-700, -100);
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
-
-		// resets the tankmen!
-		if (tankmanGroup != null) {
-			tankmanGroup.scriptCall('reset');
-		}
-	}
-
-	function kill()
-	{
-		super.kill();
-
-		if (tankmanGroup != null)
-		{
-			remove(tankmanGroup);
-			tankmanGroup.destroy();
-			tankmanGroup = null;
-		}
 	}
 }
