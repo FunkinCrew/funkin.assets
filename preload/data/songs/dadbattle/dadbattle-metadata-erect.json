@@ -4,9 +4,7 @@
   "songName": "DadBattle (Erect Mix)",
   "artist": "KawaiSprite",
   "timeFormat": "ms",
-  "timeChanges": [
-    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 190 }
-  ],
+  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 190 }],
   "playData": {
     "stage": "mainStage",
     "playableChars": {
