@@ -65,7 +65,7 @@ class SenpaiSong extends Song {
 
   function startDialogue() {
     trace('startDialogue');
-    //PlayState.instance.startConversation('senpai');
+    PlayState.instance.startConversation('senpai');
   }
 
   /**
