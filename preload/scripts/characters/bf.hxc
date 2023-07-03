@@ -1,0 +1,37 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.Paths;
+import flixel.FlxG;
+import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.GameOverSubstate;
+
+class BoyfriendCharacter extends MultiSparrowCharacter {
+	function new() {
+		super('bf');
+	}
+
+	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		if (name == "fakeoutDeath") {
+			trace('Doing fakeout death lel');
+			doFakeoutDeath();
+		} else {
+			super.playAnimation(name, restart, ignoreOther);
+		}
+	}
+
+	function doFakeoutDeath():Void {
+		FlxG.sound.play(Paths.sound("fakeout_death"));
+
+		var bfFakeout:FlxAtlasSprite = new FlxAtlasSprite(this.x - 440, this.y - 240, Paths.animateAtlas("characters/bfFakeOut", "shared"));
+    FlxG.state.subState.add(bfFakeout);
+    bfFakeout.playAnimation('');
+    bfFakeout.anim.onComplete = () -> {
+      bfFakeout.visible = false;
+      this.visible = true;
+      this.playAnimation('firstDeath', true, true);
+      // Play the "blue balled" sound. May play a variant if one has been assigned.
+      GameOverSubstate.playBlueBalledSFX();
+    };
+    bfFakeout.visible = true;
+		this.visible = false;
+	}
+}

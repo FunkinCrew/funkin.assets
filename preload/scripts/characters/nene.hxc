@@ -11,11 +11,11 @@ class NeneCharacter extends SparrowCharacter {
 	 * At this amount of life, Nene will raise her knife.
 	 */
 	var VULTURE_THRESHOLD = 0.25 * 2;
-	
+
 	/**
 	 * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
 	 * or maybe her 'combo' or 'drop' animations are active.
-	 * 
+	 *
 	 * Transitions:
 	 * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
 	 */
@@ -24,7 +24,7 @@ class NeneCharacter extends SparrowCharacter {
 	/**
 	 * Nene has recognized the player is at low health,
 	 * but has to wait for the appropriate point in the animation to move on.
-	 * 
+	 *
 	 * Transitions:
 	 * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
 	 * If current animation is combo or drop, transition when animation completes.
@@ -36,7 +36,7 @@ class NeneCharacter extends SparrowCharacter {
 	/**
 	 * Nene is raising her knife.
 	 * When moving to this state, immediately play the 'raiseKnife' animation.
-	 * 
+	 *
 	 * Transitions:
 	 * Once 'raiseKnife' animation completes, transition to STATE_READY.
 	 */
@@ -46,7 +46,7 @@ class NeneCharacter extends SparrowCharacter {
 	 * Nene is holding her knife ready to strike.
 	 * During this state, hold the animation on the first frame, and play it at random intervals.
 	 * This makes the blink look less periodic.
-	 * 
+	 *
 	 * Transitions:
 	 * If the player runs out of health, move to the GameOverSubState. No transition needed.
 	 * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
@@ -56,7 +56,7 @@ class NeneCharacter extends SparrowCharacter {
 	/**
 	 * Nene is raising her knife.
 	 * When moving to this state, immediately play the 'lowerKnife' animation.
-	 * 
+	 *
 	 * Transitions:
 	 * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
 	 */
@@ -128,7 +128,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
-		
+
 		switch(currentState) {
 			case STATE_PRE_RAISE:
 				if (name == "danceLeft" && frameNumber == 14) {

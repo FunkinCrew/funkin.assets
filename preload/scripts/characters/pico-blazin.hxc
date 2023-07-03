@@ -94,7 +94,7 @@ class PicoBlazinCharacter extends SparrowCharacter
 
 	function getDarnell()
 	{
-		if (this.debug) return;
+		if (this.debug) return null;
 		return PlayState.instance.currentStage.getDad();
 	}
 

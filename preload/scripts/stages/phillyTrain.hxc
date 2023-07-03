@@ -54,7 +54,7 @@ class PhillyTrainStage extends Stage
 	{
 		super.onUpdate(event);
 		// Update beat lights
-		var shaderInput:Float = (Conductor.crochet / 1000) * event.elapsed * 1.5;
+		var shaderInput:Float = (Conductor.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
 
 		// Update train
