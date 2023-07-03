@@ -1,8 +1,8 @@
-import funkin.play.character.AnimateAtlasCharacter;
+import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
-class TankmanCharacter extends AnimateAtlasCharacter {
+class TankmanCharacter extends SparrowCharacter {
 	function new() {
 		super('tankman');
 	}
@@ -11,16 +11,18 @@ class TankmanCharacter extends AnimateAtlasCharacter {
 	{
 		if (!event.note.mustPress && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
-			trace('Dad hit note.');
-			trace(event.note.data);
 			switch(event.note.data.noteKind) {
 				case "ugh":
 					holdTimer = 0;
 					this.playAnimation('ugh');
 					return;
+				case "hehPrettyGood":
+						holdTimer = 0;
+						this.playAnimation('hehPrettyGood');
+						return;
 			}
 		}
-		
+
 		super.onNoteHit(event);
 	}
 }

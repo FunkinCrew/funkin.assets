@@ -15,7 +15,6 @@
         {
           "offsets": [0, 0],
           "flipY": false,
-          "loop": true,
           "frameRate": 24,
           "prefix": "halloweem bg0",
           "looped": true,
@@ -25,7 +24,6 @@
         {
           "offsets": [0, 0],
           "flipY": false,
-          "loop": false,
           "frameRate": 24,
           "prefix": "halloweem bg lightning strike",
           "looped": false,
@@ -38,18 +36,9 @@
   "cameraZoom": 1.05,
   "version": "1.0.0",
   "characters": {
-    "bf": {
-      "zIndex": 200,
-      "position": [989.5, 885]
-    },
-    "gf": {
-      "zIndex": 100,
-      "position": [751.5, 787]
-    },
-    "dad": {
-      "zIndex": 200,
-      "position": [382, 831]
-    }
+    "bf": { "zIndex": 200, "position": [989.5, 885] },
+    "gf": { "zIndex": 100, "position": [751.5, 787] },
+    "dad": { "zIndex": 200, "position": [382, 831] }
   },
   "name": "Spooky Mansion"
 }

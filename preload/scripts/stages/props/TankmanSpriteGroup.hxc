@@ -34,20 +34,21 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		tankmanTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:Array<SwagSection> = PlayState.currentSong.noteMap.get('picospeaker');
+		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
 		if (animChart == null)
 		{
-			trace('Skip initializing tankman timings: no picospeaker chart.');
+			trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
 			return;
+		} else {
+			trace('Found picospeaker chart for TankmanSpriteGroup.');
 		}
-		var animNotesSections:Array<Array<NoteData>> = animChart.map(section -> section.sectionNotes);
-		var animNotes:Array<NoteData> = Lambda.flatten(animNotesSections);
+		var animNotes:Array<SongNoteData> = animChart.notes;
 
 		// You HAVE to use an anonymous function here.
 		// There is a bug where using a class function destroys the local context.
 		animNotes.sort(function(a:NoteData, b:NoteData)
 		{
-			return FlxSort.byValues(FlxSort.ASCENDING, x.strumTime, y.strumTime);
+			return FlxSort.byValues(FlxSort.ASCENDING, x.t, y.t);
 		});
 
 		for (note in animNotes)
@@ -55,17 +56,16 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 			// Only one out of every 16 notes, on average, is a tankman.
 			if (FlxG.random.bool(16))
 			{
-				trace('  Adding Tankman: ' + note.strumTime);
-				tankmanTimes.push(note.strumTime);
-				var noteData:Int = note.noteData; // Forgot cast() isn't necessary in HScript.
-				var goingRight:Bool = noteData < 2;
+				trace('  Adding Tankman: ' + note.t);
+				tankmanTimes.push(note.t);
+				var goingRight:Bool = note.d < 2;
 				tankmanDirs.push(goingRight);
 			}
 		}
 	}
 
 	/**
-	 * Creates a Tankman sprite and adds it to the group. 
+	 * Creates a Tankman sprite and adds it to the group.
 	 */
 	function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool)
 	{

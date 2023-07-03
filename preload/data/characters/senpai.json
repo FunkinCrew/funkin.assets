@@ -5,6 +5,10 @@
   "singTime": 2.0,
   "isPixel": true,
   "scale": 6,
+  "healthIcon": {
+    "id": "senpai",
+    "isPixel": true
+  },
   "animations": [
     {
       "name": "idle",
