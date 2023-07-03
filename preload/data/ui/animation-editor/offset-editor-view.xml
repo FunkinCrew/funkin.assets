@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxCharacters" title="Characters" width="300" height="400">
+<collapsible-dialog id="toolboxCharacters" title="Characters" width="300" height="475">
     <vbox>
         <section-header text="Modes" />
         <vbox>
@@ -15,7 +15,12 @@
             <data />
         </dropdown>
         <section-header text="Shortcuts" />
+        <label text="F4: Exit to Main Menu" />
+        <label text="H: Show/Hide UI" />
+        <spacer />
         <label text="1: Spritesheet Mode" />
+        <label text="Middle Click: Pan" />
+        <label text="Scroll Wheel: Zoom" />
         <spacer />
         <label text="2: Animation Mode" />
         <label text="Q/[: Previous Animation" />
