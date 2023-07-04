@@ -1,0 +1,77 @@
+{
+  "name": "Funkin'",
+  "author": "PhantomArcade",
+  "fallback": null,
+  "assets": {
+    "note": {
+      "assetPath": "assets/images/notestyles/funkin/note",
+      "scale": 1,
+      "data": {
+        "noteLeft": ["noteLeft"],
+        "noteDown": ["noteDown"],
+        "noteUp": ["noteUp"],
+        "noteRight": ["noteRight"]
+      }
+    },
+    "noteStrumline": {
+      "assetPath": "assets/images/notestyles/funkin/noteHold",
+      "scale": 1,
+      "data": {
+        "noteLeft": {
+          "press": "",
+          "hold": "",
+          "confirm": ""
+        },
+        "noteDown": {
+          "press": "",
+          "hold": "",
+          "confirm": ""
+        },
+        "noteUp": {
+          "press": "",
+          "hold": "",
+          "confirm": ""
+        },
+        "noteRight": {
+          "press": "",
+          "hold": "",
+          "confirm": ""
+        }
+      }
+    },
+    "noteHold": {
+      "assetPath": "assets/images/notestyles/funkin/noteHold",
+      "scale": 1
+    },
+    "noteSplashes": {
+      "assetPath": "assets/images/notestyles/funkin/noteSplashes",
+      "scale": 1,
+      "data": {
+        "splashLeft": ["note impact 1 purple0", "note impact 2 purple0"],
+        "splashDown": ["note impact 1  blue0", "note impact 2 blue0"],
+        "splashUp": ["note impact 1 green0", "note impact 2 green0"],
+        "splashRight": ["note impact 1 red0", "note impact 2 red0"]
+      }
+    },
+    "combo": {
+      "killer": {
+        "assetPath": "assets/images/notestyles/funkin/combo/killer"
+      },
+      "sick": {
+        "assetPath": "assets/images/notestyles/funkin/combo/sick"
+      },
+      "good": {
+        "assetPath": "assets/images/notestyles/funkin/combo/good"
+      },
+      "bad": {
+        "assetPath": "assets/images/notestyles/funkin/combo/bad"
+      },
+      "shit": {
+        "assetPath": "assets/images/notestyles/funkin/combo/shit"
+      },
+      "miss": {
+        "assetPath": "assets/images/notestyles/funkin/combo/miss"
+      }
+    }
+  }
+}
