@@ -27,8 +27,13 @@ class SpookyMansionStage extends Stage
 		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
 
-		getBoyfriend().playAnimation('scared', true, true);
-		getGirlfriend().playAnimation('scared', true, true);
+		if (getBoyfriend() != null) {
+			getBoyfriend().playAnimation('scared', true, true);
+		}
+
+		if (getGirlfriend() != null) {
+			getGirlfriend().playAnimation('scared', true, true);
+		}
 	}
 
 	/**
@@ -48,10 +53,12 @@ class SpookyMansionStage extends Stage
 		super.onBeatHit(event);
 
 		// Play lightning on sync at the start of this specific song.
-		// TODO: Make this a chart event.
-		if (event.beat == 4 && PlayState.instance.currentSong.songId.toLowerCase() == "spookeez")
-		{
-			doLightningStrike(false, event.beat);
+		// TODO: Rework this after chart format redesign.
+		if (PlayState.instance.currentSong != null) {
+			if (event.beat == 4 && PlayState.instance.currentSong.songId == "spookeez")
+			{
+				doLightningStrike(false, event.beat);
+			}
 		}
 
 		// Play lightning at random intervals.

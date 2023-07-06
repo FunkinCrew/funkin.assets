@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "name": "Default",
+  "assetPath": "speech_bubble_talking",
+  "isPixel": true,
+  "flipX": false,
+  "flipY": false,
+  "offsets": [-20, 20],
+  "scale": 5.4,
+
+  "text": {
+    "offsets": [225, 450],
+    "width": 900,
+    "color": "#3F2021",
+    "shadowColor": "#D89494",
+    "shadowWidth": 2
+  },
+
+  "marker": {
+    "offsets": [0, 0],
+    "scale": 1.0,
+    "assetPath": "weeb/pixelUI/hand_textbox"
+  },
+
+  "animations": [
+    {
+      "name": "enter",
+      "prefix": "speech bubble normal0",
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "looped": false
+    },
+    {
+      "name": "idle",
+      "prefix": "speech bubble normal0",
+      "offsets": [0, 0]
+    }
+  ]
+}
