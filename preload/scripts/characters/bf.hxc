@@ -29,7 +29,7 @@ class BoyfriendCharacter extends MultiSparrowCharacter {
       this.visible = true;
       this.playAnimation('firstDeath', true, true);
       // Play the "blue balled" sound. May play a variant if one has been assigned.
-      GameOverSubSstate.playBlueBalledSFX();
+      GameOverSubState.playBlueBalledSFX();
     };
     bfFakeout.visible = true;
 		this.visible = false;
