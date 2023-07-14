@@ -18,7 +18,7 @@
     "noteStrumline": {
       "assetPath": "week6:weeb/pixelUI/arrows-pixels",
       "scale": 1.0,
-      "offsets": [24, 24],
+      "offsets": [28, 32],
       "isPixel": true,
       "data": {
         "leftStatic": { "prefix": "staticLeft0" },
