@@ -3,9 +3,7 @@
   "songName": "DadBattle",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
-  "timeChanges": [
-    { "t": -1, "b": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ],
+  "timeChanges": [{ "t": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "playData": {
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],

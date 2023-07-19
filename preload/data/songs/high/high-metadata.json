@@ -3,9 +3,7 @@
   "songName": "High",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
-  "timeChanges": [
-    { "t": -1, "b": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ],
+  "timeChanges": [{ "t": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "looped": false,
   "playData": {
     "songVariations": [],
