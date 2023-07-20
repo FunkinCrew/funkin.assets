@@ -63,7 +63,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		shootingArm = new FlxSprite(0, 0);
 		shootingArm.zIndex = 200 - 1;
 		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
-		shootingArm.antialiasing = true;
 		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
 		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
 		//shootingArm.visible = false;
@@ -112,7 +111,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		if (event.note.mustPress && characterType == CharacterType.BF) {
 			// Override the hit note animation.
-			switch(event.note.data.noteKind) {
+			switch(event.note.noteData.noteKind) {
 				case "weekend-1-cockgun":
 					playCockGunAnim();
 				case "weekend-1-firegun":
@@ -130,7 +129,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		// Override the miss note animation.
-		switch(event.note.data.noteKind) {
+		switch(event.note.noteData.noteKind) {
 			case "weekend-1-cockgun":
 				// playCockMissAnim();
 			case "weekend-1-firegun":

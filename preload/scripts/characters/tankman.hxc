@@ -11,7 +11,7 @@ class TankmanCharacter extends SparrowCharacter {
 	{
 		if (!event.note.mustPress && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
-			switch(event.note.data.noteKind) {
+			switch(event.note.noteData.noteKind) {
 				case "ugh":
 					holdTimer = 0;
 					this.playAnimation('ugh');

@@ -33,7 +33,7 @@ class SpraycanSprite extends FlxSprite
 	 */
 	public var arcEndingPosition:FlxPoint;
 
-	
+
 	var angularVelFrameByFrame:Float = 0;
 
 	/**
@@ -58,7 +58,6 @@ class SpraycanSprite extends FlxSprite
 		zIndex = 1900;
 
 		frames = Paths.getSparrowAtlas('Spraypaint_Can_Assets');
-		antialiasing = true;
 
 		// Stationary can
 		animation.addByPrefix('idle', 'singular can', 24, true);

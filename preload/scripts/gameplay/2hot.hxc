@@ -15,7 +15,7 @@ import flixel.tweens.FlxTween;
 /**
  * TODO: After redoing the chart format, add a ScriptedSong class,
  * make this extend that, and have the constructor call `super('2hot')`.
- * 
+ *
  * TODO: Move kicking to song events/custom notes after those are implemented.
  */
 class TwoHOTGameplayModule extends Module
@@ -96,7 +96,7 @@ class TwoHOTGameplayModule extends Module
 	function onNoteHit(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
-		switch (event.note.data.noteKind)
+		switch (event.note.noteData.noteKind)
 		{
 			case "weekend-1-lightcan":
 				// We define the behavior of the can in a separate scripted class,
@@ -235,27 +235,27 @@ class TwoHOTGameplayModule extends Module
 
 			new FlxTimer().start(1/24, function(tmr)
 			{
-				
+
 				for (stageProp in PlayState.instance.currentStage.members)
 				{
 					if (stageProp.zIndex < PlayState.instance.currentStage.getGirlfriend().zIndex)
 					{
 						stageProp.color = 0xFF111111;
 
-						new FlxTimer().start(1/24, (tmr) -> 
-						{	
+						new FlxTimer().start(1/24, (tmr) ->
+						{
 							stageProp.color = 0xFF222222;
 							FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
 						});
 
-						
+
 					}
-						
+
 				}
 
-				
-				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad()); 
-				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getGirlfriend()); 
+
+				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad());
+				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getGirlfriend());
 				// PlayState.
 				// PlayState.instance.currentStage.getBoyfriend().color = 0xFFFFA500;
 				// PlayState.instance.currentStage.getDad().color = 0xFFFFA500;
@@ -264,7 +264,7 @@ class TwoHOTGameplayModule extends Module
 				// FlxTween.color(PlayState.instance.currentStage.getBoyfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
 				// FlxTween.color(PlayState.instance.currentStage.getDad(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
 				// FlxTween.color(PlayState.instance.currentStage.getGirlfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
-				
+
 
 				var explodeEZ:FlxSprite = new FlxSprite(can.x, can.y);
 				explodeEZ.frames = Paths.getSparrowAtlas("spraypaintExplosionEZ");
@@ -325,7 +325,7 @@ class TwoHOTGameplayModule extends Module
 	{
 		super.onNoteMiss(event.note);
 
-		switch (event.note.data.noteKind)
+		switch (event.note.noteData.noteKind)
 		{
 			case "weekend-1-cockgun":
 				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
@@ -363,9 +363,9 @@ class TwoHOTGameplayModule extends Module
 		var songNotes:Song = PlayState.instance.inactiveNotes;
 		for (note in songNotes)
 		{
-			if (GUN_NOTES.contains(note.data.noteKind))
+			if (GUN_NOTES.contains(note.noteData.noteKind))
 			{
-				canEndTimes.push(note.data.strumTime);
+				canEndTimes.push(note.noteData.strumTime);
 			}
 		}
 	}
