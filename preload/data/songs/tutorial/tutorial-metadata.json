@@ -10,9 +10,7 @@
     "noteSkin": "Normal"
   },
   "songName": "Tutorial",
-  "timeChanges": [
-    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }
-  ],
+  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
   "version": "2.0.0",
