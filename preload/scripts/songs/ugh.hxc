@@ -31,7 +31,7 @@ class UghSong extends Song {
 	}
 
   function startVideo() {
-    VideoCutscene.play(Paths.file('music/ughCutscene.mp4'));
+    VideoCutscene.play(Paths.videos('ughCutscene'));
   }
 
   /**

@@ -12,9 +12,7 @@
     "noteSkin": "Normal"
   },
   "songName": "Roses",
-  "timeChanges": [
-    { "b": 0, "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }
-  ],
+  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
   "version": "2.0.0",
