@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <collapsible-dialog id="toolboxCharacters" title="Characters" width="300" height="400">
     <vbox>
         <property-grid width="250" height="300">

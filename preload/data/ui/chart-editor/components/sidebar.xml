@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hbox id="sidebar" width="325" height="100%" horizontalAlign="right">
 	<style>
-			.hazard-button {
-				padding: 4px;
-
-				border: 1px solid #DD0000;
-				background-color: #660000;
-				color: #FFFFFF;
-			}
-		</style>
+		.hazard-button {
+		padding: 4px;
+		border: 1px solid #DD0000;
+		background-color: #660000;
+		color: #FFFFFF;
+		}
+	</style>
 	<tabview id="sidebarTabView" width="325" height="90%">
 		<!-- icon="haxeui-core/styles/default/haxeui_tiny.png" -->
 		<vbox text="Song">
@@ -31,14 +30,12 @@
 		<vbox text="Variation">
 			<frame text="Variation: DEFAULT">
 				<grid columns="2" width="100%">
-					<label text="Song Name:" verticalAlign="center" horizontalAlign="right"/>
+					<label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="sidebarSongName" value="Bopeebo" />
-
-					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right"/>
+					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="sidebarSongArtist" value="Kawai Sprite" />
-
-					<label text="Stage:" verticalAlign="center" horizontalAlign="right"/>
-					<dropdown id="sidebarStage" value="Main Stage" horizontalAlign="right" >
+					<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
+					<dropdown id="sidebarStage" value="Main Stage" horizontalAlign="right">
 						<data>
 							<item text="Main Stage" />
 							<item text="Spooky Mansion" />
@@ -53,8 +50,7 @@
 							<item text="Philly Streets (Blazin')" />
 						</data>
 					</dropdown>
-
-					<label text="Note Skin:" verticalAlign="center" horizontalAlign="right"/>
+					<label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
 					<dropdown id="sidebarNoteSkin" value="Normal" horizontalAlign="right">
 						<data>
 							<item text="Normal" />
@@ -63,7 +59,6 @@
 					</dropdown>
 				</grid>
 			</frame>
-
 			<frame text="Instrumental">
 				<button text="Load Instrumental" />
 				<hbox>
@@ -71,7 +66,6 @@
 					<number-stepper pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
 				</hbox>
 			</frame>
-
 			<frame text="Characters/Vocals">
 				<vbox>
 					<property-grid width="250" height="300">
@@ -100,7 +94,7 @@
 									<item text="Nene" />
 								</data>
 							</property>
-							<button text="Remove Character"/>
+							<button text="Remove Character" />
 						</property-group>
 						<property-group text="Pico">
 							<property label="Player" type="list" value="Pico">
