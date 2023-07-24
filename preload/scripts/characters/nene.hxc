@@ -40,7 +40,7 @@ class NeneCharacter extends SparrowCharacter {
 		pupil.x = this.x;
 		pupil.y = this.y;
 		pupil.zIndex = this.zIndex - 1;
-		
+
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
 		abot.y = this.y;
@@ -146,6 +146,16 @@ class NeneCharacter extends SparrowCharacter {
 
 	var refershedLol:Bool = false;
 
+	public override function onSongEvent(event)
+	{
+		if (event.event.e == "FocusCamera")
+		{
+			pupil.playAnimation("");
+			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
+		}
+
+	}
+
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
@@ -159,7 +169,7 @@ class NeneCharacter extends SparrowCharacter {
 			pupil.playAnimation("");
 			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
 		}
-			
+
 
 		if (pupil.anim.isPlaying)
 		{
@@ -172,7 +182,7 @@ class NeneCharacter extends SparrowCharacter {
 						pupilState = PUPIL_STATE_LEFT;
 						pupil.anim.pause();
 					}
-						
+
 				case PUPIL_STATE_LEFT:
 					if (pupil.anim.curFrame >= 31)
 					{
@@ -180,7 +190,7 @@ class NeneCharacter extends SparrowCharacter {
 						pupilState = PUPIL_STATE_NORMAL;
 						pupil.anim.pause();
 					}
-						
+
 			}
 		}
 
@@ -191,7 +201,7 @@ class NeneCharacter extends SparrowCharacter {
 			abot.y = this.y + 340;
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
-			
+
 			eyeWhites.x = abot.x + 40;
 			eyeWhites.y = abot.y + 250;
 			eyeWhites.zIndex = abot.zIndex - 10;
@@ -209,7 +219,7 @@ class NeneCharacter extends SparrowCharacter {
 
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
-		} 
+		}
 
 		transitionState();
 	}
