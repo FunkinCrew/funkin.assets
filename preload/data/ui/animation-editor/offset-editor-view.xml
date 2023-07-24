@@ -12,7 +12,7 @@
         </vbox>
         <section-header text="Character" />
         <dropdown id="characterDropdown" width="250" allowFocus="false">
-            <data />
+            <data></data>
         </dropdown>
         <section-header text="Shortcuts" />
         <label text="F4: Exit to Main Menu" />
