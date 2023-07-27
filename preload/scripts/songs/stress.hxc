@@ -53,7 +53,7 @@ class StressSong extends Song {
   }
 
   function startVideo() {
-    VideoCutscene.play(Paths.file('music/stressCutscene.mp4'));
+    VideoCutscene.play(Paths.videos('stressCutscene'));
   }
 
   /**
