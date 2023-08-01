@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <property-group id="charGroup" text="Boyfriend">
 	<property id="charGroupPlayer" label="Player" value="bf" type="list">
 		<data>
