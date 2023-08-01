@@ -6,19 +6,19 @@
 <box>
 	<style>
 		#playbarHead {
-			border-radius: 0px;
+		border-radius: 0px;
 		}
 		#playbarHead .button {
-			height: 16px;
-			width: 16px;
-			border-radius: 8px;
-			background: #8844DD #6622BB vertical;
+		height: 16px;
+		width: 16px;
+		border-radius: 8px;
+		background: #8844DD #6622BB vertical;
 		}
 		#playbarHead .slider-value {
-			background: #442277 #220055 vertical;
+		background: #442277 #220055 vertical;
 		}
 		#playbarHead .range-value {
-			background: #8844DD #6622BB vertical;
+		background: #8844DD #6622BB vertical;
 		}
 	</style>
 	<!-- background-image: "shared:assets/shared/images/ui/chart-editor/playbar-head.png"; -->
