@@ -6,6 +6,5 @@
   "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 102 }],
   "generatedBy": "Manual (by EliteMasterEric)",
   "looped": true,
-  "version": "2.0.0",
-  "divisions": 96
+  "version": "2.0.0"
 }
