@@ -56,10 +56,6 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
   </menu>
-  <menu text="Test">
-    <menu-item disabled="true" id="menubarItemTestInEditor" text="Test in Editor" shortcutText="Enter" />
-    <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
-  </menu>
   <menu text="Window">
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
     <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />

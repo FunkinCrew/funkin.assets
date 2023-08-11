@@ -70,8 +70,9 @@
     </vbox>
   </menu>
   <menu text="Test">
-    <menu-item disabled="true" id="menubarItemTestInEditor" text="Test in Editor" shortcutText="Enter" />
-    <menu-item disabled="true" id="menubarItemTestInPlayState" text="Test in Play State" shortcutText="Alt-Enter" />
+    <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
+    <menu-item id="menubarItemPlaytestMinimal" text="Playtest Chart (Minimal Mode)" shortcutText="Shift-Enter" />
+    <menu-checkbox id="menubarItemPlaytestStartTime" text="Start at Current Time?" />
   </menu>
   <menu text="Window">
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
