@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="400">
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="425">
     <vbox>
         <frame text="Select Difficulty">
-            <tree-view id="difficultyToolboxTree" width="260" height="150" />
+            <tree-view id="difficultyToolboxTree" width="260" height="200" />
         </frame>
         <hbox>
-            <button allowFocus="false" disabled="true" id="difficultyToolboxAddVariation" text="Add Variation" />
-            <button allowFocus="false" disabled="true" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
+            <button allowFocus="false" id="difficultyToolboxRemoveVariation" text="Remove Variation" />
         </hbox>
+        <rule />
+        <hbox>
+            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
+        </hbox>
+        <rule />
         <hbox>
             <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata" />
             <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart" />
