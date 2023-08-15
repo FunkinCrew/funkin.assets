@@ -5,13 +5,13 @@
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
         </frame>
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
-            <button allowFocus="false" id="difficultyToolboxRemoveVariation" text="Remove Variation" />
+            <button allowFocus="false" disabled="true" id="difficultyToolboxAddVariation" text="Add Variation" />
+            <button allowFocus="false" disabled="true" id="difficultyToolboxRemoveVariation" text="Remove Variation" />
         </hbox>
         <rule />
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
-            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
+            <button allowFocus="false" disabled="true" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+            <button allowFocus="false" disabled="true" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
         </hbox>
         <rule />
         <hbox>
