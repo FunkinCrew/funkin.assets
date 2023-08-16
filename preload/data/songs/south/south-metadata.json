@@ -13,6 +13,5 @@
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 165 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
-  "version": "2.0.0",
-  "divisions": 96
+  "version": "2.0.0"
 }

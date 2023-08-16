@@ -54,6 +54,9 @@
       <menuoptionbox id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
       <menuoptionbox id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
     </menu>
+    <menu-separator />
+    <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
+    <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
   </menu>
   <menu text="Audio">
     <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
