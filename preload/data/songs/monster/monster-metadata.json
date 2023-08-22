@@ -1,7 +1,7 @@
 {
   "variation": "default",
   "timeFormat": "ms",
-  "artist": "Kawai Sprite",
+  "artist": "BassetFilms",
   "playData": {
     "stage": "spookyMansion",
     "playableChars": { "bf": { "g": "gf", "i": "", "o": "monster" } },
