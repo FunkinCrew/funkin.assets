@@ -9,7 +9,7 @@
   <menu text="File">
     <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
     <menu-separator />
-    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" disabled="true" />
+    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
     <menu text="Open Recent" disabled="true">
       <menu-item text="D:/Funkin/charts/expurgated.json" />
       <menu-item text="D:/Funkin/charts/fatal-error.json" />
