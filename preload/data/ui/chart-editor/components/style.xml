@@ -24,6 +24,10 @@
 	font-size: 24px;
 	font-bold: true;
 	}
+	.playbarStatus {
+		font-size: 16px;
+		font-bold: true;
+	}
 	.playbarButton {
 	font-size: 16px;
 	}
