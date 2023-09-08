@@ -129,6 +129,19 @@
       "scroll": [1, 1],
       "alpha": 1,
       "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 101,
+      "position": [496, 1091],
+      "scale": [0.974, 0.972],
+      "animType": "sparrow",
+      "name": "puddle",
+      "isPixel": false,
+      "assetPath": "phillyStreets/puddle",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
     }
   ],
   "cameraZoom": 0.5,

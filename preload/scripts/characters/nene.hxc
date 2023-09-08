@@ -118,7 +118,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function dance(forceRestart:Bool) {
 
-		abot.playAnimation("", forceRestart);
+		//abot.playAnimation("", forceRestart);
 
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
