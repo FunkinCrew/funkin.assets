@@ -7,16 +7,44 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
+import funkin.shaderslmfao.RuntimeRainShader;
+import openfl.utils.Assets;
 
 class PhillyStreetsStage extends Stage
 {
+
+	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+
 	function new()
 	{
 		super('phillyStreets');
 	}
 
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
+	}
+
 	override function buildStage()
 	{
 		super.buildStage();
+	}
+
+	override function onUpdate(event:UpdateScriptEvent)
+	{
+		super.onUpdate(event);
+		rainShader.update(event.elapsed);
+	}
+
+	override function addProp(prop:StageProp, ?name:String = null)
+	{
+		super.addProp(prop, name);
+		if (name == "puddle")
+		{
+			// add shader
+			prop.shader = new PuddleShader();
+		}
 	}
 }
