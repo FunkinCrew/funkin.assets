@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menubar id="menubar" width="100%" paddingLeft="172">
+<funkin-menubar id="menubar" width="100%" paddingLeft="172">
   <style>
     .menu {
     // The width of the individual menu items
@@ -93,4 +93,4 @@
   </menu>
   <spacer width="100%" />
   <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
-</menubar>
+</funkin-menubar>
