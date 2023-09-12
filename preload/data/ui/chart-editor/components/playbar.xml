@@ -3,9 +3,13 @@
 	This component imitates the playback controls like on a music player.
 -->
 <hbox id="playbar" width="100%" height="48" styleName="playbar">
-	<label id="playbarSongPos" text="0:32" styleName="playbarDuration" />
+	<!-- Manually set width so changing the width of the contents doesn't shift the center element. -->
+	<hbox width="250">
+		<label id="playbarSongPos" text="0:32" styleName="playbarDuration" />
+	</hbox>
 	<spacer width="100%" />
-	<hbox width="200">
+	<hbox>
+		<!-- Try to keep this hbox center-aligned -->
 		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
 		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
 		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
@@ -13,5 +17,12 @@
 		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
 	</hbox>
 	<spacer width="100%" />
-	<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
+	<!-- Manually set width so changing the width of the contents doesn't shift the center element. -->
+	<hbox width="250">
+		<!-- Spacer to push everything to right align -->
+		<spacer width="100%" />
+		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" />
+		<spacer width="24" />
+		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
+	</hbox>
 </hbox>
