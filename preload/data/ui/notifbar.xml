@@ -10,8 +10,8 @@
         <spacer height="100%" />
         <hbox width="100%">
             <spacer width="100%" />
-            <button id="notifbarAction" text="Test" />
-            <button id="notifbarDismiss" text="Dismiss" />
+            <funkin-button id="notifbarAction" text="Test" />
+            <funkin-button id="notifbarDismiss" text="Dismiss" />
         </hbox>
     </vbox>
 </box>

@@ -30,6 +30,7 @@
 	}
 	.playbarButton {
 	font-size: 16px;
+	width: 56px;
 	}
 	.dialog-close-button {
 	resource: "haxeui-flixel/styles/flixel-ui/images/close.png";
