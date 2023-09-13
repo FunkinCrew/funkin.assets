@@ -24,6 +24,8 @@ class PhillyStreetsStage extends Stage
 	{
 		super.onCreate(event);
 		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
+		rainShader.intensity = 1.0;
 		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
 	}
 
@@ -35,6 +37,7 @@ class PhillyStreetsStage extends Stage
 	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
+		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 	}
 

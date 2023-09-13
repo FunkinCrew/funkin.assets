@@ -4,7 +4,7 @@
 
 
 
-
+// TODO: shouldn't this be isolated?
 
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex
@@ -126,29 +126,15 @@ struct Light {
 // prevent auto field generation
 #define UNIFORM uniform
 
+uniform float uScale;
+uniform float uIntensity;
 uniform float uTime;
-
-uniform bool hasGroundMap = false;
-uniform bool hasLightMap = false;
 uniform sampler2D uGroundMap;
 uniform sampler2D uLightMap;
-uniform sampler2D uPuddleMap;
-
 uniform int numLights;
+
 const int MAX_LIGHTS = 8;
 UNIFORM Light lights[MAX_LIGHTS];
-
-// float mod(float a, float b) {
-// 	return a - floor(a / b) * b;
-// }
-
-// vec2 mod(vec2 a, vec2 b) {
-// 	return a - floor(a / b) * b;
-// }
-
-// vec2 mod(vec2 a, float b) {
-// 	return a - floor(a / b) * b;
-// }
 
 float rand(vec2 a) {
 	return fract(sin(dot(mod(a, vec2(1000.0)).xy, vec2(12.9898, 78.233))) * 43758.5453);
@@ -158,8 +144,8 @@ float ease(float t) {
 	return t * t * (3.0 - 2.0 * t);
 }
 
-float rainDist(vec2 p, float scale, float amount) {
-	p *= 40.0;
+float rainDist(vec2 p, float scale, float intensity) {
+	p *= 0.1;
 	p.x += p.y * 0.1;
 	p.y -= uTime * 500.0 / scale;
 	p.y *= 0.03;
@@ -171,17 +157,17 @@ float rainDist(vec2 p, float scale, float amount) {
 	p.x += (rand(index.yx) * 2.0 - 1.0) * 0.35;
 	vec2 a = abs(p - 0.5);
 	float res = max(a.x, a.y * 0.5) - 0.1;
-	bool empty = rand(index) < mix(1.0, 0.1, amount);
+	bool empty = rand(index) < mix(1.0, 0.1, intensity);
 	return empty ? 1.0 : res;
 }
 
-vec2 groundDisplace(vec2 p, float amount) {
+vec2 groundDisplace(vec2 p, float intensity) {
 	vec2 res = vec2(0);
-	p *= 70.0;
 	float speed = 10.0;
+	p *= 0.1;
 	res.x = snoise(vec3(p, speed * uTime));
 	res.y = snoise(vec3(p * vec2(1, 1.4), speed * uTime + 100.0));
-	res *= 0.05 * mix(0.1, 1.0, amount);
+	res *= 10.0 * mix(0.1, 1.0, intensity);
 	return res;
 }
 
@@ -200,14 +186,15 @@ vec3 lightUp(vec2 p) {
 	return res;
 }
 
-void main() {
-	vec2 origUv = openfl_TextureCoordv;
-	vec2 uv = fragCoord;
-	vec2 pos = screenPos;
-	vec2 uvSize = texCoordSize();
+vec2 worldToBackground(vec2 worldCoord) {
+	// this should work as long as the background sprite is placed at the origin without scaling
+	return worldCoord / uScreenResolution;
+}
 
-	// float amount = 0.5 + sin(uTime * 2.0) * 0.5;
-	float amount = 0.5;
+void main() {
+	vec2 wpos = screenToWorld(screenCoord);
+	vec2 origWpos = wpos;
+	float intensity = uIntensity;
 
 	vec3 add = vec3(0);
 	float rainSum = 0.0;
@@ -221,44 +208,28 @@ void main() {
 
 	for (int i = 0; i < numLayers; i++) {
 		float scale = scales[i];
-		float r = rainDist(pos * scale + 500.0 * float(i), scale, amount);
+		float r = rainDist(wpos * scale / uScale + 500.0 * float(i), scale, intensity);
 		if (r < 0.0) {
 			float v = (1.0 - exp(r * 5.0)) / scale * 2.0;
-			uv.x += v * 0.02;
-			uv.y -= v * 0.01;
+			wpos.x += v * 10.0 * uScale;
+			wpos.y -= v * 2.0 * uScale;
 			add += vec3(0.1, 0.15, 0.2) * v;
 			rainSum += (1.0 - rainSum) * 0.75;
 		}
 	}
-	uv = clamp(uv, vec2(0), vec2(1));
 
-	vec3 light =  (texture2D(uLightMap, fragCoord).xyz + lightUp(pos)) * amount;
+	vec3 light = (texture2D(uLightMap, worldToBackground(origWpos)).xyz + lightUp(wpos)) * intensity;
 
-	bool isGround = false;
-  if (hasGroundMap) {
-    isGround = texture2D(uGroundMap, uv).x > 0.5;
-  }
+	bool isGround = texture2D(uGroundMap, worldToBackground(wpos)).x > 0.5;
 
-	bool isPuddle = texture2D(uPuddleMap, uv).x > 0.5;
-
-	vec3 color = texture2D(bitmap, mod(uv, 1.0) * uvSize).xyz;
+	vec3 color = sampleBitmapWorld(wpos).xyz;
 
 	if (isGround) {
-		float mirror = 0.7;
-		vec2 uv2 = vec2(uv.x, mirror - (uv.y - mirror));
-		uv2 += groundDisplace(uv, amount);
-		vec3 reflection = texture2D(bitmap, mod(uv2, 1.0) * uvSize).xyz;
-		float reflectionRatio = mix(0.0, 0.25, amount);
-		color = mix(color, reflection, reflectionRatio);
-	}
-
-	if (isPuddle)
-	{
-		float mirror = 0.7;
-		vec2 uv2 = vec2(uv.x, mirror - (uv.y - mirror));
-		uv2 += groundDisplace(uv, amount);
-		vec3 reflection = texture2D(bitmap, mod(uv2, 1.0) * uvSize).xyz;
-		float reflectionRatio = mix(0.0, 0.25, amount);
+		float mirrorY = 0.7 * uScreenResolution.y;
+		vec2 wpos2 = vec2(wpos.x, 2.0 * mirrorY - wpos.y);
+		wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
+		vec3 reflection = sampleBitmapWorld(wpos2).xyz;
+		float reflectionRatio = mix(0.0, 0.25, intensity);
 		color = mix(color, reflection, reflectionRatio);
 	}
 
@@ -266,14 +237,8 @@ void main() {
 	color += add;
 	color = mix(color, rainColor, 0.1 * rainSum);
 
-  vec3 fog = vec3(0.5 + rainSum * 0.5);
-
-  if (hasLightMap)
-  {
-    fog = light * (0.5 + rainSum * 0.5);
-  }
-	// color = color / (1.0 + fog) + fog;
+	vec3 fog = light * (0.5 + rainSum * 0.5);
+	color = color / (1.0 + fog) + fog;
 
 	gl_FragColor = vec4(color, 1);
-	// gl_FragColor = vec4(fragCoord, 0, 1);
 }
