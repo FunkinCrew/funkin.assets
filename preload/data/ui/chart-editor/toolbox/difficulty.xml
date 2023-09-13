@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="425">
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="350" height="425">
     <vbox>
         <frame text="Select Difficulty">
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
         </frame>
         <hbox>
-            <button allowFocus="false" disabled="true" id="difficultyToolboxAddVariation" text="Add Variation" />
-            <button allowFocus="false" disabled="true" id="difficultyToolboxRemoveVariation" text="Remove Variation" />
+            <funkin-button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
+            <funkin-button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
         </hbox>
         <rule />
         <hbox>
-            <button allowFocus="false" disabled="true" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
-            <button allowFocus="false" disabled="true" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
-        </hbox>
-        <rule />
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata" />
-            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart" />
-            <button allowFocus="false" id="difficultyToolboxSaveAll" text="Save All" />
+            <funkin-button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
+            <funkin-button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
+            <funkin-button allowFocus="false" id="difficultyToolboxSaveAll" text="Save All" />
         </hbox>
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata" />
-            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart" />
+            <funkin-button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
+            <funkin-button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
         </hbox>
     </vbox>
 </collapsible-dialog>
