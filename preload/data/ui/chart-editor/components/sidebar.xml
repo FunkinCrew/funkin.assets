@@ -15,16 +15,16 @@
 				<tree-view id="sidebarDifficulties" width="260" height="400" />
 			</frame>
 			<hbox>
-				<button allowFocus="false" text="Add Variation" />
-				<button allowFocus="false" text="Add Difficulty" />
+				<funkin-button allowFocus="false" text="Add Variation" />
+				<funkin-button allowFocus="false" text="Add Difficulty" />
 			</hbox>
 			<hbox>
-				<button allowFocus="false" id="sidebarSaveMetadata" text="Save Metadata" />
-				<button allowFocus="false" id="sidebarSaveChart" text="Save Chart" />
+				<funkin-button allowFocus="false" id="sidebarSaveMetadata" text="Save Metadata" />
+				<funkin-button allowFocus="false" id="sidebarSaveChart" text="Save Chart" />
 			</hbox>
 			<hbox>
-				<button allowFocus="false" id="sidebarLoadMetadata" text="Load Metadata" />
-				<button allowFocus="false" id="sidebarLoadChart" text="Load Chart" />
+				<funkin-button allowFocus="false" id="sidebarLoadMetadata" text="Load Metadata" />
+				<funkin-button allowFocus="false" id="sidebarLoadChart" text="Load Chart" />
 			</hbox>
 		</vbox>
 		<vbox text="Variation">
