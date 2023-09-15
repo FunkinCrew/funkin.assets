@@ -25,7 +25,7 @@ class PhillyStreetsStage extends Stage
 		super.onCreate(event);
 		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
-		rainShader.intensity = 1.0;
+		rainShader.intensity = 0.5;
 		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
 	}
 
@@ -39,6 +39,7 @@ class PhillyStreetsStage extends Stage
 		super.onUpdate(event);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
+		rainShader.mask = maskTexture;
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)
@@ -47,7 +48,8 @@ class PhillyStreetsStage extends Stage
 		if (name == "puddle")
 		{
 			// add shader
-			prop.shader = new PuddleShader();
+			// prop.shader = new PuddleShader();
+			maskSprites.push(prop);
 		}
 	}
 }

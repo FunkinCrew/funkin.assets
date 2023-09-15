@@ -131,6 +131,7 @@ uniform float uIntensity;
 uniform float uTime;
 uniform sampler2D uGroundMap;
 uniform sampler2D uLightMap;
+uniform sampler2D uMask;
 uniform int numLights;
 
 const int MAX_LIGHTS = 8;
@@ -240,5 +241,7 @@ void main() {
 	vec3 fog = light * (0.5 + rainSum * 0.5);
 	color = color / (1.0 + fog) + fog;
 
-	gl_FragColor = vec4(color, 1);
+	vec4 mask = texture2D(uMask, screenCoord);
+
+	gl_FragColor = vec4(color * 0.5 + mask.xyz * 0.5, 1);
 }
