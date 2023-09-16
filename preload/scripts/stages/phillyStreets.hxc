@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.Paths;
+import funkin.SolidColorSprite;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -49,7 +50,15 @@ class PhillyStreetsStage extends Stage
 		{
 			// add shader
 			// prop.shader = new PuddleShader();
-			maskSprites.push(prop);
+			maskSprites.push(new SolidColorSprite(prop, 0, 1, 0));
+		} else {
+			maskSprites.push(new SolidColorSprite(prop, Math.random() * 0.8 + 0.2, Math.random() * 0.8 + 0.2, Math.random() * 0.8 + 0.2));
 		}
+	}
+
+  override function addCharacter(character:BaseCharacter, charType:CharacterType)
+	{
+		super.addCharacter(character, charType);
+		maskSprites.push(new SolidColorSprite(character, 1, 0, 0));
 	}
 }

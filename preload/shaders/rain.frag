@@ -243,5 +243,6 @@ void main() {
 
 	vec4 mask = texture2D(uMask, screenCoord);
 
-	gl_FragColor = vec4(color * 0.5 + mask.xyz * 0.5, 1);
+	// gl_FragColor = vec4(color * 0.5 + mask.xyz * 0.5, 1);
+	gl_FragColor = vec4(fract(uTime) > 0.5 ? mask.xyz : color, 1);
 }
