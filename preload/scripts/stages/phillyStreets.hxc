@@ -2,7 +2,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.Paths;
-import funkin.SolidColorSprite;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -13,7 +12,6 @@ import openfl.utils.Assets;
 
 class PhillyStreetsStage extends Stage
 {
-
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
 
 	function new()
@@ -24,9 +22,14 @@ class PhillyStreetsStage extends Stage
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
+
 		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 		rainShader.intensity = 0.5;
+
+		// set the shader input
+		rainShader.mask = frameBufferMan.getFrameBuffer("mask");
+
 		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
 	}
 
@@ -40,7 +43,12 @@ class PhillyStreetsStage extends Stage
 		super.onUpdate(event);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
-		rainShader.mask = maskTexture;
+	}
+
+	override function onFrameBufferCreate()
+	{
+		// craetes a frame buffer named "mask"
+		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)
@@ -48,17 +56,17 @@ class PhillyStreetsStage extends Stage
 		super.addProp(prop, name);
 		if (name == "puddle")
 		{
-			// add shader
-			// prop.shader = new PuddleShader();
-			maskSprites.push(new SolidColorSprite(prop, 0, 1, 0));
-		} else {
-			maskSprites.push(new SolidColorSprite(prop, Math.random() * 0.8 + 0.2, Math.random() * 0.8 + 0.2, Math.random() * 0.8 + 0.2));
+			frameBufferMan.addSpriteCopyTo("mask", prop, 0x00FF00);
+		}
+		else
+		{
+			frameBufferMan.addSpriteCopyTo("mask", prop, 0x0000FF);
 		}
 	}
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType)
 	{
 		super.addCharacter(character, charType);
-		maskSprites.push(new SolidColorSprite(character, 1, 0, 0));
+		frameBufferMan.addSpriteCopyTo("mask", character, 0xFF0000);
 	}
 }
