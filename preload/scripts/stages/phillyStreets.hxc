@@ -47,7 +47,7 @@ class PhillyStreetsStage extends Stage
 
 	override function onFrameBufferCreate()
 	{
-		// craetes a frame buffer named "mask"
+		// craetes a frame buffer named "mask", the background color is black
 		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
 	}
 
@@ -56,10 +56,12 @@ class PhillyStreetsStage extends Stage
 		super.addProp(prop, name);
 		if (name == "puddle")
 		{
+			// add the prop to the frame buffer, change its color to green
 			frameBufferMan.addSpriteCopyTo("mask", prop, 0x00FF00);
 		}
 		else
 		{
+			// add the prop to the frame buffer, change its color to blue
 			frameBufferMan.addSpriteCopyTo("mask", prop, 0x0000FF);
 		}
 	}
@@ -67,6 +69,8 @@ class PhillyStreetsStage extends Stage
   override function addCharacter(character:BaseCharacter, charType:CharacterType)
 	{
 		super.addCharacter(character, charType);
+
+		// add the character to the frame buffer, change its color to red
 		frameBufferMan.addSpriteCopyTo("mask", character, 0xFF0000);
 	}
 }
