@@ -93,7 +93,7 @@ class MILFGameplayModule extends Module
 		if (PlayState.instance == null) return false;
 		if (PlayState.instance.currentSong == null) return false;
 
-		return PlayState.instance.currentSong.songId == 'milf';
+		return PlayState.instance.currentSong.id == 'milf';
 	}
 
 	/**
