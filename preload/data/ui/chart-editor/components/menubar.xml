@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menubar id="menubar" width="100%" paddingLeft="172">
+<funkin-menubar id="menubar" width="100%" paddingLeft="172">
   <style>
     .menu {
     // The width of the individual menu items
@@ -7,61 +7,63 @@
     }
   </style>
   <menu text="File">
-    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
+    <funkin-menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
     <menu-separator />
-    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" disabled="true" />
+
+    <funkin-menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
+
     <menu text="Open Recent" disabled="true">
-      <menu-item text="D:/Funkin/charts/expurgated.json" />
-      <menu-item text="D:/Funkin/charts/fatal-error.json" />
-      <menu-item text="C:/Downloads/bad-bash.json" />
-      <menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
+      <funkin-menu-item text="D:/Funkin/charts/expurgated.json" />
+      <funkin-menu-item text="D:/Funkin/charts/fatal-error.json" />
+      <funkin-menu-item text="C:/Downloads/bad-bash.json" />
+      <funkin-menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
     </menu>
     <menu-separator />
-    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
+    <funkin-menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
-    <menu-item id="menubarItemLoadInst" text="Load Instrumental" />
-    <menu-item id="menubarItemImportChart" text="Import Chart" />
+    <funkin-menu-item id="menubarItemLoadInst" text="Load Instrumental" />
+    <funkin-menu-item id="menubarItemImportChart" text="Import Chart" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <funkin-menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
-    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
+    <funkin-menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
   <menu text="Edit">
-    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
-    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
+    <funkin-menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <funkin-menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
     <menu-separator />
-    <menu-item id="menubarItemCut" text="Cut" shortcutText="Ctrl+X" />
-    <menu-item id="menubarItemCopy" text="Copy" shortcutText="Ctrl+C" />
-    <menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
-    <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
+    <funkin-menu-item id="menubarItemCut" text="Cut" shortcutText="Ctrl+X" />
+    <funkin-menu-item id="menubarItemCopy" text="Copy" shortcutText="Ctrl+C" />
+    <funkin-menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
+    <funkin-menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
-    <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
-    <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
-    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
-    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
-    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
-    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+    <funkin-menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
+    <funkin-menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
+    <funkin-menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
+    <funkin-menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
+    <funkin-menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
+    <funkin-menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
     <menu text="Live Input Style">
-      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
-      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
+      <funkin-menu-option-box id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
+      <funkin-menu-option-box id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
+      <funkin-menu-option-box id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
     </menu>
   </menu>
   <menu text="View">
-    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    <funkin-menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
     <menu text="Theme">
-      <menuoptionbox id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
-      <menuoptionbox id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
+      <funkin-menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
+      <funkin-menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
     </menu>
     <menu-separator />
-    <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
-    <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
+    <funkin-menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
+    <funkin-menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
   </menu>
   <menu text="Audio">
-    <menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
-    <menu-checkbox id="menubarItemPlayerHitsounds" text="Enable Player Note Sounds" />
-    <menu-checkbox id="menubarItemOpponentHitsounds" text="Enable Opponent Note Sounds" />
+    <funkin-menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
+    <funkin-menu-checkbox id="menubarItemPlayerHitsounds" text="Enable Player Note Sounds" />
+    <funkin-menu-checkbox id="menubarItemOpponentHitsounds" text="Enable Opponent Note Sounds" />
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
       <label id="menubarLabelVolumeInstrumental" text="Instrumental - 100%" />
@@ -73,24 +75,24 @@
     </vbox>
   </menu>
   <menu text="Test">
-    <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
-    <menu-item id="menubarItemPlaytestMinimal" text="Playtest Chart (Minimal Mode)" shortcutText="Shift-Enter" />
-    <menu-checkbox id="menubarItemPlaytestStartTime" text="Start at Current Time?" />
+    <funkin-menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
+    <funkin-menu-item id="menubarItemPlaytestMinimal" text="Playtest Chart (Minimal Mode)" shortcutText="Shift-Enter" />
+    <funkin-menu-checkbox id="menubarItemPlaytestStartTime" text="Start at Current Time?" />
   </menu>
   <menu text="Window">
-    <menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
-    <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
-    <menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
-    <menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
-    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
-    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
+    <funkin-menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
+    <funkin-menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
   </menu>
   <menu text="Help">
-    <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
-    <menu-item id="menubarItemAbout" text="About..." />
+    <funkin-menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
+    <funkin-menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
   <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
-</menubar>
+</funkin-menubar>
