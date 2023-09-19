@@ -23,7 +23,7 @@ class PhillyStreetsStage extends Stage
 	{
 		super.onCreate(event);
 
-		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 		rainShader.intensity = 0.5;
 
@@ -47,7 +47,6 @@ class PhillyStreetsStage extends Stage
 
 	override function onFrameBufferCreate()
 	{
-		// craetes a frame buffer named "mask", the background color is black
 		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
 	}
 
@@ -56,21 +55,19 @@ class PhillyStreetsStage extends Stage
 		super.addProp(prop, name);
 		if (name == "puddle")
 		{
-			// add the prop to the frame buffer, change its color to green
-			frameBufferMan.addSpriteCopyTo("mask", prop, 0x00FF00);
+			rainShader.puddleY = prop.y;
+			frameBufferMan.addSpriteCopyTo("mask", prop, 0xFFFFFF);
 		}
 		else
 		{
-			// add the prop to the frame buffer, change its color to blue
-			frameBufferMan.addSpriteCopyTo("mask", prop, 0x0000FF);
+			frameBufferMan.addSpriteCopyTo("mask", prop, 0x000000);
 		}
 	}
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType)
 	{
 		super.addCharacter(character, charType);
-
-		// add the character to the frame buffer, change its color to red
-		frameBufferMan.addSpriteCopyTo("mask", character, 0xFF0000);
+		// add to the mask so that characters hide puddles
+		frameBufferMan.addSpriteCopyTo("mask", character, 0x000000);
 	}
 }

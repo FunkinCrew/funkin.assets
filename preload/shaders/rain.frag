@@ -129,6 +129,7 @@ struct Light {
 uniform float uScale;
 uniform float uIntensity;
 uniform float uTime;
+uniform float uPuddleY;
 uniform sampler2D uGroundMap;
 uniform sampler2D uLightMap;
 uniform sampler2D uMask;
@@ -146,18 +147,27 @@ float ease(float t) {
 }
 
 float rainDist(vec2 p, float scale, float intensity) {
+	// scale everything
 	p *= 0.1;
+	// sheer
 	p.x += p.y * 0.1;
+	// scroll
 	p.y -= uTime * 500.0 / scale;
+	// expand Y
 	p.y *= 0.03;
 	float ix = floor(p.x);
+	// shift Y
 	p.y += mod(ix, 2.0) * 0.5 + (rand(vec2(ix)) - 0.5) * 0.3;
 	float iy = floor(p.y);
 	vec2 index = vec2(ix, iy);
+	// mod
 	p -= index;
-	p.x += (rand(index.yx) * 2.0 - 1.0) * 0.35;
+	// shift X
+	p.x += (rand(index.yx) * 2.0 - 1.0) * 0.3;
+	// distance
 	vec2 a = abs(p - 0.5);
-	float res = max(a.x, a.y * 0.5) - 0.1;
+	float res = max(a.x * 0.5, a.y * 0.5) - 0.1;
+	// decimate
 	bool empty = rand(index) < mix(1.0, 0.1, intensity);
 	return empty ? 1.0 : res;
 }
@@ -221,18 +231,25 @@ void main() {
 
 	vec3 light = (texture2D(uLightMap, worldToBackground(origWpos)).xyz + lightUp(wpos)) * intensity;
 
-	bool isGround = texture2D(uGroundMap, worldToBackground(wpos)).x > 0.5;
+	bool isPuddle = texture2D(uMask, screenCoord).x > 0.5;
 
 	vec3 color = sampleBitmapWorld(wpos).xyz;
 
-	if (isGround) {
-		float mirrorY = 0.7 * uScreenResolution.y;
-		vec2 wpos2 = vec2(wpos.x, 2.0 * mirrorY - wpos.y);
+	if (isPuddle) {
+		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) * 1.5);
 		wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
-		vec3 reflection = sampleBitmapWorld(wpos2).xyz;
-		float reflectionRatio = mix(0.0, 0.25, intensity);
-		color = mix(color, reflection, reflectionRatio);
+		vec3 reflection = sampleBitmapWorld(wpos2).xyz * 0.3 + 0.3;
+		float reflectionRatio = 1.0;
+		color = reflection;
 	}
+	// if (isGround) {
+	// 	float mirrorY = 0.7 * uScreenResolution.y;
+	// 	vec2 wpos2 = vec2(wpos.x, 2.0 * mirrorY - wpos.y);
+	// 	wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
+	// 	vec3 reflection = sampleBitmapWorld(wpos2).xyz;
+	// 	float reflectionRatio = mix(0.0, 0.25, intensity);
+	// 	color = mix(color, reflection, reflectionRatio);
+	// }
 
 	vec3 rainColor = vec3(0.4, 0.5, 0.8);
 	color += add;
@@ -241,8 +258,5 @@ void main() {
 	vec3 fog = light * (0.5 + rainSum * 0.5);
 	color = color / (1.0 + fog) + fog;
 
-	vec4 mask = texture2D(uMask, screenCoord);
-
-	// gl_FragColor = vec4(color * 0.5 + mask.xyz * 0.5, 1);
-	gl_FragColor = vec4(fract(uTime) > 0.5 ? mask.xyz : color, 1);
+	gl_FragColor = vec4(color, 1);
 }
