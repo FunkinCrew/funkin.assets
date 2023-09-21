@@ -4,11 +4,11 @@
         <frame text="Variation: Default" width="100%" height="135" id="frameVariation">
             <grid columns="2" width="300">
                 <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
-                <textfield id="inputSongName" value="Bopeebo" />
+                <funkin-textfield id="inputSongName" value="Bopeebo" />
                 <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
-                <textfield id="inputSongArtist" value="Kawai Sprite" />
+                <funkin-textfield id="inputSongArtist" value="Kawai Sprite" />
                 <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-                <dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
+                <funkin-dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
                     <data>
                         <item text="Main Stage" />
                         <item text="Spooky Mansion" />
@@ -22,24 +22,24 @@
                         <item text="Philly Streets" />
                         <item text="Philly Streets (Blazin')" />
                     </data>
-                </dropdown>
+                </funkin-dropdown>
                 <label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
-                <dropdown id="inputNoteSkin" value="Normal" horizontalAlign="right">
+                <funkin-dropdown id="inputNoteSkin" value="Normal" horizontalAlign="right">
                     <data>
                         <item text="Normal" />
                         <item text="Pixel" />
                     </data>
-                </dropdown>
+                </funkin-dropdown>
             </grid>
         </frame>
 
         <frame text="Difficulty: Normal" width="100%" height="170" id="frameDifficulty">
             <grid columns="2" width="275">
                 <label text="Starting BPM" verticalAlign="center" />
-                <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
+                <funkin-number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
 
                 <label text="Starting Time Signature" verticalAlign="center" />
-                <dropdown id="inputTimeSignature" value="4/4" disabled="true" horizontalAlign="right">
+                <funkin-dropdown id="inputTimeSignature" value="4/4" disabled="true" horizontalAlign="right">
                     <data>
                         <item text="2/4" />
                         <item text="3/4" />
@@ -51,7 +51,7 @@
                         <item text="7/8" />
                         <item text="9/8" />
                     </data>
-                </dropdown>
+                </funkin-dropdown>
 
                 <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                 <spacer />

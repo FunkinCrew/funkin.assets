@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="500" height="600" title="Add Variation">
+	<vbox>
+		<grid columns="2" width="100%" height="100%">
+			<label text="Variation Name:" verticalAlign="center" horizontalAlign="right" />
+			<textfield id="dialogVariationName" placeholder="Variation name..." width="100%" />
+		</grid>
+		<hbox>
+			<spacer width="100%" />
+			<button text="Cancel" id="dialogCancel" />
+			<button text="Add" id="dialogAdd" />
+		</hbox>
+	</vbox>
+</dialog>
