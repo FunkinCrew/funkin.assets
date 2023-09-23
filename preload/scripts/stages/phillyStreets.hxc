@@ -9,10 +9,13 @@ import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
 import funkin.shaderslmfao.RuntimeRainShader;
 import openfl.utils.Assets;
+import openfl.filters.BlurFilter;
+import funkin.graphics.framebuffer.BitmapDataTools;
 
 class PhillyStreetsStage extends Stage
 {
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+	var blurFilter:BlurFilter = new BlurFilter(8, 8);
 
 	function new()
 	{
@@ -31,6 +34,7 @@ class PhillyStreetsStage extends Stage
 		rainShader.mask = frameBufferMan.getFrameBuffer("mask");
 
 		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
+		// FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
 	}
 
 	override function buildStage()
@@ -45,9 +49,17 @@ class PhillyStreetsStage extends Stage
 		rainShader.update(event.elapsed);
 	}
 
-	override function onFrameBufferCreate()
+	override function setupFrameBuffers()
 	{
 		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
+	}
+
+	override function draw()
+	{
+		super.draw();
+		var screen = grabScreen(false);
+		BitmapDataTools.applyFilter(screen, blurFilter);
+		rainShader.blurredScreen = screen;
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)

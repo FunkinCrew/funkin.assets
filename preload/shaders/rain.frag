@@ -130,8 +130,8 @@ uniform float uScale;
 uniform float uIntensity;
 uniform float uTime;
 uniform float uPuddleY;
-uniform sampler2D uGroundMap;
 uniform sampler2D uLightMap;
+uniform sampler2D uBlurredScreen;
 uniform sampler2D uMask;
 uniform int numLights;
 
@@ -163,10 +163,10 @@ float rainDist(vec2 p, float scale, float intensity) {
 	// mod
 	p -= index;
 	// shift X
-	p.x += (rand(index.yx) * 2.0 - 1.0) * 0.3;
+	p.x += (rand(index.yx) * 2.0 - 1.0) * 0.35;
 	// distance
 	vec2 a = abs(p - 0.5);
-	float res = max(a.x * 0.5, a.y * 0.5) - 0.1;
+	float res = max(a.x * 0.8, a.y * 0.5) - 0.1;
 	// decimate
 	bool empty = rand(index) < mix(1.0, 0.1, intensity);
 	return empty ? 1.0 : res;
@@ -238,7 +238,7 @@ void main() {
 	if (isPuddle) {
 		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) * 1.5);
 		wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
-		vec3 reflection = sampleBitmapWorld(wpos2).xyz * 0.3 + 0.3;
+		vec3 reflection = texture2D(uBlurredScreen, worldToScreen(wpos2)).xyz * 0.3 + 0.3;
 		float reflectionRatio = 1.0;
 		color = reflection;
 	}
