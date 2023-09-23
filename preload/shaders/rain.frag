@@ -172,13 +172,38 @@ float rainDist(vec2 p, float scale, float intensity) {
 	return empty ? 1.0 : res;
 }
 
-vec2 groundDisplace(vec2 p, float intensity) {
+float rippleHeight(vec2 p, vec2 pos, float age, float size, float modSize, float thickness) {
+	float strength = 1.0 - exp(-(1.0 - age) * 1.0);
+	float h = max(0.0, 1.0 - abs(length(mod(p - pos + modSize * 0.5, vec2(modSize)) - modSize * 0.5) - size * age) / thickness);
+	h = h * h * (3.0 - 2.0 * h); // smoothstep
+	return h * strength;
+}
+
+vec2 puddleDisplace(vec2 p, float intensity) {
 	vec2 res = vec2(0);
-	float speed = 10.0;
-	p *= 0.1;
-	res.x = snoise(vec3(p, speed * uTime));
-	res.y = snoise(vec3(p * vec2(1, 1.4), speed * uTime + 100.0));
-	res *= 10.0 * mix(0.1, 1.0, intensity);
+
+	const float scaleY = 2.0;
+	const int numRipples = 30;
+	const float rippleLife = 0.8;
+	const float rippleSize = 100.0;
+	const float rippleMod = rippleSize * 2.0;
+	for (int i = 0; i < numRipples; i++) {
+		float shift = float(i) / float(numRipples);
+		float rippleNumber = uTime / rippleLife + shift;
+		float rippleId = floor(rippleNumber);
+		rippleId = rand(vec2(rippleId, i));
+		float x = rand(vec2(rippleId, rippleId + 1.0)) * rippleMod;
+		float y = rand(vec2(rippleId + 2.0, rippleId + 3.0)) * rippleMod;
+		vec2 pos = vec2(x, y);
+		float age = fract(rippleNumber);
+		float thickness = 4.0;
+		float eps = 1.0;
+		float hc = rippleHeight(p * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
+		float hx = rippleHeight((p + vec2(eps, 0)) * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
+		float hy = rippleHeight((p + vec2(0, eps)) * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
+		vec2 normal = (vec2(hx, hy) - hc) / eps;
+		res += normal * 20.0;
+	}
 	return res;
 }
 
@@ -236,20 +261,12 @@ void main() {
 	vec3 color = sampleBitmapWorld(wpos).xyz;
 
 	if (isPuddle) {
-		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) * 1.5);
-		wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
+		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) * 2.0);
+		wpos2 += puddleDisplace(wpos / uScale, intensity) * uScale;
 		vec3 reflection = texture2D(uBlurredScreen, worldToScreen(wpos2)).xyz * 0.3 + 0.3;
 		float reflectionRatio = 1.0;
 		color = reflection;
 	}
-	// if (isGround) {
-	// 	float mirrorY = 0.7 * uScreenResolution.y;
-	// 	vec2 wpos2 = vec2(wpos.x, 2.0 * mirrorY - wpos.y);
-	// 	wpos2 += groundDisplace(wpos / uScale, intensity) * uScale;
-	// 	vec3 reflection = sampleBitmapWorld(wpos2).xyz;
-	// 	float reflectionRatio = mix(0.0, 0.25, intensity);
-	// 	color = mix(color, reflection, reflectionRatio);
-	// }
 
 	vec3 rainColor = vec3(0.4, 0.5, 0.8);
 	color += add;

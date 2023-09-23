@@ -15,7 +15,7 @@ import funkin.graphics.framebuffer.BitmapDataTools;
 class PhillyStreetsStage extends Stage
 {
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
-	var blurFilter:BlurFilter = new BlurFilter(8, 8);
+	var blurFilter:BlurFilter = new BlurFilter(6, 6);
 
 	function new()
 	{
@@ -67,7 +67,7 @@ class PhillyStreetsStage extends Stage
 		super.addProp(prop, name);
 		if (name == "puddle")
 		{
-			rainShader.puddleY = prop.y;
+			rainShader.puddleY = prop.y + 80;
 			frameBufferMan.addSpriteCopyTo("mask", prop, 0xFFFFFF);
 		}
 		else
