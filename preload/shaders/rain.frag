@@ -130,6 +130,7 @@ uniform float uScale;
 uniform float uIntensity;
 uniform float uTime;
 uniform float uPuddleY;
+uniform float uPuddleScaleY;
 uniform sampler2D uLightMap;
 uniform sampler2D uBlurredScreen;
 uniform sampler2D uMask;
@@ -182,7 +183,6 @@ float rippleHeight(vec2 p, vec2 pos, float age, float size, float modSize, float
 vec2 puddleDisplace(vec2 p, float intensity) {
 	vec2 res = vec2(0);
 
-	const float scaleY = 2.0;
 	const int numRipples = 30;
 	const float rippleLife = 0.8;
 	const float rippleSize = 100.0;
@@ -198,9 +198,10 @@ vec2 puddleDisplace(vec2 p, float intensity) {
 		float age = fract(rippleNumber);
 		float thickness = 4.0;
 		float eps = 1.0;
-		float hc = rippleHeight(p * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
-		float hx = rippleHeight((p + vec2(eps, 0)) * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
-		float hy = rippleHeight((p + vec2(0, eps)) * vec2(1, scaleY), pos, age, rippleSize, rippleMod, thickness);
+		vec2 pScale = vec2(1, 1.0 / uPuddleScaleY);
+		float hc = rippleHeight(p * pScale, pos, age, rippleSize, rippleMod, thickness);
+		float hx = rippleHeight((p + vec2(eps, 0)) * pScale, pos, age, rippleSize, rippleMod, thickness);
+		float hy = rippleHeight((p + vec2(0, eps)) * pScale, pos, age, rippleSize, rippleMod, thickness);
 		vec2 normal = (vec2(hx, hy) - hc) / eps;
 		res += normal * 20.0;
 	}
@@ -261,7 +262,7 @@ void main() {
 	vec3 color = sampleBitmapWorld(wpos).xyz;
 
 	if (isPuddle) {
-		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) * 2.0);
+		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) / uPuddleScaleY);
 		wpos2 += puddleDisplace(wpos / uScale, intensity) * uScale;
 		vec3 reflection = texture2D(uBlurredScreen, worldToScreen(wpos2)).xyz * 0.3 + 0.3;
 		float reflectionRatio = 1.0;

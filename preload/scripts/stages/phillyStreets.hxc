@@ -68,6 +68,7 @@ class PhillyStreetsStage extends Stage
 		if (name == "puddle")
 		{
 			rainShader.puddleY = prop.y + 80;
+			rainShader.puddleScaleY = 0.3;
 			frameBufferMan.addSpriteCopyTo("mask", prop, 0xFFFFFF);
 		}
 		else
