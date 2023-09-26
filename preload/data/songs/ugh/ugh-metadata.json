@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "songName": "Ugh",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
@@ -8,7 +8,11 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": { "bf": { "g": "gf-tankmen", "o": "tankman" } },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf-tankmen",
+      "opponent": "tankman"
+    },
     "stage": "tankmanBattlefield",
     "noteSkin": "Normal"
   },

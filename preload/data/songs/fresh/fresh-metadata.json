@@ -1,10 +1,14 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "playData": {
     "stage": "mainStage",
-    "playableChars": { "bf": { "g": "gf", "i": "", "o": "dad" } },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "dad"
+    },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "noteSkin": "Normal"

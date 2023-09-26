@@ -3,7 +3,10 @@
   "artist": "Kawai Sprite",
   "playData": {
     "stage": "mainStage",
-    "playableChars": { "bf": { "g": "", "i": "", "o": "gf" } },
+    "characters": {
+      "player": "bf",
+      "opponent": "gf"
+    },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "noteSkin": "Normal"
@@ -12,5 +15,5 @@
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
-  "version": "2.0.0"
+  "version": "2.1.0"
 }

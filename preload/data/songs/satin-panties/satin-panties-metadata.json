@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "songName": "Satin Panties",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
@@ -8,7 +8,11 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": { "bf-car": { "g": "gf-car", "o": "mom-car" } },
+    "characters": {
+      "player": "bf-car",
+      "girlfriend": "gf-car",
+      "opponent": "mom-car"
+    },
     "stage": "limoRide",
     "noteSkin": "Normal"
   },
