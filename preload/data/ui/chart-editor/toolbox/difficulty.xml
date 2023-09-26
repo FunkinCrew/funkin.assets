@@ -5,14 +5,13 @@
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
         </frame>
         <hbox>
-            <funkin-button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
-            <funkin-button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
+            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
         </hbox>
         <rule />
         <hbox>
             <funkin-button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
             <funkin-button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
-            <funkin-button allowFocus="false" id="difficultyToolboxSaveAll" text="Save All" />
         </hbox>
         <hbox>
             <funkin-button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />

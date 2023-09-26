@@ -12,7 +12,7 @@
 		<vbox width="25%" height="100%">
 			<card id="splashSectionCenter" width="100%" height="50%" text="Create From Template">
 				<funkin-link id="splashCreateFromSongBasic" width="100%" text="Easy/Normal/Hard" />
-				<funkin-link id="splashCreateFromSongErect" width="100%" text="Easy/Normal/Hard + Erect/Nightmare" disabled="true" />
+				<funkin-link id="splashCreateFromSongErect" width="100%" text="Easy/Normal/Hard + Erect/Nightmare" />
 			</card>
 			<card id="splashSectionCenter" width="100%" height="50%" text="Import Chart">
 				<funkin-link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />

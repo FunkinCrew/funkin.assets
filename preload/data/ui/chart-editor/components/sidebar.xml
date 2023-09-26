@@ -50,8 +50,8 @@
 							<item text="Philly Streets (Blazin')" />
 						</data>
 					</dropdown>
-					<label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="sidebarNoteSkin" value="Normal" horizontalAlign="right">
+					<label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
+					<dropdown id="sidebarNoteStyle" value="Normal" horizontalAlign="right">
 						<data>
 							<item text="Normal" />
 							<item text="Pixel" />
