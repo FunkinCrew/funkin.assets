@@ -40,10 +40,14 @@
     <funkin-menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
     <funkin-menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
-    <menu text="Live Input Style">
-      <funkin-menu-option-box id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
-      <funkin-menu-option-box id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <funkin-menu-option-box id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
+    <menu text="Note Snapping">
+      <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
+      <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
+    </menu>
+    <menu text="Live Input Mode">
+      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
+      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
+      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
     </menu>
   </menu>
   <menu text="View">
