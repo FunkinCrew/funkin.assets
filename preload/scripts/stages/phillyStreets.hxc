@@ -11,6 +11,7 @@ import funkin.shaderslmfao.RuntimeRainShader;
 import openfl.utils.Assets;
 import openfl.filters.BlurFilter;
 import funkin.graphics.framebuffer.BitmapDataTools;
+import StringTools;
 
 class PhillyStreetsStage extends Stage
 {
@@ -67,9 +68,9 @@ class PhillyStreetsStage extends Stage
 	override function addProp(prop:StageProp, ?name:String = null)
 	{
 		super.addProp(prop, name);
-		if (stringEndsWith(name, "_lightmap"))
+		if (StringTools.endsWith(name, "_lightmap"))
 		{
-			setBlendAdd(prop);
+			prop.blend = 0; // 0 means ADD (see openfl.display.BlendMode)
 			frameBufferMan.moveSpriteTo("lightmap", prop);
 		}
 		else if (name == "puddle")
