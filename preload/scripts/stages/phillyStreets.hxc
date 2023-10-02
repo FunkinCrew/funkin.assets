@@ -32,6 +32,7 @@ class PhillyStreetsStage extends Stage
 
 		// set the shader input
 		rainShader.mask = frameBufferMan.getFrameBuffer("mask");
+		rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
 
 		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
 		// FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
@@ -52,6 +53,7 @@ class PhillyStreetsStage extends Stage
 	override function setupFrameBuffers()
 	{
 		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
+		frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
 	}
 
 	override function draw()
@@ -65,15 +67,20 @@ class PhillyStreetsStage extends Stage
 	override function addProp(prop:StageProp, ?name:String = null)
 	{
 		super.addProp(prop, name);
-		if (name == "puddle")
+		if (stringEndsWith(name, "_lightmap"))
+		{
+			setBlendAdd(prop);
+			frameBufferMan.moveSpriteTo("lightmap", prop);
+		}
+		else if (name == "puddle")
 		{
 			rainShader.puddleY = prop.y + 80;
 			rainShader.puddleScaleY = 0.3;
-			frameBufferMan.addSpriteCopyTo("mask", prop, 0xFFFFFF);
+			frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
 		}
 		else
 		{
-			frameBufferMan.addSpriteCopyTo("mask", prop, 0x000000);
+			frameBufferMan.copySpriteTo("mask", prop, 0x000000);
 		}
 	}
 
@@ -81,6 +88,6 @@ class PhillyStreetsStage extends Stage
 	{
 		super.addCharacter(character, charType);
 		// add to the mask so that characters hide puddles
-		frameBufferMan.addSpriteCopyTo("mask", character, 0x000000);
+		frameBufferMan.copySpriteTo("mask", character, 0x000000);
 	}
 }

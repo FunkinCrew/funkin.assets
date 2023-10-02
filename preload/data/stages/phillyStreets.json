@@ -67,6 +67,19 @@
     },
     {
       "danceEvery": 0,
+      "zIndex": 50,
+      "position": [284, 305],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "phillyHighwayLights_lightmap",
+      "isPixel": false,
+      "assetPath": "phillyStreets/phillyHighwayLights_lightmap",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
       "zIndex": 60,
       "position": [139, 209],
       "scale": [1, 1],
@@ -113,6 +126,19 @@
       "name": "phillyTraffic",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyTraffic",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 90,
+      "position": [1921, 608],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "phillyTraffic_lightmap",
+      "isPixel": false,
+      "assetPath": "phillyStreets/phillyTraffic_lightmap",
       "scroll": [1, 1],
       "alpha": 1,
       "animations": []

@@ -131,9 +131,9 @@ uniform float uIntensity;
 uniform float uTime;
 uniform float uPuddleY;
 uniform float uPuddleScaleY;
-uniform sampler2D uLightMap;
 uniform sampler2D uBlurredScreen;
 uniform sampler2D uMask;
+uniform sampler2D uLightMap;
 uniform int numLights;
 
 const int MAX_LIGHTS = 8;
@@ -255,7 +255,7 @@ void main() {
 		}
 	}
 
-	vec3 light = (texture2D(uLightMap, worldToBackground(origWpos)).xyz + lightUp(wpos)) * intensity;
+	vec3 light = (texture2D(uLightMap, screenCoord).xyz + lightUp(wpos)) * intensity;
 
 	bool isPuddle = texture2D(uMask, screenCoord).x > 0.5;
 
