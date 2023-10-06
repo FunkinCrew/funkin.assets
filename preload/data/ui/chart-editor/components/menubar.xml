@@ -19,9 +19,6 @@
     <menu-separator />
     <funkin-menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
-    <funkin-menu-item id="menubarItemLoadInst" text="Load Instrumental" />
-    <funkin-menu-item id="menubarItemImportChart" text="Import Chart" />
-    <menu-separator />
     <funkin-menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
     <funkin-menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
@@ -33,6 +30,7 @@
     <funkin-menu-item id="menubarItemCut" text="Cut" shortcutText="Ctrl+X" />
     <funkin-menu-item id="menubarItemCopy" text="Copy" shortcutText="Ctrl+C" />
     <funkin-menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
+    <funkin-menu-item id="menubarItemPasteUnsnapped" text="Paste (Unsnapped)" shortcutText="Ctrl+Shift+V" />
     <funkin-menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
     <funkin-menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
@@ -42,10 +40,14 @@
     <funkin-menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
     <funkin-menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
-    <menu text="Live Input Style">
-      <funkin-menu-option-box id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
-      <funkin-menu-option-box id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <funkin-menu-option-box id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
+    <menu text="Note Snapping">
+      <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
+      <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
+    </menu>
+    <menu text="Live Input Mode">
+      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" />
+      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
+      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
     </menu>
   </menu>
   <menu text="View">
@@ -59,6 +61,11 @@
     <funkin-menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
   </menu>
   <menu text="Audio">
+    <funkin-menu-item id="menubarItemPlayPause" text="Play/Pause" shortcutText="Space" />
+    <menu-separator />
+    <funkin-menu-item id="menubarItemLoadInstrumental" text="Load Instrumental" />
+    <funkin-menu-item id="menubarItemLoadVocals" text="Load Vocals" />
+    <menu-separator />
     <funkin-menu-checkbox id="menubarItemMetronomeEnabled" text="Enable Metronome" />
     <funkin-menu-checkbox id="menubarItemPlayerHitsounds" text="Enable Player Note Sounds" />
     <funkin-menu-checkbox id="menubarItemOpponentHitsounds" text="Enable Opponent Note Sounds" />
@@ -78,16 +85,15 @@
     <funkin-menu-checkbox id="menubarItemPlaytestStartTime" text="Start at Current Time?" />
   </menu>
   <menu text="Window">
-    <funkin-menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
     <funkin-menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
-    <funkin-menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
-    <funkin-menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
-    <funkin-menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
+    <funkin-menu-checkbox hidden="true" id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
+    <funkin-menu-checkbox hidden="true" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
     <funkin-menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
     <funkin-menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
     <funkin-menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
   </menu>
   <menu text="Help">
+    <funkin-menu-item id="menubarItemWelcomeDialog" text="Welcome Dialog" />
     <funkin-menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
     <funkin-menu-item id="menubarItemAbout" text="About..." />
   </menu>
