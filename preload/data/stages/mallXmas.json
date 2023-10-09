@@ -99,7 +99,8 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1177.5, 871]
+      "position": [1177.5, 871],
+      "cameraOffsets": [-300, -200]
     },
     "gf": { "zIndex": 100, "position": [808.5, 854] },
     "dad": { "zIndex": 200, "position": [42, 882] }
