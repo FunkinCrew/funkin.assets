@@ -1,3 +1,4 @@
+
 import flixel.FlxG;
 import funkin.Paths;
 import funkin.play.GameOverSubState;
@@ -29,7 +30,8 @@ class PicoBlazinCharacter extends SparrowCharacter
 		// Override the hit note animation.
 
 		// Each note type is named from Pico's perspective (to keep myself sane).
-		switch (event.note.noteData.noteKind)
+		trace("PICO: noteHit(" + event.note.noteData.kind + ")");
+		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-punchlow":
 				playPunchLowAnim();
@@ -55,7 +57,7 @@ class PicoBlazinCharacter extends SparrowCharacter
 		holdTimer = 0;
 
 		// Override the hit note animation.
-		switch (event.note.data.noteKind)
+		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-punchlow":
 				playPunchLowAnim();
@@ -79,7 +81,6 @@ class PicoBlazinCharacter extends SparrowCharacter
 	function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
 	{
 		playHitHighAnim();
-		trace(getDarnell().characterId);
 		getDarnell().scriptCall("playPunchHighAnim", []);
 	}
 
@@ -164,6 +165,7 @@ class PicoBlazinCharacter extends SparrowCharacter
 
 	function playPunchLowAnim()
 	{
+		trace('PICO: punchLow');
 		this.playAnimation('punchLow', true, true);
 		moveToFront();
 	}
