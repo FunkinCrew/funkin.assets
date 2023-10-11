@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Boyfriend (Pixel)",
   "assetPath": "characters/bfPixel",
   "flipX": true,
@@ -9,6 +9,9 @@
   "healthIcon": {
     "id": "bf-pixel",
     "isPixel": true
+  },
+  "death": {
+    "cameraOffsets": [300, 200]
   },
   "scale": 6,
   "animations": [
