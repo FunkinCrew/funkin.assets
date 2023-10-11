@@ -2,6 +2,7 @@
 <dialog width="500" title="About">
 	<hbox width="100%">
 		<label text="32px bold" horizontalAlign="center">Friday Night Funkin'</label>
-		<label horizontalAlign="center">Chart Editor</label>
+		<label horizontalAlign="center">Chart Editor v1.0</label>
+		<label horizontalAlign="center">Built by EliteMasterEric</label>
 	</hbox>
 </dialog>

@@ -3,8 +3,10 @@
   "artist": "Kawai Sprite",
   "playData": {
     "stage": "school",
-    "playableChars": {
-      "bf-pixel": { "g": "gf-pixel", "i": "", "o": "senpai-angry" }
+    "characters": {
+      "player": "bf-pixel",
+      "girlfriend": "gf-pixel",
+      "opponent": "senpai-angry"
     },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
@@ -14,5 +16,5 @@
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
-  "version": "2.0.0"
+  "version": "2.1.0"
 }

@@ -3,8 +3,10 @@
   "artist": "Kawai Sprite",
   "playData": {
     "stage": "tankmanBattlefield",
-    "playableChars": {
-      "bf-holding-gf": { "g": "pico-speaker", "i": "", "o": "tankman" }
+    "characters": {
+      "player": "bf-holding-gf",
+      "girlfriend": "pico-speaker",
+      "opponent": "tankman"
     },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
@@ -14,5 +16,5 @@
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 178 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "looped": false,
-  "version": "2.0.0"
+  "version": "2.1.0"
 }

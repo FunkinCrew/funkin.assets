@@ -96,7 +96,7 @@ class TwoHOTGameplayModule extends Module
 	function onNoteHit(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
-		switch (event.note.noteData.noteKind)
+		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-lightcan":
 				// We define the behavior of the can in a separate scripted class,
@@ -325,7 +325,7 @@ class TwoHOTGameplayModule extends Module
 	{
 		super.onNoteMiss(event.note);
 
-		switch (event.note.noteData.noteKind)
+		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-cockgun":
 				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
@@ -363,7 +363,7 @@ class TwoHOTGameplayModule extends Module
 		var songNotes:Song = PlayState.instance.inactiveNotes;
 		for (note in songNotes)
 		{
-			if (GUN_NOTES.contains(note.noteData.noteKind))
+			if (GUN_NOTES.contains(note.noteData.kind))
 			{
 				canEndTimes.push(note.noteData.strumTime);
 			}

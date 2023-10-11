@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "songName": "Spookeez",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
@@ -8,7 +8,11 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "playableChars": { "bf": { "g": "gf", "o": "spooky" } },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "spooky"
+    },
     "stage": "spookyMansion",
     "noteSkin": "Normal"
   },

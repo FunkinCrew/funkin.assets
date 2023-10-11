@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song" width="300" height="400">
+<collapsible-dialog id="toolboxMetadata" title="Song" width="310" height="400">
     <vbox width="100%" height="100%">
-        <frame text="Variation: Default" width="100%" height="135" id="frameVariation">
-            <grid columns="2" width="300">
+        <frame text="Variation: Default" width="100%" height="216" id="frameVariation">
+            <grid columns="2">
                 <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
                 <funkin-textfield id="inputSongName" value="Bopeebo" />
                 <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
@@ -23,18 +23,45 @@
                         <item text="Philly Streets (Blazin')" />
                     </data>
                 </funkin-dropdown>
-                <label text="Note Skin:" verticalAlign="center" horizontalAlign="right" />
-                <funkin-dropdown id="inputNoteSkin" value="Normal" horizontalAlign="right">
+                <label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
+                <funkin-dropdown id="inputNoteStyle" value="Normal" horizontalAlign="right">
                     <data>
                         <item text="Normal" />
                         <item text="Pixel" />
                     </data>
                 </funkin-dropdown>
+
+                <label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
+				<funkin-dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
+					<validator type="required" />
+					<data>
+						<item id="bf" text="Boyfriend" />
+                        <item id="pico-playable" text="Pico (Darnell)" />
+					</data>
+				</funkin-dropdown>
+
+				<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
+				<funkin-dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+					<validator type="required" />
+					<data>
+						<item id="dad" text="Daddy Dearest" />
+                        <item id="darnell" text="Darnell" />
+					</data>
+				</funkin-dropdown>
+
+				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
+				<funkin-dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
+					<data>
+						<item id="none" text="" />
+						<item id="gf" text="Girlfriend" />
+                        <item id="nene" text="Nene" />
+					</data>
+				</funkin-dropdown>
             </grid>
         </frame>
 
-        <frame text="Difficulty: Normal" width="100%" height="170" id="frameDifficulty">
-            <grid columns="2" width="275">
+        <frame text="Difficulty: Normal" width="100%" height="120" id="frameDifficulty">
+            <grid columns="2">
                 <label text="Starting BPM" verticalAlign="center" />
                 <funkin-number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
 
