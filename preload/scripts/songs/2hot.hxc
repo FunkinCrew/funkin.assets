@@ -5,24 +5,20 @@ import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxSprite;
-import funkin.modding.module.Module;
+import funkin.play.song.Song;
 import funkin.play.PlayState;
 import flixel.tweens.FlxTween;
-// import flixel.util.FlxColor;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
 /**
- * TODO: After redoing the chart format, add a ScriptedSong class,
- * make this extend that, and have the constructor call `super('2hot')`.
- *
  * TODO: Move kicking to song events/custom notes after those are implemented.
  */
-class TwoHOTGameplayModule extends Module
+class TwoHOTSong extends Song
 {
 	function new()
 	{
-		super('vanilla-gameplay-2hot');
+		super('2hot');
 	}
 
 	/**
@@ -96,6 +92,8 @@ class TwoHOTGameplayModule extends Module
 	function onNoteHit(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
+    if (PlayState.instance.currentStage == null) return;
+
 		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-lightcan":
