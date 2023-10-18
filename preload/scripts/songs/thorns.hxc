@@ -47,6 +47,7 @@ class ThornsSong extends Song {
     senpaiCrazy.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
     senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
+    senpaiCrazy.antialiasing = false;
 
     senpaiCrazy.scrollFactor.set();
 		senpaiCrazy.updateHitbox();
