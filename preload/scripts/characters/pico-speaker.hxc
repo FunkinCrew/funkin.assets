@@ -1,3 +1,4 @@
+
 import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
@@ -7,7 +8,6 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxSprite;
-import funkin.play.PlayState;
 import Lambda;
 
 class PicoSpeakerCharacter extends SparrowCharacter {
