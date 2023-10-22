@@ -10,11 +10,7 @@
     <funkin-menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
     <menu-separator />
     <funkin-menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
-    <menu text="Open Recent" disabled="true">
-      <funkin-menu-item text="D:/Funkin/charts/expurgated.json" />
-      <funkin-menu-item text="D:/Funkin/charts/fatal-error.json" />
-      <funkin-menu-item text="C:/Downloads/bad-bash.json" />
-      <funkin-menu-item text="D:/Funkin/charts/lullaby/monochrome.json" />
+    <menu id="menubarOpenRecent" text="Open Recent">
     </menu>
     <menu-separator />
     <funkin-menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
