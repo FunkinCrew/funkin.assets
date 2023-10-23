@@ -13,6 +13,7 @@
     <menu id="menubarOpenRecent" text="Open Recent">
     </menu>
     <menu-separator />
+    <funkin-menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <funkin-menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
     <funkin-menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
