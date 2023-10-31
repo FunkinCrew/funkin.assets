@@ -3,21 +3,21 @@
 	<!-- Body -->
 	<hbox width="100%" height="100%">
 		<card id="splashSectionLeft" width="25%" height="100%" text="Open Recent">
-			<funkin-link width="100%" text="D:/Funkin/charts/expurgated.json" disabled="true" />
-			<funkin-link width="100%" text="D:/Funkin/charts/fatal-error.json" disabled="true" />
-			<funkin-link width="100%" text="C:/Downloads/bad-bash.json" disabled="true" />
-			<funkin-link width="100%" text="D:/Funkin/charts/lullaby/monochrome.json" disabled="true" />
-			<funkin-button id="splashBrowse" text="Browse Files" />
+			<link width="100%" text="D:/Funkin/charts/expurgated.json" disabled="true" />
+			<link width="100%" text="D:/Funkin/charts/fatal-error.json" disabled="true" />
+			<link width="100%" text="C:/Downloads/bad-bash.json" disabled="true" />
+			<link width="100%" text="D:/Funkin/charts/lullaby/monochrome.json" disabled="true" />
+			<button id="splashBrowse" text="Browse Files" />
 		</card>
 		<vbox width="25%" height="100%">
 			<card id="splashSectionCenter" width="100%" height="50%" text="Create From Template">
-				<funkin-link id="splashCreateFromSongBasic" width="100%" text="Easy/Normal/Hard" />
-				<funkin-link id="splashCreateFromSongErect" width="100%" text="Easy/Normal/Hard + Erect/Nightmare" />
+				<link id="splashCreateFromSongBasic" width="100%" text="Easy/Normal/Hard" />
+				<link id="splashCreateFromSongErect" width="100%" text="Easy/Normal/Hard + Erect/Nightmare" />
 			</card>
 			<card id="splashSectionCenter" width="100%" height="50%" text="Import Chart">
-				<funkin-link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />
-				<funkin-link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" disabled="true" />
-				<funkin-link id="splashImportChartStepMania" width="100%" text="StepMania" disabled="true" />
+				<link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />
+				<link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" disabled="true" />
+				<link id="splashImportChartStepMania" width="100%" text="StepMania" disabled="true" />
 			</card>
 		</vbox>
 		<card id="splashSectionRight" width="25%" height="100%" text="Create From Song">

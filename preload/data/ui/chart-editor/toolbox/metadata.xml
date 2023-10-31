@@ -4,11 +4,11 @@
         <frame text="Variation: Default" width="100%" height="216" id="frameVariation">
             <grid columns="2">
                 <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
-                <funkin-textfield id="inputSongName" value="Bopeebo" />
+                <textfield id="inputSongName" value="Bopeebo" />
                 <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
-                <funkin-textfield id="inputSongArtist" value="Kawai Sprite" />
+                <textfield id="inputSongArtist" value="Kawai Sprite" />
                 <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-                <funkin-dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
+                <dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
                     <data>
                         <item text="Main Stage" />
                         <item text="Spooky Mansion" />
@@ -22,51 +22,51 @@
                         <item text="Philly Streets" />
                         <item text="Philly Streets (Blazin')" />
                     </data>
-                </funkin-dropdown>
+                </dropdown>
                 <label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
-                <funkin-dropdown id="inputNoteStyle" value="Normal" horizontalAlign="right">
+                <dropdown id="inputNoteStyle" value="Normal" horizontalAlign="right">
                     <data>
                         <item text="Normal" />
                         <item text="Pixel" />
                     </data>
-                </funkin-dropdown>
+                </dropdown>
 
                 <label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
 					<validator type="required" />
 					<data>
 						<item id="bf" text="Boyfriend" />
                         <item id="pico-playable" text="Pico (Darnell)" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 
 				<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
 					<validator type="required" />
 					<data>
 						<item id="dad" text="Daddy Dearest" />
                         <item id="darnell" text="Darnell" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 
 				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
 					<data>
 						<item id="none" text="" />
 						<item id="gf" text="Girlfriend" />
                         <item id="nene" text="Nene" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
             </grid>
         </frame>
 
         <frame text="Difficulty: Normal" width="100%" height="120" id="frameDifficulty">
             <grid columns="2">
                 <label text="Starting BPM" verticalAlign="center" />
-                <funkin-number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
+                <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" />
 
                 <label text="Starting Time Signature" verticalAlign="center" />
-                <funkin-dropdown id="inputTimeSignature" value="4/4" disabled="true" horizontalAlign="right">
+                <dropdown id="inputTimeSignature" value="4/4" disabled="true" horizontalAlign="right">
                     <data>
                         <item text="2/4" />
                         <item text="3/4" />
@@ -78,7 +78,7 @@
                         <item text="7/8" />
                         <item text="9/8" />
                     </data>
-                </funkin-dropdown>
+                </dropdown>
 
                 <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                 <spacer />
