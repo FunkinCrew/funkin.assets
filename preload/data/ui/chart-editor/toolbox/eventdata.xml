@@ -3,7 +3,7 @@
 	<vbox width="100%" height="100%">
 		<grid columns="2" width="100%">
 			<label text="Event Type" verticalAlign="center" />
-			<dropdown id="toolboxEventsEventKind" width="100%" value="normal">
+			<dropdown id="toolboxEventsEventKind" width="200" value="normal">
 				<data />
 			</dropdown>
 		</grid>
