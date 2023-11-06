@@ -1,5 +1,6 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
+import funkin.Preferences;
 import flixel.FlxSprite;
 import funkin.Paths;
 import flixel.FlxG;
@@ -18,6 +19,7 @@ class RosesSong extends Song {
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
+    trace('Started countdown for Roses...');
 
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
@@ -38,12 +40,12 @@ class RosesSong extends Song {
 	}
 
   function startDialogue() {
-    if (PreferencesMenu.getPref('censor-naughty')) {
-      trace('Playing censored dialogue...');
-      PlayState.instance.startConversation('roses-censored');
-    } else {
+    if (Preferences.naughtyness) {
       trace('Playing uncensored dialogue...');
       PlayState.instance.startConversation('roses');
+    } else {
+      trace('Playing censored dialogue...');
+      PlayState.instance.startConversation('roses-censored');
     }
   }
 
