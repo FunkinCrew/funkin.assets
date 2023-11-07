@@ -82,7 +82,7 @@
       "scale": [1, 1],
       "scroll": [1, 1],
       "danceEvery": 1,
-      "zIndex": 70,
+      "zIndex": 210,
       "startingAnimation": "idle",
       "animations": [
         {
