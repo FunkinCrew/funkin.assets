@@ -33,6 +33,8 @@
     <funkin-menu-item id="menubarItemPasteUnsnapped" text="Paste (Unsnapped)" shortcutText="Ctrl+Shift+V" />
     <funkin-menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
+    <funkin-menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" />
+    <menu-separator />
     <funkin-menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
     <funkin-menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
     <funkin-menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
