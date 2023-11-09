@@ -9,38 +9,38 @@
 				<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 				<textfield id="inputSongArtist" value="Kawai Sprite" />
 				<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
+				<dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
 					<data>
 						<item id="mainStage" text="Main Stage" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 				<label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputNoteStyle" value="Normal" horizontalAlign="right">
+				<dropdown id="inputNoteStyle" value="Normal" horizontalAlign="right">
 					<data>
 						<item id="funkin" text="Funkin'" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 				<label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
 					<validator type="required" />
 					<data>
 						<item id="bf" text="Boyfriend" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 				<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
 					<validator type="required" />
 					<data>
 						<item id="dad" text="Daddy Dearest" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-				<funkin-dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
 					<data>
 						<item id="none" text="" />
 						<item id="gf" text="Girlfriend" />
 					</data>
-				</funkin-dropdown>
+				</dropdown>
 				<label text="Starting BPM:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
 				<number-stepper id="dialogBPM" style="font-size: 10px" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" validator="required" />
 			</grid>
