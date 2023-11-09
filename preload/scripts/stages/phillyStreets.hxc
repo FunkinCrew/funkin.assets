@@ -5,7 +5,7 @@ import funkin.Paths;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.shaderslmfao.OverlayBlend;
+import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
 
 class PhillyStreetsStage extends Stage

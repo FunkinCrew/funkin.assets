@@ -1,7 +1,7 @@
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.shaderslmfao.WiggleEffectRuntime;
-import funkin.shaderslmfao.WiggleEffectType;
+import funkin.graphics.shaders.WiggleEffectRuntime;
+import funkin.graphics.shaders.WiggleEffectType;
 import flixel.addons.effects.FlxTrail;
 
 class SchoolEvilStage extends Stage

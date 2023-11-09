@@ -33,12 +33,16 @@
     <menu-item id="menubarItemPasteUnsnapped" text="Paste (Unsnapped)" shortcutText="Ctrl+Shift+V" />
     <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
-    <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
-    <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
-    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
-    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
-    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
-    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+
+    <funkin-menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" />
+    <menu-separator />
+    <funkin-menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
+    <funkin-menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
+    <funkin-menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
+    <funkin-menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
+    <funkin-menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
+    <funkin-menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+
     <menu-separator />
     <menu text="Note Snapping">
       <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
