@@ -10,12 +10,12 @@
         </hbox>
         <rule />
         <hbox>
-            <funkin-button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
-            <funkin-button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
+            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
+            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
         </hbox>
         <hbox>
-            <funkin-button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
-            <funkin-button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
+            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
+            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
         </hbox>
     </vbox>
 </collapsible-dialog>

@@ -10,18 +10,18 @@
 	<spacer width="100%" />
 	<hbox>
 		<!-- Try to keep this hbox center-aligned -->
-		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
-		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
-		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
-		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
-		<funkin-button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
 	</hbox>
 	<spacer width="100%" />
 	<!-- Manually set width so changing the width of the contents doesn't shift the center element. -->
 	<hbox width="250">
 		<!-- Spacer to push everything to right align -->
 		<spacer width="100%" />
-		<funkin-click-label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" />
+		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" />
 		<spacer width="24" />
 		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
 	</hbox>
