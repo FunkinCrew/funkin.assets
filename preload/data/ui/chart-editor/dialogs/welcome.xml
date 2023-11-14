@@ -6,7 +6,7 @@
 			<scrollview width="100%" height="50%" contentWidth="100%">
 				<vbox width="100%" id="splashRecentContainer" />
 			</scrollview>
-			<funkin-button id="splashBrowse" text="Browse for Chart (.fnfc)" />
+			<button id="splashBrowse" text="Browse for Chart (.fnfc)" />
 		</card>
 		<vbox width="25%" height="100%">
 			<card id="splashSectionCenter" width="100%" height="50%" text="Create From Template">

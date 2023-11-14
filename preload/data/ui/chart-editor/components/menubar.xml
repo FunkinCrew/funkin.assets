@@ -9,12 +9,12 @@
   <menu text="File">
     <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
     <menu-separator />
-    <funkin-menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
+    <menu-item id="menubarItemOpenChart" text="Open Chart..." shortcutText="Ctrl+O" />
     <menu id="menubarOpenRecent" text="Open Recent">
     </menu>
     <menu-separator />
-    <funkin-menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
-    <funkin-menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
+    <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
+    <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
     <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
@@ -31,14 +31,14 @@
     <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
 
-    <funkin-menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" />
+    <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" />
     <menu-separator />
-    <funkin-menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
-    <funkin-menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
-    <funkin-menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
-    <funkin-menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
-    <funkin-menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
-    <funkin-menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+    <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
+    <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
+    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
+    <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
+    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
+    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
 
     <menu-separator />
     <menu text="Note Snapping">
