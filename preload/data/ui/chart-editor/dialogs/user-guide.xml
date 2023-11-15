@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <dialog width="500" height="600" title="Help">
 	<tabview width="100%" height="100%">
@@ -41,9 +42,6 @@
 					<item action="Jump to End" keybind="End" />
 
 					<item action="Play/Pause" keybind="Space" />
-
-					<item action="Zoom In" keybind="Plus (+)" />
-					<item action="Zoom Out" keybind="Minus (-)" />
 
 					<item action="Increase Note Snap" keybind="Right Arrow" />
 					<item action="Decrease Note Snap" keybind="Left Arrow" />
