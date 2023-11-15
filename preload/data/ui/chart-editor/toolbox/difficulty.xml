@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="350" height="425">
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="325" height="400">
     <vbox>
         <frame text="Select Difficulty">
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
@@ -10,12 +10,12 @@
         </hbox>
         <rule />
         <hbox>
-            <funkin-button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
-            <funkin-button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
+            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
+            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
         </hbox>
         <hbox>
-            <funkin-button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
-            <funkin-button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
+            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
+            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
         </hbox>
     </vbox>
 </collapsible-dialog>

@@ -4,7 +4,7 @@ import flixel.util.FlxTimer;
 import funkin.Paths;
 import funkin.play.stage.Stage;
 import funkin.play.PlayState;
-import funkin.shaderslmfao.OverlayBlend;
+import funkin.graphics.shaders.OverlayBlend;
 
 class LimoRideStage extends Stage
 {
@@ -66,7 +66,7 @@ class LimoRideStage extends Stage
 	function resetFastCar():Void
 	{
 		var fastCar = getNamedProp('fastCar');
-	
+
 		if (fastCar == null)
 			return;
 
@@ -117,7 +117,7 @@ class LimoRideStage extends Stage
 		super.onSongRetry(event);
 		resetFastCar();
 	}
-	
+
 	/**
 	 * Make sure the fast car is reset when the song restarts.
 	 */
