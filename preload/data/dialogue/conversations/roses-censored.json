@@ -37,8 +37,17 @@
       "box": "roses",
       "boxAnimation": "idle",
 
+      "text": ["But this time I'm gonna make you scream..."],
+      "speed": 0.5
+    },
+    {
+      "speaker": "senpai-angry",
+      "speakerAnimation": "talk",
+      "box": "roses",
+      "boxAnimation": "idle",
+
       "text": [
-        "But this time I'll [OBSCENE CHIPTUNE NOISES] right after your girlfriend finishes [MORE OBSCENE CHIPTUNE NOISES]."
+        "Almost as loud as I'll make your girlfriend scream later tonight, you fat midget."
       ],
       "speed": 0.5
     },
