@@ -171,8 +171,16 @@
     }
   ],
   "characters": {
-    "bf": { "zIndex": 100, "position": [1029.5, 885] },
-    "dad": { "zIndex": 100, "position": [286.5, 929] },
-    "gf": { "zIndex": 100, "position": [685.5, 685] }
+    "bf": {
+      "zIndex": 100,
+      "position": [1029.5, 885],
+      "cameraOffsets": [-100, -100]
+    },
+    "dad": {
+      "zIndex": 100,
+      "position": [286.5, 929],
+      "cameraOffsets": [150, -100]
+    },
+    "gf": { "zIndex": 100, "position": [685.5, 685], "cameraOffsets": [0, 0] }
   }
 }
