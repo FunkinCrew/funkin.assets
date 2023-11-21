@@ -21,7 +21,7 @@
 	<hbox width="250">
 		<!-- Spacer to push everything to right align -->
 		<spacer width="100%" />
-		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" />
+		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease"/>
 		<spacer width="24" />
 		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
 	</hbox>
