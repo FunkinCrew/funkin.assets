@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song" width="310" height="400">
+<collapsible-dialog id="toolboxMetadata" title="Song" width="335" height="400">
     <vbox width="100%" height="100%">
         <frame text="Variation: Default" width="100%" height="216" id="frameVariation">
             <grid columns="2">

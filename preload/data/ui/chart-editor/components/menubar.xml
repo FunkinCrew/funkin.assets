@@ -3,7 +3,7 @@
   <style>
     .menu {
     // The width of the individual menu items
-    width: 120px;
+    width: 160px;
     }
   </style>
   <menu text="File">
