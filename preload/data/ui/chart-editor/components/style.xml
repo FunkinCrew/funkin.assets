@@ -5,6 +5,16 @@
 	You can also use the `.html5` class to apply platform-specific styling.
 -->
 <style>
+	body, .label, .link {
+	font-size: 14px;
+	font-family: 'Inconsolata';
+	font-bold: true;
+	}
+	.button, .menu, .menuitem, .menu > .label, .menucheckbox {
+	font-size: 12px;
+	font-family: 'Inconsolata';
+	font-bold: true;
+	}
 	.notifbar {
 	margin: 0px;
 	padding: 0px;
@@ -25,8 +35,8 @@
 	font-bold: true;
 	}
 	.playbarStatus {
-		font-size: 16px;
-		font-bold: true;
+	font-size: 20px;
+	font-bold: true;
 	}
 	.playbarButton {
 	font-size: 16px;
