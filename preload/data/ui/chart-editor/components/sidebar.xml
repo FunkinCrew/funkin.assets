@@ -35,7 +35,7 @@
 					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="sidebarSongArtist" value="Kawai Sprite" />
 					<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="sidebarStage" value="Main Stage" horizontalAlign="right">
+					<dropdown id="sidebarStage" value="Main Stage" horizontalAlign="right" searchable="true">
 						<data>
 							<item text="Main Stage" />
 							<item text="Spooky Mansion" />

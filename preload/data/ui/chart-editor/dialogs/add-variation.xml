@@ -44,7 +44,7 @@
 						</data>
 					</dropdown>
 					<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+					<dropdown id="dialogCharacterOpponent" value="dad" horizontalAlign="right" width="100%" >
 						<validator type="required" />
 						<data>
 							<item id="dad" text="Daddy Dearest" />
