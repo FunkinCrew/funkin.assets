@@ -96,6 +96,7 @@
   <menu text="Help">
     <menu-item id="menubarItemWelcomeDialog" text="Welcome Dialog" />
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
+    <menu-item id="menubarItemGoToBackupsFolder" text="Go to Backups Folder" />
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
