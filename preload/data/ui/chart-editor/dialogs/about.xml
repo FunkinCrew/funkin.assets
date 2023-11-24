@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dialog width="500" title="About">
-	<hbox width="100%">
-		<label text="32px bold" horizontalAlign="center">Friday Night Funkin'</label>
-		<label horizontalAlign="center">Chart Editor v1.0</label>
-		<label horizontalAlign="center">Built by EliteMasterEric</label>
-	</hbox>
+	<vbox width="100%">
+		<label text="Friday Night Funkin'" horizontalAlign="center"/>
+		<label text="Chart Editor v1.0" horizontalAlign="center"/>
+		<label text="Built by EliteMasterEric" horizontalAlign="center"/>
+		<label text="HaxeUI by Ian Harrigan" horizontalAlign="center"/>
+	</vbox>
 </dialog>

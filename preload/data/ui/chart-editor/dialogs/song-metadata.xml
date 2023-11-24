@@ -9,7 +9,7 @@
 				<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 				<textfield id="inputSongArtist" value="Kawai Sprite" />
 				<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputStage" value="Main Stage" horizontalAlign="right">
+				<dropdown id="inputStage" value="Main Stage" dropdownSize="10" searchable='true' horizontalAlign="right">
 					<data>
 						<item id="mainStage" text="Main Stage" />
 					</data>
@@ -21,21 +21,21 @@
 					</data>
 				</dropdown>
 				<label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterPlayer" value="bf" dropdownSize="10" dropdownWidth="300" horizontalAlign="right" width="100%" searchable="true">
 					<validator type="required" />
 					<data>
 						<item id="bf" text="Boyfriend" />
 					</data>
 				</dropdown>
 				<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterOpponent" value="dad" dropdownSize="10" dropdownWidth="300" horizontalAlign="right" width="100%" searchable="true">
 					<validator type="required" />
 					<data>
 						<item id="dad" text="Daddy Dearest" />
 					</data>
 				</dropdown>
 				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
+				<dropdown id="inputCharacterGirlfriend" value="none" dropdownSize="10" dropdownWidth="300"  horizontalAlign="right" width="100%" searchable="true">
 					<data>
 						<item id="none" text="" />
 						<item id="gf" text="Girlfriend" />
