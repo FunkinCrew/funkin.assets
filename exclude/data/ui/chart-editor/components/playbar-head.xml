@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	This component imitates the slider head on a music player.
+	This component acts as the slider head on a music player.
 	This is inserted and positioned manually by the Chart Editor state.
 -->
 <box>
@@ -21,6 +21,5 @@
 		background: #8844DD #6622BB vertical;
 		}
 	</style>
-	<!-- background-image: "shared:assets/shared/images/ui/chart-editor/playbar-head.png"; -->
 	<horizontal-slider id="playbarHead" styleName="playhead-slider" />
 </box>
