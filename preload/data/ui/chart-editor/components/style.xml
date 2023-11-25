@@ -10,9 +10,13 @@
 	font-family: 'Inconsolata';
 	font-bold: true;
 	}
-	.button, .menu, .menuitem, .menu > .label, .menucheckbox {
+	.button, .menu, .menuitem, .menu > .label, .menuitem-checkbox {
 	font-size: 12px;
 	font-family: 'Inconsolata';
+	font-bold: true;
+	}
+	.textfield {
+	font-size: 14px;
 	font-bold: true;
 	}
 	.notifbar {
