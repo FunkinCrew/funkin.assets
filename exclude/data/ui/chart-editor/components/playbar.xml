@@ -17,7 +17,10 @@
 		</hbox>
 
 		<hbox horizontalAlign="right">
-			<label  id="playbarDifficulty" verticalAlign="center" text="NORMAL" styleName="playbarDifficulty" tooltip="CTRL+LEFT/RIGHT to change difficulties\nCan also be changed in Difficulty window"/>
+
+			<label  id="playbarDifficulty" verticalAlign="center" text="NORMAL" styleName="playbarDifficulty" tooltip="CTRL+LEFT/RIGHT to change difficulties\nCan also be changed in Difficulty window (click this to open)"/>
+			<rule direction="vertical" height="80%"/>
+			<label id="playbarBPM" verticalAlign="center" text="BPM: 120" styleName="playbarStatus" tooltip="BPM\nLeft Click to Increase\nRight Click to Decrease\nCtrl+Click to open Metadata Window"/>
 			<rule direction="vertical" height="80%"/>
 			<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)"/>
 			<rule direction="vertical" height="80%"/>
