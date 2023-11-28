@@ -35,8 +35,14 @@
 		font-size: 24px;
 		font-bold: true;
 		}
+
+		.playbarDifficulty {
+		font-size: 18px;
+		font-bold: true;
+		}
+
 		.playbarStatus {
-		font-size: 20px;
+		font-size: 18px;
 		font-bold: true;
 		}
 		.playbarButton {

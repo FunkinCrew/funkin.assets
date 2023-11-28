@@ -2,27 +2,27 @@
 <!--
 	This component imitates the playback controls like on a music player.
 -->
-<hbox id="playbar" width="100%" height="48" styleName="playbar">
-	<!-- Manually set width so changing the width of the contents doesn't shift the center element. -->
-	<hbox width="250">
-		<label id="playbarSongPos" text="0:32" styleName="playbarDuration" />
-	</hbox>
-	<spacer width="100%" />
-	<hbox>
-		<!-- Try to keep this hbox center-aligned -->
-		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
-		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
-		<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
-		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
-		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
-	</hbox>
-	<spacer width="100%" />
-	<!-- Manually set width so changing the width of the contents doesn't shift the center element. -->
-	<hbox width="250">
-		<!-- Spacer to push everything to right align -->
-		<spacer width="100%" />
-		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)"/>
-		<spacer width="24" />
-		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
-	</hbox>
-</hbox>
+<box id="playbar" width="100%" height="48" styleName="playbar">
+		<hbox>
+			<label horizontalAlign="left" id="playbarSongPos" text="0:32" styleName="playbarDuration" />
+		</hbox>
+
+		<hbox horizontalAlign="center">
+			<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
+			<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
+			<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
+			<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
+			<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
+
+		</hbox>
+
+		<hbox horizontalAlign="right">
+			<label  id="playbarDifficulty" verticalAlign="center" text="NORMAL" styleName="playbarDifficulty" tooltip="CTRL+LEFT/RIGHT to change difficulties\nCan also be changed in Difficulty window"/>
+			<rule direction="vertical" height="80%"/>
+			<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)"/>
+			<rule direction="vertical" height="80%"/>
+			<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
+
+		</hbox>
+
+</box>
