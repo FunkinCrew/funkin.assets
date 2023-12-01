@@ -2,8 +2,8 @@
 <collapsible-dialog id="toolboxNotes" title="Notes" width="250" height="100">
 	<vbox width="100%" height="100%">
 		<grid columns="2" width="100%">
-			<label text="Note Kind" />
-			<dropdown id="toolboxNotesNoteKind" width="100%" value="normal">
+			<label text="Note Kind" verticalAlign="center" horizontalAlign="right" />
+			<dropdown id="toolboxNotesNoteKind" width="100%" value="normal" dropdownSize="10" dropdownWidth="300" searchable="true">
 				<data>
 					<item id="normal" text="Default" />
 					<item id="alt" text="Alt Note" />

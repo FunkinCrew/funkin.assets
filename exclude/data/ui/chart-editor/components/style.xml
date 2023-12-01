@@ -11,7 +11,7 @@
 		font-family: 'Inconsolata';
 		font-bold: true;
 		}
-		.button, .menu, .menuitem, .menu > .label, .menucheckbox {
+		.button, .menu, .menuitem, .menulabel, .menucheckbox {
 		font-size: 12px;
 		font-family: 'Inconsolata';
 		font-bold: true;
