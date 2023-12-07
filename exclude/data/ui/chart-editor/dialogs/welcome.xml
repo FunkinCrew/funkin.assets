@@ -9,7 +9,7 @@
 			<button id="splashBrowse" text="Browse for Chart" />
 		</card>
 		<vbox width="25%" height="100%">
-			<card id="splashSectionCenter" width="100%" height="50%" text="Create From Template">
+			<card id="splashSectionCenter" width="100%" height="50%" text="Create New">
 				<link id="splashCreateFromSongBasicOnly" width="100%" text="Easy/Normal/Hard Only" />
 				<link id="splashCreateFromSongErectOnly" width="100%" text="Erect/Nightmare Only" />
 				<link id="splashCreateFromSongBasicErect" width="100%" text="Easy/Normal/Hard/Erect/Nightmare" />
