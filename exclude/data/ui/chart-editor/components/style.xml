@@ -17,7 +17,7 @@
 		font-bold: true;
 		}
 		.textfield {
-		font-size: 14px;
+		font-size: 10px;
 		font-bold: true;
 		}
 		.notifbar {
