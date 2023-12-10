@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="toolboxPlaytestProperties" title="Playtest Properties" width="345" height="500">
+    <vbox width="100%" height="100%">
+        <checkbox id="practiceModeCheckbox" text="Practice mode" selected="true" tooltip="Whether or not you die/game over when you lose all health" />
+    </vbox>
+</collapsible-dialog>

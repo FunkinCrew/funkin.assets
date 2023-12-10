@@ -100,6 +100,7 @@
     <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
     <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
     <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemWelcomeDialog" text="Welcome Dialog" />
