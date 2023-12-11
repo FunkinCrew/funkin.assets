@@ -10,7 +10,7 @@ import openfl.filters.ShaderFilter;
 import funkin.shaderslmfao.RuntimeRainShader;
 import openfl.utils.Assets;
 import openfl.filters.BlurFilter;
-import funkin.graphics.framebuffer.BitmapDataTools;
+import funkin.graphics.framebuffer.BitmapDataUtil;
 import StringTools;
 
 class PhillyStreetsStage extends Stage
@@ -61,7 +61,7 @@ class PhillyStreetsStage extends Stage
 	{
 		super.draw();
 		var screen = grabScreen(false);
-		BitmapDataTools.applyFilter(screen, blurFilter);
+		BitmapDataUtil.applyFilter(screen, blurFilter);
 		rainShader.blurredScreen = screen;
 	}
 
