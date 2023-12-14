@@ -255,18 +255,18 @@ class MILFSong extends Song {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
 			var nextLampTime = BOYFRIEND_LAMP_TIMES[nextBFLampIndex];
 			var nextLampReset = nextLampTime + LAMP_RESET_DELAY;
-			if (Conductor.songPosition >= nextLampReset) {
+			if (Conductor.instance.songPosition >= nextLampReset) {
 				nextBFLampIndex++;
 				hasCurrentBFLampHit = false;
 			} else if (boyfriend != null) {
 
-				if (Conductor.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
+				if (Conductor.instance.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
 					hasCurrentBFLampHit = true;
 				}
 
-				if (Conductor.songPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+				if (Conductor.instance.songPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
 					// Ensure this code only runs once.
 					hasCurrentGFLampDucked = true;
 
@@ -278,7 +278,7 @@ class MILFSong extends Song {
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 
 				var boyfriendXPos = boyfriend.x;
-				var lampDelay = nextLampTime - Conductor.songPosition;
+				var lampDelay = nextLampTime - Conductor.instance.songPosition;
 				var lampDistance = lampDelay * LAMP_VELOCITY;
 				lamp.x = boyfriendXPos - lampDistance - 120;
 

@@ -63,7 +63,7 @@ class TankmanSprite extends FlxSprite
 		}
 
 		// Check if we've reached the time when the tankman should be shot.
-		if (Conductor.songPosition >= strumTime && animation.curAnim.name == 'run')
+		if (Conductor.instance.songPosition >= strumTime && animation.curAnim.name == 'run')
 		{
 			animation.play('shot');
 
@@ -80,11 +80,11 @@ class TankmanSprite extends FlxSprite
 
 			if (goingRight)
 			{
-				x = (FlxG.width * 0.02) - endingOffset + (Conductor.songPosition - strumTime) * runSpeed;
+				x = (FlxG.width * 0.02) - endingOffset + (Conductor.instance.songPosition - strumTime) * runSpeed;
 			}
 			else
 			{
-				x = (FlxG.width * 0.74) + endingOffset - (Conductor.songPosition - strumTime) * runSpeed;
+				x = (FlxG.width * 0.74) + endingOffset - (Conductor.instance.songPosition - strumTime) * runSpeed;
 			}
 		}
 

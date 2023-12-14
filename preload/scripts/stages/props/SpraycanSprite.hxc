@@ -191,9 +191,9 @@ class SpraycanSprite extends FlxSprite
 	{
 		if (startCleanupTime == null)
 		{
-			startCleanupTime = Conductor.songPosition;
+			startCleanupTime = Conductor.instance.songPosition;
 		}
-		if (Conductor.songPosition > startCleanupTime + delayMs)
+		if (Conductor.instance.songPosition > startCleanupTime + delayMs)
 		{
 			kill();
 		}
@@ -201,7 +201,7 @@ class SpraycanSprite extends FlxSprite
 
 	function getCanProgress()
 	{
-		var time:Float = Conductor.songPosition;
+		var time:Float = Conductor.instance.songPosition;
 		var progress:Float = (time - startingTime) / (endingTime - startingTime);
 		return Math.min(progress, 1.0);
 	}
