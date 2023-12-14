@@ -91,7 +91,6 @@
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
     <menu-item id="menubarItemPlaytestMinimal" text="Playtest Chart (Minimal Mode)" shortcutText="Shift-Enter" />
-    <menu-checkbox id="menubarItemPlaytestStartTime" text="Start at Current Time?" />
   </menu>
   <menu text="Window">
     <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
