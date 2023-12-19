@@ -68,23 +68,23 @@
     <menu-item id="menubarItemLoadVocals" text="Load Vocals" />
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelVolumeMetronome" style="menulabel" text="Metronome - 100%" />
+      <label id="menubarLabelVolumeMetronome" styleName="menuLabel" text="Metronome - 100%" />
       <slider id="menubarItemVolumeMetronome" width="100%" majorTicks="10" minorTicks="5" pos="100" />
     </vbox>
     <menu-separator />
     <menu-checkbox id="menubarItemPlayerHitsounds" text="Enable Player Note Sounds" />
     <menu-checkbox id="menubarItemOpponentHitsounds" text="Enable Opponent Note Sounds" />
     <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelVolumeHitsound" style="menulabel" text="Hitsounds - 100%" />
+      <label id="menubarLabelVolumeHitsound" styleName="menuLabel" text="Hitsounds - 100%" />
       <slider id="menubarItemVolumeHitsound" width="100%" majorTicks="10" minorTicks="5" pos="100" />
     </vbox>
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelVolumeInstrumental" style="menulabel" text="Instrumental - 100%" />
+      <label id="menubarLabelVolumeInstrumental" styleName="menuLabel" text="Instrumental - 100%" />
       <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      <label id="menubarLabelVolumeVocals" style="menulabel" text="Vocal Volume - 100%" />
+      <label id="menubarLabelVolumeVocals" styleName="menuLabel" text="Vocal Volume - 100%" />
       <slider id="menubarItemVolumeVocals" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      <label id="menubarLabelPlaybackSpeed" style="menulabel" text="Playback Speed - 100%" />
+      <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
   </menu>

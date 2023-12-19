@@ -11,7 +11,7 @@
 		font-family: 'Inconsolata';
 		font-bold: true;
 		}
-		.button, .menu, .menuitem, .menu > .label, .menuitem-checkbox {
+		.button, .menu, .menuitem, .menuLabel, .menuitem-checkbox {
 		font-size: 12px;
 		font-family: 'Inconsolata';
 		font-bold: true;
@@ -39,12 +39,10 @@
 		font-size: 24px;
 		font-bold: true;
 		}
-
 		.playbarDifficulty {
 		font-size: 18px;
 		font-bold: true;
 		}
-
 		.playbarStatus {
 		font-size: 18px;
 		font-bold: true;
