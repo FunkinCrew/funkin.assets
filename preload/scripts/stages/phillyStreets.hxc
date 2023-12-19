@@ -7,7 +7,7 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
-import funkin.shaderslmfao.RuntimeRainShader;
+import funkin.graphics.shaders.RuntimeRainShader;
 import openfl.utils.Assets;
 import openfl.filters.BlurFilter;
 import funkin.graphics.framebuffer.BitmapDataUtil;
