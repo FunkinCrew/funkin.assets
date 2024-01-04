@@ -33,9 +33,10 @@
 
     <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" shortcutText="Ctrl+F" />
     <menu-separator />
-    <menu-item id="menubarItemSelectAll" text="Select All" shortcutText="Ctrl+A" />
-    <menu-item id="menubarItemSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
-    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
+    <menu-item id="menubarItemSelectAllNotes" text="Select All Notes" shortcutText="Ctrl+A" />
+    <menu-item id="menubarItemSelectAllEvents" text="Select All Events" shortcutText="Ctrl+Alt+A" />
+    <menu-item id="menubarItemSelectInverse" text="Invert Selection" shortcutText="Ctrl+I" />
+    <menu-item id="menubarItemSelectNone" text="Deselect All" shortcutText="Ctrl+D" />
     <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
     <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
     <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
