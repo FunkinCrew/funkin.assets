@@ -56,17 +56,6 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
   </menu>
-  <menu text="Window">
-    <menu-checkbox hidden="true" id="menubarItemToggleToolboxTools" text="Tools" />
-    <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
-    <menu-checkbox id="menubarItemToggleToolboxCharacters" text="Characters" />
-    <menu-checkbox id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
-    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
-    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
-    <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
-  </menu>
   <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
     <menu-item id="menubarItemAbout" text="About..." />

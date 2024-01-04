@@ -98,7 +98,7 @@
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
     <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
     <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
-    <menu-checkbox id="menubarItemToggleToolboxEvents" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxEventData" text="Events" />
     <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
   </menu>
   <menu text="Help">
