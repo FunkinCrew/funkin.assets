@@ -97,9 +97,10 @@
                 <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" tooltip="Adjust the relative speed at which the notes move." />
                 <spacer />
                 <label text="Instrumental Offset" verticalAlign="center" />
-                <number-stepper id="inputOffsetInst" pos="0" step="0.1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
+                <!-- Increment by 1 when clicking buttons, precision to 1 decimal place (0.1) -->
+                <number-stepper id="inputOffsetInst" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
                 <label text="Vocal Offset" verticalAlign="center" />
-                <number-stepper id="inputOffsetVocal" pos="0" step="0.1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
+                <number-stepper id="inputOffsetVocal" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
             </grid>
         </frame>
     </vbox>
