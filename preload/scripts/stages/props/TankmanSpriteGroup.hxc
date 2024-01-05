@@ -109,7 +109,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		while (true)
 		{
 			// Create tankmen 10 seconds in advance.
-			var cutoff:Float = Conductor.songPosition + (1000 * 3);
+			var cutoff:Float = Conductor.instance.songPosition + (1000 * 3);
 			if (tankmanTimes.length > 0 && tankmanTimes[0] <= cutoff)
 			{
 				var nextTime:Float = tankmanTimes.shift();

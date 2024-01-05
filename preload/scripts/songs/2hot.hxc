@@ -200,7 +200,7 @@ class TwoHOTSong extends Song
 			var startPos:FlxBasePoint = new FlxBasePoint(PlayState.instance.currentStage.getDad().x + 300, PlayState.instance.currentStage.getDad().y + 100);
 			var endPos:FlxBasePoint = new FlxBasePoint(PlayState.instance.currentStage.getBoyfriend().x + 100,
 				PlayState.instance.currentStage.getBoyfriend().y);
-			var startArcTime:Float = Conductor.songPosition;
+			var startArcTime:Float = Conductor.instance.songPosition;
 			var hitWindow = (10 / 60 * 1000);
 			var endArcTime:Float = popNextCanEndTime(variant == 'high' ? 1 : 0) + hitWindow; // pop removes the last element, so we need to shift.
 			// Remember, to call a custom function on a scripted class,

@@ -75,7 +75,7 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 		super.onUpdate(event);
 
     // Each Pico animation is shifted from the array when it's time to play it.
-		if (tankmanTimes.length > 0 && tankmanTimes[0] <= Conductor.songPosition) {
+		if (tankmanTimes.length > 0 && tankmanTimes[0] <= Conductor.instance.songPosition) {
 			var nextTime:Float = tankmanTimes.shift();
 			var nextDir:Int = tankmanDirs.shift();
 
