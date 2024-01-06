@@ -31,34 +31,6 @@
                             <item text="Pixel" />
                         </data>
                     </dropdown>
-                    <!--
-                <label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterPlayer" value="bf" horizontalAlign="right" width="100%" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which character to use as the player.">
-					<validator type="required" />
-					<data>
-						<item id="bf" text="Boyfriend" />
-                        <item id="pico-playable" text="Pico (Darnell)" />
-					</data>
-				</dropdown>
-
-				<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterOpponent" value="dad" horizontalAlign="right" width="100%" tooltip="Which character to use as the opponent." dropdownSize="10" dropdownWidth="300" searchable="true">
-					<validator type="required" />
-					<data>
-						<item id="dad" text="Daddy Dearest" />
-                        <item id="darnell" text="Darnell" />
-					</data>
-				</dropdown>
-
-				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterGirlfriend" value="none" horizontalAlign="right" width="100%" tooltip="Which character to use as the Girlfriend character in the back." dropdownSize="10" dropdownWidth="300" searchable="true">
-					<data>
-						<item id="none" text="" />
-						<item id="gf" text="Girlfriend" />
-                        <item id="nene" text="Nene" />
-					</data>
-				</dropdown>
-                -->
                 </grid>
                 <hbox width="100%">
                     <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
@@ -78,18 +50,18 @@
                 <label text="Starting BPM" verticalAlign="center" />
                 <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" tooltip="Adjust the BPM of the song, which helps align the grid and character animations to the music." />
                 <label text="Starting Time Signature" verticalAlign="center" />
-                <dropdown id="inputTimeSignature" value="4/4" disabled="true" horizontalAlign="right" tooltip="Adjust the time signature of the song, which helps align the grid.">
+                <dropdown id="inputTimeSignature" value="4/4" horizontalAlign="right" tooltip="Adjust the time signature of the song, which helps align the grid.">
                     <data>
-                        <item text="2/4" />
-                        <item text="3/4" />
-                        <item text="4/4" />
-                        <item text="5/4" />
-                        <item text="6/4" />
-                        <item text="3/8" />
-                        <item text="5/8" />
-                        <item text="7/8" />
-                        <item text="9/8" />
-                        <item text="15/16" />
+                        <item id="2/4" text="2/4" />
+                        <item id="3/4" text="3/4" />
+                        <item id="4/4" text="4/4" />
+                        <item id="5/4" text="5/4" />
+                        <item id="6/4" text="6/4" />
+                        <item id="3/8" text="3/8" />
+                        <item id="5/8" text="5/8" />
+                        <item id="7/8" text="7/8" />
+                        <item id="9/8" text="9/8" />
+                        <item id="15/16" text="15/16" />
                     </data>
                 </dropdown>
                 <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
