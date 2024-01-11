@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.1",
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "playData": {
@@ -11,7 +11,7 @@
     },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "noteSkin": "Normal"
+    "noteStyle": "Normal"
   },
   "songName": "Fresh",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],

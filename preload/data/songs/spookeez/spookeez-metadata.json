@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.1",
   "songName": "Spookeez",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
@@ -14,7 +14,7 @@
       "opponent": "spooky"
     },
     "stage": "spookyMansion",
-    "noteSkin": "Normal"
+    "noteStyle": "Normal"
   },
   "generatedBy": "MasterEric (by hand)"
 }
