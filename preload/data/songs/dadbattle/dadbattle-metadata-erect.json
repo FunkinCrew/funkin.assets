@@ -1,10 +1,15 @@
 {
-  "version": "2.1.0",
-  "songName": "DadBattle (Erect Mix)",
+  "version": "2.2.1",
+  "songName": "DadBattle",
   "artist": "KawaiSprite",
   "timeFormat": "ms",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 190 }],
   "playData": {
+    "album": "erect1",
+    "ratings": {
+      "erect": 7,
+      "nightmare": 15
+    },
     "stage": "mainStage",
     "characters": {
       "player": "bf",
@@ -14,7 +19,7 @@
     },
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "noteSkin": "Normal"
+    "noteStyle": "Normal"
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE"
 }
