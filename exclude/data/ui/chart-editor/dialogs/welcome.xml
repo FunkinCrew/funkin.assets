@@ -26,11 +26,11 @@
 			</scrollview>
 		</card>
 		<hbox width="10%" height="100%" id="spriteBox">
-			<sparrow-player id="boyfriendDJ" xmlFile="assets/images/freeplay/bfFreeplay.xml" pngFile="assets/images/freeplay/bfFreeplay.png" animationName="idle" width="192" height="224" verticalAlign="bottom">
+			<!-- <sparrow-player id="boyfriendDJ" xmlFile="assets/images/freeplay/bfFreeplay.xml" pngFile="assets/images/freeplay/bfFreeplay.png" animationName="idle" width="192" height="224" verticalAlign="bottom">
 				<data>
 					<set name="idle" prefix="Boyfriend DJ0" frameRate="24" looped="true" />
 				</data>
-			</sparrow-player>
+			</sparrow-player> -->
 		</hbox>
 	</hbox>
 </dialog>
