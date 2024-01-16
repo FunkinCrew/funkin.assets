@@ -1,6 +1,14 @@
 {
   "props": [
     {
+      "name": "solid",
+      "assetPath": "#242336",
+      "position": [-300, -500],
+      "scroll": [1, 1],
+      "scale": [2400, 2000],
+      "zIndex": -500
+    },
+    {
       "danceEvery": 0,
       "zIndex": -100,
       "position": [-200, -100],
@@ -33,7 +41,7 @@
       ]
     }
   ],
-  "cameraZoom": 1.05,
+  "cameraZoom": 1.0,
   "version": "1.0.0",
   "characters": {
     "bf": {

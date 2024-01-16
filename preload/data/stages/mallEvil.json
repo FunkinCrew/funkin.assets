@@ -4,6 +4,13 @@
   "cameraZoom": 1.0,
   "props": [
     {
+      "name": "solid",
+      "assetPath": "#23062D",
+      "position": [-500, -1000],
+      "scale": [2400, 2000],
+      "scroll": [0.2, 0.2]
+    },
+    {
       "name": "bg",
       "assetPath": "christmas/evilBG",
       "position": [-400, -500],
