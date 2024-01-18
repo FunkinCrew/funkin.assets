@@ -147,8 +147,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == "firstDeath") {
 			createDeathSprites();
 
-			FlxG.state.subState.add(deathSpriteRetry);
-			FlxG.state.subState.add(deathSpriteNene);
+			GameOverSubState.instance.add(deathSpriteRetry);
+			GameOverSubState.instance.add(deathSpriteNene);
 			deathSpriteNene.animation.play("throw");
 		} else if (name == "deathConfirm") {
 			deathSpriteRetry.animation.play('confirm');
@@ -251,8 +251,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			deathSpriteRetry.animation.play('idle');
 			deathSpriteRetry.visible = true;
-			// GameOverSubState
-			FlxG.state.subState.startDeathMusic(1.0, false);
+			GameOverSubState.instance.startDeathMusic(1.0, false);
 		}
 
 		if (name == "cock" && frameNumber == 3) {
