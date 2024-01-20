@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="toolboxOffsets" title="Offsets" width="600" height="450">
+  <vbox width="100%">
+    <hbox width="100%">
+      <button id="offsetButtonPause" text="Pause" />
+      <button id="offsetButtonPlay" text="Play" />
+      <spacer width="100%" />
+      <button id="offsetButtonZoomIn" text="Zoom In" disabled="true" />
+      <button id="offsetButtonZoomOut" text="Zoom Out" disabled="true" />
+    </hbox>
+    <hbox width="100%">
+      <vbox width="125" height="240">
+        <frame width="100%" height="80" text="Player Vocals">
+          <vbox width="100%" height="100%">
+            <slider styleName="compact" width="100%" majorTicks="10" minorTicks="5" pos="50" tooltip="Player Vocals Volume" />
+            <hbox width="100%">
+              <button styleName="compactButton" width="50%" text="Mute" tooltip="Mute the player vocals." />
+              <button styleName="compactButton" width="50%" text="Solo" tooltip="Isolate the player vocals and mute other tracks." />
+            </hbox>
+          </vbox>
+        </frame>
+        <frame width="100%" height="80" text="Opponent Vocals">
+          <vbox width="100%" height="100%">
+            <slider styleName="compact" width="100%" majorTicks="10" minorTicks="5" pos="50" tooltip="Opponent Vocals Volume" />
+            <hbox width="100%">
+              <button styleName="compactButton" width="50%" text="Mute" tooltip="Mute the opponent vocals." />
+              <button styleName="compactButton" width="50%" text="Solo" tooltip="Isolate the opponent vocals and mute other tracks." />
+            </hbox>
+          </vbox>
+        </frame>
+        <frame width="100%" height="80" text="Instrumental">
+          <vbox width="100%" height="100%">
+            <slider styleName="compact" width="100%" majorTicks="10" minorTicks="5" pos="50" tooltip="Instrumental Volume" />
+            <hbox width="100%">
+              <button styleName="compactButton" width="50%" text="Mute" tooltip="Mute the instrumental." />
+              <button styleName="compactButton" width="50%" text="Solo" tooltip="Isolate the instrumental and mute other tracks." />
+            </hbox>
+          </vbox>
+        </frame>
+      </vbox>
+      <scrollview height="255" width="400">
+        <vbox width="3000" height="225">
+          <hbox width="3000" height="75">
+            <label text="Test1" />
+            <spacer width="100%" />
+            <button text="Play" />
+          </hbox>
+          <hbox width="3000" height="75">
+            <label text="Test2" />
+            <spacer width="100%" />
+            <button text="Play" />
+          </hbox>
+          <hbox width="3000" height="75">
+            <label text="Test3" />
+            <spacer width="100%" />
+            <button text="Play" />
+          </hbox>
+        </vbox>
+      </scrollview>
+    </hbox>
+    <spacer height="16" />
+    <grid columns="2" width="100%">
+      <label text="Player Offset (ms)" />
+      <number-stepper id="offsetStepperPlayer" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the player vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
+      <label text="Opponent Offset (ms)" />
+      <number-stepper id="offsetStepperOpponent" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the opponent vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
+      <label text="Instrumental Offset (ms)" />
+      <number-stepper id="offsetStepperInstrumental" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds, ON TOP OF the instrumental offset." />
+    </grid>
+  </vbox>
+</collapsible-dialog>

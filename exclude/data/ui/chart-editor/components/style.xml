@@ -57,6 +57,17 @@
 		font-bold: true;
 		width: 56px;
 		}
+		.compact {
+			margin: 0px;
+			padding: 0px;
+		}
+		.compactButton {
+			margin: 0px;
+			padding-top: 4px;
+			padding-right: 0px;
+			padding-bottom: 4px;
+			padding-left: 0px;
+		}
 		.dialog-close-button {
 		resource: "haxeui-flixel/styles/flixel-ui/images/close.png";
 		vertical-align: "center";
