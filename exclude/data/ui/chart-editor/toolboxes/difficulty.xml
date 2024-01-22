@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="400">
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="425">
     <vbox>
         <frame text="Select Difficulty">
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
@@ -7,6 +7,9 @@
         <hbox>
             <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
             <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+        </hbox>
+        <hbox>
+            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
         </hbox>
         <rule />
         <hbox>
