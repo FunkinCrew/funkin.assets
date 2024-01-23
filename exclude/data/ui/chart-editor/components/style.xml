@@ -105,12 +105,5 @@
 		.upload-bg-hover {
 		background-color: #444444;
 		}
-		.slider.sideSlider {
-			opacity: .5;
-			pointer-events:true;
-	  }
-	  .slider.sideSlider:hover {
-		  opacity: 1;
-	  }
 </style>
 </box>
