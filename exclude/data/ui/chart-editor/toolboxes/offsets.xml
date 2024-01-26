@@ -5,8 +5,8 @@
       <button id="offsetButtonPause" text="Pause" />
       <button id="offsetButtonPlay" text="Play" />
       <spacer width="100%" />
-      <button id="offsetButtonZoomIn" text="Zoom In" disabled="true" />
-      <button id="offsetButtonZoomOut" text="Zoom Out" disabled="true" />
+      <button id="offsetButtonZoomIn" text="Zoom In" />
+      <button id="offsetButtonZoomOut" text="Zoom Out" />
     </hbox>
     <hbox width="100%">
       <vbox width="125" height="240">
@@ -40,20 +40,14 @@
       </vbox>
       <scrollview height="255" width="400">
         <vbox width="3000" height="225">
-          <hbox width="3000" height="75">
-            <label text="Test1" />
-            <spacer width="100%" />
-            <button text="Play" />
+          <hbox width="100%" height="75">
+            <waveform-player id="waveformPlayer" />
           </hbox>
-          <hbox width="3000" height="75">
-            <label text="Test2" />
-            <spacer width="100%" />
-            <button text="Play" />
+          <hbox width="100%" height="75">
+            <waveform-player id="waveformOpponent" />
           </hbox>
-          <hbox width="3000" height="75">
-            <label text="Test3" />
-            <spacer width="100%" />
-            <button text="Play" />
+          <hbox width="100%" height="75">
+            <waveform-player id="waveformInstrumental" />
           </hbox>
         </vbox>
       </scrollview>
