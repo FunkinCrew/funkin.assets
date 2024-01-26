@@ -80,11 +80,23 @@
       <slider id="menubarItemVolumeHitsound" width="100%" majorTicks="10" minorTicks="5" pos="100" />
     </vbox>
     <menu-separator />
-    <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelVolumeInstrumental" styleName="menuLabel" text="Instrumental - 100%" />
-      <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      <label id="menubarLabelVolumeVocals" styleName="menuLabel" text="Vocal Volume - 100%" />
-      <slider id="menubarItemVolumeVocals" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+    <vbox width="100%" style="padding-bottom: 9px;">
+      <vbox width="100%" style="padding: 5px;">
+        <label id="menubarLabelVolumeInstrumental" styleName="menuLabel" text="Instrumental - 100%" />
+        <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+      </vbox>
+      <hbox width="100%" style="padding: 5px;">
+        <vbox width="50%">
+          <label id="menubarLabelVolumeVocalsPlayer" styleName="menuLabel" text="Player - 100%" />
+          <slider id="menubarItemVolumeVocalsPlayer" width="100%" majorTicks="20" minorTicks="10" pos="100" />
+        </vbox>
+        <vbox width="50%">
+          <label id="menubarLabelVolumeVocalsOpponent" styleName="menuLabel" text="Enemy - 100%" />
+          <slider id="menubarItemVolumeVocalsOpponent" width="100%" majorTicks="20" minorTicks="10" pos="100" />
+        </vbox>
+      </hbox>
+    </vbox>
+      <vbox width="100%" style="padding: 5px;">
       <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
