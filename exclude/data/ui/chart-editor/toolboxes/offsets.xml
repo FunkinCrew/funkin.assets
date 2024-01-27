@@ -4,6 +4,7 @@
     <hbox width="100%">
       <button id="offsetButtonPause" text="Pause" />
       <button id="offsetButtonPlay" text="Play" />
+      <button id="offsetButtonStop" text="Stop" />
       <spacer width="100%" />
       <button id="offsetButtonZoomIn" text="Zoom In" />
       <button id="offsetButtonZoomOut" text="Zoom Out" />
@@ -38,16 +39,16 @@
           </vbox>
         </frame>
       </vbox>
-      <scrollview height="255" width="400">
-        <vbox width="3000" height="225">
+      <scrollview id="waveformScrollview" height="255" width="400" verticalScrollPolicy="never" horizontalScrollPolicy="always" scrollMode="normal">
+        <vbox id="waveformContainer" width="3000" height="225">
           <hbox width="100%" height="75">
-            <waveform-player id="waveformPlayer" />
+            <waveform-player id="waveformPlayer" style="pointer-events: true" />
           </hbox>
           <hbox width="100%" height="75">
-            <waveform-player id="waveformOpponent" />
+            <waveform-player id="waveformOpponent" style="pointer-events: true" />
           </hbox>
           <hbox width="100%" height="75">
-            <waveform-player id="waveformInstrumental" />
+            <waveform-player id="waveformInstrumental" style="pointer-events: true" />
           </hbox>
         </vbox>
       </scrollview>
@@ -59,7 +60,7 @@
       <label text="Opponent Offset (ms)" />
       <number-stepper id="offsetStepperOpponent" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the opponent vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
       <label text="Instrumental Offset (ms)" />
-      <number-stepper id="offsetStepperInstrumental" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds, ON TOP OF the instrumental offset." />
+      <number-stepper id="offsetStepperInstrumental" pos="0" step="1" precision="1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
     </grid>
   </vbox>
 </collapsible-dialog>
