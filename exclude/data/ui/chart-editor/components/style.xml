@@ -110,6 +110,14 @@
 		#toolboxSong .dialog-content {
 		padding: 0px;
 		}
+		.offset-ticks-label {
+			color: #FFFFFF;
+			font-size: 12px;
+			font-weight: bold;
+		}
+		.absolute {
+			clip: false;
+		}
 		.upload-bg {
 		background-color: #666666;
 		}

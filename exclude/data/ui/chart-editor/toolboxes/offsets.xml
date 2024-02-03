@@ -40,15 +40,20 @@
           </vbox>
         </frame>
       </vbox>
-      <scrollview id="waveformScrollview" height="310" width="400" verticalScrollPolicy="never" horizontalScrollPolicy="always" scrollMode="normal" styleName="compact">
-        <vbox id="waveformContainer" width="3000" height="310" styleName="compact">
-          <sprite-wrapper id="offsetTicksSprite" height="40" width="100%" style="background-color: #111111"/>
-          <waveform-player id="waveformPlayer" style="pointer-events: true" />
-          <spacer height="10" />
-          <waveform-player id="waveformOpponent" style="pointer-events: true" />
-          <spacer height="8" />
-          <waveform-player id="waveformInstrumental" style="pointer-events: true" />
-        </vbox>
+      <scrollview id="waveformScrollview" height="310" width="400" verticalScrollPolicy="never" horizontalScrollPolicy="always" scrollMode="normal" styleName="no-padding">
+        <absolute id="waveformContainer" width="3000" height="300" styleName="compact">
+          <vbox width="100%" height="100%" top="0" left="0">
+            <absolute id="offsetTicksContainer" width="100%" height="40" style="cursor: pointer;">
+              <sprite-wrapper id="offsetTicksSprite" height="100%" width="100%" style="background-color: #111111" top="0" left="0"/>
+            </absolute>
+            <waveform-player id="waveformPlayer" style="cursor: pointer; pointer-events: true" />
+            <spacer height="10" />
+            <waveform-player id="waveformOpponent" style="cursor: pointer; pointer-events: true" />
+            <spacer height="8" />
+            <waveform-player id="waveformInstrumental" style="cursor: pointer; pointer-events: true" />
+          </vbox>
+          <sprite-wrapper id="playheadSprite" height="100%" width="2" style="background-color: #FF0000" top="0" left="0"/>
+        </absolute>
       </scrollview>
     </hbox>
     <grid columns="2" width="100%">
