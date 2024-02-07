@@ -5,7 +5,6 @@ import flixel.FlxSprite;
 import funkin.Paths;
 import flixel.FlxG;
 import funkin.play.PlayStatePlaylist;
-import funkin.play.cutscene.dialogue.ConversationDataParser;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;

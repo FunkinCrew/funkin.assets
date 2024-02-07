@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Default",
   "assetPath": "speech_bubble_talking",
   "isPixel": true,
@@ -12,14 +12,9 @@
     "offsets": [225, 450],
     "width": 900,
     "color": "#3F2021",
+    "fontFamily": "Pixel Arial 11 Bold",
     "shadowColor": "#D89494",
     "shadowWidth": 2
-  },
-
-  "marker": {
-    "offsets": [0, 0],
-    "scale": 1.0,
-    "assetPath": "weeb/pixelUI/hand_textbox"
   },
 
   "animations": [

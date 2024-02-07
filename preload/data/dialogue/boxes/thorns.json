@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Thorns",
   "assetPath": "weeb/pixelUI/dialogueBox-evilNew",
   "isPixel": true,
@@ -12,6 +12,7 @@
     "offsets": [225, 450],
     "width": 900,
     "color": "#FFFFFF",
+    "fontFamily": "Pixel Arial 11 Bold",
     "shadowColor": "#00000000",
     "shadowWidth": 0
   },
