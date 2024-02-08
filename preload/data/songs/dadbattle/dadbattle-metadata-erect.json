@@ -15,7 +15,8 @@
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
-      "instrumental": "erect"
+      "instrumental": "erect",
+      "altInstrumentals": []
     },
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
