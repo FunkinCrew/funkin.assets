@@ -1,5 +1,5 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.2",
   "songName": "DadBattle",
   "artist": "Kawai Sprite",
   "timeFormat": "ms",
@@ -11,6 +11,8 @@
       "normal": 3,
       "hard": 5
     },
+    "previewStart": 0,
+    "previewEnd": 15000,
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

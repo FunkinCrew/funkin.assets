@@ -115,6 +115,7 @@
     <menu-checkbox id="menubarItemToggleToolboxOffsets" text="Offsets" />
     <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
     <menu-checkbox id="menubarItemToggleToolboxEventData" text="Events" />
+    <menu-checkbox id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
     <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
   </menu>
   <menu text="Help">
