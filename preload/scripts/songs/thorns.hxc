@@ -3,11 +3,9 @@ import flixel.FlxSprite;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.util.Constants;
-
 import funkin.play.PlayStatePlaylist;
 import funkin.Paths;
 import flixel.util.FlxTimer;
-import funkin.play.cutscene.dialogue.ConversationDataParser;
 
 class ThornsSong extends Song {
   var hasPlayedCutscene:Bool;

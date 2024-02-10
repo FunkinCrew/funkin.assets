@@ -10,6 +10,7 @@ import flixel.group.FlxTypedSpriteGroup;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 
+
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pico-playable');
@@ -37,13 +38,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function createDeathSprites() {
 		deathSpriteRetry = new FlxSprite(0, 0);
-		deathSpriteRetry.x = this.x + 196.5;
-		deathSpriteRetry.y = this.y - 85;
+
 		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry");
 		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
 		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
 
 		deathSpriteRetry.visible = false;
+
+		FlxG.debugger.track(deathSpriteRetry);
 
 		deathSpriteNene = new FlxSprite(0, 0);
 		var gf = PlayState.instance.currentStage.getGirlfriend();
@@ -109,7 +111,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			return;
 		}
 
-		if (event.note.mustPress && characterType == CharacterType.BF) {
+		trace('Note hit: ' + event.note.noteData.getMustHitNote() + ':' + characterType);
+		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.noteData.kind) {
 				case "weekend-1-cockgun":
@@ -121,6 +124,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				case "weekend-1-firegun-hip":
 					playFireGunAnim(true);
 				default:
+					trace('Note hit: ' + event.note.noteData.kind);
 					super.onNoteHit(event);
 			}
 		}
@@ -252,6 +256,11 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			deathSpriteRetry.animation.play('idle');
 			deathSpriteRetry.visible = true;
 			GameOverSubState.instance.startDeathMusic(1.0, false);
+
+			deathSpriteRetry.x = this.x + 416;
+			deathSpriteRetry.y = this.y + 42;
+			trace('Pico x: ' + this.x + ', y: ' + this.y);
+			trace("Death sprite x: " + deathSpriteRetry.x + ", y: " + deathSpriteRetry.y);
 		}
 
 		if (name == "cock" && frameNumber == 3) {
