@@ -100,6 +100,10 @@
 		padding: 3px;
 		border-radius: 2px;
 		}
+		.disable-validation.invalid-value {
+			border: $normal-border-size solid $normal-border-color;
+			background-color: $tertiary-background-color;
+		}
 		.dialog-maximize-button:hover {
 		resource: "shared:assets/shared/images/ui/chart-editor/maximize.png";
 		background-color: $selection-background-color;
