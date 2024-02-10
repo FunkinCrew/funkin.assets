@@ -111,11 +111,15 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			// Override the hit note animation.
 			switch(event.note.noteData.kind) {
 				case "weekend-1-cockgun":
+					holdTimer = 0;
 					playCockGunAnim();
 				case "weekend-1-firegun":
+					holdTimer = 0;
 					playFireGunAnim(false);
 				case "weekend-1-firegun-far":
+					holdTimer = 0;
 					playFireGunAnim(false);
+					holdTimer = 0;
 				case "weekend-1-firegun-hip":
 					playFireGunAnim(true);
 				default:
