@@ -111,7 +111,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			return;
 		}
 
-		if (event.note.mustPress && characterType == CharacterType.BF) {
+		trace('Note hit: ' + event.note.noteData.getMustHitNote() + ':' + characterType);
+		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.noteData.kind) {
 				case "weekend-1-cockgun":
@@ -123,6 +124,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				case "weekend-1-firegun-hip":
 					playFireGunAnim(true);
 				default:
+					trace('Note hit: ' + event.note.noteData.kind);
 					super.onNoteHit(event);
 			}
 		}
