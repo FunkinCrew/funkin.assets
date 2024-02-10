@@ -79,6 +79,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		addToStage(shootingArm);
 
 		shootingFlare = new FlxSprite(0, 0);
+		trace("PICO POSITION FLATE");
+		trace(this.x);
 		shootingFlare.x = this.x + 650;
 		shootingFlare.y = this.y + 190;
 		shootingFlare.zIndex = 10000;

@@ -67,6 +67,19 @@
     },
     {
       "danceEvery": 0,
+      "zIndex": 50,
+      "position": [284, 305],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "phillyHighwayLights_lightmap",
+      "isPixel": false,
+      "assetPath": "phillyStreets/phillyHighwayLights_lightmap",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
       "zIndex": 60,
       "position": [139, 209],
       "scale": [1, 1],
@@ -119,6 +132,19 @@
     },
     {
       "danceEvery": 0,
+      "zIndex": 90,
+      "position": [1921, 608],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "phillyTraffic_lightmap",
+      "isPixel": false,
+      "assetPath": "phillyStreets/phillyTraffic_lightmap",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
       "zIndex": 100,
       "position": [88, 317],
       "scale": [1, 1],
@@ -126,6 +152,19 @@
       "name": "phillyForeground",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyForeground",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 101,
+      "position": [496, 1091],
+      "scale": [0.974, 0.972],
+      "animType": "sparrow",
+      "name": "puddle",
+      "isPixel": false,
+      "assetPath": "phillyStreets/puddle",
       "scroll": [1, 1],
       "alpha": 1,
       "animations": []

@@ -7,16 +7,88 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
+import funkin.graphics.shaders.RuntimeRainShader;
+import openfl.utils.Assets;
+import openfl.filters.BlurFilter;
+import funkin.graphics.framebuffer.BitmapDataUtil;
+import StringTools;
 
 class PhillyStreetsStage extends Stage
 {
+	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+	var blurFilter:BlurFilter = new BlurFilter(6, 6);
+
 	function new()
 	{
 		super('phillyStreets');
 	}
 
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
+		rainShader.intensity = 0.5;
+
+		// set the shader input
+		rainShader.mask = frameBufferMan.getFrameBuffer("mask");
+		rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
+
+		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
+		// FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
+	}
+
 	override function buildStage()
 	{
 		super.buildStage();
+	}
+
+	override function onUpdate(event:UpdateScriptEvent)
+	{
+		super.onUpdate(event);
+		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+		rainShader.update(event.elapsed);
+	}
+
+	override function setupFrameBuffers()
+	{
+		frameBufferMan.createFrameBuffer("mask", 0xFF000000);
+		frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
+	}
+
+	override function draw()
+	{
+		super.draw();
+		var screen = grabScreen(false);
+		BitmapDataUtil.applyFilter(screen, blurFilter);
+		rainShader.blurredScreen = screen;
+	}
+
+	override function addProp(prop:StageProp, ?name:String = null)
+	{
+		super.addProp(prop, name);
+		if (StringTools.endsWith(name, "_lightmap"))
+		{
+			prop.blend = 0; // 0 means ADD (see openfl.display.BlendMode)
+			frameBufferMan.moveSpriteTo("lightmap", prop);
+		}
+		else if (name == "puddle")
+		{
+			rainShader.puddleY = prop.y + 80;
+			rainShader.puddleScaleY = 0.3;
+			frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
+		}
+		else
+		{
+			frameBufferMan.copySpriteTo("mask", prop, 0x000000);
+		}
+	}
+
+  override function addCharacter(character:BaseCharacter, charType:CharacterType)
+	{
+		super.addCharacter(character, charType);
+		// add to the mask so that characters hide puddles
+		frameBufferMan.copySpriteTo("mask", character, 0x000000);
 	}
 }
