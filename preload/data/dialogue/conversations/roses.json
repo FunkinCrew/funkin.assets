@@ -4,9 +4,7 @@
   "backdrop": {
     "type": "solid",
     "fadeTime": 2.0,
-    "data": {
-      "color": "#BFB3DFD8"
-    }
+    "color": "#BFB3DFD8"
   },
 
   "music": {
@@ -17,9 +15,7 @@
 
   "outro": {
     "type": "fade",
-    "data": {
-      "fadeTime": 1.0
-    }
+    "fadeTime": 1.0
   },
 
   "dialogue": [
