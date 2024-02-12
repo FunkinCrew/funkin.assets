@@ -16,6 +16,7 @@ import StringTools;
 class PhillyStreetsStage extends Stage
 {
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+	var rainShaderFilter:ShaderFilter;
 	var blurFilter:BlurFilter = new BlurFilter(6, 6);
 
 	function new()
@@ -35,8 +36,9 @@ class PhillyStreetsStage extends Stage
 		rainShader.mask = frameBufferMan.getFrameBuffer("mask");
 		rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
 
-		FlxG.camera.setFilters([new ShaderFilter(rainShader)]);
-		// FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
+		rainShaderFilter = new ShaderFilter(rainShader);
+		FlxG.camera.setFilters([rainShaderFilter]);
+		//FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
 	}
 
 	override function buildStage()
@@ -63,6 +65,16 @@ class PhillyStreetsStage extends Stage
 		var screen = grabScreen(false);
 		BitmapDataUtil.applyFilter(screen, blurFilter);
 		rainShader.blurredScreen = screen;
+	}
+
+	override function onGameOver(event:ScriptEvent):Void {
+		// Make it so the rain shader doesn't show over the game over screen
+		FlxG.camera.setFilters([]);
+	}
+
+	override function onSongRetry(event:ScriptEvent):Void {
+		// Make it so the rain shader doesn't show over the game over screen
+		FlxG.camera.setFilters([rainShaderFilter]);
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)
