@@ -11,12 +11,12 @@
     },
     {
       "name": "singLEFT",
-      "prefix": "darnell pose left",
+      "prefix": "Darnell pose right",
       "offsets": [25, -5]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "darnell pose left",
+      "prefix": "Darnell pose right",
       "frameIndices": [6, 7, 8, 9, 10, 11, 12, 13],
       "offsets": [25, -5]
     },
@@ -44,12 +44,12 @@
     },
     {
       "name": "singRIGHT",
-      "prefix": "Darnell pose right",
+      "prefix": "darnell pose left",
       "offsets": [28, -16]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "Darnell pose right",
+      "prefix": "darnell pose left",
       "frameIndices": [7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [12, 8]
     },

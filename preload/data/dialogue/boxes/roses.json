@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Roses",
   "assetPath": "weeb/pixelUI/dialogueBox-new",
   "isPixel": true,
@@ -12,6 +12,7 @@
     "offsets": [225, 450],
     "width": 800,
     "color": "#3F2021",
+    "fontFamily": "Pixel Arial 11 Bold",
     "shadowColor": "#D89494",
     "shadowWidth": 2
   },
