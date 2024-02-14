@@ -6,6 +6,7 @@ import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.OverlayBlend;
+import funkin.graphics.framebuffer.FixedBitmapData;
 import openfl.filters.ShaderFilter;
 import funkin.graphics.shaders.RuntimeRainShader;
 import openfl.utils.Assets;
@@ -37,7 +38,7 @@ class PhillyStreetsStage extends Stage
 		rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
 
 		rainShaderFilter = new ShaderFilter(rainShader);
-		FlxG.camera.setFilters([rainShaderFilter]);
+		// FlxG.camera.setFilters([rainShaderFilter]);
 		//FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
 	}
 
@@ -59,12 +60,14 @@ class PhillyStreetsStage extends Stage
 		frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
 	}
 
+	var screen:FixedBitmapData;
 	override function draw()
 	{
 		super.draw();
-		var screen = grabScreen(false);
-		BitmapDataUtil.applyFilter(screen, blurFilter);
-		rainShader.blurredScreen = screen;
+
+		//screen = grabScreen(false);
+		//BitmapDataUtil.applyFilter(screen, blurFilter);
+		//rainShader.blurredScreen = screen;
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -73,8 +76,8 @@ class PhillyStreetsStage extends Stage
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
-		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.setFilters([rainShaderFilter]);
+		// Make it so the rain shader shows after the game over screen
+		//FlxG.camera.setFilters([rainShaderFilter]);
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)

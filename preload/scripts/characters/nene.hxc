@@ -157,6 +157,8 @@ class NeneCharacter extends SparrowCharacter {
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
+		throw "This is an error!";
+
 		abot.visible = this.visible;
 
 		if (FlxG.keys.justPressed.SPACE)

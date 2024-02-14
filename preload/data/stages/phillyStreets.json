@@ -3,13 +3,13 @@
     {
       "danceEvery": 0,
       "zIndex": 10,
-      "position": [120, 7],
+      "position": [-550, -175],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillySkybox",
       "isPixel": false,
       "assetPath": "phillyStreets/phillySkybox",
-      "scroll": [1, 1],
+      "scroll": [0.1, 0.1],
       "alpha": 1,
       "animations": []
     },
