@@ -82,6 +82,11 @@
       "offsets": [225, 125]
     },
     {
+      "name": "firstDeathExplosion",
+      "prefix": "firstDeathExplosion",
+      "offsets": [225, 125]
+    },
+    {
       "name": "deathLoop",
       "prefix": "Pico Death Stab",
       "looped": true,

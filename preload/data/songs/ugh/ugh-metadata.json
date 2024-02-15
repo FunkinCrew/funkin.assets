@@ -11,7 +11,7 @@
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
-      "opponent": "tankman"
+      "opponent": "tankman-atlas"
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "Normal"
