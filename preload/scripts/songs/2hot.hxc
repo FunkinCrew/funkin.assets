@@ -4,9 +4,12 @@ import flixel.math.FlxBasePoint;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.Paths;
+import funkin.play.stage.StageProp;
 import funkin.modding.base.ScriptedFlxSprite;
+import funkin.graphics.FunkinSprite;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
+import funkin.play.GameOverSubState;
 import flixel.tweens.FlxTween;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
@@ -132,6 +135,15 @@ class TwoHOTSong extends Song
 		}
 	}
 
+	override function onUpdate(event:ScriptEvent)
+	{
+		super.onUpdate(event);
+
+		if (FlxG.keys.justPressed.P) {
+			takeCanDamage();
+		}
+	}
+
 	function weekend1FireGun()
 	{
 		if (gunCocked)
@@ -223,6 +235,65 @@ class TwoHOTSong extends Song
 		}
 	}
 
+	function darkenStageProps()
+	{
+		// Darken the background, then fade it back.
+		for (stageProp in PlayState.instance.currentStage.members)
+		{
+			// Determine if the stage prop is something that should be excluded from darkening.
+			if (Std.isOfType(stageProp, StageProp)) {
+				if (stageProp.name == "bf" || stageProp.name == "dad" || stageProp.name == "gf") // This refers to the player.
+				{
+					// Exclude.
+					continue;
+				}
+			}
+
+			// Hacky way of selecting PicoPlayable.shootingArm.
+			if (stageProp.zIndex == (PlayState.instance.currentStage.getBoyfriend().zIndex - 2)) {
+				// Exclude.
+				continue;
+			}
+
+			// Hacky way of selecting PicoPlayable.picoFade.
+			if (stageProp.zIndex == (PlayState.instance.currentStage.getBoyfriend().zIndex - 3)) {
+				// Exclude.
+				continue;
+			}
+
+			// If not excluded, darken.
+			stageProp.color = 0xFF111111;
+			new FlxTimer().start(1/24, (tmr) ->
+			{
+				stageProp.color = 0xFF222222;
+				FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
+			});
+		}
+	}
+
+	function blackenStageProps()
+	{
+		// Blacken the background (also Darnell and Nene) entirely, then restore it once the gameOverSubState is up.
+		for (stageProp in PlayState.instance.currentStage.members)
+		{
+			// Determine if the stage prop is something that should be excluded from blackening.
+			if (Std.isOfType(stageProp, StageProp)) {
+				if (stageProp.name == "bf") // This refers to the player.
+				{
+					// Exclude.
+					continue;
+				}
+			}
+
+			// If not excluded, blacken.
+			stageProp.color = 0xFF000000;
+			new FlxTimer().start(1.0, (tmr) ->
+			{
+				stageProp.color = 0xFFFFFFFF;
+			});
+		}
+	}
+
 	function shootNextCan()
 	{
 		var can = getNextCanWithState(STATE_ARCING);
@@ -234,22 +305,7 @@ class TwoHOTSong extends Song
 			new FlxTimer().start(1/24, function(tmr)
 			{
 
-				for (stageProp in PlayState.instance.currentStage.members)
-				{
-					if (stageProp.zIndex < PlayState.instance.currentStage.getGirlfriend().zIndex)
-					{
-						stageProp.color = 0xFF111111;
-
-						new FlxTimer().start(1/24, (tmr) ->
-						{
-							stageProp.color = 0xFF222222;
-							FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
-						});
-
-
-					}
-
-				}
+				darkenStageProps();
 
 
 				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad());
@@ -323,29 +379,44 @@ class TwoHOTSong extends Song
 	{
 		super.onNoteMiss(event.note);
 
+		trace('Missed note on 2hot stage...' + event.note.noteData);
+
 		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-cockgun":
-				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
-				PlayState.instance.health += 0.0775;
+				event.healthMulti = 0.0; // We cause health loss later.
 			case "weekend-1-firegun":
 				gunCocked = false;
+				event.healthMulti = 0.0; // We cause health loss elsewhere.
 				missNextCan();
-				PlayState.instance.health -= HEALTH_LOSS;
-				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
-				PlayState.instance.health += 0.0775;
+				takeCanDamage();
 			case "weekend-1-firegun-hip":
 				gunCocked = false;
+				event.healthMulti = 0.0; // We cause health loss elsewhere.
 				missNextCan();
-				PlayState.instance.health -= HEALTH_LOSS;
-				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
-				PlayState.instance.health += 0.0775;
+				takeCanDamage();
 			case "weekend-1-firegun-far":
 				gunCocked = false;
+				event.healthMulti = 0.0; // We cause health loss elsewhere.
 				missNextCan();
-				PlayState.instance.health -= HEALTH_LOSS;
-				// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
-				PlayState.instance.health += 0.0775;
+				takeCanDamage();
+		}
+	}
+
+	function takeCanDamage():Void {
+		trace('Taking damage from can exploding!');
+		PlayState.instance.health -= HEALTH_LOSS;
+		// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
+		// PlayState.instance.health += 0.0775;
+
+		if (PlayState.instance.health <= 0) {
+			trace('Died to the can! Use special death animation.');
+
+			// Reset to standard death animation.
+			GameOverSubState.musicSuffix = 'Pico';
+			GameOverSubState.blueBallSuffix = '-PicoExplode';
+
+			blackenStageProps();
 		}
 	}
 
@@ -368,7 +439,7 @@ class TwoHOTSong extends Song
 		}
 	}
 
-	var spraycanPile:FlxSprite = null;
+	var spraycanPile:FunkinSprite = null;
 
 	function placeSpraycanPile()
 	{
@@ -376,7 +447,7 @@ class TwoHOTSong extends Song
 		{
 			if (spraycanPile == null)
 			{
-				spraycanPile = new FlxSprite(0, 0);
+				spraycanPile = new FunkinSprite(0, 0);
 				spraycanPile.loadGraphic(Paths.image('SpraycanPile'));
 				spraycanPile.x = PlayState.instance.currentStage.getDad().x + 300;
 				spraycanPile.y = PlayState.instance.currentStage.getDad().y + 300;

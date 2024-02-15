@@ -71,13 +71,15 @@ class PhillyStreetsStage extends Stage
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
+		super.onGameOver(event);
 		// Make it so the rain shader doesn't show over the game over screen
 		FlxG.camera.setFilters([]);
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
-		// Make it so the rain shader shows after the game over screen
-		//FlxG.camera.setFilters([rainShaderFilter]);
+		super.onSongRetry(event);
+		// Make it so the rain shader doesn't show over the game over screen
+		// FlxG.camera.setFilters([rainShaderFilter]);
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)
