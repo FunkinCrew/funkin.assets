@@ -1,0 +1,62 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.Paths;
+import flixel.math.FlxPoint;
+
+class SpraycanAtlasSprite extends FlxAtlasSprite
+{
+	public var STATE_ARCING:Int = 2; // In the air.
+	public var STATE_SHOT:Int = 3; // Hit by the player.
+	public var STATE_IMPACTED:Int = 4; // Impacted the player.
+
+  public var currentState:Int = 2;
+
+  public function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("spraycanAtlas", "weekend1"), {
+      FrameRate: 24.0,
+      Reversed: false,
+      // ?OnComplete:Void -> Void,
+      ShowPivot: false,
+      Antialiasing: true,
+      ScrollFactor: new FlxPoint(1, 1),
+    });
+
+    trace('Spawned Atlas Spraycan!');
+    trace('Got frames: ' + this.anim.length);
+    trace('Got animations: ' + listAnimations());
+
+    onAnimationFinish.add(finishCanAnimation);
+  }
+
+  public function finishCanAnimation(name:String) {
+    switch(name) {
+      case 'Can Start':
+        trace('Can Start finished');
+        playHitPico();
+      case 'Can Shot':
+        trace('Can Shot finished');
+        this.kill();
+      case 'Hit Pico':
+        trace('Hit Pico finished');
+        this.kill();
+    }
+  }
+
+  public function playCanStart():Void {
+    trace('Atlas Spraycan playCanStart');
+
+    this.playAnimation('Can Start');
+  }
+
+  public function playCanShot():Void {
+    trace('Atlas Spraycan playCanShot');
+
+    this.playAnimation('Can Shot');
+  }
+
+  public function playHitPico():Void {
+    trace('Atlas Spraycan playHitPico');
+
+    this.playAnimation('Hit Pico');
+  }
+}

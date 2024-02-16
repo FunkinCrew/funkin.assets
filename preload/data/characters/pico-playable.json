@@ -99,26 +99,14 @@
     {
       "name": "cock",
       "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Reload",
+      "prefix": "Pico Reload0",
       "offsets": [0, 0]
     },
     {
-      "name": "shootFar",
+      "name": "shoot",
       "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Shoot Far Stub0",
-      "offsets": [-37, 14]
-    },
-    {
-      "name": "shootHip",
-      "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Shoot Hip Stub0",
-      "offsets": [-37, 0]
-    },
-    {
-      "name": "shootFull",
-      "assetPath": "characters/Pico_Shooting_Full",
-      "prefix": "Pico Shoot Far Full0",
-      "offsets": [600, 250]
+      "prefix": "Pico Shoot Hip Full0",
+      "offsets": [300, 250]
     }
   ]
 }

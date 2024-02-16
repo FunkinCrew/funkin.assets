@@ -3,6 +3,7 @@ import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.Paths;
 import flixel.FlxSprite;
@@ -116,18 +117,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.noteData.kind) {
-				case "weekend-1-cockgun":
+				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
 				case "weekend-1-firegun":
 					holdTimer = 0;
-					playFireGunAnim(false);
-				case "weekend-1-firegun-far":
-					holdTimer = 0;
-					playFireGunAnim(false);
-					holdTimer = 0;
-				case "weekend-1-firegun-hip":
-					playFireGunAnim(true);
+					playFireGunAnim();
 				default:
 					super.onNoteHit(event);
 			}
@@ -246,7 +241,16 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
     picoDeathExplosion.visible = true;
 		this.visible = false;
 
+		new FlxTimer().start(3.5, afterThreePointFiveSeconds);
+
     picoDeathExplosion.playAnimation('intro');
+	}
+
+	function afterThreePointFiveSeconds(timer:FlxTimer) {
+		// Start the (standard) death music, 3.5 seconds after the explosion starts,
+		// not when the explosion sound finishes or when the loop starts.
+		trace('Starting death music after 3.5 seconds.');
+		GameOverSubState.instance.startDeathMusic(1.0, false);
 	}
 
 	function doExplosionConfirm() {
@@ -258,7 +262,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		trace('Animation finished: ' + animLabel);
 		if (animLabel == 'intro') {
 			trace('Restarting explosion animation loop!');
-			GameOverSubState.instance.startDeathMusic(1.0, false);
       picoDeathExplosion.playAnimation('Loop Start', true, false, true);
 		} else if (animLabel == 'Confirm') {
 			// Do nothing, the animation will just play.
@@ -383,7 +386,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 * Play the animation where Pico shoots the can successfully.
 	 */
 	function playFireGunAnim(hip:Bool) {
-		this.playAnimation(hip ? 'shootHip' : 'shootFar', true, true);
+		this.playAnimation('shoot', true, true);
 		FlxG.sound.play(Paths.sound('Can_Shot_1'), 1.0);
 	}
 	/**

@@ -168,6 +168,19 @@
       "scroll": [1, 1],
       "alpha": 1,
       "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 690,
+      "position": [900, 1015],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "spraycanPile",
+      "isPixel": false,
+      "assetPath": "SpraycanPile",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": []
     }
   ],
   "cameraZoom": 0.77,

@@ -1,22 +1,21 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
-import funkin.Paths;
-import funkin.play.stage.StageProp;
-import funkin.modding.base.ScriptedFlxSprite;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.play.song.Song;
-import funkin.play.PlayState;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxSprite;
+import funkin.Paths;
 import funkin.play.GameOverSubState;
-import flixel.tweens.FlxTween;
+import funkin.play.PlayState;
+import funkin.play.song.Song;
+import funkin.play.stage.StageProp;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
-/**
- * TODO: Move kicking to song events/custom notes after those are implemented.
- */
 class TwoHOTSong extends Song
 {
 	function new()
@@ -27,14 +26,11 @@ class TwoHOTSong extends Song
 	/**
 	 * Health lost when hit by can.
 	 */
-	var HEALTH_LOSS = 0.25 * 2;
+	var HEALTH_LOSS = 0.025 * 2;
 
 	function onCountdownStart(event:SongLoadScriptEvent)
 	{
 		super.onSongLoaded(event);
-
-		populateCanEndTimes();
-		placeSpraycanPile();
 	}
 
 	function onSongRetry(event:ScriptEvent)
@@ -42,17 +38,16 @@ class TwoHOTSong extends Song
 		super.onSongRetry(event);
 
 		removeCans();
-		populateCanEndTimes();
 		gunCocked = false;
 	}
 
 	function removeCans()
 	{
-		for (can in canQueue)
+		for (can in spawnedCans)
 		{
 			can.kill();
 		}
-		canQueue = [];
+		spawnedCans = [];
 	}
 
 	function onStateChangeEnd(event:StateChangeScriptEvent)
@@ -69,28 +64,11 @@ class TwoHOTSong extends Song
 	function hardClear()
 	{
 		removeCans();
-		spraycanPile = null;
-		canEndTimes = [];
 		gunCocked = false;
 	}
 
 	var gunCocked:Bool = false;
-
-	/**
-	 * Every time a new can is spawned, it is added to this queue, and its state is stored.
-	 * Whenever a state change is requested (i.e. an appropriate note is hit),
-	 * the first applicable can in the queue has its state updated.
-	 *
-	 * This allows for multiple cans to be in different states at the same time.
-	 */
-	var canQueue:Array<FlxSprite> = [];
-
-	/**
-	 * Every time the song starts, the list of notes is skimmed and the times of each firegun note are stored.
-	 * Every time a new can is spawned, the first element in this list is popped and used as the time
-	 * when the can is projected to reach its destination.
-	 */
-	var canEndTimes:Array<Float> = [];
+	var spawnedCans:Array<ScriptedFlxAtlasSprite> = [];
 
 	function onNoteHit(event:NoteScriptEvent)
 	{
@@ -100,26 +78,26 @@ class TwoHOTSong extends Song
 		switch (event.note.noteData.kind)
 		{
 			case "weekend-1-lightcan":
+				// Do nothing, but place this such that the animation plays at the right time.
+			case "weekend-1-kickcan":
+				// This creates the can and starts the animation.
 				// We define the behavior of the can in a separate scripted class,
 				// which allows the can to track and manage its own properties.
-				var newCan:ScriptedFlxSprite = ScriptedFlxSprite.init('SpraycanSprite');
+				var newCan:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', [0, 0]);
 
-				var initialPos:FlxBasePoint = new FlxBasePoint(PlayState.instance.currentStage.getDad().x + 300,
-					PlayState.instance.currentStage.getDad().y + 300);
+				var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
-				newCan.scriptSet('initialPosition', initialPos);
+				newCan.x = spraycanPile.x - 430;
+				newCan.y = spraycanPile.y - 840;
+				newCan.zIndex = spraycanPile.zIndex - 1;
+
+				newCan.scriptCall('playCanStart');
 
 				PlayState.instance.currentStage.add(newCan);
 				PlayState.instance.currentStage.refresh(); // Apply z-index.
-				canQueue.push(newCan);
-			case "weekend-1-kickcan":
-				kickNextCan();
+				spawnedCans.push(newCan);
 			case "weekend-1-kneecan":
-				kneeNextCan('primary');
-			case "weekend-1-kneecan-high":
-				kneeNextCan('high');
-			case "weekend-1-kneecan-low":
-				kneeNextCan('low');
+				// Do nothing, but place this such that the animation plays at the right time.
 			case "weekend-1-cockgun": // lol
 				gunCocked = true;
 				new FlxTimer().start(1.0, function()
@@ -127,11 +105,17 @@ class TwoHOTSong extends Song
 					gunCocked = false;
 				});
 			case "weekend-1-firegun":
-				weekend1FireGun();
-			case "weekend-1-firegun-far":
-				weekend1FireGun();
-			case "weekend-1-firegun-hip":
-				weekend1FireGun();
+				if (gunCocked)
+				{
+					trace('Firing gun!');
+					shootNextCan();
+				}
+				else
+				{
+					trace('Cannot fire gun!');
+					// The player cannot hit this note.
+					event.cancelEvent();
+				}
 		}
 	}
 
@@ -144,95 +128,24 @@ class TwoHOTSong extends Song
 		}
 	}
 
-	function weekend1FireGun()
-	{
-		if (gunCocked)
-		{
-			trace('Firing gun!');
-			shootNextCan();
-		}
-		else
-		{
-			trace('Cannot fire gun!');
-			// The player cannot hit this note.
-			event.cancelEvent();
-		}
-	}
-
-	public var STATE_IDLE:Int = 0;
-	public var STATE_KICKED:Int = 1;
-	public var STATE_ARCING:Int = 2;
-	public var STATE_SHOT:Int = 3;
-	public var STATE_IMPACTED:Int = 4;
+	public var STATE_ARCING:Int = 2; // In the air.
+	public var STATE_SHOT:Int = 3; // Hit by the player.
+	public var STATE_IMPACTED:Int = 4; // Impacted the player.
 
 	function getNextCanWithState(desiredState:Int)
 	{
-		for (index in 0...canQueue.length)
+		for (index in 0...spawnedCans.length)
 		{
-			var can = canQueue[index];
+			var can = spawnedCans[index];
 			var canState = can.scriptGet('currentState');
 
 			if (canState == desiredState)
 			{
-				// Special logic to cross high and low cans.
-				if (desiredState == STATE_ARCING && index < canQueue.length - 1 && can.scriptGet('arcVariant') == 'high')
-				{
-					var nextCan = canQueue[index + 1];
-					if (nextCan != null && nextCan.scriptGet('arcVariant') == 'low' && nextCan.scriptGet('currentState') == STATE_ARCING)
-					{
-						return nextCan;
-					}
-				}
-
-				// Else return the can we found.
+				// Return the can we found.
 				return can;
 			}
 		}
 		return null;
-	}
-
-	function kickNextCan()
-	{
-		var can = getNextCanWithState(STATE_IDLE);
-
-		if (can != null)
-		{
-			can.scriptSet('currentState', STATE_KICKED);
-		}
-	}
-
-	function kneeNextCan(variant)
-	{
-		var can = getNextCanWithState(STATE_KICKED);
-
-		if (can != null)
-		{
-			can.scriptSet('currentState', STATE_ARCING);
-
-			var startPos:FlxBasePoint = new FlxBasePoint(PlayState.instance.currentStage.getDad().x + 300, PlayState.instance.currentStage.getDad().y + 100);
-			var endPos:FlxBasePoint = new FlxBasePoint(PlayState.instance.currentStage.getBoyfriend().x + 100,
-				PlayState.instance.currentStage.getBoyfriend().y);
-			var startArcTime:Float = Conductor.instance.songPosition;
-			var hitWindow = (10 / 60 * 1000);
-			var endArcTime:Float = popNextCanEndTime(variant == 'high' ? 1 : 0) + hitWindow; // pop removes the last element, so we need to shift.
-			// Remember, to call a custom function on a scripted class,
-			// you need to use scriptCall.
-			can.scriptCall('setArcProperties', [startPos, startArcTime, endPos, endArcTime]);
-
-			can.scriptSet('arcVariant', variant);
-		}
-	}
-
-	function popNextCanEndTime(offset:Int)
-	{
-		if (offset == 0)
-		{
-			return canEndTimes.shift();
-		}
-		else
-		{
-			return canEndTimes.splice(offset, 1)[0];
-		}
 	}
 
 	function darkenStageProps()
@@ -301,48 +214,14 @@ class TwoHOTSong extends Song
 		if (can != null)
 		{
 			can.scriptSet('currentState', STATE_SHOT);
+			can.scriptCall('playCanShot');
 
 			new FlxTimer().start(1/24, function(tmr)
 			{
-
 				darkenStageProps();
 
-
-				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getDad());
-				// colTween.tween(2, 0xFFFFA500, 0xFFFFFFFF, PlayState.instance.currentStage.getGirlfriend());
-				// PlayState.
-				// PlayState.instance.currentStage.getBoyfriend().color = 0xFFFFA500;
-				// PlayState.instance.currentStage.getDad().color = 0xFFFFA500;
-				// PlayState.instance.currentStage.getGirlfriend().color = 0xFFFFA500;
-
-				// FlxTween.color(PlayState.instance.currentStage.getBoyfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
-				// FlxTween.color(PlayState.instance.currentStage.getDad(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
-				// FlxTween.color(PlayState.instance.currentStage.getGirlfriend(), 0.4, 0xFFFFA500, 0xFFFFFFFF);
-
-
-				var explodeEZ:FlxSprite = new FlxSprite(can.x, can.y);
-				explodeEZ.frames = Paths.getSparrowAtlas("spraypaintExplosionEZ");
-				explodeEZ.animation.addByPrefix("idle", "explosion", 24, false);
-				explodeEZ.animation.play("idle");
-
-				// explodeEZ.x -= explodeEZ.width;
-				// explodeEZ.y -= explodeEZ.height;
-
-				PlayState.instance.currentStage.add(explodeEZ);
-				explodeEZ.animation.finishCallback = () -> explodeEZ.kill();
-
-				var explode:FlxSprite = new FlxSprite(can.x, can.y);
-				explode.frames = Paths.getSparrowAtlas("spraypaintExplosion");
-				explode.animation.addByPrefix("idle", "Explosion", 24, false);
-				explode.animation.play("idle");
-
-				// explode.x -= explode.width;
-				// explode.y -= explode.height;
-
-				PlayState.instance.currentStage.add(explode);
-				explode.animation.finishCallback = () -> explode.kill();
-
-				can.kill();
+				// TODO: Kill the can sprite after the animation finishes.
+				// can.kill();
 			});
 
 		}
@@ -354,8 +233,8 @@ class TwoHOTSong extends Song
 
 		if (can != null)
 		{
-			spawnImpactParticle();
 			can.scriptSet('currentState', STATE_IMPACTED);
+			// can.scriptCall('playHitPico');
 		}
 	}
 
@@ -417,44 +296,6 @@ class TwoHOTSong extends Song
 			GameOverSubState.blueBallSuffix = '-PicoExplode';
 
 			blackenStageProps();
-		}
-	}
-
-	var GUN_NOTES = ["weekend-1-firegun", "weekend-1-firegun-far", "weekend-1-firegun-hip"];
-
-	function populateCanEndTimes()
-	{
-		canEndTimes = [];
-		if (PlayState.instance == null || PlayState.instance.inactiveNotes == null || PlayState.instance.inactiveNotes.length == 0)
-		{
-			return;
-		}
-		var songNotes:Song = PlayState.instance.inactiveNotes;
-		for (note in songNotes)
-		{
-			if (GUN_NOTES.contains(note.noteData.kind))
-			{
-				canEndTimes.push(note.noteData.strumTime);
-			}
-		}
-	}
-
-	var spraycanPile:FunkinSprite = null;
-
-	function placeSpraycanPile()
-	{
-		if (canEndTimes != null && canEndTimes.length > 0)
-		{
-			if (spraycanPile == null)
-			{
-				spraycanPile = new FunkinSprite(0, 0);
-				spraycanPile.loadGraphic(Paths.image('SpraycanPile'));
-				spraycanPile.x = PlayState.instance.currentStage.getDad().x + 300;
-				spraycanPile.y = PlayState.instance.currentStage.getDad().y + 300;
-				spraycanPile.zIndex = 2000;
-				spraycanPile.active = false;
-			}
-			PlayState.instance.currentStage.add(spraycanPile);
 		}
 	}
 }
