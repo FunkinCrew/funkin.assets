@@ -146,7 +146,8 @@ class NeneCharacter extends SparrowCharacter {
 
 	public override function onSongEvent(event)
 	{
-		if (event.event.e == "FocusCamera")
+		// fucked up... but it spits out FocusCamera!
+		if (event.event.event == "FocusCamera")
 		{
 			pupil.playAnimation("");
 			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
@@ -196,9 +197,11 @@ class NeneCharacter extends SparrowCharacter {
 		if (!refershedLol)
 		{
 			abot.x = this.x - 100;
-			abot.y = this.y + 340;
+			abot.y = this.y + 316; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
+
+			FlxG.debugger.track(abot);
 
 			eyeWhites.x = abot.x + 40;
 			eyeWhites.y = abot.y + 250;
@@ -206,7 +209,7 @@ class NeneCharacter extends SparrowCharacter {
 			PlayState.instance.currentStage.add(eyeWhites);
 
 			pupil.x = this.x - 607;
-			pupil.y = this.y - 152;
+			pupil.y = this.y - 176;
 			pupil.zIndex = eyeWhites.zIndex + 5;
 			PlayState.instance.currentStage.add(pupil);
 
