@@ -113,7 +113,7 @@
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
     <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
     <menu-checkbox id="menubarItemToggleToolboxOffsets" text="Offsets" />
-    <menu-checkbox id="menubarItemToggleToolboxNotes" text="Notes" />
+    <menu-checkbox id="menubarItemToggleToolboxNoteData" text="Notes" />
     <menu-checkbox id="menubarItemToggleToolboxEventData" text="Events" />
     <menu-checkbox id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
     <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
