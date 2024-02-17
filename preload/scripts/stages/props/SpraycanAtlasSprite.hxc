@@ -38,8 +38,19 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
         this.kill();
       case 'Hit Pico':
         trace('Hit Pico finished');
+        playHitExplosion();
         this.kill();
     }
+  }
+
+  public function playHitExplosion():Void {
+    var explodeEZ:FlxSprite = new FlxSprite(this.x + 300, this.y);
+		explodeEZ.frames = Paths.getSparrowAtlas("spraypaintExplosionEZ");
+		explodeEZ.animation.addByPrefix("idle", "explosion", 24, false);
+		explodeEZ.animation.play("idle");
+
+		PlayState.instance.currentStage.add(explodeEZ);
+		explodeEZ.animation.finishCallback = () -> explodeEZ.kill();
   }
 
   public function playCanStart():Void {
