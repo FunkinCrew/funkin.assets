@@ -26,7 +26,7 @@ class TwoHOTSong extends Song
 	/**
 	 * Health lost when hit by can.
 	 */
-	var HEALTH_LOSS = 0.025 * 2;
+	var HEALTH_LOSS = 0.25 * 2;
 
 	function onCountdownStart(event:SongLoadScriptEvent)
 	{
@@ -162,8 +162,8 @@ class TwoHOTSong extends Song
 				}
 			}
 
-			// Hacky way of selecting PicoPlayable.shootingArm.
-			if (stageProp.zIndex == (PlayState.instance.currentStage.getBoyfriend().zIndex - 2)) {
+			// Select cans.
+			if (spawnedCans.contains(stageProp)) {
 				// Exclude.
 				continue;
 			}
@@ -198,6 +198,12 @@ class TwoHOTSong extends Song
 				}
 			}
 
+			// Select cans.
+			if (spawnedCans.contains(stageProp)) {
+				// Exclude.
+				continue;
+			}
+
 			// If not excluded, blacken.
 			stageProp.color = 0xFF000000;
 			new FlxTimer().start(1.0, (tmr) ->
@@ -219,9 +225,6 @@ class TwoHOTSong extends Song
 			new FlxTimer().start(1/24, function(tmr)
 			{
 				darkenStageProps();
-
-				// TODO: Kill the can sprite after the animation finishes.
-				// can.kill();
 			});
 
 		}
@@ -234,7 +237,6 @@ class TwoHOTSong extends Song
 		if (can != null)
 		{
 			can.scriptSet('currentState', STATE_IMPACTED);
-			// can.scriptCall('playHitPico');
 		}
 	}
 
