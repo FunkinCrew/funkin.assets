@@ -48,7 +48,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		deathSpriteRetry.visible = false;
 
-		FlxG.debugger.track(deathSpriteRetry);
+		//FlxG.debugger.track(deathSpriteRetry);
 
 		deathSpriteNene = new FlxSprite(0, 0);
 		var gf = PlayState.instance.currentStage.getGirlfriend();
