@@ -19,8 +19,8 @@ class PicoBlazinCharacter extends SparrowCharacter
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubState.musicSuffix = 'Pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico';
 	}
 
 	function onNoteHit(event:NoteScriptEvent)

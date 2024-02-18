@@ -144,15 +144,73 @@ class NeneCharacter extends SparrowCharacter {
 
 	var refershedLol:Bool = false;
 
-	public override function onSongEvent(event)
+	/**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
 	{
-		// fucked up... but it spits out FocusCamera!
-		if (event.event.event == "FocusCamera")
+		super.onSongEvent(scriptEvent);
+		if (scriptEvent.eventData.eventKind == "FocusCamera")
 		{
-			pupil.playAnimation("");
-			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
+			var eventProps = scriptEvent.eventData.value;
+			switch (Std.parseInt(eventProps.char)) {
+				case 0:
+					trace(eventProps.char + '== 0');
+					movePupilsRight();
+				case 1:
+					trace(eventProps.char + '== 1');
+					movePupilsLeft();
+				default:
+					trace('no match!');
+			}
 		}
 
+	}
+
+	function movePupilsLeft():Void {
+		trace('LOOK LEFT');
+		if (pupilState == PUPIL_STATE_LEFT) return;
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 0;
+		// pupilState = PUPIL_STATE_LEFT;
+	}
+
+	function movePupilsRight():Void {
+		trace('LOOK RIGHT');
+		if (pupilState == PUPIL_STATE_NORMAL) return;
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 17;
+		// pupilState = PUPIL_STATE_NORMAL;
+	}
+
+	function moveByNoteKind(kind:String) {
+		// Force ABot to look where the action is happening.
+		switch(event.note.noteData.kind) {
+			case "weekend-1-lightcan":
+				movePupilsLeft();
+			case "weekend-1-kickcan":
+				// movePupilsLeft();
+			case "weekend-1-kneecan":
+				// movePupilsLeft();
+			case "weekend-1-cockgun":
+				movePupilsRight();
+			case "weekend-1-firegun":
+				// movePupilsRight();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		moveByNoteKind(event.note.noteData.kind);
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		moveByNoteKind(event.note.noteData.kind);
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {

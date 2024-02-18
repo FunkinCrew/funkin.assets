@@ -294,8 +294,8 @@ class TwoHOTSong extends Song
 			trace('Died to the can! Use special death animation.');
 
 			// Reset to standard death animation.
-			GameOverSubState.musicSuffix = 'Pico';
-			GameOverSubState.blueBallSuffix = '-PicoExplode';
+			GameOverSubState.musicSuffix = '-pico-explode';
+			GameOverSubState.blueBallSuffix = '-pico-explode';
 
 			blackenStageProps();
 		}

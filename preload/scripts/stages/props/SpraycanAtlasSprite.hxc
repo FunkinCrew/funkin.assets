@@ -1,6 +1,8 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.Paths;
 import flixel.math.FlxPoint;
+import flixel.FlxSprite;
+import funkin.play.PlayState;
 
 class SpraycanAtlasSprite extends FlxAtlasSprite
 {

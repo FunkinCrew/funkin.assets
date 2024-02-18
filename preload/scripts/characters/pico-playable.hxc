@@ -5,6 +5,8 @@ import funkin.play.GameOverSubState;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
+import flixel.sound.FlxSound;
+import funkin.audio.FunkinSound;
 import funkin.Paths;
 import flixel.FlxSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -137,10 +139,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				//playCockMissAnim();
 			case "weekend-1-firegun":
 				playCanExplodeAnim();
-			case "weekend-1-firegun-far":
-				playCanExplodeAnim();
-			case "weekend-1-firegun-hip":
-				playCanExplodeAnim();
 			default:
 				super.onNoteMiss(event);
 		}
@@ -148,7 +146,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 		if (name == "firstDeath") {
-			if (GameOverSubState.blueBallSuffix == '-PicoExplode') {
+			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.
 				doExplosionDeath();
 			} else {
@@ -241,21 +239,29 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
     picoDeathExplosion.visible = true;
 		this.visible = false;
 
-		new FlxTimer().start(3.5, afterThreePointFiveSeconds);
+		new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
 
     picoDeathExplosion.playAnimation('intro');
 	}
 
-	function afterThreePointFiveSeconds(timer:FlxTimer) {
+	var singed:FunkinSound;
+	function afterPicoDeathExplosionIntro(timer:FlxTimer) {
 		// Start the (standard) death music, 3.5 seconds after the explosion starts,
 		// not when the explosion sound finishes or when the loop starts.
-		trace('Starting death music after 3.5 seconds.');
+		trace('Starting death music...');
 		GameOverSubState.instance.startDeathMusic(1.0, false);
+		singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
+		// singed.fadeIn(0.5, 0.3, 1.0);
 	}
 
 	function doExplosionConfirm() {
 		// Suffixed confirm music will already play.
 		picoDeathExplosion.playAnimation('Confirm');
+		if (singed != null) {
+			trace('Stopping singed loop.');
+			singed.stop();
+			singed = null;
+		}
 	}
 
 	function onExplosionFinishAnim(animLabel:String) {
