@@ -11,20 +11,23 @@ class DarnellCharacter extends SparrowCharacter {
 
 	function onNoteHit(event:NoteScriptEvent)
 	{
-		holdTimer = 0;
-
 		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
 			switch(event.note.noteData.kind) {
 				case "weekend-1-lightcan":
+					holdTimer = 0;
 					playLightCanAnim();
 				case "weekend-1-kickcan":
+					holdTimer = 0;
 					playKickCanAnim();
 				case "weekend-1-kneecan":
+					holdTimer = 0;
 					playKneeCanAnim();
 				case "weekend-1-kneecan-high":
+					holdTimer = 0;
 					playKneeCanAnim();
 				case "weekend-1-kneecan-low":
+					holdTimer = 0;
 					playKneeCanAnim();
 				default:
 					super.onNoteHit(event);
