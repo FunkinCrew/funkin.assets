@@ -2,10 +2,13 @@ import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxSprite;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.audio.visualize.ABotVis;
 
 class NeneCharacter extends SparrowCharacter {
 	function new() {
@@ -21,6 +24,7 @@ class NeneCharacter extends SparrowCharacter {
 	var PUPIL_STATE_LEFT = 1;
 
 	var abot:FlxAtlasSprite;
+	var abotViz:ABotVis;
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
@@ -43,6 +47,11 @@ class NeneCharacter extends SparrowCharacter {
 		abot.x = this.x;
 		abot.y = this.y;
 		abot.zIndex = this.zIndex - 1;
+
+		abotViz = new ABotVis(FlxG.sound.music);
+		abotViz.x = this.x;
+		abotViz.y = this.y;
+		abotViz.zIndex = abot.zIndex + 1;
 	}
 
 	/**
@@ -199,9 +208,14 @@ class NeneCharacter extends SparrowCharacter {
 			abot.x = this.x - 100;
 			abot.y = this.y + 316; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
+
 			PlayState.instance.currentStage.add(abot);
 
-			FlxG.debugger.track(abot);
+			abotViz.x = this.x + 0;
+			abotViz.y = this.y + 0;
+			abotViz.zIndex = abot.zIndex + 1;
+			PlayState.instance.currentStage.add(abotViz);
+
 
 			eyeWhites.x = abot.x + 40;
 			eyeWhites.y = abot.y + 250;
@@ -215,7 +229,7 @@ class NeneCharacter extends SparrowCharacter {
 
 			stereoBG.x = abot.x + 150;
 			stereoBG.y = abot.y + 30;
-			stereoBG.zIndex = abot.zIndex - 10;
+			stereoBG.zIndex = abot.zIndex - 8;
 			PlayState.instance.currentStage.add(stereoBG);
 
 			PlayState.instance.currentStage.refresh();
