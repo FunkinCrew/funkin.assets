@@ -52,6 +52,7 @@ class NeneCharacter extends SparrowCharacter {
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
+		FlxG.debugger.track(abotViz);
 	}
 
 	/**
@@ -211,9 +212,9 @@ class NeneCharacter extends SparrowCharacter {
 
 			PlayState.instance.currentStage.add(abot);
 
-			abotViz.x = this.x + 0;
-			abotViz.y = this.y + 0;
-			abotViz.zIndex = abot.zIndex + 1;
+			abotViz.x = this.x + 60;
+			abotViz.y = this.y + 390;
+			abotViz.zIndex = abot.zIndex - 1;
 			PlayState.instance.currentStage.add(abotViz);
 
 
