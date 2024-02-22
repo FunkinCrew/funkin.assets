@@ -2,6 +2,7 @@ import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -32,7 +33,7 @@ class NeneCharacter extends SparrowCharacter {
 
 		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
-		eyeWhites = new FlxSprite().makeGraphic(160, 60);
+		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
 		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
 		pupil.x = this.x;

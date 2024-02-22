@@ -35,14 +35,13 @@ class ThornsSong extends Song {
     PlayState.instance.camHUD.visible = false;
     PlayState.instance.camCutscene.visible = true;
 
-    var red = new FlxSprite(-20, -20).makeGraphic(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
+    var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
     red.cameras = [PlayState.instance.camCutscene];
     red.alpha = 1.0;
     PlayState.instance.add(red);
 
-    var senpaiCrazy = new FlxSprite();
+    var senpaiCrazy = FunkinSprite.createSparrow('weeb/senpaiCrazy');
     senpaiCrazy.cameras = [PlayState.instance.camCutscene];
-    senpaiCrazy.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
     senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
     senpaiCrazy.antialiasing = false;
