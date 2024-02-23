@@ -1,0 +1,52 @@
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.Paths;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.PlayStatePlaylist;
+
+/**
+ * Apply middlescroll to the song.
+ */
+class BlazinSong extends Song {
+	public function new() {
+		super('darnell');
+
+		this.hasHidden = false;
+	}
+
+	var hasHidden = false;
+
+	function onUpdate(event:ScriptEvent):Void
+	{
+		if (!this.hasHidden)
+		{
+			this.hasHidden = true;
+			hideEnemyStrumline();
+			centerPlayerStrumline();
+		}
+	}
+
+
+	function hideEnemyStrumline()
+	{
+		var enemyStrumline:FlxSprite = PlayState.instance.enemyStrumline;
+		if (enemyStrumline != null)
+		{
+			for (arrow in enemyStrumline.members)
+			{
+				arrow.visible = false;
+			}
+		}
+	}
+
+	function centerPlayerStrumline()
+	{
+    // This is a song gimmick we are never making middlescroll an option.
+
+		var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
+		if (playerStrumline != null)
+		{
+			playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
+		}
+	}
+}

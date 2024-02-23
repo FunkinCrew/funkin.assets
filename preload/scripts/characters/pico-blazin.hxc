@@ -102,14 +102,14 @@ class PicoBlazinCharacter extends SparrowCharacter
 	function moveToBack()
 	{
 		if (this.debug) return;
-		this.zIndex = 200;
+		this.zIndex = 2000;
 		PlayState.instance.currentStage.refresh();
 	}
 
 	function moveToFront()
 	{
 		if (this.debug) return;
-		this.zIndex = 300;
+		this.zIndex = 3000;
 		PlayState.instance.currentStage.refresh();
 	}
 

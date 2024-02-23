@@ -4,7 +4,7 @@
   "assetPath": "characters/Darnell_Blazin",
   "healthIcon": {
     "id": "darnell",
-    "flipX": true
+    "flipX": false
   },
   "flipX": false,
   "renderType": "sparrow",
