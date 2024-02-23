@@ -240,6 +240,14 @@ class NeneCharacter extends SparrowCharacter {
 		transitionState();
 	}
 
+	public function onScriptEvent(event:ScriptEvent):Void {
+		if (event.type == "SONG_START")
+		{
+			abotViz.snd = FlxG.sound.music;
+			abotViz.initAnalyzer();
+		}
+	}
+
 	var animationFinished:Bool = false;
 
 	function onAnimationFinished(name:String) {
