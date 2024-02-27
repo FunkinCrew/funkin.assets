@@ -13,9 +13,6 @@ class NeneCharacter extends SparrowCharacter {
 		super('nene');
 	}
 
-	var stereoBG:FlxSprite;
-	var eyeWhites:FlxSprite;
-	var pupil:FlxAtlasSprite;
 	var pupilState:Int = 0;
 
 	var PUPIL_STATE_NORMAL = 0;
