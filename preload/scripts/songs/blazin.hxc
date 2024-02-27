@@ -1,7 +1,9 @@
+import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 
 /**
@@ -9,30 +11,32 @@ import funkin.play.PlayStatePlaylist;
  */
 class BlazinSong extends Song {
 	public function new() {
-		super('darnell');
+		super('blazin');
 
 		this.hasHidden = false;
+		this.hasPlayedCutscene = false;
 	}
 
 	var hasHidden = false;
+	var hasPlayedCutscene:Bool = false;
 
 	function onUpdate(event:ScriptEvent):Void
 	{
 		if (!this.hasHidden)
 		{
+			trace('Attempting to hide strumlines');
 			this.hasHidden = true;
-			hideEnemyStrumline();
+			hideOpponentStrumline();
 			centerPlayerStrumline();
 		}
 	}
 
-
-	function hideEnemyStrumline()
+	function hideOpponentStrumline()
 	{
-		var enemyStrumline:FlxSprite = PlayState.instance.enemyStrumline;
-		if (enemyStrumline != null)
+		var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
+		if (opponentStrumline != null)
 		{
-			for (arrow in enemyStrumline.members)
+			for (arrow in opponentStrumline.members)
 			{
 				arrow.visible = false;
 			}
@@ -49,4 +53,31 @@ class BlazinSong extends Song {
 			playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
 		}
 	}
+
+  public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+
+		// TODO: Readd this to keep the cutscene from playing outside of story mode.
+    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+
+    if (!hasPlayedCutscene) {
+      trace('Pausing ending to play a video cutscene (`blazin`)');
+
+      hasPlayedCutscene = true;
+
+      event.cancel(); // CANCEL THE COUNTDOWN!
+
+      startVideo();
+    } else {
+			// Make sure the cutscene can play again next time!
+			hasPlayedCutscene = false;
+			// DO NOT CANCEL THE EVENT!
+		}
+	}
+
+  function startVideo() {
+		VideoCutscene.play(Paths.videos('blazinCutscene'), CutsceneType.ENDING);
+		// This will call onSongEnd() again so make sure the flag is set!
+		hasPlayedCutscene = true;
+  }
 }
