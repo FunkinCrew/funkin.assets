@@ -5,6 +5,8 @@ import funkin.play.GameOverSubState;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
+import flixel.sound.FlxSound;
+import funkin.audio.FunkinSound;
 import funkin.Paths;
 import flixel.FlxSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -24,25 +26,21 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-Pico';
-
-		createShootingExtraSprites();
 	}
 
-	var deathSpriteRetry:FlxSprite;
-	var deathSpriteNene:FlxSprite;
+	var deathSpriteRetry:FunkinSprite;
+	var deathSpriteNene:FunkinSprite;
 
-	var picoFade:FlxSprite;
+	var picoFade:FunkinSprite;
 
 	/**
      * Initialize and cache sprites used for the death animation,
 	 * for use later.
 	 */
 	function createDeathSprites() {
-		deathSpriteRetry = new FlxSprite(0, 0);
-
-		deathSpriteRetry.frames = Paths.getSparrowAtlas("characters/Pico_Death_Retry");
+		deathSpriteRetry = FunkinSprite.createSparrow(0, 0, "characters/Pico_Death_Retry");
 		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
 		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
 
@@ -50,61 +48,15 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		//FlxG.debugger.track(deathSpriteRetry);
 
-		deathSpriteNene = new FlxSprite(0, 0);
+		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
 		var gf = PlayState.instance.currentStage.getGirlfriend();
 		deathSpriteNene.x = gf.originalPosition.x + 280;
 		deathSpriteNene.y = gf.originalPosition.y + 70;
-		deathSpriteNene.frames = Paths.getSparrowAtlas("characters/NeneKnifeToss");
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
 		deathSpriteNene.animation.finishCallback = function(name:String) {
 			deathSpriteNene.visible = false;
 		}
-	}
-
-	var shootingArm:FlxSprite;
-	var shootingFlare:FlxSprite;
-	function createShootingExtraSprites() {
-		shootingArm = new FlxSprite(0, 0);
-		shootingArm.zIndex = 400 - 2;
-		shootingArm.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
-		shootingArm.animation.addByPrefix('far', "Pico Shoot Far Arm0", 24, false);
-		shootingArm.animation.addByPrefix('hip', "Pico Shoot Hip Arm0", 24, false);
-		//shootingArm.visible = false;
-
-		// Set the rotation point to the shoulder.
-		shootingArm.origin.x = shootingArm.width;
-		shootingArm.origin.y = shootingArm.height;
-
-		shootingArm.active = true;
-		// shootingArm.angularVelocity = 100;
-
-		addToStage(shootingArm);
-
-		shootingFlare = new FlxSprite(0, 0);
-		trace("PICO POSITION FLATE");
-		trace(this.x);
-		shootingFlare.x = this.x + 650;
-		shootingFlare.y = this.y + 190;
-		shootingFlare.zIndex = 10000;
-		shootingFlare.frames = Paths.getSparrowAtlas("characters/Pico_Shooting_Extra");
-		shootingFlare.animation.addByPrefix('far', "Pico Shoot Far Flare0", 24, false);
-		shootingFlare.animation.addByPrefix('repeat', "Pico Shoot Repeat Flare0", 24, false);
-		shootingFlare.updateHitbox();
-		shootingFlare.visible = false;
-
-		shootingFlare.animation.finishCallback = function(name:String) {
-			shootingFlare.visible = false;
-		}
-
-		// Set the rotation point to match the arm.
-		shootingFlare.origin.x = shootingArm.origin.x + shootingArm.x - shootingFlare.x;
-		shootingFlare.origin.y = shootingArm.origin.y + shootingArm.y - shootingFlare.y;
-
-		shootingFlare.active = true;
-		//shootingFlare.angularVelocity = 10-0;
-
-		addToStage(shootingFlare);
 	}
 
 	function onNoteHit(event:NoteScriptEvent)
@@ -137,10 +89,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				//playCockMissAnim();
 			case "weekend-1-firegun":
 				playCanExplodeAnim();
-			case "weekend-1-firegun-far":
-				playCanExplodeAnim();
-			case "weekend-1-firegun-hip":
-				playCanExplodeAnim();
 			default:
 				super.onNoteMiss(event);
 		}
@@ -148,7 +96,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 		if (name == "firstDeath") {
-			if (GameOverSubState.blueBallSuffix == '-PicoExplode') {
+			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.
 				doExplosionDeath();
 			} else {
@@ -175,53 +123,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 
 		super.playAnimation(name, restart, ignoreOther);
-
-		if (shootingArm != null) {
-			if (this.getCurrentAnimation() == "shootFar") {
-				if (!shootingArm.visible) {
-					// Shooting arm has a different position in the Far animation.
-					shootingArm.x = this.x - 300;
-					shootingArm.y = this.y - 50;
-					shootingArm.angle = calculateShootingAngle();
-
-					shootingArm.animation.play("far");
-					// Calculate the shooting angle.
-
-					// Only show the shooting flare once per animation.
-					shootingFlare.animation.play("far");
-					shootingFlare.updateHitbox();
-					shootingFlare.x = shootingArm.x - 40;
-					shootingFlare.y = shootingArm.y - 480;
-					shootingFlare.angle = shootingArm.angle;
-					shootingFlare.visible = true;
-				}
-				// Using the .visible flag ITSELF as a one-shot! Sneaky.
-				// bro calling his own code sneaky.
-				shootingArm.visible = true;
-			} else if (this.getCurrentAnimation() == "shootHip") {
-				if (!shootingArm.visible) {
-					// Shooting arm has a different position in the Hip animation.
-					shootingArm.x = this.x - 75; //+ 585;
-					shootingArm.y = this.y + 100; //+ 350;
-					shootingArm.angle = calculateShootingAngle();
-
-					shootingArm.animation.play("hip");
-					// Calculate the shooting angle.
-
-					// Only show the shooting flare once per animation.
-					shootingFlare.animation.play("far");
-					shootingFlare.updateHitbox();
-					shootingFlare.x = shootingArm.x + 300;
-					shootingFlare.y = shootingArm.y - 900;
-					shootingFlare.angle = shootingArm.angle;
-					shootingFlare.visible = true;
-				}
-				// Using the .visible flag ITSELF as a one-shot! Sneaky.
-				shootingArm.visible = true;
-			} else {
-				shootingArm.visible = false;
-			}
-		}
 	}
 
 	var picoDeathExplosion:FlxAtlasSprite;
@@ -241,21 +142,29 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
     picoDeathExplosion.visible = true;
 		this.visible = false;
 
-		new FlxTimer().start(3.5, afterThreePointFiveSeconds);
+		new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
 
     picoDeathExplosion.playAnimation('intro');
 	}
 
-	function afterThreePointFiveSeconds(timer:FlxTimer) {
+	var singed:FunkinSound;
+	function afterPicoDeathExplosionIntro(timer:FlxTimer) {
 		// Start the (standard) death music, 3.5 seconds after the explosion starts,
 		// not when the explosion sound finishes or when the loop starts.
-		trace('Starting death music after 3.5 seconds.');
+		trace('Starting death music...');
 		GameOverSubState.instance.startDeathMusic(1.0, false);
+		singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
+		// singed.fadeIn(0.5, 0.3, 1.0);
 	}
 
 	function doExplosionConfirm() {
 		// Suffixed confirm music will already play.
 		picoDeathExplosion.playAnimation('Confirm');
+		if (singed != null) {
+			trace('Stopping singed loop.');
+			singed.stop();
+			singed = null;
+		}
 	}
 
 	function onExplosionFinishAnim(animLabel:String) {
@@ -266,34 +175,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		} else if (animLabel == 'Confirm') {
 			// Do nothing, the animation will just play.
 		}
-	}
-
-	function calculateShootingAngle() {
-		if (this.debug) {
-			// We are in debug mode, so we skip angle calculation.
-			// This is used for things like the chart editor or animation editor.
-			return 0;
-		}
-
-		var twoHotModule = ModuleHandler.getModule("vanilla-gameplay-2hot");
-		if (twoHotModule == null) {
-			trace('Could not get 2hot module.');
-			return 0;
-		}
-
-		var targetCan = twoHotModule.scriptCall('getNextCanWithState', [3]);
-
-		var targetCanX = targetCan.x;
-		var targetCanY = targetCan.y;
-		var shootingArmX = shootingArm.x + shootingArm.origin.x;
-		var shootingArmY = shootingArm.y + shootingArm.origin.y;
-
-		var angleRad = Math.atan2(shootingArmY - targetCanY, shootingArmX - targetCanX);
-		var angleDeg = angleRad * 180 / Math.PI - 15;
-
-		// angleDeg = FlxG.random.int(-45, 90);
-
-		return angleDeg;
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {

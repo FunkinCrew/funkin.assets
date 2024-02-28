@@ -1,4 +1,5 @@
 import flixel.tweens.FlxEase;
+import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxTween;
 import funkin.Paths;
 import funkin.play.cutscene.dialogue.DialogueBox;
@@ -38,7 +39,7 @@ class SenpaiSong extends Song {
 
     PlayState.instance.camCutscene.visible = true;
 
-    var black:FlxSprite = new FlxSprite(-20, -20).makeGraphic(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
+    var black:FlxSprite = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
     black.cameras = [PlayState.instance.camCutscene];
     black.zIndex = 1000000;
     PlayState.instance.add(black);

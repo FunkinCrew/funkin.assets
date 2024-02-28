@@ -1,5 +1,5 @@
 import flixel.FlxG;
-import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
 import funkin.Paths;
 
@@ -7,7 +7,7 @@ import funkin.Paths;
  * A sprite which plays the 'run' animation while moving in the specified direction.
  * It then plays the 'shot' animation at a specific time in the song, then destroys itself.
  */
-class TankmanSprite extends FlxSprite
+class TankmanSprite extends FunkinSprite
 {
 	// Randomize the horizontal position of the tankman when 'shot' plays.
 	public var endingOffset:Float = 0;
@@ -19,7 +19,8 @@ class TankmanSprite extends FlxSprite
 	function new()
 	{
 		super();
-		frames = Paths.getSparrowAtlas('tankmanKilled1');
+
+		loadSparrow('tankmanKilled1');
 		animation.addByPrefix('run', 'tankman running', 24, true);
 		animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
 

@@ -1,13 +1,16 @@
+import funkin.graphics.shaders.GaussianBlurShader;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
+import funkin.graphics.FunkinSprite;
 import funkin.Paths;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.graphics.shaders.OverlayBlend;
 import openfl.filters.ShaderFilter;
 
+/**
+ * This stage includes a partial version of the Philly Streets stage with shaders applied.
+ */
 class PhillyBlazinStage extends Stage
 {
 	function new()
@@ -15,63 +18,82 @@ class PhillyBlazinStage extends Stage
 		super('phillyBlazin');
 	}
 
+	override function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+		cameraInitialized = false;
+		cameraDarkened = false;
+	}
+
 	override function buildStage()
 	{
 		super.buildStage();
-
-		this.hasHidden = false;
-		this.hasDarkened = false;
 	}
 
-	var hasHidden = false;
-	var hasDarkened = false;
+	var cameraInitialized:Bool = false;
+	var cameraDarkened:Bool = false;
 
-	function onUpdate(event:ScriptEvent):Void
+	override function update(elapsed:Float)
 	{
-		if (!this.hasHidden)
+		super.update(elapsed);
+
+		// Manually focus the camera before the song starts.
+		if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
 		{
-			this.hasHidden = true;
-			hideEnemyStrumline();
-			centerPlayerStrumline();
+			cameraInitialized = true;
+			initializeCamera();
 		}
-		if (!this.hasDarkened && FlxG.camera != null)
+
+		// Darken the camera after the song starts.
+		if (!cameraDarkened)
 		{
+			cameraDarkened = true;
 			darkenCamera();
-			this.hasDarkened = true;
 		}
 	}
 
-	var multiplyBG:FlxRuntimeShader = null;
-	var multiplyChar:FlxRuntimeShader = null;
+	function initializeCamera():Void {
+		var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
+    var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
+		yTarget += 200;
+    PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
+		PlayState.instance.resetCamera();
+	}
+
+	// var multiplyBG:FlxRuntimeShader = null;
+	// var multiplyChar:FlxRuntimeShader = null;
+	var blurBG:GaussianBlurShader = null;
+	var blurNene:GaussianBlurShader = null;
+	var multiplySprite:FunkinSprite = null;
 
 	function darkenCamera()
 	{
-		multiplyBG = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF333333);
-		multiplyChar = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF999999);
+		// multiplyBG = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF333333);
+		// multiplyChar = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF999999);
 
-		PlayState.instance.currentStage.setShader(multiplyBG);
-		PlayState.instance.currentStage.getBoyfriend().shader = multiplyChar;
-		PlayState.instance.currentStage.getDad().shader = multiplyChar;
-	}
+		// PlayState.instance.currentStage.setShader(multiplyBG);
+		// PlayState.instance.currentStage.getBoyfriend().shader = multiplyChar;
+		// PlayState.instance.currentStage.getDad().shader = multiplyChar;
 
-	function hideEnemyStrumline()
-	{
-		var enemyStrumline:FlxSprite = PlayState.instance.enemyStrumline;
-		if (enemyStrumline != null)
-		{
-			for (arrow in enemyStrumline.members)
-			{
-				arrow.visible = false;
+		blurBG = new GaussianBlurShader(2.0);
+		blurNene = new GaussianBlurShader(1.0);
+		for (prop in this.members) {
+			// Ignore player and opponent.
+			if (prop.zIndex >= 2000) continue;
+
+			// Apply the gaussian blur shader to the background prop.
+			// Nene needs less intense blur.
+			if (prop.zIndex >= 1000) {
+				prop.shader = blurNene;
+			} else {
+				prop.shader = blurBG;
 			}
 		}
-	}
 
-	function centerPlayerStrumline()
-	{
-		var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
-		if (playerStrumline != null)
-		{
-			playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
-		}
+		multiplySprite = new FunkinSprite(400, 300);
+		multiplySprite.makeSolidColor(2000, 2500, 0xFF606060);
+		multiplySprite.blend = 9; // Multiply
+		multiplySprite.zIndex = 1100;
+		add(multiplySprite);
+		refresh();
 	}
 }
