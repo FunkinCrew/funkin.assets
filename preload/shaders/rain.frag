@@ -255,12 +255,12 @@ void main() {
 		}
 	}
 
-	vec3 light = (texture2D(uLightMap, screenCoord).xyz + lightUp(wpos)) * intensity;
-
-	bool isPuddle = texture2D(uMask, screenCoord).x > 0.5;
+	//vec3 light = (texture2D(uLightMap, screenCoord).xyz + lightUp(wpos)) * intensity;
 
 	vec3 color = sampleBitmapWorld(wpos).xyz;
 
+	/*
+	bool isPuddle = texture2D(uMask, screenCoord).x > 0.5;
 	if (isPuddle) {
 		vec2 wpos2 = vec2(wpos.x, uPuddleY - (wpos.y - uPuddleY) / uPuddleScaleY);
 		wpos2 += puddleDisplace(wpos / uScale, intensity) * uScale;
@@ -268,13 +268,14 @@ void main() {
 		float reflectionRatio = 1.0;
 		color = reflection;
 	}
+	*/
 
 	vec3 rainColor = vec3(0.4, 0.5, 0.8);
 	color += add;
 	color = mix(color, rainColor, 0.1 * rainSum);
 
-	vec3 fog = light * (0.5 + rainSum * 0.5);
-	color = color / (1.0 + fog) + fog;
+	// vec3 fog = light * (0.5 + rainSum * 0.5);
+	// color = color / (1.0 + fog) + fog;
 
 	gl_FragColor = vec4(color, 1);
 }
