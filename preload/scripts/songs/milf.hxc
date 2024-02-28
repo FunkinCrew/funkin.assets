@@ -164,7 +164,7 @@ class MILFSong extends Song {
 		PlayState.instance.currentStage.add(legGib);
 		gibs.push(legGib);
 
-		var bloodEffect = FunkinSprite.createSparrow('limo/effects');
+		var bloodEffect = FunkinSprite.createSparrow(0, 0, 'limo/effects');
 		bloodEffect.x = target.getGraphicMidpoint().x - 100;
 		bloodEffect.y = target.getGraphicMidpoint().y - 200;
 		bloodEffect.angle = -90;

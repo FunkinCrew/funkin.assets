@@ -40,7 +40,7 @@ class ThornsSong extends Song {
     red.alpha = 1.0;
     PlayState.instance.add(red);
 
-    var senpaiCrazy = FunkinSprite.createSparrow('weeb/senpaiCrazy');
+    var senpaiCrazy = FunkinSprite.createSparrow(0, 0, 'weeb/senpaiCrazy');
     senpaiCrazy.cameras = [PlayState.instance.camCutscene];
     senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
