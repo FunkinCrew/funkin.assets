@@ -17,47 +17,47 @@
   "animations": [
     {
       "name": "idle",
-      "prefix": "BF IDLE",
+      "prefix": "BF IDLE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singUP",
-      "prefix": "BF UP NOTE",
+      "prefix": "BF UP NOTE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
-      "prefix": "BF LEFT NOTE",
+      "prefix": "BF LEFT NOTE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singRIGHT",
-      "prefix": "BF RIGHT NOTE",
+      "prefix": "BF RIGHT NOTE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singDOWN",
-      "prefix": "BF DOWN NOTE",
+      "prefix": "BF DOWN NOTE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singUPmiss",
-      "prefix": "BF UP MISS",
+      "prefix": "BF UP MISS instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFTmiss",
-      "prefix": "BF LEFT MISS",
+      "prefix": "BF LEFT MISS instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singRIGHTmiss",
-      "prefix": "BF RIGHT MISS",
+      "prefix": "BF RIGHT MISS instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singDOWNmiss",
-      "prefix": "BF DOWN MISS",
+      "prefix": "BF DOWN MISS instance 10",
       "offsets": [0, 0]
     },
     {

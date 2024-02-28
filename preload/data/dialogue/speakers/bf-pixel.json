@@ -16,7 +16,7 @@
     },
     {
       "name": "talk",
-      "prefix": "Boyfriend portrait enter instance 10003",
+      "prefix": "Boyfriend portrait idle instance 10",
       "offsets": [0, 0],
       "frameRate": 12
     }

@@ -160,16 +160,6 @@ class NeneCharacter extends SparrowCharacter {
 
 		abot.visible = this.visible;
 
-		if (FlxG.keys.justPressed.SPACE)
-		{
-			trace("PUPILS " + pupilState);
-			// pupilState = pupilState == PUPIL_STATE_NORMAL ? PUPIL_STATE_LEFT : PUPIL_STATE_NORMAL;
-
-			pupil.playAnimation("");
-			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
-		}
-
-
 		if (pupil.anim.isPlaying)
 		{
 			switch (pupilState)

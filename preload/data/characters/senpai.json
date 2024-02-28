@@ -12,27 +12,27 @@
   "animations": [
     {
       "name": "idle",
-      "prefix": "Senpai Idle",
+      "prefix": "Senpai Idle instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
-      "prefix": "SENPAI LEFT NOTE",
+      "prefix": "SENPAI LEFT NOTE instance 10",
       "offsets": [40, 0]
     },
     {
       "name": "singDOWN",
-      "prefix": "SENPAI DOWN NOTE",
+      "prefix": "SENPAI DOWN NOTE instance 10",
       "offsets": [14, 0]
     },
     {
       "name": "singUP",
-      "prefix": "SENPAI UP NOTE",
+      "prefix": "SENPAI UP NOTE instance 10",
       "offsets": [5, 37]
     },
     {
       "name": "singRIGHT",
-      "prefix": "SENPAI RIGHT NOTE",
+      "prefix": "SENPAI RIGHT NOTE instance 10",
       "offsets": [0, 0]
     }
   ]

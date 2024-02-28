@@ -15,6 +15,7 @@
 	<SubTexture name="Text Box Appear0002" x="4" y="300" width="248" height="144" />
 	<SubTexture name="Text Box Appear0003" x="256" y="300" width="248" height="144" />
 	<SubTexture name="Text Box Appear0004" x="256" y="300" width="248" height="144" />
+	<SubTexture name="Text Box Speaking0001" x="256" y="300" width="248" height="144" />
 	<SubTexture name="Text Box CLICK0000" x="508" y="300" width="248" height="144" />
 	<SubTexture name="Text Box CLICK0001" x="508" y="300" width="248" height="144" />
 	<SubTexture name="Text Box CLICK0002" x="760" y="300" width="248" height="144" />
