@@ -26,7 +26,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-Pico';
 	}
 
