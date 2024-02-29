@@ -3,75 +3,77 @@
   "name": "Darnell",
   "assetPath": "characters/darnell",
   "singTime": 2.0,
+  "offsets": [20, 100],
   "animations": [
     {
       "name": "idle",
-      "prefix": "Darnell Idle",
-      "offsets": [-2, 0]
+      "prefix": "Idle0",
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
-      "prefix": "Darnell pose right",
-      "offsets": [25, -5]
+      "prefix": "Pose Left0",
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "Darnell pose right",
-      "frameIndices": [6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [25, -5]
+      "prefix": "Left Flame Loop0",
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWN",
-      "prefix": "Darnell Pose Down",
-      "offsets": [15, -45]
+      "prefix": "Pose Down0",
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "Darnell Pose Down",
-      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
-      "offsets": [15, -45]
+      "prefix": "Down Flame Loop0",
+      "offsets": [0, 0]
     },
     {
       "name": "singUP",
-      "prefix": "Darnell pose up",
-      "offsets": [26, 72]
+      "prefix": "Pose Up0",
+      "offsets": [0, 0]
     },
     {
       "name": "singUP-hold",
-      "prefix": "Darnell pose up",
-      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
-      "offsets": [26, 72]
+      "prefix": "Up Flame Loop0",
+      "offsets": [0, 0]
     },
     {
       "name": "singRIGHT",
-      "prefix": "darnell pose left",
-      "offsets": [28, -16]
+      "prefix": "Pose Right0",
+      "offsets": [0, 0]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "darnell pose left",
-      "frameIndices": [7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [12, 8]
+      "prefix": "Right Flame Loop0",
+      "offsets": [0, 0]
     },
     {
       "name": "laugh",
-      "prefix": "darnell laugh",
-      "offsets": [-1, 1]
+      "prefix": "Laugh0",
+      "offsets": [0, 0]
     },
     {
       "name": "lightCan",
-      "prefix": "Darnell lighting can",
-      "offsets": [0, -30]
+      "prefix": "Light Can0",
+      "offsets": [0, 0]
     },
     {
       "name": "kickCan",
-      "prefix": "Darnell can kick up",
-      "offsets": [10, 10]
+      "prefix": "Kick Up0",
+      "offsets": [0, 0]
     },
     {
       "name": "kneeCan",
-      "prefix": "Darnell knee action",
-      "offsets": [0, -20]
+      "prefix": "Knee Forward0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "pissed",
+      "prefix": "Gets Pissed0",
+      "offsets": [0, 0]
     }
   ]
 }
