@@ -1,12 +1,5 @@
 {
   "events": [
-    {
-      "e": "FocusCamera",
-      "t": 0,
-      "v": {
-        "char": 0
-      }
-    }
   ],
   "notes": {
     "easy": [

@@ -4,7 +4,7 @@
   "assetPath": "characters/Pico_Blazin",
   "healthIcon": {
     "id": "pico",
-    "flipX": true
+    "flipX": false
   },
   "flipX": true,
   "renderType": "sparrow",

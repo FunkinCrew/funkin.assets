@@ -16,7 +16,7 @@
     },
     {
       "name": "talk",
-      "prefix": "portraitEnter0003",
+      "prefix": "portraitTalk0",
       "offsets": [0, 0],
       "frameRate": 12
     }

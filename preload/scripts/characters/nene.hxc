@@ -3,6 +3,7 @@ import funkin.play.PlayState;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
+import funkin.graphics.FunkinSprite;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxSprite;
@@ -15,9 +16,6 @@ class NeneCharacter extends SparrowCharacter {
 		super('nene');
 	}
 
-	var stereoBG:FlxSprite;
-	var eyeWhites:FlxSprite;
-	var pupil:FlxAtlasSprite;
 	var pupilState:Int = 0;
 
 	var PUPIL_STATE_NORMAL = 0;
@@ -28,7 +26,6 @@ class NeneCharacter extends SparrowCharacter {
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
-	var abot:FlxAtlasSprite;
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
@@ -36,7 +33,7 @@ class NeneCharacter extends SparrowCharacter {
 
 		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
-		eyeWhites = new FlxSprite().makeGraphic(160, 60);
+		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
 		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
 		pupil.x = this.x;
@@ -154,31 +151,83 @@ class NeneCharacter extends SparrowCharacter {
 
 	var refershedLol:Bool = false;
 
-	public override function onSongEvent(event)
+	/**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
 	{
-		// fucked up... but it spits out FocusCamera!
-		if (event.event.event == "FocusCamera")
+		super.onSongEvent(scriptEvent);
+		if (scriptEvent.eventData.eventKind == "FocusCamera")
 		{
-			pupil.playAnimation("");
-			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
+			var eventProps = scriptEvent.eventData.value;
+			switch (Std.parseInt(eventProps.char)) {
+				case 0:
+					trace(eventProps.char + '== 0');
+					movePupilsRight();
+				case 1:
+					trace(eventProps.char + '== 1');
+					movePupilsLeft();
+				default:
+					trace('no match!');
+			}
 		}
 
+	}
+
+	function movePupilsLeft():Void {
+		trace('LOOK LEFT');
+		if (pupilState == PUPIL_STATE_LEFT) return;
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 0;
+		// pupilState = PUPIL_STATE_LEFT;
+	}
+
+	function movePupilsRight():Void {
+		trace('LOOK RIGHT');
+		if (pupilState == PUPIL_STATE_NORMAL) return;
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 17;
+		// pupilState = PUPIL_STATE_NORMAL;
+	}
+
+	function moveByNoteKind(kind:String) {
+		// Force ABot to look where the action is happening.
+		switch(event.note.noteData.kind) {
+			case "weekend-1-lightcan":
+				movePupilsLeft();
+			case "weekend-1-kickcan":
+				// movePupilsLeft();
+			case "weekend-1-kneecan":
+				// movePupilsLeft();
+			case "weekend-1-cockgun":
+				movePupilsRight();
+			case "weekend-1-firegun":
+				// movePupilsRight();
+			default:
+				super.onNoteHit(event);
+		}
+	}
+
+	function onNoteHit(event:NoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		moveByNoteKind(event.note.noteData.kind);
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		moveByNoteKind(event.note.noteData.kind);
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
+		// Set the visibility of ABot to match Nene's.
 		abot.visible = this.visible;
-
-		if (FlxG.keys.justPressed.SPACE)
-		{
-			trace("PUPILS " + pupilState);
-			// pupilState = pupilState == PUPIL_STATE_NORMAL ? PUPIL_STATE_LEFT : PUPIL_STATE_NORMAL;
-
-			pupil.playAnimation("");
-			pupil.anim.curFrame = pupilState == PUPIL_STATE_NORMAL ? 0 : 17;
-		}
-
+		pupil.visible = this.visible;
+		eyeWhites.visible = this.visible;
+		stereoBG.visible = this.visible;
 
 		if (pupil.anim.isPlaying)
 		{

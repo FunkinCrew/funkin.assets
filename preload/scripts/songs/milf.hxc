@@ -108,7 +108,7 @@ class MILFSong extends Song {
 	var currentHenchmenIndex = 1;
 
 	function createGib(type:Int):FlxSprite {
-		var gibSprite:FlxSprite = new FlxSprite();
+		var gibSprite:FunkinSprite = FunkinSprite.create('limo/henchmen');
 		gibSprite.angle = FlxG.random.int(0, 360);
 		gibSprite.active = true;
 		gibSprite.velocity.x = FlxG.random.int(-20, -1000);
@@ -117,7 +117,6 @@ class MILFSong extends Song {
 		gibSprite.maxVelocity.x = gibSprite.maxVelocity.y = 0; // no cap on velocity...
 		gibSprite.acceleration.y = FlxG.random.int(400, 1400); // Gravity, baby!
 		gibSprite.acceleration.x = 8000; // Wind, baby!
-		gibSprite.frames = Paths.getSparrowAtlas('limo/henchmen');
 
 		var random:Bool = FlxG.random.bool();
 		var animationName = "";
@@ -165,8 +164,7 @@ class MILFSong extends Song {
 		PlayState.instance.currentStage.add(legGib);
 		gibs.push(legGib);
 
-		var bloodEffect = new FlxSprite();
-		bloodEffect.frames = Paths.getSparrowAtlas('limo/effects');
+		var bloodEffect = FunkinSprite.createSparrow(0, 0, 'limo/effects');
 		bloodEffect.x = target.getGraphicMidpoint().x - 100;
 		bloodEffect.y = target.getGraphicMidpoint().y - 200;
 		bloodEffect.angle = -90;

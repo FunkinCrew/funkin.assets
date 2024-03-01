@@ -242,8 +242,7 @@ class TwoHOTSong extends Song
 
 	function spawnImpactParticle()
 	{
-		var impactParticle = new FlxSprite(0, 0);
-		impactParticle.frames = Paths.getSparrowAtlas('CanImpactParticle');
+		var impactParticle = FunkinSprite.createSparrow(0, 0, 'CanImpactParticle');
 		impactParticle.animation.addByPrefix('idle', 'CanImpactParticle0', 24, false);
 		impactParticle.animation.play('idle');
 		impactParticle.x = PlayState.instance.currentStage.getBoyfriend().x + 400;
@@ -294,8 +293,8 @@ class TwoHOTSong extends Song
 			trace('Died to the can! Use special death animation.');
 
 			// Reset to standard death animation.
-			GameOverSubState.musicSuffix = 'Pico';
-			GameOverSubState.blueBallSuffix = '-PicoExplode';
+			GameOverSubState.musicSuffix = '-pico-explode';
+			GameOverSubState.blueBallSuffix = '-pico-explode';
 
 			blackenStageProps();
 		}
