@@ -188,7 +188,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = 'Pico';
+		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-Pico';
 		picoDeathExplosion = null;
 		this.visible = true;
