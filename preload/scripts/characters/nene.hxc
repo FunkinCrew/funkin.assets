@@ -34,12 +34,12 @@ class NeneCharacter extends SparrowCharacter {
 		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
 		pupil.x = this.x;
 		pupil.y = this.y;
-		pupil.zIndex = this.zIndex - 1;
+		pupil.zIndex = this.zIndex - 5;
 
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
 		abot.x = this.x;
 		abot.y = this.y;
-		abot.zIndex = this.zIndex - 1;
+		abot.zIndex = this.zIndex - 10;
 	}
 
 	/**
@@ -182,7 +182,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function moveByNoteKind(kind:String) {
 		// Force ABot to look where the action is happening.
-		switch(event.note.noteData.kind) {
+		switch(event.note.kind) {
 			case "weekend-1-lightcan":
 				movePupilsLeft();
 			case "weekend-1-kickcan":
@@ -201,13 +201,13 @@ class NeneCharacter extends SparrowCharacter {
 	function onNoteHit(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
-		moveByNoteKind(event.note.noteData.kind);
+		moveByNoteKind(event.note.kind);
 	}
 
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		super.onNoteHit(event);
-		moveByNoteKind(event.note.noteData.kind);
+		moveByNoteKind(event.note.kind);
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {
@@ -245,6 +245,8 @@ class NeneCharacter extends SparrowCharacter {
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
 		{
+			trace('Refreshing lol!');
+
 			abot.x = this.x - 100;
 			abot.y = this.y + 316; // 764 - 740
 			abot.zIndex = this.zIndex - 10;

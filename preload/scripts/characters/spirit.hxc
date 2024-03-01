@@ -7,8 +7,6 @@ class SpiritCharacter extends PackerCharacter {
 		super('spirit');
 	}
 
-	var trailMade = false;
-
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
