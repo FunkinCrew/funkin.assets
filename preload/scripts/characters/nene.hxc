@@ -273,7 +273,9 @@ class NeneCharacter extends SparrowCharacter {
 			refershedLol = true;
 		}
 
-		transitionState();
+		if (shouldTransitionState()) {
+			transitionState();
+		}
 	}
 
 	var animationFinished:Bool = false;
@@ -307,6 +309,10 @@ class NeneCharacter extends SparrowCharacter {
 			default:
 				// Ignore.
 		}
+	}
+
+	function shouldTransitionState():Bool {
+		return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
 	}
 
 	function transitionState() {

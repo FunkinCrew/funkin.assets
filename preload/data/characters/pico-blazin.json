@@ -37,6 +37,11 @@
     {
       "name": "taunt",
       "prefix": "Taunt",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "taunt-hold",
+      "prefix": "Taunt Laugh Loop",
       "looped": true,
       "offsets": [0, 0]
     },
@@ -105,6 +110,7 @@
     {
       "name": "deathLoop",
       "prefix": "Low Death Loop",
+      "looped": true,
       "offsets": [0, 0]
     },
     {

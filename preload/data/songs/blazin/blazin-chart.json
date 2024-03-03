@@ -48,9 +48,11 @@
       { "k": "weekend-1-idle", "d": 0, "l": 0, "t": 43000 },
       { "k": "weekend-1-idle", "d": 0, "l": 0, "t": 44000 },
       { "k": "weekend-1-fakeout", "d": 0, "l": 0, "t": 45000 },
-      { "k": "weekend-1-fakeout", "d": 0, "l": 0, "t": 46000 },
-      { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 47000 },
-      { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 48000 }
+      { "k": "weekend-1-taunt", "d": 4, "l": 0, "t": 46000 },
+      { "k": "weekend-1-fakeout", "d": 0, "l": 0, "t": 47000 },
+      { "k": "weekend-1-tauntforce", "d": 4, "l": 0, "t": 48000 },
+      { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 49000 },
+      { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 50000 }
     ],
     "normal": [
     ],

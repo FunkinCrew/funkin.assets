@@ -2,6 +2,7 @@
 import flixel.FlxG;
 import funkin.Paths;
 import funkin.play.GameOverSubState;
+import flixel.util.FlxTimer;
 import funkin.play.PlayState;
 import funkin.play.character.AnimateAtlasCharacter;
 import StringTools;
@@ -117,6 +118,23 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 			default:
 				trace('Unknown note kind: ' + event.note.kind);
 		}
+	}
+
+	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		if (name == "firstDeath") {
+			// TODO: ACTUALLY play one of the three death animations here.
+
+			// Make sure the death music plays with PERFECT timing.
+			new FlxTimer().start(1.25, afterPicoDeathGutPunchIntro);
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+	}
+
+	function afterPicoDeathGutPunchIntro():Void {
+		trace('After Pico death gut punch intro!');
+		GameOverSubState.instance.startDeathMusic(1.0, false);
+		playAnimation('deathLoop', true, false);
 	}
 
 	function onNoteMiss(event:NoteScriptEvent)
