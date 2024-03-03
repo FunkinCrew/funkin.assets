@@ -27,7 +27,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.blueBallSuffix = '-pico';
 	}
 
 	var deathSpriteRetry:FunkinSprite;
@@ -188,8 +188,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = 'Pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'pico';
+		GameOverSubState.blueBallSuffix = '-pico';
 		picoDeathExplosion = null;
 		this.visible = true;
 	}

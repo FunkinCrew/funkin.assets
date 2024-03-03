@@ -102,6 +102,10 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playCringeAnim();
+			case "weekend-1-taunt":
+				playPissedConditionalAnim();
+			case "weekend-1-tauntforce":
+				playPissedAnim();
 			case "weekend-1-reversefakeout":
 				playFakeoutAnim();
 
@@ -202,6 +206,10 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playCringeAnim(); // TODO: Which anim?
+			case "weekend-1-taunt":
+				playPissedConditional();
+			case "weekend-1-tauntforce":
+				playPissed();
 			case "weekend-1-reversefakeout":
 				playFakeoutAnim(); // TODO: Which anim?
 
@@ -242,12 +250,6 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 	override function onAnimationFinished(name:String)
 	{
 		super.onAnimationFinished(name);
-
-		trace('Darnell.onAnimationFinished: ' + name);
-
-		if (name == "Cringe") {
-			playPissedAnim();
-		}
 	}
 
 	function moveToBack()
@@ -309,6 +311,15 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 	{
 		this.playAnimation('fakeout', true, false);
 		moveToBack();
+	}
+
+	function playPissedConditionalAnim()
+	{
+		if (getCurrentAnimation() == "cringe") {
+			playPissedAnim();
+		} else {
+			playIdleAnim();
+		}
 	}
 
 	function playPissedAnim()

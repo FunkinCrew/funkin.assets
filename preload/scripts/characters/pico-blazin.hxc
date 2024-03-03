@@ -23,7 +23,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.blueBallSuffix = '-pico-gutpunch';
 	}
 
 	var cantUppercut = false;
@@ -107,6 +107,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playFakeoutAnim();
+			case "weekend-1-taunt":
+				playTauntConditionalAnim();
+			case "weekend-1-tauntforce":
+				playTauntAnim();
 			case "weekend-1-reversefakeout":
 				playIdleAnim(); // TODO: Which anim?
 
@@ -118,6 +122,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		holdTimer = 0;
+
+		// SPECIAL CASE: Darnell prepared to uppercut last time and Pico missed! FINISH HIM!
+		if (isDarnellInUppercut()) {
+			playUppercutHitAnim();
+			return;
+		}
 
 		if (willMissBeLethal(event)) {
 			playHitLowAnim();
@@ -193,6 +203,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playHitHighAnim();
+			case "weekend-1-taunt":
+				playTauntConditionalAnim();
+			case "weekend-1-tauntforce":
+				playTauntAnim();
 			case "weekend-1-reversefakeout":
 				playIdleAnim();
 
@@ -219,13 +233,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	override function onAnimationFinished(name:String)
 	{
 		super.onAnimationFinished(name);
-
-		trace('Pico.onAnimationFinished: ' + name);
-
-		// TODO: Uses internal animation names?
-		if (name == "Fake Hit") {
-			playTauntAnim();
-		}
 	}
 
 	override function onSongRetry()
@@ -257,6 +264,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
 	function isDarnellPreppingUppercut():Void {
 		return getDarnell().getCurrentAnimation() == 'uppercutPrep';
+	}
+
+	function isDarnellInUppercut():Void {
+		return
+			getDarnell().getCurrentAnimation() == 'uppercut'
+			|| getDarnell().getCurrentAnimation() == 'uppercut-hold';
 	}
 
 	function wasNoteHitPoorly(event:HitNoteScriptEvent):Bool {
@@ -352,6 +365,15 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	{
 		this.playAnimation('punchLow' + doAlternate(), true, false);
 		moveToFront();
+	}
+
+	function playTauntConditionalAnim()
+	{
+		if (getCurrentAnimation() == "fakeout") {
+			playTauntAnim();
+		} else {
+			playIdleAnim();
+		}
 	}
 
 	function playTauntAnim()
