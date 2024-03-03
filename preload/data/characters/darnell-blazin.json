@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Darnell (Blazin Animate Atlas)",
+  "name": "Darnell (Blazin'')",
   "assetPath": "characters/darnellBlazin",
   "healthIcon": {
     "id": "darnell"
@@ -17,6 +17,7 @@
     {
       "name": "pissed",
       "prefix": "Pissed",
+      "looped": true,
       "offsets": [0, 0]
     },
     {
@@ -57,6 +58,7 @@
     {
       "name": "uppercut-hold",
       "prefix": "Uppercut Punch Loop",
+      "looped": true,
       "offsets": [0, 0]
     },
     {
@@ -92,6 +94,7 @@
     {
       "name": "hitSpin",
       "prefix": "Hit Spin",
+      "looped": true,
       "offsets": [0, 0]
     }
   ]

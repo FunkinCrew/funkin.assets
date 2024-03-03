@@ -106,8 +106,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 			case "weekend-1-idle":
 				playIdleAnim();
 			case "weekend-1-fakeout":
-				playFakeOutAnim();
-			case "weekend-1-reverse-fakeout":
+				playFakeoutAnim();
+			case "weekend-1-reversefakeout":
 				playIdleAnim(); // TODO: Which anim?
 
 			default:
@@ -193,7 +193,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playHitHighAnim();
-			case "weekend-1-reverse-fakeout":
+			case "weekend-1-reversefakeout":
 				playIdleAnim();
 
 			default:
@@ -220,7 +220,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	{
 		super.onAnimationFinished(name);
 
-		if (name == "fakeout") {
+		trace('Pico.onAnimationFinished: ' + name);
+
+		// TODO: Uses internal animation names?
+		if (name == "Fake Hit") {
 			playTauntAnim();
 		}
 	}
@@ -333,6 +336,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		moveToBack();
 	}
 
+	function playHitSpinAnim()
+	{
+		this.playAnimation('hitSpin', true, false, true);
+		moveToBack();
+	}
+
 	function playPunchHighAnim()
 	{
 		this.playAnimation('punchHigh' + doAlternate(), true, false);
@@ -345,15 +354,9 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		moveToFront();
 	}
 
-	function playSpinAnim()
-	{
-		this.playAnimation('hitSpin', true, false);
-		moveToBack();
-	}
-
 	function playTauntAnim()
 	{
-		this.playAnimation('tauntAnim', true, false);
+		this.playAnimation('taunt', true, false);
 		moveToBack();
 	}
 }

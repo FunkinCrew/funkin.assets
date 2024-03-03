@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Pico (Blazin Animate Atlas)",
+  "name": "Pico (Blazin')",
   "assetPath": "characters/picoBlazin",
   "healthIcon": {
     "id": "pico"
@@ -37,6 +37,7 @@
     {
       "name": "taunt",
       "prefix": "Taunt",
+      "looped": true,
       "offsets": [0, 0]
     },
     {
@@ -72,6 +73,7 @@
     {
       "name": "hitSpin",
       "prefix": "Hit Spin",
+      "looped": true,
       "offsets": [0, 0]
     },
     {
@@ -92,6 +94,7 @@
     {
       "name": "uppercut-hold",
       "prefix": "Uppercut Punch Loop",
+      "looped": true,
       "offsets": [0, 0]
     },
     {

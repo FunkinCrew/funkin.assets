@@ -102,8 +102,8 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playCringeAnim();
-			case "weekend-1-reverse-fakeout":
-				playFakeOutAnim();
+			case "weekend-1-reversefakeout":
+				playFakeoutAnim();
 
 			default:
 				trace('Unknown note kind: ' + event.note.kind);
@@ -116,7 +116,11 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 	{
 		holdTimer = 0;
 
-		if (!event.note.kind.startsWith('weekend-1-')) return;
+		trace('Player missed note.');
+		if (!StringTools.startsWith(event.note.kind, 'weekend-1-')) {
+			trace('Note kind does not start with "weekend-1-": ' + event.note);
+			return;
+		}
 
 		// SPECIAL CASE: Darnell prepared to uppercut last time and Pico missed! FINISH HIM!
 		if (getCurrentAnimation() == 'uppercutPrep') {
@@ -198,8 +202,8 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim();
 			case "weekend-1-fakeout":
 				playCringeAnim(); // TODO: Which anim?
-			case "weekend-1-reverse-fakeout":
-				playFakeOutAnim(); // TODO: Which anim?
+			case "weekend-1-reversefakeout":
+				playFakeoutAnim(); // TODO: Which anim?
 
 			default:
 				trace('Unknown note kind: ' + event.note.kind);
@@ -239,7 +243,9 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 	{
 		super.onAnimationFinished(name);
 
-		if (name == "cringe") {
+		trace('Darnell.onAnimationFinished: ' + name);
+
+		if (name == "Cringe") {
 			playPissedAnim();
 		}
 	}
