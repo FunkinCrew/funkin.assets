@@ -1,4 +1,5 @@
 import funkin.ui.story.Level;
+import funkin.save.Save;
 
 class Weekend1Level extends Level
 {
@@ -12,13 +13,12 @@ class Weekend1Level extends Level
   }
 
   function hasBeatenLevel():Bool {
-    // TODO: Fix this.
-    return true;
+    return Save.instance.hasBeatenLevel('weekend1');
   }
 
   override function getSongDisplayNames(difficultyId:String):Array<String> {
     if (hasBeatenLevel()) {
-      // Blazin' is a secret song.
+      // Blazin' is a secret song ;)
       return ["Darnell", "Lit Up", "2hot", "Blazin'"];
     } else {
       return ["Darnell", "Lit Up", "2hot"];
