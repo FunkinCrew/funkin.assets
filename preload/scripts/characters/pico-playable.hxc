@@ -27,7 +27,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.blueBallSuffix = '-pico';
 	}
 
 	var deathSpriteRetry:FunkinSprite;
@@ -68,7 +68,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
-			switch(event.note.noteData.kind) {
+			switch(event.note.kind) {
 				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
@@ -84,7 +84,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		// Override the miss note animation.
-		switch(event.note.noteData.kind) {
+		switch(event.note.kind) {
 			case "weekend-1-cockgun":
 				//playCockMissAnim();
 			case "weekend-1-firegun":
@@ -188,8 +188,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'pico';
+		GameOverSubState.blueBallSuffix = '-pico';
+
 		picoDeathExplosion = null;
 		this.visible = true;
 	}

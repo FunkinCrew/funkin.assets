@@ -17,6 +17,18 @@ class BlazinSong extends Song {
 		this.hasPlayedCutscene = false;
 	}
 
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+
+		this.hasHidden = false;
+	}
+
+	function onDestroy(event:ScriptEvent):Void {
+		super.onDestroy(event);
+
+		this.hasHidden = false;
+	}
+
 	var hasHidden = false;
 	var hasPlayedCutscene:Bool = false;
 
