@@ -3,7 +3,7 @@
   "name": "Pico (Speaker Shooter)",
   "assetPath": "characters/picoSpeaker",
   "startingAnimation": "idle",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "animations": [
     {
       "name": "idle",

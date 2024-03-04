@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Darnell",
   "assetPath": "characters/darnell",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "offsets": [20, 100],
   "animations": [
     {

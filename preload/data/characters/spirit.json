@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Spirit",
   "assetPath": "characters/spirit",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "renderType": "packer",
   "isPixel": true,
   "scale": 6,

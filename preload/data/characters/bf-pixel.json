@@ -4,7 +4,7 @@
   "assetPath": "characters/bfPixel",
   "flipX": true,
   "renderType": "multisparrow",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "isPixel": true,
   "healthIcon": {
     "id": "bf-pixel",
