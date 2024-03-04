@@ -9,7 +9,7 @@
   "renderType": "animateatlas",
   "singTime": 999.0,
   "death": {
-    "preTransitionDelay": 0.25,
+    "preTransitionDelay": 0.125,
     "cameraOffsets": [1700, 1550],
     "cameraZoom": 0.8
   },
