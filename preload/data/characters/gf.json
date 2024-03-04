@@ -3,7 +3,7 @@
   "name": "Girlfriend",
   "assetPath": "characters/GF_assets",
   "startingAnimation": "danceRight",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "animations": [
     {
       "name": "danceLeft",

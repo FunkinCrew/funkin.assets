@@ -75,7 +75,7 @@ class TwoHOTSong extends Song
 		super.onNoteHit(event);
     if (PlayState.instance.currentStage == null) return;
 
-		switch (event.note.noteData.kind)
+		switch (event.note.kind)
 		{
 			case "weekend-1-lightcan":
 				// Do nothing, but place this such that the animation plays at the right time.
@@ -261,23 +261,23 @@ class TwoHOTSong extends Song
 
 		trace('Missed note on 2hot stage...' + event.note.noteData);
 
-		switch (event.note.noteData.kind)
+		switch (event.note.kind)
 		{
 			case "weekend-1-cockgun":
-				event.healthMulti = 0.0; // We cause health loss later.
+				event.healthChange = 0.0; // We cause health loss later.
 			case "weekend-1-firegun":
 				gunCocked = false;
-				event.healthMulti = 0.0; // We cause health loss elsewhere.
+				event.healthChange = 0.0; // We cause health loss elsewhere.
 				missNextCan();
 				takeCanDamage();
 			case "weekend-1-firegun-hip":
 				gunCocked = false;
-				event.healthMulti = 0.0; // We cause health loss elsewhere.
+				event.healthChange = 0.0; // We cause health loss elsewhere.
 				missNextCan();
 				takeCanDamage();
 			case "weekend-1-firegun-far":
 				gunCocked = false;
-				event.healthMulti = 0.0; // We cause health loss elsewhere.
+				event.healthChange = 0.0; // We cause health loss elsewhere.
 				missNextCan();
 				takeCanDamage();
 		}
