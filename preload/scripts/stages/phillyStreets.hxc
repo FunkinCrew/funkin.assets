@@ -12,6 +12,9 @@ import funkin.graphics.shaders.RuntimeRainShader;
 import openfl.utils.Assets;
 import openfl.filters.BlurFilter;
 import funkin.graphics.framebuffer.BitmapDataUtil;
+import flixel.tweens.FlxEase;
+import flixel.math.FlxPoint;
+import flixel.tweens.FlxTween;
 import StringTools;
 
 class PhillyStreetsStage extends Stage
@@ -20,9 +23,66 @@ class PhillyStreetsStage extends Stage
 	var rainShaderFilter:ShaderFilter;
 	var blurFilter:BlurFilter = new BlurFilter(6, 6);
 
+	var lightsStop:Bool = false; // state of the traffic lights
+	var lastChange:Int = 0;
+	var changeInterval:Int = 8; // make sure it doesnt change until AT LEAST this many beats
+
+	var carWaiting:Bool = false; // if the car is waiting at the lights and is ready to go on green
+	var carInterruptable:Bool = true; // if the car can be reset
+	var car2Interruptable:Bool = true;
+
 	function new()
 	{
 		super('phillyStreets');
+	}
+
+	/**
+  * Changes the current state of the traffic lights.
+	* Updates the next change accordingly and will force cars to move when ready
+  */
+	function changeLights(beat:Int):Void{
+
+		lastChange = beat;
+		lightsStop = !lightsStop;
+
+		if(lightsStop){
+			getNamedProp('phillyTraffic').animation.play('tored');
+			changeInterval = 20;
+		} else {
+			getNamedProp('phillyTraffic').animation.play('togreen');
+			changeInterval = 30;
+
+			if(carWaiting == true) finishCarLights(getNamedProp('phillyCars'));
+		}
+	}
+
+	/**
+  * Resets every value of a car and hides it from view.
+  */
+	function resetCar(left:Bool, right:Bool){
+		if(left){
+			carWaiting = false;
+			carInterruptable = true;
+			FlxTween.cancelTweensOf(getNamedProp('phillyCars'));
+			getNamedProp('phillyCars').x = 1200;
+			getNamedProp('phillyCars').y = 818;
+			getNamedProp('phillyCars').angle = 0;
+		}
+
+		if(right){
+			car2Interruptable = true;
+			FlxTween.cancelTweensOf(getNamedProp('phillyCars2'));
+			getNamedProp('phillyCars2').x = 1200;
+			getNamedProp('phillyCars2').y = 818;
+			getNamedProp('phillyCars2').angle = 0;
+		}
+	}
+
+	override function onCountdownStart(event:SongLoadScriptEvent) {
+		super.onCountdownStart(event);
+
+		resetCar(true, true);
+		resetStageValues();
 	}
 
 	override function onCreate(event:ScriptEvent):Void
@@ -40,6 +100,9 @@ class PhillyStreetsStage extends Stage
 		rainShaderFilter = new ShaderFilter(rainShader);
 		// FlxG.camera.setFilters([rainShaderFilter]);
 		//FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
+
+		resetCar(true, true);
+		resetStageValues();
 	}
 
 	override function buildStage()
@@ -47,11 +110,217 @@ class PhillyStreetsStage extends Stage
 		super.buildStage();
 	}
 
+	/**
+  * Drive the car away from the lights to the end of the road.
+	* Used when the lights turn green and the car is waiting in position.
+  */
+	function finishCarLights(sprite:FlxSprite):Void{
+		carWaiting = false;
+		var duration:Float = FlxG.random.float(1.8, 3);
+		var rotations:Array<Int> = [-5, 18];
+		var offset:Array<Float> = [306.6, 168.3];
+		var startdelay:Float = FlxG.random.float(0.2, 1.2);
+
+		var path:Array<FlxPoint> = [
+			FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15),
+			FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
+			FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
+		];
+
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay} );
+		FlxTween.quadPath(sprite, path, duration, true,
+    {
+      ease: FlxEase.sineIn,
+			startDelay: startdelay,
+			onComplete: function(_) {
+            carInterruptable = true;
+      }
+    });
+	}
+
+	/**
+  * Drives a car towards the lights and stops.
+	* Used when a car tries to drive while the lights are red.
+  */
+	function driveCarLights(sprite:FlxSprite):Void{
+		carInterruptable = false;
+		FlxTween.cancelTweensOf(sprite);
+		var variant:Int = FlxG.random.int(1,4);
+		sprite.animation.play('car' + variant);
+		var extraOffset = [0, 0];
+		var duration:Float = 2;
+
+		switch(variant){
+			case 1:
+				duration = FlxG.random.float(1, 1.7);
+			case 2:
+				extraOffset = [20, -15];
+				duration = FlxG.random.float(0.9, 1.5);
+			case 3:
+				extraOffset = [30, 50];
+				duration = FlxG.random.float(1.5, 2.5);
+			case 4:
+				extraOffset = [10, 60];
+				duration = FlxG.random.float(1.5, 2.5);
+		}
+		var rotations:Array<Int> = [-7, -5];
+		var offset:Array<Float> = [306.6, 168.3];
+		sprite.offset.set(extraOffset[0], extraOffset[1]);
+
+		var path:Array<FlxPoint> = [
+			FlxPoint.get(1500 - offset[0] - 20, 1049 - offset[1] - 20),
+			FlxPoint.get(1770 - offset[0] - 80, 994 - offset[1] + 10),
+			FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15)
+		];
+		// debug shit!!! keeping it here just in case
+		// for(point in path){
+		// 	var debug:FlxSprite = new FlxSprite(point.x - 5, point.y - 5).makeGraphic(10, 10, 0xFFFF0000);
+    // 	add(debug);
+		// }
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut} );
+		FlxTween.quadPath(sprite, path, duration, true,
+    {
+      ease: FlxEase.cubeOut,
+			onComplete: function(_) {
+            carWaiting = true;
+						if(lightsStop == false) finishCarLights(getNamedProp('phillyCars'));
+      }
+    });
+	}
+
+	/**
+  * Drives a car across the screen without stopping.
+	* Used when the lights are green.
+  */
+	function driveCar(sprite:FlxSprite):Void{
+		carInterruptable = false;
+		FlxTween.cancelTweensOf(sprite);
+		var variant:Int = FlxG.random.int(1,4);
+		sprite.animation.play('car' + variant);
+		// setting an offset here because the current implementation of stage prop offsets was not working at all for me
+		// if possible id love to not have to do this but im keeping this for now
+		var extraOffset = [0, 0];
+		var duration:Float = 2;
+		// set different values of speed for the car types (and the offset)
+		switch(variant){
+			case 1:
+				duration = FlxG.random.float(1, 1.7);
+			case 2:
+				extraOffset = [20, -15];
+				duration = FlxG.random.float(0.6, 1.2);
+			case 3:
+				extraOffset = [30, 50];
+				duration = FlxG.random.float(1.5, 2.5);
+			case 4:
+				extraOffset = [10, 60];
+				duration = FlxG.random.float(1.5, 2.5);
+		}
+		// random arbitrary values for getting the cars in place
+		// could just add them to the points but im LAZY!!!!!!
+		var offset:Array<Float> = [306.6, 168.3];
+		sprite.offset.set(extraOffset[0], extraOffset[1]);
+		// start/end rotation
+		var rotations:Array<Int> = [-8, 18];
+		// the path to move the car on
+		var path:Array<FlxPoint> = [
+				FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
+				FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
+				FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
+		];
+
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null );
+		FlxTween.quadPath(sprite, path, duration, true,
+      {
+        ease: null,
+				onComplete: function(_) {
+      	  carInterruptable = true;
+      	}
+    });
+	}
+
+	function driveCarBack(sprite:FlxSprite):Void{
+		car2Interruptable = false;
+		FlxTween.cancelTweensOf(sprite);
+		var variant:Int = FlxG.random.int(1,4);
+		sprite.animation.play('car' + variant);
+		// setting an offset here because the current implementation of stage prop offsets was not working at all for me
+		// if possible id love to not have to do this but im keeping this for now
+		var extraOffset = [0, 0];
+		var duration:Float = 2;
+		// set different values of speed for the car types (and the offset)
+		switch(variant){
+			case 1:
+				duration = FlxG.random.float(1, 1.7);
+			case 2:
+				extraOffset = [20, -15];
+				duration = FlxG.random.float(0.6, 1.2);
+			case 3:
+				extraOffset = [30, 50];
+				duration = FlxG.random.float(1.5, 2.5);
+			case 4:
+				extraOffset = [10, 60];
+				duration = FlxG.random.float(1.5, 2.5);
+		}
+		// random arbitrary values for getting the cars in place
+		// could just add them to the points but im LAZY!!!!!!
+		var offset:Array<Float> = [306.6, 168.3];
+		sprite.offset.set(extraOffset[0], extraOffset[1]);
+		// start/end rotation
+		var rotations:Array<Int> = [18, -8];
+		// the path to move the car on
+		var path:Array<FlxPoint> = [
+				FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 60),
+				FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30),
+				FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)
+
+		];
+
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null );
+		FlxTween.quadPath(sprite, path, duration, true,
+      {
+        ease: null,
+				onComplete: function(_) {
+      	  car2Interruptable = true;
+      	}
+    });
+	}
+
+	/**
+  * Resets the values tied to the lights that need to be accounted for on a restart.
+  */
+	function resetStageValues():Void{
+		lastChange = 0;
+		changeInterval = 8;
+		getNamedProp('phillyTraffic').animation.play('togreen');
+		lightsStop = false;
+	}
+
 	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
+	}
+
+	function onBeatHit(event:SongTimeScriptEvent)
+	{
+		super.onBeatHit(event);
+
+		// Try driving a car when its possible
+		if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && carInterruptable == true)
+		{
+			if(lightsStop == false){
+				driveCar(getNamedProp('phillyCars'));
+			}else{
+				driveCarLights(getNamedProp('phillyCars'));
+			}
+		}
+
+		// try driving one on the right too. in this case theres no red light logic, it just can only spawn on green lights
+		if(FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && car2Interruptable == true && lightsStop == false) driveCarBack(getNamedProp('phillyCars2'));
+
+		// After the interval has been hit, change the light state.
+		if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);
 	}
 
 	override function setupFrameBuffers()
@@ -80,6 +349,9 @@ class PhillyStreetsStage extends Stage
 		super.onSongRetry(event);
 		// Make it so the rain shader doesn't show over the game over screen
 		// FlxG.camera.setFilters([rainShaderFilter]);
+
+		resetCar(true, true);
+		resetStageValues();
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)

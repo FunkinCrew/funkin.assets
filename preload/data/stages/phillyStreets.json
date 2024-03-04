@@ -110,12 +110,99 @@
       "position": [1748, 818],
       "scale": [1, 1],
       "animType": "sparrow",
-      "name": "phillyCar",
+      "name": "phillyCars",
       "isPixel": false,
-      "assetPath": "phillyStreets/phillyCar",
+      "assetPath": "phillyStreets/phillyCars",
       "scroll": [1, 1],
       "alpha": 1,
-      "animations": []
+      "animations": [
+        {
+          "name": "car1",
+	  "offsets": [0, 0],
+          "prefix": "car1",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false
+        },
+	{
+          "name": "car2",
+          "prefix": "car2",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false,
+	  "offsets": [0, 0]
+        },
+	{
+          "name": "car3",
+	  "offsets": [0, 0],
+          "prefix": "car3",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false
+        },
+	{
+          "name": "car4",
+	  "offsets": [0, 0],
+          "prefix": "car4",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false
+        }
+      ]
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 78,
+      "position": [1748, 818],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "phillyCars2",
+      "isPixel": false,
+      "assetPath": "phillyStreets/phillyCars",
+      "scroll": [1, 1],
+      "alpha": 1,
+      "animations": [
+        {
+          "name": "car1",
+	  "offsets": [0, 0],
+          "prefix": "car1",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": true,
+          "flipY": false
+        },
+	{
+          "name": "car2",
+          "prefix": "car2",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": true,
+          "flipY": false,
+	  "offsets": [0, 0]
+        },
+	{
+          "name": "car3",
+	  "offsets": [0, 0],
+          "prefix": "car3",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": true,
+          "flipY": false
+        },
+	{
+          "name": "car4",
+	  "offsets": [0, 0],
+          "prefix": "car4",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": true,
+          "flipY": false
+        }
+      ]
     },
     {
       "danceEvery": 0,
@@ -128,7 +215,24 @@
       "assetPath": "phillyStreets/phillyTraffic",
       "scroll": [1, 1],
       "alpha": 1,
-      "animations": []
+      "animations": [
+        {
+          "name": "togreen",
+          "prefix": "redtogreen",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false
+        },
+	{
+          "name": "tored",
+          "prefix": "greentored",
+          "frameRate": 24,
+          "looped": false,
+          "flipX": false,
+          "flipY": false
+        }
+      ]
     },
     {
       "danceEvery": 0,
@@ -198,7 +302,7 @@
     },
     "dad": {
       "zIndex": 350,
-      "position": [837, 1195],
+      "position": [851, 1195],
       "cameraOffsets": [500, -100]
     }
   },
