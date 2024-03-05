@@ -5,7 +5,6 @@ import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxSprite;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 
 class NeneCharacter extends SparrowCharacter {

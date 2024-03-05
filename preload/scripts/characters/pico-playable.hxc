@@ -9,8 +9,8 @@ import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Paths;
 import flixel.FlxSprite;
-import funkin.modding.base.ScriptedFlxSprite;
 import flixel.FlxG;
+import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
@@ -229,7 +229,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			addToStage(casingGroup);
 		}
 
-		var casing = ScriptedFlxSprite.init('CasingSprite', [0, 0]);
+		var casing = ScriptedFunkinSprite.init('CasingSprite', [0, 0]);
 		if (casing != null)
 			casingGroup.add(casing);
 	}

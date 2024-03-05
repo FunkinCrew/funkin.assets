@@ -7,7 +7,6 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxSprite;
 import Lambda;
 
 class PicoSpeakerCharacter extends SparrowCharacter {
