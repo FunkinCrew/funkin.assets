@@ -49,6 +49,34 @@ class PhillyBlazinStage extends Stage
 			cameraInitialized = true;
 			initializeCamera();
 		}
+
+		doLightning();
+	}
+
+	var charactersDarkened:Bool = false;
+	function doLightning():Void {
+		if (FlxG.keys.justPressed.SPACE) {
+			charactersDarkened = !charactersDarkened;
+
+			applyLightning();
+		}
+
+		if (PlayState.instance.health < 0.0) {
+			charactersDarkened = false;
+			applyLightning();
+		}
+	}
+
+	function applyLightning():Void {
+		if (charactersDarkened) {
+			PlayState.instance.currentStage.getBoyfriend().color = 0xFF606060;
+			PlayState.instance.currentStage.getDad().color = 0xFF606060;
+			PlayState.instance.currentStage.getGirlfriend().color = 0xFF606060;
+		} else {
+			PlayState.instance.currentStage.getBoyfriend().color = 0xFFFFFFFF;
+			PlayState.instance.currentStage.getDad().color = 0xFFFFFFFF;
+			PlayState.instance.currentStage.getGirlfriend().color = 0xFFFFFFFF;
+		}
 	}
 
 	function initializeCamera():Void {
@@ -66,6 +94,7 @@ class PhillyBlazinStage extends Stage
 	var blurBG:GaussianBlurShader = null;
 	var blurNene:GaussianBlurShader = null;
 	var multiplySprite:FunkinSprite = null;
+	var lightningMultiplySprite:FunkinSprite = null;
 
 	function darkenCamera()
 	{
@@ -92,7 +121,8 @@ class PhillyBlazinStage extends Stage
 		//		}
 
 		multiplySprite = new FunkinSprite(400, 0);
-		multiplySprite.makeSolidColor(2000, 2500, 0xFF606060);
+		multiplySprite.makeSolidColor(2000, 2500, 0xFF000000);
+		multiplySprite.alpha = 0.60;
 		multiplySprite.blend = 9; // Multiply
 		multiplySprite.zIndex = 1100;
 		add(multiplySprite);
