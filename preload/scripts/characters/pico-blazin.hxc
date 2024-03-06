@@ -97,7 +97,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 			case "weekend-1-picouppercutprep":
 				playUppercutPrepAnim();
 			case "weekend-1-picouppercut":
-				playUppercutAnim();
+				playUppercutAnim(true);
 
 			case "weekend-1-darnelluppercutprep":
 				playIdleAnim();
@@ -209,7 +209,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playPunchHighAnim();
 				cantUppercut = true;
 			case "weekend-1-picouppercut":
-				playUppercutAnim();
+				playUppercutAnim(false);
 
 			// Darnell's attempt to uppercut, Pico dodges or gets hit.
 			case "weekend-1-darnelluppercutprep":
@@ -343,15 +343,19 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		moveToFront();
 	}
 
-	function playUppercutAnim()
+	function playUppercutAnim(hit:Bool)
 	{
 		this.playAnimation('uppercut', true, false);
+		if (hit) {
+			PlayState.instance.camGame.shake(0.005, 0.25);
+		}
 		moveToFront();
 	}
 
 	function playUppercutHitAnim()
 	{
 		this.playAnimation('uppercutHit', true, false);
+		PlayState.instance.camGame.shake(0.005, 0.25);
 		moveToBack();
 	}
 
