@@ -94,6 +94,14 @@ class PhillyStreetsStage extends Stage
 
 		resetCar(true, true);
 		resetStageValues();
+
+
+	}
+
+	override function onCountdownEnd(event:SongLoadScriptEvent) {
+		super.onCountdownEnd(event);
+		carSndAmbience.volume = 0.1;
+		rainCanPlay = true;
 	}
 
 	override function onCreate(event:ScriptEvent):Void
@@ -109,7 +117,7 @@ class PhillyStreetsStage extends Stage
 		carSndAmbience = new FlxSound();
 		carSndAmbience.loadEmbedded(Paths.sound("carAmbience", "weekend1"), true);
 		FlxG.sound.defaultSoundGroup.add(carSndAmbience);
-		carSndAmbience.volume = 0.5;
+		carSndAmbience.volume = 0;
 		carSndAmbience.play();
 
 
@@ -334,12 +342,33 @@ class PhillyStreetsStage extends Stage
 		lightsStop = false;
 	}
 
+	var rainDropTimer:Float = 0;
+	var rainDropWait:Float = 6;
+	var rainCanPlay:Bool = false;
+
 	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
+
+		// Only do raindrop sound effects on the first song, darnell, for light droplet sounds
+		if (PlayState.instance.currentSong.id == "darnell" && rainCanPlay)
+		{
+			rainDropTimer += event.elapsed;
+			if (rainDropTimer > rainDropWait)
+			{
+				rainDropTimer = 0;
+				FlxG.sound.play(Paths.sound("raindrops/raindrop" + FlxG.random.int(1, 16), "weekend1"), FlxG.random.float(0.3, 0.6));
+
+				var dropVolIntensity:Float = rainShader != null ? rainShader.intensity : 0;
+
+				rainDropWait = FlxG.random.float(0.5 * (dropVolIntensity * 10), 10 * (dropVolIntensity * 10));
+			}
+
+		}
+
 		var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity, rainShaderEndIntensity);
 		rainShader.intensity = remappedIntensityValue;
-		rainSndAmbience.volume = Math.min(0.4, remappedIntensityValue * 2);
+		rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 	}
