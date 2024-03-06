@@ -3,6 +3,7 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.graphics.FunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 
@@ -78,6 +79,15 @@ class BlazinSong extends Song {
       trace('Pausing ending to play a video cutscene (`blazin`)');
 
       hasPlayedCutscene = true;
+
+			// Add a black background behind the cutscene to fix a transition bug!
+			trace('Adding black background behind cutscene over UI');
+			var bgSprite = new FunkinSprite(-100, -100);
+			bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
+			bgSprite.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
+			bgSprite.zIndex = 1000000;
+			PlayState.instance.add(bgSprite);
+			PlayState.instance.refresh();
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
