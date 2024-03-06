@@ -7,7 +7,7 @@ class ParentsChristmasCharacter extends SparrowCharacter {
 		super('parents-christmas');
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
 			// Override the hit note animation.

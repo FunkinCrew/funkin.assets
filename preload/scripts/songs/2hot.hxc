@@ -69,7 +69,7 @@ class TwoHOTSong extends Song
 	var gunCocked:Bool = false;
 	var spawnedCans:Array<ScriptedFlxAtlasSprite> = [];
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		super.onNoteHit(event);
     if (PlayState.instance.currentStage == null) return;
@@ -115,15 +115,6 @@ class TwoHOTSong extends Song
 					// The player cannot hit this note.
 					event.cancelEvent();
 				}
-		}
-	}
-
-	override function onUpdate(event:ScriptEvent)
-	{
-		super.onUpdate(event);
-
-		if (FlxG.keys.justPressed.P) {
-			takeCanDamage();
 		}
 	}
 

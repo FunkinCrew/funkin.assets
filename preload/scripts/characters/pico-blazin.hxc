@@ -29,7 +29,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
 	var cantUppercut = false;
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		holdTimer = 0;
 

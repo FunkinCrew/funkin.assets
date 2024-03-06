@@ -59,7 +59,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (event.eventCanceled) {
 			// onNoteHit event was cancelled by the gameplay module.

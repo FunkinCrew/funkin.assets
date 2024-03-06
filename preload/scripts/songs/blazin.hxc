@@ -34,6 +34,8 @@ class BlazinSong extends Song {
 
 	function onUpdate(event:ScriptEvent):Void
 	{
+		super.onUpdate(event);
+
 		if (!this.hasHidden)
 		{
 			trace('Attempting to hide strumlines');

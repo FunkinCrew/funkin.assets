@@ -2,6 +2,7 @@ import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.Paths;
+import funkin.Conductor;
 import flixel.FlxG;
 
 class DarnellCharacter extends SparrowCharacter {
@@ -9,7 +10,14 @@ class DarnellCharacter extends SparrowCharacter {
 		super('darnell');
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteIncoming(event:NoteScriptEvent) {
+		super.onNoteIncoming(event);
+
+		var diff = event.note.strumTime - Conductor.instance.songPosition;
+		trace('Incoming note! ' + event.note.kind + ' coming in ' + diff + ' milliseconds');
+	}
+
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
 			// Override the hit note animation.

@@ -192,12 +192,11 @@ class NeneCharacter extends SparrowCharacter {
 				movePupilsRight();
 			case "weekend-1-firegun":
 				// movePupilsRight();
-			default:
-				super.onNoteHit(event);
+			default: // Nothing
 		}
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		super.onNoteHit(event);
 		moveByNoteKind(event.note.kind);
@@ -205,7 +204,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function onNoteMiss(event:NoteScriptEvent)
 	{
-		super.onNoteHit(event);
+		super.onNoteMiss(event);
 		moveByNoteKind(event.note.kind);
 	}
 

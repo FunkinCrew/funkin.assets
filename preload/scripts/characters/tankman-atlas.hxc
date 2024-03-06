@@ -10,7 +10,7 @@ class TankmanAtlasCharacter extends SparrowCharacter {
 		super('tankman-atlas');
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
