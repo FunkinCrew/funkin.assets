@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lightning_effect-animate.png">
+	<SubTexture name="lightning fade instance 10000" x="4" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10001" x="23" y="4" width="13" height="352" frameX="0" frameY="0" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10002" x="4" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10003" x="40" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10004" x="40" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10005" x="59" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10006" x="59" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10007" x="78" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10008" x="78" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10009" x="97" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10010" x="97" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10011" x="116" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10012" x="116" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10013" x="135" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10014" x="135" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10015" x="154" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10016" x="154" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10017" x="173" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10018" x="173" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10019" x="192" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10020" x="192" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10021" x="211" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10022" x="211" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10023" x="230" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10024" x="230" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10025" x="249" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10026" x="249" y="4" width="15" height="352"/>
+	<SubTexture name="lightning fade instance 10027" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10028" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10029" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10030" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10031" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+	<SubTexture name="lightning fade instance 10032" x="268" y="4" width="0" height="0" frameX="453" frameY="-92" frameWidth="15" frameHeight="352"/>
+</TextureAtlas>

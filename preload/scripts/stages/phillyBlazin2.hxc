@@ -1,0 +1,123 @@
+import funkin.graphics.shaders.GaussianBlurShader;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import funkin.graphics.FunkinSprite;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import openfl.filters.ShaderFilter;
+import flixel.tweens.FlxTween;
+import funkin.play.stage.StageProp;
+
+/**
+ * This stage includes a partial version of the Philly Streets stage with shaders applied.
+ */
+class PhillyBlazinStage extends Stage
+{
+	function new()
+	{
+		super('phillyBlazin2');
+	}
+
+	override function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+		cameraInitialized = false;
+		cameraDarkened = false;
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+
+		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+		skyAdditive.blend = 0; // ADD
+		skyAdditive.visible = false;
+
+		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+		lightning.visible = false;
+
+		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+		foregroundMultiply.blend = 9; // MULTIPLY
+		foregroundMultiply.visible = false;
+
+		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+		additionalLighten.blend = 0; // ADD
+		additionalLighten.visible = false;
+	}
+
+	var cameraInitialized:Bool = false;
+	var cameraDarkened:Bool = false;
+
+	override function onUpdate(event:ScriptEvent)
+	{
+		super.onUpdate(event);
+
+		// Manually focus the camera before the song starts.
+		if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
+		{
+			cameraInitialized = true;
+			initializeCamera();
+		}
+
+		if (FlxG.keys.justPressed.SPACE) {
+			applyLightning();
+		}
+	}
+
+	function applyLightning():Void {
+		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+
+		var LIGHTNING_FULL_DURATION = 1.5;
+		var LIGHTNING_FADE_DURATION = 0.3;
+
+		skyAdditive.visible = true;
+		skyAdditive.alpha = 0.7;
+		FlxTween.tween(skyAdditive, {alpha: 0.0}, LIGHTNING_FULL_DURATION, {
+			onComplete: cleanupLightning, // Make sure to call this only once!
+		});
+
+		foregroundMultiply.visible = true;
+		foregroundMultiply.alpha = 0.64;
+		FlxTween.tween(foregroundMultiply, {alpha: 0.0}, LIGHTNING_FULL_DURATION);
+
+		additionalLighten.visible = true;
+		additionalLighten.alpha = 0.3;
+		FlxTween.tween(additionalLighten, {alpha: 0.0}, LIGHTNING_FADE_DURATION);
+
+		lightning.visible = true;
+		lightning.animation.play('strike');
+
+		var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+		var dad = PlayState.instance.currentStage.getDad();
+		var girlfriend = PlayState.instance.currentStage.getGirlfriend();
+
+		FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+		FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+	}
+
+	function cleanupLightning(tween:FlxTween):Void {
+		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+		skyAdditive.visible = false;
+		foregroundMultiply.visible = false;
+		additionalLighten.visible = false;
+		lightning.visible = false;
+	}
+
+	function initializeCamera():Void {
+		var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
+    var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
+		// yTarget += 200;
+		xTarget += 50;
+		yTarget -= 100;
+    PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
+		PlayState.instance.resetCamera();
+	}
+}
