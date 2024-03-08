@@ -112,13 +112,13 @@ class PhillyStreetsStage extends Stage
 		rainSndAmbience.loadEmbedded(Paths.sound("rainAmbience", "weekend1"), true);
 		FlxG.sound.defaultSoundGroup.add(rainSndAmbience);
 		rainSndAmbience.volume = 0;
-		rainSndAmbience.play();
+		rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
 
 		carSndAmbience = new FlxSound();
 		carSndAmbience.loadEmbedded(Paths.sound("carAmbience", "weekend1"), true);
 		FlxG.sound.defaultSoundGroup.add(carSndAmbience);
 		carSndAmbience.volume = 0;
-		carSndAmbience.play();
+		carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
 
 
 		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
