@@ -278,7 +278,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		this.playAnimation('shootMISS', true, true);
 		// Donk.
-		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
+		FlxG.sound.play(Paths.sound('Pico_Bonk'), 1.0);
 	}
 
 	function addToStage(sprite:FlxSprite) {
