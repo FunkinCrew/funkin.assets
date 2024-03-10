@@ -88,7 +88,8 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 
 			// Fail to dodge the uppercut.
 			case "weekend-1-picouppercutprep":
-				playIdleAnim();
+				// Continue whatever animation was playing before
+				// playIdleAnim();
 			case "weekend-1-picouppercut":
 				playUppercutHitAnim();
 
@@ -207,7 +208,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 			case "weekend-1-fakeout":
 				playCringeAnim(); // TODO: Which anim?
 			case "weekend-1-taunt":
-				playPissedConditional();
+				playPissedConditionalAnim();
 			case "weekend-1-tauntforce":
 				playPissed();
 			case "weekend-1-reversefakeout":
