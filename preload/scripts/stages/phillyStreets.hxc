@@ -14,14 +14,25 @@ import openfl.filters.BlurFilter;
 import funkin.graphics.framebuffer.BitmapDataUtil;
 import flixel.tweens.FlxEase;
 import flixel.math.FlxPoint;
+import flixel.math.FlxMath;
 import flixel.tweens.FlxTween;
 import StringTools;
+import funkin.Conductor;
+import funkin.audio.FunkinSound;
 
 class PhillyStreetsStage extends Stage
 {
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
 	var rainShaderFilter:ShaderFilter;
 	var blurFilter:BlurFilter = new BlurFilter(6, 6);
+
+	// as song goes on, these are used to make the rain more intense throught the song
+	// these values are also used for the rain sound effect volume intensity!
+	var rainShaderStartIntensity:Float;
+	var rainShaderEndIntensity:Float;
+
+	var rainSndAmbience:FlxSound;
+	var carSndAmbience:FlxSound;
 
 	var lightsStop:Bool = false; // state of the traffic lights
 	var lastChange:Int = 0;
@@ -83,15 +94,47 @@ class PhillyStreetsStage extends Stage
 
 		resetCar(true, true);
 		resetStageValues();
+
+
+	}
+
+	override function onCountdownEnd(event:SongLoadScriptEvent) {
+		super.onCountdownEnd(event);
+		carSndAmbience.volume = 0.1;
+		rainCanPlay = true;
 	}
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
 
+		rainSndAmbience = FunkinSound.load(Paths.sound("rainAmbience", "weekend1"), true);
+		rainSndAmbience.volume = 0;
+		rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
+
+		carSndAmbience = FunkinSound.load(Paths.sound("carAmbience", "weekend1"), true);
+		carSndAmbience.volume = 0;
+		carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
+
+
 		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
-		rainShader.intensity = 0.5;
+
+		FlxG.console.registerObject("rainShader", rainShader);
+		switch (PlayState.instance.currentSong.id)
+		{
+			case "darnell":
+				rainShaderStartIntensity = 0;
+				rainShaderEndIntensity = 0.1;
+			case "lit-up":
+				rainShaderStartIntensity = 0.1;
+				rainShaderEndIntensity = 0.2;
+			case "2hot":
+				rainShaderStartIntensity = 0.2;
+				rainShaderEndIntensity = 0.4;
+		}
+
+		rainShader.intensity = rainShaderStartIntensity;
 
 		// set the shader input
 		//rainShader.mask = frameBufferMan.getFrameBuffer("mask");
@@ -295,9 +338,33 @@ class PhillyStreetsStage extends Stage
 		lightsStop = false;
 	}
 
+	var rainDropTimer:Float = 0;
+	var rainDropWait:Float = 6;
+	var rainCanPlay:Bool = false;
+
 	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
+
+		// Only do raindrop sound effects on the first song, darnell, for light droplet sounds
+		if (PlayState.instance.currentSong.id == "darnell" && rainCanPlay)
+		{
+			rainDropTimer += event.elapsed;
+			if (rainDropTimer > rainDropWait)
+			{
+				rainDropTimer = 0;
+				FlxG.sound.play(Paths.sound("raindrops/raindrop" + FlxG.random.int(1, 16), "weekend1"), FlxG.random.float(0.3, 0.6));
+
+				var dropVolIntensity:Float = rainShader != null ? rainShader.intensity : 0;
+
+				rainDropWait = FlxG.random.float(0.5 * (dropVolIntensity * 10), 10 * (dropVolIntensity * 10));
+			}
+
+		}
+
+		var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity, rainShaderEndIntensity);
+		rainShader.intensity = remappedIntensityValue;
+		rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 	}
