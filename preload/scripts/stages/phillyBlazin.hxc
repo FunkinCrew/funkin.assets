@@ -11,7 +11,7 @@ import openfl.filters.ShaderFilter;
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
  */
-class PhillyBlazinStage extends Stage
+class PhillyBlazinStageOld extends Stage
 {
 	function new()
 	{
