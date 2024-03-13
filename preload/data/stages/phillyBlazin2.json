@@ -23,7 +23,7 @@
     },
     {
       "zIndex": 20,
-      "position": [300, -175],
+      "position": [50, -300],
       "animType": "sparrow",
       "name": "lightning",
       "assetPath": "phillyBlazin/lightning",
@@ -32,7 +32,7 @@
       "animations": [
         {
           "name": "strike",
-          "prefix": "lightning fade instance 10",
+          "prefix": "lightning0",
           "offsets": [0, 0]
         }
       ]
