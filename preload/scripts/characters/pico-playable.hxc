@@ -12,6 +12,7 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
+import flixel.effects.FlxFlicker;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 
@@ -123,6 +124,39 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 
 		super.playAnimation(name, restart, ignoreOther);
+	}
+
+	var picoFlicker:FlxFlicker = null;
+
+	override function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
+		if (name == 'shootMISS') {
+			// ERIC: You have to use super instead of this or it breaks.
+			// This is because typeof(this) is PolymodAbstractClass.
+      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
+        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
+					picoFlicker = null;
+				});
+      });
+		}
+	}
+
+	public override function onPause(event:PauseScriptEvent) {
+		super.onPause(event);
+
+		if (picoFlicker != null) {
+			picoFlicker.pause();
+			this.visible = true;
+		}
+	}
+
+  public override function onResume(event:ScriptEvent) {
+		super.onPause(event);
+
+		if (picoFlicker != null) {
+			picoFlicker.resume();
+		}
 	}
 
 	var picoDeathExplosion:FlxAtlasSprite;
