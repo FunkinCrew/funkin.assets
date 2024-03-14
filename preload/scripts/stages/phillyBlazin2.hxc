@@ -149,7 +149,7 @@ class PhillyBlazinStageNew extends Stage
     var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
 		// yTarget += 200;
 		xTarget += 50;
-		yTarget -= 100;
+		yTarget -= 90;
     PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
 		PlayState.instance.resetCamera();
 	}
