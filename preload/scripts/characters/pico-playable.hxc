@@ -134,8 +134,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == 'shootMISS') {
 			// ERIC: You have to use super instead of this or it breaks.
 			// This is because typeof(this) is PolymodAbstractClass.
-      picoFlicker = FlxFlicker.flicker(super, 1, 0.1, true, true, function(_) {
-        picoFlicker = FlxFlicker.flicker(super, 0.5, 0.05, true, true, function(_) {
+      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
+        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
 					picoFlicker = null;
 				});
       });
