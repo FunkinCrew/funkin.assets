@@ -3,6 +3,7 @@ import flixel.FlxG;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.Paths;
+import funkin.graphics.FunkinSprite;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import flixel.tweens.FlxTween;
@@ -10,8 +11,13 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 
 /**
- * TODO: Move henchmen killing to song events after those are implemented.
- */
+	* Hey, Eric here!
+	* Originally the lamp post was going to be a mechanic,
+	* where you could fail to duck under and it would cause you to lose health!
+	*
+	* That ended up being cut (main reason we would need a whole custom death animation if it killed you),
+	* but the code for that is still in here, so go wild!
+	*/
 class MILFSong extends Song {
 	public function new() {
 		super('milf');
@@ -72,24 +78,15 @@ class MILFSong extends Song {
 	var HENCHMAN_DEATH_SOUND_OFFSET = -300;
 
 	/*
-	 * The millisecond times at which the lamp passes by.
+	 * The millisecond times at which the lamp should pass by.
+	 *
+	 * ERIC NOTE: If you're wondering why we didn't just use a song event for this,
+	 * it's because this script is older than the song event system by about a year!
 	 */
 	var BOYFRIEND_LAMP_TIMES = [
 		// 800, // Beginning of the song for testing.
 		87900 // The duet down note.
 	];
-
-	/**
-	 * Returns true if we are in a level we should use the lamp on.
-	 */
-	function isCorrectSong()
-	{
-		// Don't run the script if we aren't in a song.
-		if (PlayState.instance == null) return false;
-		if (PlayState.instance.currentSong == null) return false;
-
-		return PlayState.instance.currentSong.id == 'milf';
-	}
 
 	/**
 	 * Returns true if the player is currently holding a down note to avoid the lamp.
@@ -107,8 +104,8 @@ class MILFSong extends Song {
 	var hasCurrentGFLampDucked = false;
 	var currentHenchmenIndex = 1;
 
-	function createGib(type:Int):FlxSprite {
-		var gibSprite:FunkinSprite = FunkinSprite.create('limo/henchmen');
+	function createGib(type:Int):FunkinSprite {
+		var gibSprite:FunkinSprite = FunkinSprite.createSparrow(0, 0, 'limo/henchmen');
 		gibSprite.angle = FlxG.random.int(0, 360);
 		gibSprite.active = true;
 		gibSprite.velocity.x = FlxG.random.int(-20, -1000);
@@ -189,8 +186,6 @@ class MILFSong extends Song {
 		});
 	}
 
-
-
 	function hardResetLimo() {
 		limoState = 0;
 		isTweeningLimo = false;
@@ -245,9 +240,6 @@ class MILFSong extends Song {
 	function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
-
-		if (PlayState.instance == null || PlayState.instance.currentStage == null || !isCorrectSong())
-			return;
 
 		if (nextBFLampIndex < BOYFRIEND_LAMP_TIMES.length) {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
@@ -307,7 +299,11 @@ class MILFSong extends Song {
 							}
 						} else {
 							// Explode henchman into gibs.
-							gibHenchman(henchman);
+							trace('Gibbing henchman' + henchman);
+							this.gibHenchman(henchman);
+
+							// ERIC NOTE: This bug is deranged why does henchman undefine itself? I need to add this line?
+							var henchman = PlayState.instance.currentStage.getNamedProp('limoDancer' + currentHenchmenIndex);
 							henchman.visible = false;
 						}
 
@@ -412,7 +408,9 @@ class MILFSong extends Song {
 	 */
 	function doLampHit()
 	{
-		if (isPlayerDucking())
+		// Check if the player is ducking or not.
+		// if (isPlayerDucking())
+		if (true)
 		{
 			trace("Player dodged!");
 			FlxG.sound.play(Paths.soundRandom('Light_Pass_Head_', 1, 4), 1.0);
@@ -424,10 +422,10 @@ class MILFSong extends Song {
 			FlxG.sound.play(Paths.sound('BF_Hit_by_Passing_Light'), 1.0);
 
 			// Lose health when hit.
-			PlayState.instance.health -= HEALTH_LOSS;
+			// PlayState.instance.health -= HEALTH_LOSS;
 
 			// White flash on screen.
-			FlxG.camera.fade(0x70FFFFFF, 0.6, true);
+			// FlxG.camera.fade(0x70FFFFFF, 0.6, true);
 
 			// Play the miss animation.
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('hit', true, true);
@@ -462,10 +460,7 @@ class MILFSong extends Song {
 		super.onCreate(event);
 
 		// Properly reset lights and collision when starting the song.
-		if (isCorrectSong())
-		{
-			hardResetSong();
-		}
+		this.hardResetSong();
 	}
 
 	/**
@@ -476,19 +471,13 @@ class MILFSong extends Song {
 		super.onSongRetry(event);
 
 		// Properly reset lights and collision when restarting the song.
-		if (isCorrectSong())
-		{
-			hardResetSong();
-		}
+		this.hardResetSong();
 	}
 
 	function onCountdownStart(event:SongLoadScriptEvent) {
 		super.onCountdownStart(event);
 
 		// Properly reset lights and collision when restarting the song.
-		if (isCorrectSong())
-		{
-			hardResetSong();
-		}
+		this.hardResetSong();
 	}
 }
