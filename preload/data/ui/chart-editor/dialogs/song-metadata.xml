@@ -35,7 +35,7 @@
 					</data>
 				</dropdown>
 				<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-				<dropdown id="inputCharacterGirlfriend" value="none" dropdownSize="10" dropdownWidth="300"  horizontalAlign="right" width="100%" searchable="true">
+				<dropdown id="inputCharacterGirlfriend" value="none" dropdownSize="10" dropdownWidth="300" horizontalAlign="right" width="100%" searchable="true">
 					<data>
 						<item id="none" text="" />
 						<item id="gf" text="Girlfriend" />

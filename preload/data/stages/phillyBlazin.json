@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Philly (Blazin')",
-  "cameraZoom": 0.70,
+  "cameraZoom": 0.7,
   "props": [
     {
       "danceEvery": 0,

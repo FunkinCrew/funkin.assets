@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="tallieNumber.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="0 small0000" x="78" y="141" width="34" height="37" />
 	<SubTexture name="1 small0000" x="79" y="0" width="32" height="42" />
 	<SubTexture name="2 small0000" x="0" y="48" width="35" height="42" />

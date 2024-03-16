@@ -1,5 +1,4 @@
-
-<vbox id="funny" >
+<vbox id="funny">
     <!-- <splitter direction="vertical" width="100%" height="50" verticalAlign="center" horizontalAlign="center">
         <import source="components/layers.xml" />
 
@@ -10,8 +9,6 @@
             <box width="100%" height="100%" style="background-color: #FFAAAA;background-opacity:.3;clip:true;">
                 <import source="components/menubar.xml" verticalAlign="center" horizontalAlign="center" />
             </box>
-
-
             <!--
             <splitter width="50%" height="100%">
                 <box width="50%" height="100%" style="background-color: #AAFFAA;background-opacity:.3;clip:true;">
@@ -23,8 +20,7 @@
             </splitter> -->
         </splitter>
         <splitter direction="horizontal" width="100%" height="95%">
-            <box width="80%" height="100%" style="background-color: #FFCCFF;background-opacity:0.0;clip:true;">
-            </box>
+            <box width="80%" height="100%" style="background-color: #FFCCFF;background-opacity:0.0;clip:true;" />
             <splitter direction="vertical" width="20%" height="100%">
                 <box width="100%" height="50%" style="background-color: #44444;background-opacity:.5clip:true;">
                     <import source="components/layers.xml" verticalAlign="center" horizontalAlign="center" />
@@ -33,16 +29,12 @@
                     <section-header text="Character Properties" />
                     <property-grid width="100%" height="100%">
                         <property-group text="Positioning">
-                            <property id="propXPos" label="X pos" type="int" value="0"/>
-                            <property id="propYPos" label="Y pos" type="int" value="0"/>
+                            <property id="propXPos" label="X pos" type="int" value="0" />
+                            <property id="propYPos" label="Y pos" type="int" value="0" />
                         </property-group>
-
                     </property-grid>
                 </box>
             </splitter>
-
-
         </splitter>
     </splitter>
-
 </vbox>
