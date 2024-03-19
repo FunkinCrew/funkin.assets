@@ -35,7 +35,7 @@ class NeneCharacter extends SparrowCharacter {
 		pupil.y = this.y;
 		pupil.zIndex = this.zIndex - 5;
 
-		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', [0, 0]);
+		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
 		abot.x = this.x;
 		abot.y = this.y;
 		abot.zIndex = this.zIndex - 10;
