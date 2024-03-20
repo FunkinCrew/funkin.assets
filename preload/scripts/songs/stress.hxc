@@ -42,11 +42,13 @@ class StressSong extends Song {
     tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
 
     if (tankmanGroup != null) {
+      // resets the tankmen!
+      trace(Type.getClassName(Type.getClass(tankmanGroup)));
+      tankmanGroup.scriptCall('reset');
+
       tankmanGroup.zIndex = 30;
       PlayState.instance.currentStage.add(tankmanGroup);
       PlayState.instance.currentStage.refresh();
-      // resets the tankmen!
-      tankmanGroup.scriptCall('reset');
     } else {
       trace('Failed to initialize tankman group!');
     }

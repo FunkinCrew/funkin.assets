@@ -63,9 +63,9 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 		{
       // Every note is a Pico shot.
 			// However, only one out of every 16 notes, on average, plays the corresponding Tankman animation.
-			trace('  Adding Pico animation: ' + note.t + ':' + note.d);
-			tankmanTimes.push(note.t);
-			tankmanDirs.push(note.d);
+			trace('  Adding Pico animation: ' + note.time + ':' + note.data);
+			tankmanTimes.push(note.time);
+			tankmanDirs.push(note.data);
 		}
 	}
 
