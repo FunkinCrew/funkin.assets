@@ -6,6 +6,7 @@ import funkin.play.cutscene.VideoCutscene;
 import funkin.graphics.FunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
+import funkin.save.Save;
 
 /**
  * Apply middlescroll to the song.
@@ -28,6 +29,15 @@ class BlazinSong extends Song {
 		super.onDestroy(event);
 
 		this.hasHidden = false;
+	}
+
+	public function listDifficulties(variationId:String, variationIds:Array<String>):Array<String> {
+		if (Save.instance.hasBeatenLevel('weekend1')) {
+			return super.listDifficulties(variationId, variationIds);
+		}
+
+		// Hide all difficulties if the player has not beaten the week.
+		return [];
 	}
 
 	var hasHidden = false;
