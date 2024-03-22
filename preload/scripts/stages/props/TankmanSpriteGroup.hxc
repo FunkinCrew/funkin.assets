@@ -7,7 +7,7 @@ import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.PlayState;
 import Lambda;
 
-class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
+class TankmanSpriteGroup extends FlxTypedSpriteGroup
 {
 	var tankmanTimes:Array<Float> = [];
 	var tankmanDirs:Array<Bool> = [];
@@ -56,8 +56,8 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 			// Only one out of every 16 notes, on average, is a tankman.
 			if (FlxG.random.bool(16))
 			{
-				trace('  Adding Tankman: ' + note.t);
-				tankmanTimes.push(note.t);
+				trace('  Adding Tankman: ' + note.time);
+				tankmanTimes.push(note.time);
 				var goingRight:Bool = note.d < 2;
 				tankmanDirs.push(goingRight);
 			}

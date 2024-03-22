@@ -6,13 +6,13 @@
   "timeChanges": [{ "t": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "playData": {
     "album": "volume1",
+    "previewStart": 0,
+    "previewEnd": 15000,
     "ratings": {
       "easy": 1,
       "normal": 3,
       "hard": 5
     },
-    "previewStart": 0,
-    "previewEnd": 15000,
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

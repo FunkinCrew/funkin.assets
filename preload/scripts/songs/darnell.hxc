@@ -2,6 +2,7 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.save.Save;
 
 import funkin.play.PlayStatePlaylist;
 
@@ -12,6 +13,15 @@ class DarnellSong extends Song {
 		super('darnell');
 
     hasPlayedCutscene = false;
+	}
+
+	public function listDifficulties(variationId:String, variationIds:Array<String>):Array<String> {
+		if (Save.instance.hasBeatenLevel('weekend1')) {
+			return super.listDifficulties(variationId, variationIds);
+		}
+
+		// Hide all difficulties if the player has not beaten the week.
+		return [];
 	}
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
