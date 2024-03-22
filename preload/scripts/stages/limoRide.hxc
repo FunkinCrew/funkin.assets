@@ -37,20 +37,6 @@ class LimoRideStage extends Stage
 		resetFastCar();
 	}
 
-	function onUpdate(event:ScriptEvent) {
-		// Move background lamps.
-		for (i in 1...(4 + 1)) {
-			var lamp = getNamedProp('bgLight' + i);
-			lamp.active = true;
-			lamp.velocity.x = 3000;
-			if (lamp.x > 2000) {
-				lamp.x = -1000;
-			}
-			var pole = getNamedProp('bgPole' + i);
-			pole.x = lamp.x + 190;
-		}
-	}
-
 	function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
