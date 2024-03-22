@@ -12,6 +12,7 @@ import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
+import funkin.save.Save;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
@@ -26,6 +27,15 @@ class TwoHOTSong extends Song
 	 * Health lost when hit by can.
 	 */
 	var HEALTH_LOSS = 0.25 * 2;
+
+	public function listDifficulties(variationId:String, variationIds:Array<String>):Array<String> {
+		if (Save.instance.hasBeatenLevel('weekend1')) {
+			return super.listDifficulties(variationId, variationIds);
+		}
+
+		// Hide all difficulties if the player has not beaten the week.
+		return [];
+	}
 
 	function onCountdownStart(event:SongLoadScriptEvent)
 	{
