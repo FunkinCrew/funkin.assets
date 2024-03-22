@@ -6,7 +6,7 @@
   "timeChanges": [{ "t": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "looped": false,
   "playData": {
-    "songVariations": [],
+    "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-car",
