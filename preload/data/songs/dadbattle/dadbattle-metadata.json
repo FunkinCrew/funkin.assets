@@ -13,14 +13,14 @@
       "normal": 3,
       "hard": 5
     },
-    "songVariations": ["erect", "pico"],
+    "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
       "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": []
     },
     "stage": "mainStage",
     "noteStyle": "Normal"
