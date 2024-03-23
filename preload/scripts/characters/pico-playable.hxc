@@ -5,7 +5,6 @@ import funkin.play.GameOverSubState;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
-import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Paths;
 import flixel.FlxSprite;
@@ -152,7 +151,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	}
 
   public override function onResume(event:ScriptEvent) {
-		super.onPause(event);
+		super.onResume(event);
 
 		if (picoFlicker != null) {
 			picoFlicker.resume();
@@ -296,14 +295,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		FlxTween.tween(picoFade, {alpha: 0}, 0.4);
 
 
-		FlxG.sound.play(Paths.sound('Gun_Prep'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
 	}
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FlxG.sound.play(Paths.sound('Can_Shot_1'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Can_Shot_1'), 1.0);
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.
@@ -312,7 +311,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		this.playAnimation('shootMISS', true, true);
 		// Donk.
-		FlxG.sound.play(Paths.sound('Pico_Bonk'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
 	}
 
 	function addToStage(sprite:FlxSprite) {

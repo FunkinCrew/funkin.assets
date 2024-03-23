@@ -130,7 +130,7 @@ class PhillyBlazinStageNew extends Stage
 		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
 
 		// Sound
-		FlxG.sound.play(Paths.soundRandom('Lightning', 1, 3));
+		FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3));
 	}
 
 	function cleanupLightning(tween:FlxTween):Void {
