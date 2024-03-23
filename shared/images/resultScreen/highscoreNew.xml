@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="highscoreNew.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="NEW HIGHSCORE0000" x="0" y="0" width="531" height="53" />
 	<SubTexture name="NEW HIGHSCORE0001" x="0" y="0" width="531" height="53" />
 	<SubTexture name="NEW HIGHSCORE0002" x="0" y="58" width="531" height="53" />

@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="scorePopin.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="tally score0000" x="412" y="824" width="420" height="50" frameX="0" frameY="-47" frameWidth="712" frameHeight="145" />
 	<SubTexture name="tally score0001" x="0" y="727" width="407" height="108" frameX="-157" frameY="-18" frameWidth="712" frameHeight="145" />
 	<SubTexture name="tally score0002" x="0" y="614" width="415" height="108" frameX="-153" frameY="-18" frameWidth="712" frameHeight="145" />

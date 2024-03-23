@@ -5,7 +5,7 @@
       <button id="offsetButtonPause" text="Pause" />
       <button id="offsetButtonPlay" text="Play" />
       <button id="offsetButtonStop" text="Stop" />
-      <label id="offsetLabelTime" text="0:00.0" height="100%"/>
+      <label id="offsetLabelTime" text="0:00.0" height="100%" />
       <spacer width="100%" />
       <button id="offsetButtonZoomIn" text="Zoom In" />
       <button id="offsetButtonZoomOut" text="Zoom Out" />
@@ -45,7 +45,7 @@
         <absolute id="waveformContainer" width="3000" height="300" styleName="compact">
           <vbox width="100%" height="100%" top="0" left="0">
             <absolute id="offsetTicksContainer" width="100%" height="40" style="cursor: pointer;">
-              <sprite-wrapper id="offsetTicksSprite" height="100%" width="100%" style="background-color: #111111" top="0" left="0"/>
+              <sprite-wrapper id="offsetTicksSprite" height="100%" width="100%" style="background-color: #111111" top="0" left="0" />
             </absolute>
             <waveform-player id="waveformPlayer" style="cursor: pointer; pointer-events: true" />
             <spacer height="10" />
@@ -53,16 +53,16 @@
             <spacer height="8" />
             <waveform-player id="waveformInstrumental" style="cursor: pointer; pointer-events: true" />
           </vbox>
-          <sprite-wrapper id="playheadSprite" height="100%" width="2" style="background-color: #FF0000" top="0" left="0"/>
+          <sprite-wrapper id="playheadSprite" height="100%" width="2" style="background-color: #FF0000" top="0" left="0" />
         </absolute>
       </scrollview>
     </hbox>
     <grid columns="2" width="100%">
-      <label text="Player Offset (ms)" verticalAlign="center"/>
+      <label text="Player Offset (ms)" verticalAlign="center" />
       <number-stepper id="offsetStepperPlayer" pos="0" horizontalAlign="right" tooltip="Adjust the start of the player vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
-      <label text="Opponent Offset (ms)" verticalAlign="center"/>
+      <label text="Opponent Offset (ms)" verticalAlign="center" />
       <number-stepper id="offsetStepperOpponent" pos="0" horizontalAlign="right" tooltip="Adjust the start of the opponent vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
-      <label text="Instrumental Offset (ms)" verticalAlign="center"/>
+      <label text="Instrumental Offset (ms)" verticalAlign="center" />
       <number-stepper id="offsetStepperInstrumental" pos="0" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
     </grid>
   </vbox>

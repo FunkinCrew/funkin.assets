@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="letterStuff.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="# instance 10000" x="0" y="55" width="52" height="53" />
 	<SubTexture name="ALL instance 10000" x="0" y="0" width="56" height="50" />
 	<SubTexture name="a instance 10000" x="57" y="55" width="48" height="51" />

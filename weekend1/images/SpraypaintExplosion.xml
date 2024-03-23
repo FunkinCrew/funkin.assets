@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Spraypaint_Can_Assets.png">
-	<!-- Created with Adobe Animate version 22.0.6.202 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Explosion 1 movie0000" x="2136" y="1867" width="278" height="281" frameX="-387" frameY="-342" frameWidth="1186" frameHeight="1231" />
 	<SubTexture name="Explosion 1 movie0001" x="3034" y="0" width="954" height="918" frameX="-103" frameY="-123" frameWidth="1186" frameHeight="1231" />
 	<SubTexture name="Explosion 1 movie0002" x="1165" y="0" width="895" height="1087" frameX="-127" frameY="-95" frameWidth="1186" frameHeight="1231" />

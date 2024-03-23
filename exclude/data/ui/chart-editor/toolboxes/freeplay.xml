@@ -37,9 +37,9 @@
     </hbox>
     <grid columns="2" width="100%">
       <label text="Preview Start Time (ms)" verticalAlign="center" />
-      <number-stepper id="freeplayPreviewStart" pos="0" min="0" step="100" horizontalAlign="right" tooltip="Adjust the start of the Freeplay instrumental preview." styleNames="disable-validation"/>
+      <number-stepper id="freeplayPreviewStart" pos="0" min="0" step="100" horizontalAlign="right" tooltip="Adjust the start of the Freeplay instrumental preview." styleNames="disable-validation" />
       <label text="Preview End Time (ms)" verticalAlign="center" />
-      <number-stepper id="freeplayPreviewEnd" pos="0" min="0" step="100" horizontalAlign="right" tooltip="Adjust the end of the Freeplay instrumental preview." styleNames="disable-validation"/>
+      <number-stepper id="freeplayPreviewEnd" pos="0" min="0" step="100" horizontalAlign="right" tooltip="Adjust the end of the Freeplay instrumental preview." styleNames="disable-validation" />
       <button id="testPreview" text="Test Preview" horizontalAlign="right" />
     </grid>
   </vbox>
