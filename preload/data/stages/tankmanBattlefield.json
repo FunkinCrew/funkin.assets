@@ -12,6 +12,13 @@
       "scroll": [0, 0]
     },
     {
+      "name": "solid",
+      "assetPath": "#E3A26D",
+      "position": [-500, -1000],
+      "scale": [2400, 2000],
+      "scroll": [0, 0]
+    },
+    {
       "assetPath": "tankMountains",
       "position": [-300, -20],
       "scale": [1.2, 1.2],
