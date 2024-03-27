@@ -1,6 +1,6 @@
 {
   "version": "2.2.2",
-  "songName": "South Erect",
+  "songName": "South",
   "artist": "Kawai Sprite",
   "divisions": 96,
   "looped": false,
@@ -11,7 +11,7 @@
   },
   "playData": {
     "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
