@@ -12,6 +12,7 @@ import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
+import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 
@@ -28,6 +29,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico';
+
+		PauseSubState.musicSuffix = '-pico';
 	}
 
 	var deathSpriteRetry:FunkinSprite;
@@ -223,6 +226,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Reset to standard death animation.
 		GameOverSubState.musicSuffix = 'pico';
 		GameOverSubState.blueBallSuffix = '-pico';
+
+		PauseSubState.musicSuffix = '-pico';
 
 		picoDeathExplosion = null;
 		this.visible = true;
