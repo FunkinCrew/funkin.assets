@@ -4,5 +4,4 @@
 	<import source="components/style.xml" />
 	<spacer height="100%" />
 	<import source="components/playbar.xml" />
-
 </vbox>

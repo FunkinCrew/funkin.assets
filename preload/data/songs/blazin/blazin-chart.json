@@ -1,6 +1,5 @@
 {
-  "events": [
-  ],
+  "events": [],
   "notes": {
     "easy": [
       { "k": "weekend-1-punchlow", "d": 0, "l": 0, "t": 1000 },
@@ -54,8 +53,7 @@
       { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 49000 },
       { "k": "weekend-1-reversefakeout", "d": 0, "l": 0, "t": 50000 }
     ],
-    "normal": [
-    ],
+    "normal": [],
     "hard": [
       {
         "d": 2,

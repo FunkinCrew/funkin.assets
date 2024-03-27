@@ -2,6 +2,7 @@ import funkin.graphics.shaders.GaussianBlurShader;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
+import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
 import funkin.Paths;
 import funkin.graphics.shaders.RuntimeRainShader;
@@ -28,6 +29,7 @@ class PhillyBlazinStageNew extends Stage
 		super.onCreate(event);
 		cameraInitialized = false;
 		cameraDarkened = false;
+		lightningActive = true;
 
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 		rainShader.intensity = 0.75;
@@ -46,6 +48,7 @@ class PhillyBlazinStageNew extends Stage
 		super.onSongRetry(event);
 		// Make it so the rain shader doesn't show over the game over screen
 		FlxG.camera.setFilters([rainShaderFilter]);
+		lightningActive = true;
 	}
 
 	override function buildStage()
@@ -72,6 +75,7 @@ class PhillyBlazinStageNew extends Stage
 	var cameraDarkened:Bool = false;
 
 	var lightningTimer:Float = 3.0;
+	var lightningActive:Bool = true;
 
 	override function onUpdate(event:ScriptEvent)
 	{
@@ -87,11 +91,15 @@ class PhillyBlazinStageNew extends Stage
 			initializeCamera();
 		}
 
-		lightningTimer -= FlxG.elapsed;
+		if (lightningActive) {
+			lightningTimer -= FlxG.elapsed;
+		} else {
+			lightningTimer = 1;
+		}
+
 		if (lightningTimer <= 0) {
 			applyLightning();
 			lightningTimer = FlxG.random.float(7, 15);
-			trace('Lightning timer: ' + lightningTimer);
 		}
 	}
 
@@ -130,7 +138,13 @@ class PhillyBlazinStageNew extends Stage
 		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
 
 		// Sound
-		FlxG.sound.play(Paths.soundRandom('Lightning', 1, 3));
+		FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3));
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+		// Disable lightning during ending cutscene.
+		lightningActive = false;
 	}
 
 	function cleanupLightning(tween:FlxTween):Void {

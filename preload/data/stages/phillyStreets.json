@@ -118,34 +118,34 @@
       "animations": [
         {
           "name": "car1",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
           "looped": false,
           "flipX": false,
           "flipY": false
         },
-	{
+        {
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
           "looped": false,
           "flipX": false,
           "flipY": false,
-	  "offsets": [0, 0]
+          "offsets": [0, 0]
         },
-	{
+        {
           "name": "car3",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
           "looped": false,
           "flipX": false,
           "flipY": false
         },
-	{
+        {
           "name": "car4",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
           "looped": false,
@@ -168,34 +168,34 @@
       "animations": [
         {
           "name": "car1",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
           "looped": false,
           "flipX": true,
           "flipY": false
         },
-	{
+        {
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
           "looped": false,
           "flipX": true,
           "flipY": false,
-	  "offsets": [0, 0]
+          "offsets": [0, 0]
         },
-	{
+        {
           "name": "car3",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
           "looped": false,
           "flipX": true,
           "flipY": false
         },
-	{
+        {
           "name": "car4",
-	  "offsets": [0, 0],
+          "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
           "looped": false,
@@ -224,7 +224,7 @@
           "flipX": false,
           "flipY": false
         },
-	{
+        {
           "name": "tored",
           "prefix": "greentored",
           "frameRate": 24,
@@ -262,19 +262,6 @@
     },
     {
       "danceEvery": 0,
-      "zIndex": 101,
-      "position": [496, 1091],
-      "scale": [0.974, 0.972],
-      "animType": "sparrow",
-      "name": "puddle",
-      "isPixel": false,
-      "assetPath": "phillyStreets/puddle",
-      "scroll": [1, 1],
-      "alpha": 1,
-      "animations": []
-    },
-    {
-      "danceEvery": 0,
       "zIndex": 690,
       "position": [900, 1015],
       "scale": [1, 1],
@@ -302,7 +289,7 @@
     },
     "dad": {
       "zIndex": 350,
-      "position": [851, 1195],
+      "position": [900, 1120],
       "cameraOffsets": [500, -100]
     }
   },

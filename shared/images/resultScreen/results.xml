@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="results.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="results instance 10000" x="1118" y="1128" width="561" height="30" frameX="-295" frameY="-49" frameWidth="1130" frameHeight="149" />
 	<SubTexture name="results instance 10001" x="1521" y="1007" width="174" height="80" frameX="-785" frameY="-24" frameWidth="1130" frameHeight="149" />
 	<SubTexture name="results instance 10002" x="1129" y="0" width="910" height="116" frameX="-220" frameY="-7" frameWidth="1130" frameHeight="149" />

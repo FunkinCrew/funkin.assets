@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="soundSystem.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="sound system0000" x="0" y="1393" width="753" height="260" frameX="-63" frameY="-181" frameWidth="875" frameHeight="963" />
 	<SubTexture name="sound system0001" x="0" y="1393" width="753" height="260" frameX="-63" frameY="-181" frameWidth="875" frameHeight="963" />
 	<SubTexture name="sound system0002" x="0" y="942" width="690" height="446" frameX="-95" frameY="-324" frameWidth="875" frameHeight="963" />
