@@ -8,6 +8,7 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.Paths;
+import funkin.audio.FunkinSound;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.play.song.Song;
@@ -37,9 +38,35 @@ class TwoHOTSong extends Song
 		return [];
 	}
 
-	function onCountdownStart(event:SongLoadScriptEvent)
-	{
-		super.onSongLoaded(event);
+	var hasPlayedCutscene:Bool = false;
+	var cutsceneConductor:Conductor = null;
+	var cutsceneMusic:FunkinSound = null;
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+    if (!hasPlayedCutscene) {
+      trace('Pausing countdown to play cutscene.');
+
+      hasPlayedCutscene = true;
+
+      startCutscene();
+      event.cancel(); // CANCEL THE COUNTDOWN!
+    }
+	}
+
+	function startCutscene():Void {
+
+    PlayState.instance.camHUD.visible = false;
+
+		cutsceneConductor = new Conductor();
+
+		cutsceneMusic = FunkinSound.load(Paths.music('freakyMenu/freakyMenu'));
+
+		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData(key);
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
 	}
 
 	function onSongRetry(event:ScriptEvent)
@@ -146,6 +173,14 @@ class TwoHOTSong extends Song
 			}
 		}
 		return null;
+	}
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
 	}
 
 	function darkenStageProps()
