@@ -1,25 +1,25 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import funkin.Paths;
+import funkin.audio.FunkinSound;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.graphics.framebuffer.BitmapDataUtil;
+import funkin.graphics.framebuffer.FixedBitmapData;
+import funkin.graphics.shaders.OverlayBlend;
+import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.audio.FunkinSound;
-import funkin.graphics.shaders.OverlayBlend;
-import funkin.graphics.framebuffer.FixedBitmapData;
-import openfl.filters.ShaderFilter;
-import funkin.graphics.shaders.RuntimeRainShader;
-import openfl.utils.Assets;
 import openfl.filters.BlurFilter;
-import funkin.graphics.framebuffer.BitmapDataUtil;
-import flixel.tweens.FlxEase;
-import flixel.math.FlxPoint;
-import flixel.math.FlxMath;
-import flixel.tweens.FlxTween;
+import openfl.filters.ShaderFilter;
+import openfl.utils.Assets;
 import StringTools;
-import funkin.Conductor;
-import funkin.audio.FunkinSound;
 
 class PhillyStreetsStage extends Stage
 {
@@ -346,9 +346,12 @@ class PhillyStreetsStage extends Stage
 
 		var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music != null ? FlxG.sound.music.length : 0.0, rainShaderStartIntensity, rainShaderEndIntensity);
 		rainShader.intensity = remappedIntensityValue;
-		rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
+
+		if (rainSndAmbience != null) {
+			rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
+		}
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent)
