@@ -1,6 +1,7 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
+import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.Paths;
@@ -26,8 +27,8 @@ class PhillyTrainStage extends Stage
 
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
-		FunkinSound.playOnce(Paths.sound('train_passes'), 1.0);
-		FlxG.sound.list.add(trainSound);
+		trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
+		PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
 		for (i in 0...LIGHT_COUNT)
 		{
@@ -102,7 +103,7 @@ class PhillyTrainStage extends Stage
 	function trainStart():Void
 	{
 		trainMoving = true;
-		trainSound.play(true);
+		trainSound.play();
 	}
 
 	var startedMoving:Bool = false;
