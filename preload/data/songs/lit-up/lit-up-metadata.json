@@ -2,7 +2,7 @@
   "version": "2.2.2",
   "songName": "Lit Up",
   "artist": "Kawaisprite",
-  "divisions": null,
+  "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
@@ -25,7 +25,7 @@
       "altInstrumentals": []
     },
     "stage": "phillyStreets",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "easy": 0,
       "normal": 0,
