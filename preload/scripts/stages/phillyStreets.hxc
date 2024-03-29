@@ -75,18 +75,24 @@ class PhillyStreetsStage extends Stage
 		if(left){
 			carWaiting = false;
 			carInterruptable = true;
-			FlxTween.cancelTweensOf(getNamedProp('phillyCars'));
-			getNamedProp('phillyCars').x = 1200;
-			getNamedProp('phillyCars').y = 818;
-			getNamedProp('phillyCars').angle = 0;
+			var cars = getNamedProp('phillyCars');
+			if (cars != null) {
+				FlxTween.cancelTweensOf(cars);
+				cars.x = 1200;
+				cars.y = 818;
+				cars.angle = 0;
+			}
 		}
 
 		if(right){
 			car2Interruptable = true;
-			FlxTween.cancelTweensOf(getNamedProp('phillyCars2'));
-			getNamedProp('phillyCars2').x = 1200;
-			getNamedProp('phillyCars2').y = 818;
-			getNamedProp('phillyCars2').angle = 0;
+			var cars2 = getNamedProp('phillyCars2');
+			if (cars2 != null) {
+				FlxTween.cancelTweensOf(cars2);
+				getNamedProp('phillyCars2').x = 1200;
+				getNamedProp('phillyCars2').y = 818;
+				getNamedProp('phillyCars2').angle = 0;
+			}
 		}
 	}
 
@@ -95,8 +101,6 @@ class PhillyStreetsStage extends Stage
 
 		resetCar(true, true);
 		resetStageValues();
-
-
 	}
 
 	override function onCountdownEnd(event:SongLoadScriptEvent) {
@@ -150,6 +154,23 @@ class PhillyStreetsStage extends Stage
 	override function buildStage()
 	{
 		super.buildStage();
+	}
+
+	override function onDestroy(event:ScriptEvent) {
+		super.onDestroy();
+
+		trace('Cancelling car tweens weee');
+
+		var cars = getNamedProp('phillyCars');
+		if (cars != null) FlxTween.cancelTweensOf(cars);
+		var cars2 = getNamedProp('phillyCars2');
+		if (cars2 != null) FlxTween.cancelTweensOf(cars2);
+
+		// Fully stop ambiance.
+		if (rainSndAmbience != null) rainSndAmbience.stop();
+		if (carSndAmbience != null) carSndAmbience.stop();
+
+		trace('Done');
 	}
 
 	/**
@@ -333,7 +354,10 @@ class PhillyStreetsStage extends Stage
 	function resetStageValues():Void{
 		lastChange = 0;
 		changeInterval = 8;
-		getNamedProp('phillyTraffic').animation.play('togreen');
+		var traffic = getNamedProp('phillyTraffic');
+		if (traffic != null) {
+			traffic.animation.play('togreen');
+		}
 		lightsStop = false;
 	}
 
@@ -389,6 +413,22 @@ class PhillyStreetsStage extends Stage
 		//screen = grabScreen(false);
 		//BitmapDataUtil.applyFilter(screen, blurFilter);
 		//rainShader.blurredScreen = screen;
+	}
+
+	public override function onPause(event:PauseScriptEvent) {
+		super.onPause(event);
+
+		// Temporarily stop ambiance.
+		if (rainSndAmbience != null) rainSndAmbience.pause();
+		if (carSndAmbience != null) carSndAmbience.pause();
+	}
+
+	public override function onResume(event:ScriptEvent) {
+		super.onResume(event);
+
+		// Temporarily stop ambiance.
+		if (rainSndAmbience != null) rainSndAmbience.pause();
+		if (carSndAmbience != null) carSndAmbience.pause();
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
