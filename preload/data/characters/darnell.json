@@ -56,6 +56,15 @@
       "offsets": [0, 0]
     },
     {
+      "name": "laughCutscene",
+      "prefix": "Laugh0",
+      "frameIndices": [
+        0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5,
+        0, 1, 2, 3, 4, 5
+      ],
+      "offsets": [0, 0]
+    },
+    {
       "name": "lightCan",
       "prefix": "Light Can0",
       "offsets": [0, 0]

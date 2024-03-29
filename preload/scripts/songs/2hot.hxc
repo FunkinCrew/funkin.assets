@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
@@ -13,14 +14,24 @@ import funkin.play.PlayState;
 import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
+import funkin.audio.FunkinSound;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.cutscene.CutsceneType;
+import funkin.play.PlayStatePlaylist;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
 class TwoHOTSong extends Song
 {
+	var hasPlayedCutscene:Bool = false;
+	//var tempConductor:Conductor;
+	var cutsceneMusic:FunkinSound;
+
 	function new()
 	{
 		super('2hot');
+
+		hasPlayedCutscene = false;
 	}
 
 	/**
@@ -46,8 +57,62 @@ class TwoHOTSong extends Song
 	{
 		super.onSongRetry(event);
 
+		hasPlayedCutscene = true;
+
 		removeCans();
 		gunCocked = false;
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+
+    if (!hasPlayedCutscene) {
+      hasPlayedCutscene = true;
+
+      event.cancel();
+
+      endCutscene();
+    } else {
+			// Make sure the cutscene can play again next time!
+			hasPlayedCutscene = false;
+			// DO NOT CANCEL THE EVENT!
+		}
+	}
+
+	function endCutscene(){ //unfinished! still waiting on the video
+
+		PlayState.instance.camHUD.visible = false;
+
+		PlayState.instance.isInCutscene = true;
+		hasPlayedCutscene = true;
+
+		var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+		var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
+		var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+
+		new FlxTimer().start(1, function(tmr)
+		{
+			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+100, darnellPos[1]);
+			PlayState.instance.tweenCameraToFollowPoint(2.5, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
+		});
+
+		new FlxTimer().start(2, function(tmr)
+		{
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
+		});
+		new FlxTimer().start(2.7, function(tmr)
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
+		});
+
+		new FlxTimer().start(5, function(tmr)
+		{
+			// video would play around here
+			PlayState.instance.endSong(true);
+		});
+
 	}
 
 	function removeCans()
@@ -299,4 +364,14 @@ class TwoHOTSong extends Song
 			blackenStageProps();
 		}
 	}
+
+	/**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
 }
