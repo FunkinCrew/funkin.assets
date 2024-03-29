@@ -7,7 +7,7 @@
     "id": "bf"
   },
   "renderType": "multisparrow",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "animations": [
     {
       "name": "idle",

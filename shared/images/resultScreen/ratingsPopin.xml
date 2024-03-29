@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="ratingsPopin.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Categories0000" x="693" y="963" width="448" height="36" frameX="0" frameY="-32" frameWidth="511" frameHeight="418" />
 	<SubTexture name="Categories0001" x="0" y="817" width="304" height="83" frameX="-204" frameY="0" frameWidth="511" frameHeight="418" />
 	<SubTexture name="Categories0002" x="693" y="830" width="448" height="128" frameX="-60" frameY="0" frameWidth="511" frameHeight="418" />

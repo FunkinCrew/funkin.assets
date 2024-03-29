@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <menubar id="menubar" width="100%" height="100%">
   <style>
-	.menu {
+    .menu {
     // The width of the individual menu items
-		width: 120px;
-	}
-	</style>
+    width: 120px;
+    }
+  </style>
   <menu text="File">
     <menu-item id="saveCompile" text="Save (compile)" shortcutText="Ctrl+S" />
     <menu-separator />
-    <menu-item id="saveAs" text="Save As..." shortcutText="Ctrl+Shift+S"/>
+    <menu-item id="saveAs" text="Save As..." shortcutText="Ctrl+Shift+S" />
   </menu>
   <menu text="Edit">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
@@ -28,7 +27,7 @@
     <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
     <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
-    <menu text="Input Style" disabled="true" >
+    <menu text="Input Style" disabled="true">
       <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" selected="true" disabled="true" />
       <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" disabled="true" />
       <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" disabled="true" />

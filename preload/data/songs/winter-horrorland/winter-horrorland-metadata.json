@@ -5,6 +5,7 @@
     "stage": "mallEvil",
     "characters": {
       "player": "bf-christmas",
+      "girlfriend": "gf-christmas",
       "opponent": "monster-christmas"
     },
     "songVariations": [],

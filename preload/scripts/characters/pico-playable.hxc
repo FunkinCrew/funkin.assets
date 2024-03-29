@@ -5,13 +5,13 @@ import funkin.play.GameOverSubState;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
-import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Paths;
 import flixel.FlxSprite;
-import funkin.modding.base.ScriptedFlxSprite;
 import flixel.FlxG;
+import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
+import flixel.effects.FlxFlicker;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 
@@ -27,7 +27,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.blueBallSuffix = '-pico';
 	}
 
 	var deathSpriteRetry:FunkinSprite;
@@ -59,7 +59,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (event.eventCanceled) {
 			// onNoteHit event was cancelled by the gameplay module.
@@ -68,7 +68,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
-			switch(event.note.noteData.kind) {
+			switch(event.note.kind) {
 				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
@@ -84,7 +84,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onNoteMiss(event:NoteScriptEvent)
 	{
 		// Override the miss note animation.
-		switch(event.note.noteData.kind) {
+		switch(event.note.kind) {
 			case "weekend-1-cockgun":
 				//playCockMissAnim();
 			case "weekend-1-firegun":
@@ -123,6 +123,39 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 
 		super.playAnimation(name, restart, ignoreOther);
+	}
+
+	var picoFlicker:FlxFlicker = null;
+
+	override function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
+		if (name == 'shootMISS') {
+			// ERIC: You have to use super instead of this or it breaks.
+			// This is because typeof(this) is PolymodAbstractClass.
+      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
+        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
+					picoFlicker = null;
+				});
+      });
+		}
+	}
+
+	public override function onPause(event:PauseScriptEvent) {
+		super.onPause(event);
+
+		if (picoFlicker != null) {
+			picoFlicker.pause();
+			this.visible = true;
+		}
+	}
+
+  public override function onResume(event:ScriptEvent) {
+		super.onResume(event);
+
+		if (picoFlicker != null) {
+			picoFlicker.resume();
+		}
 	}
 
 	var picoDeathExplosion:FlxAtlasSprite;
@@ -188,8 +221,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = 'Pico';
-		GameOverSubState.blueBallSuffix = '-Pico';
+		GameOverSubState.musicSuffix = 'pico';
+		GameOverSubState.blueBallSuffix = '-pico';
+
 		picoDeathExplosion = null;
 		this.visible = true;
 	}
@@ -228,7 +262,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			addToStage(casingGroup);
 		}
 
-		var casing = ScriptedFlxSprite.init('CasingSprite', [0, 0]);
+		var casing = ScriptedFunkinSprite.init('CasingSprite', 0, 0);
 		if (casing != null)
 			casingGroup.add(casing);
 	}
@@ -261,14 +295,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		FlxTween.tween(picoFade, {alpha: 0}, 0.4);
 
 
-		FlxG.sound.play(Paths.sound('Gun_Prep'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
 	}
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FlxG.sound.play(Paths.sound('Can_Shot_1'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Can_Shot_1'), 1.0);
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.
@@ -277,7 +311,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		this.playAnimation('shootMISS', true, true);
 		// Donk.
-		FlxG.sound.play(Paths.sound('Kick_Can_FORWARD'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
 	}
 
 	function addToStage(sprite:FlxSprite) {

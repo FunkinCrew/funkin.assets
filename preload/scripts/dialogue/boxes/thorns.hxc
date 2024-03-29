@@ -20,10 +20,6 @@ class ThornsDialogueBox extends DialogueBox {
     }
   }
 
-  override function onUpdate(event:UpdateScriptEvent):Void {
-    super.onUpdate(event);
-  }
-
   function onAnimationFinished(name:String):Void {
     super.onAnimationFinished(name);
 

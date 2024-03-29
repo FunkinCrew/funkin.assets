@@ -11,7 +11,7 @@ import openfl.filters.ShaderFilter;
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
  */
-class PhillyBlazinStage extends Stage
+class PhillyBlazinStageOld extends Stage
 {
 	function new()
 	{
@@ -32,9 +32,16 @@ class PhillyBlazinStage extends Stage
 	var cameraInitialized:Bool = false;
 	var cameraDarkened:Bool = false;
 
-	override function update(elapsed:Float)
+	override function onUpdate(event:ScriptEvent)
 	{
-		super.update(elapsed);
+		super.onUpdate(event);
+
+		// Darken the camera after the song starts. We need to wait an extra frame to apply to A-Bot.
+		if (cameraInitialized && !cameraDarkened)
+		{
+			cameraDarkened = true;
+			darkenCamera();
+		}
 
 		// Manually focus the camera before the song starts.
 		if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
@@ -43,18 +50,41 @@ class PhillyBlazinStage extends Stage
 			initializeCamera();
 		}
 
-		// Darken the camera after the song starts.
-		if (!cameraDarkened)
-		{
-			cameraDarkened = true;
-			darkenCamera();
+		doLightning();
+	}
+
+	var charactersDarkened:Bool = false;
+	function doLightning():Void {
+		if (FlxG.keys.justPressed.SPACE) {
+			charactersDarkened = !charactersDarkened;
+
+			applyLightning();
+		}
+
+		if (PlayState.instance.health < 0.0) {
+			charactersDarkened = false;
+			applyLightning();
+		}
+	}
+
+	function applyLightning():Void {
+		if (charactersDarkened) {
+			PlayState.instance.currentStage.getBoyfriend().color = 0xFF606060;
+			PlayState.instance.currentStage.getDad().color = 0xFF606060;
+			PlayState.instance.currentStage.getGirlfriend().color = 0xFF606060;
+		} else {
+			PlayState.instance.currentStage.getBoyfriend().color = 0xFFFFFFFF;
+			PlayState.instance.currentStage.getDad().color = 0xFFFFFFFF;
+			PlayState.instance.currentStage.getGirlfriend().color = 0xFFFFFFFF;
 		}
 	}
 
 	function initializeCamera():Void {
 		var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
     var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
-		yTarget += 200;
+		// yTarget += 200;
+		xTarget += 50;
+		yTarget -= 100;
     PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
 		PlayState.instance.resetCamera();
 	}
@@ -64,33 +94,35 @@ class PhillyBlazinStage extends Stage
 	var blurBG:GaussianBlurShader = null;
 	var blurNene:GaussianBlurShader = null;
 	var multiplySprite:FunkinSprite = null;
+	var lightningMultiplySprite:FunkinSprite = null;
 
 	function darkenCamera()
 	{
-		// multiplyBG = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF333333);
-		// multiplyChar = ScriptedFlxRuntimeShader.init('MultiplyColorShader', 0xFF999999);
+		//		blurBG = new GaussianBlurShader(0.5);
+		//		blurNene = new GaussianBlurShader(1.0);
+		//		blurABot = new GaussianBlurShader(0.20);
+		//		for (prop in this.members) {
+		//			trace('Applying blur to prop: ' + prop.zIndex);
+		//			// Ignore player and opponent.
+		//			if (prop.zIndex >= 2000) continue;
+		//
+		//			// Apply the gaussian blur shader to the background prop.
+		//			// Nene needs less intense blur.
+		//			if (prop.zIndex >= 1000) {
+		//				trace('Applying nene blur!');
+		//				prop.shader = blurNene;
+		//			} else if (prop.zIndex >= 990) {
+		//				trace('Applying a-bot blur!');
+		//				prop.shader = blurABot;
+		//			} else {
+		//				trace('Applying background blur!');
+		//				prop.shader = blurBG;
+		//			}
+		//		}
 
-		// PlayState.instance.currentStage.setShader(multiplyBG);
-		// PlayState.instance.currentStage.getBoyfriend().shader = multiplyChar;
-		// PlayState.instance.currentStage.getDad().shader = multiplyChar;
-
-		blurBG = new GaussianBlurShader(2.0);
-		blurNene = new GaussianBlurShader(1.0);
-		for (prop in this.members) {
-			// Ignore player and opponent.
-			if (prop.zIndex >= 2000) continue;
-
-			// Apply the gaussian blur shader to the background prop.
-			// Nene needs less intense blur.
-			if (prop.zIndex >= 1000) {
-				prop.shader = blurNene;
-			} else {
-				prop.shader = blurBG;
-			}
-		}
-
-		multiplySprite = new FunkinSprite(400, 300);
-		multiplySprite.makeSolidColor(2000, 2500, 0xFF606060);
+		multiplySprite = new FunkinSprite(400, 0);
+		multiplySprite.makeSolidColor(2000, 2500, 0xFF000000);
+		multiplySprite.alpha = 0.60;
 		multiplySprite.blend = 9; // Multiply
 		multiplySprite.zIndex = 1100;
 		add(multiplySprite);

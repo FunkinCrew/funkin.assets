@@ -4,7 +4,7 @@
   "assetPath": "characters/bfCar",
   "flipX": true,
   "renderType": "multisparrow",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "healthIcon": {
     "id": "bf"
   },

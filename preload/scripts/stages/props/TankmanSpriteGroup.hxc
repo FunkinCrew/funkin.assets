@@ -3,11 +3,11 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.PlayState;
 import Lambda;
 
-class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
+class TankmanSpriteGroup extends FlxTypedSpriteGroup
 {
 	var tankmanTimes:Array<Float> = [];
 	var tankmanDirs:Array<Bool> = [];
@@ -56,8 +56,8 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 			// Only one out of every 16 notes, on average, is a tankman.
 			if (FlxG.random.bool(16))
 			{
-				trace('  Adding Tankman: ' + note.t);
-				tankmanTimes.push(note.t);
+				trace('  Adding Tankman: ' + note.time);
+				tankmanTimes.push(note.time);
 				var goingRight:Bool = note.d < 2;
 				tankmanDirs.push(goingRight);
 			}
@@ -72,7 +72,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		// recycle() is neat; it looks for a sprite which has completed its animation and resets it,
 		// rather than calling the constructor again. It only calls the constructor if it can't find one.
 
-		var tankman:ScriptedFlxSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
+		var tankman:ScriptedFunkinSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
 
 		// We can directly set values which are defined by the script's superclass.
 		tankman.x = initX;
@@ -86,9 +86,9 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup<TankmanSprite>
 		this.add(tankman);
 	}
 
-	function _initTankmanObj():ScriptedFlxSprite
+	function _initTankmanObj():ScriptedFunkinSprite
 	{
-		var result:ScriptedFlxSprite = ScriptedFlxSprite.init('TankmanSprite');
+		var result:ScriptedFunkinSprite = ScriptedFunkinSprite.init('TankmanSprite');
 		return result;
 	}
 

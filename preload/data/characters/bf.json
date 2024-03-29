@@ -4,7 +4,7 @@
   "renderType": "multisparrow",
   "assetPath": "characters/BOYFRIEND",
   "flipX": true,
-  "singTime": 2.0,
+  "singTime": 8.0,
   "animations": [
     {
       "name": "idle",
@@ -68,7 +68,7 @@
     },
     {
       "name": "hey",
-      "prefix": "BF HEY",
+      "prefix": "BF HEY!!",
       "offsets": [7, 4]
     },
     {

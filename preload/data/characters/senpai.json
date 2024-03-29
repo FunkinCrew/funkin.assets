@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Senpai",
   "assetPath": "characters/senpai",
-  "singTime": 2.0,
+  "singTime": 8.0,
   "isPixel": true,
   "scale": 6,
   "healthIcon": {

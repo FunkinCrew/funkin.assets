@@ -1,8 +1,8 @@
 {
-  "version": "2.2.0",
+  "version": "2.2.2",
   "songName": "Lit Up",
   "artist": "Kawaisprite",
-  "divisions": null,
+  "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
@@ -12,6 +12,9 @@
     }
   },
   "playData": {
+    "album": "volume3",
+    "previewStart": 0,
+    "previewEnd": 15000,
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
@@ -22,15 +25,12 @@
       "altInstrumentals": []
     },
     "stage": "phillyStreets",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "easy": 0,
       "normal": 0,
       "hard": 0
-    },
-    "album": null,
-    "previewStart": 0,
-    "previewEnd": 15000
+    }
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg : 27a4ed4) PROTOTYPE",
   "timeFormat": "ms",

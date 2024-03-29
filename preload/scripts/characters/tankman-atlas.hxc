@@ -1,20 +1,20 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
 /**
  * A prototype variant of Tankman that uses the Adobe Animate Texture Atlas animation system.
  */
-class TankmanAtlasCharacter extends SparrowCharacter {
+class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 	function new() {
 		super('tankman-atlas');
 	}
 
-	function onNoteHit(event:NoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
 			// Override the hit note animation.
-			switch(event.note.noteData.kind) {
+			switch(event.note.kind) {
 				case "ugh":
 					holdTimer = 0;
 					this.playAnimFbfation('ugh');

@@ -1,72 +1,99 @@
 {
   "version": "1.0.0",
-  "name": "Darnell (Blazin)",
-  "assetPath": "characters/Darnell_Blazin",
+  "name": "Darnell (Blazin')",
+  "assetPath": "characters/darnellBlazin",
   "healthIcon": {
-    "id": "darnell",
-    "flipX": false
+    "id": "darnell"
   },
-  "flipX": false,
-  "renderType": "sparrow",
+  "renderType": "animateatlas",
+  "singTime": 999.0,
   "animations": [
     {
       "name": "idle",
-      "prefix": "Darnell Idle0",
+      "prefix": "Idle",
+      "looped": true,
       "offsets": [0, 0]
     },
     {
-      "name": "beforeUppercut",
-      "prefix": "Darnell Before Uppercut0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "blockHit",
-      "prefix": "Darnell Block Hit0",
+      "name": "pissed",
+      "prefix": "Pissed",
       "offsets": [0, 0]
     },
     {
       "name": "cringe",
-      "prefix": "Darnell Cringe0",
+      "prefix": "Cringe",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "fakeout",
+      "prefix": "Fake Hit",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "block",
+      "prefix": "Block",
       "offsets": [0, 0]
     },
     {
       "name": "dodge",
-      "prefix": "Darnell Dodge0",
+      "prefix": "Dodge",
       "offsets": [0, 0]
     },
     {
-      "name": "fakeOut",
-      "prefix": "Darnell Fake Out0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "hitHigh",
-      "prefix": "Darnell Hit High0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "hitLow",
-      "prefix": "Darnell Hit Low0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "punchHigh",
-      "prefix": "Darnell Punch High0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "punchLow",
-      "prefix": "Darnell Punch Low0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "spin",
-      "prefix": "Darnell Spin0",
+      "name": "uppercutPrep",
+      "prefix": "Uppercut Prep",
       "offsets": [0, 0]
     },
     {
       "name": "uppercut",
-      "prefix": "Darnell Uppercut0",
+      "prefix": "Uppercut Punch",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "uppercutHit",
+      "prefix": "Uppercut Hit",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "uppercut-hold",
+      "prefix": "Uppercut Punch Loop",
+      "looped": true,
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchHigh1",
+      "prefix": "Punch High 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchHigh2",
+      "prefix": "Punch High 2",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchLow1",
+      "prefix": "Punch Low 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "punchLow2",
+      "prefix": "Punch Low 2",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitHigh",
+      "prefix": "Hit High",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitLow",
+      "prefix": "Hit Low",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hitSpin",
+      "prefix": "Hit Spin",
+      "looped": true,
       "offsets": [0, 0]
     }
   ]

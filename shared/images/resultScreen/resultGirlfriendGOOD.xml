@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="resultGirlfriendGOOD.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Girlfriend Good Anim0000" x="1189" y="601" width="222" height="226" frameX="-154" frameY="-135" frameWidth="376" frameHeight="361" />
 	<SubTexture name="Girlfriend Good Anim0001" x="319" y="314" width="210" height="290" frameX="-130" frameY="-52" frameWidth="376" frameHeight="361" />
 	<SubTexture name="Girlfriend Good Anim0002" x="319" y="314" width="210" height="290" frameX="-130" frameY="-52" frameWidth="376" frameHeight="361" />
