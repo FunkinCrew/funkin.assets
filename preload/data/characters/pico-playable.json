@@ -7,7 +7,8 @@
     "flipX": false
   },
   "death": {
-    "cameraOffsets": [10, -40]
+    "cameraOffsets": [10, -40],
+    "cameraZoom": 1.0
   },
   "flipX": true,
   "renderType": "multisparrow",
