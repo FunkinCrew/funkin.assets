@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "header": "FRIDAY NIGHT FUNKIN'",
+      "body": [
+        { "line": "Brought to you by" },
+        { "line": "The Funkin' Crew Inc." }
+      ]
+    },
+    {
+      "header": "Founders",
+      "body": [
+        { "line": "ninjamuffin99" },
+        { "line": "PhantomArcade" },
+        { "line": "KawaiSprite" },
+        { "line": "evilsk8r" }
+      ]
+    },
+    {
+      "header": "Director",
+      "body": [{ "line": "PhantomArcade" }]
+    },
+    {
+      "header": "Musicians",
+      "body": [{ "line": "KawaiSprite" }, { "line": "Saruky" }]
+    },
+    {
+      "header": "Guest Musicians",
+      "body": [{ "line": "BassetFilms" }, { "line": "Kohta Takahashi" }]
+    },
+    {
+      "header": "Artists",
+      "body": [{ "line": "PhantomArcade" }, { "line": "evilsk8r" }]
+    },
+    {
+      "header": "Programmers",
+      "body": [
+        { "line": "ninjamuffin99" },
+        { "line": "Eric \"EliteMasterEric\" Myllyoja" }
+      ]
+    },
+    {
+      "header": "Special Thanks",
+      "body": [
+        { "line": "wanda" },
+        { "line": "fizzd" },
+        { "line": "kiddbrute" },
+        { "line": "HenryEYES" },
+        { "line": "Clone Hero" },
+        { "line": "Tom Fulp" },
+        { "line": "StuffedWombat" },
+        { "line": "mmatt_ugh" },
+        { "line": "Squidly" },
+        { "line": "Luis" },
+        { "line": "GeoKureli" },
+        { "line": "Will Blanton" },
+        { "line": "SrPelo" },
+        { "line": "Austin East" },
+        { "line": "Krystin, Kaye-lyn, Cassidy, Mack, Levi, and Jasmine." },
+        { "line": "Laurel" },
+        { "line": "bbpanzu" },
+        { "line": "Etika" },
+        { "line": "Foamymuffin (insert travis scott lyrics here)" },
+        { "line": "SiIvaGunner" },
+        { "line": "Masaya Matsuura" },
+        { "line": "Mackenzie Mckee" },
+        { "line": "Tokaku" },
+        { "line": "kanye west" }
+      ]
+    },
+    {
+      "header": "Kickstarter Backers",
+      "appendBackers": true
+    }
+  ]
+}
