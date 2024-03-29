@@ -73,7 +73,7 @@
 			return color;
 		}
 
-    uniform float amount;
+    uniform float _amount;
 
 		void main()
     {
@@ -81,11 +81,11 @@
 			vec4 blurred;
 
 
-			vec4 blurredShit = blur13(bitmap, openfl_TextureCoordv, openfl_TextureSize.xy, vec2(0.0, amount * 2.0));
-			blurredShit = mix(blur13(bitmap, openfl_TextureCoordv, openfl_TextureSize.xy, vec2(amount * 2.0, 0.0)), blurredShit, 0.5);
+			vec4 blurredShit = blur13(bitmap, openfl_TextureCoordv, openfl_TextureSize.xy, vec2(0.0, _amount * 2.0));
+			blurredShit = mix(blur13(bitmap, openfl_TextureCoordv, openfl_TextureSize.xy, vec2(_amount * 2.0, 0.0)), blurredShit, 0.5);
 
 			// Work out how much to blur based on the mid point
-			// amount = pow((openfl_TextureCoordv.y * center) * 2.0 - 1.0, 2.0) * bluramount;
+			// _amount = pow((openfl_TextureCoordv.y * center) * 2.0 - 1.0, 2.0) * bluramount;
 
 			// This is the accumulation of color from the surrounding pixels in the texture
 			blurred = vec4(0.0, 0.0, 0.0, 1.0);
@@ -98,8 +98,8 @@
 					vec2 temp_tcoord = openfl_TextureCoordv.xy;
 
 					//work out which uv we want to sample now
-					temp_tcoord.x += offsX * amount * stepSize;
-					temp_tcoord.y += offsY * amount * stepSize;
+					temp_tcoord.x += offsX * _amount * stepSize;
+					temp_tcoord.y += offsY * _amount * stepSize;
 
 					// accumulate the sample
 					blurred += texture2D(bitmap, temp_tcoord);
