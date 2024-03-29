@@ -4,6 +4,7 @@ import funkin.Paths;
 import funkin.play.GameOverSubState;
 import flixel.util.FlxTimer;
 import funkin.play.PlayState;
+import funkin.play.PauseSubState;
 import funkin.play.character.AnimateAtlasCharacter;
 import StringTools;
 
@@ -25,6 +26,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
 		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico-gutpunch';
+
+		PauseSubState.musicSuffix = '-pico';
 	}
 
 	var cantUppercut = false;
@@ -258,6 +261,11 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		super.onSongRetry();
 		cantUppercut = false;
 		playIdleAnim();
+
+		GameOverSubState.musicSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico-gutpunch';
+
+		PauseSubState.musicSuffix = '-pico';
 	}
 
 	function getDarnell()
