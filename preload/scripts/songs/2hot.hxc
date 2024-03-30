@@ -96,8 +96,7 @@ class TwoHOTSong extends Song
 
 		new FlxTimer().start(1, function(tmr)
 		{
-			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+100, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(2, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 2, FlxEase.quadInOut);
 			PlayState.instance.tweenCameraZoom(0.66, 2, true, FlxEase.quadInOut);
 		});
 
@@ -110,13 +109,30 @@ class TwoHOTSong extends Song
 			PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
 		});
 
-		new FlxTimer().start(6, function(tmr)
+		new FlxTimer().start(4, function(tmr)
 		{
 			// video would play around here
-			PlayState.instance.endSong(true);
+			//PlayState.instance.endSong(true);
+
+			 trace('Pausing ending to play a video cutscene (`2hot`)');
+
+			// Add a black background behind the cutscene to fix a transition bug!
+			trace('Adding black background behind cutscene over UI');
+			var bgSprite = new FunkinSprite(-100, -100);
+			bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
+			bgSprite.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
+			bgSprite.zIndex = 1000000;
+			PlayState.instance.add(bgSprite);
+			PlayState.instance.refresh();
+
+      startVideo();
 		});
 
 	}
+
+	function startVideo() {
+		VideoCutscene.play(Paths.videos('2hotCutscene'), CutsceneType.ENDING);
+  }
 
 	function removeCans()
 	{

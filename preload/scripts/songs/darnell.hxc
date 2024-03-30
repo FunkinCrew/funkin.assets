@@ -68,7 +68,7 @@ class DarnellSong extends Song {
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.defaultCameraZoom = 1.3;
+      PlayState.instance.tweenCameraZoom(1.3, 0, true);
       startVideo();
 
      // trace('Adding black background behind cutscene over UI');
@@ -125,10 +125,9 @@ class DarnellSong extends Song {
 		// camera sets up, pico does his animation showing him pissed
 		new FlxTimer().start(0.1, function(tmr)
 		{
-			PlayState.instance.cameraFollowPoint.setPosition(picoPos[0] + 250, picoPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(0);
+			PlayState.instance.tweenCameraToPosition(picoPos[0] + 250, picoPos[1], 0);
 
-			PlayState.instance.defaultCameraZoom = 1.3;
+			//PlayState.instance.tweenCameraZoom(1.3, 0, true);
 		});
 
 		new FlxTimer().start(0.7, function(tmr){
@@ -139,8 +138,7 @@ class DarnellSong extends Song {
 
 		// move camera out to show everything
 		new FlxTimer().start(cutsceneDelay, function(tmr){
-			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+100, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(2.5, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 2.5, FlxEase.quadInOut);
 			PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
 		});
 
@@ -155,8 +153,7 @@ class DarnellSong extends Song {
 		new FlxTimer().start(cutsceneDelay + 4, function(tmr)
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('cock', true);
-			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+180, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(0.4, FlxEase.backOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 0.4, FlxEase.backOut);
 			FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
 		});
 
@@ -184,8 +181,7 @@ class DarnellSong extends Song {
 
 			FunkinSound.playOnce(Paths.sound('Can_Shot_1'), 1.0);
 
-			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+100, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(1, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 1, FlxEase.quadInOut);
 
 			newCan.scriptCall('playCanShot');
       newCan.visible = true;
@@ -213,9 +209,8 @@ class DarnellSong extends Song {
 		// camera returns to normal, cutscene flags set and countdown starts.
 		new FlxTimer().start(cutsceneDelay + 8, function(tmr)
 		{
-			PlayState.instance.tweenCameraZoom(0.77, 1.5, true, FlxEase.cubeOut);
-			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+180, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(1.5, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 2, FlxEase.sineInOut);
 			PlayState.instance.isInCutscene = false;
 			PlayState.instance.startCountdown();
 			cutsceneMusic.stop(); // stop the music!!!!!!
