@@ -12,6 +12,7 @@ import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
+import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 
@@ -28,6 +29,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico';
+
+		PauseSubState.musicSuffix = '-pico';
 	}
 
 	var deathSpriteRetry:FunkinSprite;
@@ -224,6 +227,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		GameOverSubState.musicSuffix = 'pico';
 		GameOverSubState.blueBallSuffix = '-pico';
 
+		PauseSubState.musicSuffix = '-pico';
+
 		picoDeathExplosion = null;
 		this.visible = true;
 	}
@@ -302,7 +307,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FunkinSound.playOnce(Paths.sound('Can_Shot_1'), 1.0);
+		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 3));
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.
