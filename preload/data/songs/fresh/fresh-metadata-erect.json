@@ -11,8 +11,13 @@
       "instrumental": "erect"
     },
     "songVariations": [],
-    "difficulties": ["erect"],
-    "noteStyle": "Normal"
+    "difficulties": ["nightmare"],
+    "noteStyle": "funkin",
+    "ratings": {
+      "erect": 0,
+      "nightmare": 0
+    },
+    "album": "volume3"
   },
   "songName": "Fresh",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 125 }],
