@@ -91,23 +91,26 @@ class TwoHOTSong extends Song
 		var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
 		var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
+		PlayState.instance.currentStage.getBoyfriend().danceEvery = 0;
+		PlayState.instance.currentStage.getDad().danceEvery = 0;
+
 		new FlxTimer().start(1, function(tmr)
 		{
 			PlayState.instance.cameraFollowPoint.setPosition(darnellPos[0]+100, darnellPos[1]);
-			PlayState.instance.tweenCameraToFollowPoint(2.5, FlxEase.quadInOut);
-			PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraToFollowPoint(2, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraZoom(0.66, 2, true, FlxEase.quadInOut);
 		});
 
 		new FlxTimer().start(2, function(tmr)
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
 		});
-		new FlxTimer().start(2.7, function(tmr)
+		new FlxTimer().start(2.5, function(tmr)
 		{
 			PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
 		});
 
-		new FlxTimer().start(5, function(tmr)
+		new FlxTimer().start(6, function(tmr)
 		{
 			// video would play around here
 			PlayState.instance.endSong(true);
