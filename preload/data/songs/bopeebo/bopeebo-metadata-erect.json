@@ -5,15 +5,20 @@
   "timeFormat": "ms",
   "timeChanges": [{ "t": 0, "bpm": 123, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "playData": {
-    "album": "volume1",
-    "difficulties": ["erect"],
+    "difficulties": ["nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
-      "opponent": "dad"
+      "opponent": "dad",
+      "instrumental": "erect"
     },
     "stage": "mainStage",
-    "noteStyle": "Normal"
+    "noteStyle": "funkin",
+    "ratings": {
+      "erect": 0,
+      "nightmare": 0
+    },
+    "album": "volume3"
   },
   "generatedBy": "MasterEric (by hand)"
 }
