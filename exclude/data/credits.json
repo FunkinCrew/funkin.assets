@@ -1,0 +1,39 @@
+{
+  "roles": [
+    {
+      "roleName": "FRIDAY NIGHT FUNKIN'",
+      "members": [
+        { "fullName": "Brought to you by" },
+        { "fullName": "The Funkin' Crew Inc." }
+      ]
+    },
+    {
+      "roleName": "Founders",
+      "members": [
+        { "fullName": "ninjamuffin99" },
+        { "fullName": "PhantomArcade" },
+        { "fullName": "KawaiSprite" },
+        { "fullName": "evilsk8r" }
+      ]
+    },
+    {
+      "roleName": "Musicians",
+      "members": [{ "fullName": "KawaiSprite" }]
+    },
+    {
+      "roleName": "Artists",
+      "members": [{ "fullName": "PhantomArcade" }, { "fullName": "evilsk8r" }]
+    },
+    {
+      "roleName": "Programmers",
+      "members": [
+        { "fullName": "ninjamuffin99" },
+        { "fullName": "EliteMasterEric" }
+      ]
+    },
+    {
+      "roleName": "SPECIAL THANKS",
+      "members": [{ "fullName": "Tom Fulp" }]
+    }
+  ]
+}
