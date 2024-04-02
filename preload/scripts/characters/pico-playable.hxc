@@ -133,7 +133,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	override function onAnimationFinished(name:String) {
 		super.onAnimationFinished(name);
 
-		if (name == 'shootMISS') {
+		if (name == 'shootMISS' && PlayState.instance.health > 0.0) {
 			// ERIC: You have to use super instead of this or it breaks.
 			// This is because typeof(this) is PolymodAbstractClass.
       picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
@@ -161,6 +161,16 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
+	public override function getDeathCameraOffsets():Array<Float> {
+		var result = super.getDeathCameraOffsets();
+
+		if (GameOverSubState.blueBallSuffix == '-pico-explode') {
+			return [result[0], result[1] + 100];
+		}
+
+		return [result[0], result[1]];
+	}
+
 	var picoDeathExplosion:FlxAtlasSprite;
 
 	function doExplosionDeath() {
@@ -172,7 +182,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
 		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, Paths.animateAtlas("characters/picoExplosionDeath", "shared"));
-    FlxG.state.subState.add(picoDeathExplosion);
+    PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
     picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
     picoDeathExplosion.visible = true;
@@ -224,7 +234,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = 'pico';
+		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
