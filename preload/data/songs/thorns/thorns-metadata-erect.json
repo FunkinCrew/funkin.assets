@@ -1,0 +1,43 @@
+{
+  "version": "2.2.0",
+  "songName": "Thorns (Erect)",
+  "artist": "prolly kawaisprite",
+  "divisions": null,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {
+      "bf-pixel": 0
+    }
+  },
+  "playData": {
+    "difficulties": ["erect", "nightmare"],
+    "characters": {
+      "player": "bf-pixel",
+      "girlfriend": "gf-pixel",
+      "opponent": "spirit",
+      "instrumental": "erect",
+      "altInstrumentals": []
+    },
+    "stage": "schoolEvil",
+    "noteStyle": "funkin",
+    "ratings": {
+      "erect": 0,
+      "nightmare": 0
+    },
+    "album": "volume3"
+  },
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : 2ff43f5) PROTOTYPE",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 190,
+      "n": 4,
+      "d": 4,
+      "bt": [4, 4, 4, 4]
+    }
+  ]
+}

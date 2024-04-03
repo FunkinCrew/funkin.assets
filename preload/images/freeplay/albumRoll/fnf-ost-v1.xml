@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="fnf-ost-v1.png">
+	<SubTexture name="fnf ost vol 1 active0001" x="4" y="4" width="235" height="133" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 1 active0002" x="4" y="4" width="235" height="133" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 1 idle0001" x="243" y="4" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 1 idle0002" x="243" y="4" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 1 idle0003" x="243" y="4" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 1 idle0004" x="243" y="4" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 active0001" x="4" y="141" width="235" height="134" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 active0002" x="4" y="141" width="235" height="134" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 idle0001" x="243" y="141" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 idle0002" x="243" y="141" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 idle0003" x="243" y="141" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 2 idle0004" x="243" y="141" width="235" height="133" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 active0001" x="4" y="279" width="235" height="136" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 active0002" x="4" y="279" width="235" height="136" frameX="0" frameY="0" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 idle0001" x="243" y="279" width="235" height="135" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 idle0002" x="243" y="279" width="235" height="135" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 idle0003" x="243" y="279" width="235" height="135" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+	<SubTexture name="fnf ost vol 3 idle0004" x="243" y="279" width="235" height="135" frameX="0" frameY="-7" frameWidth="235" frameHeight="142"/>
+</TextureAtlas>
