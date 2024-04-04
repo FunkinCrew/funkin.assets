@@ -12,7 +12,7 @@
   "animations": [
     {
       "name": "idle",
-      "prefix": "Angry Senpai Idle",
+      "prefix": "Angry Senpai Idle instance 1",
       "offsets": [0, 0]
     },
     {
