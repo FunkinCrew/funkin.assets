@@ -11,8 +11,8 @@ class LitUpSong extends Song {
 		super('lit-up');
 	}
 
-	public function listDifficulties(variationId:String, variationIds:Array<String>):Array<String> {
-		if (Save.instance.hasBeatenLevel('weekend1')) {
+	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
+		if (showLocked || Save.instance.hasBeatenLevel('weekend1')) {
 			return super.listDifficulties(variationId, variationIds);
 		}
 

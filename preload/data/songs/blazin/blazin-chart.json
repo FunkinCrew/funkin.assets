@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "scrollSpeed": { "easy": 2, "hard": 2.8, "normal": 2.4 },
+  "scrollSpeed": { "easy": 2, "normal": 2.4, "hard": 2.8 },
   "events": [],
   "notes": {
     "easy": [
@@ -55,36 +55,36 @@
       { "t": 49000, "d": 0, "l": 0, "k": "weekend-1-reversefakeout" },
       { "t": 50000, "d": 0, "l": 0, "k": "weekend-1-reversefakeout" }
     ],
+    "normal": [],
     "hard": [
       { "t": 0, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 333.333333333333,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
-      { "t": 500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 666.666666666667,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 833.333333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 1166.66666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 1333.33333333333,
         "d": 1,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 1666.66666666667, "d": 2, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 2000, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 1666.66666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 2000, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 2166.66666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       {
         "t": 2333.33333333333,
@@ -97,9 +97,8 @@
       { "t": 3166.66666666667, "d": 0, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 3333.33333333333, "d": 3, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 3500, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 3833.33333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 4000, "d": 1, "l": 0, "k": "weekend-1-punchlowblocked" },
-      { "t": 4333.33333333333, "d": 2, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 4000, "d": 1, "l": 0, "k": "weekend-1-punchlowdodged" },
+      { "t": 4333.33333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 4666.66666666667, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
       {
         "t": 4833.33333333333,
@@ -115,49 +114,42 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 5666.66666666667, "d": 3, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 5666.66666666667, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 5833.33333333333,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
-      { "t": 6000, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 6000, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 6166.66666666667,
         "d": 2,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 6500, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 6666.66666666666, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 6833.33333333333, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 7000, "d": 2, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 7000, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
       {
         "t": 7333.33333333333,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
-      { "t": 7500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 7500, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 7666.66666666667, "d": 0, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 8000, "d": 1, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 8333.33333333333, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 8500, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
       { "t": 8666.66666666667, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      {
-        "t": 8833.33333333333,
-        "d": 2,
-        "l": 0,
-        "k": "weekend-1-punchhighblocked"
-      },
-      { "t": 9166.66666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 9333.33333333333, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 8833.33333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 9333.33333333333, "d": 1, "l": 0, "k": "weekend-1-dodgehigh" },
       {
         "t": 9666.66666666666,
         "d": 2,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 10000, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 10166.6666666667, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
@@ -173,25 +165,23 @@
         "l": 0,
         "k": "weekend-1-darnelluppercut"
       },
-      { "t": 11000, "d": 3, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 11000, "d": 3, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 11166.6666666667, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 11500, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 11833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 12000, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 12000, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 12333.3333333333,
         "d": 2,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 12666.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 12833.3333333333, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 13000, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 13000, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 13333.3333333333,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 13666.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       {
@@ -200,18 +190,16 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 14166.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 14500, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 14166.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 14666.6666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 15000, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
       { "t": 15041.6666666667, "d": 6, "l": 0, "k": "weekend-1-hitlow" },
       { "t": 15083.3333333333, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 15416.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 15500, "d": 3, "l": 0, "k": "weekend-1-punchhighblocked" },
       {
         "t": 15666.6666666667,
@@ -221,9 +209,8 @@
       },
       { "t": 16000, "d": 2, "l": 0, "k": "weekend-1-picouppercut" },
       { "t": 16333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 16500, "d": 0, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 16500, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
       { "t": 16833.3333333333, "d": 2, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 17166.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 17333.3333333333,
         "d": 1,
@@ -235,26 +222,24 @@
         "t": 17666.6666666667,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
-      { "t": 18000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 18166.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 18333.3333333333, "d": 7, "l": 0, "k": "weekend-1-hitlow" },
       {
         "t": 18666.6666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 19000, "d": 0, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 19166.6666666667,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
-      { "t": 19500, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 19833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 19500, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 20000, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 20333.3333333333,
@@ -262,10 +247,10 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 20500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 20500, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 20666.6666666667, "d": 0, "l": 0, "k": "weekend-1-punchlow" },
       { "t": 20833.3333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 21000, "d": 0, "l": 0, "k": "weekend-1-punchhighdodged" },
+      { "t": 21000, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
       {
         "t": 21166.6666666667,
         "d": 5,
@@ -286,32 +271,29 @@
         "l": 0,
         "k": "weekend-1-punchlowdodged"
       },
-      { "t": 22333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 22500, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 22666.6666666667, "d": 0, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 23000, "d": 2, "l": 0, "k": "weekend-1-punchhighspin" },
+      { "t": 22333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 22666.6666666667, "d": 0, "l": 0, "k": "weekend-1-dodgelow" },
+      { "t": 23000, "d": 2, "l": 0, "k": "weekend-1-punchlowspin" },
       { "t": 23500, "d": 1, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 23666.6666666667, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 24000, "d": 0, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 24333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 24500, "d": 2, "l": 0, "k": "weekend-1-punchlowblocked" },
-      { "t": 24833.3333333333, "d": 0, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 25166.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 24500, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
+      { "t": 24833.3333333333, "d": 0, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 25333.3333333334,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 25666.6666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 26000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 26166.6666666667,
         "d": 0,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 26333.3333333333, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 26333.3333333333, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 26500, "d": 3, "l": 0, "k": "weekend-1-picouppercutprep" },
       { "t": 26666.6666666667, "d": 2, "l": 0, "k": "weekend-1-picouppercut" },
       { "t": 27000.0000000001, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
@@ -323,10 +305,8 @@
       },
       { "t": 27500.0000000001, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 27666.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 27833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 28000, "d": 0, "l": 0, "k": "weekend-1-punchhighdodged" },
-      { "t": 28333.3333333334, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 28666.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 28000, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
+      { "t": 28333.3333333334, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 28833.3333333333,
         "d": 1,
@@ -342,34 +322,33 @@
         "t": 29666.6666666667,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 29833.3333333333, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 30166.6666666667, "d": 2, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 30500, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 30666.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 31166.6666666667, "d": 1, "l": 0, "k": "weekend-1-fakeout" },
       { "t": 31666.6666666667, "d": 0, "l": 0, "k": "weekend-1-taunt" },
       { "t": 32000, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 32333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 32500, "d": 1, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 32333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 32500, "d": 1, "l": 0, "k": "weekend-1-punchhighblocked" },
+      { "t": 32666.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 32833.3333333333,
         "d": 2,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 33166.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 33333.3333333333, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 33500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 33666.6666666667,
         "d": 2,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
-      { "t": 34000, "d": 3, "l": 0, "k": "weekend-1-punchhighdodged" },
-      { "t": 34166.6666666667, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 34000, "d": 3, "l": 0, "k": "weekend-1-punchlowdodged" },
+      { "t": 34166.6666666667, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 34333.3333333333, "d": 0, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 34666.6666666667,
@@ -386,13 +365,12 @@
       },
       { "t": 35333.3333333333, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
       { "t": 35500, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
-      { "t": 35833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 36000, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 36000, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 36333.3333333333,
         "d": 2,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 36666.6666666667, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 36833.3333333334, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
@@ -403,7 +381,7 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 37166.6666666667, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 37166.6666666667, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 37666.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 42666.6666666667,
@@ -411,24 +389,23 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 43000, "d": 3, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 43000, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 43166.6666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 43500, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
-      { "t": 43833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 44000, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 44166.6666666667, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 44333.3333333333,
         "d": 2,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
-      { "t": 44833.3333333333, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 44833.3333333333, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 45000, "d": 0, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 45333.3333333333,
@@ -449,9 +426,8 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 46500, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 46666.6666666667, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 47000, "d": 2, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 46666.6666666667, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 47000, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 47500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 47666.6666666666, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 47750, "d": 3, "l": 0, "k": "weekend-1-punchlow" },
@@ -462,7 +438,6 @@
       { "t": 48583.3333333333, "d": 1, "l": 0, "k": "weekend-1-punchlow" },
       { "t": 48833.3333333333, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 49000, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 49166.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 49333.3333333333, "d": 6, "l": 0, "k": "weekend-1-hithigh" },
       { "t": 49666.6666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 50166.6666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
@@ -475,7 +450,6 @@
       },
       { "t": 51000, "d": 1, "l": 0, "k": "weekend-1-punchlowdodged" },
       { "t": 51166.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 51333.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 51500, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 52000, "d": 0, "l": 0, "k": "weekend-1-punchlow" },
       {
@@ -484,7 +458,6 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 52666.6666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 52833.3333333333, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 53000, "d": 3, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 53166.6666666667, "d": 7, "l": 0, "k": "weekend-1-hitlow" },
@@ -500,7 +473,6 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 54500, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 54666.6666666667, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 54833.3333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 55000, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
@@ -523,7 +495,6 @@
         "l": 0,
         "k": "weekend-1-punchlowdodged"
       },
-      { "t": 57458.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 57583.3333333333,
         "d": 0,
@@ -531,7 +502,6 @@
         "k": "weekend-1-punchlowdodged"
       },
       { "t": 57666.6666666667, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 58000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 58166.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 58333.3333333333, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 58416.6666666667, "d": 3, "l": 0, "k": "weekend-1-punchlow" },
@@ -560,7 +530,6 @@
         "k": "weekend-1-punchhighblocked"
       },
       { "t": 62166.6666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 62333.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 62666.6666666667,
         "d": 0,
@@ -568,7 +537,6 @@
         "k": "weekend-1-punchlowdodged"
       },
       { "t": 63000, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 63333.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 63500, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 63666.6666666667, "d": 5, "l": 0, "k": "weekend-1-hitlow" },
       { "t": 63833.3333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
@@ -638,7 +606,6 @@
       { "t": 69916.6666666666, "d": 1, "l": 0, "k": "weekend-1-punchlow" },
       { "t": 70166.6666666666, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 70333.3333333333, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 70500, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 70666.6666666666, "d": 6, "l": 0, "k": "weekend-1-hithigh" },
       { "t": 71000, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 71500, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
@@ -651,7 +618,6 @@
         "k": "weekend-1-punchlowdodged"
       },
       { "t": 72500, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 72666.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 72833.3333333333, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 73333.3333333333, "d": 0, "l": 0, "k": "weekend-1-punchlow" },
       {
@@ -660,7 +626,6 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 74000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 74166.6666666666, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 74333.3333333333, "d": 3, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 74500, "d": 7, "l": 0, "k": "weekend-1-hitlow" },
@@ -671,7 +636,6 @@
       { "t": 75000, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 75166.6666666666, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 75500, "d": 0, "l": 0, "k": "weekend-1-punchhighblocked" },
-      { "t": 75833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 76000, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 76166.6666666666, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 76333.3333333333, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
@@ -694,7 +658,6 @@
         "l": 0,
         "k": "weekend-1-punchlowdodged"
       },
-      { "t": 78791.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 78916.6666666666,
         "d": 0,
@@ -702,7 +665,6 @@
         "k": "weekend-1-punchlowdodged"
       },
       { "t": 79000, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 79333.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 79500, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 79666.6666666666, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 79750, "d": 3, "l": 0, "k": "weekend-1-punchlow" },
@@ -736,10 +698,8 @@
         "k": "weekend-1-punchhighblocked"
       },
       { "t": 83500, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 83666.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 84000, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
       { "t": 84333.3333333333, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 84666.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 84833.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 85000, "d": 5, "l": 0, "k": "weekend-1-hitlow" },
       { "t": 85166.6666666666, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
@@ -794,25 +754,23 @@
         "l": 0,
         "k": "weekend-1-darnelluppercut"
       },
-      { "t": 91000, "d": 3, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 91000, "d": 3, "l": 0, "k": "weekend-1-punchlowdodged" },
       { "t": 91166.6666666667, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 91500, "d": 0, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 91833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 92000, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 92000, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 92333.3333333333,
         "d": 2,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 92666.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 92833.3333333333, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 93000, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 93000, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 93333.3333333333,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 93666.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       {
@@ -821,18 +779,16 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 94166.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 94500, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 94166.6666666667, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 94666.6666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 95000, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
       { "t": 95041.6666666667, "d": 6, "l": 0, "k": "weekend-1-hitlow" },
       { "t": 95083.3333333333, "d": 7, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 95416.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 95500, "d": 3, "l": 0, "k": "weekend-1-punchhighblocked" },
       {
         "t": 95666.6666666667,
@@ -842,40 +798,37 @@
       },
       { "t": 96000, "d": 2, "l": 0, "k": "weekend-1-picouppercut" },
       { "t": 96333.3333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 96500, "d": 0, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 96500, "d": 0, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 96833.3333333333, "d": 2, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 97166.6666666666, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 97333.3333333333,
         "d": 1,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 97500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 97500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 97666.6666666667,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchlowdodged"
       },
-      { "t": 98000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 98166.6666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 98333.3333333333, "d": 7, "l": 0, "k": "weekend-1-hitlow" },
       {
         "t": 98666.6666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 99000, "d": 0, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 99166.6666666667,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
-      { "t": 99500, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 99833.3333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 99500, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 100000, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 100333.333333333,
@@ -883,10 +836,10 @@
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 100500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 100500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 100666.666666667, "d": 0, "l": 0, "k": "weekend-1-punchlow" },
       { "t": 100833.333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 101000, "d": 0, "l": 0, "k": "weekend-1-punchhighdodged" },
+      { "t": 101000, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
       {
         "t": 101166.666666667,
         "d": 5,
@@ -907,32 +860,29 @@
         "l": 0,
         "k": "weekend-1-punchlowdodged"
       },
-      { "t": 102333.333333333, "d": 3, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 102500, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 102666.666666667, "d": 0, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 103000, "d": 2, "l": 0, "k": "weekend-1-punchhighspin" },
+      { "t": 102333.333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 102666.666666667, "d": 0, "l": 0, "k": "weekend-1-dodgelow" },
+      { "t": 103000, "d": 2, "l": 0, "k": "weekend-1-punchlowspin" },
       { "t": 103500, "d": 1, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 103666.666666667, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 104000, "d": 0, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 104333.333333333, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 104500, "d": 2, "l": 0, "k": "weekend-1-punchlowblocked" },
+      { "t": 104500, "d": 2, "l": 0, "k": "weekend-1-punchhighblocked" },
       { "t": 104833.333333333, "d": 0, "l": 0, "k": "weekend-1-hithigh" },
-      { "t": 105166.666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 105333.333333333,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 105666.666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 106000, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 106166.666666667,
         "d": 0,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 106333.333333333, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 106333.333333333, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 106500, "d": 3, "l": 0, "k": "weekend-1-picouppercutprep" },
       { "t": 106666.666666667, "d": 2, "l": 0, "k": "weekend-1-picouppercut" },
       { "t": 107000, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
@@ -944,10 +894,8 @@
       },
       { "t": 107500, "d": 1, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 107666.666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 107833.333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
-      { "t": 108000, "d": 0, "l": 0, "k": "weekend-1-punchhighdodged" },
-      { "t": 108333.333333333, "d": 2, "l": 0, "k": "weekend-1-dodgehigh" },
-      { "t": 108666.666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
+      { "t": 108000, "d": 0, "l": 0, "k": "weekend-1-punchlowdodged" },
+      { "t": 108333.333333333, "d": 2, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 108833.333333333,
         "d": 1,
@@ -963,11 +911,10 @@
         "t": 109666.666666667,
         "d": 0,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       { "t": 109833.333333333, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 110166.666666667, "d": 2, "l": 0, "k": "weekend-1-punchhigh" },
-      { "t": 110500, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 110666.666666667, "d": 3, "l": 0, "k": "weekend-1-blockhigh" },
       { "t": 111166.666666667, "d": 1, "l": 0, "k": "weekend-1-fakeout" },
       { "t": 111666.666666667, "d": 0, "l": 0, "k": "weekend-1-taunt" },
@@ -976,30 +923,29 @@
         "t": 112333.333333333,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
-      { "t": 112500, "d": 1, "l": 0, "k": "weekend-1-blocklow" },
+      { "t": 112500, "d": 1, "l": 0, "k": "weekend-1-blockhigh" },
       {
         "t": 112666.666666667,
         "d": 3,
         "l": 0,
-        "k": "weekend-1-punchhighdodged"
+        "k": "weekend-1-punchlowdodged"
       },
       { "t": 112833.333333333, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 113166.666666667, "d": 4, "l": 0, "k": "weekend-1-idle" },
       {
         "t": 113333.333333333,
         "d": 1,
         "l": 0,
         "k": "weekend-1-punchhighblocked"
       },
-      { "t": 113666.666666667, "d": 2, "l": 0, "k": "weekend-1-blocklow" },
-      { "t": 114000, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 113666.666666667, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
+      { "t": 114000, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       {
         "t": 114166.666666667,
         "d": 1,
         "l": 0,
-        "k": "weekend-1-punchlowblocked"
+        "k": "weekend-1-punchhighblocked"
       },
       {
         "t": 114333.333333333,
@@ -1012,13 +958,11 @@
       { "t": 115166.666666667, "d": 0, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 115333.333333333, "d": 3, "l": 0, "k": "weekend-1-punchhigh" },
       { "t": 115500, "d": 2, "l": 0, "k": "weekend-1-blockhigh" },
-      { "t": 115833.333333333, "d": 4, "l": 0, "k": "weekend-1-idle" },
       { "t": 116000, "d": 0, "l": 0, "k": "weekend-1-punchhighblocked" },
-      { "t": 116500, "d": 3, "l": 0, "k": "weekend-1-dodgehigh" },
+      { "t": 116500, "d": 3, "l": 0, "k": "weekend-1-dodgelow" },
       { "t": 117000, "d": 1, "l": 0, "k": "weekend-1-picouppercutprep" },
       { "t": 117333.333333333, "d": 2, "l": 0, "k": "weekend-1-picouppercut" }
-    ],
-    "normal": []
+    ]
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (chart-editor-port-legacy:76a614e) PROTOTYPE"
 }
