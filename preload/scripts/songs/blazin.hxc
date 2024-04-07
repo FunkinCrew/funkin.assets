@@ -83,7 +83,7 @@ class BlazinSong extends Song {
 		super.onSongEnd(event);
 
 		// TODO: Readd this to keep the cutscene from playing outside of story mode.
-    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing ending to play a video cutscene (`blazin`)');
