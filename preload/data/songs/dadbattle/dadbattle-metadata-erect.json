@@ -5,10 +5,6 @@
   "timeFormat": "ms",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 190 }],
   "playData": {
-    "album": "volume3",
-    "ratings": {
-      "erect": 7
-    },
     "stage": "mainStage",
     "characters": {
       "player": "bf",
@@ -19,7 +15,12 @@
     },
     "songVariations": [],
     "difficulties": ["erect"],
-    "noteStyle": "Normal"
+    "noteStyle": "funkin",
+    "ratings": {
+      "erect": 0,
+      "nightmare": 0
+    },
+    "album": "volume3"
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE"
 }
