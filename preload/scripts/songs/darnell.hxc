@@ -69,22 +69,17 @@ class DarnellSong extends Song {
       event.cancel(); // CANCEL THE COUNTDOWN!
 
       PlayState.instance.tweenCameraZoom(1.3, 0, true);
-      startVideo();
 
-     // trace('Adding black background behind cutscene over UI');
-			bgSprite = new FunkinSprite(700, 300);
+			// trace('Adding black background behind cutscene over UI');
+			bgSprite = new FunkinSprite(0, 0);
 			bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
-			//bgSprite.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
-			bgSprite.zIndex = 1000000;
+			bgSprite.cameras = [PlayState.instance.camCutscene]; // Show over the HUD but below the video.
+			// this
+			bgSprite.zIndex = -10000;
 			PlayState.instance.add(bgSprite);
 			PlayState.instance.refresh();
 
-      bgSprite2 = new FunkinSprite(-100, -100);
-			bgSprite2.makeSolidColor(2000, 2500, 0xFF000000);
-			bgSprite2.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
-			bgSprite2.zIndex = 1000000;
-			PlayState.instance.add(bgSprite2);
-			PlayState.instance.refresh();
+      startVideo();
 
     }
 	}
@@ -132,7 +127,6 @@ class DarnellSong extends Song {
 
 		new FlxTimer().start(0.7, function(tmr){
 			cutsceneMusic.play(false);
-      bgSprite2.visible = false;
       FlxTween.tween(bgSprite, { alpha: 0}, 2, {startDelay: 0.3});
 		});
 
