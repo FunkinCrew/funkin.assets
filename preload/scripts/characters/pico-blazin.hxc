@@ -51,6 +51,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
 		if (cantUppercut) {
 			playBlockAnim();
+			cantUppercut = false;
 			return;
 		}
 
