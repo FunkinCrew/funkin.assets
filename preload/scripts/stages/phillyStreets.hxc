@@ -427,8 +427,8 @@ class PhillyStreetsStage extends Stage
 		super.onResume(event);
 
 		// Temporarily stop ambiance.
-		if (rainSndAmbience != null) rainSndAmbience.pause();
-		if (carSndAmbience != null) carSndAmbience.pause();
+		if (rainSndAmbience != null) rainSndAmbience.resume();
+		if (carSndAmbience != null) carSndAmbience.resume();
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
