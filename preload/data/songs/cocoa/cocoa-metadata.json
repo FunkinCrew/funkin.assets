@@ -2,13 +2,14 @@
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "playData": {
+    "album": "volume1",
     "stage": "mallXmas",
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
       "opponent": "parents-christmas"
     },
-    "songVariations": [],
+    "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "Normal"
   },
