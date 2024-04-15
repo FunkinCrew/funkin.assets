@@ -7,9 +7,7 @@
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
+    "vocals": { "bf-pixel": 0 }
   },
   "playData": {
     "difficulties": ["erect", "nightmare"],
@@ -21,23 +19,13 @@
       "altInstrumentals": []
     },
     "stage": "schoolEvil",
-    "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
+    "noteStyle": "pixel",
+    "ratings": { "erect": 0, "nightmare": 0 },
     "album": "volume3"
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : 2ff43f5) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:2ff43f5) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 190,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 190, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

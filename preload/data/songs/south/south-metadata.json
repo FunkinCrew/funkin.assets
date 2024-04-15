@@ -4,14 +4,10 @@
   "playData": {
     "album": "volume1",
     "stage": "spookyMansion",
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "spooky"
-    },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "songName": "South",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 165 }],

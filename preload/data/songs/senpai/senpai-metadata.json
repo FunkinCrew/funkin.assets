@@ -11,7 +11,7 @@
     },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "Normal"
+    "noteStyle": "pixel"
   },
   "songName": "Senpai",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 144 }],

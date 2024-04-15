@@ -17,10 +17,7 @@
     },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
+    "ratings": { "erect": 0, "nightmare": 0 },
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000

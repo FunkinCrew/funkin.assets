@@ -1,25 +1,33 @@
 {
   "version": "2.2.1",
-  "timeFormat": "ms",
-  "artist": "Kawai Sprite",
+  "songName": "Fresh",
+  "artist": "Kohta Takahashi",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": { "bf": 0 }
+  },
   "playData": {
-    "stage": "mainStage",
+    "songVariations": [],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
-      "instrumental": "erect"
+      "instrumental": "erect",
+      "altInstrumentals": []
     },
-    "songVariations": [],
-    "difficulties": ["nightmare"],
+    "stage": "mainStage",
     "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
-    "album": "volume3"
+    "ratings": { "nightmare": 0 },
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "songName": "Fresh",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 125 }],
-  "generatedBy": "MasterEric (By Hand)"
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:4803004) PROTOTYPE",
+  "timeFormat": "ms",
+  "timeChanges": [
+    { "t": 0, "b": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+  ]
 }

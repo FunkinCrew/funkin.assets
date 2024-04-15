@@ -2,14 +2,11 @@
   "version": "2.2.1",
   "songName": "Roses (Erect)",
   "artist": "kawaisprite",
-  "divisions": null,
   "looped": false,
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
+    "vocals": { "bf-pixel": 0 }
   },
   "playData": {
     "songVariations": [],
@@ -22,23 +19,14 @@
       "altInstrumentals": []
     },
     "stage": "school",
-    "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
-    "album": "volume3"
+    "noteStyle": "pixel",
+    "ratings": { "nightmare": 0 },
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : ae5dd56) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:ae5dd56) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 128,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 128, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

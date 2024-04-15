@@ -8,11 +8,7 @@
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000,
-    "ratings": {
-      "easy": 1,
-      "normal": 3,
-      "hard": 5
-    },
+    "ratings": { "easy": 1, "normal": 3, "hard": 5 },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
@@ -23,10 +19,8 @@
       "altInstrumentals": []
     },
     "stage": "mainStage",
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
-  "offsets": {
-    "instrumental": 0.0
-  },
+  "offsets": { "instrumental": 0.0 },
   "generatedBy": "EliteMasterEric (by hand)"
 }

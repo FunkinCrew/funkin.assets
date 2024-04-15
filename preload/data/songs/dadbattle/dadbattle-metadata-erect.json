@@ -16,11 +16,8 @@
     "songVariations": [],
     "difficulties": ["erect"],
     "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
+    "ratings": { "erect": 0, "nightmare": 0 },
     "album": "volume3"
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor : 42ea0cb) PROTOTYPE"
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (feature/chart-editor:42ea0cb) PROTOTYPE"
 }
