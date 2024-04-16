@@ -9,13 +9,9 @@
     "album": "volume1",
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "spooky"
-    },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
     "stage": "spookyMansion",
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "generatedBy": "MasterEric (by hand)"
 }
