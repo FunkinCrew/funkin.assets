@@ -5,14 +5,10 @@
   "playData": {
     "album": "volume1",
     "stage": "mainStage",
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "dad"
-    },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "dad" },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "songName": "Fresh",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],

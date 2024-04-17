@@ -67,10 +67,6 @@
         { "line": "Tokaku" },
         { "line": "kanye west" }
       ]
-    },
-    {
-      "header": "Kickstarter Backers",
-      "appendBackers": true
     }
   ]
 }

@@ -2,14 +2,12 @@
   "version": "2.2.0",
   "songName": "Senpai",
   "artist": "Kawaisprite",
-  "divisions": null,
+  "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
+    "vocals": { "bf-pixel": 0 }
   },
   "playData": {
     "songVariations": [],
@@ -22,23 +20,14 @@
       "altInstrumentals": []
     },
     "stage": "school",
-    "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
-    "album": "volume3"
+    "noteStyle": "pixel",
+    "ratings": {},
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg : 27a4ed4) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 158,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 158, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }
