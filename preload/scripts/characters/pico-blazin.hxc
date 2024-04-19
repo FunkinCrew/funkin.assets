@@ -5,6 +5,7 @@ import funkin.play.GameOverSubState;
 import flixel.util.FlxTimer;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;
+import funkin.graphics.FunkinSprite;
 import funkin.play.character.AnimateAtlasCharacter;
 import StringTools;
 
@@ -130,6 +131,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
 			// Make sure the death music plays with PERFECT timing.
 			new FlxTimer().start(1.25, afterPicoDeathGutPunchIntro);
+		} else if (name == "deathConfirm") {
+			doDeathConfirm();
+		} else {
+			super.playAnimation(name, restart, ignoreOther);
 		}
 
 		super.playAnimation(name, restart, ignoreOther);
@@ -139,6 +144,22 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		trace('After Pico death gut punch intro!');
 		GameOverSubState.instance.startDeathMusic(1.0, false);
 		playAnimation('deathLoop', true, false);
+	}
+
+	function doDeathConfirm():Void {
+		var picoDeathConfirm:FunkinSprite = FunkinSprite.createSparrow(this.x + 905, this.y + 1030, 'picoBlazinDeathConfirm');
+		picoDeathConfirm.animation.addByPrefix('confirm', "Pico Gut Punch Death0", 24, false);
+		picoDeathConfirm.animation.play('confirm');
+		picoDeathConfirm.scale.set(1.75, 1.75);
+		picoDeathConfirm.zIndex = 1000;
+    FlxG.state.subState.add(picoDeathConfirm);
+		picoDeathConfirm.visible = true;
+		this.visible = false;
+
+		picoDeathConfirm.animation.finishCallback = () -> {
+			picoDeathConfirm.visible = false;
+			this.visible = true;
+		}
 	}
 
 	function onNoteMiss(event:NoteScriptEvent)
