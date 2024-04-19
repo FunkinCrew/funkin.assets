@@ -32,8 +32,8 @@ class PhillyStreetsStage extends Stage
 	var rainShaderStartIntensity:Float;
 	var rainShaderEndIntensity:Float;
 
-	var rainSndAmbience:FunkinSound;
-	var carSndAmbience:FunkinSound;
+	// var rainSndAmbience:FunkinSound;
+	// var carSndAmbience:FunkinSound;
 
 	var lightsStop:Bool = false; // state of the traffic lights
 	var lastChange:Int = 0;
@@ -105,20 +105,20 @@ class PhillyStreetsStage extends Stage
 
 	override function onCountdownEnd(event:SongLoadScriptEvent) {
 		super.onCountdownEnd(event);
-		carSndAmbience.volume = 0.1;
+		// carSndAmbience.volume = 0.1;
 	}
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
 
-		rainSndAmbience = FunkinSound.load(Paths.sound("rainAmbience", "weekend1"), true, false, true);
-		rainSndAmbience.volume = 0;
-		rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
+		// rainSndAmbience = FunkinSound.load(Paths.sound("rainAmbience", "weekend1"), true, false, true);
+		// rainSndAmbience.volume = 0;
+		// rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
 
-		carSndAmbience = FunkinSound.load(Paths.sound("carAmbience", "weekend1"), true, false, true);
-		carSndAmbience.volume = 0;
-		carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
+		// carSndAmbience = FunkinSound.load(Paths.sound("carAmbience", "weekend1"), true, false, true);
+		// carSndAmbience.volume = 0;
+		// carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
 
 		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
@@ -373,9 +373,9 @@ class PhillyStreetsStage extends Stage
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 
-		if (rainSndAmbience != null) {
-			rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
-		}
+		// if (rainSndAmbience != null) {
+		// 	rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
+		// }
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent)
@@ -427,8 +427,8 @@ class PhillyStreetsStage extends Stage
 		super.onResume(event);
 
 		// Temporarily stop ambiance.
-		if (rainSndAmbience != null) rainSndAmbience.pause();
-		if (carSndAmbience != null) carSndAmbience.pause();
+		if (rainSndAmbience != null) rainSndAmbience.resume();
+		if (carSndAmbience != null) carSndAmbience.resume();
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -470,29 +470,29 @@ class PhillyStreetsStage extends Stage
 	public override function onPause(event:PauseScriptEvent) {
 		super.onPause(event);
 
-		if (rainSndAmbience != null) rainSndAmbience.pause();
-		if (carSndAmbience != null) carSndAmbience.pause();
+		// if (rainSndAmbience != null) rainSndAmbience.pause();
+		// if (carSndAmbience != null) carSndAmbience.pause();
 	}
 
   public override function onResume(event:ScriptEvent) {
 		super.onResume(event);
 
-		if (rainSndAmbience != null) rainSndAmbience.resume();
-		if (carSndAmbience != null) carSndAmbience.resume();
+		// if (rainSndAmbience != null) rainSndAmbience.resume();
+		// if (carSndAmbience != null) carSndAmbience.resume();
 	}
 
   override function onDestroy(event:ScriptEvent) {
     super.onDestroy(event);
 
-		if (rainSndAmbience != null) {
-			rainSndAmbience.destroy();
-			rainSndAmbience = null;
-		}
-
-		if (carSndAmbience != null) {
-			carSndAmbience.destroy();
-			carSndAmbience = null;
-		}
+		//if (rainSndAmbience != null) {
+		//	rainSndAmbience.destroy();
+		//	rainSndAmbience = null;
+		//}
+//
+		//if (carSndAmbience != null) {
+		//	carSndAmbience.destroy();
+		//	carSndAmbience = null;
+		//}
   }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType)

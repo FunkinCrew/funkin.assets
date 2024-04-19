@@ -7,9 +7,7 @@
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {
-      "pico-playable": 0
-    }
+    "vocals": { "pico-playable": 0 }
   },
   "playData": {
     "album": "volume3",
@@ -26,22 +24,11 @@
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
-    "ratings": {
-      "easy": 0,
-      "normal": 0,
-      "hard": 0
-    }
+    "ratings": { "easy": 0, "normal": 0, "hard": 0 }
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg : 27a4ed4) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 176,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 176, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

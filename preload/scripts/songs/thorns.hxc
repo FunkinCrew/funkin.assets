@@ -1,3 +1,4 @@
+import funkin.audio.FunkinSound;
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import flixel.FlxSprite;
@@ -43,7 +44,7 @@ class ThornsSong extends Song {
 
     var senpaiCrazy = FunkinSprite.createSparrow(0, 0, 'weeb/senpaiCrazy');
     senpaiCrazy.cameras = [PlayState.instance.camCutscene];
-    senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
+    senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion instance 1', 24, false);
 		senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
     senpaiCrazy.antialiasing = false;
 
@@ -69,7 +70,9 @@ class ThornsSong extends Song {
         senpaiCrazy.animation.play('idle');
 
         // Play the SFX alongside it.
-        FunkinSound.playOnce(Paths.sound('Senpai_Dies'), function () {
+        trace('Playing senpai death SFX.');
+        FunkinSound.playOnce(Paths.sound('Senpai_Dies'), 1.0, function () {
+          trace('Senpai death SFX done.');
           // Called when the sound completes. Clean up the cutscene here.
           // Hard cut to the cutscene.
           PlayState.instance.remove(senpaiCrazy);
