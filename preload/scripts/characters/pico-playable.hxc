@@ -317,7 +317,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 3));
+		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.

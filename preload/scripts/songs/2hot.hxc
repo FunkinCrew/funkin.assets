@@ -49,35 +49,8 @@ class TwoHOTSong extends Song
 		return [];
 	}
 
-	var hasPlayedCutscene:Bool = false;
-	var cutsceneConductor:Conductor = null;
-	var cutsceneMusic:FunkinSound = null;
-
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
-
-    if (!hasPlayedCutscene) {
-      trace('Pausing countdown to play cutscene.');
-
-      hasPlayedCutscene = true;
-
-      startCutscene();
-      event.cancel(); // CANCEL THE COUNTDOWN!
-    }
-	}
-
-	function startCutscene():Void {
-
-    PlayState.instance.camHUD.visible = false;
-
-		cutsceneConductor = new Conductor();
-
-		cutsceneMusic = FunkinSound.load(Paths.music('freakyMenu/freakyMenu'));
-
-		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData(key);
-		if (songMusicData != null) {
-			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
-		}
 	}
 
 	function onSongRetry(event:ScriptEvent)
@@ -107,8 +80,7 @@ class TwoHOTSong extends Song
 		}
 	}
 
-	function endCutscene(){ //unfinished! still waiting on the video
-
+	function endCutscene(){
 		PlayState.instance.camHUD.visible = false;
 
 		PlayState.instance.isInCutscene = true;
@@ -126,6 +98,13 @@ class TwoHOTSong extends Song
 			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 2, FlxEase.quadInOut);
 			PlayState.instance.tweenCameraZoom(0.62, 2, true, FlxEase.quadInOut);
 		});
+
+		// Since no music plays at this part I'm too lazy to hook Nene up to a conductor,
+		// so we just dance on a timer here.
+		new FlxTimer().start(0.5, function(tmr)
+		{
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}, 10);
 
 		new FlxTimer().start(2, function(tmr)
 		{
@@ -262,10 +241,6 @@ class TwoHOTSong extends Song
 
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
-
-		if (cutsceneConductor != null && cutsceneMusic != null) {
-			cutsceneConductor.update(cutsceneMusic.time);
-		}
 	}
 
 	function darkenStageProps()

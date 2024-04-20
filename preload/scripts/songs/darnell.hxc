@@ -9,6 +9,7 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.Paths;
+import funkin.data.song.SongRegistry;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.play.song.Song;
@@ -24,6 +25,7 @@ class DarnellSong extends Song {
   var hasPlayedCutscene:Bool;
   var hasPlayedInGameCutscene:Bool;
   var cutsceneMusic:FunkinSound;
+	var cutsceneConductor:Conductor;
   var bgSprite:FunkinSprite;
 
 	public function new() {
@@ -91,8 +93,17 @@ class DarnellSong extends Song {
 
 		var cutsceneDelay:Float = 2;
 
-		cutsceneMusic = FunkinSound.load(Paths.music("Pico_can_explosion_scene", "weekend1"), true);
+		cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
 		cutsceneMusic.volume = 1;
+
+		cutsceneConductor = new Conductor();
+
+		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('darnellCanCutscene');
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
+
+		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
 		var cutsceneCan:FunkinSprite = FunkinSprite.createSparrow(darnellPos[0], darnellPos[1], 'wked1_cutscene_1_can');
 		cutsceneCan.animation.addByPrefix('forward', "can kick quick0", 24, false);
@@ -122,7 +133,7 @@ class DarnellSong extends Song {
 		{
 			PlayState.instance.tweenCameraToPosition(picoPos[0] + 250, picoPos[1], 0);
 
-			//PlayState.instance.tweenCameraZoom(1.3, 0, true);
+			PlayState.instance.tweenCameraZoom(1.3, 0, true, FlxEase.quadInOut);
 		});
 
 		new FlxTimer().start(0.7, function(tmr){
@@ -173,7 +184,7 @@ class DarnellSong extends Song {
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro2', true, true);
 
-			FunkinSound.playOnce(Paths.sound('Can_Shot_1'), 1.0);
+			FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
 
 			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 1, FlxEase.quadInOut);
 
@@ -209,6 +220,20 @@ class DarnellSong extends Song {
 			PlayState.instance.startCountdown();
 			cutsceneMusic.stop(); // stop the music!!!!!!
 		});
+	}
+
+	function onCutsceneBeatHit() {
+		trace('On cutscene beat hit');
+
+		// Play idle if Darnell isn't busy.
+		if (PlayState.instance.currentStage.getDad().isAnimationFinished()
+				&& PlayState.instance.currentStage.getDad().getCurrentAnimation() != 'lightCan') {
+			PlayState.instance.currentStage.getDad().dance(true);
+		}
+
+		if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}
 	}
 
   function darkenStageProps()
@@ -270,4 +295,13 @@ class DarnellSong extends Song {
     hasPlayedCutscene = false;
     hasPlayedInGameCutscene = false;
   }
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			trace(cutsceneMusic.time);
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
+	}
 }

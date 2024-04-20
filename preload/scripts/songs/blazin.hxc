@@ -23,6 +23,7 @@ class BlazinSong extends Song {
 		super.onCreate(event);
 
 		this.hasHidden = false;
+		this.hasPlayedCutscene = false;
 	}
 
 	function onDestroy(event:ScriptEvent):Void {
@@ -82,7 +83,7 @@ class BlazinSong extends Song {
   public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
 
-		// TODO: Readd this to keep the cutscene from playing outside of story mode.
+		// Keep the cutscene from playing outside of story mode.
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
