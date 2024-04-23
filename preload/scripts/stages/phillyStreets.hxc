@@ -18,6 +18,7 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
+import funkin.util.FlxTweenUtil;
 import openfl.utils.Assets;
 import StringTools;
 
@@ -167,8 +168,8 @@ class PhillyStreetsStage extends Stage
 		if (cars2 != null) FlxTween.cancelTweensOf(cars2);
 
 		// Fully stop ambiance.
-		if (rainSndAmbience != null) rainSndAmbience.stop();
-		if (carSndAmbience != null) carSndAmbience.stop();
+		// if (rainSndAmbience != null) rainSndAmbience.stop();
+		// if (carSndAmbience != null) carSndAmbience.stop();
 
 		trace('Done');
 	}
@@ -418,17 +419,49 @@ class PhillyStreetsStage extends Stage
 	public override function onPause(event:PauseScriptEvent) {
 		super.onPause(event);
 
+		pauseCars();
+
 		// Temporarily stop ambiance.
-		if (rainSndAmbience != null) rainSndAmbience.pause();
-		if (carSndAmbience != null) carSndAmbience.pause();
+		// if (rainSndAmbience != null) {
+		// 	rainSndAmbience.pause();
+		// }
+		// if (carSndAmbience != null) {
+		// 	carSndAmbience.pause();
+		// }
 	}
 
 	public override function onResume(event:ScriptEvent) {
 		super.onResume(event);
 
+		resumeCars();
+
 		// Temporarily stop ambiance.
-		if (rainSndAmbience != null) rainSndAmbience.resume();
-		if (carSndAmbience != null) carSndAmbience.resume();
+		// if (rainSndAmbience != null) rainSndAmbience.resume();
+		// if (carSndAmbience != null) carSndAmbience.resume();
+	}
+
+	function pauseCars():Void {
+		var cars = getNamedProp('phillyCars');
+		if (cars != null) {
+			FlxTweenUtil.pauseTweensOf(cars);
+		}
+
+		var cars2 = getNamedProp('phillyCars2');
+		if (cars2 != null) {
+			FlxTweenUtil.pauseTweensOf(cars2);
+		}
+	}
+
+	function resumeCars():Void {
+		var cars = getNamedProp('phillyCars');
+		if (cars != null) {
+			FlxTweenUtil.resumeTweensOf(cars);
+		}
+
+		var cars2 = getNamedProp('phillyCars2');
+		if (cars2 != null) {
+			FlxTweenUtil.resumeTweensOf(cars2);
+		}
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -466,34 +499,6 @@ class PhillyStreetsStage extends Stage
 			//frameBufferMan.copySpriteTo("mask", prop, 0x000000);
 		}
 	}
-
-	public override function onPause(event:PauseScriptEvent) {
-		super.onPause(event);
-
-		// if (rainSndAmbience != null) rainSndAmbience.pause();
-		// if (carSndAmbience != null) carSndAmbience.pause();
-	}
-
-  public override function onResume(event:ScriptEvent) {
-		super.onResume(event);
-
-		// if (rainSndAmbience != null) rainSndAmbience.resume();
-		// if (carSndAmbience != null) carSndAmbience.resume();
-	}
-
-  override function onDestroy(event:ScriptEvent) {
-    super.onDestroy(event);
-
-		//if (rainSndAmbience != null) {
-		//	rainSndAmbience.destroy();
-		//	rainSndAmbience = null;
-		//}
-//
-		//if (carSndAmbience != null) {
-		//	carSndAmbience.destroy();
-		//	carSndAmbience = null;
-		//}
-  }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType)
 	{
