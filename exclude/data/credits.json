@@ -1,14 +1,14 @@
 {
   "entries": [
     {
-      "header": "FRIDAY NIGHT FUNKIN'",
+      "header": "Friday Night Funkin'",
       "body": [
-        { "line": "Brought to you by" },
+        { "line": "A video game created by" },
         { "line": "The Funkin' Crew Inc." }
       ]
     },
     {
-      "header": "Founders",
+      "header": "The Funkin' Crew Inc. Shareholders",
       "body": [
         { "line": "ninjamuffin99" },
         { "line": "PhantomArcade" },
@@ -17,9 +17,27 @@
       ]
     },
     {
-      "header": "Director and Art Lead",
+      "header": "Direction and Art Lead",
       "body": [
         { "line": "PhantomArcade" }
+      ]
+    },
+    {
+      "header": "Music Lead",
+      "body": [
+        { "line": "Isaac “kawaisprite” Garcia" }
+      ]
+    },
+    {
+      "header": "Co-Direction and Programming Lead",
+      "body": [
+        { "line": "ninjamuffin99" }
+      ]
+    },
+    {
+      "header": "Producer",
+      "body": [
+        { "line": "Kawa Teaño" }
       ]
     },
     {
@@ -42,14 +60,9 @@
         { "line": "Jeff Bandelin" },
         { "line": "Mogy64" },
         { "line": "ChipsGoWoah" },
-        { "line": "Min Ho Kim" },
-        { "line": "PKettles" }
-      ]
-    },
-    {
-      "header": "Music Lead",
-      "body": [
-        { "line": "Isaac “kawaisprite” Garcia" }
+        { "line": "Min Ho Kim (Deegeemin)" },
+        { "line": "PKettles" },
+        { "line": "peepo" }
       ]
     },
     {
@@ -60,7 +73,7 @@
       ]
     },
     {
-      "header": "Guest Musicians",
+      "header": "Featured Guest Musicians (thus far)",
       "body": [
         { "line": "BassetFilms" },
         { "line": "Kohta Takahashi" },
@@ -68,12 +81,9 @@
         { "line": "Saster" }
       ]
     },
+
     {
-      "header": "Programming Lead",
-      "body": [{ "line": "ninjamuffin99" }]
-    },
-    {
-      "header": "Programmers",
+      "header": "Programming",
       "body": [
         { "line": "Eric \"EliteMasterEric\" Myllyoja" },
         { "line": "fabs" }
@@ -85,6 +95,7 @@
         { "line": "Jenny Crowe" },
         { "line": "hazel (ravy)" },
         { "line": "Mike Welsh" },
+        { "line": "Saharan" },
         { "line": "Ian Harrigan" },
         { "line": "Osaka Red LLC: Thomas J Webb" },
         { "line": "Emma (MtH)" },
@@ -93,7 +104,7 @@
       ]
     },
     {
-      "header": "Devops",
+      "header": "Devops and Additional Internal Tooling",
       "body": [
         { "line": "hazel (ravy)" }
       ]
@@ -101,22 +112,22 @@
     {
       "header": "Gameplay Design",
       "body": [
+        { "line": "PhantomArcade" },
+        { "line": "Cameron Taylor" },
+        { "line": "Eric \"EliteMasterEric\" Myllyoja" },
         { "line": "Jenny Crowe" },
         { "line": "fabs" },
-        { "line": "Emma (MtH)" },
-        { "line": "Cameron Taylor" },
-        { "line": "PhantomArcade" },
-        { "line": "Eric \"EliteMasterEric\" Myllyoja" }
+        { "line": "Emma (MtH)" }
       ]
     },
     {
-      "header": "Kickstarter Backend",
+      "header": "Kickstarter Backer Portal Programming",
       "body": [
         { "line": "Shingai Shamu" }
       ]
     },
     {
-      "header": "Merchandise",
+      "header": "Merchandise Partners and Designers",
       "body": [
         { "line": "Needlejuice Records: Jace McLain" },
         { "line": "Needlejuice Records: Brandon Brown" },
@@ -125,15 +136,18 @@
         { "line": "Mogy64" },
         { "line": "ChipsGoWoah" },
         { "line": "Min Ho Kim" },
-        { "line": "PKettles" }
+        { "line": "PKettles" },
+        { "line": "Jeff Bandelin" },
+        { "line": "PhantomArcade"},
+        { "line": "evilsk8r" },
+        { "line": "beck" }
       ]
     },
     {
-      "header": "Production and Business Development",
+      "header": "Production and Business Development Partner - Windflower Games",
       "body": [
-        { "line": "Kawa Teaño" },
-        { "line": "Windflower Games: Sunni Pavlovic" },
-        { "line": "Windflower Games: Kristen Lynch" }
+        { "line": "Sunni Pavlovic" },
+        { "line": "Kristen Lynch" }
       ]
     },
     {
@@ -143,13 +157,14 @@
       ]
     },
     {
-      "header": "Quality Assurance and Testing",
+      "header": "Quality Assurance and Testing - Indium Play",
       "body": [
-        { "line": "Indium Play: Mihajlo Vuković" }
+        { "line": "Lead Tester: Mihajlo Vuković" },
+        { "line": "Dajana Dimovska" }
       ]
     },
     {
-      "header": "Accounting and Payroll: Molinari Oswald LLC",
+      "header": "Accounting and Payroll - Molinari Oswald LLC",
       "body": [
         { "line": "Francis Molinari" },
         { "line": "Aaron Hofmann" },
@@ -177,32 +192,48 @@
     {
       "header": "Special Thanks",
       "body": [
-        { "line": "wanda" },
-        { "line": "fizzd" },
-        { "line": "kiddbrute" },
-        { "line": "HenryEYES" },
-        { "line": "Clone Hero" },
         { "line": "Tom Fulp" },
+        { "line": "Jeff Bandelin"},
+        { "line": "The entire Molinari Oswald Crew" },
+        { "line": "The entire Odin Law function" },
+        { "line": "SrPelo" }
+      ]
+    },
+    {
+      "header": "Cameron would like to specially thank",
+      "body": [
+        { "line": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
+        { "line": "milkhead jack" },
+        { "line": "katt" },
+        { "line": "arko, pepe, cashu, ookiyo" },
+        { "line": "Krystin, Kaye-lyn, and Cassidy, Mack, Levi, and Jasmine." },
+        { "line": "Laurel" },
+        { "line": "Clone Hero" },
+        { "line": "Innersloth, Puffballs, Forest and Victoria" },
         { "line": "StuffedWombat" },
         { "line": "mmatt_ugh" },
-        { "line": "Squidly" },
-        { "line": "Alexei Pepers (Kawa's wife!)" },
-        { "line": "Rob and Jill Myllyoja" },
+        { "line": "lucas and jack taterguy and marty emrox" },
         { "line": "Luis" },
-        { "line": "GeoKureli" },
-        { "line": "Will Blanton" },
-        { "line": "SrPelo" },
-        { "line": "Austin East" },
-        { "line": "Krystin, Kaye-lyn, Cassidy, Mack, Levi, and Jasmine." },
-        { "line": "Laurel" },
+        { "line": "GeoKureli, Will Blanton, Austin East, Squidly" },
+        { "line": "fizzd" },
         { "line": "bbpanzu" },
         { "line": "Etika" },
         { "line": "Foamymuffin (insert travis scott lyrics here)" },
         { "line": "SiIvaGunner" },
-        { "line": "Masaya Matsuura" },
-        { "line": "Mackenzie Mckee" },
-        { "line": "Tokaku" },
-        { "line": "kanye west" }
+        { "line": "Freddie Dredd"}
+      ]
+    },
+    {
+      "header": "Kawa would like to specially thank",
+      "body": [
+        { "line": "Alexei Pepers (Kawa's wife!)" }
+      ]
+    },
+    {
+      "header": "Eric would like to specially thank",
+      "body": [
+        { "line": "Rob and Jill Myllyoja" }
+
       ]
     }
   ]
