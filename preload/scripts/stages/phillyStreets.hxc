@@ -20,6 +20,7 @@ import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
 import openfl.utils.Assets;
+import flixel.addons.display.FlxTiledSprite;
 import StringTools;
 
 class PhillyStreetsStage extends Stage
@@ -43,6 +44,8 @@ class PhillyStreetsStage extends Stage
 	var carWaiting:Bool = false; // if the car is waiting at the lights and is ready to go on green
 	var carInterruptable:Bool = true; // if the car can be reset
 	var car2Interruptable:Bool = true;
+
+	var scrollingSky:FlxTiledSprite;
 
 	function new()
 	{
@@ -155,6 +158,15 @@ class PhillyStreetsStage extends Stage
 	override function buildStage()
 	{
 		super.buildStage();
+
+		scrollingSky = new FlxTiledSprite(Paths.image('phillyStreets/phillySkybox'), 2922, 718, true, false);
+		scrollingSky.setPosition(-650, -375);
+		scrollingSky.scrollFactor.set(0.1, 0.1);
+		scrollingSky.zIndex = 10;
+		scrollingSky.scale.set(0.65, 0.65);
+
+		PlayState.instance.currentStage.add(scrollingSky);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
 	}
 
 	override function onDestroy(event:ScriptEvent) {
@@ -374,6 +386,8 @@ class PhillyStreetsStage extends Stage
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 
+		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
+
 		// if (rainSndAmbience != null) {
 		// 	rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 		// }
@@ -486,6 +500,7 @@ class PhillyStreetsStage extends Stage
 		if (StringTools.endsWith(name, "_lightmap"))
 		{
 			prop.blend = 0; // 0 means ADD (see openfl.display.BlendMode)
+			prop.alpha = 0.6;
 			//frameBufferMan.moveSpriteTo("lightmap", prop);
 		}
 		else if (name == "puddle")

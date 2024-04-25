@@ -2,19 +2,6 @@
   "props": [
     {
       "danceEvery": 0,
-      "zIndex": 10,
-      "position": [-550, -175],
-      "scale": [1, 1],
-      "animType": "sparrow",
-      "name": "phillySkybox",
-      "isPixel": false,
-      "assetPath": "phillyStreets/phillySkybox",
-      "scroll": [0.1, 0.1],
-      "alpha": 1,
-      "animations": []
-    },
-    {
-      "danceEvery": 0,
       "zIndex": 20,
       "position": [105, 137],
       "scale": [1, 1],
@@ -263,7 +250,7 @@
     {
       "danceEvery": 0,
       "zIndex": 690,
-      "position": [900, 1015],
+      "position": [920, 1045],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "spraycanPile",
@@ -279,7 +266,7 @@
   "characters": {
     "bf": {
       "zIndex": 400,
-      "position": [2151, 1218],
+      "position": [2151, 1228],
       "cameraOffsets": [-350, -100]
     },
     "gf": {
@@ -289,7 +276,7 @@
     },
     "dad": {
       "zIndex": 350,
-      "position": [900, 1120],
+      "position": [900, 1110],
       "cameraOffsets": [500, -100]
     }
   },
