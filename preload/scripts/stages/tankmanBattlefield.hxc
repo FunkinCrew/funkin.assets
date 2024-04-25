@@ -13,7 +13,12 @@ class TankmanBattlefieldStage extends Stage
 
 	function onCreate(event:ScriptEvent):Void
 	{
-		super.buildStage(event);
+			super.onCreate(event);
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
 
 		// Give the clouds a random position, and a velocity to make them move.
 		var clouds = getNamedProp('clouds');

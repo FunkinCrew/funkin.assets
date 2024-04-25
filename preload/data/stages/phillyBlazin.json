@@ -4,15 +4,6 @@
   "cameraZoom": 0.75,
   "props": [
     {
-      "zIndex": 10,
-      "position": [-600, -175],
-      "animType": "sparrow",
-      "name": "skyBlur",
-      "assetPath": "phillyBlazin/skyBlur",
-      "scroll": [0.0, 0.0],
-      "scale": [1.75, 1.75]
-    },
-    {
       "zIndex": 11,
       "position": [-600, -175],
       "animType": "sparrow",
@@ -75,13 +66,13 @@
     "gf": {
       "zIndex": 1000,
       "position": [1353, 925],
-      "cameraOffsets": [0, 0]
+      "cameraOffsets": [0, 20]
     },
     "dad": {
       "zIndex": 3000,
       "scale": 1.75,
       "position": [-237, -150],
-      "cameraOffsets": [500, -100]
+      "cameraOffsets": [500, 200]
     }
   }
 }

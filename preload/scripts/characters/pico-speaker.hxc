@@ -7,11 +7,12 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
+import funkin.util.SortUtil;
 import Lambda;
 
 class PicoSpeakerCharacter extends SparrowCharacter {
-	var tankmanTimes:Array<Float> = [];
-	var tankmanDirs:Array<Int> = [];
+	var shootTimes:Array<Float> = [];
+	var shootDirs:Array<Int> = [];
 
 	function new() {
 		super('pico-speaker');
@@ -39,7 +40,7 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 	function initTimemap():Void
 	{
 		trace('Initializing Pico timings...');
-		tankmanTimes = [];
+		shootTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
 		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
@@ -52,20 +53,17 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 		}
 		var animNotes:Array<SongNoteData> = animChart.notes;
 
-		// You HAVE to use an anonymous function here.
-		// There is a bug where using a class function destroys the local context.
-		animNotes.sort(function(a:NoteData, b:NoteData)
-		{
-			return FlxSort.byValues(FlxSort.ASCENDING, x.t, y.t);
-		});
+		// turns out sorting functions are completely useless in polymod right now and do nothing
+		// i had to sort the whole pico chart by hand im gonna go insane
+		animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
+  	{
+    	return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
+  	});
 
 		for (note in animNotes)
 		{
-      // Every note is a Pico shot.
-			// However, only one out of every 16 notes, on average, plays the corresponding Tankman animation.
-			trace('  Adding Pico animation: ' + note.time + ':' + note.data);
-			tankmanTimes.push(note.time);
-			tankmanDirs.push(note.data);
+			shootTimes.push(note.time);
+			shootDirs.push(note.data);
 		}
 	}
 
@@ -74,16 +72,23 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 		super.onUpdate(event);
 
     // Each Pico animation is shifted from the array when it's time to play it.
-		if (tankmanTimes.length > 0 && tankmanTimes[0] <= Conductor.instance.songPosition) {
-			var nextTime:Float = tankmanTimes.shift();
-			var nextDir:Int = tankmanDirs.shift();
+		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
+		//	trace('just shot at time ' + shootTimes[0] + ' with direction ' + shootDirs[0]);
+			var nextTime:Float = shootTimes.shift();
+			var nextDir:Int = shootDirs.shift();
 
+			if(nextDir == 3){
+				nextDir -= FlxG.random.int(0, 1);
+			}else{
+				nextDir += FlxG.random.int(0, 1);
+			}
 			playPicoAnimation(nextDir);
 		}
 	}
 
 	function playPicoAnimation(direction:Int):Void
   {
+		trace(direction);
 		switch (direction) {
 			case 0: this.playAnimation('shoot1', true, true);
 			case 1: this.playAnimation('shoot2', true, true);

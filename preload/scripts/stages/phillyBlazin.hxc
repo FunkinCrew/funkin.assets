@@ -11,6 +11,7 @@ import funkin.play.stage.Stage;
 import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
 import funkin.play.stage.StageProp;
+import flixel.addons.display.FlxTiledSprite;
 
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
@@ -23,6 +24,7 @@ class PhillyBlazinStageNew extends Stage
 	}
 
 	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+	var scrollingSky:FlxTiledSprite;
 	// var rainShaderFilter:ShaderFilter;
 
 	override function onCreate(event:ScriptEvent) {
@@ -32,7 +34,7 @@ class PhillyBlazinStageNew extends Stage
 		lightningActive = true;
 
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
-		rainShader.intensity = 0.75;
+		rainShader.intensity = 0.5;
 
 		rainShaderFilter = new ShaderFilter(rainShader);
 		FlxG.camera.setFilters([rainShaderFilter]);
@@ -69,6 +71,16 @@ class PhillyBlazinStageNew extends Stage
 		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
 		additionalLighten.blend = 0; // ADD
 		additionalLighten.visible = false;
+
+		scrollingSky = new FlxTiledSprite(Paths.image('phillyBlazin/SkyBlur'), 2000, 359, true, false);
+		scrollingSky.setPosition(-500, -120);
+		scrollingSky.scrollFactor.set(0, 0);
+		scrollingSky.zIndex = 10;
+
+		PlayState.instance.currentStage.add(scrollingSky);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
+
+		//scrollingSky.velocity.x = -20;
 	}
 
 	var cameraInitialized:Bool = false;
@@ -84,11 +96,18 @@ class PhillyBlazinStageNew extends Stage
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
 
+		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
+
 		// Manually focus the camera before the song starts.
 		if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
 		{
 			cameraInitialized = true;
 			initializeCamera();
+
+			PlayState.instance.currentStage.getBoyfriend().color = 0xFFDEDEDE;
+			PlayState.instance.currentStage.getDad().color = 0xFFDEDEDE;
+			PlayState.instance.currentStage.getGirlfriend().color = 0xFF888888;
+			PlayState.instance.currentStage.getGirlfriend().scriptGet('abot').color = 0xFF888888;
 		}
 
 		if (lightningActive) {
@@ -129,13 +148,20 @@ class PhillyBlazinStageNew extends Stage
 		lightning.visible = true;
 		lightning.animation.play('strike');
 
+		if(FlxG.random.bool(65)){
+			lightning.x = FlxG.random.int(-250, 280);
+		}else{
+			lightning.x = FlxG.random.int(780, 900);
+		}
+
+
 		// Darken characters
 		var boyfriend = PlayState.instance.currentStage.getBoyfriend();
-		FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+		FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
 		var dad = PlayState.instance.currentStage.getDad();
-		FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+		FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
 		var girlfriend = PlayState.instance.currentStage.getGirlfriend();
-		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFFFFFFF);
+		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFF888888);
 
 		// Sound
 		FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3), 1.0);
@@ -166,5 +192,7 @@ class PhillyBlazinStageNew extends Stage
 		yTarget -= 90;
     PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
 		PlayState.instance.resetCamera();
+
+		PlayState.instance.comboPopUps.offsets = [480, -50];
 	}
 }
