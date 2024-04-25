@@ -30,13 +30,6 @@ class StressSong extends Song {
 
       startVideo();
     }
-	}
-
-  var tankmanGroup = null;
-
-  function onSongStart(event:ScriptEvent):Void
-  {
-    super.onSongStart(event);
 
     trace('Initializing tankman group...');
     tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
@@ -52,6 +45,14 @@ class StressSong extends Song {
     } else {
       trace('Failed to initialize tankman group!');
     }
+	}
+
+  var tankmanGroup = null;
+
+  function onSongStart(event:ScriptEvent):Void
+  {
+    super.onSongStart(event);
+
   }
 
   function startVideo() {
@@ -71,6 +72,10 @@ class StressSong extends Song {
 		if (tankmanGroup != null) {
 			tankmanGroup.scriptCall('reset');
 		}
+    if(PlayState.instance.currentStage.getGirlfriend() != null){
+        PlayState.instance.currentStage.getGirlfriend().scriptCall('reset');
+        trace('reset pico!');
+    }
   }
 
   /**

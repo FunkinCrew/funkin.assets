@@ -2,6 +2,7 @@ import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
 import funkin.Paths;
+import flixel.effects.FlxFlicker;
 
 /**
  * A sprite which plays the 'run' animation while moving in the specified direction.
@@ -15,6 +16,8 @@ class TankmanSprite extends FunkinSprite
 	public var runSpeed:Float = 0;
 	// The time in milliseconds when the 'shot' animation should play.
 	public var strumTime:Float = 0;
+	// the side the tankman is running from
+	public var goingRight:Bool = false;
 
 	function new()
 	{
@@ -29,6 +32,20 @@ class TankmanSprite extends FunkinSprite
 		setGraphicSize(Std.int(width * 0.4));
 
 		updateHitbox();
+	}
+
+	// shamelessly stolen from pico thank u ericc
+	var tankmanFlicker:FlxFlicker = null;
+
+	function deathFlicker() {
+			// ERIC: You have to use super instead of this or it breaks.
+			// This is because typeof(this) is PolymodAbstractClass.
+     tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 10, true, true, function(_) {
+      tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 20, false, true, function(_) {
+				tankmanFlicker = null;
+				kill();
+			});
+    });
 	}
 
 	function initAnim()
@@ -46,6 +63,7 @@ class TankmanSprite extends FunkinSprite
 	{
 		// Sprite has been revived! This allows it to be reused without reinstantiating.
 		super.revive();
+		visible = true;
 		// trace('Revived tankman!');
 		initAnim();
 	}
@@ -54,15 +72,11 @@ class TankmanSprite extends FunkinSprite
 	{
 		super.update(elapsed);
 
-		var goingRight:Bool = this.flipX;
 
-		// Kill the sprite when the animation is done.
-		// This tells the sprite group we can recycle it.
-		if (animation.curAnim.name == 'shot' && animation.curAnim.curFrame >= animation.curAnim.frames.length - 1)
+		if (animation.curAnim.name == 'shot' && animation.curAnim.curFrame >= 10 && tankmanFlicker == null)
 		{
-			kill();
+			deathFlicker();
 		}
-
 		// Check if we've reached the time when the tankman should be shot.
 		if (Conductor.instance.songPosition >= strumTime && animation.curAnim.name == 'run')
 		{
@@ -78,14 +92,13 @@ class TankmanSprite extends FunkinSprite
 			// Here, the position is set to the target position where it will be shot.
 			// Then, we move the sprite away from that position in the direction it's coming from.
 			// songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
-
-			if (goingRight)
+			if (!goingRight)
 			{
-				x = (FlxG.width * 0.02) - endingOffset + (Conductor.instance.songPosition - strumTime) * runSpeed;
+				x = (FlxG.width * 0.02 - endingOffset) + ((Conductor.instance.songPosition - strumTime) * runSpeed);
 			}
 			else
 			{
-				x = (FlxG.width * 0.74) + endingOffset - (Conductor.instance.songPosition - strumTime) * runSpeed;
+				x = (FlxG.width * 0.74 + endingOffset) - ((Conductor.instance.songPosition - strumTime) * runSpeed);
 			}
 		}
 
