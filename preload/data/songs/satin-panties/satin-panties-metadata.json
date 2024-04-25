@@ -6,6 +6,7 @@
   "timeChanges": [{ "t": 0, "bpm": 110, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "looped": false,
   "playData": {
+    "album": "volume1",
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
@@ -14,7 +15,7 @@
       "opponent": "mom-car"
     },
     "stage": "limoRide",
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "generatedBy": "MasterEric (by hand)"
 }

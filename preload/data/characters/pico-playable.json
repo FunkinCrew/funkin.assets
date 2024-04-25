@@ -111,6 +111,24 @@
       "assetPath": "characters/Pico_Shooting",
       "prefix": "Pico Shoot Hip Full0",
       "offsets": [300, 250]
+    },
+    {
+      "name": "intro1",
+      "assetPath": "characters/Pico_Intro",
+      "prefix": "Pico Gets Pissed0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "cockCutscene",
+      "assetPath": "characters/Pico_Intro",
+      "prefix": "cutscene cock0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "intro2",
+      "assetPath": "characters/Pico_Intro",
+      "prefix": "shoot and return0",
+      "offsets": [260, 230]
     }
   ]
 }

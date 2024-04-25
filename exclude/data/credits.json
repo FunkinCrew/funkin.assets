@@ -17,26 +17,161 @@
       ]
     },
     {
-      "header": "Director",
-      "body": [{ "line": "PhantomArcade" }]
-    },
-    {
-      "header": "Musicians",
-      "body": [{ "line": "KawaiSprite" }, { "line": "Saruky" }]
-    },
-    {
-      "header": "Guest Musicians",
-      "body": [{ "line": "BassetFilms" }, { "line": "Kohta Takahashi" }]
+      "header": "Director and Art Lead",
+      "body": [
+        { "line": "PhantomArcade" }
+      ]
     },
     {
       "header": "Artists",
-      "body": [{ "line": "PhantomArcade" }, { "line": "evilsk8r" }]
+      "body": [
+        { "line": "PhantomArcade" },
+        { "line": "evilsk8r" },
+        { "line": "beck" }
+      ]
+    },
+    {
+      "header": "Pixel Art",
+      "body": [
+        { "line": "moawling" }
+      ]
+    },
+    {
+      "header": "Additional Art",
+      "body": [
+        { "line": "Jeff Bandelin" },
+        { "line": "Mogy64" },
+        { "line": "ChipsGoWoah" },
+        { "line": "Min Ho Kim" },
+        { "line": "PKettles" }
+      ]
+    },
+    {
+      "header": "Music Lead",
+      "body": [
+        { "line": "Isaac “kawaisprite” Garcia" }
+      ]
+    },
+    {
+      "header": "Music Production",
+      "body": [
+        { "line": "Saruky" },
+        { "line": "crisp" }
+      ]
+    },
+    {
+      "header": "Guest Musicians",
+      "body": [
+        { "line": "BassetFilms" },
+        { "line": "Kohta Takahashi" },
+        { "line": "SixImpala" },
+        { "line": "Saster" }
+      ]
+    },
+    {
+      "header": "Programming Lead",
+      "body": [{ "line": "ninjamuffin99" }]
     },
     {
       "header": "Programmers",
       "body": [
-        { "line": "ninjamuffin99" },
+        { "line": "Eric \"EliteMasterEric\" Myllyoja" },
+        { "line": "fabs" }
+      ]
+    },
+    {
+      "header": "Additional Programming",
+      "body": [
+        { "line": "Jenny Crowe" },
+        { "line": "hazel (ravy)" },
+        { "line": "Mike Welsh" },
+        { "line": "Ian Harrigan" },
+        { "line": "Osaka Red LLC: Thomas J Webb" },
+        { "line": "Emma (MtH)" },
+        { "line": "George Kurelic" },
+        { "line": "Will Blanton" }
+      ]
+    },
+    {
+      "header": "Devops",
+      "body": [
+        { "line": "hazel (ravy)" }
+      ]
+    },
+    {
+      "header": "Gameplay Design",
+      "body": [
+        { "line": "Jenny Crowe" },
+        { "line": "fabs" },
+        { "line": "Emma (MtH)" },
+        { "line": "Cameron Taylor" },
+        { "line": "PhantomArcade" },
         { "line": "Eric \"EliteMasterEric\" Myllyoja" }
+      ]
+    },
+    {
+      "header": "Kickstarter Backend",
+      "body": [
+        { "line": "Shingai Shamu" }
+      ]
+    },
+    {
+      "header": "Merchandise",
+      "body": [
+        { "line": "Needlejuice Records: Jace McLain" },
+        { "line": "Needlejuice Records: Brandon Brown" },
+        { "line": "Type-4: Coby Win" },
+        { "line": "IvanAlmighty" },
+        { "line": "Mogy64" },
+        { "line": "ChipsGoWoah" },
+        { "line": "Min Ho Kim" },
+        { "line": "PKettles" }
+      ]
+    },
+    {
+      "header": "Production and Business Development",
+      "body": [
+        { "line": "Kawa Teaño" },
+        { "line": "Windflower Games: Sunni Pavlovic" },
+        { "line": "Windflower Games: Kristen Lynch" }
+      ]
+    },
+    {
+      "header": "Additional Administrative Assistance",
+      "body": [
+        { "line": "moawling" }
+      ]
+    },
+    {
+      "header": "Quality Assurance and Testing",
+      "body": [
+        { "line": "Indium Play: Mihajlo Vuković" }
+      ]
+    },
+    {
+      "header": "Accounting and Payroll: Molinari Oswald LLC",
+      "body": [
+        { "line": "Francis Molinari" },
+        { "line": "Aaron Hofmann" },
+        { "line": "Katherine Stauffer" },
+        { "line": "Jane Haring" }
+      ]
+    },
+    {
+      "header": "US Legal: Odin Law",
+      "body": [
+        { "line": "Brandon Huffman" },
+        { "line": "Michele Robichaux" },
+        { "line": "Connor Richards" },
+        { "line": "Pam Driver" },
+        { "line": "Jacob Barefoot" }
+      ]
+    },
+    {
+      "header": "CA Legal: DLA Piper",
+      "body": [
+        { "line": "Ryan Black" },
+        { "line": "Brian Wong" }
       ]
     },
     {
@@ -51,6 +186,8 @@
         { "line": "StuffedWombat" },
         { "line": "mmatt_ugh" },
         { "line": "Squidly" },
+        { "line": "Alexei Pepers (Kawa's wife!)" },
+        { "line": "Rob and Jill Myllyoja" },
         { "line": "Luis" },
         { "line": "GeoKureli" },
         { "line": "Will Blanton" },
@@ -67,10 +204,6 @@
         { "line": "Tokaku" },
         { "line": "kanye west" }
       ]
-    },
-    {
-      "header": "Kickstarter Backers",
-      "appendBackers": true
     }
   ]
 }

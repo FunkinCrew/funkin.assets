@@ -174,14 +174,19 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var picoDeathExplosion:FlxAtlasSprite;
 
 	function doExplosionDeath() {
-		// Suffixed death sound will already play.
+		trace('Doing explosion death...');
 
+		// Suffixed death sound will already play.
 		GameOverSubState.instance.resetCameraZoom();
 
 		// Move the camera up.
 		GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
-		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, Paths.animateAtlas("characters/picoExplosionDeath", "shared"));
+		trace('Loading explosion death FlxAtlasSprite...');
+		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
+		trace('Loading from ' + picoDeathExplosionPath);
+		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
+		trace('...done');
     PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
     picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
@@ -191,6 +196,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
 
     picoDeathExplosion.playAnimation('intro');
+
 	}
 
 	var singed:FunkinSound;
@@ -317,7 +323,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 3));
+		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.

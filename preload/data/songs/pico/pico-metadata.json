@@ -2,15 +2,12 @@
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "playData": {
+    "album": "volume1",
     "stage": "phillyTrain",
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "pico"
-    },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "pico" },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "songName": "Pico",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 150 }],

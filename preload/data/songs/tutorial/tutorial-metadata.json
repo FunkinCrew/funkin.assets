@@ -3,19 +3,12 @@
   "artist": "Kawai Sprite",
   "playData": {
     "album": "volume1",
-    "ratings": {
-      "easy": 0,
-      "normal": 0,
-      "hard": 1
-    },
+    "ratings": { "easy": 0, "normal": 0, "hard": 1 },
     "stage": "mainStage",
-    "characters": {
-      "player": "bf",
-      "opponent": "gf"
-    },
+    "characters": { "player": "bf", "opponent": "gf" },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "Normal"
+    "noteStyle": "funkin"
   },
   "songName": "Tutorial",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }],

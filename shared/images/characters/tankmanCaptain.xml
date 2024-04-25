@@ -62,11 +62,6 @@
 	<SubTexture name="PRETTY GOOD tankman instance 10059" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
 	<SubTexture name="PRETTY GOOD tankman instance 10060" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
 	<SubTexture name="PRETTY GOOD tankman instance 10061" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
-	<SubTexture name="PRETTY GOOD tankman instance 10062" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
-	<SubTexture name="PRETTY GOOD tankman instance 10063" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
-	<SubTexture name="PRETTY GOOD tankman instance 10064" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
-	<SubTexture name="PRETTY GOOD tankman instance 10065" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
-	<SubTexture name="PRETTY GOOD tankman instance 10066" x="2587" y="0" width="524" height="561" frameX="-5" frameY="-28" frameWidth="533" frameHeight="589" />
 	<SubTexture name="Tankman DOWN note instance 10000" x="1473" y="1130" width="565" height="453" frameX="-11" frameY="-20" frameWidth="580" frameHeight="473" />
 	<SubTexture name="Tankman DOWN note instance 10001" x="1473" y="1130" width="565" height="453" frameX="-11" frameY="-20" frameWidth="580" frameHeight="473" />
 	<SubTexture name="Tankman DOWN note instance 10002" x="3111" y="565" width="580" height="469" frameX="0" frameY="0" frameWidth="580" frameHeight="473" />
