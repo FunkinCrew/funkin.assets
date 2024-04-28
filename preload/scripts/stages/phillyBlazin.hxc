@@ -12,6 +12,7 @@ import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
 import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
+import funkin.util.MathUtil;
 
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
@@ -89,12 +90,15 @@ class PhillyBlazinStageNew extends Stage
 	var lightningTimer:Float = 3.0;
 	var lightningActive:Bool = true;
 
+	var rainTimeScale:Float = 1.0;
+
 	override function onUpdate(event:ScriptEvent)
 	{
 		super.onUpdate(event);
 
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-		rainShader.update(event.elapsed);
+		rainShader.update(event.elapsed * rainTimeScale);
+		rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.06);
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
@@ -121,6 +125,12 @@ class PhillyBlazinStageNew extends Stage
 			lightningTimer = FlxG.random.float(7, 15);
 		}
 	}
+
+	  public function onNoteHit(event:HitNoteScriptEvent) {
+			super.onNoteHit(event);
+			rainTimeScale += 0.7;
+		}
+
 
 	function applyLightning():Void {
 		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');

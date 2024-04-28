@@ -78,11 +78,11 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playPunchHighAnim();
 
 			case "weekend-1-blockhigh":
-				playBlockAnim();
+				playBlockAnim(event.judgement);
 			case "weekend-1-blocklow":
-				playBlockAnim();
+				playBlockAnim(event.judgement);
 			case "weekend-1-blockspin":
-				playBlockAnim();
+				playBlockAnim(event.judgement);
 
 			case "weekend-1-dodgehigh":
 				playDodgeAnim();
@@ -337,8 +337,28 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		return alternate ? '1' : '2';
 	}
 
-	function playBlockAnim()
+	function playBlockAnim(?judgement:String)
 	{
+		// on sick block, do a 3rd strike esque "tech" effect
+		if (judgement == 'sick')
+		{
+			var blendAnims:Array<Int> = [10, 0, 10, 0, 0, 10, 0, 0, 10, 0, 10];
+
+			for (blendMode in 0...blendAnims.length)
+			{
+				new FlxTimer().start(blendMode / 60, function(_) {
+
+					if (blendMode == 0)
+						this.color = 0xFF0000FF;
+					else
+						this.color = 0xFFFFFFFF;
+
+					this.blend = blendAnims[blendMode];
+				});
+			}
+
+		}
+
 		this.playAnimation('block', true, false);
 		moveToBack();
 	}
