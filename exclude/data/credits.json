@@ -55,6 +55,40 @@
       ]
     },
     {
+      "header": "Custcene Storyboards & SFX",
+      "body": [
+        { "line": "PhantomArcade"}
+      ]
+    },
+    {
+      "header": "Additional Background Design",
+      "body": [
+        { "line": "Red Minus"}
+      ]
+    },
+    {
+      "header": "Custcene Animation",
+      "body": [
+        { "line": "Figburn"},
+        { "line": "Sade"},
+        { "line": "Topium"},
+        { "line": "BlairTheUnseriousGuy"}
+      ]
+    },
+    {
+      "header": "Cutscene Cleanup",
+      "body": [
+        { "line": "PennilessRagamuffin"},
+        { "line": "beck"}
+      ]
+    },
+    {
+      "header": "Cutscene Background Art",
+      "body": [
+        { "line": "beck"}
+      ]
+    },
+    {
       "header": "Additional Art",
       "body": [
         { "line": "Jeff Bandelin" },
@@ -81,7 +115,6 @@
         { "line": "Saster" }
       ]
     },
-
     {
       "header": "Programming",
       "body": [
@@ -157,14 +190,14 @@
       ]
     },
     {
-      "header": "Quality Assurance and Testing - Indium Play",
+      "header": "Quality Assurance - Indium Play",
       "body": [
         { "line": "Lead Tester: Mihajlo Vuković" },
         { "line": "Dajana Dimovska" }
       ]
     },
     {
-      "header": "Accounting and Payroll - Molinari Oswald LLC",
+      "header": "Accounting: Molinari Oswald",
       "body": [
         { "line": "Francis Molinari" },
         { "line": "Aaron Hofmann" },
@@ -226,7 +259,8 @@
     {
       "header": "Kawa would like to specially thank",
       "body": [
-        { "line": "Alexei Pepers (Kawa's wife!)" }
+        { "line": "Alexei Pepers" },
+        { "line": "Xalavier Nelson Jr." }
       ]
     },
     {
