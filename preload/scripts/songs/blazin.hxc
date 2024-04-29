@@ -32,6 +32,12 @@ class BlazinSong extends Song {
 		this.hasHidden = false;
 	}
 
+	function onNoteHit(event:HitNoteScriptEvent):Void {
+		super.onNoteHit(event);
+
+		FlxG.camera.shake(FlxG.random.float(0.001, 0.01), FlxG.random.float(0.01, 0.15));
+	}
+
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
 		if (showLocked || Save.instance.hasBeatenLevel('weekend1')) {
 			return super.listDifficulties(variationId, variationIds);
