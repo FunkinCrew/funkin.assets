@@ -194,5 +194,7 @@ class PhillyBlazinStageNew extends Stage
 		PlayState.instance.resetCamera();
 
 		PlayState.instance.comboPopUps.offsets = [480, -50];
+
+		PlayState.instance.camGame.fade(0xFF000000, 1.5, true, null, true);
 	}
 }
