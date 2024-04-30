@@ -98,7 +98,7 @@ class PhillyBlazinStageNew extends Stage
 
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed * rainTimeScale);
-		rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.06);
+		// rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.06);
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
@@ -126,10 +126,10 @@ class PhillyBlazinStageNew extends Stage
 		}
 	}
 
-	  public function onNoteHit(event:HitNoteScriptEvent) {
-			super.onNoteHit(event);
-			rainTimeScale += 0.7;
-		}
+	public function onNoteHit(event:HitNoteScriptEvent) {
+		super.onNoteHit(event);
+		//rainTimeScale += 0.7;
+	}
 
 
 	function applyLightning():Void {
