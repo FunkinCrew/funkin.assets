@@ -9,7 +9,11 @@
       "e": "ZoomCamera",
       "v": { "duration": 4, "ease": "elasticInOut", "zoom": 0.65 }
     },
-    { "t": 8901.0989010989, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 8901.0989010989,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 10549.4505494506,
       "e": "ZoomCamera",
@@ -26,7 +30,11 @@
       "e": "ZoomCamera",
       "v": { "ease": "elasticInOut", "duration": 4, "zoom": 0.65 }
     },
-    { "t": 40549.0989010989, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 40549.0989010989,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 42197.4505494506,
       "e": "ZoomCamera",
@@ -41,7 +49,11 @@
       "e": "ZoomCamera",
       "v": { "ease": "elasticInOut", "duration": 4, "zoom": 0.65 }
     },
-    { "t": 51098.0989010989, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 51098.0989010989,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 52746.4505494506,
       "e": "ZoomCamera",
@@ -64,7 +76,11 @@
       "e": "ZoomCamera",
       "v": { "ease": "elasticInOut", "duration": 4, "zoom": 0.65 }
     },
-    { "t": 80109.8901098901, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 80109.8901098901,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 81758.2417582417,
       "e": "ZoomCamera",
@@ -77,7 +93,11 @@
       "e": "ZoomCamera",
       "v": { "ease": "elasticInOut", "duration": 4, "zoom": 0.65 }
     },
-    { "t": 85384.0989010989, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 85384.0989010989,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 87032.4505494505,
       "e": "ZoomCamera",
@@ -93,7 +113,6 @@
     { "t": 96263.7362637363, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 97582.4175824176, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 101538.461538462, "e": "FocusCamera", "v": { "char": 0 } },
-    { "t": 101538.461538462, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 113406.593406593, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 114725.274725275, "e": "FocusCamera", "v": { "char": 0 } },
     {
@@ -101,7 +120,11 @@
       "e": "ZoomCamera",
       "v": { "ease": "elasticInOut", "duration": 4, "zoom": 0.65 }
     },
-    { "t": 117032.098901099, "e": "FocusCamera", "v": { "char": 2 } },
+    {
+      "t": 117032.098901099,
+      "e": "FocusCamera",
+      "v": { "char": 2, "x": 100, "y": 105 }
+    },
     {
       "t": 118680.450549451,
       "e": "ZoomCamera",
@@ -2195,7 +2218,7 @@
       { "t": 40796.7032967033, "d": 1, "l": 0 },
       { "t": 40879.1208791209, "d": 3, "l": 0 },
       { "t": 41085.1648351648, "d": 3, "l": 0 },
-      { "t": 41208.4395604396, "d": 6, "l": 0, "k": "weekend-1-kneecan" },
+      { "t": 41208.4395604396, "d": 6, "l": 0, "k": "weekend-1-kickcan" },
       { "t": 41373.6263736264, "d": 3, "l": 0 },
       { "t": 41538.1098901099, "d": 7, "l": 0, "k": "weekend-1-kneecan" },
       { "t": 41538.1098901099, "d": 1, "l": 0, "k": "weekend-1-cockgun" },
