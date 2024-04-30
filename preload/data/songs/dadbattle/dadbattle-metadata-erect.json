@@ -19,11 +19,10 @@
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
-      "instrumental": "",
-      "altInstrumentals": []
+      "instrumental": "erect"
     },
     "stage": "mainStage",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "erect": 0,
       "nightmare": 0,

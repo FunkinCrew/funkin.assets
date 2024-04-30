@@ -13,16 +13,15 @@
   },
   "playData": {
     "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
       "opponent": "senpai-angry",
-      "instrumental": "",
-      "altInstrumentals": []
+      "instrumental": "erect"
     },
     "stage": "school",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "normal": 0,
       "nightmare": 0

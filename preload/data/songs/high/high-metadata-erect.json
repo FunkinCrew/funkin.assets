@@ -11,16 +11,15 @@
   },
   "playData": {
     "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
       "girlfriend": "gf-car",
       "opponent": "mom-car",
-      "instrumental": "",
-      "altInstrumentals": []
+      "instrumental": "erect"
     },
     "stage": "limoRide",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "normal": 0,
       "nightmare": 0,

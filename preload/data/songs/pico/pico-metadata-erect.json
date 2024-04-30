@@ -13,16 +13,15 @@
   },
   "playData": {
     "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "pico",
-      "instrumental": "",
-      "altInstrumentals": []
+      "instrumental": "erect"
     },
     "stage": "phillyTrain",
-    "noteStyle": "item",
+    "noteStyle": "funkin",
     "ratings": {
       "normal": 0,
       "erect": 0,
