@@ -348,7 +348,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 			{
 				new FlxTimer().start(blendMode / 60, function(_) {
 
-					if (blendMode == 0)
+					if (blendAnims[blendMode] != 10)
 						this.color = 0xFF0000FF;
 					else
 						this.color = 0xFFFFFFFF;
