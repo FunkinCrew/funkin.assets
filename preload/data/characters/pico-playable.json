@@ -116,7 +116,7 @@
       "name": "intro1",
       "assetPath": "characters/Pico_Intro",
       "prefix": "Pico Gets Pissed0",
-      "offsets": [0, 0]
+      "offsets": [60, 0]
     },
     {
       "name": "cockCutscene",
