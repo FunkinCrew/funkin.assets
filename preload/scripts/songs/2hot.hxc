@@ -72,7 +72,8 @@ class TwoHOTSong extends Song
 
       event.cancel();
 
-      endCutscene();
+			// start the video cutscene and hide it so the other stuff can happen after
+      startCutscene();
     } else {
 			// Make sure the cutscene can play again next time!
 			hasPlayedCutscene = false;
@@ -80,23 +81,15 @@ class TwoHOTSong extends Song
 		}
 	}
 
+	// the Other stuff
 	function endCutscene(){
-		PlayState.instance.camHUD.visible = false;
-
-		PlayState.instance.isInCutscene = true;
-		hasPlayedCutscene = true;
-
-		var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-		var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
-		var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
-
-		PlayState.instance.currentStage.getBoyfriend().danceEvery = 0;
-		PlayState.instance.currentStage.getDad().danceEvery = 0;
+		VideoCutscene.onVideoStarted.removeAll();
+		VideoCutscene.hideVideo();
 
 		new FlxTimer().start(1, function(tmr)
 		{
-			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 2, FlxEase.quadInOut);
-			PlayState.instance.tweenCameraZoom(0.62, 2, true, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraToPosition(1539, 833.5, 2, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraZoom(0.69, 2, true, FlxEase.quadInOut);
 		});
 
 		// Since no music plays at this part I'm too lazy to hook Nene up to a conductor,
@@ -115,7 +108,7 @@ class TwoHOTSong extends Song
 			PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
 		});
 
-		new FlxTimer().start(5, function(tmr)
+		new FlxTimer().start(6, function(tmr)
 		{
 			// video would play around here
 			//PlayState.instance.endSong(true);
@@ -131,14 +124,26 @@ class TwoHOTSong extends Song
 			PlayState.instance.add(bgSprite);
 			PlayState.instance.refresh();
 
-      startVideo();
+			VideoCutscene.showVideo();
 		});
 
 	}
 
+	function startCutscene(){
+		VideoCutscene.onVideoStarted.add(endCutscene);
+		PlayState.instance.camHUD.visible = false;
+
+		PlayState.instance.isInCutscene = true;
+		hasPlayedCutscene = true;
+
+		PlayState.instance.currentStage.getBoyfriend().danceEvery = 0;
+		PlayState.instance.currentStage.getDad().danceEvery = 0;
+
+		startVideo();
+	}
+
 	function startVideo() {
 		VideoCutscene.play(Paths.videos('2hotCutscene'), CutsceneType.ENDING);
-		//THIS CUTSCENE IS AN OLD PLACEHOLDER VERSION
   }
 
 	function removeCans()

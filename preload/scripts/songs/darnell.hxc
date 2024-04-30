@@ -138,7 +138,7 @@ class DarnellSong extends Song {
 
 		new FlxTimer().start(0.7, function(tmr){
 			cutsceneMusic.play(false);
-      FlxTween.tween(bgSprite, { alpha: 0}, 2, {startDelay: 0.3});
+      FlxTween.tween(bgSprite, { alpha: 0}, 2, {startDelay: 0.3}, function(){bgSprite.visible = false;});
 		});
 
 		// move camera out to show everything
