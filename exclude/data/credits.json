@@ -266,8 +266,9 @@
     {
       "header": "Eric would like to specially thank",
       "body": [
-        { "line": "Rob and Jill Myllyoja" }
-
+        { "line": "Rob and Jill Myllyoja" },
+        { "line": "KadeDev" },
+        { "line": "Shadow Mario" }
       ]
     },
     {
