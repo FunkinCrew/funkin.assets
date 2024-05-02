@@ -55,7 +55,6 @@ class SenpaiSong extends Song {
       ease: FlxEase.linear,
       startDelay: 0.25,
       onComplete: function (input) {
-        trace('Completed tween.');
 
         // black.visible = false;
         startDialogue();
@@ -64,7 +63,6 @@ class SenpaiSong extends Song {
   }
 
   function startDialogue() {
-    trace('startDialogue');
     PlayState.instance.startConversation('senpai');
   }
 

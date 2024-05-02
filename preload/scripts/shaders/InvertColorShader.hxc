@@ -7,7 +7,6 @@ class InvertColorShader extends FlxRuntimeShader
 	function new()
 	{
 		var fragText:String = Assets.getText(Paths.frag('invertColor'));
-		trace(fragText);
 		super(fragText);
 	}
 }

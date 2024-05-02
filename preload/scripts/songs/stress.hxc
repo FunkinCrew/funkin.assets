@@ -36,7 +36,6 @@ class StressSong extends Song {
 
     if (tankmanGroup != null) {
       // resets the tankmen!
-      trace(Type.getClassName(Type.getClass(tankmanGroup)));
       tankmanGroup.scriptCall('reset');
 
       tankmanGroup.zIndex = 30;

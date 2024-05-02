@@ -121,9 +121,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 	{
 		holdTimer = 0;
 
-		trace('Player missed note.');
 		if (!StringTools.startsWith(event.note.kind, 'weekend-1-')) {
-			trace('Note kind does not start with "weekend-1-": ' + event.note);
 			return;
 		}
 

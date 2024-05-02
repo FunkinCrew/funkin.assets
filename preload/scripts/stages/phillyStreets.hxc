@@ -172,8 +172,6 @@ class PhillyStreetsStage extends Stage
 	override function onDestroy(event:ScriptEvent) {
 		super.onDestroy();
 
-		trace('Cancelling car tweens weee');
-
 		var cars = getNamedProp('phillyCars');
 		if (cars != null) FlxTween.cancelTweensOf(cars);
 		var cars2 = getNamedProp('phillyCars2');
@@ -182,8 +180,6 @@ class PhillyStreetsStage extends Stage
 		// Fully stop ambiance.
 		// if (rainSndAmbience != null) rainSndAmbience.stop();
 		// if (carSndAmbience != null) carSndAmbience.stop();
-
-		trace('Done');
 	}
 
 	/**

@@ -24,23 +24,16 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
       ScrollFactor: new FlxPoint(1, 1),
     });
 
-    trace('Spawned Atlas Spraycan!');
-    trace('Got frames: ' + this.anim.length);
-    trace('Got animations: ' + listAnimations());
-
     onAnimationFinish.add(finishCanAnimation);
   }
 
   public function finishCanAnimation(name:String) {
     switch(name) {
       case 'Can Start':
-        trace('Can Start finished');
         playHitPico();
       case 'Can Shot':
-        trace('Can Shot finished');
         this.kill();
       case 'Hit Pico':
-        trace('Hit Pico finished');
         playHitExplosion();
         this.kill();
     }
@@ -53,26 +46,19 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
 
 		PlayState.instance.currentStage.add(explodeEZ);
 		explodeEZ.animation.finishCallback = () -> {
-      trace('killing explodeEZ');
       explodeEZ.kill();
     };
   }
 
   public function playCanStart():Void {
-    trace('Atlas Spraycan playCanStart');
-
     this.playAnimation('Can Start');
   }
 
   public function playCanShot():Void {
-    trace('Atlas Spraycan playCanShot');
-
     this.playAnimation('Can Shot');
   }
 
   public function playHitPico():Void {
-    trace('Atlas Spraycan playHitPico');
-
     this.playAnimation('Hit Pico');
   }
 }

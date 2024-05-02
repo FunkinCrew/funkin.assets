@@ -174,19 +174,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var picoDeathExplosion:FlxAtlasSprite;
 
 	function doExplosionDeath() {
-		trace('Doing explosion death...');
-
 		// Suffixed death sound will already play.
 		GameOverSubState.instance.resetCameraZoom();
 
 		// Move the camera up.
 		GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
-		trace('Loading explosion death FlxAtlasSprite...');
 		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
-		trace('Loading from ' + picoDeathExplosionPath);
 		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
-		trace('...done');
     PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
     picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
@@ -203,7 +198,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function afterPicoDeathExplosionIntro(timer:FlxTimer) {
 		// Start the (standard) death music, 3.5 seconds after the explosion starts,
 		// not when the explosion sound finishes or when the loop starts.
-		trace('Starting death music...');
 		GameOverSubState.instance.startDeathMusic(1.0, false);
 		singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
 		// singed.fadeIn(0.5, 0.3, 1.0);
@@ -213,16 +207,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Suffixed confirm music will already play.
 		picoDeathExplosion.playAnimation('Confirm');
 		if (singed != null) {
-			trace('Stopping singed loop.');
 			singed.stop();
 			singed = null;
 		}
 	}
 
 	function onExplosionFinishAnim(animLabel:String) {
-		trace('Animation finished: ' + animLabel);
 		if (animLabel == 'intro') {
-			trace('Restarting explosion animation loop!');
       picoDeathExplosion.playAnimation('Loop Start', true, false, true);
 		} else if (animLabel == 'Confirm') {
 			// Do nothing, the animation will just play.
@@ -263,8 +254,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 			deathSpriteRetry.x = this.x + 416;
 			deathSpriteRetry.y = this.y + 42;
-			trace('Pico x: ' + this.x + ', y: ' + this.y);
-			trace("Death sprite x: " + deathSpriteRetry.x + ", y: " + deathSpriteRetry.y);
 		}
 
 		if (name == "cock" && frameNumber == 3) {

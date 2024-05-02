@@ -58,7 +58,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 			{
 				tankmanTimes.push(note.time);
 				var goingRight:Bool = note.data == 3 ? false : true;
-				//trace('  Adding Tankman: ' + note.time + ', ' + goingRight);
 				tankmanDirs.push(goingRight);
 			}
 		}
@@ -121,7 +120,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 	function kill()
 	{
 		super.kill();
-		trace('TankmanSpriteGroup.kill()');
 		tankmanTimes = [];
 	}
 }

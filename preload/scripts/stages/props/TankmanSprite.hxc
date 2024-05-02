@@ -64,7 +64,6 @@ class TankmanSprite extends FunkinSprite
 		// Sprite has been revived! This allows it to be reused without reinstantiating.
 		super.revive();
 		visible = true;
-		// trace('Revived tankman!');
 		initAnim();
 	}
 

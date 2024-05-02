@@ -73,7 +73,6 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 
     // Each Pico animation is shifted from the array when it's time to play it.
 		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
-		//	trace('just shot at time ' + shootTimes[0] + ' with direction ' + shootDirs[0]);
 			var nextTime:Float = shootTimes.shift();
 			var nextDir:Int = shootDirs.shift();
 
@@ -88,7 +87,6 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 
 	function playPicoAnimation(direction:Int):Void
   {
-		trace(direction);
 		switch (direction) {
 			case 0: this.playAnimation('shoot1', true, true);
 			case 1: this.playAnimation('shoot2', true, true);

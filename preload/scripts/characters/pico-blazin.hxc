@@ -121,7 +121,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 				playIdleAnim(); // TODO: Which anim?
 
 			default:
-				trace('Unknown note kind: ' + event.note.kind);
+				// trace('Unknown note kind: ' + event.note.kind);
 		}
 	}
 
@@ -141,7 +141,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	}
 
 	function afterPicoDeathGutPunchIntro():Void {
-		trace('After Pico death gut punch intro!');
 		GameOverSubState.instance.startDeathMusic(1.0, false);
 		playAnimation('deathLoop', true, false);
 	}

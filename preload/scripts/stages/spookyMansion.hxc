@@ -16,8 +16,6 @@ class SpookyMansionStage extends Stage
 
 	function doLightningStrike(playSound:Bool, beat:Int):Void
 	{
-		trace('Lightning strike!');
-
 		if (playSound)
 		{
 			FunkinSound.playOnce(Paths.soundRandom('thunder_', 1, 2), 1.0);

@@ -54,7 +54,6 @@ class BlazinSong extends Song {
 
 		if (!this.hasHidden)
 		{
-			trace('Attempting to hide strumlines');
 			this.hasHidden = true;
 			hideOpponentStrumline();
 			centerPlayerStrumline();

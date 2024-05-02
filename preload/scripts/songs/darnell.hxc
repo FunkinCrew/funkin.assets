@@ -223,8 +223,6 @@ class DarnellSong extends Song {
 	}
 
 	function onCutsceneBeatHit() {
-		trace('On cutscene beat hit');
-
 		// Play idle if Darnell isn't busy.
 		if (PlayState.instance.currentStage.getDad().isAnimationFinished()
 				&& PlayState.instance.currentStage.getDad().getCurrentAnimation() != 'lightCan') {
@@ -300,7 +298,6 @@ class DarnellSong extends Song {
 		super.onUpdate(event);
 
 		if (cutsceneConductor != null && cutsceneMusic != null) {
-			trace(cutsceneMusic.time);
 			cutsceneConductor.update(cutsceneMusic.time);
 		}
 	}

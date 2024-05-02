@@ -38,13 +38,9 @@ class ThornsDialogueBox extends DialogueBox {
 
   public function onDialogueStart(event:DialogueScriptEvent):Void {
     super.onDialogueStart(event);
-
-    trace(event.conversation.currentDialogueEntryData.boxAnimation);
   }
 
   public function onDialogueLine(event:DialogueScriptEvent):Void {
-    trace('Click!');
-
     // Override the default box animation behavior by switching the state
     event.conversation.state = ConversationState.Opening;
 
@@ -56,8 +52,6 @@ class ThornsDialogueBox extends DialogueBox {
     super.onDialogueEnd(event);
     // Play 'enter' in reverse
     this.textDisplay.visible = false;
-
-    trace('Playing exit animation');
 
     playAnimation('exit', false);
   }

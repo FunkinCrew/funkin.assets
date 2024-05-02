@@ -113,7 +113,7 @@ class TwoHOTSong extends Song
 			// video would play around here
 			//PlayState.instance.endSong(true);
 
-			 trace('Pausing ending to play a video cutscene (`2hot`)');
+			trace('Pausing ending to play a video cutscene (`2hot`)');
 
 			// Add a black background behind the cutscene to fix a transition bug!
 			trace('Adding black background behind cutscene over UI');
