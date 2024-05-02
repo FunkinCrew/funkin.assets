@@ -1,9 +1,0 @@
-dad 0.5 1 0.5
-gf 0.5 1 0.5
-mom 0.42 1 0.42
-senpai 0.85 1 0.85 -50 50
-tankman 1 1 1
-nene 1 1.9 1
-darnell 1 1.9 1
-pico 0.6 0.7 0.6 -40 40
-parents-christmas 0.4 1 0.4 -100
