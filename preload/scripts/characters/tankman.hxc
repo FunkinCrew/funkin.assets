@@ -16,7 +16,7 @@ class TankmanCharacter extends MultiSparrowCharacter {
 			switch(event.note.kind) {
 				case "ugh":
 					holdTimer = 0;
-					this.playAnimation('ugh', true, true);
+					this.playAnimation('ugh', true, false);
 					return;
 				case "hehPrettyGood":
 					holdTimer = 0;
