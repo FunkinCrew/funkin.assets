@@ -17,7 +17,7 @@ class SchoolEvilStage extends Stage
 	{
 		super.buildStage();
 
-		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY, true);
 
 		getNamedProp('evilSchoolBG').shader = wiggle;
 		getNamedProp('evilSchoolFG').shader = wiggle;
