@@ -4,15 +4,8 @@
   "artist": "Kawaisprite",
   "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
-  },
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
@@ -23,8 +16,8 @@
     "stage": "school",
     "noteStyle": "funkin",
     "ratings": {
-      "erect": 0,
-      "nightmare": 0
+      "nightmare": 8,
+      "erect": 6
     },
     "previewStart": 0,
     "previewEnd": 15000

@@ -12,6 +12,7 @@
       "opponent": "darnell"
     },
     "songVariations": [],
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },

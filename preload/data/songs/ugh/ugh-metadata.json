@@ -15,7 +15,8 @@
       "opponent": "tankman"
     },
     "stage": "tankmanBattlefield",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
   },
   "generatedBy": "EliteMasterEric (by hand)"
 }

@@ -7,6 +7,7 @@
   "looped": false,
   "playData": {
     "album": "volume1",
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
