@@ -180,7 +180,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Move the camera up.
 		GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
-		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
+		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath");
 		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
     PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
