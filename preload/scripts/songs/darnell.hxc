@@ -75,7 +75,7 @@ class DarnellSong extends Song {
 			// trace('Adding black background behind cutscene over UI');
 			bgSprite = new FunkinSprite(0, 0);
 			bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
-			bgSprite.cameras = [PlayState.instance.camCutscene]; // Show over the HUD but below the video.
+			bgSprite.cameras = [PlayState.instance.camOther]; // Show over the HUD but below the video.
 			// this
 			bgSprite.zIndex = -10000;
 			PlayState.instance.add(bgSprite);
