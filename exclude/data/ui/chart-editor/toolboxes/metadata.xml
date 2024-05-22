@@ -8,6 +8,8 @@
                     <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
                     <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongArtist" value="Kawai Sprite" tooltip="The artist who composed the song." />
+                    <label text="Charter:" verticalAlign="center" horizontalAlign="right" />
+                    <textfield id="inputSongCharter" value="" tooltip="The person who charted the song. That's you!" />
                     <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
                     <dropdown id="inputStage" value="Main Stage" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which stage the level takes place on.">
                         <data>
