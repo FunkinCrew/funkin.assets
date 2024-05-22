@@ -7,7 +7,8 @@
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
   },
   "songName": "Monster",
   "timeChanges": [

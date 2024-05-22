@@ -4,15 +4,8 @@
   "artist": "Kawai Sprite",
   "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf": 0
-    }
-  },
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
@@ -23,9 +16,8 @@
     "stage": "phillyTrain",
     "noteStyle": "funkin",
     "ratings": {
-      "normal": 0,
-      "nightmare": 0,
-      "erect": 0
+      "nightmare": 15,
+      "erect": 13
     },
     "previewStart": 0,
     "previewEnd": 15000

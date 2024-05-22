@@ -4,13 +4,8 @@
   "artist": "Kohta Takahashi (feat. Kawai Sprite)",
   "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
@@ -21,9 +16,8 @@
     "stage": "limoRide",
     "noteStyle": "funkin",
     "ratings": {
-      "normal": 0,
-      "nightmare": 0,
-      "erect": 0
+      "nightmare": 8,
+      "erect": 6
     },
     "previewStart": 0,
     "previewEnd": 0

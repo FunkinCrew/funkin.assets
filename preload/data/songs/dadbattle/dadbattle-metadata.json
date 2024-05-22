@@ -14,13 +14,10 @@
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
-      "opponent": "dad",
-      "instrumental": "",
-      "altInstrumentals": []
+      "opponent": "dad"
     },
     "stage": "mainStage",
     "noteStyle": "funkin"
   },
-  "offsets": { "instrumental": 0.0 },
   "generatedBy": "EliteMasterEric (by hand)"
 }

@@ -5,16 +5,14 @@
   "divisions": 96,
   "looped": false,
   "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
     "vocals": {
       "bf": 0,
       "dad": -8
     }
   },
   "playData": {
-    "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal", "hard"],
+    "album": "volume3",
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
@@ -24,9 +22,8 @@
     "stage": "mainStage",
     "noteStyle": "funkin",
     "ratings": {
-      "erect": 0,
-      "nightmare": 0,
-      "normal": 0
+      "nightmare": 8,
+      "erect": 6
     },
     "previewStart": 0,
     "previewEnd": 15000

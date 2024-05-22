@@ -8,9 +8,10 @@
     "album": "volume1",
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "dad" },
     "stage": "mainStage",
     "noteStyle": "funkin"
   },
-  "generatedBy": "MasterEric (by hand)"
+  "generatedBy": "EliteMasterEric (by hand)"
 }

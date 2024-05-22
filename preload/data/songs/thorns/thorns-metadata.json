@@ -9,6 +9,7 @@
       "girlfriend": "gf-pixel",
       "opponent": "spirit"
     },
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "pixel"
