@@ -3,8 +3,6 @@
   "songName": "Bopeebo Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
   "charter": "Jenny Crowe and fabs",
-  "divisions": 96,
-  "looped": false,
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],

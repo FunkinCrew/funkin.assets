@@ -2,13 +2,11 @@
   "version": "2.2.2",
   "songName": "Darnell",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe",
   "playData": {
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000,
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "album": "volume3",

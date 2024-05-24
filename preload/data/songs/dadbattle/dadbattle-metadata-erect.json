@@ -1,9 +1,8 @@
 {
   "version": "2.2.1",
   "songName": "DadBattle Erect",
+  "charter": "Jenny Crowe and fabs",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
   "offsets": {
     "vocals": {
       "bf": 0,

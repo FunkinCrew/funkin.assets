@@ -1,11 +1,11 @@
 {
   "timeFormat": "ms",
   "artist": "BassetFilms",
+  "charter": "ninjamuffin99",
   "playData": {
     "album": "volume1",
     "stage": "spookyMansion",
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "ratings": { "easy": 0, "normal": 1, "hard": 2 }
@@ -28,6 +28,5 @@
     { "t": 132540, "bpm": 119.5 }
   ],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "looped": false,
   "version": "2.2.1"
 }

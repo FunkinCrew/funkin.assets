@@ -108,7 +108,6 @@
           "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -116,7 +115,6 @@
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false,
           "offsets": [0, 0]
@@ -126,7 +124,6 @@
           "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -135,7 +132,6 @@
           "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -158,7 +154,6 @@
           "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         },
@@ -166,7 +161,6 @@
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false,
           "offsets": [0, 0]
@@ -176,7 +170,6 @@
           "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         },
@@ -185,7 +178,6 @@
           "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         }
@@ -207,7 +199,6 @@
           "name": "togreen",
           "prefix": "redtogreen",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -215,7 +206,6 @@
           "name": "tored",
           "prefix": "greentored",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }

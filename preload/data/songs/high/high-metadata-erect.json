@@ -2,8 +2,7 @@
   "version": "2.2.2",
   "songName": "High Erect",
   "artist": "Kohta Takahashi (feat. Kawai Sprite)",
-  "divisions": 96,
-  "looped": false,
+  "charter": "PhantomArcade and fabs",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],
