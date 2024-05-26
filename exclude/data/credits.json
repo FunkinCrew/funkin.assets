@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "header": "FNF-AltronixEngine",
+      "body": [
+        {"line": "A modification for Friday Night Funkin'"},
+        {"line": "Created by Altronix Team"}
+      ]
+    },
+    {
+      "header": "Altronix Team",
+      "body": [
+        {"line": "AltronMaxX - Main Programmer"},
+        {"line": "Tut_byl_ya - Tester"}
+      ]
+    },
+    {
       "header": "Friday Night Funkin'",
       "body": [
         { "line": "A video game created by" },
