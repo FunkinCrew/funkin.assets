@@ -13,6 +13,7 @@
     }
   },
   "playData": {
+	"album": "volume3",
     "songVariations": [],
     "difficulties": ["erect", "nightmare", "normal", "hard"],
     "characters": {
