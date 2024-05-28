@@ -87,7 +87,7 @@
       "name": "phillySmog",
       "isPixel": false,
       "assetPath": "phillyStreets/phillySmog",
-      "scroll": [1, 1],
+      "scroll": [0.8, 1],
       "alpha": 1,
       "animations": []
     },
@@ -100,7 +100,7 @@
       "name": "phillyCars",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyCars",
-      "scroll": [1, 1],
+      "scroll": [0.9, 1],
       "alpha": 1,
       "animations": [
         {
@@ -150,7 +150,7 @@
       "name": "phillyCars2",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyCars",
-      "scroll": [1, 1],
+      "scroll": [0.9, 1],
       "alpha": 1,
       "animations": [
         {
