@@ -3,7 +3,7 @@
   "artist": "Kawai Sprite",
   "playData": {
     "album": "volume1",
-    "ratings": { "easy": 0, "normal": 0, "hard": 1 },
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "stage": "mainStage",
     "characters": { "player": "bf", "opponent": "gf" },
     "songVariations": [],

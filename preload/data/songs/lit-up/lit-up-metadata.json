@@ -4,11 +4,6 @@
   "artist": "Kawaisprite",
   "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": { "pico-playable": 0 }
-  },
   "playData": {
     "album": "volume3",
     "previewStart": 0,
@@ -18,13 +13,11 @@
     "characters": {
       "player": "pico-playable",
       "girlfriend": "nene",
-      "opponent": "darnell",
-      "instrumental": "",
-      "altInstrumentals": []
+      "opponent": "darnell"
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 0, "hard": 0 }
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE",
   "timeFormat": "ms",

@@ -9,6 +9,7 @@
       "girlfriend": "gf-tankmen",
       "opponent": "tankman"
     },
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"

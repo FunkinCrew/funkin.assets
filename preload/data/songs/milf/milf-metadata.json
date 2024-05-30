@@ -15,7 +15,8 @@
       "opponent": "mom-car"
     },
     "stage": "limoRide",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
   },
-  "generatedBy": "MasterEric (by hand)"
+  "generatedBy": "EliteMasterEric (by hand)"
 }

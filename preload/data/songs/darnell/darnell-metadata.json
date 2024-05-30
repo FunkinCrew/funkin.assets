@@ -4,7 +4,6 @@
   "artist": "Kawai Sprite",
   "divisions": 96,
   "looped": false,
-  "offsets": { "instrumental": 0, "altInstrumentals": {}, "vocals": {} },
   "playData": {
     "album": "volume3",
     "previewStart": 0,
@@ -15,9 +14,7 @@
       "album": "volume3",
       "player": "pico-playable",
       "girlfriend": "nene",
-      "opponent": "darnell",
-      "instrumental": "",
-      "altInstrumentals": []
+      "opponent": "darnell"
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
