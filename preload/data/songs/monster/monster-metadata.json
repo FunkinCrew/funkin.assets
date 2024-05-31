@@ -12,7 +12,7 @@
     },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 0, "hard": 0 },
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000

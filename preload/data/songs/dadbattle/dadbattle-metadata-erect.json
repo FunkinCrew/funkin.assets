@@ -20,10 +20,7 @@
     },
     "stage": "mainStage",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "ratings": { "erect": 8, "nightmare": 9 },
     "previewStart": 0,
     "previewEnd": 15000
   },

@@ -14,10 +14,7 @@
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "ratings": { "erect": 7, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 15000
   },

@@ -14,10 +14,7 @@
     },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "ratings": { "erect": 12, "nightmare": 13 },
     "previewStart": 0,
     "previewEnd": 0
   },
