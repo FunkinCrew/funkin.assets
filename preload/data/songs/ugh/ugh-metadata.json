@@ -15,7 +15,7 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 }
   },
   "generatedBy": "EliteMasterEric (by hand)"
 }

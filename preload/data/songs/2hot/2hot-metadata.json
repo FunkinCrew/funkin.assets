@@ -12,7 +12,7 @@
       "girlfriend": "nene",
       "opponent": "darnell"
     },
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },

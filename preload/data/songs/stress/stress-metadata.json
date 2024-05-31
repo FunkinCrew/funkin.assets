@@ -12,7 +12,8 @@
     },
     "album": "volume2",
     "stage": "tankmanBattlefield",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 2, "normal": 3, "hard": 5 }
   },
   "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 178 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)"

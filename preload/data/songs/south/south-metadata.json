@@ -7,7 +7,7 @@
     "stage": "spookyMansion",
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
     "songVariations": ["erect"],
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },

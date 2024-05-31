@@ -8,7 +8,7 @@
   "playData": {
     "album": "volume1",
     "songVariations": ["erect"],
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "difficulties": ["easy", "normal", "hard"],
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
     "stage": "spookyMansion",

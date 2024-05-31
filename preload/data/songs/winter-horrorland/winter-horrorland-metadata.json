@@ -14,7 +14,8 @@
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "previewStart": 0,
-    "previewEnd": 15000
+    "previewEnd": 15000,
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 }
   },
   "timeFormat": "ms",
   "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 159 }],

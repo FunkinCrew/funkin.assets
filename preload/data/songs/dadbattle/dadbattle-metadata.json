@@ -9,14 +9,10 @@
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000,
-    "ratings": { "easy": 1, "normal": 3, "hard": 5 },
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "dad"
-    },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "dad" },
     "stage": "mainStage",
     "noteStyle": "funkin"
   },
