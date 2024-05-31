@@ -1,16 +1,26 @@
 {
-  "timeFormat": "ms",
-  "artist": "BassetFilms",
-  "charter": "ninjamuffin99",
-  "playData": {
-    "album": "volume1",
-    "stage": "spookyMansion",
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
-    "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 }
-  },
+  "version": "2.2.1",
   "songName": "Monster",
+  "artist": "BassetFilms",
+  "charter": "ninjamuffin99 + Spazkid",
+  "divisions": 96,
+  "looped": false,
+  "playData": {
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "monster"
+    },
+    "stage": "spookyMansion",
+    "noteStyle": "funkin",
+    "ratings": { "easy": 0, "normal": 0, "hard": 0 },
+    "album": "volume1",
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
   "timeChanges": [
     { "t": 0, "bpm": 95 },
     { "t": 41770, "bpm": 95 },
@@ -26,7 +36,5 @@
     { "t": 42975, "bpm": 100 },
     { "t": 81285, "bpm": 107.5 },
     { "t": 132540, "bpm": 119.5 }
-  ],
-  "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "version": "2.2.1"
+  ]
 }
