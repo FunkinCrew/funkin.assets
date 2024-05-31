@@ -32,7 +32,7 @@ class RosesSong extends Song {
       event.cancel(); // CANCEL THE COUNTDOWN!
 
       // Play a SFX
-      FunkinSound.playOnce(Paths.sound('ANGRY'), 1.0);
+      FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
 
       PlayState.instance.currentStage.pause();
 
