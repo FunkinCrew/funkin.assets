@@ -1,6 +1,8 @@
 {
-  "timeFormat": "ms",
+  "version": "2.2.1",
+  "songName": "Winter Horrorland",
   "artist": "Kawai Sprite",
+  "charter": "ninjamuffin99",
   "playData": {
     "album": "volume1",
     "stage": "mallEvil",
@@ -9,14 +11,12 @@
       "girlfriend": "gf-christmas",
       "opponent": "monster-christmas"
     },
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "songName": "Winter Horrorland",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 159 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "looped": false,
-  "version": "2.2.1"
+  "timeFormat": "ms",
+  "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 159 }],
+  "generatedBy": "Chart Editor Import (FNF Legacy)"
 }

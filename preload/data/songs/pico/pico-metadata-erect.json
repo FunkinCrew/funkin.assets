@@ -2,8 +2,7 @@
   "version": "2.2.1",
   "songName": "Pico Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe and Spazkid",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],

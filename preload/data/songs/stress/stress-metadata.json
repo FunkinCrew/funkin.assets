@@ -1,22 +1,19 @@
 {
-  "timeFormat": "ms",
+  "version": "2.2.1",
+  "songName": "Stress",
   "artist": "Kawai Sprite",
+  "charter": "ninjamuffin99",
   "playData": {
-    "album": "volume2",
-    "stage": "tankmanBattlefield",
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-holding-gf",
       "girlfriend": "pico-speaker",
       "opponent": "tankman"
     },
-    "songVariations": [],
-    "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
+    "album": "volume2",
+    "stage": "tankmanBattlefield",
+    "noteStyle": "funkin"
   },
-  "songName": "Stress",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 178 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "looped": false,
-  "version": "2.2.1"
+  "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 178 }],
+  "generatedBy": "Chart Editor Import (FNF Legacy)"
 }

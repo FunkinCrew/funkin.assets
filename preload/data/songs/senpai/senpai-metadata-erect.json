@@ -2,8 +2,7 @@
   "version": "2.2.0",
   "songName": "Senpai Erect",
   "artist": "Kawaisprite",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],

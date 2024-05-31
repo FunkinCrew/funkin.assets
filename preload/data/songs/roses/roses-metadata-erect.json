@@ -2,8 +2,7 @@
   "version": "2.2.1",
   "songName": "Roses Erect",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],

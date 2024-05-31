@@ -2,8 +2,7 @@
   "version": "2.2.1",
   "songName": "Blazin'",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
+  "charter": "fabs",
   "playData": {
     "album": "volume3",
     "difficulties": ["easy", "normal", "hard"],

@@ -2,8 +2,7 @@
   "version": "2.2.0",
   "songName": "Thorns Erect",
   "artist": "Kawai Sprite (feat. Saster)",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe and fabs",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],

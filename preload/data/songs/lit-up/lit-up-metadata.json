@@ -2,13 +2,11 @@
   "version": "2.2.2",
   "songName": "Lit Up",
   "artist": "Kawaisprite",
-  "divisions": 96,
-  "looped": false,
+  "charter": "Jenny Crowe and Spazkid",
   "playData": {
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000,
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
@@ -16,8 +14,7 @@
       "opponent": "darnell"
     },
     "stage": "phillyStreets",
-    "noteStyle": "funkin",
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 }
+    "noteStyle": "funkin"
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE",
   "timeFormat": "ms",
