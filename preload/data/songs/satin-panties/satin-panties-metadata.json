@@ -13,6 +13,7 @@
       "girlfriend": "gf-car",
       "opponent": "mom-car"
     },
+    "songVariations": ["erect"],
     "stage": "limoRide",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 2, "hard": 3 }
