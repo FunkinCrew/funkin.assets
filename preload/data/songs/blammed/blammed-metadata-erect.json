@@ -2,7 +2,7 @@
   "version": "2.2.1",
   "songName": "Blammed Erect",
   "artist": "Kawai Sprite",
-  "charter": "Jenny Crowe and fabs",
+  "charter": "fabs + Spazkid",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],
@@ -14,10 +14,7 @@
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 15,
-      "erect": 13
-    },
+    "ratings": { "erect": 12, "nightmare": 13 },
     "previewStart": 0,
     "previewEnd": 15000
   },

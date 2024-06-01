@@ -2,7 +2,7 @@
   "version": "2.2.1",
   "songName": "Philly Nice Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
-  "charter": "Spazkid and fabs",
+  "charter": "Spazkid + fabs",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],
@@ -14,10 +14,7 @@
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "ratings": { "erect": 7, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 15000
   },

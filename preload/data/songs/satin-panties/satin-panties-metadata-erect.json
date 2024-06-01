@@ -1,10 +1,16 @@
 {
   "version": "2.2.2",
-  "songName": "High Erect",
-  "artist": "Kohta Takahashi (feat. Kawai Sprite)",
-  "charter": "PhantomArcade + fabs + Spazkid",
+  "songName": "Satin Panties Erect",
+  "artist": "Kawai Sprite",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {}
+  },
   "playData": {
-    "album": "volume3",
+    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
@@ -13,18 +19,21 @@
       "instrumental": "erect"
     },
     "stage": "limoRide",
-    "noteStyle": "funkin",
-    "ratings": { "erect": 7, "nightmare": 8 },
+    "noteStyle": "item",
+    "ratings": {
+      "erect": 13,
+      "nightmare": 14
+    },
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : 9c19d95) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.1",
   "timeFormat": "ms",
   "timeChanges": [
     {
       "t": 0,
       "b": 0,
-      "bpm": 125,
+      "bpm": 135,
       "n": 4,
       "d": 4,
       "bt": [4, 4, 4, 4]
