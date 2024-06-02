@@ -4,7 +4,7 @@
   "charter": "ninjamuffin99",
   "playData": {
     "album": "volume1",
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 0, "normal": 0, "hard": 1 },
     "stage": "mainStage",
     "characters": { "player": "bf", "opponent": "gf" },
     "difficulties": ["easy", "normal", "hard"],

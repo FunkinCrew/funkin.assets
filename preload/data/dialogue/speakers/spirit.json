@@ -10,14 +10,11 @@
     {
       "name": "talkEnter",
       "prefix": "portraitEnter0",
-      "offsets": [0, 0],
-      "frameRate": 12,
-      "looped": false
+      "frameRate": 12
     },
     {
       "name": "talk",
       "prefix": "portraitTalk0",
-      "offsets": [0, 0],
       "frameRate": 12
     }
   ]

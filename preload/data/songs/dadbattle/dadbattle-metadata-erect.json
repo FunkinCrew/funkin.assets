@@ -1,7 +1,7 @@
 {
   "version": "2.2.1",
   "songName": "DadBattle Erect",
-  "charter": "Jenny Crowe and fabs",
+  "charter": "Jenny Crowe + fabs + Spazkid",
   "artist": "Kawai Sprite",
   "offsets": {
     "vocals": {
@@ -20,10 +20,7 @@
     },
     "stage": "mainStage",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "ratings": { "erect": 8, "nightmare": 9 },
     "previewStart": 0,
     "previewEnd": 15000
   },

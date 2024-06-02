@@ -10,7 +10,7 @@
       "girlfriend": "gf-pixel",
       "opponent": "senpai"
     },
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "pixel"

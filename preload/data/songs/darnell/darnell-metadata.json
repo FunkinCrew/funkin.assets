@@ -2,7 +2,7 @@
   "version": "2.2.2",
   "songName": "Darnell",
   "artist": "Kawai Sprite",
-  "charter": "Jenny Crowe",
+  "charter": "fabs",
   "playData": {
     "album": "volume3",
     "previewStart": 0,
@@ -16,7 +16,7 @@
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 }
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 }
   },
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "timeFormat": "ms",

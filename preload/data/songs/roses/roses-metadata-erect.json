@@ -2,7 +2,7 @@
   "version": "2.2.1",
   "songName": "Roses Erect",
   "artist": "Kawai Sprite",
-  "charter": "Jenny Crowe",
+  "charter": "Jenny Crowe + Fabs",
   "playData": {
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],
@@ -13,11 +13,8 @@
       "instrumental": "erect"
     },
     "stage": "school",
-    "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 8,
-      "erect": 6
-    },
+    "noteStyle": "pixel",
+    "ratings": { "erect": 8, "nightmare": 9 },
     "previewStart": 0,
     "previewEnd": 15000
   },

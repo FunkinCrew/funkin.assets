@@ -10,7 +10,8 @@
       "girlfriend": "gf-christmas",
       "opponent": "parents-christmas"
     },
-    "ratings": { "easy": 0, "normal": 1, "hard": 2 },
+    "songVariations": ["erect"],
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },
