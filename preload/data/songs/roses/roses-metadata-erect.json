@@ -1,11 +1,12 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.3",
   "songName": "Roses Erect",
-  "artist": "Kawai Sprite",
-  "charter": "Jenny Crowe + Fabs",
+  "charter": "Jenny + Fabs + SpazKid",
+  "artist": "kawaisprite",
+  "looped": false,
   "playData": {
-    "album": "volume3",
-    "difficulties": ["erect", "nightmare"],
+    "songVariations": [],
+    "difficulties": ["erect", "nightmare", "normal"],
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
@@ -14,20 +15,13 @@
     },
     "stage": "school",
     "noteStyle": "pixel",
-    "ratings": { "erect": 8, "nightmare": 9 },
+    "ratings": { "nightmare": 0, "erect": 0 },
     "previewStart": 0,
     "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : ae5dd56) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:7562143) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 128,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 128, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }
