@@ -43,7 +43,6 @@ class EggnogSong extends Song
 	{
 		super.onSongRetry(event);
 
-		hasPlayedCutscene = true;
 	}
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
