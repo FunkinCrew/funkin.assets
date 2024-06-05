@@ -6,7 +6,7 @@
   "looped": false,
   "playData": {
     "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
