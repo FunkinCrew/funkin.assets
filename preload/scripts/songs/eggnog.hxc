@@ -34,6 +34,14 @@ class EggnogSong extends Song
 		hasPlayedCutscene = false;
 	}
 
+	public override function isSongNew(currentDifficulty:String):Bool{
+		if(currentDifficulty == 'erect' || currentDifficulty == 'nightmare'){
+			if(Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
+		}else{
+			return false;
+		}
+	}
+
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 		trace(PlayState.instance.currentVariation);
