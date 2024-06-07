@@ -12,22 +12,22 @@
     {
       "name": "singRIGHT",
       "prefix": "Pico NOTE LEFT0",
-      "offsets": [-68, -7]
+      "offsets": [-86,-10]
     },
     {
       "name": "singDOWN",
       "prefix": "Pico Down Note0",
-      "offsets": [-70, -75]
+      "offsets": [-37,-82]
     },
     {
       "name": "singUP",
       "prefix": "pico Up note0",
-      "offsets": [-29, 27]
+      "offsets": [-32,28]
     },
     {
       "name": "singLEFT",
       "prefix": "Pico Note Right0",
-      "offsets": [65, 9]
+      "offsets": [61,2]
     }
   ]
 }
