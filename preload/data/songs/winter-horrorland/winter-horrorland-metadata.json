@@ -1,21 +1,25 @@
 {
-  "timeFormat": "ms",
-  "artist": "Kawai Sprite",
+  "version": "2.2.1",
+  "songName": "Winter Horrorland",
+  "artist": "Bassetfilms",
+  "charter": "ninjamuffin99 + MtH",
   "playData": {
-    "album": "volume1",
-    "stage": "mallEvil",
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
       "opponent": "monster-christmas"
     },
-    "songVariations": [],
-    "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin"
+    "stage": "mallEvil",
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "album": "volume1",
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "songName": "Winter Horrorland",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 159 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "looped": false,
-  "version": "2.2.1"
+  "timeFormat": "ms",
+  "timeChanges": [
+    { "t": 0, "b": 0, "bpm": 159, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+  ]
 }

@@ -1,18 +1,10 @@
 {
   "version": "2.2.0",
   "songName": "Senpai Erect",
-  "artist": "Kawaisprite",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
-  },
+  "artist": "Kawai Sprite",
+  "charter": "Jenny Crowe + Fabs",
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
@@ -21,11 +13,8 @@
       "instrumental": "erect"
     },
     "stage": "school",
-    "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0
-    },
+    "noteStyle": "pixel",
+    "ratings": { "erect": 7, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 15000
   },

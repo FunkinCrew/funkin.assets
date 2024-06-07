@@ -1,16 +1,10 @@
 {
-  "version": "2.2.2",
+  "version": "2.2.3",
   "songName": "Bopeebo Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
+  "charter": "Jenny Crowe + fabs",
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
@@ -20,11 +14,7 @@
     },
     "stage": "mainStage",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 0,
-      "erect": 0,
-      "normal": 0
-    },
+    "ratings": { "erect": 7, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 0
   },
