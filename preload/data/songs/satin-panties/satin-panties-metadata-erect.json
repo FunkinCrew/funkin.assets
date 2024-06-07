@@ -1,41 +1,24 @@
 {
-  "version": "2.2.2",
+  "version": "2.2.3",
   "songName": "Satin Panties Erect",
   "artist": "Kawai Sprite",
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
+  "charter": "fabs + Spazkid",
   "playData": {
-    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
       "girlfriend": "gf-car",
-      "opponent": "mom-car",
-      "instrumental": "erect"
+      "opponent": "mom-car"
     },
     "stage": "limoRide",
-    "noteStyle": "item",
-    "ratings": {
-      "erect": 13,
-      "nightmare": 14
-    },
+    "noteStyle": "funkin",
+    "ratings": { "erect": 13, "nightmare": 14 },
     "previewStart": 0,
-    "previewEnd": 15000
+    "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.1",
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:51a44d4) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 135,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 135, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }
