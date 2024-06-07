@@ -56,8 +56,6 @@ class TwoHOTSong extends Song
 	{
 		super.onSongRetry(event);
 
-		hasPlayedCutscene = true;
-
 		removeCans();
 		gunCocked = false;
 	}
