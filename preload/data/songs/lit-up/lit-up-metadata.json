@@ -2,7 +2,7 @@
   "version": "2.2.2",
   "songName": "Lit Up",
   "artist": "Kawai Sprite",
-  "charter": "Jenny Crowe + Spazkid",
+  "charter": "Jenny Crowe + Spazkid + Blue2359",
   "playData": {
     "album": "volume3",
     "previewStart": 0,
@@ -17,7 +17,7 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 }
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.4.0",
   "timeFormat": "ms",
   "timeChanges": [
     { "t": 0, "b": 0, "bpm": 176, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
