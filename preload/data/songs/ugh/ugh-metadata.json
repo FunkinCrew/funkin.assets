@@ -1,13 +1,8 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.3",
   "songName": "Ugh",
   "artist": "Kawai Sprite",
-  "timeFormat": "ms",
-  "timeChanges": [{ "t": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
-  "looped": false,
   "playData": {
-    "album": "volume2",
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
@@ -15,7 +10,15 @@
       "opponent": "tankman"
     },
     "stage": "tankmanBattlefield",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "volume2",
+    "previewStart": 0,
+    "previewEnd": 15000
   },
-  "generatedBy": "MasterEric (by hand)"
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:6334d16) PROTOTYPE",
+  "timeFormat": "ms",
+  "timeChanges": [
+    { "t": 0, "b": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+  ]
 }

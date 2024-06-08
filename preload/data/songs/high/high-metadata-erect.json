@@ -2,15 +2,9 @@
   "version": "2.2.2",
   "songName": "High Erect",
   "artist": "Kohta Takahashi (feat. Kawai Sprite)",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
+  "charter": "PhantomArcade + fabs + Spazkid",
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
@@ -20,11 +14,7 @@
     },
     "stage": "limoRide",
     "noteStyle": "funkin",
-    "ratings": {
-      "normal": 0,
-      "nightmare": 0,
-      "erect": 0
-    },
+    "ratings": { "erect": 7, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 0
   },

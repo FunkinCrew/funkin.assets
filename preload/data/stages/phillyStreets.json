@@ -87,7 +87,7 @@
       "name": "phillySmog",
       "isPixel": false,
       "assetPath": "phillyStreets/phillySmog",
-      "scroll": [1, 1],
+      "scroll": [0.8, 1],
       "alpha": 1,
       "animations": []
     },
@@ -100,7 +100,7 @@
       "name": "phillyCars",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyCars",
-      "scroll": [1, 1],
+      "scroll": [0.9, 1],
       "alpha": 1,
       "animations": [
         {
@@ -108,7 +108,6 @@
           "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -116,7 +115,6 @@
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false,
           "offsets": [0, 0]
@@ -126,7 +124,6 @@
           "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -135,7 +132,6 @@
           "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -150,7 +146,7 @@
       "name": "phillyCars2",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyCars",
-      "scroll": [1, 1],
+      "scroll": [0.9, 1],
       "alpha": 1,
       "animations": [
         {
@@ -158,7 +154,6 @@
           "offsets": [0, 0],
           "prefix": "car1",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         },
@@ -166,7 +161,6 @@
           "name": "car2",
           "prefix": "car2",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false,
           "offsets": [0, 0]
@@ -176,7 +170,6 @@
           "offsets": [0, 0],
           "prefix": "car3",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         },
@@ -185,7 +178,6 @@
           "offsets": [0, 0],
           "prefix": "car4",
           "frameRate": 24,
-          "looped": false,
           "flipX": true,
           "flipY": false
         }
@@ -207,7 +199,6 @@
           "name": "togreen",
           "prefix": "redtogreen",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         },
@@ -215,7 +206,6 @@
           "name": "tored",
           "prefix": "greentored",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }

@@ -22,8 +22,7 @@
       "name": "enter",
       "prefix": "Spirit Textbox spawn0",
       "offsets": [0, 0],
-      "frameRate": 24,
-      "looped": false
+      "frameRate": 24
     },
     {
       "name": "idle",
@@ -43,7 +42,6 @@
     {
       "name": "click",
       "prefix": "Spirit Text Box Click0",
-      "looped": false,
       "frameIndices": [0, 0, 0, 0],
       "offsets": [0, 0]
     },
@@ -52,7 +50,6 @@
       "prefix": "Spirit Textbox spawn0",
       "offsets": [0, 0],
       "frameRate": 24,
-      "looped": false,
       "frameIndices": [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
     }
   ]
