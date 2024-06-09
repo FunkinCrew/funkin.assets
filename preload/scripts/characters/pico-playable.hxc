@@ -133,7 +133,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	override function onAnimationFinished(name:String) {
 		super.onAnimationFinished(name);
 
-		if (name == 'shootMISS' && PlayState.instance.health > 0.0) {
+		if (name == 'shootMISS' && PlayState.instance.health > 0.0 && !PlayState.instance.isPlayerDying) {
 			// ERIC: You have to use super instead of this or it breaks.
 			// This is because typeof(this) is PolymodAbstractClass.
       picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
@@ -174,6 +174,11 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var picoDeathExplosion:FlxAtlasSprite;
 
 	function doExplosionDeath() {
+
+		if (picoFlicker != null) {
+			picoFlicker.stop(); // this sets visible to true, but we make it false a few lines down anyways
+		}
+
 		// Suffixed death sound will already play.
 		GameOverSubState.instance.resetCameraZoom();
 
