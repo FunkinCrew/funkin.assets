@@ -27,7 +27,7 @@
                         </data>
                     </dropdown>
                     <label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
-                    <dropdown id="inputNoteStyle" value="Normal" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="Which graphical style of notes to use.">
+                    <dropdown id="inputNoteStyle" value="Normal" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which graphical style of notes to use.">
                         <data>
                             <item text="Normal" />
                             <item text="Pixel" />
