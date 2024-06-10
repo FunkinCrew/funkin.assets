@@ -112,7 +112,6 @@ class GunsSong extends Song {
     // Finishing up the cutscene.
     new FlxTimer().start(11, function(endCutscene:FlxTimer) {
       PlayState.instance.cameraFollowPoint.x += 100;
-      PlayState.instance.cameraFollowPoint.y -= 100;
 
       FlxTween.tween(PlayState.instance, {currentCameraZoom: PlayState.instance.stageZoom}, 0.5,
       {
