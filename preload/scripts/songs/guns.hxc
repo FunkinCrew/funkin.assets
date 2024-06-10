@@ -1,12 +1,21 @@
+import funkin.data.song.SongRegistry;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.play.song.Song;
+import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
-import funkin.Paths;
-import funkin.play.cutscene.VideoCutscene;
-
 import funkin.play.PlayStatePlaylist;
+import funkin.Conductor;
+import funkin.Paths;
+import flixel.FlxG;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 class GunsSong extends Song {
   var hasPlayedCutscene:Bool;
+
+  var cutsceneConductor:Conductor;
+  var cutsceneMusic:FunkinSound;
 
 	public function new() {
 		super('guns');
@@ -20,18 +29,138 @@ class GunsSong extends Song {
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
-      trace('Pausing countdown to play a video cutscene (`guns`)');
+      trace('Pausing countdown to play a cutscene (`guns`)');
 
       hasPlayedCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      startGunsCutscene();
     }
 	}
 
-  function startVideo() {
-    VideoCutscene.play(Paths.videos('gunsCutscene'));
+  function startGunsCutscene():Void {
+    PlayState.instance.isInCutscene = true;
+
+    // Hide the HUD Camera and show the Cutscene one. (even if there's nothing in it)
+    PlayState.instance.camHUD.visible = false;
+    PlayState.instance.camCutscene.visible = true;
+
+    // Setup beginning camera positions.
+    FlxTween.tween(PlayState.instance, {currentCameraZoom: 0.9 * 1.3}, 0.4, // 0.9 was the original tank stage zoom in 0.2.8. (Also the one showed in the video)
+    {
+      ease: FlxEase.quadInOut
+    });
+
+    PlayState.instance.cameraFollowPoint.x -= 100;
+    PlayState.instance.cameraFollowPoint.y -= 100;
+    FlxG.camera.snapToTarget();
+
+    // Make the current opponent invisible for now.
+    PlayState.instance.currentStage.getOpponent().visible = false;
+
+    // Setup Tankman object.
+    var tankCutsceneObj:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("cutscene/tankman", "week7"));
+    tankCutsceneObj.setPosition(PlayState.instance.currentStage.getOpponent().x + 417, PlayState.instance.currentStage.getOpponent().y + 225);
+    tankCutsceneObj.zIndex = PlayState.instance.currentStage.getOpponent().zIndex + 1;
+    tankCutsceneObj.anim.addBySymbol('tightBars', 'TANK TALK 2', 0, 0, false);
+    tankCutsceneObj.anim.play('tightBars');
+    PlayState.instance.currentStage.add(tankCutsceneObj);
+    PlayState.instance.currentStage.refresh(); // Update Z-Index in PlayState.
+
+    // Background Music
+    cutsceneConductor = new Conductor();
+
+    cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), true);
+    cutsceneMusic.play(false);
+
+    // The data in this can be incorrect, I have no idea what the bpm is or who made this. - CrusherNotDrip
+    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('DISTORTO');
+
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
+
+		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
+
+    PlayState.instance.cameraFollowPoint.y += 100;
+
+    var tightBarsSfx:FunkinSound = FunkinSound.load(Paths.sound("tankSong2", "week7"));
+    tightBarsSfx.play(false);
+
+    // Tankman makes Girlfriend cry.
+    new FlxTimer().start(4.1, function(gfCry:FlxTimer) {
+      FlxTween.tween(PlayState.instance, {currentCameraZoom: 0.9 * 1.4}, 0.4,
+      {
+        ease: FlxEase.quadOut
+      });
+
+      FlxTween.tween(PlayState.instance, {currentCameraZoom: 0.9 * 1.3}, 0.4,
+      {
+        ease: FlxEase.quadInOut,
+        startDelay: 0.45
+      });
+
+      PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+
+      // Just to make sure she cries until the song starts.
+      PlayState.instance.currentStage.getGirlfriend().animation.finishCallback = function (gfCryForever:String) {
+        PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+      };
+    });
+
+    // Finishing up the cutscene.
+    new FlxTimer().start(11, function(endCutscene:FlxTimer) {
+      PlayState.instance.cameraFollowPoint.x += 100;
+      PlayState.instance.cameraFollowPoint.y -= 100;
+
+      FlxTween.tween(PlayState.instance, {currentCameraZoom: PlayState.instance.stageZoom}, 0.5,
+      {
+        ease: FlxEase.quadInOut
+      });
+
+      tankCutsceneObj.destroy();
+
+      // The original opponent can come back now.
+      PlayState.instance.currentStage.getOpponent().visible = true;
+
+      // Stop the cutscene music.
+      cutsceneMusic.stop();
+      cutsceneMusic.destroy();
+
+      // Play the song now.
+      PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+    });
+  }
+
+  function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
+	}
+
+  function onCutsceneBeatHit():Void {
+    if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()
+        && PlayState.instance.currentStage.getGirlfriend().getCurrentAnimation() != 'sad') {
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}
+
+    if (PlayState.instance.currentStage.getPlayer().isAnimationFinished()) {
+			PlayState.instance.currentStage.getPlayer().dance(true);
+		}
+
+    if (PlayState.instance.currentStage.getNamedProp('watchtower') != null) {
+      PlayState.instance.currentStage.getNamedProp('watchtower').dance(true);
+    }
+
+    for (i in 0...6) {
+      if (PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i) != null) {
+        PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i).dance(true);
+      }
+    }
   }
 
   /**
