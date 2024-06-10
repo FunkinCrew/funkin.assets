@@ -25,7 +25,6 @@
           "name": "idle",
           "prefix": "Upper Crowd Bob",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -61,7 +60,6 @@
           "name": "idle",
           "prefix": "Bottom Level Boppers",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }
@@ -70,10 +68,18 @@
     {
       "name": "fgSnow",
       "assetPath": "christmas/fgSnow",
-      "position": [-600, 680],
+      "position": [-1150, 680],
       "scale": [1, 1],
       "scroll": [1, 1],
       "zIndex": 60
+    },
+     {
+      "name": "snowUnder",
+      "assetPath": "#F3F4F5",
+      "position": [-1200, 800],
+      "scale": [5400, 3000],
+      "scroll": [1,1],
+      "zIndex": 59
     },
     {
       "name": "santa",
@@ -89,7 +95,6 @@
           "name": "idle",
           "prefix": "santa idle in fear",
           "frameRate": 24,
-          "looped": false,
           "flipX": false,
           "flipY": false
         }

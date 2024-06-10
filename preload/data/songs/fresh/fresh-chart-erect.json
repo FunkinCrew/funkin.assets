@@ -2,7 +2,6 @@
   "version": "2.0.0",
   "scrollSpeed": {
     "erect": 2.3,
-    "normal": 1,
     "nightmare": 2.4
   },
   "events": [
@@ -544,7 +543,6 @@
     }
   ],
   "notes": {
-    "normal": [],
     "erect": [
       {
         "t": 0,

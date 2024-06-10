@@ -22,8 +22,7 @@
       "name": "enter",
       "prefix": "Text Box Appear0",
       "offsets": [0, 0],
-      "frameRate": 24,
-      "looped": false
+      "frameRate": 24
     },
     {
       "name": "speaking",
@@ -51,15 +50,13 @@
       "prefix": "Text Box Appear0",
       "offsets": [0, 0],
       "frameIndices": [4, 3, 2, 1, 0],
-      "frameRate": 24,
-      "looped": false
+      "frameRate": 24
     },
     {
       "name": "angrySenpai",
       "prefix": "SENPAI ANGRY IMPACT SPEECH0",
       "offsets": [0, 0],
-      "frameRate": 24,
-      "looped": false
+      "frameRate": 24
     }
   ]
 }

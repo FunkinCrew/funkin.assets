@@ -34,7 +34,6 @@
           "flipY": false,
           "frameRate": 24,
           "prefix": "halloweem bg lightning strike",
-          "looped": false,
           "flipX": false,
           "name": "lightning"
         }
