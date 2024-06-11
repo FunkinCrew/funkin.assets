@@ -37,12 +37,12 @@ class ThornsSong extends Song {
     PlayState.instance.camHUD.visible = false;
 
     var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
-    red.cameras = [PlayState.instance.camOther];
+    red.cameras = [PlayState.instance.camCutscene];
     red.alpha = 1.0;
     PlayState.instance.add(red);
 
     var senpaiCrazy = FunkinSprite.createSparrow(0, 0, 'weeb/senpaiCrazy');
-    senpaiCrazy.cameras = [PlayState.instance.camOther];
+    senpaiCrazy.cameras = [PlayState.instance.camCutscene];
     senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion instance 1', 24, false);
 		senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
     senpaiCrazy.antialiasing = false;
@@ -76,14 +76,14 @@ class ThornsSong extends Song {
           // Hard cut to the cutscene.
           PlayState.instance.remove(senpaiCrazy);
           PlayState.instance.remove(red);
-          PlayState.instance.camOther.fade(0xFFEEEEEE, 0.8, true);
+          PlayState.instance.camCutscene.fade(0xFFEEEEEE, 0.8, true);
           startDialogue();
         });
 
         // Fade to white 3.2 seconds into the cutscene.
         new FlxTimer().start(3.2, function(deadTime:FlxTimer)
         {
-          PlayState.instance.camOther.fade(0xFFEEEEEE, 1.6, false);
+          PlayState.instance.camCutscene.fade(0xFFEEEEEE, 1.6, false);
         });
       }
     });
