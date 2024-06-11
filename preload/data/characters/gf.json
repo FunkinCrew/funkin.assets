@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend",
-  "assetPath": "characters/GF_assets",
+  "assetPath": "characters/gf",
   "startingAnimation": "danceRight",
   "singTime": 8.0,
   "animations": [
@@ -27,21 +27,25 @@
     },
     {
       "name": "singLEFT",
+      "assetPath": "characters/gf_poses",
       "prefix": "GF left note",
       "offsets": [0, -19]
     },
     {
       "name": "singDOWN",
+      "assetPath": "characters/gf_poses",
       "prefix": "GF Down Note",
       "offsets": [0, -20]
     },
     {
       "name": "singUP",
+      "assetPath": "characters/gf_poses",
       "prefix": "GF Up Note",
       "offsets": [0, 4]
     },
     {
       "name": "singRIGHT",
+      "assetPath": "characters/gf_poses",
       "prefix": "GF Right Note",
       "offsets": [0, -20]
     },
@@ -63,18 +67,21 @@
     },
     {
       "name": "hairBlow",
+      "assetPath": "characters/gf_extra",
       "prefix": "GF Dancing Beat Hair blowing",
       "frameIndices": [0, 1, 2, 3],
       "offsets": [45, -8]
     },
     {
       "name": "hairFall",
+      "assetPath": "characters/gf_extra",
       "prefix": "GF Dancing Beat Hair Landing",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       "offsets": [0, -9]
     },
     {
       "name": "scared",
+      "assetPath": "characters/gf_extra",
       "prefix": "GF FEAR",
       "offsets": [-2, -17]
     }

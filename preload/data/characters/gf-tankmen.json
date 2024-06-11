@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Tankman Stickup)",
-  "assetPath": "characters/gfTankmen",
+  "assetPath": "characters/gf_tankmen",
   "startingAnimation": "danceLeft",
   "animations": [
     {

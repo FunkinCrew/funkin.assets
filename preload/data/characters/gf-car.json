@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Car)",
-  "assetPath": "characters/gfCar",
+  "assetPath": "characters/gf_car",
   "startingAnimation": "danceRight",
   "cameraOffsets": [0, -200],
   "animations": [
@@ -28,7 +28,7 @@
     },
     {
       "name": "duck",
-      "prefix": "GF Duck",
+      "prefix": "GF Duck Hair Blowing",
       "frameIndices": [0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
       "offsets": [0, -100]
     }
