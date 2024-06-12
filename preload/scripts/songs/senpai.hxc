@@ -37,8 +37,6 @@ class SenpaiSong extends Song {
   function transitionToDialogue() {
     trace('Transitioning to dialogue.');
 
-    PlayState.instance.camCutscene.visible = true;
-
     var black:FlxSprite = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
     black.cameras = [PlayState.instance.camCutscene];
     black.zIndex = 1000000;

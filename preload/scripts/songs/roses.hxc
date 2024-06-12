@@ -79,8 +79,6 @@ class RosesSong extends Song {
     if (event.beat == 180 && PlayStatePlaylist.isStoryMode) {
       trace('Hit end of song! Starting outro.');
 
-      PlayState.instance.camCutscene.visible = true;
-
       var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
       red.cameras = [PlayState.instance.camCutscene];
 

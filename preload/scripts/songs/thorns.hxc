@@ -35,7 +35,6 @@ class ThornsSong extends Song {
     trace('Hit start of song! Starting cutscene.');
 
     PlayState.instance.camHUD.visible = false;
-    PlayState.instance.camCutscene.visible = true;
 
     var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
     red.cameras = [PlayState.instance.camCutscene];
