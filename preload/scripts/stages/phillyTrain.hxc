@@ -16,7 +16,13 @@ class PhillyTrainStage extends Stage
 		super('phillyTrain');
 	}
 
-	var LIGHT_COUNT:Int = 5;
+	var LIGHT_COLORS:Array<Int> = [
+		0xFF31A2FD, // Blue
+		0xFF31FD8C, // Green
+		0xFFFB33F5, // Magenta
+		0xFFFD4531, // Red
+		0xFFFBA633 // Orange
+	];
 
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FunkinSound;
@@ -30,12 +36,7 @@ class PhillyTrainStage extends Stage
 		trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
 		PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
-		for (i in 0...LIGHT_COUNT)
-		{
-			var light:FlxSprite = getNamedProp('lights' + i);
-			light.shader = lightShader;
-			light.visible = false;
-		}
+		getNamedProp('lights').shader = lightShader;
 	}
 
 	function fetchAssetPaths():Array<String>
@@ -92,11 +93,8 @@ class PhillyTrainStage extends Stage
 			lightShader.scriptCall('reset');
 
 			// Switch to a different light
-			curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
-			for (i in 0...LIGHT_COUNT)
-			{
-				getNamedProp('lights' + i).visible = (i == curLight);
-			}
+			curLight = FlxG.random.int(0, LIGHT_COLORS.length - 1);
+			getNamedProp('lights').color = LIGHT_COLORS[curLight];
 		}
 	}
 
