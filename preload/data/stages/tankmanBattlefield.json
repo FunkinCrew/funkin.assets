@@ -82,8 +82,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "watchtower gradient color",
-          "looped": false
+          "prefix": "watchtower gradient color"
         }
       ],
       "startingAnimation": "idle"

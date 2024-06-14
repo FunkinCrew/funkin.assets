@@ -2,17 +2,9 @@
   "version": "2.2.1",
   "songName": "Pico Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf": 0
-    }
-  },
+  "charter": "fabs + Spazkid",
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
@@ -22,11 +14,7 @@
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": {
-      "normal": 0,
-      "erect": 0,
-      "nightmare": 0
-    },
+    "ratings": { "erect": 8, "nightmare": 9 },
     "previewStart": 0,
     "previewEnd": 15000
   },
