@@ -15,12 +15,5 @@ class ABotAtlasSprite extends FlxAtlasSprite
       Antialiasing: true,
       ScrollFactor: new FlxPoint(1, 1),
     });
-
-    Conductor.instance.onBeatHit.add(() -> {
-
-        playAnimation("");
-        anim.curFrame = 1;
-
-    });
   }
 }
