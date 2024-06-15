@@ -1,6 +1,7 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.Paths;
 import flixel.math.FlxPoint;
+import funkin.Conductor;
 
 class ABotAtlasSprite extends FlxAtlasSprite
 {
@@ -13,6 +14,13 @@ class ABotAtlasSprite extends FlxAtlasSprite
       ShowPivot: false,
       Antialiasing: true,
       ScrollFactor: new FlxPoint(1, 1),
+    });
+
+    Conductor.instance.onBeatHit.add(() -> {
+
+        playAnimation("");
+        anim.curFrame = 1;
+
     });
   }
 }
