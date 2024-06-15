@@ -126,7 +126,7 @@ class NeneCharacter extends SparrowCharacter {
 		if (abot != null)
 		{
 			abot.playAnimation("");
-    	abot.anim.curFrame = 1;
+    	abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
 		}
 
 
