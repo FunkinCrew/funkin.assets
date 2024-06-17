@@ -56,6 +56,12 @@
       "data": {
         "enabled": false
       }
+    },
+    "rating": {
+      "assetPath": "week6:weeb/pixelUI/",
+      "scale": 6.0,
+      "isPixel": true,
+      "data": {}
     }
   }
 }
