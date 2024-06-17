@@ -52,6 +52,10 @@
       "data": {
         "enabled": true
       }
+    },
+    "rating": {
+      "assetPath": "",
+      "data": {}
     }
   }
 }
