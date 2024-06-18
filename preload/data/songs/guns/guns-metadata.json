@@ -5,10 +5,13 @@
   "playData": {
     "album": "volume2",
     "stage": "tankmanBattlefield",
+    "songVariations": ["pico"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
-      "opponent": "tankman"
+      "opponent": "tankman",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
     },
     "ratings": { "easy": 2, "normal": 4, "hard": 5 },
     "difficulties": ["easy", "normal", "hard"],

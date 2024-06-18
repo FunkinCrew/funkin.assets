@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend",
+  "ownedChars": ["bf", "bf-car", "bf-pixel", "bf-christmas", "bf-holding-gf"],
+  "showUnownedChars": true,
+  "unlocked": true
+}
