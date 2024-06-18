@@ -140,11 +140,9 @@ class StressSong extends Song {
     // Background Music
     cutsceneConductor = new Conductor();
 
+    // BUG: It loads the first one thats played and completely ignores the music suffix regardless of the Naughty preference.
+    // I don't know how to fix that as im somewhat new to Friday Night Funkin' 0.3+ scripting. - CrusherNotDrip
     var musicSuffix:String = "";
-
-    if (Preferences.naughty) {
-      musicSuffix += "-censored";
-    }
 
     cutsceneMusic = FunkinSound.load(Paths.music("stressCutscene/stressCutscene" + musicSuffix, "week7"), true);
     cutsceneMusic.play(false);
@@ -222,6 +220,9 @@ class StressSong extends Song {
 
       PlayState.instance.currentStage.getPlayer().playAnimation("singUPmiss");
 
+      // We can see his head cut off during this part so we will hide him until the player is done his miss animation.
+      PlayState.instance.currentStage.getNamedProp("tankmanAudience3").alpha = 0;
+
       PlayState.instance.currentStage.getPlayer().animation.finishCallback = function (bfMiss:String) {
         PlayState.instance.currentStage.getPlayer().dance(true);
 
@@ -229,6 +230,8 @@ class StressSong extends Song {
         PlayState.instance.cameraFollowPoint.y -= 150;
         PlayState.instance.currentCameraZoom /= 1.4;
         FlxG.camera.snapToTarget();
+
+        PlayState.instance.currentStage.getNamedProp("tankmanAudience3").alpha = 1;
 
         PlayState.instance.currentStage.getPlayer().animation.finishCallback = null;
       };
