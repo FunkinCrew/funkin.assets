@@ -13,6 +13,9 @@
       "loopFrame": 166,
       "channelChangeFrame": 60
     },
+    "text1": "BOYFRIEND",
+    "text2": "HOT BLOODED IN MORE WAYS THAN ONE",
+    "text3": "PROTECT YO NUTS",
     "animations": [
       {
         "name": "intro",
@@ -47,32 +50,6 @@
       {
         "name": "loss",
         "prefix": "Boyfriend DJ loss reaction 1",
-        "offsets": [0, 0]
-      },
-
-      {
-        "name": "boyfriend dj intro",
-        "prefix": "boyfriend dj intro",
-        "offsets": [6.7, 2.6]
-      },
-      {
-        "name": "Boyfriend DJ",
-        "prefix": "Boyfriend DJ",
-        "offsets": [0, 0]
-      },
-      {
-        "name": "Boyfriend DJ confirm",
-        "prefix": "Boyfriend DJ confirm",
-        "offsets": [0, 0]
-      },
-      {
-        "name": "bf dj afk",
-        "prefix": "bf dj afk",
-        "offsets": [649.5, 58.5]
-      },
-      {
-        "name": "Boyfriend DJ watchin tv OG",
-        "prefix": "Boyfriend DJ watchin tv OG",
         "offsets": [0, 0]
       }
     ]
