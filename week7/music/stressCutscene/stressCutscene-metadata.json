@@ -1,0 +1,12 @@
+{
+  "timeFormat": "ms",
+  "artist": "Kawai Sprite",
+  "songName": "Stress Cutscene",
+  "timeChanges": [
+    { "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 115 },
+    { "d": 4, "n": 4, "t": 11500, "bt": [4, 4, 4, 4], "bpm": 120 }
+  ],
+  "looped": true,
+  "generatedBy": "CrusherNotDrip (by hand)",
+  "version": "2.0.0"
+}
