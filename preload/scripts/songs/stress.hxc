@@ -12,6 +12,7 @@ import funkin.Conductor;
 import funkin.Paths;
 import funkin.Preferences;
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -103,12 +104,20 @@ class StressSong extends Song {
       trace("WARNING: Could not load girlfriend character with ID gf-tankmen, skipping...");
     }
 
-    // Setup GF Atlas object.
-    var gfCutsceneObj:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("cutscene/gfPico", "week7"));
-    gfCutsceneObj.setPosition(PlayState.instance.currentStage.getGirlfriend().x - 114, PlayState.instance.currentStage.getGirlfriend().y + 119);
-    gfCutsceneObj.zIndex = PlayState.instance.currentStage.getGirlfriend().zIndex - 1;
+    // Setup GF Turning Sparrow object.
+    var gfCutsceneObj:FlxSprite = new FlxSprite(fakeGF.x - 220, fakeGF.y - 463);
+    gfCutsceneObj.frames = Paths.getSparrowAtlas("cutscene/GF_Turn", "week7");
+    gfCutsceneObj.animation.addByPrefix("gfTurn", "GF STARTS TO TURN", 24, false);
+    gfCutsceneObj.zIndex = PlayState.instance.currentStage.getGirlfriend().zIndex - 2;
     gfCutsceneObj.visible = false;
     PlayState.instance.currentStage.add(gfCutsceneObj);
+
+    // Setup Pico Atlas object.
+    var picoCutsceneObj:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("cutscene/pico", "week7"));
+    picoCutsceneObj.setPosition(PlayState.instance.currentStage.getGirlfriend().x - 114, PlayState.instance.currentStage.getGirlfriend().y + 119);
+    picoCutsceneObj.zIndex = gfCutsceneObj.zIndex + 1;
+    picoCutsceneObj.visible = false;
+    PlayState.instance.currentStage.add(picoCutsceneObj);
 
     // Setup a Fake Boyfriend.
     fakeBF = CharacterDataParser.fetchCharacter("bf");
@@ -130,9 +139,9 @@ class StressSong extends Song {
     var tankCutsceneObj:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("cutscene/tankman", "week7"));
     tankCutsceneObj.setPosition(PlayState.instance.currentStage.getOpponent().x + 417, PlayState.instance.currentStage.getOpponent().y + 225);
     tankCutsceneObj.zIndex = PlayState.instance.currentStage.getOpponent().zIndex + 1;
-    tankCutsceneObj.anim.addBySymbol('godEffingDamnIt', 'TANK TALK 3 P1', 0, 0, false);
-    tankCutsceneObj.anim.addBySymbol('lookWhoItIs', 'TANK TALK 3 P2', 0, 0, false);
-    tankCutsceneObj.anim.play('godEffingDamnIt');
+    tankCutsceneObj.anim.addBySymbol("godEffingDamnIt", "TANK TALK 3 P1", 0, 0, false);
+    tankCutsceneObj.anim.addBySymbol("lookWhoItIs", "TANK TALK 3 P2", 0, 0, false);
+    tankCutsceneObj.anim.play("godEffingDamnIt");
     PlayState.instance.currentStage.add(tankCutsceneObj);
 
     PlayState.instance.currentStage.refresh(); // Update Z-Index in PlayState.
@@ -141,13 +150,12 @@ class StressSong extends Song {
     cutsceneConductor = new Conductor();
 
     // BUG: It loads the first one thats played and completely ignores the music suffix regardless of the Naughty preference.
-    // I don't know how to fix that as im somewhat new to Friday Night Funkin' 0.3+ scripting. - CrusherNotDrip
     var musicSuffix:String = "";
 
     cutsceneMusic = FunkinSound.load(Paths.music("stressCutscene/stressCutscene" + musicSuffix, "week7"), true);
     cutsceneMusic.play(false);
 
-    // The data in this can be incorrect, I have no idea what the bpm is or who made this. - CrusherNotDrip
+    // Note: The data in this can be incorrect.
     var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('stressCutscene');
 
 		if (songMusicData != null) {
@@ -166,11 +174,17 @@ class StressSong extends Song {
       fakeGF.destroy();
 
       gfCutsceneObj.visible = true;
-      gfCutsceneObj.anim.play();
+      gfCutsceneObj.animation.play("gfTurn");
 
-      gfCutsceneObj.anim.onComplete = function () {
-        PlayState.instance.currentStage.getGirlfriend().visible = true;
+      gfCutsceneObj.animation.finishCallback = () -> {
+        picoCutsceneObj.visible = true;
+        picoCutsceneObj.anim.play();
         gfCutsceneObj.destroy();
+      }
+
+      picoCutsceneObj.anim.onComplete = function () {
+        PlayState.instance.currentStage.getGirlfriend().visible = true;
+        picoCutsceneObj.destroy();
       };
 
       FlxTween.tween(PlayState.instance, {currentCameraZoom: FlxG.camera.zoom * 1.3}, 2.1,
@@ -285,13 +299,13 @@ class StressSong extends Song {
 			PlayState.instance.currentStage.getPlayer().dance(true);
 		}
 
-    if (PlayState.instance.currentStage.getNamedProp('watchtower') != null) {
-      PlayState.instance.currentStage.getNamedProp('watchtower').dance(true);
+    if (PlayState.instance.currentStage.getNamedProp("watchtower") != null) {
+      PlayState.instance.currentStage.getNamedProp("watchtower").dance(true);
     }
 
     for (i in 0...6) {
-      if (PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i) != null) {
-        PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i).dance(true);
+      if (PlayState.instance.currentStage.getNamedProp("tankmanAudience" + i) != null) {
+        PlayState.instance.currentStage.getNamedProp("tankmanAudience" + i).dance(true);
       }
     }
   }

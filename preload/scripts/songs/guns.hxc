@@ -63,8 +63,8 @@ class GunsSong extends Song {
     var tankCutsceneObj:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("cutscene/tankman", "week7"));
     tankCutsceneObj.setPosition(PlayState.instance.currentStage.getOpponent().x + 417, PlayState.instance.currentStage.getOpponent().y + 225);
     tankCutsceneObj.zIndex = PlayState.instance.currentStage.getOpponent().zIndex + 1;
-    tankCutsceneObj.anim.addBySymbol('tightBars', 'TANK TALK 2', 0, 0, false);
-    tankCutsceneObj.anim.play('tightBars');
+    tankCutsceneObj.anim.addBySymbol("tightBars", "TANK TALK 2", 0, 0, false);
+    tankCutsceneObj.anim.play("tightBars");
     PlayState.instance.currentStage.add(tankCutsceneObj);
     PlayState.instance.currentStage.refresh(); // Update Z-Index in PlayState.
 
@@ -74,8 +74,8 @@ class GunsSong extends Song {
     cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), true);
     cutsceneMusic.play(false);
 
-    // The data in this can be incorrect, I have no idea what the bpm is or who made this. - CrusherNotDrip
-    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('DISTORTO');
+    // Note: The data in this can be incorrect.
+    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData("DISTORTO");
 
 		if (songMusicData != null) {
 			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
@@ -143,7 +143,7 @@ class GunsSong extends Song {
 
   function onCutsceneBeatHit():Void {
     if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()
-        && PlayState.instance.currentStage.getGirlfriend().getCurrentAnimation() != 'sad') {
+        && PlayState.instance.currentStage.getGirlfriend().getCurrentAnimation() != "sad") {
 			PlayState.instance.currentStage.getGirlfriend().dance(true);
 		}
 
@@ -151,13 +151,13 @@ class GunsSong extends Song {
 			PlayState.instance.currentStage.getPlayer().dance(true);
 		}
 
-    if (PlayState.instance.currentStage.getNamedProp('watchtower') != null) {
-      PlayState.instance.currentStage.getNamedProp('watchtower').dance(true);
+    if (PlayState.instance.currentStage.getNamedProp("watchtower") != null) {
+      PlayState.instance.currentStage.getNamedProp("watchtower").dance(true);
     }
 
     for (i in 0...6) {
-      if (PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i) != null) {
-        PlayState.instance.currentStage.getNamedProp('tankmanAudience' + i).dance(true);
+      if (PlayState.instance.currentStage.getNamedProp("tankmanAudience" + i) != null) {
+        PlayState.instance.currentStage.getNamedProp("tankmanAudience" + i).dance(true);
       }
     }
   }
