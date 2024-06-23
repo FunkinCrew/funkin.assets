@@ -1,7 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="arrows.png">
-	<SubTexture name="leftIdle0000" x="4" y="4" width="48" height="85" />
-	<SubTexture name="rightIdle0000" x="56" y="4" width="47" height="85" />
-	<SubTexture name="leftConfirm0000" x="107" y="4" width="42" height="75" />
-	<SubTexture name="rightConfirm0000" x="153" y="4" width="41" height="74" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="arrows.png" width="188" height="87" spritePadding="3" borderPadding="1">
+	<SubTexture name="arrow left" x="1" y="1" width="48" height="85" frameX="0" frameY="0" frameWidth="48" frameHeight="85"/>
+	<SubTexture name="arrow push left" x="102" y="1" width="42" height="74" frameX="0" frameY="0" frameWidth="42" frameHeight="74"/>
+	<SubTexture name="arrow push right" x="147" y="1" width="40" height="73" frameX="0" frameY="0" frameWidth="40" frameHeight="73"/>
+	<SubTexture name="arrow right" x="52" y="1" width="47" height="85" frameX="0" frameY="0" frameWidth="47" frameHeight="85"/>
 </TextureAtlas>

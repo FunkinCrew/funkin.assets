@@ -1,15 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="storymode.png">
-	<SubTexture name="storymode idle0000" x="0" y="540" width="615" height="122" />
-	<SubTexture name="storymode idle0001" x="0" y="540" width="615" height="122" />
-	<SubTexture name="storymode idle0002" x="0" y="540" width="615" height="122" />
-	<SubTexture name="storymode idle0003" x="0" y="666" width="615" height="122" />
-	<SubTexture name="storymode idle0004" x="0" y="666" width="615" height="122" />
-	<SubTexture name="storymode idle0005" x="0" y="666" width="615" height="122" />
-	<SubTexture name="storymode idle0006" x="0" y="792" width="615" height="122" />
-	<SubTexture name="storymode idle0007" x="0" y="792" width="615" height="122" />
-	<SubTexture name="storymode idle0008" x="0" y="792" width="615" height="122" />
-	<SubTexture name="storymode selected0000" x="0" y="363" width="796" height="173" frameX="0" frameY="-3" frameWidth="796" frameHeight="181" />
-	<SubTexture name="storymode selected0001" x="0" y="185" width="794" height="174" frameX="-2" frameY="-2" frameWidth="796" frameHeight="181" />
-	<SubTexture name="storymode selected0002" x="0" y="0" width="794" height="181" frameX="0" frameY="0" frameWidth="796" frameHeight="181" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="storymode.png" width="663" height="1047" spritePadding="3" borderPadding="1">
+	<SubTexture name="story mode basic0001" x="540" y="1" width="122" height="615" rotated="true" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0002" x="540" y="1" width="122" height="615" rotated="true" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0003" x="540" y="1" width="122" height="615" rotated="true" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0004" x="1" y="799" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0005" x="1" y="799" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0006" x="1" y="799" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0007" x="1" y="924" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0008" x="1" y="924" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode basic0009" x="1" y="924" width="615" height="122" frameX="0" frameY="0" frameWidth="615" frameHeight="122"/>
+	<SubTexture name="story mode white0001" x="363" y="1" width="174" height="795" rotated="true" frameX="0" frameY="-2" frameWidth="795" frameHeight="181"/>
+	<SubTexture name="story mode white0002" x="185" y="1" width="175" height="794" rotated="true" frameX="-1" frameY="-1" frameWidth="795" frameHeight="181"/>
+	<SubTexture name="story mode white0003" x="1" y="1" width="181" height="794" rotated="true" frameX="0" frameY="0" frameWidth="795" frameHeight="181"/>
 </TextureAtlas>
