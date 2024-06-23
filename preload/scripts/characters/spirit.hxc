@@ -7,23 +7,12 @@ class SpiritCharacter extends PackerCharacter {
 		super('spirit');
 	}
 
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
+	override function onAdd(event:ScriptEvent) {
+		super.onAdd(event);
 
-		// Weird workaround because `this` is a PolymodScriptClass and not a ScriptedPackerCharacter.
 		var evilTrail = new FlxTrail(this.superClass, null, 4, 24, 0.3, 0.069);
-
 		// Go behind Spirit.
-		evilTrail.zIndex = this.zIndex - 10;
-		addToStage(evilTrail);
-	}
-
-	function addToStage(sprite:FlxSprite) {
-		if (this.debug) {
-			// We are in the chart editor or something.
-			FlxG.stage.add(sprite);
-		} else {
-			PlayState.instance.currentStage.add(sprite);
-		}
+		evilTrail.zIndex = 190;
+		PlayState.instance.currentStage.add(evilTrail);
 	}
 }
