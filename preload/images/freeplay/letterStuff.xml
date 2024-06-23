@@ -1,34 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="letterStuff.png">
-	<SubTexture name="# instance 10000" x="0" y="55" width="52" height="53" />
-	<SubTexture name="ALL instance 10000" x="0" y="0" width="56" height="50" />
-	<SubTexture name="a instance 10000" x="57" y="55" width="48" height="51" />
-	<SubTexture name="b instance 10000" x="213" y="103" width="46" height="49" />
-	<SubTexture name="c instance 10000" x="112" y="106" width="44" height="52" />
-	<SubTexture name="d instance 10000" x="56" y="167" width="47" height="52" />
-	<SubTexture name="e instance 10000" x="331" y="0" width="41" height="50" />
-	<SubTexture name="f instance 10000" x="323" y="55" width="41" height="49" />
-	<SubTexture name="fav instance 10000" x="110" y="54" width="51" height="47" />
-	<SubTexture name="g instance 10000" x="314" y="209" width="44" height="47" />
-	<SubTexture name="h instance 10000" x="159" y="163" width="48" height="47" />
-	<SubTexture name="i instance 10000" x="161" y="106" width="47" height="48" />
-	<SubTexture name="j instance 10000" x="108" y="167" width="46" height="50" />
-	<SubTexture name="k instance 10000" x="263" y="157" width="47" height="47" />
-	<SubTexture name="l instance 10000" x="315" y="109" width="42" height="47" />
-	<SubTexture name="m instance 10000" x="61" y="0" width="49" height="49" />
-	<SubTexture name="mini arrow instance 10000" x="363" y="109" width="15" height="23" />
-	<SubTexture name="n instance 10000" x="220" y="50" width="47" height="47" />
-	<SubTexture name="o instance 10000" x="272" y="50" width="46" height="46" />
-	<SubTexture name="p instance 10000" x="279" y="0" width="47" height="45" />
-	<SubTexture name="q instance 10000" x="0" y="113" width="51" height="50" />
-	<SubTexture name="r instance 10000" x="115" y="0" width="50" height="47" />
-	<SubTexture name="s instance 10000" x="212" y="159" width="46" height="49" />
-	<SubTexture name="seperator instance 10000" x="363" y="137" width="17" height="18" />
-	<SubTexture name="t instance 10000" x="166" y="52" width="49" height="46" />
-	<SubTexture name="u instance 10000" x="263" y="209" width="46" height="47" />
-	<SubTexture name="v instance 10000" x="264" y="102" width="46" height="46" />
-	<SubTexture name="w instance 10000" x="170" y="0" width="50" height="45" />
-	<SubTexture name="x instance 10000" x="225" y="0" width="49" height="45" />
-	<SubTexture name="y instance 10000" x="56" y="113" width="51" height="49" />
-	<SubTexture name="z instance 10000" x="0" y="168" width="51" height="49" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="letterStuff.png" width="256" height="299" spritePadding="3" borderPadding="1">
+	<SubTexture name="# instance 1" x="1" y="53" width="52" height="51" rotated="true" frameX="0" frameY="0" frameWidth="51" frameHeight="52"/>
+	<SubTexture name="ALL instance 1" x="1" y="1" width="55" height="49" frameX="0" frameY="0" frameWidth="55" frameHeight="49"/>
+	<SubTexture name="a instance 1" x="59" y="1" width="50" height="47" rotated="true" frameX="0" frameY="0" frameWidth="47" frameHeight="50"/>
+	<SubTexture name="b instance 1" x="53" y="205" width="48" height="45" rotated="true" frameX="0" frameY="0" frameWidth="45" frameHeight="48"/>
+	<SubTexture name="c instance 1" x="158" y="49" width="44" height="50" frameX="0" frameY="0" frameWidth="44" frameHeight="50"/>
+	<SubTexture name="d instance 1" x="109" y="51" width="46" height="51" frameX="0" frameY="0" frameWidth="46" frameHeight="51"/>
+	<SubTexture name="e instance 1" x="154" y="255" width="49" height="40" rotated="true" frameX="0" frameY="0" frameWidth="40" frameHeight="49"/>
+	<SubTexture name="f instance 1" x="1" y="255" width="48" height="41" rotated="true" frameX="0" frameY="0" frameWidth="41" frameHeight="48"/>
+	<SubTexture name="fav instance 1" x="54" y="156" width="50" height="46" frameX="0" frameY="0" frameWidth="50" frameHeight="46"/>
+	<SubTexture name="g instance 1" x="104" y="252" width="47" height="43" rotated="true" frameX="0" frameY="0" frameWidth="43" frameHeight="47"/>
+	<SubTexture name="h instance 1" x="161" y="102" width="47" height="46" frameX="0" frameY="0" frameWidth="47" frameHeight="46"/>
+	<SubTexture name="i instance 1" x="159" y="156" width="47" height="47" frameX="0" frameY="0" frameWidth="47" frameHeight="47"/>
+	<SubTexture name="j instance 1" x="1" y="158" width="49" height="46" rotated="true" frameX="0" frameY="0" frameWidth="46" frameHeight="49"/>
+	<SubTexture name="k instance 1" x="209" y="151" width="45" height="47" frameX="0" frameY="0" frameWidth="45" frameHeight="47"/>
+	<SubTexture name="l instance 1" x="206" y="255" width="47" height="41" rotated="true" frameX="0" frameY="0" frameWidth="41" frameHeight="47"/>
+	<SubTexture name="m instance 1" x="110" y="105" width="48" height="48" frameX="0" frameY="0" frameWidth="48" frameHeight="48"/>
+	<SubTexture name="mini arrow instance 1" x="215" y="1" width="15" height="22" frameX="0" frameY="0" frameWidth="15" frameHeight="22"/>
+	<SubTexture name="n instance 1" x="156" y="206" width="46" height="46" frameX="0" frameY="0" frameWidth="46" frameHeight="46"/>
+	<SubTexture name="o instance 1" x="52" y="253" width="44" height="45" frameX="0" frameY="0" frameWidth="44" frameHeight="45"/>
+	<SubTexture name="p instance 1" x="205" y="48" width="46" height="44" frameX="0" frameY="0" frameWidth="46" frameHeight="44"/>
+	<SubTexture name="q instance 1" x="56" y="53" width="50" height="49" frameX="0" frameY="0" frameWidth="50" frameHeight="49"/>
+	<SubTexture name="r instance 1" x="107" y="156" width="49" height="46" frameX="0" frameY="0" frameWidth="49" frameHeight="46"/>
+	<SubTexture name="s instance 1" x="1" y="207" width="48" height="45" rotated="true" frameX="0" frameY="0" frameWidth="45" frameHeight="48"/>
+	<SubTexture name="seperator instance 1" x="215" y="26" width="17" height="17" frameX="0" frameY="0" frameWidth="17" frameHeight="17"/>
+	<SubTexture name="t instance 1" x="112" y="1" width="49" height="45" frameX="0" frameY="0" frameWidth="49" frameHeight="45"/>
+	<SubTexture name="u instance 1" x="211" y="95" width="44" height="46" frameX="0" frameY="0" frameWidth="44" frameHeight="46"/>
+	<SubTexture name="v instance 1" x="205" y="206" width="46" height="46" frameX="0" frameY="0" frameWidth="46" frameHeight="46"/>
+	<SubTexture name="w instance 1" x="104" y="205" width="49" height="44" frameX="0" frameY="0" frameWidth="49" frameHeight="44"/>
+	<SubTexture name="x instance 1" x="164" y="1" width="48" height="44" frameX="0" frameY="0" frameWidth="48" frameHeight="44"/>
+	<SubTexture name="y instance 1" x="56" y="105" width="51" height="48" frameX="0" frameY="0" frameWidth="51" frameHeight="48"/>
+	<SubTexture name="z instance 1" x="1" y="107" width="50" height="48" frameX="0" frameY="0" frameWidth="50" frameHeight="48"/>
 </TextureAtlas>

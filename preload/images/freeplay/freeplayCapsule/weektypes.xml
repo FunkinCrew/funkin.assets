@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="weektypes.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="WEEK text instance 10000" x="0" y="0" width="107" height="29"/>
-	<SubTexture name="WEEKEND text instance 10000" x="107" y="0" width="107" height="29"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="weektypes.png" width="165" height="19" spritePadding="3" borderPadding="1">
+	<SubTexture name="WEEK text instance 10000" x="105" y="1" width="59" height="17" frameX="-3" frameY="-6" frameWidth="107" frameHeight="29"/>
+	<SubTexture name="WEEKEND text instance 10000" x="1" y="1" width="101" height="17" frameX="-3" frameY="-6" frameWidth="107" frameHeight="29"/>
 </TextureAtlas>

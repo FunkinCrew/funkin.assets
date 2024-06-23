@@ -1,15 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="bignumbers.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="ZERO0000" x="369" y="0" width="41" height="67"/>
-	<SubTexture name="ONE0000" x="0" y="0" width="41" height="67"/>
-	<SubTexture name="TWO0000" x="41" y="0" width="41" height="67"/>
-	<SubTexture name="THREE0000" x="82" y="0" width="41" height="67"/>
-	<SubTexture name="FOUR0000" x="123" y="0" width="41" height="67"/>
-	<SubTexture name="FIVE0000" x="164" y="0" width="41" height="67"/>
-	<SubTexture name="SIX0000" x="205" y="0" width="41" height="67"/>
-	<SubTexture name="SEVEN0000" x="246" y="0" width="41" height="67"/>
-	<SubTexture name="EIGHT0000" x="287" y="0" width="41" height="67"/>
-	<SubTexture name="NINE0000" x="328" y="0" width="41" height="67"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="bignumbers.png" width="337" height="43" spritePadding="3" borderPadding="1">
+	<SubTexture name="ZERO0000" x="304" y="1" width="32" height="41" frameX="-4" frameY="-13" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="ONE0000" x="282" y="1" width="19" height="41" frameX="-3" frameY="-13" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="TWO0000" x="177" y="1" width="33" height="39" frameX="-4" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="THREE0000" x="143" y="1" width="31" height="39" frameX="-4" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="FOUR0000" x="248" y="1" width="31" height="41" frameX="-4" frameY="-13" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="FIVE0000" x="37" y="1" width="33" height="39" frameX="-4" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="SIX0000" x="108" y="1" width="32" height="39" frameX="-4" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="SEVEN0000" x="213" y="1" width="32" height="40" frameX="-3" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="EIGHT0000" x="1" y="1" width="33" height="39" frameX="-3" frameY="-14" frameWidth="41" frameHeight="67"/>
+	<SubTexture name="NINE0000" x="73" y="1" width="32" height="39" frameX="-4" frameY="-14" frameWidth="41" frameHeight="67"/>
 </TextureAtlas>
