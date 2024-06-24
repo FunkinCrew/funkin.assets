@@ -1,0 +1,55 @@
+{
+  "version": "2.2.3",
+  "songName": "DadBattle Pico",
+  "artist": "Kawai Sprite",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {    },
+    "vocals": {
+      "pico-playable": 0,
+      "dad": 0
+    }
+  },
+  "playData": {
+    "songVariations": [    ],
+    "difficulties": [
+      "hard"
+    ],
+    "characters": {
+      "player": "pico-playable",
+      "girlfriend": "nene",
+      "opponent": "dad",
+      "instrumental": "",
+      "altInstrumentals": [      ]
+    },
+    "stage": "phillyStreets",
+    "noteStyle": "funkin",
+    "ratings": {
+      "easy": 1,
+      "normal": 1,
+      "hard": 3
+    },
+    "album": "volume1",
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Friday Night Funkin' - v0.4.1",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 180,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}
