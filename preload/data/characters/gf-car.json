@@ -3,6 +3,7 @@
   "name": "Girlfriend (Car)",
   "assetPath": "characters/gfCar",
   "startingAnimation": "danceRight",
+  "offsets": [17.7, 2],
   "cameraOffsets": [0, -200],
   "animations": [
     {
@@ -30,7 +31,7 @@
       "name": "duck",
       "prefix": "GF Duck",
       "frameIndices": [0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-      "offsets": [0, -100]
+      "offsets": [4, -86]
     }
   ]
 }

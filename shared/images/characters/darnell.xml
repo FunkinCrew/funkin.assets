@@ -40,7 +40,7 @@
   <SubTexture name="Pose Left0010" x="4203" y="485" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Left0011" x="8" y="921" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Left0012" x="8" y="921" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Left Flame Loop0001" x="2931" y="450" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Left Flame Loop0001" x="3355" y="482" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
   <SubTexture name="Left Flame Loop0002" x="3355" y="482" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
   <SubTexture name="Left Flame Loop0003" x="3779" y="482" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
   <SubTexture name="Left Flame Loop0004" x="3779" y="482" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
@@ -60,14 +60,13 @@
   <SubTexture name="Pose Down0010" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Down0011" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Down0012" x="3080" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0001" x="1328" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0002" x="1766" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0003" x="1766" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0004" x="2204" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0005" x="2204" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0006" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0007" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Down Flame Loop0008" x="3080" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Pose Down0013" x="3080" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0001" x="2204" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0002" x="2204" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0003" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0004" x="2642" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0005" x="3080" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Down Flame Loop0006" x="3080" y="8" width="422" height="426" frameX="-40" frameY="-109" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Right0001" x="1211" y="1921" width="431" height="487" frameX="-40" frameY="-66" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Right0002" x="1658" y="1922" width="431" height="487" frameX="-40" frameY="-66" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Right0003" x="3591" y="2468" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
@@ -80,7 +79,7 @@
   <SubTexture name="Pose Right0010" x="1322" y="2928" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Right0011" x="1760" y="2929" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Right0012" x="1760" y="2929" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Right Flame Loop0001" x="8" y="2914" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Right Flame Loop0001" x="446" y="2914" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
   <SubTexture name="Right Flame Loop0002" x="446" y="2914" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
   <SubTexture name="Right Flame Loop0003" x="884" y="2927" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
   <SubTexture name="Right Flame Loop0004" x="884" y="2927" width="422" height="491" frameX="-52" frameY="-62" frameWidth="643" frameHeight="665" />
@@ -100,14 +99,12 @@
   <SubTexture name="Pose Up0010" x="2216" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Up0011" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Up0012" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0001" x="744" y="3434" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0002" x="1112" y="3435" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0003" x="1480" y="3436" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0004" x="1848" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0005" x="2216" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0006" x="2216" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0007" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Up Flame Loop0008" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0001" x="1848" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0002" x="1848" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0003" x="2216" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0004" x="2216" y="3454" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0005" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
+  <SubTexture name="Up Flame Loop0006" x="2584" y="3486" width="352" height="547" frameX="-61" frameY="-6" frameWidth="643" frameHeight="665" />
   <SubTexture name="Laugh0001" x="1622" y="927" width="390" height="480" frameX="-46" frameY="-71" frameWidth="643" frameHeight="665" />
   <SubTexture name="Laugh0002" x="1622" y="927" width="390" height="480" frameX="-46" frameY="-71" frameWidth="643" frameHeight="665" />
   <SubTexture name="Laugh0003" x="3497" y="1460" width="385" height="486" frameX="-49" frameY="-65" frameWidth="643" frameHeight="665" />

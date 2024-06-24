@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "name": "Pico (Playable)",
   "assetPath": "characters/Pico_Basic",
+  "offsets": [5.4, 18],
   "healthIcon": {
     "id": "pico",
     "flipX": false

@@ -3,6 +3,7 @@
   "name": "Nene",
   "assetPath": "characters/Nene",
   "startingAnimation": "danceRight",
+  "offsets": [-37, -85],
   "animations": [
     {
       "name": "danceLeft",
@@ -21,7 +22,7 @@
     {
       "name": "combo50",
       "prefix": "ComboCheer0",
-      "offsets": [0, 0]
+      "offsets": [-125, 55]
     },
     {
       "name": "drop70",
@@ -30,7 +31,7 @@
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 6, 7, 8, 9, 10, 11, 6, 7, 8, 9,
         10, 11
       ],
-      "offsets": [0, 0]
+      "offsets": [5, 0]
     },
     {
       "name": "laughCutscene",
@@ -39,13 +40,13 @@
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
         7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
       ],
-      "offsets": [0, 0]
+      "offsets": [5, 0]
     },
     {
       "name": "combo100",
       "prefix": "ComboFawn0",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6],
-      "offsets": [0, 0]
+      "offsets": [-47, -7]
     },
     {
       "name": "raiseKnife",
@@ -55,7 +56,7 @@
     {
       "name": "idleKnife",
       "prefix": "KnifeIdle0",
-      "offsets": [-99, 52]
+      "offsets": [-98, 52]
     },
     {
       "name": "lowerKnife",

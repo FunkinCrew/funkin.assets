@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Pico (Blazin')",
   "assetPath": "characters/picoBlazin",
+  "offsets": [-563, -372],
+  "cameraOffsets": [-38, -250],
   "healthIcon": {
     "id": "pico"
   },

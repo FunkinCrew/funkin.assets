@@ -3,6 +3,7 @@
   "name": "Boyfriend (Pixel)",
   "assetPath": "characters/bfPixel",
   "flipX": true,
+  "offsets": [3, 12],
   "renderType": "multisparrow",
   "singTime": 8.0,
   "isPixel": true,

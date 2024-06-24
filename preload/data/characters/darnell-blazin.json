@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Darnell (Blazin')",
   "assetPath": "characters/darnellBlazin",
+  "offsets": [-390, -353],
+  "cameraOffsets": [-71, -247],
   "healthIcon": {
     "id": "darnell"
   },

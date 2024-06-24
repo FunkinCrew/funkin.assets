@@ -3,6 +3,7 @@
   "name": "Girlfriend (Christmas)",
   "assetPath": "characters/gfChristmas",
   "startingAnimation": "danceLeft",
+  "offsets": [-12, 35.5],
   "animations": [
     {
       "name": "danceLeft",
@@ -22,7 +23,7 @@
       "name": "sad",
       "prefix": "gf sad",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      "offsets": [2, -21]
+      "offsets": [0, -21]
     }
   ]
 }
