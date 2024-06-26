@@ -3,6 +3,7 @@
   "name": "Girlfriend (Tankman Stickup)",
   "assetPath": "characters/gfTankmen",
   "startingAnimation": "danceLeft",
+  "offsets": [-3.3, 2],
   "animations": [
     {
       "name": "danceLeft",
@@ -22,7 +23,7 @@
       "name": "sad",
       "prefix": "GF Crying at Gunpoint",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      "offsets": [2, -21]
+      "offsets": [0, -27]
     }
   ]
 }

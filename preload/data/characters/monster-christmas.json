@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Monster (Christmas)",
   "assetPath": "characters/monsterChristmas",
+  "offsets": [-25, 23],
+  "cameraOffsets": [1, 0],
   "healthIcon": {
     "id": "monster"
   },
@@ -14,22 +16,22 @@
     {
       "name": "singRIGHT",
       "prefix": "Monster left note",
-      "offsets": [-30, 0]
+      "offsets": [-37, 9]
     },
     {
       "name": "singDOWN",
       "prefix": "monster down",
-      "offsets": [-40, -94]
+      "offsets": [-55, -92]
     },
     {
       "name": "singUP",
       "prefix": "monster up note",
-      "offsets": [-20, 50]
+      "offsets": [-25, 58]
     },
     {
       "name": "singLEFT",
       "prefix": "Monster Right note",
-      "offsets": [-51, 0]
+      "offsets": [-50, 10]
     }
   ]
 }

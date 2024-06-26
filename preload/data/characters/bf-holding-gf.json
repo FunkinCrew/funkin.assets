@@ -3,6 +3,8 @@
   "name": "Boyfriend (Holding GF)",
   "assetPath": "characters/bfAndGF",
   "flipX": true,
+  "offsets": [37.5, 12],
+  "cameraOffsets": [-75, 10],
   "renderType": "multisparrow",
   "healthIcon": {
     "id": "bf"

@@ -3,6 +3,7 @@
   "name": "Boyfriend (Car)",
   "assetPath": "characters/bfCar",
   "flipX": true,
+  "offsets": [0, 12],
   "renderType": "multisparrow",
   "singTime": 8.0,
   "healthIcon": {
