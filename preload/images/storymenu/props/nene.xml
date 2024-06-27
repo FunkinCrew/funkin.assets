@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="nene.png" width="2015" height="2402">
   <SubTexture name="idle0016" x="8" y="8" width="401" height="321" frameX="-1" frameY="-9" frameWidth="402" frameHeight="330" />
   <SubTexture name="idle0017" x="425" y="8" width="401" height="321" frameX="-1" frameY="-9" frameWidth="402" frameHeight="330" />
