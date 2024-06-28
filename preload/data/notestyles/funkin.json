@@ -42,8 +42,18 @@
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "",
+      "assetPath": "shared:noteSplashes",
+      "scale": 1.0,
+      "offsets": [0.0, 0.0],
       "data": {
+        "splash1Left": { "prefix": "note impact 1 purple" },
+        "splash1Down": { "prefix": "note impact 1  blue" },
+        "splash1Up": { "prefix": "note impact 1 green" },
+        "splash1Right": { "prefix": "note impact 1 red" },
+        "splash2Left": { "prefix": "note impact 2 purple" },
+        "splash2Down": { "prefix": "note impact 2 blue" },
+        "splash2Up": { "prefix": "note impact 2 green" },
+        "splash2Right": { "prefix": "note impact 2 red" },
         "enabled": true
       }
     },
