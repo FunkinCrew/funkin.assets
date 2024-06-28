@@ -19,32 +19,12 @@
       "offsets": [0, 0]
     },
     {
-      "name": "combo50",
-      "prefix": "ComboCheer0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "drop70",
-      "prefix": "Laugh0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 6, 7, 8, 9, 10, 11, 6, 7, 8, 9,
-        10, 11
-      ],
-      "offsets": [0, 0]
-    },
-    {
       "name": "laughCutscene",
       "prefix": "Laugh0",
       "frameIndices": [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
         7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
       ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "combo100",
-      "prefix": "ComboFawn0",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 4, 5, 6, 4, 5, 6, 4, 5, 6],
       "offsets": [0, 0]
     },
     {
