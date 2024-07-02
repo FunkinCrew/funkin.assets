@@ -77,9 +77,11 @@ class BlazinSong extends Song {
     // This is a song gimmick we are never making middlescroll an option.
 
 		var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
+		var strumlineBackground:FlxSprite = PlayState.instance.strumlineBackground;
 		if (playerStrumline != null)
 		{
 			playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
+			strumlineBackground.x = (FlxG.width / 2 - playerStrumline.width / 2) - 15;
 		}
 	}
 
