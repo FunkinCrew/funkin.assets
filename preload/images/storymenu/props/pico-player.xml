@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-SubTexture name="confirm0001" x="1158" y="366" width="395" height="367" frameX="-1" frameY="-0" frameWidth="396" frameHeight="368" />
+<TextureAtlas imagePath="pico-player.png" width="1961" height="741">
+  <SubTexture name="confirm0001" x="1158" y="366" width="395" height="367" frameX="-1" frameY="-0" frameWidth="396" frameHeight="368" />
   <SubTexture name="confirm0002" x="1158" y="366" width="395" height="367" frameX="-1" frameY="-0" frameWidth="396" frameHeight="368" />
   <SubTexture name="confirm0003" x="766" y="366" width="376" height="365" frameX="-0" frameY="-3" frameWidth="396" frameHeight="368" />
   <SubTexture name="confirm0004" x="766" y="366" width="376" height="365" frameX="-0" frameY="-3" frameWidth="396" frameHeight="368" />
