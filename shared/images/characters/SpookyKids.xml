@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="SpookyKids.png" width="4046" height="1119">
   <SubTexture name="SingDOWN0001" x="0" y="0" width="464" height="409" frameX="-0" frameY="-3" frameWidth="464" frameHeight="412" />
   <SubTexture name="SingDOWN0003" x="464" y="0" width="450" height="409" frameX="-7" frameY="-0" frameWidth="464" frameHeight="412" />
