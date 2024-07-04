@@ -41,5 +41,20 @@
         "offsets": [0, 0]
       }
     ]
+  },
+  "results": {
+    "perfect": [],
+    "excellent": [],
+    "great": [],
+    "good": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsGOOD",
+        "zIndex": 500,
+        "offsets": [450, 150],
+        "loopFrame": 26
+      }
+    ],
+    "loss": []
   }
 }
