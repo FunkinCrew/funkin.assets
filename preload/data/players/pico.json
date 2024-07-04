@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "name": "Pico",
+  "ownedChars": ["pico-playable", "pico-blazin"],
+  "showUnownedChars": false,
+  "unlocked": true,
+  "freeplayDJ": {
+    "assetPath": "freeplay/freeplay-pico",
+    "text1": "PICO",
+    "text2": "GOD DAMN HE DOWN ON THE NUT",
+    "text3": "ZEBOIM DAMN IMA NUT",
+    "animations": [
+      {
+        "name": "intro",
+        "prefix": "pico dj intro",
+        "offsets": [6.7, 2.6]
+      },
+      {
+        "name": "idle",
+        "prefix": "Pico DJ",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "idleEasterEgg",
+        "prefix": "Pico DJ afk",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "confirm",
+        "prefix": "Pico DJ confirm",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "fistPump",
+        "prefix": "pico cheer",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "loss",
+        "prefix": "pico cheer",
+        "offsets": [0, 0]
+      }
+    ]
+  }
+}
