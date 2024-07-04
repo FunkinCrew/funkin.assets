@@ -71,6 +71,7 @@
     {
       "name": "singLEFT-alt-hold",
       "prefix": "Parent Left Note Mom",
+      "looped": true,
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [-30, 15]
     },
@@ -82,6 +83,7 @@
     {
       "name": "singDOWN-alt-hold",
       "prefix": "Parent Down Note Mom",
+      "looped": true,
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [-30, -27]
     },
@@ -93,6 +95,7 @@
     {
       "name": "singUP-alt-hold",
       "prefix": "Parent Up Note Mom",
+      "looped": true,
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
       "offsets": [-47, 24]
     },
@@ -104,6 +107,7 @@
     {
       "name": "singRIGHT-alt-hold",
       "prefix": "Parent Right Note Mom",
+      "looped": true,
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [-1, -24]
     }
