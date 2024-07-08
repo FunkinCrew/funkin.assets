@@ -5,6 +5,7 @@
   "artist": "kawaisprite",
   "looped": false,
   "playData": {
+    "album": "volume3",
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
