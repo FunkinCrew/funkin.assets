@@ -10,26 +10,31 @@
     {
       "name": "idle",
       "prefix": "idle spirit_",
+      "frameIndices": [],
       "offsets": [-220, -280]
     },
     {
       "name": "singLEFT",
       "prefix": "left_",
+      "frameIndices": [],
       "offsets": [-200, -280]
     },
     {
       "name": "singDOWN",
       "prefix": "spirit down_",
+      "frameIndices": [],
       "offsets": [170, 110]
     },
     {
       "name": "singUP",
       "prefix": "up_",
+      "frameIndices": [],
       "offsets": [-220, -240]
     },
     {
       "name": "singRIGHT",
       "prefix": "right_",
+      "frameIndices": [],
       "offsets": [-220, -280]
     }
   ]

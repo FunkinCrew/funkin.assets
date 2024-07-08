@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend",
+  "ownedChars": ["bf", "bf-car", "bf-pixel", "bf-christmas", "bf-holding-gf"],
+  "showUnownedChars": true,
+  "unlocked": true,
+  "freeplayDJ": {
+    "assetPath": "freeplay/freeplay-boyfriend",
+    "cartoon": {
+      "soundClickFrame": 80,
+      "soundCartoonFrame": 85,
+      "loopBlinkFrame": 112,
+      "loopFrame": 166,
+      "channelChangeFrame": 60
+    },
+    "text1": "BOYFRIEND",
+    "text2": "HOT BLOODED IN MORE WAYS THAN ONE",
+    "text3": "PROTECT YO NUTS",
+    "animations": [
+      {
+        "name": "intro",
+        "prefix": "boyfriend dj intro",
+        "offsets": [6.7, 2.6]
+      },
+      {
+        "name": "idle",
+        "prefix": "Boyfriend DJ",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "idleEasterEgg",
+        "prefix": "bf dj afk",
+        "offsets": [649.5, 58.5]
+      },
+      {
+        "name": "confirm",
+        "prefix": "Boyfriend DJ confirm",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "fistPump",
+        "prefix": "Boyfriend DJ fist pump",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "cartoon",
+        "prefix": "Boyfriend DJ watchin tv OG",
+        "offsets": [0, 0]
+      },
+      {
+        "name": "loss",
+        "prefix": "Boyfriend DJ loss reaction 1",
+        "offsets": [0, 0]
+      }
+    ]
+  }
+}
