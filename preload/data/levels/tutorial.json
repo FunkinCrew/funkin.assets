@@ -6,7 +6,6 @@
     {
       "assetPath": "storymenu/props/gf",
       "scale": 1.0,
-      "danceEvery": 2,
       "offsets": [80, 80],
       "animations": [
         {
@@ -26,7 +25,6 @@
     {
       "assetPath": "storymenu/props/bf",
       "scale": 1.0,
-      "danceEvery": 2,
       "offsets": [150, 80],
       "animations": [
         {
