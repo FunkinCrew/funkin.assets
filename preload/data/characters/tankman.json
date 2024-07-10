@@ -53,7 +53,7 @@
     },
     {
       "flipY": false,
-      "offsets": [-28,-31],
+      "offsets": [-23,-30],
       "frameRate": 24,
       "prefix": "Tankman Note Left instance 1",
       "flipX": false,
