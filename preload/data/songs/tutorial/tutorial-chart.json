@@ -13,6 +13,16 @@
       "t": 14400,
       "v": { "zoom": 1.0, "duration": 4, "ease": "elasticInOut" }
     },
+    {
+      "e": "PlayAnimation",
+      "t": 18525,
+      "v": { "target": "boyfriend", "anim": "hey", "force": true }
+    },
+    {
+      "e": "PlayAnimation",
+      "t": 18525,
+      "v": { "target": "dad", "anim": "cheer", "force": false }
+    },
     { "e": "FocusCamera", "t": 19200, "v": { "char": 1 } },
     {
       "e": "ZoomCamera",
@@ -24,6 +34,16 @@
       "e": "ZoomCamera",
       "t": 24000,
       "v": { "zoom": 1.0, "duration": 4, "ease": "elasticInOut" }
+    },
+    {
+      "e": "PlayAnimation",
+      "t": 28125,
+      "v": { "target": "boyfriend", "anim": "hey", "force": true }
+    },
+    {
+      "e": "PlayAnimation",
+      "t": 28125,
+      "v": { "target": "dad", "anim": "cheer", "force": false }
     },
     { "e": "FocusCamera", "t": 28800, "v": { "char": 1 } },
     {
