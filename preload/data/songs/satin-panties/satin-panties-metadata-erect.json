@@ -4,6 +4,7 @@
   "artist": "Kawai Sprite",
   "charter": "fabs + Spazkid",
   "playData": {
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
