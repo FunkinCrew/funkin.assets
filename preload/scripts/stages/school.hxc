@@ -11,10 +11,6 @@ class SchoolStage extends Stage
 	function buildStage()
 	{
 		super.buildStage();
-		Countdown.soundSuffix = '-pixel';
-		Countdown.graphicSuffix = '-pixel';
-
-		PopUpStuff.graphicSuffix = '-pixel';
 
 		if (PlayState.instance.currentSong.id.toLowerCase() == "roses")
 		{

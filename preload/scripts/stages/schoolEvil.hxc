@@ -18,10 +18,6 @@ class SchoolEvilStage extends Stage
 	override function buildStage()
 	{
 		super.buildStage();
-		Countdown.soundSuffix = '-pixel';
-		Countdown.graphicSuffix = '-pixel';
-
-		PopUpStuff.graphicSuffix = '-pixel';
 
 		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
 
