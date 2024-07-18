@@ -1,0 +1,169 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.addons.display.FlxRuntimeShader;
+import flixel.sound.FlxSound;
+import funkin.Conductor;
+import funkin.Paths;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+
+class PhillyTrainErectStage extends Stage
+{
+	function new()
+	{
+		super('phillyTrainErect');
+	}
+
+	var LIGHT_COUNT:Int = 5;
+
+	var lightShader:FlxRuntimeShader;
+	var trainSound:FlxSound;
+  var colorShader:AdjustColorShader;
+
+	function buildStage()
+	{
+		super.buildStage();
+
+		// NOTE: You pass the constructor variables directly, not as an array.
+		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
+		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+    colorShader = new AdjustColorShader();
+		FlxG.sound.list.add(trainSound);
+
+		for (i in 0...LIGHT_COUNT)
+		{
+			var light:FlxSprite = getNamedProp('lights' + i);
+			light.shader = lightShader;
+			light.visible = false;
+		}
+
+	}
+
+	function fetchAssetPaths():Array<String>
+	{
+		var results:Array<String> = super.fetchAssetPaths();
+		results.push(Paths.sound('train_passes'));
+		return results;
+	}
+
+	var trainMoving:Bool = false;
+	var trainFrameTiming:Float = 0;
+	var trainCars:Int = 8;
+	var trainFinishing:Bool = false;
+	var trainCooldown:Int = 0;
+
+	function onUpdate(event:UpdateScriptEvent):Void
+	{
+		super.onUpdate(event);
+		// Update beat lights
+		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
+		lightShader.scriptCall('update', [shaderInput]);
+
+    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
+      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+			PlayState.instance.currentStage.getDad().shader = colorShader;
+			getNamedProp('train').shader = colorShader;
+
+			colorShader.hue = -26;
+			colorShader.saturation = -16;
+			colorShader.contrast = 0;
+			colorShader.brightness = -5;
+    }
+
+		// Update train
+		if (trainMoving)
+		{
+			trainFrameTiming += event.elapsed;
+
+			if (trainFrameTiming >= 1 / 24)
+			{
+				updateTrainPos();
+				trainFrameTiming = 0;
+			}
+		}
+	}
+
+	function onBeatHit(event:SongTimeScriptEvent):Void
+	{
+		super.onBeatHit(event);
+		// Update train cooldown
+		if (!trainMoving)
+			trainCooldown += 1;
+
+		// Start train
+		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+		{
+			trainCooldown = FlxG.random.int(-4, 0);
+			trainStart();
+		}
+
+		// Update lights
+		if (event.beat % 4 == 0)
+		{
+			// Reset opacity
+			lightShader.scriptCall('reset');
+
+			// Switch to a different light
+			curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
+			for (i in 0...LIGHT_COUNT)
+			{
+				getNamedProp('lights' + i).visible = (i == curLight);
+			}
+		}
+	}
+
+	function trainStart():Void
+	{
+		trainMoving = true;
+		trainSound.play(true);
+	}
+
+	var startedMoving:Bool = false;
+
+	function updateTrainPos():Void
+	{
+		if (trainSound.time >= 4700)
+		{
+			startedMoving = true;
+			getGirlfriend().playAnimation('hairBlow');
+		}
+
+		if (startedMoving)
+		{
+			var train:FlxSprite = getNamedProp('train');
+			train.x -= 400;
+
+			if (train.x < -2000 && !trainFinishing)
+			{
+				train.x = -1150;
+				trainCars -= 1;
+
+				if (trainCars <= 0)
+					trainFinishing = true;
+			}
+
+			if (train.x < -4000 && trainFinishing)
+				trainReset();
+		}
+	}
+
+	function trainReset():Void
+	{
+		getGirlfriend().playAnimation('hairFall');
+		getNamedProp('train').x = FlxG.width + 200;
+
+		trainMoving = false;
+		trainCars = 8;
+		trainFinishing = false;
+		startedMoving = false;
+	}
+
+	function kill()
+	{
+		super.kill();
+		lightShader = null;
+	}
+}
