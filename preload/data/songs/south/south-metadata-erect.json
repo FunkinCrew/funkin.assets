@@ -7,12 +7,12 @@
     "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "spooky",
+      "player": "bf-dark",
+      "girlfriend": "gf-dark",
+      "opponent": "spooky-dark",
       "instrumental": "erect"
     },
-    "stage": "spookyMansion",
+    "stage": "spookyMansionErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 8, "nightmare": 9 },
     "previewStart": 0,
