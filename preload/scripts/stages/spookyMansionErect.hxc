@@ -20,12 +20,30 @@ class SpookyMansionErectStage extends Stage
 		super('spookyMansionErect');
 	}
 
+	var rainShaderTarget:FlxSprite;
+	var rainShader:RuntimeRainShader = new RuntimeRainShader();
+
 	var lightningStrikeBeat:Int = 0;
 	var lightningStrikeOffset:Int = 8;
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
+
+		trace('Applying rain shader...');
+
+		// adjust this value so that the rain looks nice
+		rainShader.scale = FlxG.height / 200 * 2;
+		rainShader.intensity = 0.4;
+		rainShader.spriteMode = true;
+
+		rainShaderTarget = getNamedProp('bgTrees');
+		rainShaderTarget.shader = rainShader;
+		rainShaderTarget.animation.callback = onBranchFrame;
+	}
+
+	function onBranchFrame(name, frameNum, frameIndex) {
+		rainShader.updateFrameInfo(rainShaderTarget.frame);
 	}
 
   override function buildStage()
@@ -38,6 +56,7 @@ class SpookyMansionErectStage extends Stage
   override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
+		rainShader.update(event.elapsed);
 	}
 
 	function doLightningStrike(playSound:Bool, beat:Int):Void
