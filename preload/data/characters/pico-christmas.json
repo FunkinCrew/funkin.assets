@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Christmas)",
+  "assetPath": "characters/picoChristmas/picoChristmas",
+  "healthIcon": {
+    "id": "pico",
+    "flipX": false
+  },
+  "death": {
+    "cameraOffsets": [10, -40],
+    "cameraZoom": 1.0
+  },
+  "flipX": true,
+  "renderType": "multisparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Pico Idle Dance xmas0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Pico Note Right xmas0",
+      "offsets": [-50, 1]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Pico Down Note xmas0",
+      "offsets": [84, -77]
+    },
+    {
+      "name": "singUP",
+      "prefix": "pico Up note xmas0",
+      "offsets": [21, 28]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Pico NOTE LEFT xmas0",
+      "offsets": [84, -11]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "Pico NOTE LEFT miss xmas0",
+      "looped": false,
+      "offsets": [68, 20]
+    },
+    {
+      "name": "singLEFTmiss-hold",
+      "prefix": "Pico NOTE LEFT miss xmas0",
+      "frameIndices": [24],
+      "offsets": [68, 20]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "Pico Down Note MISS xmas0",
+      "looped": false,
+      "offsets": [80, -40]
+    },
+    {
+      "name": "singDOWNmiss-hold",
+      "prefix": "Pico Down Note MISS xmas0",
+      "frameIndices": [24],
+      "offsets": [80, -40]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "pico Up note miss xmas0",
+      "looped": false,
+      "offsets": [29, 70]
+    },
+    {
+      "name": "singUPmiss-hold",
+      "prefix": "pico Up note miss xmas0",
+      "frameIndices": [24],
+      "offsets": [29, 70]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "Pico Note Right Miss xmas0",
+      "looped": false,
+      "offsets": [-55, 45]
+    },
+    {
+      "name": "singRIGHTmiss-hold",
+      "prefix": "Pico Note Right Miss xmas0",
+      "frameIndices": [24],
+      "offsets": [-55, 45]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": "DEATH PICO xmas0",
+      "assetPath": "characters/picoChristmas/picoChristmasDeath",
+      "frameIndices": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+        21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+        38, 39, 40, 41, 42, 43, 44, 45, 46, 47
+      ],
+      "offsets": [225, 125]
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "DEATH PICO xmas0",
+      "looped": true,
+      "assetPath": "characters/picoChristmas/picoChristmasDeath",
+      "frameIndices": [
+        48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63
+      ],
+      "offsets": [225, 125]
+    }
+  ]
+}

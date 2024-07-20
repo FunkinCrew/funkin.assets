@@ -5,8 +5,14 @@
   "playData": {
     "album": "volume1",
     "stage": "spookyMansion",
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
-    "songVariations": ["erect"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "spooky",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
+    },
+    "songVariations": ["erect", "pico"],
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"

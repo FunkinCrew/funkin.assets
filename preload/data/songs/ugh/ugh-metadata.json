@@ -7,8 +7,11 @@
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
-      "opponent": "tankman"
+      "opponent": "tankman",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
     },
+    "songVariations": ["erect", "pico"],
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },

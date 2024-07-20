@@ -2,7 +2,15 @@
   "version": "2.2.3",
   "songName": "Guns (Pico Mix)",
   "artist": "Saruky",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {}
+  },
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
@@ -13,13 +21,24 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 2, "normal": 4, "hard": 5 },
+    "ratings": {
+      "easy": 0,
+      "normal": 0,
+      "hard": 0
+    },
     "previewStart": 0,
-    "previewEnd": 15000
+    "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.4.0 (rewrite/master:7b90a3c) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.4.1 (feature/playable-pico-mode : 9b3a748) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 185, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 185,
+      "n": 4,
+      "d": 4,
+      "bt": [4, 4, 4, 4]
+    }
   ]
 }

@@ -8,7 +8,9 @@
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
-      "opponent": "senpai-angry"
+      "opponent": "senpai-angry",
+      "instrumental": "",
+      "altInstrumentals": []
     },
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "songVariations": ["erect"],

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico",
-  "ownedChars": ["pico-playable", "pico-blazin"],
+  "ownedChars": ["pico", "pico-playable", "pico-blazin", "pico-christmas"],
   "showUnownedChars": false,
   "unlocked": true,
   "freeplayDJ": {
@@ -43,9 +43,33 @@
     ]
   },
   "results": {
-    "perfect": [],
-    "excellent": [],
-    "great": [],
+    "perfect": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
+        "zIndex": 500,
+        "offsets": [200, 100],
+        "loopFrame": 0
+      }
+    ],
+    "excellent": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsEXCELLENT",
+        "zIndex": 500,
+        "offsets": [0, 0],
+        "looped": false
+      }
+    ],
+    "great": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
+        "zIndex": 500,
+        "offsets": [450, 150],
+        "loopFrame": 26
+      }
+    ],
     "good": [
       {
         "renderType": "animateatlas",
@@ -55,6 +79,14 @@
         "loopFrame": 26
       }
     ],
-    "loss": []
+    "loss": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
+        "zIndex": 500,
+        "offsets": [0, 0],
+        "loopFrame": 0
+      }
+    ]
   }
 }

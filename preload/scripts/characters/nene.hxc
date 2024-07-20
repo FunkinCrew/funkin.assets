@@ -299,6 +299,8 @@ class NeneCharacter extends SparrowCharacter {
 	var animationFinished:Bool = false;
 
 	function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
 		switch(currentState) {
 			case STATE_RAISE:
 				if (name == "raiseKnife") {
@@ -320,7 +322,7 @@ class NeneCharacter extends SparrowCharacter {
 
 		switch(currentState) {
 			case STATE_PRE_RAISE:
-				if (name == "danceLeft" && frameNumber == 14) {
+				if (name == "danceLeft" && frameNumber == 13) {
 					animationFinished = true;
 					transitionState();
 				}
