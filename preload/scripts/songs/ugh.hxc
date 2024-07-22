@@ -2,6 +2,7 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.save.Save;
 
 import funkin.play.PlayStatePlaylist;
 
@@ -13,6 +14,17 @@ class UghSong extends Song {
 
     hasPlayedCutscene = false;
 	}
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+    var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+
+    switch (variationId) {
+      case 'pico':
+        return hasBeatenPicoMix ? [''] : [];
+      default:
+        return hasBeatenPicoMix ? ['pico'] : [];
+    }
+  }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
