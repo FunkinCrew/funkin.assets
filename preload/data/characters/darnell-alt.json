@@ -24,12 +24,12 @@
     {
       "name": "singDOWN",
       "prefix": "Pose Down0",
-      "offsets": [10, -12]
+      "offsets": [10, -4]
     },
     {
       "name": "singDOWN-hold",
       "prefix": "Down Flame Loop0",
-      "offsets": [10, -12]
+      "offsets": [10, -4]
     },
     {
       "name": "singUP",

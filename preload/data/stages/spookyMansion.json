@@ -45,13 +45,13 @@
   "characters": {
     "bf": {
       "zIndex": 200,
-      "position": [989.5, 885],
-      "cameraOffsets": [-100, -100]
+      "position": [989.5, 861],
+      "cameraOffsets": [-100, -145]
     },
-    "gf": { "zIndex": 100, "position": [751.5, 787], "cameraOffsets": [0, 0] },
+    "gf": { "zIndex": 100, "position": [751.5, 783], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [382, 831],
+      "position": [422, 842],
       "cameraOffsets": [150, -100]
     }
   },

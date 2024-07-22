@@ -126,18 +126,18 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [989.5, 885],
+      "position": [989.5, 861],
       "cameraOffsets": [-200, -100]
     },
     "dad": {
       "zIndex": 200,
-      "position": [468, 885],
+      "position": [478, 849],
       "cameraOffsets": [200, -100]
     },
     "gf": {
       "zIndex": 100,
       "cameraOffsets": [0, 0],
-      "position": [751.5, 787]
+      "position": [751.5, 783]
     }
   },
   "name": "Philly (Train)"

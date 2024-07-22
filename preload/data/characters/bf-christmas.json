@@ -3,6 +3,8 @@
   "name": "Boyfriend (Christmas)",
   "assetPath": "characters/bfChristmas",
   "flipX": true,
+  "offsets": [0, 12],
+  "cameraOffsets": [0, 1],
   "healthIcon": {
     "id": "bf"
   },

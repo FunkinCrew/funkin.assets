@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Monster",
   "assetPath": "characters/Monster_Assets",
+  "offsets": [-25, 23],
+  "cameraOffsets": [1, -17],
   "animations": [
     {
       "name": "idle",
@@ -11,22 +13,22 @@
     {
       "name": "singLEFT",
       "prefix": "Monster Right note",
-      "offsets": [-30, 20]
+      "offsets": [-50, 16]
     },
     {
       "name": "singDOWN",
       "prefix": "monster down",
-      "offsets": [-50, -80]
+      "offsets": [-55, -86]
     },
     {
       "name": "singUP",
       "prefix": "monster up note",
-      "offsets": [-20, 94]
+      "offsets": [-25, 92]
     },
     {
       "name": "singRIGHT",
       "prefix": "Monster left note",
-      "offsets": [-51, 30]
+      "offsets": [-37, 7]
     }
   ]
 }
