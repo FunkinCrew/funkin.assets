@@ -32,16 +32,16 @@
       "animations": []
     }
   ],
-  "cameraZoom": 1,
+  "cameraZoom": 1.05,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1139, 908],
+      "position": [1133, 890],
       "cameraOffsets": [-200, -100]
     },
-    "dad": { "zIndex": 200, "position": [334, 968], "cameraOffsets": [160, 0] },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 766] }
+    "dad": { "zIndex": 200, "position": [501, 884], "cameraOffsets": [160, 0] },
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 806] }
   },
   "name": "School (Hate)"
 }

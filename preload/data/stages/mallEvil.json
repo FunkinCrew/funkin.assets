@@ -38,14 +38,14 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1297.5, 871],
-      "cameraOffsets": [-100, -100]
+      "position": [1297.5, 847],
+      "cameraOffsets": [-100, -101]
     },
-    "gf": { "zIndex": 100, "position": [808.5, 854], "cameraOffsets": [0, 0] },
+    "gf": { "zIndex": 100, "position": [832.5, 783], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [290.5, 869],
-      "cameraOffsets": [150, -100]
+      "position": [340.5, 823],
+      "cameraOffsets": [149, -100]
     }
   }
 }

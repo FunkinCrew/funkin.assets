@@ -179,14 +179,14 @@
   "characters": {
     "bf": {
       "zIndex": 100,
-      "position": [1090.5, 885],
+      "position": [1090.5, 861],
       "cameraOffsets": [-220, -100]
     },
     "dad": {
       "zIndex": 100,
-      "position": [230.5, 996],
+      "position": [222.5, 856],
       "cameraOffsets": [250, -100]
     },
-    "gf": { "zIndex": 100, "position": [660.5, 715], "cameraOffsets": [0, 0] }
+    "gf": { "zIndex": 100, "position": [667.1, 711], "cameraOffsets": [0, 0] }
   }
 }

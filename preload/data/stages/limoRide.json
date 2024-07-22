@@ -326,18 +326,18 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1217.5, 592],
-      "cameraOffsets": [-300, -100]
+      "position": [1217.5, 575],
+      "cameraOffsets": [-300, -107]
     },
     "gf": {
       "zIndex": 100,
-      "position": [787, 779],
+      "position": [751.6, 775],
       "cameraOffsets": [0, 0]
     },
     "dad": {
       "zIndex": 200,
-      "position": [329.5, 913],
-      "cameraOffsets": [150, 0]
+      "position": [261.5, 833],
+      "cameraOffsets": [150, -55]
     }
   },
   "name": "Limo Ride"
