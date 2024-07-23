@@ -20,7 +20,9 @@ class UghSong extends Song {
 
     switch (variationId) {
       case 'pico':
-        return hasBeatenPicoMix ? [''] : [];
+        // return hasBeatenPicoMix ? [''] : [];
+        // No Pico mix on BF instrumental, sorry!
+        return [];
       default:
         return hasBeatenPicoMix ? ['pico'] : [];
     }

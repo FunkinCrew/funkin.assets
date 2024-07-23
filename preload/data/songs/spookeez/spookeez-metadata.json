@@ -1,9 +1,20 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Spookeez",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH + SpazKid",
   "divisions": 96,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {
+      "pico": {
+        "bf": 0,
+        "spooky": 0
+      }
+    }
+  },
   "playData": {
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],

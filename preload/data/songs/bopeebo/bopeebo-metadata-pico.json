@@ -1,5 +1,5 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Bopeebo (Pico Mix)",
   "artist": "ThatAndyGuy ft. Saruky",
   "divisions": 96,
@@ -7,7 +7,8 @@
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {}
+    "vocals": {},
+    "altVocals": {}
   },
   "playData": {
     "songVariations": [],
@@ -17,7 +18,7 @@
       "girlfriend": "nene-christmas",
       "opponent": "dad",
       "instrumental": "pico",
-      "altInstrumentals": [""]
+      "altInstrumentals": []
     },
     "stage": "mainStage",
     "noteStyle": "funkin",

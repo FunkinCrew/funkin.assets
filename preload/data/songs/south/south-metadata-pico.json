@@ -6,7 +6,8 @@
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {},
-    "vocals": {}
+    "vocals": {},
+    "altVocals": {}
   },
   "playData": {
     "songVariations": [],
@@ -16,7 +17,7 @@
       "girlfriend": "nene",
       "opponent": "spooky",
       "instrumental": "pico",
-      "altInstrumentals": [""]
+      "altInstrumentals": []
     },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
