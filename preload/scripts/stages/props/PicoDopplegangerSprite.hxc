@@ -1,0 +1,37 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.Paths;
+import flixel.math.FlxPoint;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import flixel.FlxG;
+
+class PicoDopplegangerSprite extends FlxAtlasSprite
+{
+
+  public function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("philly/erect/pico_doppleganger", "week3"), {
+      FrameRate: 24.0,
+      Reversed: false,
+      // ?OnComplete:Void -> Void,
+      ShowPivot: false,
+      Antialiasing: true,
+      ScrollFactor: new FlxPoint(1, 1),
+    });
+
+   // onAnimationFinish.add(finishCanAnimation);
+  }
+
+  public function shoot():Void {
+    //this.visible = true;
+    //this.anim.play("picoShoot", true, false, 0);
+    //anim.onComplete = onFinishAnim;
+
+  }
+
+  function onFinishAnim():Void
+  {
+    this.anim.pause();
+  }
+}

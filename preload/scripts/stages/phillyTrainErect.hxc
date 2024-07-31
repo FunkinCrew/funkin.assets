@@ -8,12 +8,15 @@ import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
 
 class PhillyTrainErectStage extends Stage
 {
 	function new()
 	{
 		super('phillyTrainErect');
+		hasPlayedCutscene = false;
 	}
 
 	var LIGHT_COUNT:Int = 5;
@@ -21,6 +24,54 @@ class PhillyTrainErectStage extends Stage
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
   var colorShader:AdjustColorShader;
+
+	var hasPlayedInGameCutscene:Bool;
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+    // if(!hasPlayedInGameCutscene){
+    //   trace('Pausing countdown to play in game cutscene');
+
+    //   hasPlayedInGameCutscene = true;
+
+    //   event.cancel(); // CANCEL THE COUNTDOWN!
+
+    //   PlayState.instance.camHUD.visible = false;
+    //   doppleGangerCutscene();
+    // }
+	}
+
+
+	function doppleGangerCutscene(){
+
+		var picoPlayer:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+
+		picoPlayer.setPosition(763, 410);
+		picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
+
+    PlayState.instance.currentStage.add(picoPlayer);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
+
+		var picoOpponent:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+
+		picoOpponent.setPosition(694, 410);
+		picoOpponent.zIndex = PlayState.instance.currentStage.getDad().zIndex + 1;
+
+		picoOpponent.flipX = true;
+
+    PlayState.instance.currentStage.add(picoOpponent);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		picoPlayer.shader = colorShader;
+		picoOpponent.shader = colorShader;
+
+		picoPlayer.scriptCall('shoot');
+		picoOpponent.scriptCall('cigarette');
+
+		PlayState.instance.currentStage.getBoyfriend().visible = false;
+		PlayState.instance.currentStage.getDad().visible = false;
+
+	}
 
 	function buildStage()
 	{
@@ -72,6 +123,8 @@ class PhillyTrainErectStage extends Stage
 			colorShader.contrast = 0;
 			colorShader.brightness = -5;
     }
+
+		var amount:Int = 1;
 
 		// Update train
 		if (trainMoving)
