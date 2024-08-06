@@ -26,6 +26,7 @@ class ThornsSong extends Song {
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');
 
+
       hasPlayedCutscene = true;
 
       startCutscene();
@@ -35,6 +36,8 @@ class ThornsSong extends Song {
 
   function startCutscene() {
     trace('Hit start of song! Starting cutscene.');
+
+    PlayState.instance.disableKeys = true;
 
     PlayState.instance.camHUD.visible = false;
     PlayState.instance.camCutscene.visible = true;
@@ -85,6 +88,7 @@ class ThornsSong extends Song {
           RetroCameraFade.fadeBlack(PlayState.instance.camCutscene, 6, 1.4);
           RetroCameraFade.fadeBlack(PlayState.instance.camGame, 6, 1.4);
           new FlxTimer().start(1.6, _ -> {
+
             startDialogue();
 
           });
@@ -110,6 +114,7 @@ class ThornsSong extends Song {
   }
 
   function startDialogue() {
+    PlayState.instance.disableKeys = false;
     PlayState.instance.startConversation('thorns');
   }
 
@@ -136,5 +141,7 @@ class ThornsSong extends Song {
   public override function onDialogueEnd() {
     // We may need to wait for the outro to play.
     Countdown.performCountdown();
+
+
   }
 }
