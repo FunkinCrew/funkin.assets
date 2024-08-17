@@ -1,0 +1,25 @@
+{
+  "version": "2.2.3",
+  "songName": "DadBattle (Pico Mix)",
+  "artist": "Saruky",
+  "playData": {
+    "songVariations": [],
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "pico-playable",
+      "girlfriend": "nene",
+      "opponent": "dad",
+      "instrumental": "pico"
+    },
+    "stage": "mainStage",
+    "noteStyle": "funkin",
+    "ratings": { "hard": 0, "normal": 0 },
+    "previewStart": 0,
+    "previewEnd": 0
+  },
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:cd85bcf) PROTOTYPE",
+  "timeFormat": "ms",
+  "timeChanges": [
+    { "t": 0, "b": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+  ]
+}

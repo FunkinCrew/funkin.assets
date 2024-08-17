@@ -3,6 +3,7 @@
   "songName": "Ugh",
   "artist": "Kawai Sprite",
   "playData": {
+    "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",

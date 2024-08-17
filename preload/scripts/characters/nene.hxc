@@ -299,6 +299,8 @@ class NeneCharacter extends SparrowCharacter {
 	var animationFinished:Bool = false;
 
 	function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
 		switch(currentState) {
 			case STATE_RAISE:
 				if (name == "raiseKnife") {

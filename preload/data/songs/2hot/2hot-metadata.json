@@ -16,7 +16,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },
-  "songName": "2Hot",
+  "songName": "2hot",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 182 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
   "version": "2.2.2"

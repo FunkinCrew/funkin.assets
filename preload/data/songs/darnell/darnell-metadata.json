@@ -4,6 +4,7 @@
   "artist": "Kawai Sprite",
   "charter": "fabs",
   "playData": {
+    "songVariations": ["bf"],
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000,
