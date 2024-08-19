@@ -13,7 +13,7 @@
       "opponent": "dad",
       "instrumental": "pico"
     },
-    "stage": "mainStage",
+    "stage": "mainStageErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "previewStart": 0,
