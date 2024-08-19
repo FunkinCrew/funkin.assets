@@ -13,7 +13,7 @@
       "instrumental": "pico",
       "altInstrumentals": []
     },
-    "stage": "mainStage",
+    "stage": "mainStageErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "previewStart": 0,
