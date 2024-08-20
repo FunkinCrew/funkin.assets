@@ -11,7 +11,7 @@ class BoyfriendCharacter extends MultiSparrowCharacter {
 	}
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		if (name == "fakeoutDeath") {
+		if (name == "fakeoutDeath" && !this.debug) {
 			doFakeoutDeath();
 		} else {
 			super.playAnimation(name, restart, ignoreOther);
