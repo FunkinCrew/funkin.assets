@@ -17,7 +17,7 @@ import funkin.util.MathUtil;
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
  */
-class PhillyBlazinStageNew extends Stage
+class PhillyBlazinStage extends Stage
 {
 	function new()
 	{
