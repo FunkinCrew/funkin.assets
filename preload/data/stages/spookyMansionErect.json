@@ -64,7 +64,7 @@
   "characters": {
     "bf": {
       "zIndex": 200,
-      "position": [1189.5, 835],
+      "position": [1250, 835],
       "cameraOffsets": [-100, -100]
     },
     "gf": { "zIndex": 100, "position": [821.5, 747], "cameraOffsets": [0, 0] },
