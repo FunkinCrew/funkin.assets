@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico",
-  "ownedChars": ["pico-playable", "pico-blazin"],
+  "ownedChars": ["pico", "pico-playable", "pico-blazin"],
   "showUnownedChars": false,
   "unlocked": true,
   "freeplayDJ": {
@@ -9,6 +9,19 @@
     "text1": "PICO",
     "text2": "GOD DAMN HE DOWN ON THE NUT",
     "text3": "ZEBOIM DAMN IMA NUT",
+    "fistPump": {
+      "introStartFrame": 0,
+      "introEndFrame": 4,
+
+      "loopStartFrame": 4,
+      "loopEndFrame": -1,
+
+      "introBadStartFrame": 0,
+      "introBadEndFrame": 4,
+
+      "loopBadStartFrame": 4,
+      "loopBadEndFrame": -1
+    },
     "animations": [
       {
         "name": "intro",
@@ -42,10 +55,37 @@
       }
     ]
   },
+  "charSelect": {
+    "position": 3
+  },
   "results": {
-    "perfect": [],
-    "excellent": [],
-    "great": [],
+    "perfect": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
+        "zIndex": 500,
+        "offsets": [200, 100],
+        "loopFrame": 0
+      }
+    ],
+    "excellent": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsEXCELLENT",
+        "zIndex": 500,
+        "offsets": [0, 0],
+        "looped": false
+      }
+    ],
+    "great": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
+        "zIndex": 500,
+        "offsets": [450, 150],
+        "loopFrame": 26
+      }
+    ],
     "good": [
       {
         "renderType": "animateatlas",
@@ -55,6 +95,14 @@
         "loopFrame": 26
       }
     ],
-    "loss": []
+    "loss": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
+        "zIndex": 500,
+        "offsets": [0, 0],
+        "loopFrame": 0
+      }
+    ]
   }
 }
