@@ -1,35 +1,34 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Ugh Erect",
   "artist": "Kawai Sprite",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
+  },
   "playData": {
-    "difficulties": ["erect", "nightmare"],
+    "songVariations": [],
+    "difficulties": ["erect", "nightmare", "normal"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
       "opponent": "tankman",
-      "instrumental": "erect",
+      "instrumental": "",
       "altInstrumentals": []
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": {
-      "nightmare": 11,
-      "erect": 9
-    },
+    "ratings": { "hard": 0, "normal": 0, "erect": 0, "nightmare": 0 },
     "previewStart": 0,
-    "previewEnd": 15000
+    "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.5.0 (runners-fixins-v2 : b962c1a) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 170,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 170, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }
