@@ -13,6 +13,19 @@
       "loopFrame": 166,
       "channelChangeFrame": 60
     },
+    "fistPump": {
+      "introStartFrame": 0,
+      "introEndFrame": 4,
+
+      "loopStartFrame": 4,
+      "loopEndFrame": -1,
+
+      "introBadStartFrame": 0,
+      "introBadEndFrame": 4,
+
+      "loopBadStartFrame": 4,
+      "loopBadEndFrame": -1
+    },
     "text1": "BOYFRIEND",
     "text2": "HOT BLOODED IN MORE WAYS THAN ONE",
     "text3": "PROTECT YO NUTS",
@@ -51,8 +64,21 @@
         "name": "loss",
         "prefix": "Boyfriend DJ loss reaction 1",
         "offsets": [0, 0]
+      },
+      {
+        "name": "charSelect",
+        "prefix": "Boyfriend DJ to CS",
+        "offsets": [625, 360]
+      },
+      {
+        "name": "newUnlock",
+        "prefix": "Boyfriend DJ new character ",
+        "offsets": [625, 360]
       }
     ]
+  },
+  "charSelect": {
+    "position": 4
   },
   "results": {
     "perfect": [

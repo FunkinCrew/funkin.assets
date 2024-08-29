@@ -3,6 +3,7 @@ import funkin.play.stage.Stage;
 import funkin.graphics.shaders.WiggleEffectRuntime;
 import funkin.graphics.shaders.WiggleEffectType;
 import flixel.addons.effects.FlxTrail;
+import funkin.play.Countdown;
 
 class SchoolEvilStage extends Stage
 {

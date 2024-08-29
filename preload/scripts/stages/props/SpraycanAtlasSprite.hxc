@@ -24,7 +24,7 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
       ScrollFactor: new FlxPoint(1, 1),
     });
 
-    onAnimationFinish.add(finishCanAnimation);
+    onAnimationComplete.add(finishCanAnimation);
   }
 
   public function finishCanAnimation(name:String) {

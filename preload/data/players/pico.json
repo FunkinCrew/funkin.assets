@@ -9,6 +9,19 @@
     "text1": "PICO",
     "text2": "GOD DAMN HE DOWN ON THE NUT",
     "text3": "ZEBOIM DAMN IMA NUT",
+    "fistPump": {
+      "introStartFrame": 0,
+      "introEndFrame": 4,
+
+      "loopStartFrame": 4,
+      "loopEndFrame": -1,
+
+      "introBadStartFrame": 0,
+      "introBadEndFrame": 4,
+
+      "loopBadStartFrame": 4,
+      "loopBadEndFrame": -1
+    },
     "animations": [
       {
         "name": "intro",
@@ -41,6 +54,9 @@
         "offsets": [0, 0]
       }
     ]
+  },
+  "charSelect": {
+    "position": 3
   },
   "results": {
     "perfect": [

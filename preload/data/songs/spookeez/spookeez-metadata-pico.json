@@ -1,43 +1,26 @@
 {
   "version": "2.2.3",
   "songName": "Spookeez (Pico Mix)",
-  "artist": "Six Impala Ft. Saruky",
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
+  "artist": "Six Impala (feat. Saruky)",
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
       "girlfriend": "nene",
-      "opponent": "spooky",
+      "opponent": "spooky-dark",
       "instrumental": "pico",
-      "altInstrumentals": [""]
+      "altInstrumentals": []
     },
-    "stage": "spookyMansion",
+    "stage": "spookyMansionErect",
     "noteStyle": "funkin",
-    "ratings": {
-      "easy": 0,
-      "normal": 0,
-      "hard": 0
-    },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "expansion2",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.4.1 (feature/playable-pico-mode : 9b3a748) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.4.1 (feature/playable-pico-mode:9b3a748) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 150,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 150, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

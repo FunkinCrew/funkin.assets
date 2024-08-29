@@ -1,5 +1,5 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Guns (Pico Mix)",
   "artist": "Saruky",
   "divisions": 96,
@@ -17,19 +17,16 @@
       "girlfriend": "nene",
       "opponent": "tankman",
       "instrumental": "pico",
-      "altInstrumentals": [""]
+      "altInstrumentals": []
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": {
-      "easy": 0,
-      "normal": 0,
-      "hard": 0
-    },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.4.1 (feature/playable-pico-mode : 9b3a748) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
     {
