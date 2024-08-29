@@ -1,30 +1,22 @@
 {
   "version": "2.2.4",
-  "songName": "Pilly Nice Pico",
+  "songName": "Pilly Nice (Pico Mix)",
   "artist": "Saruky",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
-      "girlfriend": "gf",
+      "girlfriend": "nene",
       "opponent": "pico",
-      "instrumental": "",
+      "instrumental": "pico",
       "altInstrumentals": []
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "hard": 0, "normal": 0 },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "expansion2",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE",
   "timeFormat": "ms",

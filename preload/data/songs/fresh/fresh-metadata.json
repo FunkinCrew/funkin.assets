@@ -6,7 +6,12 @@
   "playData": {
     "album": "volume1",
     "stage": "mainStage",
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "dad" },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "dad",
+      "altInstrumentals": ["pico"]
+    },
     "songVariations": ["erect", "pico"],
     "ratings": { "easy": 1, "normal": 1, "hard": 1 },
     "difficulties": ["easy", "normal", "hard"],

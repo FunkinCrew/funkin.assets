@@ -4,7 +4,6 @@
   "artist": "Kawai Sprite",
   "charter": "MtH + SpazKid",
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-holding-gf",

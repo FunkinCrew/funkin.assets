@@ -14,6 +14,7 @@
     "stage": "phillyStreets",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000
   },

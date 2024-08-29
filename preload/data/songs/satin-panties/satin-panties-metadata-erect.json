@@ -4,7 +4,6 @@
   "artist": "Kawai Sprite",
   "charter": "fabs + Spazkid",
   "playData": {
-    "album": "expansion1",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-car",
@@ -15,8 +14,9 @@
     "stage": "limoRideErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 13, "nightmare": 14 },
+    "album": "expansion1",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:51a44d4) PROTOTYPE",
   "timeFormat": "ms",

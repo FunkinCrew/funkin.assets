@@ -2,29 +2,21 @@
   "version": "2.2.4",
   "songName": "Ugh Erect",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
-    "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
       "opponent": "tankman",
-      "instrumental": "",
+      "instrumental": "erect",
       "altInstrumentals": []
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "hard": 0, "normal": 0, "erect": 0, "nightmare": 0 },
+    "ratings": { "erect": 9, "nightmare": 10 },
+    "album": "expansion2",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE",
   "timeFormat": "ms",

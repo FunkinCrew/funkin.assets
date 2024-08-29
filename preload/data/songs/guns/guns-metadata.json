@@ -3,7 +3,6 @@
   "artist": "Kawai Sprite",
   "charter": "MtH",
   "playData": {
-    "album": "volume2",
     "stage": "tankmanBattlefield",
     "songVariations": ["pico"],
     "characters": {
@@ -15,7 +14,10 @@
     },
     "ratings": { "easy": 2, "normal": 4, "hard": 5 },
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "album": "volume2",
+    "previewStart": 0,
+    "previewEnd": 15000
   },
   "songName": "Guns",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 185 }],

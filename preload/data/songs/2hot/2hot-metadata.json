@@ -3,9 +3,6 @@
   "artist": "Kawai Sprite",
   "charter": "Jenny Crowe + Spazkid + ninjamuffin99",
   "playData": {
-    "album": "volume3",
-    "previewStart": 0,
-    "previewEnd": 15000,
     "stage": "phillyStreets",
     "characters": {
       "player": "pico-playable",
@@ -14,7 +11,10 @@
     },
     "ratings": { "easy": 3, "normal": 4, "hard": 5 },
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "album": "volume3",
+    "previewStart": 0,
+    "previewEnd": 15000
   },
   "songName": "2hot",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 182 }],
