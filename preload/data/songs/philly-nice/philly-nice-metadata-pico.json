@@ -1,7 +1,8 @@
 {
   "version": "2.2.4",
-  "songName": "Pilly Nice (Pico Mix)",
+  "songName": "Philly Nice (Pico Mix)",
   "artist": "Saruky",
+  "charter": "Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
@@ -13,7 +14,7 @@
     },
     "stage": "phillyTrain",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "ratings": { "easy": 2, "normal": 4, "hard": 4 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000
