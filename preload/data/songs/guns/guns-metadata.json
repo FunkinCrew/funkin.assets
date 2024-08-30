@@ -2,6 +2,12 @@
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "charter": "MtH",
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
+  },
   "playData": {
     "stage": "tankmanBattlefield",
     "songVariations": ["pico"],
@@ -22,5 +28,5 @@
   "songName": "Guns",
   "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 185 }],
   "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "version": "2.2.1"
+  "version": "2.2.4"
 }
