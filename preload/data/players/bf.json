@@ -4,6 +4,7 @@
   "ownedChars": ["bf", "bf-car", "bf-pixel", "bf-christmas", "bf-holding-gf"],
   "showUnownedChars": true,
   "unlocked": true,
+  "freeplayStyle": "bf",
   "freeplayDJ": {
     "assetPath": "freeplay/freeplay-boyfriend",
     "cartoon": {
@@ -25,6 +26,9 @@
 
       "loopBadStartFrame": 4,
       "loopBadEndFrame": -1
+    },
+    "charSelect": {
+      "transitionDelay": 0.45
     },
     "text1": "BOYFRIEND",
     "text2": "HOT BLOODED IN MORE WAYS THAN ONE",

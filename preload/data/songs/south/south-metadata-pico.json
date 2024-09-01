@@ -6,10 +6,10 @@
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "bf-dark",
-      "girlfriend": "gf-dark",
+      "player": "pico-playable",
+      "girlfriend": "nene",
       "opponent": "spooky-dark",
-      "instrumental": "",
+      "instrumental": "pico",
       "altInstrumentals": []
     },
     "stage": "spookyMansionErect",
