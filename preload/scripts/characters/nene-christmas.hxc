@@ -224,13 +224,13 @@ class NeneChristmasCharacter extends SparrowCharacter {
 		if (!refershedLol)
 		{
 			abot.x = this.x - 100;
-			abot.y = this.y + 316; // 764 - 740
+			abot.y = this.y + 216; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
 
 			PlayState.instance.currentStage.add(abot);
 
-			abotViz.x = this.x + 100;
-			abotViz.y = this.y + 400;
+			abotViz.x = abot.x + 200;
+			abotViz.y = abot.y + 84;
 			abotViz.zIndex = abot.zIndex - 1;
 			PlayState.instance.currentStage.add(abotViz);
 
@@ -240,8 +240,8 @@ class NeneChristmasCharacter extends SparrowCharacter {
 			eyeWhites.zIndex = abot.zIndex - 10;
 			PlayState.instance.currentStage.add(eyeWhites);
 
-			pupil.x = this.x - 607;
-			pupil.y = this.y - 176;
+			pupil.x = abot.x - 507;
+			pupil.y = abot.y - 492;
 			pupil.zIndex = eyeWhites.zIndex + 5;
 			PlayState.instance.currentStage.add(pupil);
 
