@@ -22,6 +22,9 @@
       "loopBadStartFrame": 4,
       "loopBadEndFrame": -1
     },
+    "charSelect": {
+      "transitionDelay": 0.45
+    },
     "animations": [
       {
         "name": "intro",
@@ -50,8 +53,13 @@
       },
       {
         "name": "loss",
-        "prefix": "pico cheer",
-        "offsets": [0, 0]
+        "prefix": "Pico DJ loss",
+        "offsets": [625, 360]
+      },
+      {
+        "name": "charSelect",
+        "prefix": "Pico DJ to CS",
+        "offsets": [625, 360]
       }
     ]
   },
@@ -59,6 +67,14 @@
     "position": 3
   },
   "results": {
+    "music": {
+      "PERFECT_GOLD": "resultsPERFECT-pico",
+      "PERFECT": "resultsPERFECT-pico",
+      "EXCELLENT": "resultsEXCELLENT-pico",
+      "GREAT": "resultsNORMAL-pico",
+      "GOOD": "resultsNORMAL-pico",
+      "SHIT": "resultsSHIT-pico"
+    },
     "perfect": [
       {
         "renderType": "animateatlas",

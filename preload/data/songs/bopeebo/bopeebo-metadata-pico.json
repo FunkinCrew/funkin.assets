@@ -7,7 +7,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
-      "girlfriend": "gf",
+      "girlfriend": "nene",
       "opponent": "dad",
       "instrumental": "pico",
       "altInstrumentals": []

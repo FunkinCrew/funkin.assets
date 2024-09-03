@@ -74,7 +74,7 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 4.0,
+      "danceEvery": 1.0,
       "position": [100, 100],
       "scale": [1, 1],
       "name": "limoDancer1",
@@ -108,7 +108,7 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 4.0,
+      "danceEvery": 1.0,
       "position": [400, 100],
       "scale": [1, 1],
       "name": "limoDancer2",
@@ -142,7 +142,7 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 4.0,
+      "danceEvery": 1.0,
       "position": [700, 100],
       "scale": [1, 1],
       "name": "limoDancer3",
@@ -176,7 +176,7 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 4.0,
+      "danceEvery": 1.0,
       "position": [1000, 100],
       "scale": [1, 1],
       "name": "limoDancer4",
@@ -210,7 +210,7 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 4.0,
+      "danceEvery": 1.0,
       "position": [1300, 100],
       "scale": [1, 1],
       "name": "limoDancer5",
