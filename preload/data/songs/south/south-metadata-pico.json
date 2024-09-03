@@ -1,15 +1,22 @@
 {
   "version": "2.2.4",
   "songName": "South (Pico Mix)",
-  "artist": "Six Impala (feat. Saster)",
+  "artist": "Six impala Ft. Saster",
   "charter": "Fabs + Spazkid",
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
+  },
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "bf-dark",
-      "girlfriend": "gf-dark",
-      "opponent": "spooky-dark",
-      "instrumental": "",
+      "player": "pico-playable",
+      "girlfriend": "nene",
+      "opponent": "spooky",
+      "instrumental": "pico",
       "altInstrumentals": []
     },
     "stage": "spookyMansionErect",
