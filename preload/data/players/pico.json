@@ -58,7 +58,7 @@
         "offsets": [625, 360]
       },
       {
-        "name": "toCharSelect",
+        "name": "charSelect",
         "prefix": "Pico DJ to CS",
         "offsets": [625, 360]
       }

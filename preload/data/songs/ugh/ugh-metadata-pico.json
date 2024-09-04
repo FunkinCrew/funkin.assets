@@ -3,14 +3,6 @@
   "songName": "Ugh (Pico Mix)",
   "artist": "Saruky",
   "charter": "Fabs + Spazkid",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

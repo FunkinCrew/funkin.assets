@@ -1,16 +1,8 @@
 {
   "version": "2.2.4",
   "songName": "Bopeebo (Pico Mix)",
-  "artist": "ThatAndyGuy ft. Saruky",
+  "artist": "ThatAndyGuy (feat. Saruky)",
   "charter": "Fabs + Spazkid",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
