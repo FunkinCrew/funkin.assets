@@ -1,7 +1,8 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Spookeez (Pico Mix)",
   "artist": "Six Impala (feat. Saruky)",
+  "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

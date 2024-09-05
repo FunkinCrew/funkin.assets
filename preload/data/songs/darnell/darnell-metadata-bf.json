@@ -1,7 +1,8 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Darnell (BF Mix)",
   "artist": "Saruky",
+  "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

@@ -253,7 +253,7 @@ class NeneCharacter extends SparrowCharacter {
 		if (!refershedLol)
 		{
 			abot.x = this.x - 100;
-			abot.y = this.y + 266; // 764 - 740
+			abot.y = this.y + 216; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
 
 			PlayState.instance.currentStage.add(abot);
