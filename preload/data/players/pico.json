@@ -81,8 +81,9 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
         "zIndex": 500,
-        "offsets": [200, 100],
-        "loopFrame": 0
+        "scale": 0.88,
+        "offsets": [385, 82],
+        "loopFrame": 91
       }
     ],
     "excellent": [
