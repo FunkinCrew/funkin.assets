@@ -2,18 +2,19 @@
   "version": "2.2.4",
   "songName": "Bopeebo (Pico Mix)",
   "artist": "ThatAndyGuy (feat. Saruky)",
+  "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
-      "girlfriend": "gf",
+      "girlfriend": "nene",
       "opponent": "dad",
       "instrumental": "pico",
       "altInstrumentals": []
     },
     "stage": "mainStageErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000
