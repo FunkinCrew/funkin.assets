@@ -403,23 +403,6 @@ class PhillyTrainErectStage extends Stage
 		if (cutsceneConductor != null && cutsceneMusic != null) {
 			cutsceneConductor.update(cutsceneMusic.time);
 		}
-
-		if(FlxG.keys.justPressed.L){
-			skipText.x += 2;
-			trace(skipText.x, skipText.y);
-		}
-		if(FlxG.keys.justPressed.J){
-			skipText.x -= 2;
-			trace(skipText.x, skipText.y);
-		}
-		if(FlxG.keys.justPressed.I){
-			skipText.y -= 2;
-			trace(skipText.x, skipText.y);
-		}
-		if(FlxG.keys.justPressed.K){
-			skipText.y += 2;
-			trace(skipText.x, skipText.y);
-		}
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void
