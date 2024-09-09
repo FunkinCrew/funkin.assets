@@ -35,3 +35,11 @@ Video
 Audio
 - Codec: AAC
 - Biterate: close to whatever source bitrate is, max should be 192kbps prob
+
+
+To whoever reads this, best wishes and good luck.
+In my dying breaths, I will be thinking about a world with good
+video compression.
+Godspeed, and thank you for reading.
+
+- The Funkin' Crew Inc.
