@@ -10,13 +10,22 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import flixel.util.FlxTimer;
+import flixel.util.FlxTimerManager;
+import funkin.audio.FunkinSound;
+import funkin.data.song.SongRegistry;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.input.Controls;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 class PhillyTrainErectStage extends Stage
 {
 	function new()
 	{
 		super('phillyTrainErect');
-		hasPlayedCutscene = false;
+		hasPlayedInGameCutscene = false;
 	}
 
 	var LIGHT_COUNT:Int = 5;
@@ -24,53 +33,288 @@ class PhillyTrainErectStage extends Stage
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
   var colorShader:AdjustColorShader;
+	var cutsceneMusic:FunkinSound;
 
-	var hasPlayedInGameCutscene:Bool;
+	var hasPlayedInGameCutscene:Bool = false;
+	var cutsceneSkipped:Bool = false;
+	var canSkipCutscene:Bool = false;
+
+	/**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedInGameCutscene = false;
+		cutsceneSkipped = false;
+	  canSkipCutscene = false;
+		playerShoots = false;
+		explode = true;
+  }
 
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    // if(!hasPlayedInGameCutscene){
-    //   trace('Pausing countdown to play in game cutscene');
+    if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
+      trace('Pausing countdown to play in game cutscene');
 
-    //   hasPlayedInGameCutscene = true;
+      hasPlayedInGameCutscene = true;
 
-    //   event.cancel(); // CANCEL THE COUNTDOWN!
+      event.cancel(); // CANCEL THE COUNTDOWN!
 
-    //   PlayState.instance.camHUD.visible = false;
-    //   doppleGangerCutscene();
-    // }
+      PlayState.instance.camHUD.visible = false;
+      doppleGangerCutscene();
+    }else{
+			hasPlayedInGameCutscene = true;
+			cutsceneSkipped = true;
+	 	 	canSkipCutscene = true;
+		}
 	}
 
+	var picoPlayer:ScriptedFlxAtlasSprite;
+	var picoOpponent:ScriptedFlxAtlasSprite;
+	var bloodPool:ScriptedFlxAtlasSprite;
+	var cigarette:FlxSprite;
+	var skipText:FlxText;
+
+	var playerShoots:Bool;
+	var explode:Bool;
+
+	var cutsceneConductor:Conductor;
+
+	var cutsceneTimerManager:FlxTimerManager;
 
 	function doppleGangerCutscene(){
 
-		var picoPlayer:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+		skipText = new FlxText(936, 618, 0, 'Skip [ENTER]', 20);
+    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+    skipText.scrollFactor.set();
+		skipText.borderSize = 2;
+		skipText.alpha = 0;
+    add(skipText);
 
-		picoPlayer.setPosition(763, 410);
+    skipText.cameras = [PlayState.instance.camCutscene];
+
+		cutsceneTimerManager = new FlxTimerManager();
+
+		cutsceneConductor = new Conductor();
+		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('cutscene');
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
+		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
+
+		// 50/50 chance for who shoots
+		if(FlxG.random.bool(50)){
+			playerShoots = true;
+		}
+		if(FlxG.random.bool(8)){
+			explode = true;
+		}
+
+		var cigarettePos:Array<Float> = [];
+		var shooterPos:Array<Float> = [];
+
+		bloodPool = ScriptedFlxAtlasSprite.init('PicoBloodPool', 0, 0);
+		picoPlayer = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+		picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+		cigarette = new FlxSprite(0, 0);
+
+		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 48.5, PlayState.instance.currentStage.getBoyfriend().y + 400);
+		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 82, PlayState.instance.currentStage.getDad().y + 400);
+
 		picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
-    PlayState.instance.currentStage.add(picoPlayer);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		if(playerShoots == true){
+			picoOpponent.zIndex = picoPlayer.zIndex - 1;
+			bloodPool.zIndex = picoOpponent.zIndex - 1;
+			cigarette.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 2;
+			cigarette.flipX = true;
 
-		var picoOpponent:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
+			bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
 
-		picoOpponent.setPosition(694, 410);
-		picoOpponent.zIndex = PlayState.instance.currentStage.getDad().zIndex + 1;
+			shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+			cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+		}else{
+			picoOpponent.zIndex = picoPlayer.zIndex + 1;
+			bloodPool.zIndex = picoPlayer.zIndex - 1;
+			cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
 
-		picoOpponent.flipX = true;
+			bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 788.5, PlayState.instance.currentStage.getBoyfriend().y - 173);
+			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
 
+			cigarettePos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+			shooterPos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+		}
+		var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0])/2, (shooterPos[1] + cigarettePos[1])/2];
+
+		cigarette.frames = Paths.getSparrowAtlas('philly/erect/cigarette');
+    cigarette.animation.addByPrefix('cigarette spit', 'cigarette spit', 24, false);
+		cigarette.visible = false;
+
+		PlayState.instance.currentStage.add(cigarette);
+		PlayState.instance.currentStage.add(picoPlayer);
     PlayState.instance.currentStage.add(picoOpponent);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		PlayState.instance.currentStage.add(bloodPool);
+		PlayState.instance.currentStage.refresh();
+
 		picoPlayer.shader = colorShader;
 		picoOpponent.shader = colorShader;
-
-		picoPlayer.scriptCall('shoot');
-		picoOpponent.scriptCall('cigarette');
+		bloodPool.shader = colorShader;
 
 		PlayState.instance.currentStage.getBoyfriend().visible = false;
 		PlayState.instance.currentStage.getDad().visible = false;
 
+		if(explode == false){
+			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
+		}else{
+			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3"), true);
+		}
+		cutsceneMusic.volume = 1;
+		cutsceneMusic.play(false);
+
+		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
+		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
+
+		PlayState.instance.resetCamera(false, true);
+    PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
+
+		new FlxTimer(cutsceneTimerManager).start(4, _ -> {
+
+			PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
+		});
+
+		new FlxTimer(cutsceneTimerManager).start(6.3, _ -> {
+			PlayState.instance.cameraFollowPoint.setPosition(shooterPos[0], shooterPos[1]);
+		});
+
+		new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
+			cutsceneSkipped = true;
+			canSkipCutscene = false;
+			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadIn, onComplete: _ -> {skipText.visible = false;}});
+			// cutting off skipping here. really dont think its needed after this point and it saves problems from happening
+			PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
+			if(explode == true)
+				PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
+		});
+
+		new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
+			if(explode == true)
+				bloodPool.scriptCall('doAnim');
+		});
+
+		new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
+			if(explode == false){
+				cigarette.visible = true;
+				cigarette.animation.play('cigarette spit');
+			}
+		});
+
+		new FlxTimer(cutsceneTimerManager).start(13, _ -> {
+
+			if(explode == false || playerShoots == true){
+				PlayState.instance.startCountdown();
+			}
+
+			if(explode == true){
+				if(playerShoots == true){
+					picoPlayer.visible = false;
+					PlayState.instance.currentStage.getBoyfriend().visible = true;
+				}else{
+					picoOpponent.visible = false;
+					PlayState.instance.disableKeys = true;
+					PlayState.instance.currentStage.getDad().visible = true;
+
+					new FlxTimer().start(1, function(tmr)
+					{
+						PlayState.instance.camCutscene.fade(0xFF000000, 1, false, null, true);
+					});
+
+					new FlxTimer().start(2, function(tmr)
+					{
+						PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+						PlayState.instance.endSong(true);
+					});
+				}
+			}else{
+				picoPlayer.visible = false;
+				PlayState.instance.currentStage.getBoyfriend().visible = true;
+				picoOpponent.visible = false;
+				PlayState.instance.currentStage.getDad().visible = true;
+			}
+
+			hasPlayedCutscene = true;
+			cutsceneMusic.stop();
+		});
+	}
+
+	function skipCutscene(){
+		cutsceneSkipped = true;
+		explode = false;
+		hasPlayedCutscene = true;
+		PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
+		cutsceneMusic.fadeOut(0.5, 0);
+
+		new FlxTimer().start(0.5, _ -> {
+			PlayState.instance.justUnpaused = true;
+			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+
+			cutsceneTimerManager.clear();
+			picoPlayer.scriptCall('cancelSounds');
+			picoOpponent.scriptCall('cancelSounds');
+			cutsceneMusic.stop();
+
+			PlayState.instance.startCountdown();
+
+			skipText.visible = false;
+			picoPlayer.visible = false;
+			picoOpponent.visible = false;
+			PlayState.instance.currentStage.getBoyfriend().visible = true;
+			PlayState.instance.currentStage.getDad().visible = true;
+		});
+
+	}
+
+	function onSongStart(event:ScriptEvent){
+		if(explode == true && playerShoots == true){
+			PlayState.instance.vocals.opponentVolume = 0;
+		}
+	}
+
+	function onCutsceneBeatHit() {
+		if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}
+	}
+
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		super.onNoteHit(event);
+    if (PlayState.instance.currentStage == null) return;
+
+		// if (event.note.noteData.getMustHitNote() && explode == true && playerShoots == false) {
+		// 	event.cancelEvent();
+		// 	PlayState.instance.vocals.playerVolume = 0;
+		// }
+
+		if (!event.note.noteData.getMustHitNote() && explode == true && playerShoots == true) {
+			event.cancelEvent();
+			PlayState.instance.vocals.opponentVolume = 0;
+		}
+
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		super.onNoteMiss(event.note);
+
+		if (event.note.noteData.getMustHitNote() && explode == true && playerShoots == false) {
+			//event.healthChange = 0.0; // we dont want to take away health so the player can just watch in shame that they died lol
+			PlayState.instance.vocals.playerVolume = 0;
+			event.cancel();
+		}
 	}
 
 	function buildStage()
@@ -108,6 +352,7 @@ class PhillyTrainErectStage extends Stage
 	function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
+		if(cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
@@ -136,6 +381,44 @@ class PhillyTrainErectStage extends Stage
 				updateTrainPos();
 				trainFrameTiming = 0;
 			}
+		}
+
+		if (FlxG.keys.justPressed.ENTER && cutsceneSkipped == false)
+    {
+			if(canSkipCutscene == false){
+				trace('cant skip yet!');
+				FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+				new FlxTimer().start(0.5, _ -> {
+					canSkipCutscene = true;
+					trace('can skip!');
+				});
+			}
+    }
+		if(FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && canSkipCutscene == true){
+			skipCutscene();
+			trace('skipped');
+		}
+
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
+
+		if(FlxG.keys.justPressed.L){
+			skipText.x += 2;
+			trace(skipText.x, skipText.y);
+		}
+		if(FlxG.keys.justPressed.J){
+			skipText.x -= 2;
+			trace(skipText.x, skipText.y);
+		}
+		if(FlxG.keys.justPressed.I){
+			skipText.y -= 2;
+			trace(skipText.x, skipText.y);
+		}
+		if(FlxG.keys.justPressed.K){
+			skipText.y += 2;
+			trace(skipText.x, skipText.y);
 		}
 	}
 
@@ -217,6 +500,7 @@ class PhillyTrainErectStage extends Stage
 	function kill()
 	{
 		super.kill();
+		if(cutsceneTimerManager != null) cutsceneTimerManager.destroy();
 		lightShader = null;
 	}
 }
