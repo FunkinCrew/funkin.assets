@@ -162,6 +162,7 @@ class PhillyStreetsErectStage extends Stage
 		resetStageValues();
 	}
 
+	var mist0:FlxBackdrop;
 	var mist1:FlxBackdrop;
 	var mist2:FlxBackdrop;
 	var mist3:FlxBackdrop;
@@ -183,13 +184,25 @@ class PhillyStreetsErectStage extends Stage
 
 		colorShader = new AdjustColorShader();
 
+		mist0 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
+		mist0.setPosition(-650, -100);
+		mist0.scrollFactor.set(1.2, 1.2);
+		mist0.zIndex = 1000;
+    mist0.blend = 0;
+		mist0.color = 0xFF5c5c5c;
+		mist0.alpha = 0.6;
+		mist0.velocity.x = 172;
+
+		PlayState.instance.currentStage.add(mist0);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
+
 		mist1 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 1000;
     mist1.blend = 0;
 		mist1.color = 0xFF5c5c5c;
-		mist1.alpha = 0.35;
+		mist1.alpha = 0.6;
 		mist1.velocity.x = 150;
 
 		PlayState.instance.currentStage.add(mist1);
@@ -201,7 +214,7 @@ class PhillyStreetsErectStage extends Stage
 		mist2.zIndex = 1001;
     mist2.blend = 0;
 		mist2.color = 0xFF5c5c5c;
-		mist2.alpha = 0.6;
+		mist2.alpha = 0.8;
 		mist2.velocity.x = -80;
 
 		PlayState.instance.currentStage.add(mist2);
@@ -213,7 +226,7 @@ class PhillyStreetsErectStage extends Stage
 		mist3.zIndex = 99;
    	mist3.blend = 0;
 		mist3.color = 0xFF5c5c5c;
-		mist3.alpha = 0.4;
+		mist3.alpha = 0.5;
 		mist3.velocity.x = -50;
 		mist3.scale.set(0.8, 0.8);
 
@@ -458,6 +471,7 @@ class PhillyStreetsErectStage extends Stage
 		super.onUpdate(event);
 
 		_timer += event.elapsed;
+		mist0.y = 660 + (Math.sin(_timer*0.35)*70);
 		mist1.y = 500 + (Math.sin(_timer*0.3)*80);
 		mist2.y = 540 + (Math.sin(_timer*0.4)*60);
 		mist3.y = 230 + (Math.sin(_timer*0.3)*70);
