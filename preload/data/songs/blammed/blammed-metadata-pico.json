@@ -12,7 +12,7 @@
       "instrumental": "pico",
       "altInstrumentals": []
     },
-    "stage": "phillyTrain",
+    "stage": "phillyTrainErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "album": "expansion2",
