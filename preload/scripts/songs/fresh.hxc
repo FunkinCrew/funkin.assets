@@ -13,11 +13,11 @@ import funkin.save.Save;
 
 import funkin.effects.RetroCameraFade;
 
-class BopeeboSong extends Song {
+class FreshSong extends Song {
   var hasPlayedCutscene:Bool;
 
 	public function new() {
-		super('bopeebo');
+		super('fresh');
 	}
 
 	public override function isSongNew(currentDifficulty:String):Bool{
