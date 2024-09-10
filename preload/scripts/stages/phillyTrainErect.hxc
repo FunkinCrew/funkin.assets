@@ -108,9 +108,15 @@ class PhillyTrainErectStage extends Stage
 		// 50/50 chance for who shoots
 		if(FlxG.random.bool(50)){
 			playerShoots = true;
+		} else {
+			playerShoots = false;
 		}
 		if(FlxG.random.bool(8)){
+			// trace('Doppelganger will explode!');
 			explode = true;
+		} else {
+			// trace('Doppelganger will smoke!');
+			explode = false;
 		}
 
 		var cigarettePos:Array<Float> = [];

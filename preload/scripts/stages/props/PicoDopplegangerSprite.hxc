@@ -36,6 +36,8 @@ class PicoDopplegangerSprite extends FlxAtlasSprite
   public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager){
     suffix = _suffix;
 
+    trace('Doppelganger: doAnim(' + suffix + ', ' + shoot + ', ' + explode + ')');
+
     if(shoot == true){
       playAnimation("shoot" + suffix, true, false, false);
 
