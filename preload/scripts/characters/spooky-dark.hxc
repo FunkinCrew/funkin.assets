@@ -16,6 +16,16 @@ class SpookyDarkCharacter extends SparrowCharacter {
 
   var normalChar:BaseCharacter;
 
+	override function set_alpha(val:Float):Float{
+		super.set_alpha(val);
+		if(val != 1)
+			normalChar.alpha = 1;
+		else
+			normalChar.alpha = 0;
+
+    return val;
+	}
+
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 			super.playAnimation(name, restart, ignoreOther);
       if(normalChar != null){
@@ -28,6 +38,7 @@ class SpookyDarkCharacter extends SparrowCharacter {
 		super.onCreate(event);
 	  normalChar = CharacterDataParser.fetchCharacter('spooky');
     normalChar.zIndex = 199;
+		normalChar.alpha = 0;
     normalChar.flipX = false;
 
 		PlayState.instance.currentStage.add(normalChar);
