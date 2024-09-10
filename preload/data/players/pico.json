@@ -1,7 +1,13 @@
 {
   "version": "1.0.0",
   "name": "Pico",
-  "ownedChars": ["pico", "pico-playable", "pico-blazin", "pico-christmas"],
+  "ownedChars": [
+    "pico",
+    "pico-playable",
+    "pico-blazin",
+    "pico-christmas",
+    "pico-dark"
+  ],
   "showUnownedChars": false,
   "unlocked": true,
   "freeplayStyle": "pico",
