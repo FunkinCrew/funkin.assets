@@ -6,8 +6,8 @@
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "pico-playable",
-      "girlfriend": "nene",
+      "player": "pico-dark",
+      "girlfriend": "nene-dark",
       "opponent": "spooky-dark",
       "instrumental": "pico",
       "altInstrumentals": []
