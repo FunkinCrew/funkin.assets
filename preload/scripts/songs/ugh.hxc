@@ -28,6 +28,17 @@ class UghSong extends Song {
     }
   }
 
+	public override function isSongNew(currentDifficulty:String):Bool{
+    if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico'){
+		  if (Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']) == false) return true;
+		}
+		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare') {
+			if (Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
+		}
+
+    return false;
+	}
+
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
