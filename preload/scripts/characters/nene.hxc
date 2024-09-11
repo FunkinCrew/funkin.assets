@@ -227,7 +227,7 @@ class NeneCharacter extends SparrowCharacter {
 		eyeWhites.visible = this.visible;
 		stereoBG.visible = this.visible;
 
-		if (pupil.anim.isPlaying)
+		if (pupil?.anim?.isPlaying)
 		{
 			switch (pupilState)
 			{

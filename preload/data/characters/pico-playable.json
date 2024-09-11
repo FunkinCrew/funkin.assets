@@ -123,6 +123,24 @@
       "assetPath": "characters/Pico_Intro",
       "prefix": "shoot and return0",
       "offsets": [260, 230]
+    },
+    {
+      "name": "burpShit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpshit",
+      "offsets": [33, -3]
+    },
+    {
+      "name": "burpSmile",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpsmile",
+      "offsets": [33, -3]
+    },
+    {
+      "name": "shit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "shit",
+      "offsets": [33, -3]
     }
   ]
 }

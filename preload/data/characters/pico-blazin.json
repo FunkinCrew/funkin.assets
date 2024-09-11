@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico (Blazin')",
-  "assetPath": "characters/picoBlazin",
+  "assetPath": "shared:characters/picoBlazin",
   "healthIcon": {
     "id": "pico"
   },

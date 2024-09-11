@@ -61,6 +61,8 @@ class SpookyMansionErectStage extends Stage
 
 	function doLightningStrike(playSound:Bool, beat:Int):Void
 	{
+		if(getBoyfriend() == null || getGirlfriend() == null || getDad() == null) return;
+
 		if (playSound)
 		{
 			FunkinSound.playOnce(Paths.soundRandom('thunder_', 1, 2), 1.0);

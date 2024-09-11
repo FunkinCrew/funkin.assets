@@ -26,12 +26,4 @@ class SatinPantiesSong extends Song
 	{
 		super('satin-panties');
 	}
-
-	public override function isSongNew(currentDifficulty:String):Bool{
-		if(currentDifficulty == 'erect' || currentDifficulty == 'nightmare'){
-		  if(Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
-		}else{
-			return false;
-		}
-	}
 }

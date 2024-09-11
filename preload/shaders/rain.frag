@@ -137,6 +137,8 @@ uniform int numLights;
 
 uniform bool uSpriteMode;
 
+uniform vec3 uRainColor;
+
 const int MAX_LIGHTS = 8;
 UNIFORM Light lights[MAX_LIGHTS];
 
@@ -280,9 +282,8 @@ void main() {
 	}
 	*/
 
-	vec3 rainColor = vec3(0.4, 0.5, 0.8);
 	color += add;
-	color = mix(color, rainColor, 0.1 * rainSum);
+	color = mix(color, uRainColor, 0.1 * rainSum);
 
 	// vec3 fog = light * (0.5 + rainSum * 0.5);
 	// color = color / (1.0 + fog) + fog;
