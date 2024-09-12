@@ -152,7 +152,7 @@
       },
       {
         "renderType": "sparrow",
-        "assetPath": "shared:resultScreen/results-bf/resultsGood/resultGirlfriendGOOD",
+        "assetPath": "shared:resultScreen/results-bf/resultsGOOD/resultGirlfriendGOOD",
         "zIndex": 500,
         "delay": 0.91,
         "offsets": [629, 323],
