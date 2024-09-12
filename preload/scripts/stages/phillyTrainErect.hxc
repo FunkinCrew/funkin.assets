@@ -283,12 +283,6 @@ class PhillyTrainErectStage extends Stage
 
 	}
 
-	function onSongStart(event:ScriptEvent){
-		if(explode == true && playerShoots == true){
-			PlayState.instance.vocals.opponentVolume = 0;
-		}
-	}
-
 	function onCutsceneBeatHit() {
 		if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()) {
 			PlayState.instance.currentStage.getGirlfriend().dance(true);
@@ -299,28 +293,11 @@ class PhillyTrainErectStage extends Stage
 	{
 		super.onNoteHit(event);
     if (PlayState.instance.currentStage == null) return;
-
-		// if (event.note.noteData.getMustHitNote() && explode == true && playerShoots == false) {
-		// 	event.cancelEvent();
-		// 	PlayState.instance.vocals.playerVolume = 0;
-		// }
-
 		if (!event.note.noteData.getMustHitNote() && explode == true && playerShoots == true) {
 			event.cancelEvent();
 			PlayState.instance.vocals.opponentVolume = 0;
 		}
 
-	}
-
-	function onNoteMiss(event:NoteScriptEvent)
-	{
-		super.onNoteMiss(event.note);
-
-		if (event.note.noteData.getMustHitNote() && explode == true && playerShoots == false) {
-			//event.healthChange = 0.0; // we dont want to take away health so the player can just watch in shame that they died lol
-			PlayState.instance.vocals.playerVolume = 0;
-			event.cancel();
-		}
 	}
 
 	function buildStage()
@@ -389,7 +366,7 @@ class PhillyTrainErectStage extends Stage
 			}
 		}
 
-		if (FlxG.keys.justPressed.ENTER && cutsceneSkipped == false)
+		if (FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && skipText != null)
     {
 			if(canSkipCutscene == false){
 				trace('cant skip yet!');
@@ -400,7 +377,7 @@ class PhillyTrainErectStage extends Stage
 				});
 			}
     }
-		if(FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && canSkipCutscene == true){
+		if(FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && canSkipCutscene == true && skipText != null){
 			skipCutscene();
 			trace('skipped');
 		}
