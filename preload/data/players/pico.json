@@ -56,7 +56,7 @@
       {
         "name": "fistPump",
         "prefix": "pico cheer",
-        "offsets": [625, 360]
+        "offsets": [975, 260]
       },
       {
         "name": "loss",
