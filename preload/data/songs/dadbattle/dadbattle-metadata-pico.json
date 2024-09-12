@@ -2,7 +2,7 @@
   "version": "2.2.4",
   "songName": "DadBattle (Pico Mix)",
   "artist": "Saruky",
-  "charter": "Spazkid",
+  "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
@@ -14,7 +14,7 @@
     },
     "stage": "mainStageErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "ratings": { "easy": 3, "normal": 4, "hard": 12 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000

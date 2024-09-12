@@ -28,15 +28,20 @@ class BopeeboSong extends Song {
 	}
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
 
-    switch (variationId) {
-      case 'pico':
-        // return hasBeatenPicoMix ? [''] : [];
-        // No Pico mix on BF instrumental, sorry!
-        return [];
-      default:
-        return hasBeatenPicoMix ? ['pico'] : [];
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+
+      switch (variationId) {
+        case 'pico':
+          // return hasBeatenPicoMix ? [''] : [];
+          // No Pico mix on BF instrumental, sorry!
+          return [];
+        default:
+          return hasBeatenPicoMix ? ['pico'] : [];
+      }
     }
+
+    return [];
   }
 }

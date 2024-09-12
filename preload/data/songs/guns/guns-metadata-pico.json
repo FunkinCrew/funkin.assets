@@ -1,7 +1,8 @@
 {
   "version": "2.2.4",
   "songName": "Guns (Pico Mix)",
-  "artist": "Saruky",
+  "artist": "tsuyunoshi (ft. Saruky)",
+  "charter": "Fabs + Spazkid",
   "divisions": 96,
   "looped": false,
   "offsets": {
@@ -22,7 +23,7 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "ratings": { "easy": 3, "normal": 5, "hard": 13 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 0

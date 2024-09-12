@@ -56,7 +56,7 @@
       {
         "name": "fistPump",
         "prefix": "pico cheer",
-        "offsets": [625, 360]
+        "offsets": [975, 260]
       },
       {
         "name": "loss",
@@ -95,10 +95,12 @@
     "excellent": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsEXCELLENT",
+        "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
         "zIndex": 500,
-        "offsets": [0, 0],
-        "looped": false
+        "scale": 1.25,
+        "offsets": [350, 25],
+        "looped": true,
+        "loopFrame": 32
       }
     ],
     "great": [
@@ -106,8 +108,10 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
         "zIndex": 500,
-        "offsets": [450, 150],
-        "loopFrame": 26
+        "scale": 1.25,
+        "offsets": [350, 25],
+        "looped": true,
+        "loopFrame": 32
       }
     ],
     "good": [
@@ -115,8 +119,9 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsGOOD",
         "zIndex": 500,
-        "offsets": [450, 150],
-        "loopFrame": 26
+        "scale": 1.25,
+        "offsets": [350, 25],
+        "loopFrame": 41
       }
     ],
     "loss": [
@@ -124,7 +129,7 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
         "zIndex": 500,
-        "offsets": [0, 0],
+        "offsets": [-185, -125],
         "loopFrame": 0
       }
     ]
