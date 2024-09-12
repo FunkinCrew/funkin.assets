@@ -1,7 +1,7 @@
 {
   "version": "2.2.4",
   "songName": "Philly Nice (Pico Mix)",
-  "artist": "Saruky",
+  "artist": "tsuyunoshi (ft. Saruky)",
   "charter": "Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
@@ -14,7 +14,7 @@
     },
     "stage": "phillyTrainErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 2, "normal": 4, "hard": 4 },
+    "ratings": { "easy": 2, "normal": 4, "hard": 11 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000

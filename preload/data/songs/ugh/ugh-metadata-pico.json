@@ -1,7 +1,7 @@
 {
   "version": "2.2.4",
   "songName": "Ugh (Pico Mix)",
-  "artist": "Saruky",
+  "artist": "tsuyunoshi (ft. Saruky)",
   "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
@@ -14,7 +14,7 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 13 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000

@@ -20,6 +20,8 @@ import flixel.tweens.FlxTween;
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pico-playable');
+
+    ignoreExclusionPref.push("shoot");
 	}
 
 	function onCreate(event:ScriptEvent) {
@@ -72,6 +74,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
+				case "censor":
+					holdTimer = 0;
+					this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
+					return;
 				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
