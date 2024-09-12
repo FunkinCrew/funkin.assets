@@ -1,7 +1,8 @@
 {
   "version": "2.2.4",
   "songName": "Cocoa Erect",
-  "artist": "Saster (feat. StillCrisp)",
+  "artist": "Saster",
+  "charter": "Fabs + Spazkid",
   "playData": {
     "difficulties": ["erect", "nightmare"],
     "characters": {
