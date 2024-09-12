@@ -21,7 +21,7 @@
     {
       "name": "singRIGHT",
       "prefix": "Pico Note Right xmas0",
-      "offsets": [-50, 1]
+      "offsets": [-65, 1]
     },
     {
       "name": "singDOWN",
@@ -31,60 +31,40 @@
     {
       "name": "singUP",
       "prefix": "pico Up note xmas0",
-      "offsets": [21, 28]
+      "offsets": [31, 28]
     },
     {
       "name": "singLEFT",
       "prefix": "Pico NOTE LEFT xmas0",
-      "offsets": [84, -11]
+      "offsets": [90, -11]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "Pico NOTE LEFT miss xmas0",
       "looped": false,
-      "offsets": [68, 20]
-    },
-    {
-      "name": "singLEFTmiss-hold",
-      "prefix": "Pico NOTE LEFT miss xmas0",
-      "frameIndices": [24],
-      "offsets": [68, 20]
+      "offsets": [68, 20],
+ 	"frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "Pico Down Note MISS xmas0",
       "looped": false,
-      "offsets": [80, -40]
-    },
-    {
-      "name": "singDOWNmiss-hold",
-      "prefix": "Pico Down Note MISS xmas0",
-      "frameIndices": [24],
-      "offsets": [80, -40]
+      "offsets": [80, -40],
+ 	"frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singUPmiss",
       "prefix": "pico Up note miss xmas0",
       "looped": false,
-      "offsets": [29, 70]
-    },
-    {
-      "name": "singUPmiss-hold",
-      "prefix": "pico Up note miss xmas0",
-      "frameIndices": [24],
-      "offsets": [29, 70]
+      "offsets": [29, 60],
+ 	"frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "Pico Note Right Miss xmas0",
       "looped": false,
-      "offsets": [-55, 45]
-    },
-    {
-      "name": "singRIGHTmiss-hold",
-      "prefix": "Pico Note Right Miss xmas0",
-      "frameIndices": [24],
-      "offsets": [-55, 45]
+      "offsets": [-55, 45],
+ 	"frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "firstDeath",
