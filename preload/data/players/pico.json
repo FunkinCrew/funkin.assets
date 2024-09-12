@@ -56,7 +56,7 @@
       {
         "name": "fistPump",
         "prefix": "pico cheer",
-        "offsets": [625, 360]
+        "offsets": [975, 260]
       },
       {
         "name": "loss",
@@ -97,8 +97,10 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
         "zIndex": 500,
-        "offsets": [450, 150],
-        "loopFrame": 26
+        "scale": 1.25,
+        "offsets": [350, 25],
+        "looped": true,
+        "loopFrame": 32
       }
     ],
     "great": [
@@ -108,7 +110,8 @@
         "zIndex": 500,
         "scale": 1.25,
         "offsets": [350, 25],
-        "loopFrame": 41
+        "looped": true,
+        "loopFrame": 32
       }
     ],
     "good": [
