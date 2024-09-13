@@ -87,7 +87,7 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
-		skipText = new FlxText(936, 618, 0, 'Skip [ENTER]', 20);
+		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
 		skipText.borderSize = 2;
@@ -183,6 +183,8 @@ class PhillyTrainErectStage extends Stage
 
 		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
 		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
+
+		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
@@ -366,7 +368,7 @@ class PhillyTrainErectStage extends Stage
 			}
 		}
 
-		if (FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && skipText != null)
+		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
     {
 			if(canSkipCutscene == false){
 				trace('cant skip yet!');
@@ -377,7 +379,7 @@ class PhillyTrainErectStage extends Stage
 				});
 			}
     }
-		if(FlxG.keys.justPressed.ENTER && cutsceneSkipped == false && canSkipCutscene == true && skipText != null){
+		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true){
 			skipCutscene();
 			trace('skipped');
 		}
