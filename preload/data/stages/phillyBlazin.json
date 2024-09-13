@@ -60,7 +60,7 @@
     "bf": {
       "zIndex": 2000,
       "scale": 1.75,
-      "position": [-237, -200],
+      "position": [-237, 100],
       "cameraOffsets": [-350, -100]
     },
     "gf": {
@@ -71,7 +71,7 @@
     "dad": {
       "zIndex": 3000,
       "scale": 1.75,
-      "position": [-237, -150],
+      "position": [-237, 150],
       "cameraOffsets": [500, 200]
     }
   }
