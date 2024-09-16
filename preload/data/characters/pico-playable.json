@@ -39,6 +39,30 @@
       "offsets": [84, -11]
     },
     {
+      "name": "singRIGHT-censor",
+      "prefix": "pico swear right",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [-50, 1]
+    },
+    {
+      "name": "singDOWN-censor",
+      "prefix": "pico swear down",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [84, -77]
+    },
+    {
+      "name": "singUP-censor",
+      "prefix": "pico swear up",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [21, 28]
+    },
+    {
+      "name": "singLEFT-censor",
+      "prefix": "pico swear left",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [84, -11]
+    },
+    {
       "name": "singLEFTmiss",
       "assetPath": "characters/Pico_Playable",
       "prefix": "Pico Left Note MISS",
@@ -123,6 +147,24 @@
       "assetPath": "characters/Pico_Intro",
       "prefix": "shoot and return0",
       "offsets": [260, 230]
+    },
+    {
+      "name": "burpShit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpshit",
+      "offsets": [33, -3]
+    },
+    {
+      "name": "burpSmile",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpsmile",
+      "offsets": [33, -3]
+    },
+    {
+      "name": "shit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "shit",
+      "offsets": [0, -3]
     }
   ]
 }

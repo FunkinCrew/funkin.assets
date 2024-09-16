@@ -1,5 +1,5 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Satin Panties Erect",
   "artist": "Kawai Sprite",
   "charter": "fabs + Spazkid",
@@ -11,11 +11,12 @@
       "opponent": "mom-car",
       "instrumental": "erect"
     },
-    "stage": "limoRide",
+    "stage": "limoRideErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 13, "nightmare": 14 },
+    "album": "expansion1",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:51a44d4) PROTOTYPE",
   "timeFormat": "ms",

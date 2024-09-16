@@ -1,4 +1,3 @@
-
 #pragma header
 
 
@@ -136,6 +135,10 @@ uniform sampler2D uMask;
 uniform sampler2D uLightMap;
 uniform int numLights;
 
+uniform bool uSpriteMode;
+
+uniform vec3 uRainColor;
+
 const int MAX_LIGHTS = 8;
 UNIFORM Light lights[MAX_LIGHTS];
 
@@ -229,7 +232,9 @@ vec2 worldToBackground(vec2 worldCoord) {
 }
 
 void main() {
+
 	vec2 wpos = screenToWorld(screenCoord);
+	if (uSpriteMode) wpos = screenToWorld(screenToFrame(openfl_TextureCoordv));
 	vec2 origWpos = wpos;
 	float intensity = uIntensity;
 
@@ -255,9 +260,16 @@ void main() {
 		}
 	}
 
+
 	//vec3 light = (texture2D(uLightMap, screenCoord).xyz + lightUp(wpos)) * intensity;
 
 	vec3 color = sampleBitmapWorld(wpos).xyz;
+	float alpha = sampleBitmapWorld(wpos).w;
+	if (uSpriteMode) {
+		vec2 rwpos = worldToScreen(wpos - origWpos);
+		color = flixel_texture2D(bitmap, openfl_TextureCoordv + rwpos).xyz;
+		alpha = flixel_texture2D(bitmap, openfl_TextureCoordv + rwpos).w;
+	}
 
 	/*
 	bool isPuddle = texture2D(uMask, screenCoord).x > 0.5;
@@ -270,12 +282,11 @@ void main() {
 	}
 	*/
 
-	vec3 rainColor = vec3(0.4, 0.5, 0.8);
 	color += add;
-	color = mix(color, rainColor, 0.1 * rainSum);
+	color = mix(color, uRainColor, 0.1 * rainSum);
 
 	// vec3 fog = light * (0.5 + rainSum * 0.5);
 	// color = color / (1.0 + fog) + fog;
 
-	gl_FragColor = vec4(color, 1);
+	gl_FragColor = vec4(color, alpha);
 }
