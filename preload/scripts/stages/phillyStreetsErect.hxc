@@ -482,7 +482,10 @@ class PhillyStreetsErectStage extends Stage
 		// mist5.y = -450 + (Math.sin(_timer*0.2)*1xxx50);
 		//trace(mist1.y);
 
-		var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music != null ? FlxG.sound.music.length : 0.0, rainShaderStartIntensity, rainShaderEndIntensity);
+		var remappedIntensityValue:Float = rainShaderStartIntensity;
+		if (FlxG.sound.music != null) {
+			remappedIntensityValue = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity, rainShaderEndIntensity);
+		}
 		rainShader.intensity = remappedIntensityValue;
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed);
