@@ -20,6 +20,16 @@ class MallXmasErectStage extends Stage
 
 	var colorShader:AdjustColorShader;
 
+	function buildStage()
+	{
+		super.buildStage();
+		
+		colorShader = new AdjustColorShader();
+
+		colorShader.hue = 5;
+		colorShader.saturation = 20;
+	}
+
 	function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
@@ -31,9 +41,6 @@ class MallXmasErectStage extends Stage
 		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
 		  PlayState.instance.currentStage.getDad().shader = colorShader;
 			getNamedProp('santa').shader = colorShader;
-
-		  colorShader.hue = 5;
-		  colorShader.saturation = 20;
     }
 
 	}
