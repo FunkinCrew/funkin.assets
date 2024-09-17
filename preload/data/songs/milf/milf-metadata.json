@@ -1,6 +1,6 @@
 {
-  "version": "2.2.1",
-  "songName": "M.I.L.F.",
+  "version": "2.2.4",
+  "songName": "M.I.L.F",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH + Spazkid",
   "playData": {
@@ -12,7 +12,7 @@
     },
     "stage": "limoRide",
     "noteStyle": "funkin",
-    "ratings": { "easy": 0, "hard": 2, "normal": 1 },
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000

@@ -1,13 +1,18 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Spookeez",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH + SpazKid",
-  "divisions": 96,
   "playData": {
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "spooky" },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "spooky",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
+    },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
     "ratings": { "easy": 0, "normal": 1, "hard": 2 },

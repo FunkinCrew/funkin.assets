@@ -2,6 +2,7 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.save.Save;
 
 import funkin.play.PlayStatePlaylist;
 
@@ -13,6 +14,28 @@ class GunsSong extends Song {
 
     hasPlayedCutscene = false;
 	}
+
+	public override function isSongNew(currentDifficulty:String):Bool{
+		if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico'){
+		  if (Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']) == false) return true;
+		}
+    return false;
+	}
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+
+      switch (variationId) {
+        case 'pico':
+          // return hasBeatenPicoMix ? [''] : [];
+          // No Pico mix on BF instrumental, sorry!
+          return [];
+        default:
+          return hasBeatenPicoMix ? ['pico'] : [];
+      }
+    }
+  }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);

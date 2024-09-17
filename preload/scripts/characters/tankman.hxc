@@ -1,8 +1,8 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
-class TankmanCharacter extends SparrowCharacter {
+class TankmanCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('tankman');
 	}

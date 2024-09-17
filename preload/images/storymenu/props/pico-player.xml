@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
 <TextureAtlas imagePath="pico-player.png" width="1961" height="741">
   <SubTexture name="confirm0001" x="1158" y="366" width="395" height="367" frameX="-1" frameY="-0" frameWidth="396" frameHeight="368" />
   <SubTexture name="confirm0002" x="1158" y="366" width="395" height="367" frameX="-1" frameY="-0" frameWidth="396" frameHeight="368" />

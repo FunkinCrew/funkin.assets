@@ -20,6 +20,8 @@ import flixel.tweens.FlxTween;
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pico-playable');
+
+    ignoreExclusionPref.push("shoot");
 	}
 
 	function onCreate(event:ScriptEvent) {
@@ -53,8 +55,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
 		var gf = PlayState.instance.currentStage.getGirlfriend();
-		deathSpriteNene.x = gf.originalPosition.x + 280;
-		deathSpriteNene.y = gf.originalPosition.y + 70;
+		deathSpriteNene.x = gf.originalPosition.x + 120;// + 280;
+		deathSpriteNene.y = gf.originalPosition.y - 200;// + 70;
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
 		deathSpriteNene.animation.finishCallback = function(name:String) {
@@ -72,6 +74,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
+				case "censor":
+					holdTimer = 0;
+					this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
+					return;
 				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
@@ -133,7 +139,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	override function onAnimationFinished(name:String) {
 		super.onAnimationFinished(name);
 
-		if (name == 'shootMISS' && PlayState.instance.health > 0.0) {
+		if (name == 'shootMISS' && PlayState.instance.health > 0.0 && !PlayState.instance.isPlayerDying) {
 			// ERIC: You have to use super instead of this or it breaks.
 			// This is because typeof(this) is PolymodAbstractClass.
       picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
@@ -174,6 +180,11 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var picoDeathExplosion:FlxAtlasSprite;
 
 	function doExplosionDeath() {
+
+		if (picoFlicker != null) {
+			picoFlicker.stop(); // this sets visible to true, but we make it false a few lines down anyways
+		}
+
 		// Suffixed death sound will already play.
 		GameOverSubState.instance.resetCameraZoom();
 
@@ -252,8 +263,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			// also no animation suffix 🤔
 			GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
 
-			deathSpriteRetry.x = this.x + 416;
-			deathSpriteRetry.y = this.y + 42;
+			deathSpriteRetry.x = this.x + 195;
+			deathSpriteRetry.y = this.y - 70;
 		}
 
 		if (name == "cock" && frameNumber == 3) {
