@@ -34,8 +34,6 @@ class MallXmasErectStage extends Stage
 	{
 		super.onUpdate(event);
 
-    colorShader = new AdjustColorShader();
-
 		if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
       PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
 		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
