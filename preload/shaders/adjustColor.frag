@@ -33,5 +33,5 @@ void main()
 
     vec3 outColor = applyHSBCEffect(textureColor.rgb);
 
-    gl_FragColor = vec4(outColor * textureColor.a * openfl_Alphav, textureColor.a * openfl_Alphav);
+    gl_FragColor = vec4(outColor * textureColor.a * openfl_Alphav, textureColor.a * openfl_Alphav); // thanks nebulazorua for finding the fix
 }
