@@ -29,9 +29,9 @@ vec3 applyHSBCEffect(vec3 color)
 
 void main()
 {
-	vec4 textureColor = texture2D(bitmap, openfl_TextureCoordv);
+    vec4 textureColor = texture2D(bitmap, openfl_TextureCoordv);
 
-	vec3 outColor = applyHSBCEffect(textureColor.rgb);
+    vec3 outColor = applyHSBCEffect(textureColor.rgb);
 
-	gl_FragColor = vec4(outColor * textureColor.a, textureColor.a);
+    gl_FragColor = vec4(outColor * textureColor.a * openfl_Alphav, textureColor.a * openfl_Alphav);
 }
