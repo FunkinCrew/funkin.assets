@@ -21,22 +21,24 @@ class PhillyNiceSong extends Song {
 	}
 
 	public override function isSongNew(currentDifficulty:String):Bool{
-		if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico'){
+		if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico') {
 		  if (Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']) == false) return true;
 		}
     return false;
 	}
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
 
-    switch (variationId) {
-      case 'pico':
-        // return hasBeatenPicoMix ? [''] : [];
-        // No Pico mix on BF instrumental, sorry!
-        return [];
-      default:
-        return hasBeatenPicoMix ? ['pico'] : [];
+      switch (variationId) {
+        case 'pico':
+          // return hasBeatenPicoMix ? [''] : [];
+          // No Pico mix on BF instrumental, sorry!
+          return [];
+        default:
+          return hasBeatenPicoMix ? ['pico'] : [];
+      }
     }
   }
 }
