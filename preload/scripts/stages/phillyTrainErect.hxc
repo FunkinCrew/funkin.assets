@@ -162,7 +162,7 @@ class PhillyTrainErectStage extends Stage
 
 		PlayState.instance.currentStage.add(cigarette);
 		PlayState.instance.currentStage.add(picoPlayer);
-    PlayState.instance.currentStage.add(picoOpponent);
+    	PlayState.instance.currentStage.add(picoOpponent);
 		PlayState.instance.currentStage.add(bloodPool);
 		PlayState.instance.currentStage.refresh();
 
@@ -187,7 +187,8 @@ class PhillyTrainErectStage extends Stage
 		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
-    PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
+   	 	PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
+		PlayState.instance.isInCutscene = true;
 
 		new FlxTimer(cutsceneTimerManager).start(4, _ -> {
 
@@ -254,7 +255,8 @@ class PhillyTrainErectStage extends Stage
 			}
 
 			hasPlayedCutscene = true;
-			cutsceneMusic.stop();
+			cutsceneMusic.stop();		
+
 		});
 	}
 
