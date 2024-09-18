@@ -6,7 +6,7 @@
   "assets": {
     "note": {
       "assetPath": "shared:notes",
-      "scale": 1.0,
+      "scale": 0.7,
       "data": {
         "left": { "prefix": "noteLeft" },
         "down": { "prefix": "noteDown" },
@@ -16,7 +16,7 @@
     },
     "noteStrumline": {
       "assetPath": "shared:noteStrumline",
-      "scale": 1.55,
+      "scale": 0.7,
       "offsets": [0, 0],
       "data": {
         "leftStatic": { "prefix": "staticLeft0" },
@@ -39,6 +39,7 @@
     },
     "holdNote": {
       "assetPath": "NOTE_hold_assets",
+      "scale": 0.7,
       "data": {}
     },
     "noteSplash": {

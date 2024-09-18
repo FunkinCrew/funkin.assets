@@ -6,7 +6,7 @@
   "assets": {
     "note": {
       "assetPath": "week6:weeb/pixelUI/arrows-pixels",
-      "scale": 1.0,
+      "scale": 6.0,
       "isPixel": true,
       "data": {
         "left": { "prefix": "noteLeft" },
@@ -17,7 +17,7 @@
     },
     "noteStrumline": {
       "assetPath": "week6:weeb/pixelUI/arrows-pixels",
-      "scale": 1.0,
+      "scale": 6.0,
       "offsets": [28, 32],
       "isPixel": true,
       "data": {
@@ -41,7 +41,8 @@
     },
     "holdNote": {
       "assetPath": "week6:weeb/pixelUI/arrowEndsNew",
-      "scale": 8.0,
+      "scale": 6.0,
+      "offsets": [2, 1],
       "isPixel": true,
       "data": {}
     },
