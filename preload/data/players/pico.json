@@ -82,6 +82,16 @@
       "GOOD": "resultsNORMAL-pico",
       "SHIT": "resultsSHIT-pico"
     },
+    "perfectGold": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
+        "zIndex": 500,
+        "scale": 0.88,
+        "offsets": [385, 82],
+        "loopFrame": 91
+      }
+    ],
     "perfect": [
       {
         "renderType": "animateatlas",
