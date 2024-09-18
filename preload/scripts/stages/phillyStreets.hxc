@@ -13,13 +13,11 @@ import funkin.graphics.framebuffer.FixedBitmapData;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
-import openfl.utils.Assets;
 import flixel.addons.display.FlxTiledSprite;
 import StringTools;
 
