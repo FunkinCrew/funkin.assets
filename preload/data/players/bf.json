@@ -82,7 +82,12 @@
     ]
   },
   "charSelect": {
-    "position": 4
+    "position": 4,
+    "gf": {
+      "assetPath": "charSelect/gfChill",
+      "animInfoPath": "charSelect/gfAnimInfo",
+      "visualizer": false
+    }
   },
   "results": {
     "music": {

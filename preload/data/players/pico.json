@@ -71,7 +71,12 @@
     ]
   },
   "charSelect": {
-    "position": 3
+    "position": 3,
+    "gf": {
+      "assetPath": "charSelect/neneChill",
+      "animInfoPath": "charSelect/neneAnimInfo",
+      "visualizer": true
+    }
   },
   "results": {
     "music": {
