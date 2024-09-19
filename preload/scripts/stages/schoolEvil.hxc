@@ -24,20 +24,6 @@ class SchoolEvilStage extends Stage
 		getNamedProp('evilSchoolFG').shader = wiggle;
 	}
 
-	override function addCharacter(char:BaseCharacter, charType:CharacterType)
-	{
-		// TODO: Once scripted characters are implemented, move this to the Spirit script.
-		if (charType == charType.DAD)
-		{
-			var evilTrail = new FlxTrail(char, null, 4, 24, 0.3, 0.069);
-			// Go behind Spirit.
-			evilTrail.zIndex = 190;
-			add(evilTrail);
-		}
-
-		super.addCharacter(char, charType);
-	}
-
 	override function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
