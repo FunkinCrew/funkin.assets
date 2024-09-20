@@ -1,7 +1,6 @@
 import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.graphics.FunkinSprite;
 import funkin.play.cutscene.CutsceneType;

@@ -6,7 +6,6 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
-import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;

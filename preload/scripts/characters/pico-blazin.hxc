@@ -1,7 +1,5 @@
 
 import flixel.FlxG;
-import funkin.Paths;
-import funkin.play.GameOverSubState;
 import flixel.util.FlxTimer;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;

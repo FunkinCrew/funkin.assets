@@ -1,7 +1,6 @@
 import flixel.tweens.FlxEase;
 import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxTween;
-import funkin.Paths;
 import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
