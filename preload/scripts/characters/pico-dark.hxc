@@ -5,7 +5,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.graphics.FunkinSprite;
 import funkin.play.PauseSubState;
@@ -54,7 +54,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter {
 
   function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-	  normalChar = CharacterDataParser.fetchCharacter('pico-playable');
+	  normalChar = CharacterRegistry.fetchCharacter('pico-playable');
     normalChar.zIndex = 199;
 		normalChar.alpha = 0;
     normalChar.flipX = false;

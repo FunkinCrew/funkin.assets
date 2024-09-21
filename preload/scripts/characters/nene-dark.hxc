@@ -10,7 +10,7 @@ import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.TextureSwap;
 import openfl.display.BitmapData;
@@ -91,7 +91,7 @@ class NeneDarkCharacter extends SparrowCharacter {
 			spr.shader = vizAdjustColor;
 		}
 
-		normalChar = CharacterDataParser.fetchCharacter('nene');
+		normalChar = CharacterRegistry.fetchCharacter('nene');
     normalChar.zIndex = this.zIndex - 1;
 		normalChar.alpha = 0;
     normalChar.flipX = false;

@@ -27,6 +27,8 @@ class DarnellCharacter extends SparrowCharacter {
 				default:
 					super.onNoteHit(event);
 			}
+		} else {
+			super.onNoteHit(event);
 		}
 	}
 
