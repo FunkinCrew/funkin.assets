@@ -1,9 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Darnell",
   "assetPath": "characters/darnell",
   "singTime": 8.0,
   "offsets": [0, 0],
+  "flipXOffsets": true,
+  "flipSingAnimations": true,
   "animations": [
     {
       "name": "idle",
