@@ -182,13 +182,17 @@ class PhillyStreetsErectStage extends Stage
 		PlayState.instance.currentStage.add(scrollingSky);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 
-		colorShader = new AdjustColorShader();
+		colorShader = new AdjustColorShader();  
+		colorShader.hue = -5;
+		colorShader.saturation = -40;
+		colorShader.contrast = -25;
+		colorShader.brightness = -20;
 
 		mist0 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist0.setPosition(-650, -100);
 		mist0.scrollFactor.set(1.2, 1.2);
 		mist0.zIndex = 1000;
-    mist0.blend = 0;
+    	mist0.blend = 0;
 		mist0.color = 0xFF5c5c5c;
 		mist0.alpha = 0.6;
 		mist0.velocity.x = 172;
@@ -200,7 +204,7 @@ class PhillyStreetsErectStage extends Stage
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 1000;
-    mist1.blend = 0;
+    	mist1.blend = 0;
 		mist1.color = 0xFF5c5c5c;
 		mist1.alpha = 0.6;
 		mist1.velocity.x = 150;
@@ -212,7 +216,7 @@ class PhillyStreetsErectStage extends Stage
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 1001;
-    mist2.blend = 0;
+    	mist2.blend = 0;
 		mist2.color = 0xFF5c5c5c;
 		mist2.alpha = 0.8;
 		mist2.velocity.x = -80;
@@ -224,7 +228,7 @@ class PhillyStreetsErectStage extends Stage
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.95, 0.95);
 		mist3.zIndex = 99;
-   	mist3.blend = 0;
+   		mist3.blend = 0;
 		mist3.color = 0xFF5c5c5c;
 		mist3.alpha = 0.5;
 		mist3.velocity.x = -50;
@@ -237,7 +241,7 @@ class PhillyStreetsErectStage extends Stage
 		mist4.setPosition(-650, -100);
 		mist4.scrollFactor.set(0.8, 0.8);
 		mist4.zIndex = 88;
-   	mist4.blend = 0;
+   		mist4.blend = 0;
 		mist4.color = 0xFF5c5c5c;
 		mist4.alpha = 1;
 		mist4.velocity.x = 40;
@@ -250,7 +254,7 @@ class PhillyStreetsErectStage extends Stage
 		mist5.setPosition(-650, -100);
 		mist5.scrollFactor.set(0.5, 0.5);
 		mist5.zIndex = 39;
-   	mist5.blend = 0;
+   		mist5.blend = 0;
 		mist5.color = 0xFF5c5c5c;
 		mist5.alpha = 1;
 		mist5.velocity.x = 20;
@@ -258,6 +262,13 @@ class PhillyStreetsErectStage extends Stage
 
 		PlayState.instance.currentStage.add(mist5);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
+	}
+
+	override function onSongLoaded(event:SongLoadScriptEvent):Void
+	{
+		PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+		PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+		PlayState.instance.currentStage.getDad().shader = colorShader;
 	}
 
 	override function onDestroy(event:ScriptEvent) {
@@ -488,16 +499,6 @@ class PhillyStreetsErectStage extends Stage
 		rainShader.update(event.elapsed);
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
-
-		if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getDad().shader = colorShader;
-
-		  colorShader.hue = -5;
-		  colorShader.saturation = -40;
-		  colorShader.contrast = -25;
-		  colorShader.brightness = -20;
     }
 
 		// if (rainSndAmbience != null) {

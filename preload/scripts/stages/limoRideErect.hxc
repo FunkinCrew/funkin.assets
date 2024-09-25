@@ -16,7 +16,7 @@ class LimoRideErectStage extends Stage
 		super('limoRideErect');
 	}
 
-  var colorShader:AdjustColorShader;
+  	var colorShader:AdjustColorShader;
 	var mist1:FlxBackdrop;
 	var mist2:FlxBackdrop;
 	var mist3:FlxBackdrop;
@@ -47,13 +47,17 @@ class LimoRideErectStage extends Stage
 		// I don't know what it's for, but it's not used in the game.
 		// If you want to re-add it, go find it in version control.
 
-    colorShader = new AdjustColorShader();
+    	colorShader = new AdjustColorShader();
+		colorShader.hue = -30;
+		colorShader.saturation = -20;
+		colorShader.contrast = 0;
+		colorShader.brightness = -30;
 
-    mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
+    	mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 400;
-    mist1.blend = 0;
+    	mist1.blend = 0;
 		mist1.color = 0xFFc6bfde;
 		mist1.alpha = 0.4;
 		mist1.velocity.x = 1700;
@@ -65,7 +69,7 @@ class LimoRideErectStage extends Stage
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 401;
-    mist2.blend = 0;
+    	mist2.blend = 0;
 		mist2.color = 0xFF6a4da1;
 		mist2.alpha = 1;
 		mist2.velocity.x = 2100;
@@ -78,7 +82,7 @@ class LimoRideErectStage extends Stage
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.8, 0.8);
 		mist3.zIndex = 99;
-   	mist3.blend = 0;
+   		mist3.blend = 0;
 		mist3.color = 0xFFa7d9be;
 		mist3.alpha = 0.5;
 		mist3.velocity.x = 900;
@@ -92,7 +96,7 @@ class LimoRideErectStage extends Stage
 		mist4.setPosition(-650, -380);
 		mist4.scrollFactor.set(0.6, 0.6);
 		mist4.zIndex = 98;
-    mist4.blend = 0;
+   		mist4.blend = 0;
 		mist4.color = 0xFF9c77c7;
 		mist4.alpha = 1;
 		mist4.velocity.x = 700;
@@ -105,7 +109,7 @@ class LimoRideErectStage extends Stage
 		mist5.setPosition(-650, -400);
 		mist5.scrollFactor.set(0.2, 0.2);
 		mist5.zIndex = 15;
-   	mist5.blend = 0;
+   		mist5.blend = 0;
 		mist5.color = 0xFFE7A480;
 		mist5.alpha = 1;
 		mist5.velocity.x = 100;
@@ -117,6 +121,19 @@ class LimoRideErectStage extends Stage
 		getNamedProp('shootingStar').blend = 0;
 
 		resetFastCar();
+	}
+
+	override function onSongLoaded(event:SongLoadScriptEvent):Void
+	{
+		PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+		PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+		PlayState.instance.currentStage.getDad().shader = colorShader;
+		getNamedProp('limoDancer1').shader = colorShader;
+		getNamedProp('limoDancer2').shader = colorShader;
+		getNamedProp('limoDancer3').shader = colorShader;
+		getNamedProp('limoDancer4').shader = colorShader;
+		getNamedProp('limoDancer5').shader = colorShader;
+		getNamedProp('fastCar').shader = colorShader;
 	}
 
 	var _timer:Float = 0;
@@ -133,17 +150,6 @@ class LimoRideErectStage extends Stage
 		mist5.y = -450 + (Math.sin(_timer*0.2)*150);
 		//trace(mist1.y);
 
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getDad().shader = colorShader;
-		  getNamedProp('limoDancer1').shader = colorShader;
-      getNamedProp('limoDancer2').shader = colorShader;
-  	  getNamedProp('limoDancer3').shader = colorShader;
-      getNamedProp('limoDancer4').shader = colorShader;
-      getNamedProp('limoDancer5').shader = colorShader;
-      getNamedProp('fastCar').shader = colorShader;
-
 			// PlayState.instance.currentStage.getBoyfriend().visible = false;
 		  // PlayState.instance.currentStage.getGirlfriend().visible = false;
 		  // PlayState.instance.currentStage.getDad().visible = false;
@@ -157,11 +163,6 @@ class LimoRideErectStage extends Stage
 			// getNamedProp('bgLimo').visible = false;
 			// getNamedProp('limoSunset').visible = false;
 			// getNamedProp('shootingStar').visible = false;
-
-		  colorShader.hue = -30;
-		  colorShader.saturation = -20;
-		  colorShader.contrast = 0;
-		  colorShader.brightness = -30;
     }
   }
 

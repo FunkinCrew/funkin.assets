@@ -30,43 +30,37 @@ class MainStageErectStage extends Stage
 	{
 		super.buildStage();
 
-    colorShaderBf = new AdjustColorShader();
-    colorShaderDad = new AdjustColorShader();
-    colorShaderGf = new AdjustColorShader();
+		colorShaderBf = new AdjustColorShader();
+		colorShaderDad = new AdjustColorShader();
+		colorShaderGf = new AdjustColorShader();
 
-    colorShaderBf.brightness = -23;
-    colorShaderBf.hue = 12;
-    colorShaderBf.contrast = 7;
+		colorShaderBf.brightness = -23;
+		colorShaderBf.hue = 12;
+		colorShaderBf.contrast = 7;
 		colorShaderBf.saturation = 0;
 
-    colorShaderGf.brightness = -30;
-    colorShaderGf.hue = -9;
-    colorShaderGf.contrast = -4;
+		colorShaderGf.brightness = -30;
+		colorShaderGf.hue = -9;
+		colorShaderGf.contrast = -4;
 		colorShaderGf.saturation = 0;
 
-    colorShaderDad.brightness = -33;
-    colorShaderDad.hue = -32;
-    colorShaderDad.contrast = -23;
+		colorShaderDad.brightness = -33;
+		colorShaderDad.hue = -32;
+		colorShaderDad.contrast = -23;
 		colorShaderDad.saturation = 0;
 
-    getNamedProp('brightLightSmall').blend = 0;
-    getNamedProp('orangeLight').blend = 0;
-    getNamedProp('lightgreen').blend = 0;
-    getNamedProp('lightred').blend = 0;
-    getNamedProp('lightAbove').blend = 0;
-
+		getNamedProp('brightLightSmall').blend = 0;
+		getNamedProp('orangeLight').blend = 0;
+		getNamedProp('lightgreen').blend = 0;
+		getNamedProp('lightred').blend = 0;
+		getNamedProp('lightAbove').blend = 0;
 	}
 
-	function onUpdate(event:UpdateScriptEvent):Void
+	override function onSongLoaded(event:SongLoadScriptEvent):Void
 	{
-		super.onUpdate(event);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
-			PlayState.instance.currentStage.getDad().shader = colorShaderDad;
-    }
-
+		PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
+		PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
+		PlayState.instance.currentStage.getDad().shader = colorShaderDad;
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void
@@ -74,7 +68,7 @@ class MainStageErectStage extends Stage
 		super.onBeatHit(event);
 	}
 
-  function onStepHit(event:SongTimeScriptEvent):Void
+  	function onStepHit(event:SongTimeScriptEvent):Void
 	{
 		super.onStepHit(event);
 	}

@@ -32,7 +32,7 @@ class PhillyTrainErectStage extends Stage
 
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
-  var colorShader:AdjustColorShader;
+  	var colorShader:AdjustColorShader;
 	var cutsceneMusic:FunkinSound;
 
 	var hasPlayedInGameCutscene:Bool = false;
@@ -47,24 +47,24 @@ class PhillyTrainErectStage extends Stage
     super.onCreate(event);
 
     hasPlayedInGameCutscene = false;
-		cutsceneSkipped = false;
-	  canSkipCutscene = false;
-		playerShoots = false;
-		explode = true;
+	cutsceneSkipped = false;
+	canSkipCutscene = false;
+	playerShoots = false;
+	explode = true;
   }
 
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
-      trace('Pausing countdown to play in game cutscene');
+		if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
+		trace('Pausing countdown to play in game cutscene');
 
-      hasPlayedInGameCutscene = true;
+      	hasPlayedInGameCutscene = true;
 
-      event.cancel(); // CANCEL THE COUNTDOWN!
+      	event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.camHUD.visible = false;
-      doppleGangerCutscene();
+      	PlayState.instance.camHUD.visible = false;
+      	doppleGangerCutscene();
     }else{
 			hasPlayedInGameCutscene = true;
 			cutsceneSkipped = true;
@@ -88,13 +88,13 @@ class PhillyTrainErectStage extends Stage
 	function doppleGangerCutscene(){
 
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
-    skipText.scrollFactor.set();
+		skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		skipText.scrollFactor.set();
 		skipText.borderSize = 2;
 		skipText.alpha = 0;
-    add(skipText);
+		add(skipText);
 
-    skipText.cameras = [PlayState.instance.camCutscene];
+    	skipText.cameras = [PlayState.instance.camCutscene];
 
 		cutsceneTimerManager = new FlxTimerManager();
 
@@ -162,7 +162,7 @@ class PhillyTrainErectStage extends Stage
 
 		PlayState.instance.currentStage.add(cigarette);
 		PlayState.instance.currentStage.add(picoPlayer);
-    PlayState.instance.currentStage.add(picoOpponent);
+    	PlayState.instance.currentStage.add(picoOpponent);
 		PlayState.instance.currentStage.add(bloodPool);
 		PlayState.instance.currentStage.refresh();
 
@@ -309,7 +309,12 @@ class PhillyTrainErectStage extends Stage
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
-    colorShader = new AdjustColorShader();
+    	colorShader = new AdjustColorShader();
+		colorShader.hue = -26;
+		colorShader.saturation = -16;
+		colorShader.contrast = 0;
+		colorShader.brightness = -5;
+
 		FlxG.sound.list.add(trainSound);
 
 		for (i in 0...LIGHT_COUNT)
@@ -319,6 +324,14 @@ class PhillyTrainErectStage extends Stage
 			light.visible = false;
 		}
 
+	}
+
+	override function onSongLoaded(event:SongLoadScriptEvent):Void
+	{
+		PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+		PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+		PlayState.instance.currentStage.getDad().shader = colorShader;
+		getNamedProp('train').shader = colorShader;
 	}
 
 	function fetchAssetPaths():Array<String>
@@ -341,18 +354,6 @@ class PhillyTrainErectStage extends Stage
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-			PlayState.instance.currentStage.getDad().shader = colorShader;
-			getNamedProp('train').shader = colorShader;
-
-			colorShader.hue = -26;
-			colorShader.saturation = -16;
-			colorShader.contrast = 0;
-			colorShader.brightness = -5;
-    }
 
 		var amount:Int = 1;
 
