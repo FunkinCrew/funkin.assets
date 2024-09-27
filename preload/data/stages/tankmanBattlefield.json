@@ -55,7 +55,11 @@
       "scroll": [0.4, 0.4],
       "zIndex": 14,
       "animations": [
-        { "name": "smokeLeft", "prefix": "SmokeBlurLeft", "looped": true }
+        {
+          "name": "smokeLeft",
+          "prefix": "SmokeBlurLeft instance 1",
+          "looped": true
+        }
       ],
       "startingAnimation": "smokeLeft"
     },
@@ -67,7 +71,11 @@
       "zIndex": 15,
       "scroll": [0.4, 0.4],
       "animations": [
-        { "name": "smokeRight", "prefix": "SmokeRight", "looped": true }
+        {
+          "name": "smokeRight",
+          "prefix": "SmokeRight instance 1",
+          "looped": true
+        }
       ],
       "startingAnimation": "smokeRight"
     },
@@ -82,7 +90,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "watchtower gradient color"
+          "prefix": "watchtower gradient color instance 1"
         }
       ],
       "startingAnimation": "idle"
@@ -95,7 +103,11 @@
       "zIndex": 22,
       "scroll": [0.5, 0.5],
       "animations": [
-        { "name": "roll", "prefix": "BG tank w lighting", "looped": true }
+        {
+          "name": "roll",
+          "prefix": "BG tank w lighting instance 1",
+          "looped": true
+        }
       ],
       "startingAnimation": "roll"
     },
