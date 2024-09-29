@@ -125,7 +125,7 @@ class EggnogSong extends Song
 		//PlayState.instance.tweenCameraToPosition(santaDead.x + 300, santaDead.y, 2.8, FlxEase.expoOut);
 		PlayState.instance.tweenCameraZoom(0.73, 2, true, FlxEase.quadInOut);
 
-		FunkinSound.playOnce(Paths.sound('santa_emotion'), 1);
+		FunkinSound.playOnce(Paths.sound('santa_emotion').toString(), 1);
 
 		new FlxTimer().start(2.8, function(tmr)
 		{
@@ -141,7 +141,7 @@ class EggnogSong extends Song
 		});
 		new FlxTimer().start(11.375, function(tmr)
 		{
-			FunkinSound.playOnce(Paths.sound('santa_shot_n_falls'), 1);
+			FunkinSound.playOnce(Paths.sound('santa_shot_n_falls').toString(), 1);
 		});
 
 		new FlxTimer().start(12.83, function(tmr)

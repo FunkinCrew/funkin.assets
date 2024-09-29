@@ -7,7 +7,7 @@ class ABotVisualizer extends FlxTypedSpriteGroup
   {
     super(0, 0);
 
-    var vizFrames = Paths.getSparrowAtlas('aBotViz');
+    var vizFrames = Assets.getSparrowAtlas(Paths.spritesheet('aBotViz'));
 
     for (i in 1...8)
     {

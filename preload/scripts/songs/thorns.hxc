@@ -78,7 +78,7 @@ class ThornsSong extends Song {
 
         // Play the SFX alongside it.
         trace('Playing senpai death SFX.');
-        FunkinSound.playOnce(Paths.sound('Senpai_Dies'), 1.0, function () {
+        FunkinSound.playOnce(Paths.sound('Senpai_Dies').toString(), 1.0, function () {
           trace('Senpai death SFX done.');
           // Called when the sound completes. Clean up the cutscene here.
           // Hard cut to the cutscene.

@@ -92,7 +92,7 @@ class DarnellSong extends Song {
 
 		var cutsceneDelay:Float = 2;
 
-		cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
+		cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1").toFlxSoundAsset(), true);
 		cutsceneMusic.volume = 1;
 
 		cutsceneConductor = new Conductor();
@@ -150,7 +150,7 @@ class DarnellSong extends Song {
 		new FlxTimer().start(cutsceneDelay + 3, function(tmr)
 		{
 			PlayState.instance.currentStage.getDad().playAnimation('lightCan', true);
-			FunkinSound.playOnce(Paths.sound('Darnell_Lighter'), 1.0);
+			FunkinSound.playOnce(Paths.sound('Darnell_Lighter').toString(), 1.0);
 		});
 
 		// pico cocks his gun, camera shifts to his side to show this
@@ -158,14 +158,14 @@ class DarnellSong extends Song {
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('cock', true);
 			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 0.4, FlxEase.backOut);
-			FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
+			FunkinSound.playOnce(Paths.sound('Gun_Prep').toString(), 1.0);
 		});
 
 		// darnell kicks the can up
 		new FlxTimer().start(cutsceneDelay + 4.4, function(tmr)
 		{
 			PlayState.instance.currentStage.getDad().playAnimation('kickCan', true);
-			FunkinSound.playOnce(Paths.sound('Kick_Can_UP'), 1.0);
+			FunkinSound.playOnce(Paths.sound('Kick_Can_UP').toString(), 1.0);
       cutsceneCan.animation.play('up');
       cutsceneCan.visible = true;
 		});
@@ -174,7 +174,7 @@ class DarnellSong extends Song {
 		new FlxTimer().start(cutsceneDelay + 4.9, function(tmr)
 		{
 			PlayState.instance.currentStage.getDad().playAnimation('kneeCan', true);
-			FunkinSound.playOnce(Paths.sound('Kick_Can_FORWARD'), 1.0);
+			FunkinSound.playOnce(Paths.sound('Kick_Can_FORWARD').toString(), 1.0);
       cutsceneCan.animation.play('forward');
 		});
 
@@ -183,7 +183,7 @@ class DarnellSong extends Song {
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro2', true, true);
 
-			FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
+			FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4).toString());
 
 			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 1, FlxEase.quadInOut);
 
@@ -200,14 +200,14 @@ class DarnellSong extends Song {
 		new FlxTimer().start(cutsceneDelay + 5.9, function(tmr)
 		{
 			PlayState.instance.currentStage.getDad().playAnimation('laughCutscene', true);
-			FunkinSound.playOnce(Paths.sound('cutscene/darnell_laugh'), 0.6);
+			FunkinSound.playOnce(Paths.sound('cutscene/darnell_laugh').toString(), 0.6);
 		});
 
 		// nene spits and laughs
 		new FlxTimer().start(cutsceneDelay + 6.2, function(tmr)
 		{
 			PlayState.instance.currentStage.getGirlfriend().playAnimation('laughCutscene', true);
-			FunkinSound.playOnce(Paths.sound('cutscene/nene_laugh'), 0.6);
+			FunkinSound.playOnce(Paths.sound('cutscene/nene_laugh').toString(), 0.6);
 		});
 
 		// camera returns to normal, cutscene flags set and countdown starts.

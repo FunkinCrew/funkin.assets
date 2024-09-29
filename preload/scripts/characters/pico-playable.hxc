@@ -213,7 +213,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Start the (standard) death music, 3.5 seconds after the explosion starts,
 		// not when the explosion sound finishes or when the loop starts.
 		GameOverSubState.instance.startDeathMusic(1.0, false);
-		singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
+		singed = FunkinSound.load(Paths.sound('singed_loop').toFlxSoundAsset(), true, false, true);
 		// singed.fadeIn(0.5, 0.3, 1.0);
 	}
 
@@ -319,14 +319,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		FlxTween.tween(picoFade, {alpha: 0}, 0.4);
 
 
-		FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Gun_Prep').toString(), 1.0);
 	}
 	/**
 	 * Play the animation where Pico shoots the can successfully.
 	 */
 	function playFireGunAnim(hip:Bool) {
 		this.playAnimation('shoot', true, true);
-		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
+		FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4).toString());
 	}
 	/**
 	 * Play the animation where Pico is hit by the exploding can.
@@ -335,7 +335,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		this.playAnimation('shootMISS', true, true);
 		// Donk.
-		FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
+		FunkinSound.playOnce(Paths.sound('Pico_Bonk').toString(), 1.0);
 	}
 
 	function addToStage(sprite:FlxSprite) {

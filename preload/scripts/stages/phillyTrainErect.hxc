@@ -87,7 +87,7 @@ class PhillyTrainErectStage extends Stage
 	function doppleGangerCutscene(){
 
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+    skipText.setFormat(Paths.font('vcr'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
 		skipText.borderSize = 2;
 		skipText.alpha = 0;
@@ -155,7 +155,7 @@ class PhillyTrainErectStage extends Stage
 		}
 		var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0])/2, (shooterPos[1] + cigarettePos[1])/2];
 
-		cigarette.frames = Paths.getSparrowAtlas('philly/erect/cigarette');
+		cigarette.frames = Assets.getSparrowAtlas(Paths.spritesheet('philly/erect/cigarette'));
     cigarette.animation.addByPrefix('cigarette spit', 'cigarette spit', 24, false);
 		cigarette.visible = false;
 
@@ -173,9 +173,9 @@ class PhillyTrainErectStage extends Stage
 		PlayState.instance.currentStage.getDad().visible = false;
 
 		if(explode == false){
-			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
+			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3").toFlxSoundAsset(), true);
 		}else{
-			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3"), true);
+			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3").toFlxSoundAsset(), true);
 		}
 		cutsceneMusic.volume = 1;
 		cutsceneMusic.play(false);
@@ -183,7 +183,7 @@ class PhillyTrainErectStage extends Stage
 		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
 		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
 
-		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
+		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp').toString(), 1);
 
 		PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);

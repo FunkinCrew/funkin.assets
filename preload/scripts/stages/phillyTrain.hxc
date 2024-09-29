@@ -26,7 +26,7 @@ class PhillyTrainStage extends Stage
 
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
-		trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
+		trainSound = FunkinSound.load(Paths.sound('train_passes').toFlxSoundAsset(), 1.0, false, false, false);
 		PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
 		for (i in 0...LIGHT_COUNT)
