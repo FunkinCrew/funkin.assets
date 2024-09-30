@@ -145,7 +145,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 	}
 
 	function doDeathConfirm():Void {
-		var picoDeathConfirm:FunkinSprite = FunkinSprite.createSparrow(this.x + 905, this.y + 1030, 'picoBlazinDeathConfirm');
+		var picoDeathConfirm:FunkinSprite = FunkinSprite.createSparrow(this.x + 905, this.y + 1030, Paths.spritesheet('picoBlazinDeathConfirm'));
 		picoDeathConfirm.animation.addByPrefix('confirm', "Pico Gut Punch Death0", 24, false);
 		picoDeathConfirm.animation.play('confirm');
 		picoDeathConfirm.scale.set(1.75, 1.75);

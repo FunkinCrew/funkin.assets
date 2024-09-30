@@ -43,7 +43,7 @@ class PicoChristmasCharacter extends MultiSparrowCharacter {
 	 */
 	function createDeathSprites() {
 		//trace('PICO: Creating death sprites');
-		deathSpriteRetry = FunkinSprite.createSparrow(0, 0, "characters/Pico_Death_Retry");
+		deathSpriteRetry = FunkinSprite.createSparrow(0, 0, Paths.spritesheet("characters/Pico_Death_Retry"));
 		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
 		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
 
@@ -53,7 +53,7 @@ class PicoChristmasCharacter extends MultiSparrowCharacter {
 
 		//FlxG.debugger.track(deathSpriteRetry);
 
-		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/neneChristmas/neneChristmasKnife");
+		deathSpriteNene = FunkinSprite.createSparrow(0, 0, Paths.spritesheet("characters/neneChristmas/neneChristmasKnife"));
 		var gf = PlayState.instance.currentStage.getGirlfriend();
 		deathSpriteNene.x = gf.originalPosition.x; // + 280;
 		deathSpriteNene.y = gf.originalPosition.y; // + 70;
