@@ -26,7 +26,7 @@
     },
     {
       "danceEvery": 0,
-      "zIndex": 500,
+      "zIndex": 30,
       "position": [-500, -300],
       "scale": [0.9, 0.9],
       "animType": "sparrow",
@@ -56,5 +56,6 @@
       "position": [751.5, 787]
     }
   },
-  "name": "Main Stage"
+  "name": "Main Stage",
+  "directory": "week1"
 }
