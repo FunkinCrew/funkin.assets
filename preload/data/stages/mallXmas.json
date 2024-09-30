@@ -73,12 +73,12 @@
       "scroll": [1, 1],
       "zIndex": 60
     },
-     {
+    {
       "name": "snowUnder",
       "assetPath": "#F3F4F5",
       "position": [-1200, 800],
       "scale": [5400, 3000],
-      "scroll": [1,1],
+      "scroll": [1, 1],
       "zIndex": 59
     },
     {
@@ -113,5 +113,6 @@
       "position": [42, 882],
       "cameraOffsets": [150, -100]
     }
-  }
+  },
+  "directory": "week5"
 }

@@ -47,5 +47,6 @@
     },
     "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 766] }
   },
-  "name": "School (Hate)"
+  "name": "School (Hate)",
+  "directory": "week6"
 }

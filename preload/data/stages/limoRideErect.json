@@ -14,7 +14,7 @@
       "assetPath": "limo/erect/limoSunset",
       "animations": []
     },
-	{
+    {
       "zIndex": 20,
       "danceEvery": 0,
       "position": [200, 0],
@@ -363,5 +363,6 @@
       "cameraOffsets": [150, 0]
     }
   },
-  "name": "Limo Ride [Erect]"
+  "name": "Limo Ride [Erect]",
+  "directory": "week4"
 }

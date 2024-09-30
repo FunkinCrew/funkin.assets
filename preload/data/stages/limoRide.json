@@ -260,5 +260,6 @@
       "cameraOffsets": [150, 0]
     }
   },
-  "name": "Limo Ride"
+  "name": "Limo Ride",
+  "directory": "week4"
 }
