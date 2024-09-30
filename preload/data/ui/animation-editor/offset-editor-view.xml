@@ -34,6 +34,7 @@
                 <label text="SPACE: Play idle Animation" />
                 <label text="WASD: Play sing Animation" />
                 <label text="F: Toggle Onion Skin" />
+                <label text="G: Flip character horizontally" />
                 <label text="ARROWS: Nudge Offsets by 5" />
                 <label text="SHIFT+ARROWS: Nudge Offsets by 10" />
                 <label text="CTRL+ARROWS: Nudge Offsets by 1" />
