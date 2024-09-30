@@ -170,5 +170,6 @@
     },
     "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 866] }
   },
-  "name": "School (Date)"
+  "name": "School (Date)",
+  "directory": "week6"
 }
