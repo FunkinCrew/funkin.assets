@@ -27,10 +27,32 @@ vec3 applyHSBCEffect(vec3 color)
     return color;
 }
 
+vec4 applyColorTransform(vec4 color)
+{
+    if (color.a == 0.) {
+        return vec4(0.);
+    }
+    if (!hasTransform) {
+        return color;
+    }
+    if (!hasColorTransform) {
+        return color * openfl_Alphav;
+    }
+    
+    color = vec4(color.rgb / color.a, color.a);
+    color = clamp(openfl_ColorOffsetv + color * openfl_ColorMultiplierv, 0., 1.);
+
+    if (color.a > 0.) {
+        return vec4(color.rgb * color.a * openfl_Alphav, color.a * openfl_Alphav);
+    }
+    return vec4(0.);
+}
+
 void main()
 {
-	vec4 textureColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
+    vec4 textureColor = texture2D(bitmap, openfl_TextureCoordv);
 
-	vec3 outColor = applyHSBCEffect(textureColor.rgb);
-	gl_FragColor = vec4(min(outColor, textureColor.a), textureColor.a);
+    vec3 hsbcEffect = applyHSBCEffect(textureColor.rgb);
+    vec4 outColor = vec4(hsbcEffect, textureColor.a);
+    gl_FragColor = applyColorTransform(outColor);
 }
