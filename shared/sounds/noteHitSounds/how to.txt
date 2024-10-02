@@ -1,0 +1,7 @@
+Hit sounds must have "Hit" at the end of their name (ex: slapHit)
+
+Hold sounds are optional and they should have "Hold" at the end of their name (ex: slapHold)
+(hold sounds may or may not be implemented as of writing this)
+
+In order to add new sounds, the sounds must be implemented through code.
+Search through the source code for the sound names minus the "Hit" part (ex: "pingPong", "vineBoom") and you'll find basically everything.
