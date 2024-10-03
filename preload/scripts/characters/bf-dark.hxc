@@ -7,8 +7,9 @@ import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.play.character.MultiSparrowCharacter;
 
-class BoyfriendDarkCharacter extends SparrowCharacter {
+class BoyfriendDarkCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('bf-dark');
 	}

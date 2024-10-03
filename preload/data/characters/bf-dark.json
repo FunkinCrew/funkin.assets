@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Dark)",
-  "renderType": "sparrow",
+  "renderType": "multisparrow",
   "assetPath": "characters/bf_dark",
   "flipX": true,
   "healthIcon": {
@@ -64,6 +64,31 @@
       "name": "scared",
       "prefix": "BF idle shaking",
       "offsets": [-4, 0]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": "BF dies",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [-37, 11]
+    },
+    {
+      "name": "fakeoutDeath",
+      "prefix": "BF dies",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [-37, 11]
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "BF Dead Loop",
+      "looped": true,
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [-37, 5]
+    },
+    {
+      "name": "deathConfirm",
+      "prefix": "BF Dead confirm",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [-37, 69]
     }
   ]
 }
