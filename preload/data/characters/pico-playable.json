@@ -177,6 +177,11 @@
       "assetPath": "characters/Pico_Burps",
       "prefix": "shit",
       "offsets": [0, -3]
+    },
+	{
+      "name": "cheer",
+      "prefix": "Pico YEAH cheer",
+      "offsets": [0, 0]
     }
   ]
 }
