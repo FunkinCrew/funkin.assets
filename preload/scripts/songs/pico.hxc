@@ -12,7 +12,7 @@ import funkin.save.Save;
 
 import funkin.effects.RetroCameraFade;
 
-class PhillyNiceSong extends Song {
+class PicoSong extends Song {
   var hasPlayedCutscene:Bool;
 
 	public function new() {
