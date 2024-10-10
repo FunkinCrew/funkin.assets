@@ -114,7 +114,7 @@ class EggnogSong extends Song
 
     parentsShoot.scriptCall('playCutscene');
 
-		//FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, 1);
+		FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, 1);
 
 		PlayState.instance.isInCutscene = true;
 		hasPlayedCutscene = true;
