@@ -22,27 +22,27 @@
     {
       "name": "singLEFT",
       "prefix": "SingLEFT",
-      "offsets": [130, -10]
+      "offsets": [113, -15]
     },
     {
       "name": "singDOWN",
       "prefix": "SingDOWN",
-      "offsets": [-50, -130]
+      "offsets": [-30, -145]
     },
     {
       "name": "singUP",
       "prefix": "SingUP",
-      "offsets": [-20, 26]
+      "offsets": [-31, 20]
     },
     {
       "name": "singRIGHT",
       "prefix": "SingRIGHT",
-      "offsets": [-130, -14]
+      "offsets": [-151, -13]
     },
     {
       "name": "cheer",
       "prefix": "Cheer",
-      "offsets": [0, 0]
+      "offsets": [44, 27]
     }
   ]
 }

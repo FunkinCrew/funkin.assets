@@ -13,56 +13,49 @@
       "name": "idle-hold",
       "prefix": "idle",
       "looped": true,
-      "frameIndices": [11, 12],
+      "frameIndices": [11, 12, 13, 1, 2],
       "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "singLEFT",
-      "offsets": [-10, 10]
+      "offsets": [-5, 10]
     },
     {
       "name": "singLEFT-hold",
       "prefix": "singLEFT",
       "looped": true,
       "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [-10, 10]
+      "offsets": [-5, 10]
     },
     {
       "name": "singDOWN",
       "prefix": "singDOWN",
-      "offsets": [0, -30]
-    },
-    {
-      "name": "singDOWN-hold",
-      "prefix": "singDOWN",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [0, -30]
+      "offsets": [1, -31]
     },
     {
       "name": "singUP",
       "prefix": "singUP",
-      "offsets": [-6, 50]
+      "offsets": [-9, 50]
     },
     {
       "name": "singUP-hold",
       "prefix": "singUP",
       "looped": true,
       "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [-6, 50]
+      "offsets": [-9, 50]
     },
     {
       "name": "singRIGHT",
       "prefix": "singRIGHT",
-      "offsets": [0, 27]
+      "offsets": [-5, 26]
     },
     {
       "name": "singRIGHT-hold",
       "prefix": "singRIGHT",
       "looped": true,
       "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [0, 27]
+      "offsets": [-5, 26]
     }
   ]
 }

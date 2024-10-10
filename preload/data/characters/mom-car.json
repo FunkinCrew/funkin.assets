@@ -23,50 +23,50 @@
     {
       "name": "singLEFT",
       "prefix": "Mom Left Pose0",
-      "offsets": [250, -23]
+      "offsets": [250, -21]
     },
     {
       "name": "singLEFT-hold",
       "prefix": "Mom Left Pose0",
       "looped": true,
       "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9],
-      "offsets": [250, -23]
+      "offsets": [250, -21]
     },
     {
       "name": "singDOWN",
       "prefix": "MOM DOWN POSE0",
-      "offsets": [20, -160]
+      "offsets": [12, -160]
     },
     {
       "name": "singDOWN-hold",
       "prefix": "MOM DOWN POSE0",
       "looped": true,
       "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [20, -160]
+      "offsets": [12, -160]
     },
     {
       "name": "singUP",
       "prefix": "Mom Up Pose0",
-      "offsets": [14, 71]
+      "offsets": [-5, 81]
     },
     {
       "name": "singUP-hold",
       "prefix": "Mom Up Pose0",
       "looped": true,
       "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [14, 71]
+      "offsets": [-5, 81]
     },
     {
       "name": "singRIGHT",
       "prefix": "Mom Pose Left0",
-      "offsets": [10, -60]
+      "offsets": [-34, -52]
     },
     {
       "name": "singRIGHT-hold",
       "prefix": "Mom Pose Left0",
       "looped": true,
       "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9],
-      "offsets": [10, -60]
+      "offsets": [-34, -52]
     }
   ]
 }
