@@ -68,7 +68,8 @@
         "prefix": "Pico DJ to CS",
         "offsets": [625, 360]
       }
-    ]
+    ],
+    "backcardClassName": "PicoCard"
   },
   "charSelect": {
     "position": 3,
