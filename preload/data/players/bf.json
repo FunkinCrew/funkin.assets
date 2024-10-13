@@ -79,7 +79,8 @@
         "prefix": "Boyfriend DJ new character ",
         "offsets": [625, 360]
       }
-    ]
+    ],
+    "backcardClassName": "BoyfriendCard"
   },
   "charSelect": {
     "position": 4,
