@@ -7,9 +7,9 @@ uniform float _amount;
 
 void main() {
 	gl_FragColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
-	if (_amount <= 0.0) {return;}
+	if (_amount <= 0.0 || gl_FragColor.a == 0.0) {return;}
 	vec2 texel = floor(mod(openfl_TextureCoordv * openfl_TextureSize, 4.0));
-	if (gl_FragColor.a > 0.0 && texel.x == texel.y && mod(texel.x, 2.0) == 0.0) {
+	if (texel.x == texel.y && mod(texel.x, 2.0) == 0.0) {
 		gl_FragColor.rgb -= (2.0 * gl_FragColor.rgb - 1.0) * min(_amount * gl_FragColor.a, 1.0);
 	}
 }
