@@ -37,10 +37,12 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
-	function fetchAssetPaths():Array<String>
+	public override function queryAssets(type:AssetType):Array<AssetPath>
 	{
-		var results:Array<String> = super.fetchAssetPaths();
-		results.push(Paths.sound('train_passes'));
+		var results:Array<AssetPath> = super.queryAssets(type);
+		if (type == AssetType.SOUND) {
+			results.push(Paths.sound('train_passes'));
+		}
 		return results;
 	}
 

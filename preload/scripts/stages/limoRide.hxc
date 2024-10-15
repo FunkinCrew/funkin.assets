@@ -83,14 +83,18 @@ class LimoRideStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
+	public override function queryAssets(type:AssetType):Array<AssetPath>
 	{
-		var results:Array<String> = super.fetchAssetPaths();
+		var results:Array<AssetPath> = super.queryAssets(type);
 
 		// This graphic is applied by shader to the background, so it's not included in the default stage function.
-		results.push(Paths.image('limo/limoOverlay'));
-		results.push(Paths.sound('carPass0'));
-		results.push(Paths.sound('carPass1'));
+		if (type == AssetType.IMAGE) {
+			results.push(Paths.image('limo/limoOverlay'));
+		}
+		if (type == AssetType.SOUND) {
+			results.push(Paths.sound('carPass0'));
+			results.push(Paths.sound('carPass1'));
+		}
 
 		return results;
 	}
