@@ -1,5 +1,4 @@
 import flixel.FlxG;
-import funkin.Paths;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -26,11 +25,11 @@ class SpookyMansionStage extends Stage
 		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
 
-		if (getBoyfriend() != null) {
+		if (getBoyfriend() != null && getBoyfriend().hasAnimation('scared')) {
 			getBoyfriend().playAnimation('scared', true, true);
 		}
 
-		if (getGirlfriend() != null) {
+		if (getGirlfriend() != null && getGirlfriend().hasAnimation('scared')) {
 			getGirlfriend().playAnimation('scared', true, true);
 		}
 	}

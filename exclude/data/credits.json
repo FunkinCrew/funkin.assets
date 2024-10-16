@@ -12,7 +12,7 @@
       "body": [
         { "line": "ninjamuffin99" },
         { "line": "PhantomArcade" },
-        { "line": "KawaiSprite" },
+        { "line": "Kawai Sprite" },
         { "line": "evilsk8r" }
       ]
     },
@@ -25,7 +25,7 @@
     {
       "header": "Music Lead",
       "body": [
-        { "line": "Isaac “kawaisprite” Garcia" }
+        { "line": "Isaac “Kawai Sprite” Garcia" }
       ]
     },
     {
@@ -111,8 +111,15 @@
       "body": [
         { "line": "BassetFilms" },
         { "line": "Kohta Takahashi" },
+        { "line": "Lotus Juice"},
+        { "line": "METAROOM"},
+        { "line": "nuphory"},
+        { "line": "Saster" },
         { "line": "SixImpala" },
-        { "line": "Saster" }
+        { "line": "TeraVex"},
+        { "line": "ThatAndyGuy"},
+        { "line": "tsuyunoshi"},
+        { "line": "xploshi"}
       ]
     },
     {
@@ -126,7 +133,7 @@
       "header": "Additional Programming",
       "body": [
         { "line": "Jenny Crowe" },
-        { "line": "hazel (ravy)" },
+        { "line": "ember ana" },
         { "line": "Mike Welsh" },
         { "line": "Saharan" },
         { "line": "Ian Harrigan" },
@@ -134,13 +141,13 @@
         { "line": "Emma (MtH)" },
         { "line": "George Kurelic" },
         { "line": "Will Blanton" },
-        { "line": "Cheemsandfriends - FlxAnimate" }
+        { "line": "Victor - Cheemsandfriends" }
       ]
     },
     {
       "header": "Devops and Additional Internal Tooling",
       "body": [
-        { "line": "hazel (ravy)" }
+        { "line": "ember ana" }
       ]
     },
     {
@@ -148,8 +155,8 @@
       "body": [
         { "line": "PhantomArcade" },
         { "line": "Cameron Taylor" },
-        { "line": "Eric \"EliteMasterEric\" Myllyoja" },
         { "line": "Jenny Crowe" },
+        { "line": "Spazkid" },
         { "line": "fabs" },
         { "line": "Emma (MtH)" }
       ]

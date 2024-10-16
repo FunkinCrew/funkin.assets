@@ -74,13 +74,13 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [100, 100],
       "scale": [1, 1],
       "name": "limoDancer1",
       "animType": "sparrow",
       "isPixel": false,
-      "startingAnimation": "danceLeft",
+      "startingAnimation": "danceRight",
       "scroll": [0.4, 0.4],
       "assetPath": "limo/henchmen",
       "animations": [
@@ -90,7 +90,6 @@
           "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceLeft",
           "flipX": false
         },
@@ -102,39 +101,20 @@
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceRight",
-          "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "looped": false,
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "looped": false,
-          "name": "hit2",
           "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [400, 100],
       "scale": [1, 1],
       "name": "limoDancer2",
       "animType": "sparrow",
       "isPixel": false,
-      "startingAnimation": "danceLeft",
+      "startingAnimation": "danceRight",
       "scroll": [0.4, 0.4],
       "assetPath": "limo/henchmen",
       "animations": [
@@ -144,7 +124,6 @@
           "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceLeft",
           "flipX": false
         },
@@ -156,33 +135,14 @@
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceRight",
-          "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "looped": false,
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "looped": false,
-          "name": "hit2",
           "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [700, 100],
       "scale": [1, 1],
       "name": "limoDancer3",
@@ -198,7 +158,6 @@
           "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceLeft",
           "flipX": false
         },
@@ -210,33 +169,14 @@
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceRight",
-          "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "looped": false,
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "looped": false,
-          "name": "hit2",
           "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [1000, 100],
       "scale": [1, 1],
       "name": "limoDancer4",
@@ -252,7 +192,6 @@
           "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceLeft",
           "flipX": false
         },
@@ -264,33 +203,14 @@
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceRight",
-          "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "looped": false,
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "looped": false,
-          "name": "hit2",
           "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [1300, 100],
       "scale": [1, 1],
       "name": "limoDancer5",
@@ -306,7 +226,6 @@
           "frameRate": 24,
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceLeft",
           "flipX": false
         },
@@ -318,26 +237,7 @@
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
           "prefix": "hench dancing",
-          "looped": false,
           "name": "danceRight",
-          "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "looped": false,
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "looped": false,
-          "name": "hit2",
           "flipX": false
         }
       ]
@@ -360,5 +260,6 @@
       "cameraOffsets": [150, 0]
     }
   },
-  "name": "Limo Ride"
+  "name": "Limo Ride",
+  "directory": "week4"
 }

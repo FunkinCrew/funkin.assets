@@ -4,46 +4,14 @@
     "player1": "bf",
     "notes": {
       "normal": [
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": false
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": false
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": true
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": true
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": false
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": false
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": true
-        },
-        {
-          "sectionNotes": [],
-          "lengthInSteps": 16,
-          "mustHitSection": true
-        },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": false },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": false },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": true },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": true },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": false },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": false },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": true },
+        { "sectionNotes": [], "lengthInSteps": 16, "mustHitSection": true },
         {
           "sectionNotes": [
             [12800, 0, 0],
@@ -872,9 +840,7 @@
     "song": "Test",
     "bpm": 150,
     "stageDefault": "stage",
-    "speed": {
-      "normal": 1.6
-    }
+    "speed": { "normal": 1.6 }
   },
   "version": "FNF SongConverter 0.1.0",
   "generatedBy": "SNIFF ver.6"

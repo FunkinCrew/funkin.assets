@@ -1,6 +1,4 @@
 import flixel.addons.display.FlxRuntimeShader;
-import funkin.Paths;
-import openfl.utils.Assets;
 
 class DarkenColorShader extends FlxRuntimeShader
 {

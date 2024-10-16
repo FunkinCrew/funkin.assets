@@ -4,7 +4,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.Paths;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
@@ -121,8 +120,11 @@ class NeneCharacter extends SparrowCharacter {
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
 	function dance(forceRestart:Bool) {
-
-		//abot.playAnimation("", forceRestart);
+		if (abot != null)
+		{
+			abot.playAnimation("");
+    	abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+		}
 
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
@@ -172,6 +174,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function movePupilsLeft():Void {
 		if (pupilState == PUPIL_STATE_LEFT) return;
+		trace('Move pupils left');
 		pupil.playAnimation('');
 		pupil.anim.curFrame = 0;
 		// pupilState = PUPIL_STATE_LEFT;
@@ -179,6 +182,7 @@ class NeneCharacter extends SparrowCharacter {
 
 	function movePupilsRight():Void {
 		if (pupilState == PUPIL_STATE_NORMAL) return;
+		trace('Move pupils right');
 		pupil.playAnimation('');
 		pupil.anim.curFrame = 17;
 		// pupilState = PUPIL_STATE_NORMAL;
@@ -222,24 +226,25 @@ class NeneCharacter extends SparrowCharacter {
 		eyeWhites.visible = this.visible;
 		stereoBG.visible = this.visible;
 
-		if (pupil.anim.isPlaying)
+		if (pupil?.anim?.isPlaying)
 		{
 			switch (pupilState)
 			{
 				case PUPIL_STATE_NORMAL:
 					if (pupil.anim.curFrame >= 17)
 					{
+						trace('Done moving pupils left');
 						pupilState = PUPIL_STATE_LEFT;
 						pupil.anim.pause();
 					}
 
 				case PUPIL_STATE_LEFT:
-					if (pupil.anim.curFrame >= 31)
+					if (pupil.anim.curFrame >= 30)
 					{
+						trace('Done moving pupils right');
 						pupilState = PUPIL_STATE_NORMAL;
 						pupil.anim.pause();
 					}
-
 			}
 		}
 
@@ -247,24 +252,23 @@ class NeneCharacter extends SparrowCharacter {
 		if (!refershedLol)
 		{
 			abot.x = this.x - 100;
-			abot.y = this.y + 316; // 764 - 740
+			abot.y = this.y + 216; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
 
 			PlayState.instance.currentStage.add(abot);
 
-			abotViz.x = this.x + 100;
-			abotViz.y = this.y + 400;
+			abotViz.x = abot.x + 200;
+			abotViz.y = abot.y + 84;
 			abotViz.zIndex = abot.zIndex - 1;
 			PlayState.instance.currentStage.add(abotViz);
-
 
 			eyeWhites.x = abot.x + 40;
 			eyeWhites.y = abot.y + 250;
 			eyeWhites.zIndex = abot.zIndex - 10;
 			PlayState.instance.currentStage.add(eyeWhites);
 
-			pupil.x = this.x - 607;
-			pupil.y = this.y - 176;
+			pupil.x = abot.x - 507;
+			pupil.y = abot.y - 492;
 			pupil.zIndex = eyeWhites.zIndex + 5;
 			PlayState.instance.currentStage.add(pupil);
 
@@ -293,6 +297,8 @@ class NeneCharacter extends SparrowCharacter {
 	var animationFinished:Bool = false;
 
 	function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
 		switch(currentState) {
 			case STATE_RAISE:
 				if (name == "raiseKnife") {
@@ -314,7 +320,7 @@ class NeneCharacter extends SparrowCharacter {
 
 		switch(currentState) {
 			case STATE_PRE_RAISE:
-				if (name == "danceLeft" && frameNumber == 14) {
+				if (name == "danceLeft" && frameNumber == 13) {
 					animationFinished = true;
 					transitionState();
 				}

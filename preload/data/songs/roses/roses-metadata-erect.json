@@ -1,18 +1,10 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.4",
   "songName": "Roses Erect",
+  "charter": "Jenny + Fabs + SpazKid",
   "artist": "Kawai Sprite",
-  "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
-  },
   "playData": {
-    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
@@ -21,24 +13,15 @@
       "instrumental": "erect"
     },
     "stage": "school",
-    "noteStyle": "funkin",
-    "ratings": {
-      "normal": 0,
-      "nightmare": 0
-    },
+    "noteStyle": "pixel",
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : ae5dd56) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:7562143) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 128,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 128, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

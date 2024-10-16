@@ -51,4 +51,5 @@
 	<SubTexture name="ZERO DIGITAL0004" x="342" y="262" width="70" height="100" frameX="-12" frameY="-13" frameWidth="95" frameHeight="125"/>
 	<SubTexture name="ZERO DIGITAL0005" x="416" y="262" width="64" height="94" frameX="-15" frameY="-16" frameWidth="95" frameHeight="125"/>
 	<SubTexture name="DISABLED0001" x="484" y="262" width="60" height="89" frameX="-15" frameY="-16" frameWidth="95" frameHeight="125"/>
+	<SubTexture name="GONE0001" x="580" y="262" width="60" height="89" frameX="-15" frameY="-16" frameWidth="95" frameHeight="125"/>
 </TextureAtlas>

@@ -1,46 +1,27 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.4",
   "songName": "DadBattle Erect",
+  "charter": "Jenny Crowe + fabs + Spazkid",
   "artist": "Kawai Sprite",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf": 0,
-      "dad": -8
-    }
-  },
+  "offsets": { "vocals": { "bf": 0, "dad": -8 } },
   "playData": {
-    "songVariations": [],
-    "difficulties": ["erect", "nightmare", "normal", "hard"],
+    "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
       "instrumental": "erect"
     },
-    "stage": "mainStage",
+    "stage": "mainStageErect",
     "noteStyle": "funkin",
-    "ratings": {
-      "erect": 0,
-      "nightmare": 0,
-      "normal": 0
-    },
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master : 1b4fc89) PROTOTYPE",
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:1b4fc89) PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 190,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 190, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }

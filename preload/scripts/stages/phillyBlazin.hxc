@@ -4,7 +4,6 @@ import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
-import funkin.Paths;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -17,7 +16,7 @@ import funkin.util.MathUtil;
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
  */
-class PhillyBlazinStageNew extends Stage
+class PhillyBlazinStage extends Stage
 {
 	function new()
 	{
@@ -38,19 +37,19 @@ class PhillyBlazinStageNew extends Stage
 		rainShader.intensity = 0.5;
 
 		rainShaderFilter = new ShaderFilter(rainShader);
-		FlxG.camera.setFilters([rainShaderFilter]);
+		FlxG.camera.filters = [rainShaderFilter];
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.setFilters([]);
+		FlxG.camera.filters = [];
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.setFilters([rainShaderFilter]);
+		FlxG.camera.filters = [rainShaderFilter];
 		lightningActive = true;
 	}
 

@@ -1,16 +1,9 @@
 {
-  "version": "2.2.2",
+  "version": "2.2.4",
   "songName": "Fresh Erect",
   "artist": "Kohta Takahashi (feat. Saruky)",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {}
-  },
+  "charter": "fabs",
   "playData": {
-    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
@@ -18,26 +11,16 @@
       "opponent": "dad",
       "instrumental": "erect"
     },
-    "stage": "mainStage",
+    "stage": "mainStageErect",
     "noteStyle": "funkin",
-    "ratings": {
-      "normal": 0,
-      "erect": 0,
-      "nightmare": 0
-    },
+    "ratings": { "erect": 6, "nightmare": 7 },
+    "album": "volume3",
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.3.0 PROTOTYPE",
   "timeFormat": "ms",
   "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 125,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
+    { "t": 0, "b": 0, "bpm": 125, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
   ]
 }
