@@ -13,51 +13,51 @@
     {
       "name": "singLEFT",
       "prefix": "Pose Left0",
-      "offsets": [1, 0]
+      "offsets": [1, 1]
     },
     {
       "name": "singLEFT-hold",
       "prefix": "Left Flame Loop0",
       "looped": true,
-      "offsets": [1, 0]
+      "offsets": [1, 1]
     },
     {
       "name": "singDOWN",
       "prefix": "Pose Down0",
-      "offsets": [0, -3]
+      "offsets": [11, -15]
     },
     {
       "name": "singDOWN-hold",
       "prefix": "Down Flame Loop0",
       "looped": true,
-      "offsets": [0, -3]
+      "offsets": [11, -15]
     },
     {
       "name": "singUP",
       "prefix": "Pose Up0",
-      "offsets": [8, 5]
+      "offsets": [14, 3]
     },
     {
       "name": "singUP-hold",
       "prefix": "Up Flame Loop0",
       "looped": true,
-      "offsets": [8, 5]
+      "offsets": [14, 3]
     },
     {
       "name": "singRIGHT",
       "prefix": "Pose Right0",
-      "offsets": [4, 3]
+      "offsets": [1, 2]
     },
     {
       "name": "singRIGHT-hold",
       "prefix": "Right Flame Loop0",
       "looped": true,
-      "offsets": [4, 3]
+      "offsets": [1, 2]
     },
     {
       "name": "laugh",
       "prefix": "Laugh0",
-      "offsets": [0, 0]
+      "offsets": [2, 1]
     },
     {
       "name": "laughCutscene",
@@ -66,22 +66,22 @@
         0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5,
         0, 1, 2, 3, 4, 5
       ],
-      "offsets": [0, 0]
+      "offsets": [2, 1]
     },
     {
       "name": "lightCan",
       "prefix": "Light Can0",
-      "offsets": [8, 1]
+      "offsets": [23, 22]
     },
     {
       "name": "kickCan",
       "prefix": "Kick Up0",
-      "offsets": [15, 9]
+      "offsets": [8, 17]
     },
     {
       "name": "kneeCan",
       "prefix": "Knee Forward0",
-      "offsets": [7, -1]
+      "offsets": [20, 9]
     },
     {
       "name": "pissed",
