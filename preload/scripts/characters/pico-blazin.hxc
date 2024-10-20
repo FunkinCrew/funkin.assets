@@ -1,12 +1,11 @@
 
 import flixel.FlxG;
-import funkin.Paths;
-import funkin.play.GameOverSubState;
 import flixel.util.FlxTimer;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;
 import funkin.graphics.FunkinSprite;
 import funkin.play.character.AnimateAtlasCharacter;
+import funkin.play.GameOverSubState;
 import StringTools;
 
 class PicoBlazinCharacter extends AnimateAtlasCharacter

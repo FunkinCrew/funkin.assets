@@ -3,7 +3,6 @@ import funkin.play.PlayState;
 import funkin.Preferences;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.Paths;
 import flixel.FlxG;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;

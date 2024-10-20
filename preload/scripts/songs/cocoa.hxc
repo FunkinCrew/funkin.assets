@@ -9,7 +9,6 @@ import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import funkin.Paths;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -28,10 +27,11 @@ class CocoaSong extends Song
 		super('cocoa');
 	}
 
-	public override function isSongNew(currentDifficulty:String):Bool{
-		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare') {
-			if (Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
-		}
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+	{
+		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+			return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+
 		return false;
 	}
 

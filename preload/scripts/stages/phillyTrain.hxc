@@ -4,7 +4,6 @@ import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.Paths;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;

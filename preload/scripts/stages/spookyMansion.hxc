@@ -1,5 +1,4 @@
 import flixel.FlxG;
-import funkin.Paths;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;

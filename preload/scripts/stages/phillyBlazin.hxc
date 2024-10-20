@@ -4,7 +4,6 @@ import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
-import funkin.Paths;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;

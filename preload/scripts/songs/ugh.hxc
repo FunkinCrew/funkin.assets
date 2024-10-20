@@ -1,6 +1,5 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-import funkin.Paths;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.save.Save;
 
@@ -17,7 +16,7 @@ class UghSong extends Song {
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
-      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
       switch (variationId) {
         case 'pico':
@@ -30,13 +29,13 @@ class UghSong extends Song {
     }
   }
 
-	public override function isSongNew(currentDifficulty:String):Bool{
-    if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico'){
-		  if (Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']) == false) return true;
-		}
-		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare') {
-			if (Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
-		}
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool{
+    if(currentVariation == 'pico')
+		  return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+			return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+
 
     return false;
 	}

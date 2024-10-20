@@ -9,7 +9,8 @@
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "pico",
-      "instrumental": "erect"
+      "instrumental": "erect",
+      "altInstrumentals": []
     },
     "stage": "phillyTrainErect",
     "noteStyle": "funkin",

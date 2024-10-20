@@ -222,5 +222,6 @@
       "cameraOffsets": [250, -100]
     },
     "gf": { "zIndex": 100, "position": [660.5, 715], "cameraOffsets": [0, 0] }
-  }
+  },
+  "directory": "week7"
 }
