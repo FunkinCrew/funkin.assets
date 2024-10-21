@@ -28,7 +28,7 @@
         {
           "name": "confirm",
           "prefix": "confirm0",
-          "offsets": [30, 0],
+          "offsets": [27, 2], 
           "frameRate": 24
         }
       ]

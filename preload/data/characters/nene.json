@@ -22,25 +22,7 @@
     {
       "name": "combo50",
       "prefix": "ComboCheer0",
-      "offsets": [-120, 50]
-    },
-    {
-      "name": "drop70",
-      "prefix": "Laugh0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
-        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "laughCutscene",
-      "prefix": "Laugh0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
-        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
-      ],
-      "offsets": [0, 0]
+      "offsets": [-124, 51]
     },
     {
       "name": "combo200",
@@ -49,22 +31,40 @@
         0, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
         6, 6, 6, 6, 6, 6
       ],
-      "offsets": [-50, -25]
+      "offsets": [-46, -11]
+    },
+    {
+      "name": "drop70",
+      "prefix": "Laugh0",
+      "frameIndices": [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
+        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
+      ],
+      "offsets": [2, -4]
     },
     {
       "name": "raiseKnife",
       "prefix": "KnifeRaise0",
-      "offsets": [0, 52]
+      "offsets": [0, 51]
     },
     {
       "name": "idleKnife",
       "prefix": "KnifeIdle0",
-      "offsets": [-99, 52]
+      "offsets": [-98, 51]
     },
     {
       "name": "lowerKnife",
       "prefix": "KnifeLower0",
-      "offsets": [135, 52]
+      "offsets": [135, 51]
+    },
+    {
+      "name": "laughCutscene",
+      "prefix": "Laugh0",
+      "frameIndices": [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
+        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
+      ],
+      "offsets": [2, -4]
     }
   ]
 }

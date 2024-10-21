@@ -1,39 +1,92 @@
 {
-  "version": "1.0.0",
-  "name": "Senpai",
-  "assetPath": "characters/senpai",
-  "singTime": 8.0,
-  "isPixel": true,
-  "scale": 6,
-  "healthIcon": {
-    "id": "senpai",
-    "isPixel": true
-  },
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Senpai Idle instance 10",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "SENPAI LEFT NOTE instance 10",
-      "offsets": [6.6, 0]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "SENPAI DOWN NOTE instance 10",
-      "offsets": [2.33, 0]
-    },
-    {
-      "name": "singUP",
-      "prefix": "SENPAI UP NOTE instance 10",
-      "offsets": [0.83, 6.16]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "SENPAI RIGHT NOTE instance 10",
-      "offsets": [0, 0]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 6,
+	"name": "Senpai",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"isPixel": true,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"isPixel": true,
+		"scale": 1,
+		"id": "senpai",
+		"flipX": false
+	},
+	"assetPath": "characters/senpai",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Senpai Idle instance 10",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				5,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "SENPAI LEFT NOTE instance 10",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				2,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "SENPAI DOWN NOTE instance 10",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				6
+			],
+			"frameRate": 24,
+			"prefix": "SENPAI UP NOTE instance 10",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "SENPAI RIGHT NOTE instance 10",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
+	]
 }
