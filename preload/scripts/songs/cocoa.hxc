@@ -27,10 +27,11 @@ class CocoaSong extends Song
 		super('cocoa');
 	}
 
-	public override function isSongNew(currentDifficulty:String):Bool{
-		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare') {
-			if (Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
-		}
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+	{
+		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+			return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+
 		return false;
 	}
 
