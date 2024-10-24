@@ -353,7 +353,7 @@ class TwoHOTSong extends Song
 
 	function onNoteMiss(event:NoteScriptEvent)
 	{
-		super.onNoteMiss(event.note);
+		super.onNoteMiss(event);
 
 		trace('Missed note on 2hot stage...' + event.note.noteData);
 
