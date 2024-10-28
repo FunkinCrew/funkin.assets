@@ -29,7 +29,7 @@
     },
     {
       "flipY": false,
-      "offsets": [90, -13],
+      "offsets": [92, -12],
       "frameRate": 24,
       "prefix": "Tankman Right Note instance 1",
       "flipX": false,
@@ -37,7 +37,7 @@
     },
     {
       "flipY": false,
-      "offsets": [63,-105],
+      "offsets": [71,-105],
       "frameRate": 24,
       "prefix": "Tankman DOWN note instance 1",
       "flipX": false,
@@ -45,7 +45,7 @@
     },
     {
       "flipY": false,
-      "offsets": [48,54],
+      "offsets": [54,50],
       "frameRate": 24,
       "prefix": "Tankman UP note instance 1",
       "flipX": false,
@@ -53,7 +53,7 @@
     },
     {
       "flipY": false,
-      "offsets": [-22,-28],
+      "offsets": [-25,-30],
       "frameRate": 24,
       "prefix": "Tankman Note Left instance 1",
       "flipX": false,
@@ -61,15 +61,7 @@
     },
     {
       "flipY": false,
-      "offsets": [-2, 15],
-      "frameRate": 24,
-      "prefix": "PRETTY GOOD tankman instance 1",
-      "flipX": false,
-      "name": "hehPrettyGood"
-    },
-    {
-      "flipY": false,
-      "offsets": [-16, -9],
+      "offsets": [-15, -9],
       "frameRate": 24,
       "prefix": "TANKMAN UGH instance 1",
       "flipX": false,
@@ -77,7 +69,16 @@
     },
     {
       "flipY": false,
-      "offsets": [-18, 10],
+      "offsets": [52, 2],
+      "frameRate": 24,
+      "prefix": "tankman ARGH",
+      "assetPath": "characters/tankmanPico",
+      "flipX": true,
+      "name": "augh"
+    },
+    {
+      "flipY": false,
+      "offsets": [-26, 13],
       "frameRate": 24,
       "prefix": "tankman laugh",
       "flipX": true,
@@ -86,21 +87,20 @@
     },
     {
       "flipY": false,
-      "offsets": [90, -9],
+      "offsets": [1, 16],
+      "frameRate": 24,
+      "prefix": "PRETTY GOOD tankman instance 1",
+      "flipX": false,
+      "name": "hehPrettyGood"
+    },
+    {
+      "flipY": false,
+      "offsets": [86, -14],
       "frameRate": 24,
       "prefix": "tankman beat it",
       "assetPath": "characters/tankmanPico",
       "flipX": true,
       "name": "beat it"
-    },
-    {
-      "flipY": false,
-      "offsets": [52, -6],
-      "frameRate": 24,
-      "prefix": "tankman ARGH",
-      "assetPath": "characters/tankmanPico",
-      "flipX": true,
-      "name": "augh"
     }
   ]
 }

@@ -17,20 +17,22 @@
     },
     {
       "name": "singLEFT",
-      "prefix": "Monster Right note",
-      "offsets": [-30, 20]
+      "prefix": "Monster left note",
+      "offsets": [-35, 10]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "Monster Right note",
+      "prefix": "Monster left note",
       "looped": true,
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-30, 20]
+      "frameIndices": [
+        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+      ],
+      "offsets": [-35, 10]
     },
     {
       "name": "singDOWN",
       "prefix": "monster down",
-      "offsets": [-50, -80]
+      "offsets": [-51, -85]
     },
     {
       "name": "singDOWN-hold",
@@ -40,12 +42,12 @@
         2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
         22, 23, 24, 25, 26, 27, 28, 29
       ],
-      "offsets": [-50, -80]
+      "offsets": [-51, -85]
     },
     {
       "name": "singUP",
       "prefix": "monster up note",
-      "offsets": [-20, 94]
+      "offsets": [-28, 91]
     },
     {
       "name": "singUP-hold",
@@ -55,21 +57,19 @@
         2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
         22, 23
       ],
-      "offsets": [-20, 94]
+      "offsets": [-28, 91]
     },
     {
       "name": "singRIGHT",
-      "prefix": "Monster left note",
-      "offsets": [-51, 30]
+      "prefix": "Monster Right note",
+      "offsets": [-42, 10]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "Monster left note",
+      "prefix": "Monster Right note",
       "looped": true,
-      "frameIndices": [
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-      ],
-      "offsets": [-51, 30]
+      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "offsets": [-42, 10]
     }
   ]
 }

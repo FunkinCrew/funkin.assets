@@ -9,105 +9,104 @@
     {
       "name": "idle",
       "prefix": "BF idle dance",
-      "offsets": [-5, 0]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT0",
-      "offsets": [12, -6]
+      "offsets": [11, -7]
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
-      "offsets": [-10, -50]
+      "offsets": [-20, -51]
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP0",
-      "offsets": [-29, 27]
+      "offsets": [-36, 28]
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
-      "offsets": [-38, -7]
+      "offsets": [-45, -6]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
-      "offsets": [12, 24]
+      "offsets": [10, 19]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-11, -19]
+      "offsets": [-20, -21]
     },
     {
       "name": "singUPmiss",
       "prefix": "BF NOTE UP MISS",
-      "offsets": [-29, 27]
+      "offsets": [-32, 28]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-30, 21]
-    },
-    {
-      "name": "preAttack",
-      "prefix": "bf pre attack",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "attack",
-      "prefix": "boyfriend attack",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "dodge",
-      "prefix": "boyfriend dodge",
-      "offsets": [0, 0]
+      "offsets": [-39, 22]
     },
     {
       "name": "hey",
       "prefix": "BF HEY!!",
-      "offsets": [7, 4]
+      "offsets": [1, 6]
     },
     {
       "name": "cheer",
       "prefix": "Cheer",
       "assetPath": "characters/BFCheer",
-      "offsets": [0, 0]
+      "offsets": [-28, 20]
+    },
+    {
+      "name": "scared",
+      "prefix": "BF idle shaking",
+      "offsets": [-1, 1]
+    },
+    {
+      "name": "dodge",
+      "prefix": "boyfriend dodge",
+      "offsets": [-5, -16]
     },
     {
       "name": "hit",
       "prefix": "BF hit",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [0, 0]
+      "offsets": [15, 19]
+    },
+    {
+      "name": "preAttack",
+      "prefix": "bf pre attack",
+      "offsets": [-39, -38]
+    },
+    {
+      "name": "attack",
+      "prefix": "boyfriend attack",
+      "offsets": [290, 269]
     },
     {
       "name": "firstDeath",
       "prefix": "BF dies",
-      "offsets": [-37, 11]
-    },
-    {
-      "name": "fakeoutDeath",
-      "prefix": "BF dies",
-      "offsets": [-37, 11]
+      "offsets": [26, 7]
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
       "looped": true,
-      "offsets": [-37, 5]
+      "offsets": [26, 1]
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
-      "offsets": [-37, 69]
+      "offsets": [26, 65]
     },
     {
-      "name": "scared",
-      "prefix": "BF idle shaking",
-      "offsets": [-4, 0]
+      "name": "fakeoutDeath",
+      "prefix": "BF dies",
+      "offsets": [26, 7]
     }
   ]
 }

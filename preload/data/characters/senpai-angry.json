@@ -1,39 +1,92 @@
 {
-  "version": "1.0.0",
-  "name": "Senpai (Angry)",
-  "assetPath": "characters/senpai",
-  "singTime": 8.0,
-  "isPixel": true,
-  "scale": 6,
-  "healthIcon": {
-    "id": "senpai",
-    "isPixel": true
-  },
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Angry Senpai Idle instance 1",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Angry Senpai LEFT NOTE",
-      "offsets": [6.6, 0]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Angry Senpai DOWN NOTE",
-      "offsets": [2.33, 0]
-    },
-    {
-      "name": "singUP",
-      "prefix": "Angry Senpai UP NOTE",
-      "offsets": [0.83, 6.16]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Angry Senpai RIGHT NOTE",
-      "offsets": [0, 0]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 6,
+	"name": "Senpai (Angry)",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"isPixel": true,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"isPixel": true,
+		"scale": 1,
+		"id": "senpai",
+		"flipX": false
+	},
+	"assetPath": "characters/senpai",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Angry Senpai Idle instance 1",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				4,
+				1
+			],
+			"frameRate": 24,
+			"prefix": "Angry Senpai LEFT NOTE",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				1,
+				1
+			],
+			"frameRate": 24,
+			"prefix": "Angry Senpai DOWN NOTE",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-1,
+				6
+			],
+			"frameRate": 24,
+			"prefix": "Angry Senpai UP NOTE",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-1,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Angry Senpai RIGHT NOTE",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
+	]
 }
