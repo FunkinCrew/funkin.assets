@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="492">
-    <vbox width="100%" height="100%">
-        <frame text="Variation: Default" width="100%" height="250" id="frameVariation">
-            <vbox width="100%" height="100%">
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="460">
+    <hbox width="100%" height="100%">
+        <vbox width="50%" height="100%">
+            <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
                 <grid columns="2" height="100%">
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
@@ -33,46 +33,69 @@
                             <item text="Pixel" />
                         </data>
                     </dropdown>
+                    <hbox width="100%" horizontalAlign="center">
+                        <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
+                            Daddy Dearest
+                        </button>
+                        <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
+                            Girlfriend
+                        </button>
+                        <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
+                            Boyfriend
+                        </button>
+                    </hbox>
                 </grid>
-                <hbox width="100%">
-                    <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
-                        Daddy Dearest
-                    </button>
-                    <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
-                        Girlfriend
-                    </button>
-                    <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
-                        Boyfriend
-                    </button>
-                </hbox>
-            </vbox>
-        </frame>
-        <frame text="Difficulty: Normal" width="100%" height="170" id="frameDifficulty">
-            <grid columns="2">
-                <label text="Starting BPM" verticalAlign="center" />
-                <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" tooltip="Adjust the BPM of the song, which helps align the grid and character animations to the music." />
-                <label text="Starting Time Signature" verticalAlign="center" />
-                <dropdown id="inputTimeSignature" value="4/4" horizontalAlign="right" tooltip="Adjust the time signature of the song, which helps align the grid.">
-                    <data>
-                        <item id="2/4" text="2/4" />
-                        <item id="3/4" text="3/4" />
-                        <item id="4/4" text="4/4" />
-                        <item id="5/4" text="5/4" />
-                        <item id="6/4" text="6/4" />
-                        <item id="3/8" text="3/8" />
-                        <item id="5/8" text="5/8" />
-                        <item id="7/8" text="7/8" />
-                        <item id="9/8" text="9/8" />
-                        <item id="15/16" text="15/16" />
-                    </data>
-                </dropdown>
-                <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
-                <spacer />
-                <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" tooltip="Adjust the relative speed at which the notes move." />
-                <spacer />
-                <label id="labelDifficultyRating" text="Difficulty Rank" verticalAlign="center" />
-                <number-stepper id="inputDifficultyRating" pos="0" step="1" min="0" max="15" tooltip="Set the rating for this difficulty as shown in the Freeplay menu." />
-            </grid>
-        </frame>
-    </vbox>
+            </frame>
+            <frame text="Difficulty: Normal" width="100%" height="30%" id="frameDifficulty">
+                <grid columns="2">
+                    <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
+                    <spacer />
+                    <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" tooltip="Adjust the relative speed at which the notes move." />
+                    <spacer />
+                    <label id="labelDifficultyRating" text="Difficulty Rank:" verticalAlign="center" />
+                    <number-stepper id="inputDifficultyRating" pos="0" step="1" min="0" max="15" tooltip="Set the rating for this difficulty as shown in the Freeplay menu." />
+                </grid>
+            </frame>
+        </vbox>
+        <vbox width="50%" height="100%">
+            <frame text="Timing Data" width="100%" id="frameTiming">
+                <grid columns="2">
+                    <label text="Starting BPM:" verticalAlign="center" />
+                    <number-stepper id="inputBPM" pos="100" step="0.1" min="10" max="500" precision="1" horizontalAlign="right" width="100" tooltip="Adjust the BPM of the song, which helps align the grid and character animations to the music." />
+                    <label text="Starting Time Signature" verticalAlign="center" />
+                    <spacer />
+                    <label text="Numerator:" verticalAlign="center" />
+                    <dropdown id="inputTSNum" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature numerator of the song, which helps align the grid.">
+                        <data>
+                            <item text="1" />
+                            <item text="2" />
+                            <item text="3" />
+                            <item text="4" />
+                            <item text="5" />
+                            <item text="6" />
+                            <item text="7" />
+                            <item text="8" />
+                            <item text="9" />
+                            <item text="10" />
+                            <item text="11" />
+                            <item text="12" />
+                            <item text="13" />
+                            <item text="14" />
+                            <item text="15" />
+                            <item text="16" />
+                        </data>
+                    </dropdown>
+                    <label text="Denominator:" verticalAlign="center" />
+                    <dropdown id="inputTSDen" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature denominator of the song, which helps align the grid.">
+                        <data>
+                            <item text="2" />
+                            <item text="4" />
+                            <item text="8" />
+                            <item text="16" />
+                        </data>
+                    </dropdown>
+                </grid>
+            </frame>
+        </vbox>
+    </hbox>
 </collapsible-dialog>
