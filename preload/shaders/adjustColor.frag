@@ -29,9 +29,14 @@ vec3 applyHSBCEffect(vec3 color)
 
 void main()
 {
-	vec4 textureColor = texture2D(bitmap, openfl_TextureCoordv);
+	vec4 textureColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
 
-	vec3 outColor = applyHSBCEffect(textureColor.rgb);
+    // Un-multiply alpha if the texture is premultiplied
+    // Lime premultiplies alphas before sending it to render, so we want to accomodate header. This fixes some antialiased edges appearing darker
+    vec3 unpremultipliedColor = textureColor.a > 0.0 ? textureColor.rgb / textureColor.a : textureColor.rgb;
+
+    // Apply effects to the unpremultiplied color
+    vec3 outColor = applyHSBCEffect(unpremultipliedColor);
 
 	gl_FragColor = vec4(outColor * textureColor.a, textureColor.a);
 }
