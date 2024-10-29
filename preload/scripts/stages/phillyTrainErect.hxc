@@ -316,12 +316,12 @@ class PhillyTrainErectStage extends Stage
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
 
     colorShader = new AdjustColorShader();
+		getNamedProp('train').shader = colorShader;
+
 		colorShader.hue = -26;
 		colorShader.saturation = -16;
 		colorShader.contrast = 0;
 		colorShader.brightness = -5;
-		getNamedProp('train').shader = colorShader;
-
 		FlxG.sound.list.add(trainSound);
 
 		for (i in 0...LIGHT_COUNT)
@@ -394,16 +394,7 @@ class PhillyTrainErectStage extends Stage
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
 		trace('Applied stage shader to ' + character.characterName);
-
-		shader = new AdjustColorShader();
-
-    shader.hue = -26;
-		shader.saturation = -16;
-		shader.contrast = 0;
-		shader.brightness = -5;
-
-		character.shader = shader;
-
+		character.shader = colorShader;
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void

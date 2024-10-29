@@ -9,6 +9,7 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.play.character.CharacterType;
 
 class MainStageErectStage extends Stage
 {
@@ -56,18 +57,6 @@ class MainStageErectStage extends Stage
 
 	}
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
-		super.onUpdate(event);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
-			PlayState.instance.currentStage.getDad().shader = colorShaderDad;
-    }
-
-	}
-
 	function onBeatHit(event:SongTimeScriptEvent):Void
 	{
 		super.onBeatHit(event);
@@ -76,5 +65,19 @@ class MainStageErectStage extends Stage
   function onStepHit(event:SongTimeScriptEvent):Void
 	{
 		super.onStepHit(event);
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+		switch (charType) {
+			case CharacterType.BF:
+				character.shader = colorShaderBf;
+			case CharacterType.DAD:
+				character.shader = colorShaderDad;
+			case CharacterType.GF:
+				character.shader = colorShaderGf;
+		}
 	}
 }
