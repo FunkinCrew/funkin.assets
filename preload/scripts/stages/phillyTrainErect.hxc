@@ -309,6 +309,12 @@ class PhillyTrainErectStage extends Stage
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
     colorShader = new AdjustColorShader();
+		getNamedProp('train').shader = colorShader;
+
+		colorShader.hue = -26;
+		colorShader.saturation = -16;
+		colorShader.contrast = 0;
+		colorShader.brightness = -5;
 		FlxG.sound.list.add(trainSound);
 
 		for (i in 0...LIGHT_COUNT)
@@ -340,18 +346,6 @@ class PhillyTrainErectStage extends Stage
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-			PlayState.instance.currentStage.getDad().shader = colorShader;
-			getNamedProp('train').shader = colorShader;
-
-			colorShader.hue = -26;
-			colorShader.saturation = -16;
-			colorShader.contrast = 0;
-			colorShader.brightness = -5;
-    }
 
 		var amount:Int = 1;
 
@@ -387,6 +381,13 @@ class PhillyTrainErectStage extends Stage
 		if (cutsceneConductor != null && cutsceneMusic != null) {
 			cutsceneConductor.update(cutsceneMusic.time);
 		}
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+		character.shader = colorShader;
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void
