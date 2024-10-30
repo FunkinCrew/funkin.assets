@@ -181,6 +181,28 @@
       ]
     },
     {
+      "header": "Android Porting",
+      "body": [
+        { "line": "ZackDroid" },
+        { "line": "MAJigsaw77" },
+        { "line": "Luckydog7" },
+        { "line": "Karim Akra" },
+        { "line": "sector_5" }
+      ]
+    },
+    {
+      "header": "iOS Porting",
+      "body": [
+        { "line": "mcagabe19" }
+      ]
+    },
+    {
+      "header": "iOS Beta-testing",
+      "body": [
+        { "line": "shyllis" }
+      ]
+    },
+    {
       "header": "Merchandise Partners and Designers",
       "body": [
         { "line": "Needlejuice Records: Jace McLain" },

@@ -19,6 +19,7 @@ import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
+import funkin.mobile.util.TouchUtil;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -38,6 +39,8 @@ class PhillyTrainErectStage extends Stage
 	var hasPlayedInGameCutscene:Bool = false;
 	var cutsceneSkipped:Bool = false;
 	var canSkipCutscene:Bool = false;
+
+   var isMobilePauseButtonPressed:Bool = false;
 
 	/**
    * Replay the cutscene after leaving the song.
@@ -91,6 +94,11 @@ class PhillyTrainErectStage extends Stage
 	function doppleGangerCutscene(){
 
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+    if (FlxG.onMobile)
+    {
+        skipText.text = 'Skip [Pause Button]';
+        skipText.x -= 136;
+    }
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
 		skipText.borderSize = 2;
@@ -366,7 +374,12 @@ class PhillyTrainErectStage extends Stage
 			}
 		}
 
-		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
+      if (FlxG.onMobile)
+      {
+          isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+      }
+
+		if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
     {
 			if(canSkipCutscene == false){
 				trace('cant skip yet!');
@@ -377,7 +390,7 @@ class PhillyTrainErectStage extends Stage
 				});
 			}
     }
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true){
+		if((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false && canSkipCutscene == true){
 			skipCutscene();
 			trace('skipped');
 		}
