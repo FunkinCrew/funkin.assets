@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
   "name": "DUE DEBTS",
-  "titleAsset": "storymenu/titles/weekend1",
+  "titleAsset": "ui/story-mode/levels/weekend1",
   "props": [
     {
-      "assetPath": "storymenu/props/darnell",
+      "assetPath": "ui/story-mode/props/darnell",
       "scale": 1.0,
       "offsets": [120, 120],
       "animations": [
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/pico-player",
+      "assetPath": "ui/story-mode/props/pico-player",
       "scale": 1.0,
       "offsets": [150, 80],
       "animations": [
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/nene",
+      "assetPath": "ui/story-mode/props/nene",
       "scale": 1.0,
       "offsets": [200, 80],
       "animations": [

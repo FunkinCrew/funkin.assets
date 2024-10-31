@@ -7,7 +7,7 @@ class AddColorShader extends FlxRuntimeShader
 
 	function new(color:Int = 0xFFFFFFFF)
 	{
-		var fragText:String = Assets.getText(Paths.frag('addColor'));
+		var fragText:String = Assets.getText(Paths.frag('ui/shaders/addColor'));
 		super(fragText);
 		setColor(color);
 	}

@@ -5,7 +5,7 @@
   "fallback": null,
   "assets": {
     "note": {
-      "assetPath": "shared:notes",
+      "assetPath": "gameplay/notestyles/funkin/notes",
       "scale": 0.7,
       "data": {
         "left": { "prefix": "noteLeft" },
@@ -15,7 +15,7 @@
       }
     },
     "noteStrumline": {
-      "assetPath": "shared:noteStrumline",
+      "assetPath": "gameplay/notestyles/funkin/note-strumline",
       "scale": 0.7,
       "offsets": [0, 0],
       "data": {
@@ -38,7 +38,7 @@
       }
     },
     "holdNote": {
-      "assetPath": "NOTE_hold_assets",
+      "assetPath": "gameplay/notestyles/funkin/note-holds",
       "scale": 0.7,
       "data": {}
     },
@@ -56,101 +56,101 @@
     },
     "countdownThree": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introTHREE"
+        "audioPath": "gameplay/notestyles/funkin/countdown/sound/intro-three"
       },
       "assetPath": null
     },
     "countdownTwo": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introTWO"
+        "audioPath": "gameplay/notestyles/funkin/countdown/sound/intro-two"
       },
-      "assetPath": "shared:ui/countdown/funkin/ready",
+      "assetPath": "gameplay/notestyles/funkin/countdown/graphics/ready",
       "scale": 1.0,
       "isPixel": false
     },
     "countdownOne": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introONE"
+        "audioPath": "gameplay/notestyles/funkin/countdown/sound/intro-one"
       },
-      "assetPath": "shared:ui/countdown/funkin/set",
+      "assetPath": "gameplay/notestyles/funkin/countdown/graphics/set",
       "scale": 1.0,
       "isPixel": false
     },
     "countdownGo": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introGO"
+        "audioPath": "gameplay/notestyles/funkin/countdown/sound/intro-go"
       },
-      "assetPath": "shared:ui/countdown/funkin/go",
+      "assetPath": "gameplay/notestyles/funkin/countdown/graphics/go",
       "scale": 1.0,
       "isPixel": false
     },
     "judgementSick": {
-      "assetPath": "default:ui/popup/funkin/sick",
+      "assetPath": "gameplay/notestyles/funkin/popup/sick",
       "scale": 0.65,
       "isPixel": false
     },
     "judgementGood": {
-      "assetPath": "default:ui/popup/funkin/good",
+      "assetPath": "gameplay/notestyles/funkin/popup/good",
       "scale": 0.65,
       "isPixel": false
     },
     "judgementBad": {
-      "assetPath": "default:ui/popup/funkin/bad",
+      "assetPath": "gameplay/notestyles/funkin/popup/bad",
       "scale": 0.65,
       "isPixel": false
     },
     "judgementShit": {
-      "assetPath": "default:ui/popup/funkin/shit",
+      "assetPath": "gameplay/notestyles/funkin/popup/shit",
       "scale": 0.65,
       "isPixel": false
     },
     "comboNumber0": {
-      "assetPath": "default:ui/popup/funkin/num0",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-0",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber1": {
-      "assetPath": "default:ui/popup/funkin/num1",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-1",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber2": {
-      "assetPath": "default:ui/popup/funkin/num2",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-2",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber3": {
-      "assetPath": "default:ui/popup/funkin/num3",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-3",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber4": {
-      "assetPath": "default:ui/popup/funkin/num4",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-4",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber5": {
-      "assetPath": "default:ui/popup/funkin/num5",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-5",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber6": {
-      "assetPath": "default:ui/popup/funkin/num6",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-6",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber7": {
-      "assetPath": "default:ui/popup/funkin/num7",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-7",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber8": {
-      "assetPath": "default:ui/popup/funkin/num8",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-8",
       "isPixel": false,
       "scale": 0.45
     },
     "comboNumber9": {
-      "assetPath": "default:ui/popup/funkin/num9",
+      "assetPath": "gameplay/notestyles/funkin/popup/digit-9",
       "isPixel": false,
       "scale": 0.45
     }

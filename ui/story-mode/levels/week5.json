@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
   "name": "RED SNOW",
-  "titleAsset": "storymenu/titles/week5",
+  "titleAsset": "ui/story-mode/levels/week5",
   "props": [
     {
-      "assetPath": "storymenu/props/parents-xmas",
+      "assetPath": "ui/story-mode/props/parents-xmas",
       "scale": 0.9,
       "offsets": [10, 60],
       "animations": [
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/bf",
+      "assetPath": "ui/story-mode/props/bf",
       "scale": 1.0,
       "offsets": [150, 80],
       "animations": [
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/gf",
+      "assetPath": "ui/story-mode/props/gf",
       "scale": 1.0,
       "offsets": [200, 80],
       "animations": [

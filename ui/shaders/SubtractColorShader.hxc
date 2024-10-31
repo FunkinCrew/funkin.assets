@@ -7,7 +7,7 @@ class SubtractColorShader extends FlxRuntimeShader
 
 	function new(color:Int = 0xFFFFFFFF)
 	{
-		var fragText:String = Assets.getText(Paths.frag('subtract-color'));
+		var fragText:String = Assets.getText(Paths.frag('ui/shaders/subtract-color'));
 		super(fragText);
 		setColor(color);
 	}

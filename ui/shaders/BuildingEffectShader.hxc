@@ -8,7 +8,7 @@ class BuildingEffectShader extends FlxRuntimeShader
 
 	function new(speed:Float = 1.0)
 	{
-		var fragText:String = Assets.getText(Paths.frag('building'));
+		var fragText:String = Assets.getText(Paths.frag('ui/shaders/building'));
 		super(fragText);
 		this.effectSpeed = speed;
 	}

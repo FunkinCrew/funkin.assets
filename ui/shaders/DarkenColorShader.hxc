@@ -7,7 +7,7 @@ class DarkenColorShader extends FlxRuntimeShader
 
 	function new(color:Int = 0xFFFFFFFF)
 	{
-		var fragText:String = Assets.getText(Paths.frag('darken-color'));
+		var fragText:String = Assets.getText(Paths.frag('ui/shaders/darken-color'));
 		super(fragText);
 		setColor(color);
 	}

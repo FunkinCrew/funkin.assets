@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
   "name": "SPOOKY MONTH",
-  "titleAsset": "storymenu/titles/week2",
+  "titleAsset": "ui/story-mode/levels/week2",
   "props": [
     {
-      "assetPath": "storymenu/props/spooky",
+      "assetPath": "ui/story-mode/props/spooky",
       "scale": 1.0,
       "offsets": [100, 120],
       "animations": [
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/bf",
+      "assetPath": "ui/story-mode/props/bf",
       "scale": 1.0,
       "offsets": [150, 80],
       "animations": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/gf",
+      "assetPath": "ui/story-mode/props/gf",
       "scale": 1.0,
       "offsets": [200, 80],
       "animations": [

@@ -8,7 +8,7 @@
       "animType": "sparrow",
       "name": "stageBack",
       "isPixel": false,
-      "assetPath": "stageback",
+      "assetPath": "gameplay/stages/mainStage/stage-back",
       "scroll": [0.9, 0.9],
       "animations": []
     },
@@ -20,7 +20,7 @@
       "animType": "sparrow",
       "name": "stageFront",
       "isPixel": false,
-      "assetPath": "stagefront",
+      "assetPath": "gameplay/stages/mainStage/stage-front",
       "scroll": [0.9, 0.9],
       "animations": []
     },
@@ -32,7 +32,7 @@
       "animType": "sparrow",
       "name": "stageCurtains",
       "isPixel": false,
-      "assetPath": "stagecurtains",
+      "assetPath": "gameplay/stages/mainStage/stage-curtains",
       "scroll": [1.3, 1.3],
       "animations": []
     }

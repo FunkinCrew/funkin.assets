@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
   "name": "TEACHING TIME",
-  "titleAsset": "storymenu/titles/tutorial",
+  "titleAsset": "ui/story-mode/levels/tutorial",
   "props": [
     {
-      "assetPath": "storymenu/props/gf",
+      "assetPath": "ui/story-mode/props/gf",
       "scale": 1.0,
       "danceEvery": 2,
       "offsets": [80, 80],
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "assetPath": "storymenu/props/bf",
+      "assetPath": "ui/story-mode/props/bf",
       "scale": 1.0,
       "danceEvery": 2,
       "offsets": [150, 80],

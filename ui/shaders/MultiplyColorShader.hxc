@@ -7,7 +7,7 @@ class MultiplyColorShader extends FlxRuntimeShader
 
 	function new(color:Int = 0xFFFFFFFF)
 	{
-		var fragText:String = Assets.getText(Paths.frag('multiply-color'));
+		var fragText:String = Assets.getText(Paths.frag('ui/shaders/multiply-color'));
 		super(fragText);
 		setColor(color);
 	}
