@@ -1016,7 +1016,7 @@
       { "d": 3, "l": 600, "t": 105600 }
     ]
   },
-  "scrollSpeed": { "easy": 1.3, "normal": 1.5, "hard": 1.7 },
+  "scrollSpeed": { "easy": 1.5, "normal": 1.7, "hard": 1.9 },
   "generatedBy": "Ported By Hand (EliteMasterEric)",
   "version": "2.0.0"
 }
