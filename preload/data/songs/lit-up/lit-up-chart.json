@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "scrollSpeed": { "easy": 2.0, "normal": 2.2, "hard": 2.4 },
+  "scrollSpeed": { "easy": 2.2, "normal": 2.2, "hard": 2.4 },
   "events": [
     { "t": 0, "e": "FocusCamera", "v": { "char": "1", "x": "0", "y": "0" } },
     {
