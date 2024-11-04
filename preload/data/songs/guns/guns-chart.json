@@ -2170,7 +2170,7 @@
       { "d": 1, "t": 134837 }
     ]
   },
-  "scrollSpeed": { "easy": 2.1, "normal": 2.3, "hard": 2.5 },
+  "scrollSpeed": { "easy": 1.7, "normal": 2.1, "hard": 2.5 },
   "generatedBy": "Friday Night Funkin' - v0.3.0 (chart-editor-port-legacy:76a614e) PROTOTYPE",
   "version": "2.0.0"
 }
