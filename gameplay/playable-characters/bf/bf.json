@@ -91,24 +91,24 @@
   },
   "results": {
     "music": {
-      "PERFECT_GOLD": "resultsPERFECT",
-      "PERFECT": "resultsPERFECT",
-      "EXCELLENT": "resultsEXCELLENT",
-      "GREAT": "resultsNORMAL",
-      "GOOD": "resultsNORMAL",
-      "SHIT": "resultsSHIT"
+      "PERFECT_GOLD": "gameplay/playable-characters/bf/results/music/results-perfect",
+      "PERFECT": "gameplay/playable-characters/bf/results/music/results-perfect",
+      "EXCELLENT": "gameplay/playable-characters/bf/results/music/results-excellent",
+      "GREAT": "gameplay/playable-characters/bf/results/music/results-normal",
+      "GOOD": "gameplay/playable-characters/bf/results/music/results-normal",
+      "SHIT": "gameplay/playable-characters/bf/results/music/results-shit"
     },
     "perfectGold": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect",
         "zIndex": 500,
         "offsets": [1342, 370],
         "loopFrame": 137
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/herats",
         "zIndex": 501,
         "delay": 4.41,
         "offsets": [1342, 370],
@@ -118,14 +118,14 @@
     "perfect": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect",
         "zIndex": 500,
         "offsets": [1342, 370],
         "loopFrame": 137
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/hearts",
         "zIndex": 501,
         "delay": 4.41,
         "offsets": [1342, 370],
@@ -135,7 +135,7 @@
     "excellent": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsEXCELLENT",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-excellent/bf",
         "zIndex": 500,
         "offsets": [1329, 429],
 
@@ -145,7 +145,7 @@
     "great": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGREAT/gf",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-great/bf",
         "scale": 0.93,
         "delay": 0.25,
         "offsets": [802, 331],
@@ -155,7 +155,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGREAT/bf",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-great/bf",
         "scale": 0.93,
         "zIndex": 500,
         "offsets": [929, 363],
@@ -166,7 +166,7 @@
     "good": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGOOD/bf",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-good/bf",
         "zIndex": 501,
         "offsets": [662, 371],
 
@@ -174,7 +174,7 @@
       },
       {
         "renderType": "sparrow",
-        "assetPath": "shared:resultScreen/results-bf/resultsGOOD/resultGirlfriendGOOD",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-good/gf",
         "zIndex": 500,
         "delay": 0.91,
         "offsets": [629, 323],
@@ -184,7 +184,7 @@
     "loss": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsSHIT",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-shit",
         "zIndex": 500,
         "offsets": [0, 20],
         "loopFrameLabel": "Loop Start"
