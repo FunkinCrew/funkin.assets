@@ -80,17 +80,17 @@
   },
   "results": {
     "music": {
-      "PERFECT_GOLD": "resultsPERFECT-pico",
-      "PERFECT": "resultsPERFECT-pico",
-      "EXCELLENT": "resultsEXCELLENT-pico",
-      "GREAT": "resultsNORMAL-pico",
-      "GOOD": "resultsNORMAL-pico",
-      "SHIT": "resultsSHIT-pico"
+      "PERFECT_GOLD": "gameplay/playable-characters/pico/results/music/results-perfect",
+      "PERFECT": "gameplay/playable-characters/pico/results/music/results-perfect",
+      "EXCELLENT": "gameplay/playable-characters/pico/results/music/results-excellent",
+      "GREAT": "gameplay/playable-characters/pico/results/music/results-normal",
+      "GOOD": "gameplay/playable-characters/pico/results/music/results-normal",
+      "SHIT": "gameplay/playable-characters/pico/results/music/results-shit"
     },
     "perfectGold": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-perfect",
         "zIndex": 500,
         "scale": 0.88,
         "offsets": [385, 82],
@@ -100,7 +100,7 @@
     "perfect": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsPERFECT",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-perfect",
         "zIndex": 500,
         "scale": 0.88,
         "offsets": [385, 82],
@@ -110,7 +110,7 @@
     "excellent": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-great",
         "zIndex": 500,
         "scale": 1.25,
         "offsets": [350, 25],
@@ -121,7 +121,7 @@
     "great": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsGREAT",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-great",
         "zIndex": 500,
         "scale": 1.25,
         "offsets": [350, 25],
@@ -132,7 +132,7 @@
     "good": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsGOOD",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-good",
         "zIndex": 500,
         "scale": 1.25,
         "offsets": [350, 25],
@@ -142,7 +142,7 @@
     "loss": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-loss",
         "zIndex": 500,
         "offsets": [-185, -125],
         "loopFrame": 0

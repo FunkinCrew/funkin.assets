@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Monster",
-  "assetPath": "characters/Monster_Assets",
+  "assetPath": "gameplay/characters/monster/monster-assets",
   "animations": [
     {
       "name": "idle",

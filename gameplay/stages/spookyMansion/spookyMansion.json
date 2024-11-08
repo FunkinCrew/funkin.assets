@@ -17,7 +17,7 @@
       "name": "halloweenBG",
       "isPixel": false,
       "startingAnimation": "idle",
-      "assetPath": "halloween_bg",
+      "assetPath": "gameplay/stages/spookyMansion/halloween-bg",
       "scroll": [1, 1],
       "animations": [
         {
