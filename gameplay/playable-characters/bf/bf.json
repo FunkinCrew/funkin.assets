@@ -135,7 +135,7 @@
     "excellent": [
       {
         "renderType": "animateatlas",
-        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-excellent/bf",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-excellent",
         "zIndex": 500,
         "offsets": [1329, 429],
 

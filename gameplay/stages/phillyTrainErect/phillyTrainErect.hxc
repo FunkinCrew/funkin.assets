@@ -87,7 +87,7 @@ class PhillyTrainErectStage extends Stage
 	function doppleGangerCutscene(){
 
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+    skipText.setFormat(Paths.font('ui/fonts/vcr'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
 		skipText.borderSize = 2;
 		skipText.alpha = 0;
