@@ -375,17 +375,20 @@ class TwoHOTSong extends Song
 
 	function takeCanDamage():Void {
 		trace('Taking damage from can exploding!');
-		
+
+		// Vibrations are mobile special.
 		if (FlxG.onMobile)
 		{
-         HapticUtil.vibrate(100, 100, 255);
-            
+			// Can hits pico.
+			HapticUtil.vibrate(100, 100, 255);
+
 			new FlxTimer().start(0.45, function(tmr)
 			{
+				// Can explodes.
 				HapticUtil.vibrate(100, 100, 255);
 			});
 		}
-	
+
 		PlayState.instance.health -= HEALTH_LOSS;
 		// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
 		// PlayState.instance.health += 0.0775;
