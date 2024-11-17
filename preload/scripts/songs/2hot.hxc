@@ -17,6 +17,7 @@ import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
+import funkin.mobile.util.HapticUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
@@ -374,6 +375,17 @@ class TwoHOTSong extends Song
 
 	function takeCanDamage():Void {
 		trace('Taking damage from can exploding!');
+		
+		if (FlxG.onMobile)
+		{
+         HapticUtil.vibrate(100, 100, 255);
+            
+			new FlxTimer().start(0.45, function(tmr)
+			{
+				HapticUtil.vibrate(100, 100, 255);
+			});
+		}
+	
 		PlayState.instance.health -= HEALTH_LOSS;
 		// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
 		// PlayState.instance.health += 0.0775;
