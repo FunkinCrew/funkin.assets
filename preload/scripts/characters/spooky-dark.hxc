@@ -43,5 +43,20 @@ class SpookyDarkCharacter extends SparrowCharacter {
 		PlayState.instance.currentStage.add(normalChar);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 	}
+	
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		super.onNoteHit(event);
+
+		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+			// Override the hit note animation.
+			switch(event.note.kind) {
+				case "cheer":
+					holdTimer = 0;
+					this.playAnimation('cheer', true, true);
+					return;
+			}
+		}
+	}
 
 }

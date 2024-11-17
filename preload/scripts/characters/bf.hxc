@@ -3,10 +3,32 @@ import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.GameOverSubState;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
 
 class BoyfriendCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('bf');
+	}
+	
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		if (event.eventCanceled) {
+			// onNoteHit event was cancelled by the gameplay module.
+			return;
+		}
+
+		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+			// Override the hit note animation.
+			switch(event.note.kind) {
+				case "cheer":
+					holdTimer = 0;
+					this.playAnimation('cheer', true, true);
+					return;
+				default:
+					super.onNoteHit(event);
+			}
+		}
 	}
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
