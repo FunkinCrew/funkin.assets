@@ -1,6 +1,5 @@
 {
   "events": [
-    { "e": "FocusCamera", "t": 0, "v": { "char": 0 } },
     { "e": "FocusCamera", "t": 500, "v": { "char": 1 } },
     { "e": "FocusCamera", "t": 4500, "v": { "char": 0 } },
     { "e": "FocusCamera", "t": 8000, "v": { "char": 1 } },
