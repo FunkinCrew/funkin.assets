@@ -39,6 +39,11 @@
     <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
     <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
+    <hbox style="padding-left: 12px" width="100%">
+      <label text="Note Stack Threshold" styleName="menuLabel" verticalAlign="center" horizontalAlign="left"/>
+      <number-stepper id="menuBarItemStackedNoteThreshold" horizontalAlign="right" width="100%" min="0" max="50" step="5"/>
+    </hbox>
+    <menu-separator />
     <menu text="Note Snapping">
       <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
       <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
