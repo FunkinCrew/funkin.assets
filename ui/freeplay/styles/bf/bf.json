@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "bgAsset": "freeplay/freeplayBGdad",
-  "selectorAsset": "freeplay/freeplaySelector/freeplaySelector",
-  "numbersAsset": "digital_numbers",
-  "capsuleAsset": "freeplay/freeplayCapsule/capsule/freeplayCapsule",
+  "bgAsset": "ui/freeplay/styles/bf/background-dad",
+  "selectorAsset": "ui/freeplay/interface/difficulty-selector",
+  "numbersAsset": "ui/freeplay/styles/bf/digital-numbers",
+  "capsuleAsset": "ui/freeplay/interface/freeplay-capsule/capsule/capsule-bf",
   "capsuleTextColors": ["#00ccff", "#00ccff"],
   "startDelay": 1.0
 }

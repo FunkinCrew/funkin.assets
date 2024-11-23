@@ -2,6 +2,6 @@
   "version": "1.0.0",
   "name": "Volume 3",
   "artists": ["Kawai Sprite"],
-  "albumArtAsset": "freeplay/albumRoll/volume3",
-  "albumTitleAsset": "freeplay/albumRoll/volume3-text"
+  "albumArtAsset": "ui/freeplay/albums/volume3",
+  "albumTitleAsset": "ui/freeplay/albums/volume3-text"
 }

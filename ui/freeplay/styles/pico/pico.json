@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "bgAsset": "freeplay/freeplayBGdadPico",
-  "selectorAsset": "freeplay/freeplaySelector/freeplaySelector_pico",
-  "numbersAsset": "digital_numbers_pico",
-  "capsuleAsset": "freeplay/freeplayCapsule/capsule/freeplayCapsule_pico",
+  "bgAsset": "ui/freeplay/styles/pico/background-dad",
+  "selectorAsset": "ui/freeplay/styles/pico/difficulty-selector",
+  "numbersAsset": "ui/freeplay/styles/pico/digital-numbers",
+  "capsuleAsset": "ui/freeplay/interface/freeplay-capsule/capsule/capsule-pico",
   "capsuleTextColors": ["#CC6600", "#CC9900"],
   "startDelay": 1.45
 }

@@ -6,7 +6,7 @@
   "unlocked": true,
   "freeplayStyle": "bf",
   "freeplayDJ": {
-    "assetPath": "freeplay/freeplay-boyfriend",
+    "assetPath": "ui/freeplay/dj/bf/freeplay-boyfriend",
     "cartoon": {
       "soundClickFrame": 80,
       "soundCartoonFrame": 85,
