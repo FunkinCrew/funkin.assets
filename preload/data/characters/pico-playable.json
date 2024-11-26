@@ -119,6 +119,18 @@
       "offsets": [225, 125]
     },
     {
+      "name": "hey",
+      "prefix": "Pico HEY!!0",
+      "assetPath": "characters/pico-cheer",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "cheer",
+      "prefix": "Pico YEAH cheer0",
+      "assetPath": "characters/pico-yeah",
+      "offsets": [0, 0]
+    },
+    {
       "name": "cock",
       "assetPath": "characters/Pico_Shooting",
       "prefix": "Pico Reload0",
@@ -165,10 +177,10 @@
       "prefix": "burpsmile",
       "assetPath": "characters/Pico_Burps",
       "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-        21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 31, 31, 31, 31, 31, 31,
-	 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
-	 31, 31, 31, 31, 31
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 31, 31, 31, 31, 31,
+        31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
+        31, 31, 31, 31, 31, 31
       ],
       "offsets": [33, -3]
     },

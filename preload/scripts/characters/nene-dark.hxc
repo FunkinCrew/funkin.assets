@@ -167,11 +167,15 @@ class NeneDarkCharacter extends SparrowCharacter {
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-			super.playAnimation(name, restart, ignoreOther);
-      if(normalChar != null){
-        normalChar.playAnimation(name, restart, ignoreOther);
-        normalChar.setPosition(this.x, this.y);
-      }
+		if (name == "scared") {
+			return;
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+    if(normalChar != null){
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x, this.y);
+    }
 	}
 
 	function dance(forceRestart:Bool) {

@@ -11,6 +11,8 @@ import funkin.play.PlayState;
 class SpookyDarkCharacter extends SparrowCharacter {
 	function new() {
 		super('spooky-dark');
+
+		this.ignoreExclusionPref = ["cheer"];
 	}
 
   var normalChar:BaseCharacter;
@@ -25,12 +27,28 @@ class SpookyDarkCharacter extends SparrowCharacter {
     return val;
 	}
 
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		super.onNoteHit(event);
+
+		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+			// Override the hit note animation.
+			switch(event.note.kind) {
+				case "cheer":
+					holdTimer = 0;
+					this.playAnimation('cheer', true, true);
+					return;
+			}
+		}
+	}
+
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-			super.playAnimation(name, restart, ignoreOther);
-      if(normalChar != null){
-        normalChar.playAnimation(name, restart, ignoreOther);
-        normalChar.setPosition(this.x, this.y);
-      }
+		trace('spookyDark.playAnimation(' + name + ', ' + restart + ', ' + ignoreOther + ')');
+		super.playAnimation(name, restart, ignoreOther);
+    if(normalChar != null){
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x, this.y);
+    }
 	}
 
   function onCreate(event:ScriptEvent) {
