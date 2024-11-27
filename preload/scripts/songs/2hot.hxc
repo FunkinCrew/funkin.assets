@@ -17,6 +17,7 @@ import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
+import funkin.mobile.util.HapticUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
@@ -379,12 +380,12 @@ class TwoHOTSong extends Song
 		if (FlxG.onMobile)
 		{
 			// Can hits pico.
-			funkin.mobile.util.HapticUtil.vibrate(100, 100, 255);
+			HapticUtil.vibrate(100, 100, 255);
 
 			new FlxTimer().start(0.45, function(tmr)
 			{
 				// Can explodes.
-				funkin.mobile.util.HapticUtil.vibrate(100, 100, 255);
+				HapticUtil.vibrate(100, 100, 255);
 			});
 		}
 
