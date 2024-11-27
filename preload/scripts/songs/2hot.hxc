@@ -1,4 +1,3 @@
-import lime.ui.Haptic;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxBasePoint;
@@ -7,7 +6,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.Preferences;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
@@ -378,15 +376,15 @@ class TwoHOTSong extends Song
 		trace('Taking damage from can exploding!');
 
 		// Vibrations are mobile special.
-		if (FlxG.onMobile && Preferences.vibration)
+		if (FlxG.onMobile)
 		{
 			// Can hits pico.
-			Haptic.vibrate(100, 100, 255);
+			funkin.mobile.util.HapticUtil.vibrate(100, 100, 255);
 
 			new FlxTimer().start(0.45, function(tmr)
 			{
 				// Can explodes.
-				Haptic.vibrate(100, 100, 255);
+				funkin.mobile.util.HapticUtil.vibrate(100, 100, 255);
 			});
 		}
 
