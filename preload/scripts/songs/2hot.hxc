@@ -4,6 +4,7 @@ import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
+import funkin.util.HapticUtil;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
@@ -17,7 +18,6 @@ import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
-import funkin.mobile.util.HapticUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
