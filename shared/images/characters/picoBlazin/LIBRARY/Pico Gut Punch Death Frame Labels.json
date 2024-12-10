@@ -1,0 +1,41 @@
+{"L":[
+{
+"LN":"Layer 1",
+"FR":[
+{
+"I":0,
+"DU":5,
+"E":[
+]},{
+"N":"Death Intro",
+"I":5,
+"DU":47,
+"E":[
+]},{
+"N":"Death Loop Start",
+"I":52,
+"DU":144,
+"E":[
+]},{
+"N":"Death Confirm",
+"I":196,
+"DU":56,
+"E":[
+]}
+]},{
+"LN":"Pico Gut Punch Death Layer",
+"FR":[
+{
+"I":0,
+"DU":252,
+"E":[
+{"SI":{
+"SN":"Pico Gut Punch Death",
+"FF":0,
+"ST":"G",
+"TRP":{"x":0.2,"y":0.15},
+"LP":"PO",
+"MX":[1,0,0,1,0.2,0.15]
+}}]}
+]}
+]}
