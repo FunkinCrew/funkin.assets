@@ -1,6 +1,6 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-
+import funkin.save.Save;
 import funkin.play.PlayStatePlaylist;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.play.cutscene.VideoCutscene;
@@ -13,6 +13,14 @@ class StressSong extends Song {
 		super('stress');
 
     hasPlayedCutscene = false;
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico')
+      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    return false;
 	}
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {

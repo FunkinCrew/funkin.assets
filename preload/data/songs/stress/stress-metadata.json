@@ -11,6 +11,7 @@
       "opponent": "tankman"
     },
     "stage": "tankmanBattlefield",
+    "songVariations": ["pico"],
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 5 },
     "album": "volume2",
