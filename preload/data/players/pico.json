@@ -135,7 +135,7 @@
     "good": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsGOOD",
+        "scriptClass": "PicoGoodResults",
         "zIndex": 500,
         "scale": 1.25,
         "offsets": [350, 25],

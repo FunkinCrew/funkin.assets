@@ -1,18 +1,4 @@
-{
-"AN":{
-"N":"pico good rank final w easter eggs",
-"STI":{
-"SI":{
-"SN":"pico good placeholder",
-"FF":0,
-"ST":"G",
-"TRP":{"x":400,"y":420},
-"LP":"PO",
-"MX":[1,0,0,1,400,420]
-}},
-"SN":"pico good placeholder",
-"TL":{
-"L":[
+{"L":[
 {
 "LN":"Layer 16",
 "FR":[
@@ -6777,5 +6763,4 @@
 "E":[
 ]}
 ]}
-]}}
-}
+]}

@@ -1,0 +1,18 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.math.FlxPoint;
+
+class PicoGoodResults extends FlxAtlasSprite
+{
+  function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"), {
+      Reversed: false,
+      // ?OnComplete:Void -> Void,
+      ShowPivot: false,
+      Antialiasing: true,
+      ScrollFactor: new FlxPoint(1, 1),
+    });
+
+
+  }
+}
