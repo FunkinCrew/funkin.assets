@@ -34,6 +34,15 @@ class DarnellSong extends Song {
     hasPlayedInGameCutscene = false;
 	}
 
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare') {
+			return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+		}
+
+    return false;
+	}
+
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
 		if (showLocked || Save.instance.hasBeatenLevel('weekend1')) {
 			return super.listDifficulties(variationId, variationIds);
