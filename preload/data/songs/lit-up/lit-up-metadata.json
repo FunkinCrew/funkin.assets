@@ -13,6 +13,7 @@
     "stage": "phillyStreets",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "songVariations": ["bf"],
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000

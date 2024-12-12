@@ -10,6 +10,14 @@ class LitUpSong extends Song {
 		super('lit-up');
 	}
 
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'bf')
+      return !Save.instance.hasBeatenSong(this.id, null, 'bf');
+
+    return false;
+	}
+
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
 		if (showLocked || Save.instance.hasBeatenLevel('weekend1')) {
 			return super.listDifficulties(variationId, variationIds);
