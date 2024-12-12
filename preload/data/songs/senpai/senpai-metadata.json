@@ -11,7 +11,7 @@
       "opponent": "senpai"
     },
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "pixel",
     "album": "volume2",

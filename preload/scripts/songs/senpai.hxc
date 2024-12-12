@@ -6,6 +6,7 @@ import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import flixel.FlxG;
+import funkin.save.Save;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 
@@ -16,6 +17,14 @@ class SenpaiSong extends Song {
 
 	public function new() {
 		super('senpai');
+	}
+
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico')
+      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    return false;
 	}
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void {

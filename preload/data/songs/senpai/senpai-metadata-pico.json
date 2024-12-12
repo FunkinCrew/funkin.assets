@@ -1,0 +1,40 @@
+{
+  "version": "2.2.4",
+  "songName": "Senpai (Pico Mix)",
+  "artist": "Tee Lopes (Feat. Saruky)",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
+  },
+  "playData": {
+    "songVariations": [],
+    "difficulties": ["normal", "easy", "hard"],
+    "characters": {
+      "player": "pico-playable",
+      "girlfriend": "nene",
+      "opponent": "senpai",
+      "instrumental": "pico",
+      "altInstrumentals": [],
+      "opponentVocals": ["senpai"],
+      "playerVocals": ["pico"]
+    },
+    "stage": "school",
+    "noteStyle": "pixel",
+    "ratings": {
+      "easy": 2,
+      "normal": 3,
+      "hard": 4
+    },
+    "previewStart": 0,
+    "previewEnd": 0
+  },
+  "generatedBy": "Friday Night Funkin' - v0.5.3",
+  "timeFormat": "ms",
+  "timeChanges": [
+    { "t": 0, "b": 0, "bpm": 144, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
+  ]
+}
