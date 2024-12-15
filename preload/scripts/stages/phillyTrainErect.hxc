@@ -19,7 +19,7 @@ import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
-import funkin.mobile.util.TouchUtil;
+import funkin.util.TouchUtil;
 
 class PhillyTrainErectStage extends Stage
 {
