@@ -1,5 +1,6 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
+import flixel.FlxG;
 
 class PicoGoodResults extends FlxAtlasSprite
 {
@@ -12,6 +13,17 @@ class PicoGoodResults extends FlxAtlasSprite
       Antialiasing: true,
       ScrollFactor: new FlxPoint(1, 1),
     });
+    onAnimationComplete.addOnce(()-> super.playAnimation("loop", true, false, true));
+  }
+
+  override function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
+  {
+    if (FlxG.random.bool(5))
+      super.playAnimation("intro fat gf", true);
+    else if (FlxG.random.bool(20))
+      super.playAnimation("intro cass", true);
+    else
+      super.playAnimation("intro", true);
 
 
   }

@@ -138,8 +138,7 @@
         "scriptClass": "PicoGoodResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [350, 25],
-        "loopFrame": 41
+        "offsets": [350, 25]
       }
     ],
     "loss": [
