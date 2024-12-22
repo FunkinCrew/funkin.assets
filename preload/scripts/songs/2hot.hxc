@@ -19,6 +19,8 @@ import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
 
+import flixel.system.scaleModes.FullScreenScaleMode;
+
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
 class TwoHOTSong extends Song
@@ -92,6 +94,7 @@ class TwoHOTSong extends Song
 		new FlxTimer().start(2, function(tmr)
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
+			FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
 		});
 		new FlxTimer().start(2.5, function(tmr)
 		{
@@ -121,6 +124,10 @@ class TwoHOTSong extends Song
 
 	function startCutscene(){
 		VideoCutscene.onVideoStarted.add(endCutscene);
+		VideoCutscene.onVideoEnded.addOnce(function () {
+			FullScreenScaleMode.removeCutouts();
+		});
+
 		PlayState.instance.camHUD.visible = false;
 
 		PlayState.instance.isInCutscene = true;
