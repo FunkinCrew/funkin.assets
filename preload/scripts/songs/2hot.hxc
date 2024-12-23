@@ -94,6 +94,10 @@ class TwoHOTSong extends Song
 		new FlxTimer().start(2, function(tmr)
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
+			if (FlxG.onMobile)
+			{
+				FlxTween.tween(PlayState.instance.pauseButton, {x: (FlxG.width - PlayState.instance.pauseButton.width) - (40 + (FullScreenScaleMode.gameCutoutSize.x / 2))}, 3.0, {ease: FlxEase.quintOut});
+			}
 			FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
 		});
 		new FlxTimer().start(2.5, function(tmr)
@@ -125,6 +129,10 @@ class TwoHOTSong extends Song
 	function startCutscene(){
 		VideoCutscene.onVideoStarted.add(endCutscene);
 		VideoCutscene.onVideoEnded.addOnce(function () {
+			if (FlxG.onMobile)
+			{
+				PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - 40;
+			}
 			FullScreenScaleMode.removeCutouts();
 		});
 
