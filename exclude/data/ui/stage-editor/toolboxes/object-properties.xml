@@ -181,7 +181,7 @@
             </hbox>
 
 
-            <!-- <section-header text="Flip Object"/>
+            <section-header text="Flip Object"/>
             <hbox width="100%">
               <vbox>
                 <checkbox id="objectMiscFlipX" text="On X Axis"/>
@@ -189,7 +189,7 @@
               </vbox>
               <spacer width="100%" />
               <button id="objectMiscFlipReset" text="Reset" horizontalAlign="right"/>
-            </hbox> -->
+            </hbox>
 
             <section-header text="Blend Mode"/>
             <hbox width="100%">
