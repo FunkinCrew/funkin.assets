@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="weektypes.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="WEEK text instance 10000" x="0" y="0" width="107" height="29"/>
-	<SubTexture name="WEEKEND text instance 10000" x="107" y="0" width="107" height="29"/>
+	<SubTexture name="MOD LEVEL text instance 10000" x="0" y="62" width="133" height="28"/>
+	<SubTexture name="WEEK text instance 10000" x="0" y="31" width="133" height="28"/>
+	<SubTexture name="WEEKEND text instance 10000" x="0" y="0" width="133" height="28"/>
 </TextureAtlas>
