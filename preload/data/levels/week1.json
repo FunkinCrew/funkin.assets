@@ -53,5 +53,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["bopeebo", "fresh", "dadbattle"]
+  "songs": ["bopeebo", "fresh", "dadbattle"],
+  "sortId": 1,
+  "weekType": "WEEK"
 }

@@ -43,5 +43,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["tutorial"]
+  "songs": ["tutorial"],
+  "sortId": 0,
+  "weekType": ""
 }

@@ -53,5 +53,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["cocoa", "eggnog", "winter-horrorland"]
+  "songs": ["cocoa", "eggnog", "winter-horrorland"],
+  "sortId": 5,
+  "weekType": "WEEK"
 }

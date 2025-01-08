@@ -54,5 +54,7 @@
     }
   ],
   "background": "#413CAE",
-  "songs": ["darnell", "lit-up", "2hot", "blazin"]
+  "songs": ["darnell", "lit-up", "2hot", "blazin"],
+  "sortId": 8,
+  "weekType": "WEEKEND"
 }

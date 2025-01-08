@@ -53,5 +53,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["pico", "philly-nice", "blammed"]
+  "songs": ["pico", "philly-nice", "blammed"],
+  "sortId": 3,
+  "weekType": "WEEK"
 }

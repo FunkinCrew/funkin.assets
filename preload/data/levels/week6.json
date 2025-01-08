@@ -53,5 +53,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["senpai", "roses", "thorns"]
+  "songs": ["senpai", "roses", "thorns"],
+  "sortId": 6,
+  "weekType": "WEEK"
 }

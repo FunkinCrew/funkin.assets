@@ -53,5 +53,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["ugh", "guns", "stress"]
+  "songs": ["ugh", "guns", "stress"],
+  "sortId": 7,
+  "weekType": "WEEK"
 }

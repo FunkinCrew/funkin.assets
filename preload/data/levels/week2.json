@@ -58,5 +58,7 @@
     }
   ],
   "background": "#F9CF51",
-  "songs": ["spookeez", "south", "monster"]
+  "songs": ["spookeez", "south", "monster"],
+  "sortId": 2,
+  "weekType": "WEEK"
 }
