@@ -75,28 +75,6 @@ class TankmanBattlefieldErectStage extends Stage
 	function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
-
-    // up
-    if(FlxG.keys.justPressed.I){
-      getNamedProp('guy').y -= 5;
-      trace(getNamedProp('guy').x, getNamedProp('guy').y);
-    }
-
-    // down
-    if(FlxG.keys.justPressed.K){
-      getNamedProp('guy').y += 5;
-      trace(getNamedProp('guy').x, getNamedProp('guy').y);
-    }
-
-    if(FlxG.keys.justPressed.J){
-      getNamedProp('guy').x -= 5;
-      trace(getNamedProp('guy').x, getNamedProp('guy').y);
-    }
-
-    if(FlxG.keys.justPressed.L){
-      getNamedProp('guy').x += 5;
-      trace(getNamedProp('guy').x, getNamedProp('guy').y);
-    }
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void
