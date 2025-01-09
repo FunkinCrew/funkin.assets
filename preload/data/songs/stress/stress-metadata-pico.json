@@ -14,15 +14,15 @@
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "pico-playable",
-      "girlfriend": "gf",
+      "player": "pico-holding-nene",
+      "girlfriend": "gf-tankmen",
       "opponent": "tankman",
       "instrumental": "pico",
       "altInstrumentals": [],
       "opponentVocals": ["tankman"],
       "playerVocals": ["pico"]
     },
-    "stage": "tankmanBattlefield",
+    "stage": "tankmanBattlefieldErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 4, "normal": 5, "hard": 6 },
     "previewStart": 0,
