@@ -12,7 +12,7 @@
       "instrumental": "erect",
       "altInstrumentals": []
     },
-    "stage": "tankmanBattlefield",
+    "stage": "tankmanBattlefieldErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 9, "nightmare": 10 },
     "album": "expansion2",
