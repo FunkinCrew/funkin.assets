@@ -39,7 +39,7 @@ class StressSong extends Song {
     }
 
     trace('Initializing tankman group...');
-    tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+    //tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
 
     if (tankmanGroup != null) {
       // resets the tankmen!
