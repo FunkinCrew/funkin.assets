@@ -41,7 +41,7 @@ class TankmanBattlefieldErectStage extends Stage
 		switch(charType){
 			case CharacterType.BF:
 
-				rim.angle = 0;
+				rim.angle = 90;
 				//rim.threshold = 0.3;
 
 			case CharacterType.GF:
