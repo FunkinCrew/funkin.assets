@@ -1,0 +1,115 @@
+import flixel.FlxG;
+import flixel.math.FlxAngle;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.graphics.shaders.DropShadowShader;
+import funkin.play.character.CharacterType;
+import openfl.display.BitmapData;
+
+class TankmanBattlefieldErectStage extends Stage
+{
+	function new()
+	{
+		super('tankmanBattlefieldErect');
+	}
+
+		function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+
+
+		rim = new DropShadowShader();
+
+    rim.baseBrightness = -46;
+    rim.baseHue = -38;
+    rim.baseContrast = -25;
+    rim.baseSaturation = -20;
+
+    rim.color = 0xFFDFEF3C;
+
+		character.shader = rim;
+
+		rim.attachedSprite = character;
+
+		character.animation.callback = rim.onAttachedFrame;
+
+		switch(charType){
+			case CharacterType.BF:
+
+				rim.angle = 0;
+				//rim.threshold = 0.3;
+
+			case CharacterType.GF:
+
+				rim.angle = 90;
+
+				trace(getGirlfriend().characterId);
+
+				if(getGirlfriend().characterId == 'gf-tankmen'){
+					rim.altMaskImage = BitmapData.fromFile('assets/shared/images/characters/gfTankmen_mask.png');
+					rim.maskThreshold = 0.4;
+					rim.useAltMask = true;
+				}
+
+			case CharacterType.DAD:
+
+				rim.angle = 135;
+				rim.threshold = 0.3;
+
+			default:
+
+		}
+
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+	}
+
+	function onUpdate(event:UpdateScriptEvent):Void
+	{
+		super.onUpdate(event);
+
+    // up
+    if(FlxG.keys.justPressed.I){
+      getNamedProp('guy').y -= 5;
+      trace(getNamedProp('guy').x, getNamedProp('guy').y);
+    }
+
+    // down
+    if(FlxG.keys.justPressed.K){
+      getNamedProp('guy').y += 5;
+      trace(getNamedProp('guy').x, getNamedProp('guy').y);
+    }
+
+    if(FlxG.keys.justPressed.J){
+      getNamedProp('guy').x -= 5;
+      trace(getNamedProp('guy').x, getNamedProp('guy').y);
+    }
+
+    if(FlxG.keys.justPressed.L){
+      getNamedProp('guy').x += 5;
+      trace(getNamedProp('guy').x, getNamedProp('guy').y);
+    }
+	}
+
+	function onBeatHit(event:SongTimeScriptEvent):Void
+	{
+		super.onBeatHit(event);
+
+		if(FlxG.random.bool(2)){
+			getNamedProp('sniper').playAnimation('sip', false, true);
+		}
+	}
+
+	function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
+	}
+}
