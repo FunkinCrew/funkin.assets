@@ -1,0 +1,57 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import funkin.play.GameOverSubState;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.util.FlxTimer;
+import funkin.graphics.FunkinSprite;
+import funkin.audio.FunkinSound;
+import flixel.FlxSprite;
+import flixel.FlxG;
+import funkin.modding.base.ScriptedFunkinSprite;
+import flixel.group.FlxTypedSpriteGroup;
+import flixel.effects.FlxFlicker;
+import funkin.play.PauseSubState;
+import funkin.modding.module.ModuleHandler;
+import flixel.tweens.FlxTween;
+
+
+class PicoHoldingNeneCharacter extends SparrowCharacter {
+	function new() {
+		super('pico-holding-nene');
+	}
+
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+
+		// NOTE: this.x and this.y are not properly set here.
+
+		GameOverSubState.musicSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico';
+
+		PauseSubState.musicSuffix = '-pico';
+	}
+
+	override function onSongRetry(event:ScriptEvent):Void {
+		super.onSongRetry(event);
+
+		// Reset to standard death animation.
+		GameOverSubState.musicSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico';
+
+		PauseSubState.musicSuffix = '-pico';
+
+		this.visible = true;
+	}
+
+	function addToStage(sprite:FlxSprite) {
+		if (this.debug) {
+			// We are in the chart editor or something.
+			// TODO: Make this work properly.
+		} else if (PlayState.instance != null && PlayState.instance.currentStage != null) {
+			PlayState.instance.currentStage.add(sprite);
+		} else {
+			trace('Could not add Pico sprite to stage.');
+		}
+	}
+}
