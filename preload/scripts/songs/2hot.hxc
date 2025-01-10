@@ -7,6 +7,7 @@ import flixel.util.FlxTimer;
 import funkin.util.HapticUtil;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
+import funkin.Preferences;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
@@ -28,6 +29,8 @@ class TwoHOTSong extends Song
 	var hasPlayedCutscene:Bool = false;
 	//var tempConductor:Conductor;
 	var cutsceneMusic:FunkinSound;
+
+	var canDamageVibrationPreset:VibrationPreset = {period: 100, duration: 100, amplitude: 255};
 
 	function new()
 	{
@@ -394,12 +397,12 @@ class TwoHOTSong extends Song
 		if (Preferences.vibration)
 		{
 			// Can hits pico.
-			HapticUtil.vibrate(100, 100, 255);
+			HapticUtil.vibrateByPreset(canDamageVibrationPreset);
 
 			new FlxTimer().start(0.45, function(tmr)
 			{
 				// Can explodes.
-				HapticUtil.vibrate(100, 100, 255);
+				HapticUtil.vibrateByPreset(canDamageVibrationPreset);
 			});
 		}
 
