@@ -19,7 +19,7 @@ import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
 
-import flixel.system.scaleModes.FullScreenScaleMode;
+import funkin.ui.FullScreenScaleMode;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
