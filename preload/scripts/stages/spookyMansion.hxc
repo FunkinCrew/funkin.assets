@@ -2,6 +2,8 @@ import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.util.Constants;
+import funkin.util.HapticUtil;
 
 class SpookyMansionStage extends Stage
 {
@@ -34,6 +36,9 @@ class SpookyMansionStage extends Stage
 		if (getGirlfriend() != null && getGirlfriend().hasAnimation('scared')) {
 			getGirlfriend().playAnimation('scared', true, true);
 		}
+
+		// Haptic
+		HapticUtil.vibrate(0, 50, 255);
 	}
 
 	/**

@@ -5,6 +5,8 @@ import funkin.play.stage.Stage;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.util.FlxTweenUtil;
+import funkin.util.HapticUtil;
+import funkin.util.Constants;
 import flixel.util.FlxTimer;
 import funkin.play.character.BaseCharacter;
 import funkin.play.character.CharacterDataParser;
@@ -105,6 +107,9 @@ class SpookyMansionErectStage extends Stage
 		if (getGirlfriend().hasAnimation('scared')) {
 			getGirlfriend().playAnimation('scared', true, true);
 		}
+
+		// Haptic
+		HapticUtil.vibrate(0, 50, 255);
 	}
 
 	/**
