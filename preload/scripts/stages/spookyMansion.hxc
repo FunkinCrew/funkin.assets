@@ -38,7 +38,7 @@ class SpookyMansionStage extends Stage
 		}
 
 		// Haptic
-		HapticUtil.vibrate(0, 50, 255);
+		HapticUtil.vibrate(0, 0.05, 1);
 	}
 
 	/**
