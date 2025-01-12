@@ -16,7 +16,6 @@
               <vbox>
                 <button id="objectLoadImageButton" text="Load Image"/>
                 <button id="objectLoadInternetButton" text="Load From Internet"/>
-                <button id="objectDownloadImageButton" text="Download Image"/>
                 <button id="objectResetImageButton" text="Reset Image"/>
               </vbox>
             </hbox>
