@@ -15,8 +15,8 @@
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-holding-nene",
-      "girlfriend": "gf-tankmen",
-      "opponent": "tankman",
+      "girlfriend": "otis-speaker",
+      "opponent": "tankman-bloody",
       "instrumental": "pico",
       "altInstrumentals": [],
       "opponentVocals": ["tankman"],
