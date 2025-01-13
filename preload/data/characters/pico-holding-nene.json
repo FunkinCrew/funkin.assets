@@ -38,6 +38,31 @@
       "name": "singLEFT",
       "prefix": "Pico NOTE LEFT0",
       "offsets": [27, -16]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "note miss up piconene0",
+      "offsets": [-45, -19]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "note miss down pico nene0",
+      "offsets": [95, -74]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "note miss right pico nene0",
+      "offsets": [60, 2]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "note miss left pico nene0",
+      "offsets": [28, -11]
+    },
+    {
+      "name": "knifeToss",
+      "prefix": "pico nene knife toss0",
+      "offsets": [14, 26]
     }
   ]
 }

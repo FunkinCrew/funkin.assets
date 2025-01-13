@@ -44,6 +44,22 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 		this.visible = true;
 	}
 
+	var deathSpriteRetry:FlxAtlasSprite;
+
+	/**
+     * Initialize and cache sprites used for the death animation,
+	 * for use later.
+	 */
+	function createDeathSprites() {
+		deathSpriteRetry = new FlxAtlasSprite(this.x + 15, this.y + 39, Paths.animateAtlas("characters/picoAndNene-DEAD", "shared"));
+		deathSpriteRetry.zIndex = 1000;
+	}
+
+	function onUpdate(event:UpdateScriptEvent):Void
+	{
+		super.onUpdate(event);
+	}
+
 	function addToStage(sprite:FlxSprite) {
 		if (this.debug) {
 			// We are in the chart editor or something.
@@ -53,5 +69,35 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 		} else {
 			trace('Could not add Pico sprite to stage.');
 		}
+	}
+
+		function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		if (name == "firstDeath") {
+			new FlxTimer().start(0.58, afterPicoDeathNeneIntro);
+
+			createDeathSprites();
+			GameOverSubState.instance.add(deathSpriteRetry);
+			this.visible = false;
+			deathSpriteRetry.onAnimationComplete.add(startGameOverLoop);
+			deathSpriteRetry.playAnimation("intro", true, false, false);
+		} else if (name == "deathConfirm") {
+			doDeathConfirm();
+		} else {
+			super.playAnimation(name, restart, ignoreOther);
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+	}
+
+	function afterPicoDeathNeneIntro():Void {
+		GameOverSubState.instance.startDeathMusic(1.0, false);
+	}
+
+	function startGameOverLoop(){
+    deathSpriteRetry.playAnimation("loop", true, false, true);
+  }
+
+	function doDeathConfirm():Void {
+		deathSpriteRetry.playAnimation("confirm", true, false, true);
 	}
 }
