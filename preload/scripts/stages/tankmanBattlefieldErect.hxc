@@ -17,11 +17,12 @@ class TankmanBattlefieldErectStage extends Stage
 		super.onCreate(event);
 	}
 
+	var tankmanRim:DropShadowShader;
+
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
 		trace('Applied stage shader to ' + character.characterName);
-
 
 		rim = new DropShadowShader();
 
@@ -42,7 +43,6 @@ class TankmanBattlefieldErectStage extends Stage
 			case CharacterType.BF:
 
 				rim.angle = 90;
-				//rim.threshold = 0.3;
 
 			case CharacterType.GF:
 
@@ -61,8 +61,33 @@ class TankmanBattlefieldErectStage extends Stage
 				rim.angle = 135;
 				rim.threshold = 0.3;
 
+				trace(getDad().characterId);
+
+				if(getDad().characterId == 'tankman-bloody'){
+					rim.altMaskImage = BitmapData.fromFile('assets/shared/images/characters/tankmanCaptainBloody_mask.png');
+					rim.maskThreshold = 1;
+					rim.useAltMask = false;
+				}
+
+				// need to save this for later for when the mask is needed
+				tankmanRim = rim;
+
 			default:
 
+		}
+
+	}
+
+	/**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+	{
+		super.onSongEvent(scriptEvent);
+
+		if (scriptEvent.eventData.eventKind == "EnableMask" && tankmanRim != null)
+		{
+			tankmanRim.useAltMask = true;
 		}
 
 	}
@@ -89,5 +114,10 @@ class TankmanBattlefieldErectStage extends Stage
 	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
+
+		if (tankmanRim != null)
+		{
+			tankmanRim.useAltMask = false;
+		}
 	}
 }
