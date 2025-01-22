@@ -204,7 +204,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Move the camera up.
 		GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
-		// Indicates that is a special game over animation. Used for haptics.
+		// Indicates that it is a special game over animation. Used for haptics.
 		GameOverSubState.instance.isSpecialAnimation = true;
 
 		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
