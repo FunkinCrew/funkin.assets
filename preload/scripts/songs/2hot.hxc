@@ -394,18 +394,6 @@ class TwoHOTSong extends Song
 	function takeCanDamage():Void {
 		trace('Taking damage from can exploding!');
 
-		if (Preferences.vibration)
-		{
-			// Can hits pico.
-			HapticUtil.vibrateByPreset(canDamageVibrationPreset);
-
-			new FlxTimer().start(0.45, function(tmr)
-			{
-				// Can explodes.
-				HapticUtil.vibrateByPreset(canDamageVibrationPreset);
-			});
-		}
-
 		PlayState.instance.health -= HEALTH_LOSS;
 		// TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
 		// PlayState.instance.health += 0.0775;
@@ -418,6 +406,17 @@ class TwoHOTSong extends Song
 			GameOverSubState.blueBallSuffix = '-pico-explode';
 
 			blackenStageProps();
+		}
+		else if (Preferences.vibration)
+		{
+			// Can hits pico.
+			HapticUtil.vibrateByPreset(canDamageVibrationPreset);
+
+			new FlxTimer().start(0.45, function(tmr)
+			{
+				// Can explodes.
+				HapticUtil.vibrateByPreset(canDamageVibrationPreset);
+			});
 		}
 	}
 
