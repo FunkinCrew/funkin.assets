@@ -115,7 +115,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter {
 	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
-		if (name == "firstDeath" && frameNumber == 36 - 1) {
+		if (name == "firstDeath" && frameNumber == 36 - 1 && deathSpriteRetry != null) {
 			deathSpriteRetry.animation.play('idle');
 			deathSpriteRetry.visible = true;
 			GameOverSubState.instance.startDeathMusic(1.0, false);
