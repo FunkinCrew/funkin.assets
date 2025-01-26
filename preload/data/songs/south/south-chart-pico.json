@@ -1015,7 +1015,7 @@
 }
     },
     {
-      "t": 85772.9090909091,
+      "t": 85672.9090909091,
       "e": "PlayAnimation",
       "v": {
 	"force": true,
@@ -1034,11 +1034,11 @@
 }
     },
     {
-      "t": 87954.6363636364,
+      "t": 87854.6363636364,
       "e": "PlayAnimation",
       "v": {
 	"force": true,
-	"anim": "burpSmile",
+	"anim": "burpSmileLong",
 	"target": "boyfriend"
 }
     },

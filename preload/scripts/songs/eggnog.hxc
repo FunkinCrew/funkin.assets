@@ -9,7 +9,6 @@ import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import funkin.Paths;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -45,16 +44,17 @@ class EggnogSong extends Song
 
 	}
 
-	public override function isSongNew(currentDifficulty:String):Bool{
-		if(currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico'){
-		  if (Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']) == false) return true;
-		}
-    return false;
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+	{
+		if(currentVariation == 'pico')
+			return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+		return false;
 	}
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
 		if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
-    	var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, ['easy-pico', 'normal-pico', 'hard-pico']);
+    	var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
     	switch (variationId) {
     	  case 'pico':

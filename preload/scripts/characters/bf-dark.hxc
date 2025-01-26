@@ -1,5 +1,4 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.Paths;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.SparrowCharacter;
@@ -8,8 +7,9 @@ import funkin.play.character.BaseCharacter;
 import funkin.play.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.play.character.MultiSparrowCharacter;
 
-class BoyfriendDarkCharacter extends SparrowCharacter {
+class BoyfriendDarkCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('bf-dark');
 	}

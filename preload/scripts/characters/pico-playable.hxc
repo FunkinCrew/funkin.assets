@@ -6,7 +6,6 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
-import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;
@@ -104,6 +103,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	}
 
 	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		// restore vocal volume to ensure burps always play
+		// not needed on the dark variant because this one always exists anyway..
+		if(name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
+
 		if (name == "firstDeath") {
 			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.

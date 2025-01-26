@@ -292,5 +292,6 @@
       "cameraOffsets": [500, -100]
     }
   },
-  "name": "Philly (Streets) [Erect]"
+  "name": "Philly (Streets) [Erect]",
+  "directory": "weekend1"
 }
