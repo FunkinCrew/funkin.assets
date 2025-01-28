@@ -24,7 +24,7 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 4, "hard": 7, "normal": 6 },
+    "ratings": { "easy": 4, "normal": 5, "hard": 6 },
     "previewStart": 0,
     "previewEnd": 0
   },

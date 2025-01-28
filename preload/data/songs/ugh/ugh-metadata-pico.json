@@ -14,7 +14,7 @@
     },
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 2, "hard": 13 },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
     "album": "expansion2",
     "previewStart": 0,
     "previewEnd": 15000

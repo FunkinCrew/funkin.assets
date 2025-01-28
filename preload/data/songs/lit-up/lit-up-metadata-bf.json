@@ -24,7 +24,7 @@
     },
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 4, "hard": 6, "normal": 5 },
+    "ratings": { "easy": 4, "normal": 5, "hard": 6 },
     "previewStart": 0,
     "previewEnd": 0
   },
