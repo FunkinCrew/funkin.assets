@@ -125,17 +125,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // not needed on the dark variant because this one always exists anyway..
     if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
 
-    if (name == "firstDeath")
-    {
-      if (GameOverSubState.blueBallSuffix == '-pico-explode')
-      {
-        // Explosion death animation.
-        doExplosionDeath();
-      }
-      else
-      {
-        // Standard death animation.
-        createDeathSprites();
+		if (name == "firstDeath") {
+			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
+				// Explosion death animation.
+				doExplosionDeath();
+				return; // No need to play the stab death animation.
+			} else {
+				// Standard death animation.
+				createDeathSprites();
 
         GameOverSubState.instance.add(deathSpriteRetry);
         GameOverSubState.instance.add(deathSpriteNene);
@@ -258,6 +255,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // Start the (standard) death music, 3.5 seconds after the explosion starts,
     // not when the explosion sound finishes or when the loop starts.
     GameOverSubState.instance.startDeathMusic(1.0, false);
+		// Set the game over music to the default to make it loop properly.
+		GameOverSubState.musicSuffix = '-pico';
     singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
     // singed.fadeIn(0.5, 0.3, 1.0);
   }
@@ -298,9 +297,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // Don't let these pile up.
     clearCasings();
 
-    // Reset to standard death animation.
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico';
+		// Reset to standard death animation.
+		GameOverSubState.blueBallSuffix = '-pico';
 
     PauseSubState.musicSuffix = '-pico';
 
@@ -323,12 +321,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
         deathSpriteRetry.y = this.y - 70;
       }
 
-      GameOverSubState.instance.startDeathMusic(1.0, false);
-      // force the deathloop to play in here, since we are starting the music early it
-      // doesn't check this in gameover substate !
-      // also no animation suffix 🤔
-      GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
-    }
+			GameOverSubState.instance.startDeathMusic(1.0, false);
+			// force the deathloop to play in here, since we are starting the music early it
+			// doesn't check this in gameover substate !
+			// also no animation suffix 🤔
+			GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
+		}
 
     if (name == "cock" && frameNumber == 3)
     {
