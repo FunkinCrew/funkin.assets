@@ -256,7 +256,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		clearCasings();
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
@@ -279,6 +278,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			}
 
 			GameOverSubState.instance.startDeathMusic(1.0, false);
+			// set the game over music to the default to make it loop properly
+			GameOverSubState.musicSuffix = '-pico';
 			// force the deathloop to play in here, since we are starting the music early it
 			// doesn't check this in gameover substate !
 			// also no animation suffix 🤔
