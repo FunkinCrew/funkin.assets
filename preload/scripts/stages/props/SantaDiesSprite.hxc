@@ -1,5 +1,4 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.Paths;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
@@ -27,8 +26,8 @@ class SantaDiesSprite extends FlxAtlasSprite
 
   public function playCutscene():Void {
     //this.visible = true;
-    this.anim.play("santa whole scene", false, false, 0);
-    anim.onComplete = onFinishAnim;
+    this.playAnimation("santa whole scene", false, false, false, 0);
+    onAnimationComplete.add(onFinishAnim);
 
   }
 

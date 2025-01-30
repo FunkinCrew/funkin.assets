@@ -1,7 +1,6 @@
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
-import funkin.Paths;
 import funkin.util.BezierUtil;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts

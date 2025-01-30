@@ -13,13 +13,11 @@ import funkin.graphics.framebuffer.FixedBitmapData;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
-import openfl.utils.Assets;
 import flixel.addons.display.FlxTiledSprite;
 import StringTools;
 
@@ -148,7 +146,7 @@ class PhillyStreetsStage extends Stage
 		//rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
 
 		rainShaderFilter = new ShaderFilter(rainShader);
-		FlxG.camera.setFilters([rainShaderFilter]);
+		FlxG.camera.filters = [rainShaderFilter];
 		//FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
 
 		resetCar(true, true);
@@ -477,7 +475,7 @@ class PhillyStreetsStage extends Stage
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.setFilters([]);
+		FlxG.camera.filters = [];
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
@@ -487,7 +485,7 @@ class PhillyStreetsStage extends Stage
 
 		resetCar(true, true);
 		resetStageValues();
-		FlxG.camera.setFilters([rainShaderFilter]);
+		FlxG.camera.filters = [rainShaderFilter];
 	}
 
 	override function addProp(prop:StageProp, ?name:String = null)

@@ -1,13 +1,15 @@
 import flixel.tweens.FlxEase;
 import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxTween;
-import funkin.Paths;
 import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+
+import funkin.effects.RetroCameraFade;
 
 class SenpaiSong extends Song {
   var hasPlayedCutscene:Bool;
@@ -48,8 +50,13 @@ class SenpaiSong extends Song {
 
     var tweenFunction = function(x) {
       var xSnapped = Math.floor(x * 8) / 8;
-      black.alpha = 1.0 - xSnapped;
+      // black.alpha = 1.0 - xSnapped;
     };
+
+    new FlxTimer().start(0.25, _ -> {
+      PlayState.instance.remove(black);
+      RetroCameraFade.fadeBlack(PlayState.instance.camGame, 12, 2);
+    });
 
     FlxTween.num(0.0, 1.0, 2.0, {
       ease: FlxEase.linear,

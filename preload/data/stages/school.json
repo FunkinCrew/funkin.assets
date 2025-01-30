@@ -39,8 +39,8 @@
     {
       "danceEvery": 0,
       "zIndex": 40,
-      "position": [-30, 130],
-      "scale": [4.797, 4.797],
+      "position": [-120, 60],
+      "scale": [6, 6],
       "animType": "sparrow",
       "name": "treesFG",
       "isPixel": true,
@@ -51,8 +51,8 @@
     {
       "danceEvery": 0,
       "zIndex": 60,
-      "position": [-580, -800],
-      "scale": [5.102, 5.102],
+      "position": [-780, -1000],
+      "scale": [6, 6],
       "animType": "packer",
       "name": "treesBG",
       "startingAnimation": "treeLoop",
@@ -170,5 +170,6 @@
     },
     "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 866] }
   },
-  "name": "School (Date)"
+  "name": "School (Date)",
+  "directory": "week6"
 }

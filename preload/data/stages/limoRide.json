@@ -74,13 +74,13 @@
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [100, 100],
       "scale": [1, 1],
       "name": "limoDancer1",
       "animType": "sparrow",
       "isPixel": false,
-      "startingAnimation": "danceLeft",
+      "startingAnimation": "danceRight",
       "scroll": [0.4, 0.4],
       "assetPath": "limo/henchmen",
       "animations": [
@@ -103,34 +103,18 @@
           "prefix": "hench dancing",
           "name": "danceRight",
           "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "name": "hit2",
-          "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [400, 100],
       "scale": [1, 1],
       "name": "limoDancer2",
       "animType": "sparrow",
       "isPixel": false,
-      "startingAnimation": "danceLeft",
+      "startingAnimation": "danceRight",
       "scroll": [0.4, 0.4],
       "assetPath": "limo/henchmen",
       "animations": [
@@ -153,28 +137,12 @@
           "prefix": "hench dancing",
           "name": "danceRight",
           "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "name": "hit2",
-          "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [700, 100],
       "scale": [1, 1],
       "name": "limoDancer3",
@@ -203,28 +171,12 @@
           "prefix": "hench dancing",
           "name": "danceRight",
           "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "name": "hit2",
-          "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [1000, 100],
       "scale": [1, 1],
       "name": "limoDancer4",
@@ -253,28 +205,12 @@
           "prefix": "hench dancing",
           "name": "danceRight",
           "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "name": "hit2",
-          "flipX": false
         }
       ]
     },
     {
       "zIndex": 30,
-      "danceEvery": 1,
+      "danceEvery": 1.0,
       "position": [1300, 100],
       "scale": [1, 1],
       "name": "limoDancer5",
@@ -303,22 +239,6 @@
           "prefix": "hench dancing",
           "name": "danceRight",
           "flipX": false
-        },
-        {
-          "offsets": [-350, 0],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 1",
-          "name": "hit1",
-          "flipX": false
-        },
-        {
-          "offsets": [-250, -100],
-          "flipY": false,
-          "frameRate": 24,
-          "prefix": "hench hit 2",
-          "name": "hit2",
-          "flipX": false
         }
       ]
     }
@@ -340,5 +260,6 @@
       "cameraOffsets": [150, 0]
     }
   },
-  "name": "Limo Ride"
+  "name": "Limo Ride",
+  "directory": "week4"
 }

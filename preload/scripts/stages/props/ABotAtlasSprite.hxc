@@ -1,6 +1,6 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.Paths;
 import flixel.math.FlxPoint;
+import funkin.Conductor;
 
 class ABotAtlasSprite extends FlxAtlasSprite
 {

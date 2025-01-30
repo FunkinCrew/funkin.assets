@@ -261,14 +261,15 @@
     },
     "gf": {
       "zIndex": 300,
-      "position": [1453, 900],
+      "position": [1453, 1100],
       "cameraOffsets": [0, 0]
     },
     "dad": {
       "zIndex": 350,
-      "position": [900, 1110],
+      "position": [920, 1310],
       "cameraOffsets": [500, -100]
     }
   },
-  "name": "Philly (Streets)"
+  "name": "Philly (Streets)",
+  "directory": "weekend1"
 }
