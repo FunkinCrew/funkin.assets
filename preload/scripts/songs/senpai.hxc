@@ -30,7 +30,7 @@ class SenpaiSong extends Song {
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (!PlayStatePlaylist.isStoryMode && PlayState.instance.currentVariation != 'pico') hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');
@@ -79,7 +79,8 @@ class SenpaiSong extends Song {
   }
 
   function startDialogue() {
-    PlayState.instance.startConversation('senpai');
+    var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'senpai-pico' : 'senpai';
+    PlayState.instance.startConversation(targetDialogue);
   }
 
   /**

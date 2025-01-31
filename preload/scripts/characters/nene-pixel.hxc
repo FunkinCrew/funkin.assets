@@ -9,17 +9,10 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
-import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
-import funkin.play.character.CharacterType;
-import funkin.graphics.shaders.TextureSwap;
-import openfl.display.BitmapData;
-import funkin.util.FlxColorUtil;
-import funkin.graphics.shaders.AdjustColorShader;
 
-class NeneDarkCharacter extends SparrowCharacter {
+class NenePixelCharacter extends SparrowCharacter {
 	function new() {
-		super('nene-dark');
+		super('nene-pixel');
 	}
 
 	var pupilState:Int = 0;
@@ -28,73 +21,54 @@ class NeneDarkCharacter extends SparrowCharacter {
 	var PUPIL_STATE_LEFT = 1;
 
 	var abot:FlxAtlasSprite;
+	var abotHead:FlxAtlasSprite;
 	var abotViz:ABotVis;
-	var stereoBG:FlxSprite;
-	var eyeWhites:FlxSprite;
-	var pupil:FlxAtlasSprite;
-
-	var testShader:TextureSwap;
-
-	var normalChar:BaseCharacter;
-
-
-  var vizAdjustColor:AdjustColorShader;
-
-	override function set_alpha(val:Float):Float{
-		super.set_alpha(val);
-		testShader.amount = val;
-		if(val != 1)
-			normalChar.alpha = 1;
-		else
-			normalChar.alpha = 0;
-
-		eyeWhites.color = FlxColorUtil.interpolate(0xFFFFFFFF, 0xFF6F96CE, val);
-
-    return val;
-	}
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
-		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
-		stereoBG.color = 0xFF616785;
+		// Reposition sprites in onUpdate!
 
-		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
+		abotHead = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/abotHead');
+		abotHead.scale.set(6, 6);
+		abotHead.antialiasing = false;
+		abotHead.animation.addByPrefix('toleft', 'toleft0', 24, true);
+		abotHead.animation.addByPrefix('toright', 'toright0', 24, true);
+		abotHead.animation.addByPrefix('left', 'left0', 24, true);
+		abotHead.animation.addByPrefix('right', 'right0', 24, true);
 
-		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
-		pupil.x = this.x;
-		pupil.y = this.y;
-		pupil.zIndex = this.zIndex - 5;
-
-		testShader = new TextureSwap();
-		testShader.swappedImage = BitmapData.fromFile('assets/shared/images/characters/abot/dark/abotSystem/spritemap1.png');
-		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+		abot = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixel');
+		abot.scale.set(6, 6);
+		abot.antialiasing = false;
 		abot.x = this.x;
 		abot.y = this.y;
-		abot.zIndex = this.zIndex - 1;
-		abot.shader = testShader;
+		abot.animation.addByPrefix('idle', 'idle', 24, true);
 
-		abotViz = new ABotVis(FlxG.sound.music, false);
-		abotViz.x = this.x;
-		abotViz.y = this.y;
-		abotViz.zIndex = abot.zIndex + 1;
-		FlxG.debugger.track(abotViz);
+		abotBack = FunkinSprite.create(0, 0, 'characters/abotPixel/aBotPixelBack');
+		abotBack.scale.set(6, 6);
+		abotBack.antialiasing = false;
+		abotBack.x = this.x;
+		abotBack.y = this.y;
 
-		vizAdjustColor = new AdjustColorShader();
+		abotHead.animation.finishCallback = function(name:String):Void {
+			if (name == 'toleft') {
+				abotHead.animation.play('left');
+			}
 
-    vizAdjustColor.brightness = -12;
-    vizAdjustColor.hue = -26;
-    vizAdjustColor.contrast = 0;
-		vizAdjustColor.saturation = -45;
-
-		for(spr in abotViz.members){
-			spr.shader = vizAdjustColor;
+			if (name == 'toright') {
+				abotHead.animation.play('right');
+			}
 		}
 
-		normalChar = CharacterDataParser.fetchCharacter('nene');
-    normalChar.zIndex = this.zIndex - 1;
-		normalChar.alpha = 0;
-    normalChar.flipX = false;
+		abotViz = new ABotVis(FlxG.sound.music, true);
+		abotViz.x = this.x;
+		abotViz.y = this.y;
+		FlxG.debugger.track(abotViz);
+
+		abot.zIndex = this.zIndex - 10;
+		abotHead.zIndex = abot.zIndex - 1;
+		abotViz.zIndex = abot.zIndex - 2;
+		abotBack.zIndex = abot.zIndex - 3;
 	}
 
 	/**
@@ -166,30 +140,16 @@ class NeneDarkCharacter extends SparrowCharacter {
 	var MAX_BLINK_DELAY:Int = 7;
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		if (name == "scared") {
-			return;
-		}
-
-		super.playAnimation(name, restart, ignoreOther);
-    if(normalChar != null){
-      normalChar.playAnimation(name, restart, ignoreOther);
-      normalChar.setPosition(this.x, this.y);
-    }
-	}
-
 	function dance(forceRestart:Bool) {
-		if (abot != null)
-		{
-			abot.playAnimation("");
-    	abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
-		}
-
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
 			case STATE_DEFAULT:
 				if (hasDanced) {
 					playAnimation('danceRight', forceRestart);
+					if (abot != null)
+					{
+						abot.animation.play("idle");
+					}
 				} else {
 					playAnimation('danceLeft', forceRestart);
 				}
@@ -199,10 +159,12 @@ class NeneDarkCharacter extends SparrowCharacter {
 				hasDanced = false;
 			case STATE_READY:
 				if (blinkCountdown == 0) {
-					playAnimation('idleKnife', false);
+					// trace('NENE: Blinking...');
+					playAnimation('idleKnifeBlink', false);
 					blinkCountdown = FlxG.random.int(MIN_BLINK_DELAY, MAX_BLINK_DELAY);
 				} else {
 					blinkCountdown--;
+					// trace('NENE: blink timer ' + blinkCountdown);
 				}
 			default:
 				// In other states, don't interrupt the existing animation.
@@ -233,47 +195,16 @@ class NeneDarkCharacter extends SparrowCharacter {
 
 	function movePupilsLeft():Void {
 		if (pupilState == PUPIL_STATE_LEFT) return;
-		trace('Move pupils left');
-		pupil.playAnimation('');
-		pupil.anim.curFrame = 0;
-		// pupilState = PUPIL_STATE_LEFT;
+		// trace('Move pupils left');
+
+		pupil.animation.play('toleft');
 	}
 
 	function movePupilsRight():Void {
 		if (pupilState == PUPIL_STATE_NORMAL) return;
-		trace('Move pupils right');
-		pupil.playAnimation('');
-		pupil.anim.curFrame = 17;
-		// pupilState = PUPIL_STATE_NORMAL;
-	}
+		// trace('Move pupils right');
 
-	function moveByNoteKind(kind:String) {
-		// Force ABot to look where the action is happening.
-		switch(event.note.kind) {
-			case "weekend-1-lightcan":
-				movePupilsLeft();
-			case "weekend-1-kickcan":
-				// movePupilsLeft();
-			case "weekend-1-kneecan":
-				// movePupilsLeft();
-			case "weekend-1-cockgun":
-				movePupilsRight();
-			case "weekend-1-firegun":
-				// movePupilsRight();
-			default: // Nothing
-		}
-	}
-
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		super.onNoteHit(event);
-		moveByNoteKind(event.note.kind);
-	}
-
-	function onNoteMiss(event:NoteScriptEvent)
-	{
-		super.onNoteMiss(event);
-		moveByNoteKind(event.note.kind);
+		pupil.animation.play('toright');
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {
@@ -281,65 +212,31 @@ class NeneDarkCharacter extends SparrowCharacter {
 
 		// Set the visibility of ABot to match Nene's.
 		abot.visible = this.visible;
-		pupil.visible = this.visible;
-		eyeWhites.visible = this.visible;
-		stereoBG.visible = this.visible;
-
-		if (pupil?.anim?.isPlaying)
-		{
-			switch (pupilState)
-			{
-				case PUPIL_STATE_NORMAL:
-					if (pupil.anim.curFrame >= 17)
-					{
-						trace('Done moving pupils left');
-						pupilState = PUPIL_STATE_LEFT;
-						pupil.anim.pause();
-					}
-
-				case PUPIL_STATE_LEFT:
-					if (pupil.anim.curFrame >= 30)
-					{
-						trace('Done moving pupils right');
-						pupilState = PUPIL_STATE_NORMAL;
-						pupil.anim.pause();
-					}
-			}
-		}
+		abotHead.visible = this.visible;
+		abotViz.visible = this.visible;
 
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
 		{
-			abot.x = this.x - 100;
-			abot.y = this.y + 216; // 764 - 740
+			abot.x = this.x + 200;
+			abot.y = this.y + 425; // 764 - 740
 			abot.zIndex = this.zIndex - 10;
-
 			PlayState.instance.currentStage.add(abot);
 
-			abotViz.x = abot.x + 200;
-			abotViz.y = abot.y + 84;
-			abotViz.zIndex = abot.zIndex - 1;
+			abotBack.x = abot.x + 0;
+			abotBack.y = abot.y + 0;
+			abotBack.zIndex = abot.zIndex - 3;
+			PlayState.instance.currentStage.add(abotBack);
+
+			abotHead.x = abot.x - 230;
+			abotHead.y = abot.y + 70;
+			abotHead.zIndex = abot.zIndex - 1;
+			PlayState.instance.currentStage.add(abotHead);
+
+			abotViz.x = abot.x - 80;
+			abotViz.y = abot.y + 15;
+			abotViz.zIndex = abot.zIndex - 2;
 			PlayState.instance.currentStage.add(abotViz);
-
-			eyeWhites.x = abot.x + 40;
-			eyeWhites.y = abot.y + 250;
-			eyeWhites.zIndex = abot.zIndex - 10;
-			PlayState.instance.currentStage.add(eyeWhites);
-
-			pupil.x = abot.x - 507;
-			pupil.y = abot.y - 492;
-			pupil.zIndex = eyeWhites.zIndex + 5;
-			PlayState.instance.currentStage.add(pupil);
-
-			stereoBG.x = abot.x + 150;
-			stereoBG.y = abot.y + 30;
-			stereoBG.zIndex = abot.zIndex - 8;
-			PlayState.instance.currentStage.add(stereoBG);
-
-			normalChar.zIndex = this.zIndex - 3;
-    	normalChar.flipX = false;
-
-			PlayState.instance.currentStage.add(normalChar);
 
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
@@ -374,6 +271,11 @@ class NeneDarkCharacter extends SparrowCharacter {
 					animationFinished = true;
 					transitionState();
 				}
+			case STATE_READY:
+				if (name == "idleKnifeBlink") {
+					animationFinished = true;
+					transitionState();
+				}
 			default:
 				// Ignore.
 		}
@@ -401,7 +303,7 @@ class NeneDarkCharacter extends SparrowCharacter {
 		switch (currentState) {
 			case STATE_DEFAULT:
 				if (PlayState.instance.health <= VULTURE_THRESHOLD) {
-					// trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
+					trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
 					currentState = STATE_PRE_RAISE;
 				} else {
 					currentState = STATE_DEFAULT;
@@ -420,6 +322,7 @@ class NeneDarkCharacter extends SparrowCharacter {
 				if (animationFinished) {
 					// trace('NENE: Animation finished, transitioning to STATE_READY');
 					currentState = STATE_READY;
+					playAnimation('idleKnife');
 					animationFinished = false;
 				}
 			case STATE_READY:
@@ -427,6 +330,10 @@ class NeneDarkCharacter extends SparrowCharacter {
 					// trace('NENE: Health went back up, transitioning to STATE_LOWER');
 					currentState = STATE_LOWER;
 					playAnimation('lowerKnife');
+				} else if (animationFinished) {
+					// trace('NENE: Animation finished, transitioning to STATE_READY');
+					playAnimation('idleKnife');
+					animationFinished = false;
 				}
 			case STATE_LOWER:
 				if (animationFinished) {

@@ -43,7 +43,7 @@ class NeneChristmasCharacter extends SparrowCharacter {
 		abot.y = this.y;
 		abot.zIndex = this.zIndex - 1;
 
-		abotViz = new ABotVis(FlxG.sound.music);
+		abotViz = new ABotVis(FlxG.sound.music, false);
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;

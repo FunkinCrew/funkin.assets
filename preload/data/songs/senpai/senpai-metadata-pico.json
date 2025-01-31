@@ -14,15 +14,15 @@
     "songVariations": [],
     "difficulties": ["normal", "easy", "hard"],
     "characters": {
-      "player": "pico-playable",
-      "girlfriend": "nene",
+      "player": "pico-pixel",
+      "girlfriend": "nene-pixel",
       "opponent": "senpai",
       "instrumental": "pico",
       "altInstrumentals": [],
       "opponentVocals": ["senpai"],
       "playerVocals": ["pico"]
     },
-    "stage": "school",
+    "stage": "schoolPico",
     "noteStyle": "pixel",
     "ratings": {
       "easy": 2,
