@@ -121,6 +121,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.
 				doExplosionDeath();
+				return; // Don't play the stab death animation, sure, pico is set as invisible, but still good to do this
 			} else {
 				// Standard death animation.
 				createDeathSprites();
