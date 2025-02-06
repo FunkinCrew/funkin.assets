@@ -32,10 +32,8 @@ class NenePixelCharacter extends SparrowCharacter {
 		abotHead = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/abotHead');
 		abotHead.scale.set(6, 6);
 		abotHead.antialiasing = false;
-		abotHead.animation.addByPrefix('toleft', 'toleft0', 24, true);
-		abotHead.animation.addByPrefix('toright', 'toright0', 24, true);
-		abotHead.animation.addByPrefix('left', 'left0', 24, true);
-		abotHead.animation.addByPrefix('right', 'right0', 24, true);
+		abotHead.animation.addByPrefix('toleft', 'toleft0', 24, false);
+		abotHead.animation.addByPrefix('toright', 'toright0', 24, false);
 
 		abot = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixel');
 		abot.scale.set(6, 6);
@@ -52,11 +50,11 @@ class NenePixelCharacter extends SparrowCharacter {
 
 		abotHead.animation.finishCallback = function(name:String):Void {
 			if (name == 'toleft') {
-				abotHead.animation.play('left');
+				pupilState = PUPIL_STATE_LEFT;
 			}
 
 			if (name == 'toright') {
-				abotHead.animation.play('right');
+				pupilState = PUPIL_STATE_NORMAL;
 			}
 		}
 
@@ -145,13 +143,13 @@ class NenePixelCharacter extends SparrowCharacter {
 		switch(currentState) {
 			case STATE_DEFAULT:
 				if (hasDanced) {
-					playAnimation('danceRight', forceRestart);
-					if (abot != null)
-					{
-						abot.animation.play("idle");
-					}
+					playAnimation('danceRight', true);
 				} else {
-					playAnimation('danceLeft', forceRestart);
+					playAnimation('danceLeft', true);
+				}
+				if (abot != null)
+				{
+					abot.animation.play("idle", true);
 				}
 				hasDanced = !hasDanced;
 			case STATE_PRE_RAISE:
@@ -197,14 +195,14 @@ class NenePixelCharacter extends SparrowCharacter {
 		if (pupilState == PUPIL_STATE_LEFT) return;
 		// trace('Move pupils left');
 
-		pupil.animation.play('toleft');
+		abotHead.animation.play('toleft');
 	}
 
 	function movePupilsRight():Void {
 		if (pupilState == PUPIL_STATE_NORMAL) return;
 		// trace('Move pupils right');
 
-		pupil.animation.play('toright');
+		abotHead.animation.play('toright');
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {
@@ -223,13 +221,13 @@ class NenePixelCharacter extends SparrowCharacter {
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
 
-			abotBack.x = abot.x + 0;
+			abotBack.x = abot.x + 24;
 			abotBack.y = abot.y + 0;
 			abotBack.zIndex = abot.zIndex - 3;
 			PlayState.instance.currentStage.add(abotBack);
 
-			abotHead.x = abot.x - 230;
-			abotHead.y = abot.y + 70;
+			abotHead.x = abot.x - 245;
+			abotHead.y = abot.y + 74;
 			abotHead.zIndex = abot.zIndex - 1;
 			PlayState.instance.currentStage.add(abotHead);
 
@@ -240,6 +238,11 @@ class NenePixelCharacter extends SparrowCharacter {
 
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
+
+			abot.shader = shader;
+			abotBack.shader = shader;
+			abotHead.shader = shader;
+			abotViz.shader = shader;
 		}
 
 		if (shouldTransitionState()) {
