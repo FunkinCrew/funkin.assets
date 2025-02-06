@@ -39,7 +39,8 @@ class SenpaiSong extends Song {
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.currentStage.pause();
+      //  pausing is breaking a lot in the erect stage for some reason disabling this for the sake of not running into issues atm
+      //  PlayState.instance.currentStage.pause();
 
       transitionToDialogue();
     }
