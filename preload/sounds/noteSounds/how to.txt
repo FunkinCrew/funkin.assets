@@ -1,0 +1,19 @@
+# Hit sound creation 101
+
+1. Create a new folder for your hit sound, use the camelCase convention
+
+2. Add your sounds into the folder using the following naming conventions:
+- "begin" (played once when the player first clicks a note)
+- "beginSustain" (same as "begin" but specific to sustain notes, will use "begin" by default if this doesn't exist)
+- "sustain" (a looping sound played while a sustain note is being held down. avoid overall rythmical sounds as they can sound off-beat or get cut off, try something like white noise)
+- "end" (played when the note is let go)
+- "endSustain" (played when the player reaches the end of the sustain note, won't play if the player lets go mid-note)
+- "miss" (played once when a note passed by and the player is no longer able to press the note)
+- "missSustain" (same as "miss", but it also plays if the player lets go of the sustain note too early)
+NOTE: As of writing this, only "begin" and "beginSustain" are currently implemented.
+
+3. Register the new sound by adding it to the NoteSoundType enum, located at "funkin.play.notes.notesound.NoteSoundType" (the sound ID must match the folder name)
+
+4. Add the sound to the preferences menu and assign a display name to it in funkin.ui.options.PreferencesMenu
+
+Done!
