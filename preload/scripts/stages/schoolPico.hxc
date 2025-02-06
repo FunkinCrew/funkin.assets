@@ -1,0 +1,40 @@
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.graphics.shaders.AdjustColorShader;
+
+class SchoolStage extends Stage
+{
+	function new()
+	{
+		super('schoolPico');
+	}
+
+	function buildStage()
+	{
+		super.buildStage();
+
+		if (PlayState.instance.currentSong.id.toLowerCase() == "roses")
+		{
+			getNamedProp('freaks').idleSuffix = '-scared';
+		} else {
+			getNamedProp('freaks').idleSuffix = '';
+		}
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+
+		shader = new AdjustColorShader();
+
+    shader.hue = -10;
+    shader.saturation = -23;
+    shader.brightness = -66;
+    shader.contrast = 24;
+
+		character.shader = shader;
+
+	}
+
+}
