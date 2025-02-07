@@ -90,14 +90,19 @@ class TankmanSprite extends FunkinSprite
 			// Here, the position is set to the target position where it will be shot.
 			// Then, we move the sprite away from that position in the direction it's coming from.
 			// songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
+			var runFactor = ((Conductor.instance.songPosition - strumTime) * runSpeed);
 			if (!goingRight)
 			{
-				x = (FlxG.width * 0.02 - endingOffset) + ((Conductor.instance.songPosition - strumTime) * runSpeed);
+				x = (FlxG.width * 0.02 - endingOffset) + runFactor;
 			}
 			else
 			{
-				x = (FlxG.width * 0.74 + endingOffset) - ((Conductor.instance.songPosition - strumTime) * runSpeed);
+				x = (FlxG.width * 0.74 + endingOffset) - runFactor;
 			}
+
+			// if (this.shader != null) {
+			// 	this.shader.angle =
+			// }
 		}
 
 		// Hide this sprite if it is out of view.

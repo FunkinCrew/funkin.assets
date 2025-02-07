@@ -13,7 +13,7 @@ class TankmanBattlefieldErectStage extends Stage
 		super('tankmanBattlefieldErect');
 	}
 
-		function onCreate(event:ScriptEvent):Void {
+	function onCreate(event:ScriptEvent):Void {
 		super.onCreate(event);
 	}
 
@@ -24,7 +24,7 @@ class TankmanBattlefieldErectStage extends Stage
 		super.addCharacter(character, charType);
 		trace('Applied stage shader to ' + character.characterName);
 
-		rim = new DropShadowShader();
+		var rim = new DropShadowShader();
 
     rim.baseBrightness = -46;
     rim.baseHue = -38;
