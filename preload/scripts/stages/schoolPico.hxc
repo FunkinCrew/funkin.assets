@@ -2,7 +2,7 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
 
-class SchoolStage extends Stage
+class SchoolPicoStage extends Stage
 {
 	function new()
 	{
