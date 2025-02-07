@@ -98,6 +98,8 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     	rim.baseContrast = -25;
     	rim.baseSaturation = -20;
 
+			rim.threshold = 0.4;
+
   	  rim.color = 0xFFDFEF3C;
 
 			tankman.shader = rim;
