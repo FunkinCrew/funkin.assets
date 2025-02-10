@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog id="backupAvailableDialog" width="475" height="150" title="Hey! Listen!">
+<dialog id="backupAvailableDialog" width="475" height="200" title="Hey! Listen!">
 	<vbox width="100%" height="100%">
 		<label text="There is a chart backup available, would you like to open it?\n" width="100%" textAlign="center" />
 		<spacer height="6" />
