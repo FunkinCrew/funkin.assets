@@ -78,7 +78,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 			createDeathSprites();
 			GameOverSubState.instance.add(deathSpriteRetry);
 			this.visible = false;
-			deathSpriteRetry.onAnimationComplete.add(startGameOverLoop);
+			deathSpriteRetry.onAnimationComplete.add(onAnimationComplete);
 			deathSpriteRetry.playAnimation("intro", true, false, false);
 		} else if (name == "deathConfirm") {
 			doDeathConfirm();
@@ -93,8 +93,12 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 		GameOverSubState.instance.startDeathMusic(1.0, false);
 	}
 
-	function startGameOverLoop(){
-    deathSpriteRetry.playAnimation("loop", true, false, true);
+	function onAnimationComplete(currentAnim:String):Void {
+		if (currentAnim == "confirm") {
+			deathSpriteRetry.playAnimation("confirm", true, false, true);
+		} else {
+			deathSpriteRetry.playAnimation("loop", true, false, true);
+		}
   }
 
 	function doDeathConfirm():Void {
