@@ -17,6 +17,7 @@ import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.DropShadowShader;
+import funkin.graphics.shaders.AdjustColorShader;
 import Lambda;
 
 class OtisSpeakerCharacter extends SparrowCharacter {
@@ -44,6 +45,9 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		ignoreExclusionPref.push("shoot4");
 	}
 
+	var adjustColor:AdjustColorShader;
+	var vizAdjustColor:AdjustColorShader;
+
 	override function onCreate(event:ScriptEvent):Void
   {
 		super.onCreate(event);
@@ -51,6 +55,20 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
 		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
+
+		adjustColor = new AdjustColorShader();
+
+    adjustColor.hue = -10;
+    adjustColor.saturation = -20;
+    adjustColor.brightness = -30;
+    adjustColor.contrast = -25;
+
+		vizAdjustColor = new AdjustColorShader();
+
+		vizAdjustColor.brightness = -12;
+    vizAdjustColor.hue = -30;
+    vizAdjustColor.contrast = 0;
+		vizAdjustColor.saturation = -10;
 
 		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
 		pupil.x = this.x;
@@ -67,6 +85,12 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
 		FlxG.debugger.track(abotViz);
+
+		pupil.shader = adjustColor;
+		abot.shader = adjustColor;
+		for(spr in abotViz.members){
+			spr.shader = vizAdjustColor;
+		}
 
 		this.playAnimation('idle', true, true);
 
