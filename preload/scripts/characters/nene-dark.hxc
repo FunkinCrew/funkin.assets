@@ -67,7 +67,7 @@ class NeneDarkCharacter extends SparrowCharacter {
 		pupil.zIndex = this.zIndex - 5;
 
 		testShader = new TextureSwap();
-		testShader.swappedImage = BitmapData.fromFile('assets/shared/images/characters/abot/dark/abotSystem/spritemap1.png');
+		testShader.loadSwapImage('assets/shared/images/characters/abot/dark/abotSystem/spritemap1.png');
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
 		abot.x = this.x;
 		abot.y = this.y;

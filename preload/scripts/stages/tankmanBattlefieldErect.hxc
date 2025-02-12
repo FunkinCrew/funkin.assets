@@ -5,6 +5,7 @@ import funkin.play.stage.Stage;
 import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.character.CharacterType;
 import openfl.display.BitmapData;
+import flixel.graphics.FlxGraphic;
 
 class TankmanBattlefieldErectStage extends Stage
 {
@@ -37,21 +38,27 @@ class TankmanBattlefieldErectStage extends Stage
 
 		rim.attachedSprite = character;
 
-		character.animation.callback = rim.onAttachedFrame;
+		// character.animation.callback = rim.onAttachedFrame;
 
 		switch(charType){
 			case CharacterType.BF:
 
 				rim.angle = 90;
 
+				character.animation.callback = function() {
+      		rim.updateFrameInfo(getBoyfriend().frame);
+    		};
+
 			case CharacterType.GF:
 
 				rim.angle = 90;
 
-				trace(getGirlfriend().characterId);
+				character.animation.callback = function() {
+      		rim.updateFrameInfo(getGirlfriend().frame);
+    		};
 
 				if(getGirlfriend().characterId == 'gf-tankmen'){
-					rim.altMaskImage = BitmapData.fromFile('assets/shared/images/characters/gfTankmen_mask.png');
+					rim.loadAltMask('assets/week7/images/erect/gfTankmen_mask.png');
 					rim.maskThreshold = 0.4;
 					rim.useAltMask = true;
 				}
@@ -61,10 +68,12 @@ class TankmanBattlefieldErectStage extends Stage
 				rim.angle = 135;
 				rim.threshold = 0.3;
 
-				trace(getDad().characterId);
+				character.animation.callback = function() {
+      		rim.updateFrameInfo(getDad().frame);
+    		};
 
 				if(getDad().characterId == 'tankman-bloody'){
-					rim.altMaskImage = BitmapData.fromFile('assets/shared/images/characters/tankmanCaptainBloody_mask.png');
+					rim.loadAltMask('assets/week7/images/erect/tankmanCaptainBloody_mask.png');
 					rim.maskThreshold = 1;
 					rim.useAltMask = false;
 				}

@@ -1,6 +1,7 @@
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
+import funkin.graphics.shaders.DropShadowShader;
 import flixel.effects.FlxFlicker;
 
 /**
@@ -45,6 +46,35 @@ class TankmanSprite extends FunkinSprite
 				kill();
 			});
     });
+	}
+
+	var rim:DropShadowShader;
+
+	public function addRimlight()
+	{
+		rim = new DropShadowShader();
+
+		rim.baseBrightness = -46;
+    rim.baseHue = -38;
+    rim.baseContrast = -25;
+    rim.baseSaturation = -20;
+
+		rim.threshold = 0.4;
+
+  	rim.color = 0xFFDFEF3C;
+
+		shader = rim;
+
+		//rim.attachedSprite = tankman;
+
+		animation.callback = function() {
+      rim.updateFrameInfo(this.frame);
+    };
+
+		// If goingRight is false, 0 degrees = facing right.
+		// If goingRight is true, 0 degrees = facing left.
+
+		rim.angle = 135; //goingRight ? 135 : 45;
 	}
 
 	function initAnim()

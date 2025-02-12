@@ -4,7 +4,6 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.modding.base.ScriptedFunkinSprite;
-import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.PlayState;
 import Lambda;
 
@@ -90,26 +89,10 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
 		tankman.scriptSet('goingRight', goingRight);
 
+
+
 		if (isErect) {
-			var rim = new DropShadowShader();
-
-			rim.baseBrightness = -46;
-    	rim.baseHue = -38;
-    	rim.baseContrast = -25;
-    	rim.baseSaturation = -20;
-
-			rim.threshold = 0.4;
-
-  	  rim.color = 0xFFDFEF3C;
-
-			tankman.shader = rim;
-			rim.attachedSprite = tankman;
-			tankman.animation.callback = rim.onAttachedFrame;
-
-			// If goingRight is false, 0 degrees = facing right.
-			// If goingRight is true, 0 degrees = facing left.
-
-			rim.angle = 135; //goingRight ? 135 : 45;
+			tankman.scriptCall('addRimlight');
 		}
 
 		this.add(tankman);
