@@ -121,7 +121,9 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
     <menu-separator />
-    <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
+    <vbox width="100%" style="padding: 5px;">
+    <menu-checkbox width="100%" id="menubarItemThemeMusic" text="Play Theme Music" />
+    </vbox>
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
