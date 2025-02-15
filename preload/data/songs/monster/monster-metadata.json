@@ -35,8 +35,8 @@
     "noteStyle": "funkin",
     "ratings": {
       "easy": 1,
-      "hard": 2,
-      "normal": 1
+      "normal": 1,
+      "hard": 2
     },
     "album": "volume1",
     "previewStart": 0,
