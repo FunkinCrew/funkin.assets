@@ -45,8 +45,12 @@ class TankmanBattlefieldErectStage extends Stage
 
 				rim.angle = 90;
 
+
 				character.animation.callback = function() {
-      		rim.updateFrameInfo(getBoyfriend().frame);
+					if (getBoyfriend() != null)
+					{
+      			rim.updateFrameInfo(getBoyfriend().frame);
+					}
     		};
 
 			case CharacterType.GF:

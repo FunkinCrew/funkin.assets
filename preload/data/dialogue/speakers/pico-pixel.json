@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "name": "Senpai",
-  "assetPath": "weeb/portrait-senpai",
+  "name": "Pico (Pixel)",
+  "assetPath": "weeb/portrait-pico",
   "flipX": false,
   "isPixel": true,
   "scale": 5.4,
-  "offsets": [120, 120],
+  "offsets": [800, 160],
   "animations": [
     {
       "name": "talkEnter",

@@ -20,8 +20,9 @@ class NenePixelCharacter extends SparrowCharacter {
 	var PUPIL_STATE_NORMAL = 0;
 	var PUPIL_STATE_LEFT = 1;
 
-	var abot:FlxAtlasSprite;
+	var abot:FunkinSprite;
 	var abotHead:FlxAtlasSprite;
+	var abotSpeaker:FlxAtlasSprite;
 	var abotViz:ABotVis;
 
 	function onCreate(event:ScriptEvent) {
@@ -35,12 +36,26 @@ class NenePixelCharacter extends SparrowCharacter {
 		abotHead.animation.addByPrefix('toleft', 'toleft0', 24, false);
 		abotHead.animation.addByPrefix('toright', 'toright0', 24, false);
 
-		abot = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixel');
+		abot = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixelBody');
 		abot.scale.set(6, 6);
+		abot.origin.x = Math.round(abot.origin.x);
+		abot.origin.y = Math.round(abot.origin.y);
 		abot.antialiasing = false;
 		abot.x = this.x;
 		abot.y = this.y;
-		abot.animation.addByPrefix('idle', 'idle', 24, true);
+		abot.animation.addByPrefix('danceLeft', 'danceLeft', 24, false);
+		abot.animation.addByPrefix('danceRight', 'danceRight', 24, false);
+		abot.animation.addByPrefix('lowerKnife', 'return', 24, false);
+
+		abotSpeaker = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixelSpeaker');
+		abotSpeaker.scale.set(6, 6);
+		abotSpeaker.origin.x = Math.round(abotSpeaker.origin.x);
+		abotSpeaker.origin.y = Math.round(abotSpeaker.origin.y);
+		abotSpeaker.antialiasing = false;
+		abotSpeaker.x = this.x;
+		abotSpeaker.y = this.y;
+		// danceLeft and danceRight are identical for the speakers, we can just use 1 of em
+		abotSpeaker.animation.addByPrefix('danceLeft', 'danceLeft', 24, false);
 
 		abotBack = FunkinSprite.create(0, 0, 'characters/abotPixel/aBotPixelBack');
 		abotBack.scale.set(6, 6);
@@ -61,12 +76,15 @@ class NenePixelCharacter extends SparrowCharacter {
 		abotViz = new ABotVis(FlxG.sound.music, true);
 		abotViz.x = this.x;
 		abotViz.y = this.y;
-		FlxG.debugger.track(abotViz);
+		FlxG.debugger.track(abotSpeaker);
+		// FlxG.debugger.track(abotSpeaker);
+
 
 		abot.zIndex = this.zIndex - 10;
-		abotHead.zIndex = abot.zIndex - 1;
-		abotViz.zIndex = abot.zIndex - 2;
-		abotBack.zIndex = abot.zIndex - 3;
+		abotViz.zIndex = abot.zIndex - 1;
+		abotBack.zIndex = abot.zIndex - 2;
+		abotSpeaker.zIndex = abot.zIndex - 3;
+		abotHead.zIndex = abot.zIndex - 4;
 	}
 
 	/**
@@ -139,17 +157,23 @@ class NenePixelCharacter extends SparrowCharacter {
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
 	function dance(forceRestart:Bool) {
+
+		if (abotSpeaker != null)
+			abotSpeaker.animation.play("danceLeft", true);
 		// Then, perform the appropriate animation for the current state.
 		switch(currentState) {
 			case STATE_DEFAULT:
-				if (hasDanced) {
-					playAnimation('danceRight', true);
-				} else {
-					playAnimation('danceLeft', true);
-				}
-				if (abot != null)
+				if (hasDanced)
 				{
-					abot.animation.play("idle", true);
+					playAnimation('danceRight', true);
+					if (abot != null)
+						abot.animation.play("danceRight", true);
+				}
+				else
+				{
+					playAnimation('danceLeft', true);
+					if (abot != null)
+						abot.animation.play("danceLeft", true);
 				}
 				hasDanced = !hasDanced;
 			case STATE_PRE_RAISE:
@@ -212,28 +236,35 @@ class NenePixelCharacter extends SparrowCharacter {
 		abot.visible = this.visible;
 		abotHead.visible = this.visible;
 		abotViz.visible = this.visible;
+		abotSpeaker.visible = this.visible;
 
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
 		{
-			abot.x = this.x + 200;
-			abot.y = this.y + 425; // 764 - 740
+			abot.x = this.x + 296;
+			abot.y = this.y + 430;
 			abot.zIndex = this.zIndex - 10;
 			PlayState.instance.currentStage.add(abot);
 
-			abotBack.x = abot.x + 24;
+
+			abotBack.x = abot.x - 55;
 			abotBack.y = abot.y + 0;
-			abotBack.zIndex = abot.zIndex - 3;
+			abotBack.zIndex = abot.zIndex - 2;
 			PlayState.instance.currentStage.add(abotBack);
 
-			abotHead.x = abot.x - 245;
-			abotHead.y = abot.y + 74;
-			abotHead.zIndex = abot.zIndex - 1;
+			abotSpeaker.x = abot.x - 78;
+			abotSpeaker.y = abot.y + 9;
+			abotSpeaker.zIndex = abot.zIndex - 3;
+			PlayState.instance.currentStage.add(abotSpeaker);
+
+			abotHead.x = abot.x - 325;
+			abotHead.y = abot.y + 72;
+			abotHead.zIndex = abot.zIndex - 4;
 			PlayState.instance.currentStage.add(abotHead);
 
-			abotViz.x = abot.x - 80;
-			abotViz.y = abot.y + 15;
-			abotViz.zIndex = abot.zIndex - 2;
+			abotViz.x = abot.x - 160;
+			abotViz.y = abot.y + 13;
+			abotViz.zIndex = abot.zIndex - 1;
 			PlayState.instance.currentStage.add(abotViz);
 
 			PlayState.instance.currentStage.refresh();
@@ -243,6 +274,7 @@ class NenePixelCharacter extends SparrowCharacter {
 			abotBack.shader = shader;
 			abotHead.shader = shader;
 			abotViz.shader = shader;
+			abotSpeaker.shader = shader;
 		}
 
 		if (shouldTransitionState()) {

@@ -28,12 +28,20 @@
       "text": ["Wow, you're ugly."]
     },
     {
-      "speaker": "bf-pixel",
+      "speaker": "nene-pixel",
       "speakerAnimation": "talkEnter",
       "box": "roses",
       "boxAnimation": "speaking",
 
-      "text": ["I'm going to fucking kill you."]
+      "text": ["Let's kill this guy."]
+    },
+    {
+      "speaker": "pico-pixel",
+      "speakerAnimation": "talkEnter",
+      "box": "roses",
+      "boxAnimation": "speaking",
+
+      "text": ["Agreed."]
     }
   ]
 }
