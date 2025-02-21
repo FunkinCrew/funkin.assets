@@ -92,6 +92,7 @@ class PhillyTrainErectStage extends Stage
 	var cutsceneConductor:Conductor;
 
 	var cutsceneTimerManager:FlxTimerManager;
+	var gaspSound:FunkinSound = null;
 
 	function doppleGangerCutscene(){
 
@@ -198,7 +199,8 @@ class PhillyTrainErectStage extends Stage
 		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
 		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
 
-		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
+		if (gaspSound == null)
+			gaspSound = FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
