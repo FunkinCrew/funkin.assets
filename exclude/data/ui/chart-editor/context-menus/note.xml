@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu>
+	<label id="contextmenuNoteKindLabel" styleName="menuLabel" style="padding: 2px;" text="Note Kind: " />
+	<label id="contextmenuNoteKind" styleName="menuLabel" style="padding: 2px;" text="Note Kind" />
+	<property-grid>
+		<property id="contextmenuPosition" label="Time (MS)" type="float" value="0" />
+	</property-grid>
+	<dropdown id="contextmenuUnit" text="Milliseconds" value="MILLISECONDS" selectedIndex="0" >
+     <data>
+        <item id="MILLISECONDS" text="Milliseconds" />
+        <item id="STEPS" text="Steps" />
+    </data>
+	</dropdown>
 	<menu-item id="contextmenuFlip" text="Flip Note" />
 	<menu-item id="contextmenuAddHold" text="Add Hold" />
 	<menu-item id="contextmenuDelete" text="Delete Note" />
