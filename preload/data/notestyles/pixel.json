@@ -48,10 +48,14 @@
     },
     "noteSplash": {
       "assetPath": "week6:pixelNoteSplash",
-      "scale": 6.0,
+      "scale": 4.0,
+      "alpha": 1.0,
       "isPixel": true,
-      "offsets": [22, 18],
+      "offsets": [27.5, 18.5],
       "data": {
+        "blendMode": "screen",
+        "framerateDefault": 33,
+        "framerateVariance": 2,
         "enabled": true,
         "leftSplashes": [
           { "prefix": "purple1" },
