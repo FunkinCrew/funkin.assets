@@ -14,12 +14,12 @@
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
 	</hbox>
 	<hbox horizontalAlign="right">
-		<label id="playbarDifficulty" verticalAlign="center" text="NORMAL" styleName="playbarStatus" tooltip="Left Click/Ctrl+Left Arrow to Decrease Difficulty\nRight Click/Ctrl+Right Arrow to Increase Difficulty\nCtrl+Click to open Difficulty Window" />
+		<label id="playbarDifficulty" verticalAlign="center" text="NORMAL" styleName="playbarStatus" tooltip="Left Click/Ctrl+Left Arrow to Decrease Difficulty\nRight Click/Ctrl+Right Arrow to Increase Difficulty\nCtrl+Click to open/close Difficulty Window" />
 		<rule direction="vertical" height="80%" />
-		<label id="playbarBPM" verticalAlign="center" text="BPM: 120" styleName="playbarStatus" tooltip="Left Click to Increase BPM\nRight Click to Decrease BPM\nCtrl+Click to open Metadata Window" />
+		<label id="playbarBPM" verticalAlign="center" text="BPM: 120" styleName="playbarStatus" tooltip="Left Click to Increase BPM\nRight Click to Decrease BPM\nCtrl+Click to open/close Metadata Window" />
 		<rule direction="vertical" height="80%" />
-		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)" />
+		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)\nCtrl+Click to open/close Note Window" />
 		<rule direction="vertical" height="80%" />
-		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
+		<label id="playbarSongRemaining" verticalAlign="center" text="-1:00" styleName="playbarDuration" tooltip="Left Click to open/close Offsets Window" />
 	</hbox>
 </box>
