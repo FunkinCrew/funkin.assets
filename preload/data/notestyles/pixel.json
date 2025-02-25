@@ -47,9 +47,32 @@
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "",
+      "assetPath": "week6:pixelNoteSplash",
+      "scale": 6.0,
+      "isPixel": true,
+      "offsets": [22, 18],
       "data": {
-        "enabled": false
+        "enabled": true,
+        "leftSplashes": [
+          { "prefix": "purple1" },
+          { "prefix": "purple2" },
+          { "prefix": "purple3" }
+        ],
+        "rightSplashes": [
+          { "prefix": "orange1" },
+          { "prefix": "orange2" },
+          { "prefix": "orange3" }
+        ],
+        "upSplashes": [
+          { "prefix": "green1" },
+          { "prefix": "green2" },
+          { "prefix": "green3" }
+        ],
+        "downSplashes": [
+          { "prefix": "blue1" },
+          { "prefix": "blue2" },
+          { "prefix": "blue3" }
+        ]
       }
     },
     "holdNoteCover": {
