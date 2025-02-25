@@ -58,6 +58,8 @@ class PhillyTrainErectStage extends Stage
     canSkipCutscene = false;
     playerShoots = false;
     explode = true;
+    cutsceneTimerManager = null;
+    cutsceneConductor = null;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
