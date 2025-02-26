@@ -12,5 +12,5 @@
     </data>
 	</dropdown>
 	<menu-item id="contextmenuEdit" text="Edit Event" />
-	<menu-item id="contextmenuDelete" text="Delete Event" />
+	<menu-item id="contextmenuDelete" text="Delete Event" shortcutText="Delete" />
 </menu>
