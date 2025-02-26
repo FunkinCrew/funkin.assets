@@ -2,6 +2,7 @@
   "version": "2.2.4",
   "songName": "Lit Up (BF Mix)",
   "artist": "Saruky",
+  "charter": "Fabs + Spazkid",
   "divisions": 96,
   "looped": false,
   "offsets": {
@@ -24,6 +25,7 @@
     },
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",
+    "album": "expansion2",
     "ratings": { "easy": 4, "normal": 5, "hard": 6 },
     "previewStart": 0,
     "previewEnd": 0

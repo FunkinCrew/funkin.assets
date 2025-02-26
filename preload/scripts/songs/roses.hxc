@@ -7,6 +7,7 @@ import flixel.FlxG;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
+import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 
@@ -17,11 +18,22 @@ class RosesSong extends Song {
 		super('roses');
 	}
 
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico')
+      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    return false;
+	}
+
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
     trace('Started countdown for Roses...');
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // Skip the cutscene on the normal variation if we are in Freeplay.
+    if (PlayState.instance.currentVariation == 'default' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // Skip the cutscene on the Pico variation if we have beaten the song.
+    //if (PlayState.instance.currentVariation == 'pico' && Save.instance.hasBeatenSong(this.id, null, 'pico')) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');
@@ -40,13 +52,13 @@ class RosesSong extends Song {
 	}
 
   function startDialogue() {
-    if (Preferences.naughtyness) {
-      trace('Playing uncensored dialogue...');
-      PlayState.instance.startConversation('roses');
-    } else {
-      trace('Playing censored dialogue...');
-      PlayState.instance.startConversation('roses-censored');
-    }
+    var targetDialogue = 'roses';
+
+    if (PlayState.instance.currentVariation == 'pico') targetDialogue += "-pico";
+    if (!Preferences.naughtyness) targetDialogue += "-censored";
+
+    trace('Playing dialogue...');
+    PlayState.instance.startConversation(targetDialogue);
   }
 
   /**

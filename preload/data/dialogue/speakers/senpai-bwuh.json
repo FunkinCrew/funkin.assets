@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "name": "Senpai (Angry)",
-  "assetPath": "weeb/portrait-senpai-angry",
+  "name": "Senpai (Bwuh?)",
+  "assetPath": "weeb/portrait-senpai-bwuh",
   "flipX": false,
   "isPixel": true,
   "scale": 5.4,
-  "offsets": [266, 90],
+  "offsets": [120, 120],
   "animations": [
     {
       "name": "talkEnter",
@@ -14,8 +14,7 @@
     },
     {
       "name": "talk",
-      "prefix": "portraitTalk0",
-      "offsets": [-20, 10]
+      "prefix": "portraitTalk0"
     }
   ]
 }
