@@ -20,6 +20,6 @@
 		<rule direction="vertical" height="80%" />
 		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)\nCtrl+Click to open/close Note Window" />
 		<rule direction="vertical" height="80%" />
-		<label id="playbarSongRemaining" verticalAlign="center" text="-1:00" styleName="playbarDuration" tooltip="Song Remaining Time/nLeft Click to open/close Offsets Window" />
+		<label id="playbarSongRemaining" verticalAlign="center" text="-1:00" styleName="playbarDuration" tooltip="Song Remaining Time\nLeft Click to open/close Offsets Window" />
 	</hbox>
 </box>
