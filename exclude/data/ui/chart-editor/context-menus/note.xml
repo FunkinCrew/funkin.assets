@@ -2,6 +2,7 @@
 <menu>
 	<label id="contextmenuNoteKindLabel" styleName="menuLabel" style="padding: 2px;" text="Note Kind: " />
 	<label id="contextmenuNoteKind" styleName="menuLabel" style="padding: 2px;" text="Note Kind" />
+	<menu-separator />
 	<property-grid>
 		<property id="contextmenuPosition" label="Time (MS)" type="float" value="0" />
 	</property-grid>
@@ -11,7 +12,8 @@
         <item id="STEPS" text="Steps" />
     </data>
 	</dropdown>
-	<menu-item id="contextmenuFlip" text="Flip Note" />
+	<menu-separator />
+	<menu-item id="contextmenuFlip" text="Flip Note" shortcutText="Ctrl+F" />
 	<menu-item id="contextmenuAddHold" text="Add Hold" />
-	<menu-item id="contextmenuDelete" text="Delete Note" />
+	<menu-item id="contextmenuDelete" text="Delete Note" shortcutText="Delete" />
 </menu>

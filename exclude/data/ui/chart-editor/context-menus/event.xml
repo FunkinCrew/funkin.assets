@@ -2,6 +2,7 @@
 <menu>
 	<label id="contextmenuEventKindLabel" styleName="menuLabel" style="padding: 2px;" text="Event Kind: " />
 	<label id="contextmenuEventKind" styleName="menuLabel" style="padding: 2px;" text="Event Kind" />
+	<menu-separator />
 	<property-grid>
 		<property id="contextmenuPosition" label="Time (MS)" type="float" value="0" />
 	</property-grid>
@@ -11,6 +12,7 @@
         <item id="STEPS" text="Steps" />
     </data>
 	</dropdown>
+	<menu-separator />
 	<menu-item id="contextmenuEdit" text="Edit Event" />
-	<menu-item id="contextmenuDelete" text="Delete Event" />
+	<menu-item id="contextmenuDelete" text="Delete Event" shortcutText="Delete" />
 </menu>
