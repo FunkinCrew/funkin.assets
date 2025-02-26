@@ -33,7 +33,7 @@ class RosesSong extends Song {
     // Skip the cutscene on the normal variation if we are in Freeplay.
     if (PlayState.instance.currentVariation == 'default' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
     // Skip the cutscene on the Pico variation if we have beaten the song.
-    //if (PlayState.instance.currentVariation == 'pico' && Save.instance.hasBeatenSong(this.id, null, 'pico')) hasPlayedCutscene = true;
+    if (PlayState.instance.currentVariation == 'pico' && Save.instance.hasBeatenSong(this.id, null, 'pico')) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');

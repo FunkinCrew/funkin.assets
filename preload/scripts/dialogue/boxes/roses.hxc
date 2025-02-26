@@ -43,6 +43,7 @@ class RosesDialogueBox extends DialogueBox {
   public function onDialogueLine(event:DialogueScriptEvent):Void {
     // Override the default box animation behavior by switching the state
     event.conversation.state = ConversationState.Opening;
+
     FunkinSound.playOnce(Paths.sound('textboxClick'), 0.6);
 
     playAnimation('click', false);
