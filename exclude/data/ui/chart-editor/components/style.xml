@@ -44,12 +44,12 @@
 		font-size: 24px;
 		font-bold: true;
 		}
-		.playbarLeftDuration {
+		.playbarRightDuration {
 		font-size: 24px;
 		font-bold: true;
 		pointer-events: true;
 		}
-		.playbarLeftDuration:hover {
+		.playbarRightDuration:hover {
 		background-color: #CCCCCC;
 		}
 		.playbarDifficulty {
