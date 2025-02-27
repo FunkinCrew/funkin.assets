@@ -12,7 +12,7 @@
       "instrumental": "pico",
       "altInstrumentals": []
     },
-    "stage": "tankmanBattlefield",
+    "stage": "tankmanBattlefieldErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 3, "normal": 4, "hard": 5 },
     "album": "expansion2",
