@@ -187,6 +187,13 @@ class NeneCharacter extends SparrowCharacter {
 		// pupilState = PUPIL_STATE_NORMAL;
 	}
 
+	public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+	{
+		if (name == "hairBlow" || name == "hairFall") return;
+
+		super.playAnimation(name, restart, ignoreOther, reversed);
+	}
+
 	function moveByNoteKind(kind:String) {
 		// Force ABot to look where the action is happening.
 		switch(event.note.kind) {
