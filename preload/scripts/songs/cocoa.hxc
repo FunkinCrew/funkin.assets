@@ -27,6 +27,14 @@ class CocoaSong extends Song
 		super('cocoa');
 	}
 
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico')
+      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    return false;
+	}
+
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 		trace(PlayState.instance.currentVariation);

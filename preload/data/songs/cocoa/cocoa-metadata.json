@@ -4,7 +4,7 @@
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
   "playData": {
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "pico"],
     "stage": "mallXmas",
     "characters": {
       "player": "bf-christmas",
@@ -14,6 +14,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "altInstrumentals": ["pico"],
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000

@@ -19,7 +19,6 @@
       "girlfriend": "nene-pixel",
       "opponent": "senpai",
       "instrumental": "pico",
-      "altInstrumentals": [],
       "opponentVocals": ["senpai"],
       "playerVocals": ["pico"]
     },
@@ -28,7 +27,7 @@
     "album": "expansion2",
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.5.3",
   "timeFormat": "ms",
