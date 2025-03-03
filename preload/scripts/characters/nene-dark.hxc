@@ -78,7 +78,6 @@ class NeneDarkCharacter extends SparrowCharacter {
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
-		FlxG.debugger.track(abotViz);
 
 		vizAdjustColor = new AdjustColorShader();
 
