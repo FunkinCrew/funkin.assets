@@ -1,7 +1,7 @@
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.character.CharacterType;
+import funkin.graphics.shaders.DropShadowShader;
 
 class SchoolErectStage extends Stage
 {
@@ -27,22 +27,62 @@ class SchoolErectStage extends Stage
 		super.addCharacter(character, charType);
 		trace('Applied stage shader to ' + character.characterName);
 
-		shader = new AdjustColorShader();
+		var rim = new DropShadowShader();
+		rim.setAdjustColor(-66, -10, 24, -23);
+    rim.color = 0xFF52351d;
+		rim.antialiasAmt = 0;
+		rim.attachedSprite = character;
+		rim.distance = 5;
 
-    switch(charType){
+		switch(charType){
+			case CharacterType.BF:
+
+				rim.angle = 90;
+				character.shader = rim;
+
+				rim.loadAltMask('assets/week6/images/weeb/erect/masks/bfPixel_mask.png');
+				rim.maskThreshold = 1;
+				rim.useAltMask = true;
+
+				character.animation.callback = function() {
+					if (getBoyfriend() != null)
+					{
+      			rim.updateFrameInfo(getBoyfriend().frame);
+					}
+    		};
+
 			case CharacterType.GF:
-        shader.hue = -10;
-        shader.saturation = -25;
-        shader.brightness = -42;
-        shader.contrast = 5;
-			default:
-        shader.hue = -10;
-        shader.saturation = -23;
-        shader.brightness = -66;
-        shader.contrast = 24;
-		}
 
-		character.shader = shader;
+				rim.setAdjustColor(-42, -10, 5, -25);
+				rim.angle = 90;
+				character.shader = rim;
+				rim.distance = 3;
+				rim.threshold = 0.3;
+
+				rim.loadAltMask('assets/week6/images/weeb/erect/masks/gfPixel_mask.png');
+				rim.maskThreshold = 1;
+				rim.useAltMask = true;
+
+				character.animation.callback = function() {
+      		rim.updateFrameInfo(getGirlfriend().frame);
+    		};
+
+			case CharacterType.DAD:
+
+				rim.angle = 90;
+				character.shader = rim;
+
+				rim.loadAltMask('assets/week6/images/weeb/erect/masks/senpai_mask.png');
+				rim.maskThreshold = 1;
+				rim.useAltMask = true;
+
+				character.animation.callback = function() {
+      		rim.updateFrameInfo(getDad().frame);
+    		};
+
+			default:
+
+		}
 
 	}
 

@@ -9,6 +9,8 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.graphics.shaders.DropShadowShader;
 
 class NenePixelCharacter extends SparrowCharacter {
 	function new() {
@@ -156,6 +158,38 @@ class NenePixelCharacter extends SparrowCharacter {
 	var MAX_BLINK_DELAY:Int = 7;
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
+	function addSunsetShaders(){
+
+		var abotSpeakerShader = new DropShadowShader();
+		abotSpeakerShader.setAdjustColor(-66, -10, 24, -23);
+		abotSpeakerShader.angle = 90;
+    abotSpeakerShader.color = 0xFF52351d;
+		abotSpeakerShader.distance = 5;
+		abotSpeakerShader.antialiasAmt = 0;
+		abotSpeakerShader.threshold = 1;
+
+		abotSpeakerShader.attachedSprite = abotSpeaker;
+		abotSpeaker.animation.callback = function() {
+			abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
+		}
+
+		abotSpeakerShader.loadAltMask('assets/week6/images/weeb/erect/masks/aBotPixelSpeaker_mask.png');
+		abotSpeakerShader.maskThreshold = 0;
+		abotSpeakerShader.useAltMask = true;
+
+		var noRimShader = new AdjustColorShader();
+		noRimShader.hue = -10;
+    noRimShader.saturation = -23;
+    noRimShader.brightness = -66;
+    noRimShader.contrast = 24;
+
+		abot.shader = noRimShader;
+		abotBack.shader = noRimShader;
+		abotHead.shader = noRimShader;
+		abotViz.shader = noRimShader;
+		abotSpeaker.shader = abotSpeakerShader;
+	}
+
 	function dance(forceRestart:Bool) {
 
 		if (abotSpeaker != null)
@@ -269,12 +303,6 @@ class NenePixelCharacter extends SparrowCharacter {
 
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
-
-			abot.shader = shader;
-			abotBack.shader = shader;
-			abotHead.shader = shader;
-			abotViz.shader = shader;
-			abotSpeaker.shader = shader;
 		}
 
 		if (shouldTransitionState()) {
