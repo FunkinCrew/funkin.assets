@@ -20,22 +20,19 @@ class TankmanBattlefieldErectStage extends Stage
 
 	var tankmanRim:DropShadowShader;
 
+	public function onGameOver(event:ScriptEvent) {
+		getBoyfriend().shader = null;
+	}
+
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
 		trace('Applied stage shader to ' + character.characterName);
 
 		var rim = new DropShadowShader();
-
-    rim.baseBrightness = -46;
-    rim.baseHue = -38;
-    rim.baseContrast = -25;
-    rim.baseSaturation = -20;
-
+		rim.setAdjustColor(-46, -38, -25, -20);
     rim.color = 0xFFDFEF3C;
-
 		character.shader = rim;
-
 		rim.attachedSprite = character;
 
 		// character.animation.callback = rim.onAttachedFrame;
@@ -44,7 +41,6 @@ class TankmanBattlefieldErectStage extends Stage
 			case CharacterType.BF:
 
 				rim.angle = 90;
-
 
 				character.animation.callback = function() {
 					if (getBoyfriend() != null)
@@ -62,7 +58,7 @@ class TankmanBattlefieldErectStage extends Stage
     		};
 
 				if(getGirlfriend().characterId == 'gf-tankmen'){
-					rim.loadAltMask('assets/week7/images/erect/gfTankmen_mask.png');
+					rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
 					rim.maskThreshold = 0.4;
 					rim.useAltMask = true;
 				}
@@ -77,7 +73,7 @@ class TankmanBattlefieldErectStage extends Stage
     		};
 
 				if(getDad().characterId == 'tankman-bloody'){
-					rim.loadAltMask('assets/week7/images/erect/tankmanCaptainBloody_mask.png');
+					rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
 					rim.maskThreshold = 1;
 					rim.useAltMask = false;
 				}
