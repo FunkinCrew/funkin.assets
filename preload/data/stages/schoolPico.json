@@ -15,25 +15,25 @@
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-200, 6],
+      "position": [-200, 0],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "school",
       "isPixel": true,
       "assetPath": "weeb/erect/weebSchool",
-      "scroll": [1, 1],
+      "scroll": [0.6, 0.9],
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-200, 6],
+      "position": [-200, 4],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "street",
       "isPixel": true,
       "assetPath": "weeb/erect/weebStreet",
-      "scroll": [1, 1],
+      "scroll": [0.95, 0.95],
       "animations": []
     },
     {
@@ -45,7 +45,7 @@
       "name": "treesFG",
       "isPixel": true,
       "assetPath": "weeb/erect/weebTreesBack",
-      "scroll": [1, 1],
+      "scroll": [0.9, 0.9],
       "animations": []
     },
     {
@@ -58,7 +58,7 @@
       "startingAnimation": "treeLoop",
       "isPixel": true,
       "assetPath": "weeb/erect/weebTrees",
-      "scroll": [1, 1],
+      "scroll": [0.85, 0.85],
       "animations": [
         {
           "flipY": false,
