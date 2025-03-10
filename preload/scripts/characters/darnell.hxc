@@ -14,29 +14,29 @@ class DarnellCharacter extends SparrowCharacter
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
-    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD)
+    // Override the hit note animation.
+    switch (event.note.kind)
     {
-      // Override the hit note animation.
-      switch (event.note.kind)
-      {
-        case "weekend-1-lightcan":
-          holdTimer = 0;
-          playLightCanAnim();
-        case "weekend-1-kickcan":
-          holdTimer = 0;
-          playKickCanAnim();
-        case "weekend-1-kneecan":
-          holdTimer = 0;
-          playKneeCanAnim();
-        default:
-          super.onNoteHit(event);
-      }
+      case "weekend-1-lightcan":
+        holdTimer = 0;
+        playLightCanAnim();
+      case "weekend-1-kickcan":
+        holdTimer = 0;
+        playKickCanAnim();
+      case "weekend-1-kneecan":
+        holdTimer = 0;
+        playKneeCanAnim();
+      default:
+        super.onNoteHit(event);
     }
   }
 
   function onNoteIncoming(event:NoteScriptEvent)
   {
-    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD)
+    if (!event.note.noteData.getMustHitNote()
+      && characterType == CharacterType.DAD
+      || event.note.noteData.getMustHitNote()
+      && characterType == CharacterType.BF)
     {
       // Get how long until it's time to strum the note.
       var msTilStrum = event.note.strumTime - Conductor.instance.songPosition;
