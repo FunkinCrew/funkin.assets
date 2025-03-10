@@ -41,7 +41,7 @@
     <menu-separator />
     <hbox style="padding-left: 12px" width="100%">
       <label text="Note Stack Threshold" styleName="menuLabel" verticalAlign="center" horizontalAlign="left"/>
-      <number-stepper id="menuBarItemStackedNoteThreshold" horizontalAlign="right" width="100%" min="0" max="50" step="5"/>
+      <number-stepper id="menuBarItemStackedNoteThreshold" horizontalAlign="right" width="100%" min="0" max="192" step="2"/>
     </hbox>
     <menu-separator />
     <menu text="Note Snapping">
