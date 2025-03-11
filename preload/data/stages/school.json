@@ -3,62 +3,74 @@
     {
       "danceEvery": 0,
       "zIndex": 10,
-      "position": [0, 0],
+      "position": [-164, -78],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "sky",
       "isPixel": true,
       "assetPath": "weeb/weebSky",
-      "scroll": [0.1, 0.1],
+      "scroll": [0.2, 0.2],
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-200, 0],
+      "position": [-216, -38],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "school",
       "isPixel": true,
       "assetPath": "weeb/weebSchool",
-      "scroll": [0.6, 0.9],
+      "scroll": [0.75, 0.75],
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 15,
+      "position": [-242, -80],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "backTrees",
+      "isPixel": true,
+      "assetPath": "weeb/weebBackTrees",
+      "scroll": [0.5, 0.5],
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-200, 0],
+      "position": [-200, 6],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "street",
       "isPixel": true,
       "assetPath": "weeb/weebStreet",
-      "scroll": [0.95, 0.95],
+      "scroll": [1, 1],
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 40,
-      "position": [-120, 60],
+      "position": [-200, 6],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "treesFG",
       "isPixel": true,
       "assetPath": "weeb/weebTreesBack",
-      "scroll": [0.9, 0.9],
+      "scroll": [1, 1],
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 60,
-      "position": [-780, -1000],
+      "position": [-806, -1050],
       "scale": [6, 6],
       "animType": "packer",
       "name": "treesBG",
       "startingAnimation": "treeLoop",
       "isPixel": true,
       "assetPath": "weeb/weebTrees",
-      "scroll": [0.85, 0.85],
+      "scroll": [1, 1],
       "animations": [
         {
           "flipY": false,
@@ -99,14 +111,14 @@
     {
       "zIndex": 80,
       "danceEvery": 1,
-      "position": [-100, 190],
+      "position": [-646, 222],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "freaks",
       "startingAnimation": "danceLeft",
       "isPixel": true,
       "assetPath": "weeb/bgFreaks",
-      "scroll": [0.9, 0.9],
+      "scroll": [1, 1],
       "animations": [
         {
           "offsets": [0, 0],
@@ -155,20 +167,20 @@
       ]
     }
   ],
-  "cameraZoom": 1.05,
+  "cameraZoom": 1,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "cameraOffsets": [-200, -100],
-      "position": [1139, 908]
+      "cameraOffsets": [-200, -94],
+      "position": [1168, 900]
     },
     "dad": {
       "zIndex": 200,
       "cameraOffsets": [160, 0],
-      "position": [525, 1044]
+      "position": [306, 960]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 866] }
+    "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 823] }
   },
   "name": "School (Date)",
   "directory": "week6"
