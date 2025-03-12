@@ -17,7 +17,7 @@
     "noteStrumline": {
       "assetPath": "shared:noteStrumline",
       "scale": 0.7,
-      "offsets": [0, 0],
+      "offsets": [0, 9],
       "data": {
         "leftStatic": { "prefix": "staticLeft0" },
         "leftPress": { "prefix": "pressLeft0" },
@@ -40,6 +40,7 @@
     "holdNote": {
       "assetPath": "NOTE_hold_assets",
       "scale": 0.7,
+      "offsets": [0, -9],
       "data": {}
     },
     "noteSplash": {
