@@ -73,25 +73,25 @@
           "assetPath": "shared:holdCoverPurple",
           "start": { "prefix": "holdCoverStartPurple" },
           "hold": { "prefix": "holdCoverPurple" },
-          "end": { "prefix": "holdCoverEnd" }
+          "end": { "prefix": "holdCoverEndPurple" }
         },
         "right": {
           "assetPath": "shared:holdCoverRed",
           "start": { "prefix": "holdCoverStartRed" },
           "hold": { "prefix": "holdCoverRed" },
-          "end": { "prefix": "holdCoverEnd" }
+          "end": { "prefix": "holdCoverEndRed" }
         },
         "up": {
           "assetPath": "shared:holdCoverGreen",
           "start": { "prefix": "holdCoverStartGreen" },
           "hold": { "prefix": "holdCoverGreen" },
-          "end": { "prefix": "holdCoverEnd" }
+          "end": { "prefix": "holdCoverEndGreen" }
         },
         "down": {
           "assetPath": "shared:holdCoverBlue",
           "start": { "prefix": "holdCoverStartBlue" },
           "hold": { "prefix": "holdCoverBlue" },
-          "end": { "prefix": "holdCoverEnd" }
+          "end": { "prefix": "holdCoverEndBlue" }
         }
       }
     },
