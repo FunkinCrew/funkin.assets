@@ -80,9 +80,32 @@
       }
     },
     "holdNoteCover": {
-      "assetPath": "",
+      "assetPath": "week6:pixelNoteHoldCover",
+      "scale": 6.0,
+      "isPixel": true,
+      "offsets": [29, -4],
       "data": {
-        "enabled": false
+        "enabled": true,
+        "left": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "right": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "up": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "down": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        }
       }
     },
     "countdownThree": {

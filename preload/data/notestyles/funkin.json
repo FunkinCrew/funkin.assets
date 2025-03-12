@@ -67,6 +67,7 @@
     },
     "holdNoteCover": {
       "assetPath": "",
+      "offsets": [0, 0],
       "data": {
         "enabled": true,
         "left": {
