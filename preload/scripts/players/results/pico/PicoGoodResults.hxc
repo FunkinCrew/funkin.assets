@@ -13,18 +13,25 @@ class PicoGoodResults extends FlxAtlasSprite
       Antialiasing: true,
       ScrollFactor: new FlxPoint(1, 1),
     });
-    onAnimationComplete.addOnce(()-> super.playAnimation("loop", true, false, true));
+    onAnimationComplete.addOnce(() -> {
+      trace('Looping Pico shooting animation...');
+      super.playAnimation("loop", true, false, true);
+    });
   }
 
   override function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
   {
-    if (FlxG.random.bool(5))
+    if (FlxG.random.bool(5)) {
+      trace('Playing special Fatass animation...');
       super.playAnimation("intro fat gf", true);
-    else if (FlxG.random.bool(20))
+    }
+    else if (FlxG.random.bool(20)) {
+      trace('Playing special Cass animation...');
       super.playAnimation("intro cass", true);
-    else
+    }
+    else {
+      trace('Playing Pico shooting animation...');
       super.playAnimation("intro", true);
-
-
+    }
   }
 }
