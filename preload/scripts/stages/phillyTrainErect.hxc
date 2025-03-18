@@ -53,6 +53,14 @@ class PhillyTrainErectStage extends Stage
 		explode = true;
   }
 
+	override function onSongRetry(event:SongRetryEvent) {
+		super.onSongRetry(event);
+
+		if (bloodPool != null) {
+			bloodPool.scriptCall('resetMatrix');
+		}
+	}
+
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 

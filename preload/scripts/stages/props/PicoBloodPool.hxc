@@ -1,5 +1,6 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
+import flixel.math.FlxMatrix;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
@@ -14,6 +15,8 @@ class PicoBloodPool extends FlxAtlasSprite
   var extend:Bool = false;
 
   var el = null;
+  var initialMat = null;
+
   public function new(x:Float, y:Float)
   {
     var path = (Preferences.naughtyness) ? "bloodPool" : "picoFlowers";
@@ -32,11 +35,14 @@ class PicoBloodPool extends FlxAtlasSprite
     {
       onAnimationComplete.addOnce((_)->{
         el = anim.curSymbol.getElement(0);
+        initialMat = new FlxMatrix();
+        initialMat.copyFrom(el.matrix);
         extend = true;
       });
     }
     // else
     //   onAnimationComplete.add((_)->this.anim.play(true));
+
 
     this.visible = false;
   }
@@ -47,6 +53,9 @@ class PicoBloodPool extends FlxAtlasSprite
     this.visible = true;
   }
 
+  public function resetMatrix() {
+    el.matrix.copyFrom(initialMat);
+  }
 
   override public function update(elapsed:Float)
   {
