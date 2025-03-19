@@ -28,6 +28,7 @@
     <menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
     <menu-item id="menubarItemPasteUnsnapped" text="Paste (Unsnapped)" shortcutText="Ctrl+Shift+V" />
     <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
+    <menu-item id="menubarItemDeleteStacked" text="Delete Stacked" shortcutText="Shift + Delete" />
     <menu-separator />
     <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" shortcutText="Ctrl+F" />
     <menu-separator />
