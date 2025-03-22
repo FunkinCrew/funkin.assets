@@ -2,7 +2,7 @@
 <collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="500">
     <hbox width="100%" height="100%">
         <vbox width="50%" height="100%">
-            <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
+            <frame text="Variation: Default" width="100%" height="75%" id="frameVariation">
                 <grid columns="2" height="100%">
                     <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
@@ -35,6 +35,12 @@
                             <item text="Pixel" />
                         </data>
                     </dropdown>
+                    <label text="Album:" verticalAlign="center" horizontalAlign="right" />
+                    <dropdown id="inputAlbum" value="placeholding" horizontalAlign="right" width="100%">
+                        <data>
+                            <item id="" text="placeholder" />
+                        </data>
+                    </dropdown>
                 </grid>
                 <hbox width="100%" horizontalAlign="center" verticalAlign="bottom">
                     <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
@@ -48,7 +54,7 @@
                     </button>
                 </hbox>
             </frame>
-            <frame text="Difficulty: Normal" width="100%" height="30%" id="frameDifficulty">
+            <frame text="Difficulty: Normal" width="100%" height="25%" id="frameDifficulty">
                 <grid columns="2">
                     <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                     <spacer />

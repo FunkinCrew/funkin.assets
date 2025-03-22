@@ -37,6 +37,12 @@
 							<item id="Pixel" text="Pixel" />
 						</data>
 					</dropdown>
+				<label text="Album:" verticalAlign="center" horizontalAlign="right" />
+				<dropdown id="dialogAlbum" value="placeholding" horizontalAlign="right" width="100%">
+					<data>
+						<item id="" text="placeholder" />
+					</data>
+				</dropdown>
 					<label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
 					<dropdown id="dialogCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
 						<validator type="required" />
