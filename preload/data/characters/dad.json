@@ -13,7 +13,7 @@
       "name": "idle-hold",
       "prefix": "idle",
       "looped": true,
-      "frameIndices": [11, 12],
+      "frameIndices": [11, 12, 13, 14],
       "offsets": [0, 0]
     },
     {
