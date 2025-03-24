@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <TextureAtlas imagePath="daddyDearest.png" width="3120" height="2047">
-  <SubTexture name="idle0001" x="1723" y="8" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0002" x="1723" y="8" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0003" x="1820" y="791" width="429" height="759" frameX="-0" frameY="-8" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0004" x="1820" y="791" width="429" height="759" frameX="-0" frameY="-8" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0005" x="2265" y="783" width="425" height="758" frameX="-1" frameY="-9" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0006" x="2265" y="783" width="425" height="758" frameX="-1" frameY="-9" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0007" x="2160" y="8" width="424" height="759" frameX="-2" frameY="-8" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0008" x="2160" y="8" width="424" height="759" frameX="-2" frameY="-8" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0009" x="1594" y="1584" width="766" height="421" rotated="true" frameX="-4" frameY="-1" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0010" x="1594" y="1584" width="766" height="421" rotated="true" frameX="-4" frameY="-1" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0011" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0012" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767" />
-  <SubTexture name="idle0013" x="1723" y="8" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767" />
+  <SubTexture name="idle0001" x="1820" y="791" width="429" height="759" frameX="-0" frameY="-8" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0002" x="1820" y="791" width="429" height="759" frameX="-0" frameY="-8" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0003" x="2265" y="783" width="425" height="758" frameX="-1" frameY="-9" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0004" x="2265" y="783" width="425" height="758" frameX="-1" frameY="-9" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0005" x="2160" y="8" width="424" height="759" frameX="-2" frameY="-8" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0006" x="2160" y="8" width="424" height="759" frameX="-2" frameY="-8" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0007" x="1594" y="1584" width="766" height="421" rotated="true" frameX="-4" frameY="-1" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0008" x="1594" y="1584" width="766" height="421" rotated="true" frameX="-4" frameY="-1" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0009" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0010" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0011" x="1723" y="8" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0012" x="1723" y="8" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0013" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
+  <SubTexture name="idle0014" x="1383" y="801" width="421" height="767" frameX="-5" frameY="-0" frameWidth="429" frameHeight="767"/>
   <SubTexture name="singDOWN0001" x="2600" y="8" width="470" height="731" frameX="-0" frameY="-5" frameWidth="470" frameHeight="736" />
   <SubTexture name="singDOWN0002" x="2600" y="8" width="470" height="731" frameX="-0" frameY="-5" frameWidth="470" frameHeight="736" />
   <SubTexture name="singDOWN0003" x="2376" y="1557" width="736" height="464" rotated="true" frameX="-3" frameY="-0" frameWidth="470" frameHeight="736" />
