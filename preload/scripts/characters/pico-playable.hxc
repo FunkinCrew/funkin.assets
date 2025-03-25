@@ -45,6 +45,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	 */
 	function createDeathSprites() {
 		deathSpriteRetry = FunkinSprite.createSparrow(0, 0, "characters/Pico_Death_Retry");
+
+		// week 3 shader
+		if (shader != null)
+		{
+			deathSpriteRetry.shader = shader;
+		}
 		// Reminder: The position for this is set in `onAnimationFrame`
 		deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
 		deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
