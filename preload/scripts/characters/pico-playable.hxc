@@ -202,7 +202,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
     PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
-    picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
+    picoDeathExplosion.onAnimationComplete.add(onExplosionFinishAnim);
     picoDeathExplosion.visible = true;
 		this.visible = false;
 
@@ -236,6 +236,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		} else if (animLabel == 'Confirm') {
 			// Do nothing, the animation will just play.
 		}
+		trace("Explosion animation finished: " + animLabel);
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -262,16 +263,20 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
-			deathSpriteRetry.animation.play('idle');
-			deathSpriteRetry.visible = true;
+			if (deathSpriteRetry != null)
+			{
+				deathSpriteRetry.animation.play('idle');
+				deathSpriteRetry.visible = true;
+
+				deathSpriteRetry.x = this.x + 195;
+				deathSpriteRetry.y = this.y - 70;
+			}
+
 			GameOverSubState.instance.startDeathMusic(1.0, false);
 			// force the deathloop to play in here, since we are starting the music early it
 			// doesn't check this in gameover substate !
 			// also no animation suffix 🤔
 			GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
-
-			deathSpriteRetry.x = this.x + 195;
-			deathSpriteRetry.y = this.y - 70;
 		}
 
 		if (name == "cock" && frameNumber == 3) {
