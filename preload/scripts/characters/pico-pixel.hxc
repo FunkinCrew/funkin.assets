@@ -34,7 +34,7 @@ class PicoPixelCharacter extends SparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
-		GameOverSubState.musicSuffix = '-pixel';
+		GameOverSubState.musicSuffix = '-pixel-pico';
 		GameOverSubState.blueBallSuffix = '-pixel-pico';
 
 		PauseSubState.musicSuffix = '-pixel';
