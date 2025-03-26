@@ -13,7 +13,7 @@
     },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "altInstrumentals": ["pico"],
     "album": "volume1",
     "previewStart": 0,

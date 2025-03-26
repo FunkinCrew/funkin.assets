@@ -28,7 +28,7 @@
     "album": "expansion2",
     "ratings": { "easy": 4, "normal": 5, "hard": 6 },
     "previewStart": 0,
-    "previewEnd": 0
+    "previewEnd": 15000
   },
   "generatedBy": "Friday Night Funkin' - v0.5.3",
   "timeFormat": "ms",

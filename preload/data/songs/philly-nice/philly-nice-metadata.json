@@ -12,7 +12,7 @@
       "altInstrumentals": ["pico"]
     },
     "songVariations": ["erect", "pico"],
-    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "album": "volume1",

@@ -6,10 +6,7 @@
   "divisions": 96,
   "looped": false,
   "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
+    "instrumental": 0
   },
   "playData": {
     "songVariations": [],

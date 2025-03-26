@@ -8,7 +8,7 @@
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000
