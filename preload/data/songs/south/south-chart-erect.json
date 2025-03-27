@@ -310,7 +310,7 @@
     {
       "t": 103051.634146342,
       "e": "FocusCamera",
-      "v": { "duration": 4, "x": 0, "y": 0, "ease": "CLASSIC", "char": 0 }
+      "v": { "duration": 4, "x": -60, "y": 0, "ease": "CLASSIC", "char": 0 }
     },
     {
       "t": 103093.951219512,
@@ -335,7 +335,7 @@
     {
       "t": 108474.634146342,
       "e": "FocusCamera",
-      "v": { "x": 0, "duration": 4, "y": 0, "char": 0, "ease": "CLASSIC" }
+      "v": { "x": -60, "duration": 4, "y": 0, "char": 0, "ease": "CLASSIC" }
     },
     {
       "t": 108517.951219512,
@@ -348,7 +348,7 @@
       "v": {
         "duration": 64,
         "ease": "sineInOut",
-        "zoom": 0.75,
+        "zoom": 0.8,
         "mode": "stage"
       }
     }
