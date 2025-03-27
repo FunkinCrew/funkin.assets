@@ -43,7 +43,10 @@ class RosesSong extends Song {
       // Play a SFX
       FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
 
-      PlayState.instance.currentStage.pause();
+      // ERIC: There's a known bug where, on the School stage, pausing the stage animations then trying
+      // to restart them causes the animations to freeze.
+      // TODO: Commenting out this line causes the animations to work but they play even during the dialogue, which is supposed to pause everything.
+      // PlayState.instance.currentStage.pause();
 
       startDialogue();
     }
