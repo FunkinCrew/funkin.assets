@@ -40,8 +40,13 @@
       "position": [1139, 908],
       "cameraOffsets": [-200, -100]
     },
-    "dad": { "zIndex": 200, "position": [334, 968], "cameraOffsets": [160, 0] },
+    "dad": {
+      "zIndex": 200,
+      "position": [84, 718],
+      "cameraOffsets": [410, 250]
+    },
     "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 766] }
   },
-  "name": "School (Hate)"
+  "name": "School (Hate)",
+  "directory": "week6"
 }

@@ -16,6 +16,11 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 
 	function new() {
 		super('pico-speaker');
+
+    ignoreExclusionPref.push("shoot1");
+		ignoreExclusionPref.push("shoot2");
+		ignoreExclusionPref.push("shoot3");
+		ignoreExclusionPref.push("shoot4");
 	}
 
 	override function onCreate(event:ScriptEvent):Void

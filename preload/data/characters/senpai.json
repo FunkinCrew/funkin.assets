@@ -18,17 +18,17 @@
     {
       "name": "singLEFT",
       "prefix": "SENPAI LEFT NOTE instance 10",
-      "offsets": [40, 0]
+      "offsets": [6.6, 0]
     },
     {
       "name": "singDOWN",
       "prefix": "SENPAI DOWN NOTE instance 10",
-      "offsets": [14, 0]
+      "offsets": [2.33, 0]
     },
     {
       "name": "singUP",
       "prefix": "SENPAI UP NOTE instance 10",
-      "offsets": [5, 37]
+      "offsets": [0.83, 6.16]
     },
     {
       "name": "singRIGHT",

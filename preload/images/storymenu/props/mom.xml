@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="mom.png" width="1707" height="419">
   <SubTexture name="idle0001" x="8" y="8" width="412" height="193" rotated="true" frameX="-2" frameY="-2" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0002" x="436" y="8" width="407" height="193" rotated="true" frameX="-2" frameY="-7" frameWidth="195" frameHeight="414" />

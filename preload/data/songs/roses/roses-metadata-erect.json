@@ -1,11 +1,10 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Roses Erect",
   "charter": "Jenny + Fabs + SpazKid",
   "artist": "kawaisprite",
   "looped": false,
   "playData": {
-    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
@@ -15,7 +14,8 @@
     },
     "stage": "school",
     "noteStyle": "pixel",
-    "ratings": { "nightmare": 9, "erect": 8 },
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000
   },

@@ -6,7 +6,6 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
-import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import funkin.modding.base.ScriptedFunkinSprite;
@@ -20,6 +19,8 @@ import flixel.tweens.FlxTween;
 class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pico-playable');
+
+    ignoreExclusionPref.push("shoot");
 	}
 
 	function onCreate(event:ScriptEvent) {
@@ -53,8 +54,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
 		var gf = PlayState.instance.currentStage.getGirlfriend();
-		deathSpriteNene.x = gf.originalPosition.x + 280;
-		deathSpriteNene.y = gf.originalPosition.y + 70;
+		deathSpriteNene.x = gf.originalPosition.x + 120;// + 280;
+		deathSpriteNene.y = gf.originalPosition.y - 200;// + 70;
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
 		deathSpriteNene.animation.finishCallback = function(name:String) {
@@ -72,6 +73,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
+				case "censor":
+					holdTimer = 0;
+					this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
+					return;
 				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
 					holdTimer = 0;
 					playCockGunAnim();
@@ -98,6 +103,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	}
 
 	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		// restore vocal volume to ensure burps always play
+		// not needed on the dark variant because this one always exists anyway..
+		if(name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
+
 		if (name == "firstDeath") {
 			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.
@@ -257,8 +266,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			// also no animation suffix 🤔
 			GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
 
-			deathSpriteRetry.x = this.x + 416;
-			deathSpriteRetry.y = this.y + 42;
+			deathSpriteRetry.x = this.x + 195;
+			deathSpriteRetry.y = this.y - 70;
 		}
 
 		if (name == "cock" && frameNumber == 3) {

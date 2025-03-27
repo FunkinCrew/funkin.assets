@@ -12,12 +12,8 @@ class Weekend1Level extends Level
     return true;
   }
 
-  function hasBeatenLevel():Bool {
-    return Save.instance.hasBeatenLevel('weekend1');
-  }
-
   override function getSongDisplayNames(difficultyId:String):Array<String> {
-    if (hasBeatenLevel()) {
+    if (Save.instance.hasBeatenLevel('weekend1')) {
       // Blazin' is a secret song ;)
       return ["Darnell", "Lit Up", "2hot", "Blazin'"];
     } else {

@@ -1,6 +1,5 @@
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
-import funkin.Paths;
 
 class ABotVisualizer extends FlxTypedSpriteGroup
 {

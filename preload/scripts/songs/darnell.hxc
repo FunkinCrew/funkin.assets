@@ -8,7 +8,6 @@ import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import funkin.Paths;
 import funkin.data.song.SongRegistry;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
