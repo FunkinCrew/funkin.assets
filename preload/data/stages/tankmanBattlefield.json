@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Tankman Battlefield",
-  "cameraZoom": 0.8,
+  "cameraZoom": 0.9,
   "props": [
     {
       "name": "tankSky",
@@ -115,7 +115,13 @@
       "scale": [1, 1],
       "scroll": [1.7, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead far right instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -127,7 +133,11 @@
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
       "animations": [
-        { "name": "idle", "prefix": "foreground", "looped": false }
+        {
+          "name": "idle",
+          "prefix": "foreground man 3 instance 1",
+          "looped": false
+        }
       ],
       "startingAnimation": "idle"
     },
@@ -139,7 +149,13 @@
       "scale": [1, 1],
       "scroll": [3.5, 2.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead 4 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -150,7 +166,13 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankman bobbin 3 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -161,7 +183,13 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead far right instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -172,7 +200,13 @@
       "scale": [1, 1],
       "scroll": [2.0, 0.2],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead 5 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     }
   ],
@@ -188,5 +222,6 @@
       "cameraOffsets": [250, -100]
     },
     "gf": { "zIndex": 100, "position": [660.5, 715], "cameraOffsets": [0, 0] }
-  }
+  },
+  "directory": "week7"
 }

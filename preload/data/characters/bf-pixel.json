@@ -11,7 +11,7 @@
     "isPixel": true
   },
   "death": {
-    "cameraOffsets": [200, 200]
+    "cameraOffsets": [0, 0]
   },
   "scale": 6,
   "animations": [
@@ -64,20 +64,20 @@
       "name": "firstDeath",
       "prefix": "BF Dies pixel",
       "assetPath": "characters/bfPixelsDEAD",
-      "offsets": [50, 0]
+      "offsets": [8.33, 0]
     },
     {
       "name": "deathLoop",
       "prefix": "Retry Loop",
       "assetPath": "characters/bfPixelsDEAD",
       "looped": true,
-      "offsets": [20, -12.5]
+      "offsets": [3.33, -2.08]
     },
     {
       "name": "deathConfirm",
       "prefix": "RETRY CONFIRM",
       "assetPath": "characters/bfPixelsDEAD",
-      "offsets": [20, -12.5]
+      "offsets": [3.33, -2.08]
     }
   ]
 }

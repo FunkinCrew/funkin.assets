@@ -111,8 +111,15 @@
       "body": [
         { "line": "BassetFilms" },
         { "line": "Kohta Takahashi" },
+        { "line": "Lotus Juice"},
+        { "line": "METAROOM"},
+        { "line": "nuphory"},
+        { "line": "Saster" },
         { "line": "SixImpala" },
-        { "line": "Saster" }
+        { "line": "TeraVex"},
+        { "line": "ThatAndyGuy"},
+        { "line": "tsuyunoshi"},
+        { "line": "xploshi"}
       ]
     },
     {
@@ -126,7 +133,7 @@
       "header": "Additional Programming",
       "body": [
         { "line": "Jenny Crowe" },
-        { "line": "hazel (ravy)" },
+        { "line": "ember ana" },
         { "line": "Mike Welsh" },
         { "line": "Saharan" },
         { "line": "Ian Harrigan" },
@@ -134,13 +141,13 @@
         { "line": "Emma (MtH)" },
         { "line": "George Kurelic" },
         { "line": "Will Blanton" },
-        { "line": "Cheemsandfriends - FlxAnimate" }
+        { "line": "Victor - Cheemsandfriends" }
       ]
     },
     {
       "header": "Devops and Additional Internal Tooling",
       "body": [
-        { "line": "hazel (ravy)" }
+        { "line": "ember ana" }
       ]
     },
     {

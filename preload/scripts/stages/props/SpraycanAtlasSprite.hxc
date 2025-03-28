@@ -1,5 +1,4 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.Paths;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
@@ -24,7 +23,7 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
       ScrollFactor: new FlxPoint(1, 1),
     });
 
-    onAnimationFinish.add(finishCanAnimation);
+    onAnimationComplete.add(finishCanAnimation);
   }
 
   public function finishCanAnimation(name:String) {

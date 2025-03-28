@@ -1,10 +1,9 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Stress",
   "artist": "Kawai Sprite",
   "charter": "MtH + SpazKid",
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-holding-gf",

@@ -9,7 +9,6 @@ import funkin.Conductor;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import funkin.Paths;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -34,14 +33,6 @@ class EggnogSong extends Song
 		hasPlayedCutscene = false;
 	}
 
-	public override function isSongNew(currentDifficulty:String):Bool{
-		if(currentDifficulty == 'erect' || currentDifficulty == 'nightmare'){
-			if(Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']) == false) return true;
-		}else{
-			return false;
-		}
-	}
-
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 		trace(PlayState.instance.currentVariation);
@@ -52,6 +43,29 @@ class EggnogSong extends Song
 		super.onSongRetry(event);
 
 	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+	{
+		if(currentVariation == 'pico')
+			return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+		return false;
+	}
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+    	var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    	switch (variationId) {
+    	  case 'pico':
+    	    // return hasBeatenPicoMix ? [''] : [];
+    	    // No Pico mix on BF instrumental, sorry!
+    	    return [];
+    	  default:
+    	    return hasBeatenPicoMix ? ['pico'] : [];
+    	}
+		}
+  }
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);

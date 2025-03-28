@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "renderType": "sparrow",
+  "renderType": "multisparrow",
   "offsets": [0, -50],
   "danceEvery": 1,
   "scale": 1,
@@ -74,6 +74,33 @@
       "prefix": "TANKMAN UGH instance 1",
       "flipX": false,
       "name": "ugh"
+    },
+    {
+      "flipY": false,
+      "offsets": [-18, 10],
+      "frameRate": 24,
+      "prefix": "tankman laugh",
+      "flipX": true,
+      "assetPath": "characters/tankmanPico",
+      "name": "laugh"
+    },
+    {
+      "flipY": false,
+      "offsets": [90, -9],
+      "frameRate": 24,
+      "prefix": "tankman beat it",
+      "assetPath": "characters/tankmanPico",
+      "flipX": true,
+      "name": "beat it"
+    },
+    {
+      "flipY": false,
+      "offsets": [52, -6],
+      "frameRate": 24,
+      "prefix": "tankman ARGH",
+      "assetPath": "characters/tankmanPico",
+      "flipX": true,
+      "name": "augh"
     }
   ]
 }

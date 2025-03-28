@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="tankman.png" width="1882" height="246">
   <SubTexture name="idle0001" x="8" y="8" width="292" height="228" rotated="true" frameX="-3" frameY="-10" frameWidth="231" frameHeight="302" />
   <SubTexture name="idle0005" x="316" y="8" width="295" height="228" rotated="true" frameX="-1" frameY="-7" frameWidth="231" frameHeight="302" />

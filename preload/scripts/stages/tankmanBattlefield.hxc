@@ -1,6 +1,5 @@
 import flixel.FlxG;
 import flixel.math.FlxAngle;
-import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 

@@ -60,19 +60,20 @@
     "bf": {
       "zIndex": 2000,
       "scale": 1.75,
-      "position": [-237, -200],
+      "position": [-237, 100],
       "cameraOffsets": [-350, -100]
     },
     "gf": {
       "zIndex": 1000,
-      "position": [1353, 925],
+      "position": [1353, 1125],
       "cameraOffsets": [0, 20]
     },
     "dad": {
       "zIndex": 3000,
       "scale": 1.75,
-      "position": [-237, -150],
+      "position": [-237, 150],
       "cameraOffsets": [500, 200]
     }
-  }
+  },
+  "directory": "weekend1"
 }
