@@ -68,6 +68,10 @@
       "name": "laughEnd",
       "prefix": "pico nene laughing full0",
       "offsets": [5, 7]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": ""
     }
   ]
 }

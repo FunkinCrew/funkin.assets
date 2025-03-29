@@ -90,7 +90,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 	}
 
 	function afterPicoDeathNeneIntro():Void {
-		GameOverSubState.instance.startDeathMusic(1.0, false);
+		GameOverSubState.instance.playDeathQuote();
 	}
 
 	function onAnimationComplete(currentAnim:String):Void {
@@ -103,5 +103,9 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 
 	function doDeathConfirm():Void {
 		deathSpriteRetry.playAnimation("confirm", true, false, true);
+	}
+
+	override function getDeathQuote():Null<String> {
+    return Paths.sound('tickleFight');
 	}
 }
