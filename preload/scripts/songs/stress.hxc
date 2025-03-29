@@ -40,7 +40,11 @@ class StressSong extends Song {
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    var usePicoVideo = false;
+
+    // Skip the cutscene if we are in Freeplay.
+    if (PlayState.instance.currentVariation == 'default' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (PlayState.instance.currentVariation == 'pico') usePicoVideo = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play a video cutscene (`stress`)');
@@ -49,7 +53,7 @@ class StressSong extends Song {
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      startVideo(usePicoVideo);
     }
 
     trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
@@ -76,8 +80,10 @@ class StressSong extends Song {
 
   }
 
-  function startVideo() {
-    VideoCutscene.play(Paths.videos('stressCutscene'));
+  function startVideo(usePicoVideo:Bool) {
+    var targetVideo = usePicoVideo ? Paths.videos('toyCommercial') : Paths.videos('stressCutscene');
+
+    VideoCutscene.play(targetVideo);
   }
 
   /**
