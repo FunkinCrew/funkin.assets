@@ -41,7 +41,7 @@
     },
     {
       "name": "singRIGHTmiss",
-      "prefix": "note miss up piconene0",
+      "prefix": "note miss right pico nene0",
       "offsets": [-45, -19]
     },
     {
@@ -51,7 +51,7 @@
     },
     {
       "name": "singUPmiss",
-      "prefix": "note miss right pico nene0",
+      "prefix": "note miss up piconene0",
       "offsets": [60, 2]
     },
     {
@@ -63,6 +63,11 @@
       "name": "knifeToss",
       "prefix": "pico nene knife toss0",
       "offsets": [14, 26]
+    },
+    {
+      "name": "laughEnd",
+      "prefix": "pico nene laughing full0",
+      "offsets": [5, 7]
     }
   ]
 }

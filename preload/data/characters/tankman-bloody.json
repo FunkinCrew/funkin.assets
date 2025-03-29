@@ -128,6 +128,15 @@
       "flipX": false,
       "assetPath": "characters/tankmanCaptainBloody",
       "name": "redheadsAnim"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 90],
+      "frameRate": 24,
+      "prefix": "pretty good anim0",
+      "assetPath": "characters/tankmanCaptainBloody",
+      "flipX": false,
+      "name": "hehPrettyGood-bloody"
     }
   ]
 }
