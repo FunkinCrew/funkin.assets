@@ -81,7 +81,7 @@ class StressSong extends Song {
   }
 
   function startVideo(usePicoVideo:Bool) {
-    var targetVideo = usePicoVideo ? Paths.videos('toyCommercial') : Paths.videos('stressCutscene');
+    var targetVideo = usePicoVideo ? Paths.videos('stressPicoCutscene') : Paths.videos('stressCutscene');
 
     VideoCutscene.play(targetVideo);
   }
