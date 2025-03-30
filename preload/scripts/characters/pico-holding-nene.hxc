@@ -27,7 +27,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico-and-nene';
 
 		PauseSubState.musicSuffix = '-pico';
 	}
@@ -37,7 +37,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 
 		// Reset to standard death animation.
 		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-pico';
+		GameOverSubState.blueBallSuffix = '-pico-and-nene';
 
 		PauseSubState.musicSuffix = '-pico';
 
