@@ -9,7 +9,8 @@
   "offsets": [20, 2],
   "death": {
     "cameraOffsets": [10, -40],
-    "cameraZoom": 1.0
+    "cameraZoom": 1.0,
+    "deathQuoteDelay": 3.0
   },
   "flipX": true,
   "renderType": "sparrow",

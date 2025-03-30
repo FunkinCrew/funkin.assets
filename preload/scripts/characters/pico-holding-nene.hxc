@@ -14,7 +14,7 @@ import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
-
+import funkin.Preferences;
 
 class PicoHoldingNeneCharacter extends SparrowCharacter {
 	function new() {
@@ -90,7 +90,13 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 	}
 
 	function afterPicoDeathNeneIntro():Void {
-		GameOverSubState.instance.playDeathQuote();
+		// Delay the death quote because the first death animation is so fast.
+		new FlxTimer().start(1.5, function(_) {
+			// Prevent playing the death quote twice or if skipping the death animation.
+			if (GameOverSubState.instance.hasPlayedDeathQuote) return;
+
+			GameOverSubState.instance.playDeathQuote();
+    });
 	}
 
 	function onAnimationComplete(currentAnim:String):Void {
@@ -105,7 +111,11 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 		deathSpriteRetry.playAnimation("confirm", true, false, true);
 	}
 
-	override function getDeathQuote():Null<String> {
-    return Paths.sound('tickleFight');
+	function getDeathQuote():Null<String> {
+		var randomCensor:Array<Int> = [];
+
+		if (!Preferences.naughtyness) randomCensor = [];
+
+    return Paths.sound('jeffGameover-pico/jeffGameover-' + FlxG.random.int(1, 10, randomCensor));
 	}
 }
