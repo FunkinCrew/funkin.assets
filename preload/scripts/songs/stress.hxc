@@ -123,8 +123,10 @@ class StressSong extends Song {
 
       if(cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
 
-			rimlightCamera.focusOn(new FlxPoint(PlayState.instance.camGame.viewLeft + PlayState.instance.camGame.viewWidth/2, PlayState.instance.camGame.viewTop + PlayState.instance.camGame.viewHeight/2));
-			rimlightCamera.zoom = PlayState.instance.camGame.zoom;
+      if (rimlightCamera != null) {
+        rimlightCamera.focusOn(new FlxPoint(PlayState.instance.camGame.viewLeft + PlayState.instance.camGame.viewWidth/2, PlayState.instance.camGame.viewTop + PlayState.instance.camGame.viewHeight/2));
+        rimlightCamera.zoom = PlayState.instance.camGame.zoom;
+      }
 
       if(FlxG.mouse.pressed){
        // tankmanCutscene.x = FlxG.mouse.viewX - PlayState.instance.currentStage.getDad().x;
