@@ -269,7 +269,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
-			if (deathSpriteRetry != null)
+			if (deathSpriteRetry != null && deathSpriteRetry.animation != null)
 			{
 				deathSpriteRetry.animation.play('idle');
 				deathSpriteRetry.visible = true;
