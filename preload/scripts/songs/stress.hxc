@@ -227,6 +227,8 @@ class StressSong extends Song {
     });
 
     new FlxTimer(cutsceneTimerManager).start(320/24, _ -> {
+      FlxG.cameras.remove(rimlightCamera);
+      rimlightCamera = null;
       PlayState.instance.endSong(true);
     });
 	}
