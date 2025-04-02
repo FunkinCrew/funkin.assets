@@ -13,6 +13,7 @@
   "showUnownedChars": false,
   "unlocked": true,
   "freeplayStyle": "pico",
+  "stickerPack": "standard-pico",
   "freeplayDJ": {
     "assetPath": "freeplay/freeplay-pico",
     "text1": "PICO",

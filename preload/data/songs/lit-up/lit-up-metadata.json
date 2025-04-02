@@ -15,6 +15,7 @@
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "songVariations": ["bf"],
     "album": "volume3",
+    "stickerPack": "bonus-weekend1",
     "previewStart": 0,
     "previewEnd": 15000
   },

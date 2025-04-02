@@ -5,6 +5,7 @@
   "showUnownedChars": true,
   "unlocked": true,
   "freeplayStyle": "bf",
+  "stickerPack": "standard-bf",
   "freeplayDJ": {
     "assetPath": "freeplay/freeplay-boyfriend",
     "cartoon": {
