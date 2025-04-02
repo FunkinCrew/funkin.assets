@@ -60,7 +60,7 @@ class NenePixelCharacter extends SparrowCharacter {
 		abotSpeaker.animation.addByPrefix('danceLeft', 'danceLeft', 24, false);
 
 		abotBack = FunkinSprite.create(0, 0, 'characters/abotPixel/aBotPixelBack');
-		abotBack.scale.set(6, 6);
+		abotBack.scale.set(6.1, 6);
 		abotBack.antialiasing = false;
 		abotBack.x = this.x;
 		abotBack.y = this.y;
