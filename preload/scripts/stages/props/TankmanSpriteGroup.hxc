@@ -16,6 +16,8 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
 	var isErect:Bool = false;
 
+	var isEasterEgg:Bool = false;
+
 	function new(erect:Bool)
 	{
 		super(0, 0, 4);
@@ -59,7 +61,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		for (note in animNotes)
 		{
 			// Only one out of every 16 notes, on average, is a tankman.
-			if (FlxG.random.bool(6.25))
+			if (FlxG.random.bool(1 / 16 * 100))
 			{
 				tankmanTimes.push(note.time);
 				var goingRight:Bool = (note.data == 2 || note.data == 3) ? false : true;

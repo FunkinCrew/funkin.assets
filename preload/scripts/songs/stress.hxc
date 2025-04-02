@@ -21,7 +21,7 @@ import flixel.util.FlxTimerManager;
 
 class StressSong extends Song {
   var hasPlayedCutscene:Bool;
-	var tankmanGroup:TankmanSpriteGroup;
+	var tankmanGroup:TankmanSpriteGroup = null;
 
 	public function new() {
 		super('stress');
@@ -56,8 +56,10 @@ class StressSong extends Song {
       startVideo(usePicoVideo);
     }
 
-    trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-    tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
+    if (tankmanGroup == null) {
+      trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
+      tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
+    }
 
     if (tankmanGroup != null) {
       // resets the tankmen!
@@ -71,8 +73,6 @@ class StressSong extends Song {
       trace('Failed to initialize tankman group!');
     }
 	}
-
-  var tankmanGroup = null;
 
   function onSongStart(event:ScriptEvent):Void
   {
@@ -234,7 +234,11 @@ class StressSong extends Song {
 	}
 
   function kill():Void {
-		if (tankmanGroup != null) {
+    cleanupTankmanGroup();
+  }
+
+  function cleanupTankmanGroup():Void {
+    		if (tankmanGroup != null) {
       PlayState.instance.currentStage.remove(tankmanGroup);
       tankmanGroup.destroy();
       tankmanGroup = null;
