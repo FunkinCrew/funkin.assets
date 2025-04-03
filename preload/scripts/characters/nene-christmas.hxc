@@ -257,12 +257,15 @@ class NeneChristmasCharacter extends SparrowCharacter {
 		}
 	}
 
-	public function onScriptEvent(event:ScriptEvent):Void {
-		if (event.type == "SONG_START")
-		{
-			abotViz.snd = FlxG.sound.music;
-			abotViz.initAnalyzer();
-		}
+	override function onSongStart(event:ScriptEvent) {
+		abotViz.snd = FlxG.sound.music;
+		abotViz.initAnalyzer();
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry();
+		abotViz.dumpSound();
 	}
 
 	var animationFinished:Bool = false;
