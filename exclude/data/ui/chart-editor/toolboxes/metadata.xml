@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="492">
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="522">
     <vbox width="100%" height="100%">
-        <frame text="Variation: Default" width="100%" height="250" id="frameVariation">
+        <frame text="Variation: Default" width="100%" height="280" id="frameVariation">
             <vbox width="100%" height="100%">
                 <grid columns="2" height="100%">
+                    <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
+                    <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
                     <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
