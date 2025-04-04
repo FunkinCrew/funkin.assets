@@ -59,9 +59,8 @@ class StressSong extends Song {
 
     var usePicoVideo = false;
 
-    // Skip the cutscene if we are in Freeplay.
-    if (PlayState.instance.currentVariation == 'default' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
-    if (PlayState.instance.currentVariation == 'pico') usePicoVideo = true;
+    // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
+    if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play a video cutscene (`stress`)');
