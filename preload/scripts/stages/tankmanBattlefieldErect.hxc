@@ -21,6 +21,7 @@ class TankmanBattlefieldErectStage extends Stage
 	var tankmanRim:DropShadowShader;
 
 	public function onGameOver(event:ScriptEvent) {
+		super.onGameOver(event);
 		getBoyfriend().shader = null;
 	}
 
@@ -35,27 +36,25 @@ class TankmanBattlefieldErectStage extends Stage
 		character.shader = rim;
 		rim.attachedSprite = character;
 
-		// character.animation.callback = rim.onAttachedFrame;
-
 		switch(charType){
 			case CharacterType.BF:
 
 				rim.angle = 90;
 
-				character.animation.callback = function() {
+				character.animation.onFrameChange.add(function() {
 					if (getBoyfriend() != null)
 					{
       			rim.updateFrameInfo(getBoyfriend().frame);
 					}
-    		};
+    		});
 
 			case CharacterType.GF:
 
 				rim.angle = 90;
 
-				character.animation.callback = function() {
+				character.animation.onFrameChange.add(function() {
       		rim.updateFrameInfo(getGirlfriend().frame);
-    		};
+    		});
 
 				if(getGirlfriend().characterId == 'gf-tankmen'){
 					rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
@@ -68,9 +67,9 @@ class TankmanBattlefieldErectStage extends Stage
 				rim.angle = 135;
 				rim.threshold = 0.3;
 
-				character.animation.callback = function() {
+				character.animation.onFrameChange.add(function() {
       		rim.updateFrameInfo(getDad().frame);
-    		};
+    		});
 
 				if(getDad().characterId == 'tankman-bloody'){
 					rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');

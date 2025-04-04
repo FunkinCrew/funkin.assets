@@ -68,9 +68,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		deathSpriteNene.zIndex = this.zIndex - 5;
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
-		deathSpriteNene.animation.finishCallback = function(name:String) {
+		deathSpriteNene.animation.onFinish.add(function(name:String) {
 			deathSpriteNene.visible = false;
-		}
+		});
 	}
 
 	function onNoteHit(event:HitNoteScriptEvent)
@@ -268,6 +268,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
+		trace('onAnimationFrame: ' + name + ' ' + frameNumber + ' ' + frameIndex);
+
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			if (deathSpriteRetry != null && deathSpriteRetry.animation != null)
 			{
@@ -351,6 +353,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		this.playAnimation('shootMISS', true, true);
 		// Donk.
 		FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
+	}
+
+	function onUpdate(event:ScriptEvent) {
+		super.onUpdate(event);
+
+		if (deathSpriteRetry != null)
+			trace('deathSpriteRetry: ' + deathSpriteRetry.visible + ' (' + deathSpriteRetry.x + ', ' + deathSpriteRetry.y + ')');
 	}
 
 	function addToStage(sprite:FlxSprite) {

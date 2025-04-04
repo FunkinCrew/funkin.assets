@@ -38,7 +38,7 @@ class SpookyMansionErectStage extends Stage
 
 		rainShaderTarget = getNamedProp('bgTrees');
 		rainShaderTarget.shader = rainShader;
-		rainShaderTarget.animation.callback = onBranchFrame;
+		rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 	}
 
 	function onBranchFrame(name, frameNum, frameIndex) {

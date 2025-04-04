@@ -44,12 +44,12 @@ class SchoolPicoStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.callback = function() {
+				character.animation.onFrameChange(function() {
 					if (getBoyfriend() != null)
 					{
       			rim.updateFrameInfo(getBoyfriend().frame);
 					}
-    		};
+    		});
 
 			case CharacterType.GF:
 
@@ -62,9 +62,12 @@ class SchoolPicoStage extends Stage
 
 				character.scriptCall('addSunsetShaders');
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getGirlfriend().frame);
-    		};
+				character.animation.onFrameChange(function() {
+					if (getGirlfriend() != null)
+					{
+						rim.updateFrameInfo(getGirlfriend().frame);
+					}
+    		});
 
 			case CharacterType.DAD:
 
@@ -75,9 +78,12 @@ class SchoolPicoStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getDad().frame);
-    		};
+				character.animation.onFrameChange(function() {
+					if (getDad() != null)
+					{
+						rim.updateFrameInfo(getDad().frame);
+					}
+    		});
 
 			default:
 

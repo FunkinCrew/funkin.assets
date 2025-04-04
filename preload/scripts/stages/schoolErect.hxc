@@ -44,12 +44,12 @@ class SchoolErectStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.callback = function() {
+				character.animation.onFrameChange.add(function() {
 					if (getBoyfriend() != null)
 					{
       			rim.updateFrameInfo(getBoyfriend().frame);
 					}
-    		};
+    		});
 
 			case CharacterType.GF:
 
@@ -63,9 +63,12 @@ class SchoolErectStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getGirlfriend().frame);
-    		};
+				character.animation.onFrameChange.add(function() {
+					if (getGirlfriend() != null)
+					{
+						rim.updateFrameInfo(getGirlfriend().frame);
+					}
+    		});
 
 			case CharacterType.DAD:
 
@@ -76,9 +79,12 @@ class SchoolErectStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getDad().frame);
-    		};
+				character.animation.onFrameChange.add(function() {
+					if (getDad() != null)
+					{
+						rim.updateFrameInfo(getDad().frame);
+					}
+    		});
 
 			default:
 
