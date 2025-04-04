@@ -321,7 +321,7 @@
 					</vbox>
 
 					<vbox width="100%">
-						<label width="100%" text="In regards to flow, let's say If the player character makes a repeated sound constantly (let's say 2), you don't want players to spam that key, make a two handed trill instead (4 and 1)." />
+						<label width="100%" text="In regards to flow, let's say If the player character makes a repeated sound constantly (let's say 2), you don't want players to spam that key, make a two handed trill instead (1 and 4 or 1 and 2)." />
 						<vbox width="100%">
 							<grid columns="3" style="padding: 5px; margin-left: 300px" contentWidth="100%">
 								<vbox id="pattern">
