@@ -9,12 +9,12 @@
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
-      "opponent": "parents-christmas"
+      "opponent": "parents-christmas",
+      "altInstrumentals": ["pico"]
     },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-    "altInstrumentals": ["pico"],
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000
