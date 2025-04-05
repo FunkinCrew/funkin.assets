@@ -5,12 +5,6 @@
   "charter": "Fabs + Spazkid",
   "divisions": 96,
   "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],

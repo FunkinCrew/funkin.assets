@@ -3,6 +3,18 @@
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "offsets": {
+    "instrumental": 0.0,
+    "altInstrumentals": {
+      "pico": -4000.0
+    },
+    "altVocals": {
+      "pico": {
+        "senpai-angry": 4000.0,
+        "bf-pixel": 4000.0
+      }
+    }
+  },
   "playData": {
     "stage": "school",
     "characters": {

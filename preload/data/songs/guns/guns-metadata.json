@@ -3,12 +3,6 @@
   "timeFormat": "ms",
   "artist": "Kawai Sprite",
   "charter": "MtH",
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
     "stage": "tankmanBattlefield",
     "songVariations": ["pico"],
