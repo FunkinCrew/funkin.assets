@@ -26,4 +26,9 @@ class LitUpSong extends Song {
 		// Hide all difficulties if the player has not beaten the week.
 		return [];
 	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		// NOTE: Lit Up (BF Mix) is incompatible with the base song, so this should always be empty.
+		return [];
+	}
 }
