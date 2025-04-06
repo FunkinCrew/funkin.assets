@@ -233,6 +233,11 @@ class StressSong extends Song {
     });
 	}
 
+  function onDestroy(event:ScriptEvent):Void {
+    super.onDestroy(event);
+    cleanupTankmanGroup();
+  }
+
   function kill():Void {
     cleanupTankmanGroup();
   }
