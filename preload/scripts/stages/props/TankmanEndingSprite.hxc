@@ -30,9 +30,20 @@ class TankmanEndingSprite extends FlxAtlasSprite
     if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
+  public function pauseSounds()
+  {
+    if(cutsceneSounds != null) cutsceneSounds.pause();
+  }
+
+  public function resumeSounds()
+  {
+    if(cutsceneSounds != null) cutsceneSounds.resume();
+  }
+
   function doAnim()
   {
     playAnimation("tankman stress ending", true, false, false);
     cutsceneSounds = FunkinSound.load(Paths.sound('erect/endCutscene'), 1.0, false, true, true);
+    cutsceneSounds.play(true);
   }
 }
