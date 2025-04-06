@@ -35,8 +35,17 @@ class PicoDopplegangerSprite extends FlxAtlasSprite
     if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
-  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager)
+  public function pauseSounds()
   {
+    if(cutsceneSounds != null) cutsceneSounds.pause();
+  }
+
+  public function resumeSounds()
+  {
+    if(cutsceneSounds != null) cutsceneSounds.resume();
+  }
+
+  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager){
     suffix = _suffix;
 
     trace('Doppelganger: doAnim(' + suffix + ', ' + shoot + ', ' + explode + ')');
