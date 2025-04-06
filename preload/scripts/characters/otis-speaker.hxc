@@ -221,7 +221,7 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		}
 
     // Each Pico animation is shifted from the array when it's time to play it.
-		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
+		while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
 			var nextTime:Float = shootTimes.shift();
 			var nextDir:Int = shootDirs.shift();
 
