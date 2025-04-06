@@ -18,6 +18,8 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
+import funkin.play.PauseSubState;
+import funkin.play.PauseMode;
 
 class StressSong extends Song {
   var hasPlayedCutscene:Bool;
@@ -138,6 +140,7 @@ class StressSong extends Song {
   }
 
   var hasPlayedEndCutscene:Bool = false;
+  var canPause:Bool = true;
 
 	var tankmanCutscene:ScriptedFlxAtlasSprite;
   var rimlightCamera:FlxCamera;
@@ -149,11 +152,31 @@ class StressSong extends Song {
 
 		if(PlayState.instance.isInCutscene){
 
-      if(cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
+      if(cutsceneTimerManager != null && cutsceneTimerManager.active) cutsceneTimerManager.update(event.elapsed);
 
       if (rimlightCamera != null) {
         rimlightCamera.focusOn(new FlxPoint(PlayState.instance.camGame.viewLeft + PlayState.instance.camGame.viewWidth/2, PlayState.instance.camGame.viewTop + PlayState.instance.camGame.viewHeight/2));
         rimlightCamera.zoom = PlayState.instance.camGame.zoom;
+      }
+
+      if (tankmanCutscene != null && PlayState.instance.controls.PAUSE && !PlayState.instance.isGamePaused && !PlayState.instance.justUnpaused && canPause)
+      {
+        if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
+        if(bgSprTween != null) bgSprTween.active = false;
+
+        tankmanCutscene.scriptCall('pauseSounds');
+
+        var pauseSubState:FlxSubState = new PauseSubState(
+        {
+          mode: PauseMode.Cutscene(
+						'Cutscene', 'In-Game Cutscene',
+						resumeEndCutscene, skipEndCutscene, restartEndCutscene
+					)
+        });
+
+        PlayState.instance.persistentUpdate = false;
+        pauseSubState.camera = PlayState.instance.camCutscene;
+        PlayState.instance.openSubState(pauseSubState);
       }
 
       if(FlxG.mouse.pressed){
@@ -199,20 +222,26 @@ class StressSong extends Song {
 	}
 
   var cutsceneTimerManager:FlxTimerManager;
+  var bgSprTween:FlxTween;
 
 	function startEndCutscene(){
     var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
 		var otisPos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
 		var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
-    cutsceneTimerManager = new FlxTimerManager();
+    if(cutsceneTimerManager == null)
+      cutsceneTimerManager = new FlxTimerManager();
 
     // Disable player input during cutscene, so you can't get a gameover during cutscene
 		PlayState.instance.isInCutscene = true;
     PlayState.instance.camHUD.visible = false;
 
-		rimlightCamera = new FlxCamera();
-    FlxG.cameras.insert(rimlightCamera, -1, false);
+    if(rimlightCamera == null)
+    {
+      rimlightCamera = new FlxCamera();
+      FlxG.cameras.insert(rimlightCamera, -1, false);
+    }
+
     rimlightCamera.bgColor = 0x00FFFFFF; // Show the game scene behind the camera.
 
     screenspaceRimlight.baseBrightness = -46;
@@ -227,14 +256,18 @@ class StressSong extends Song {
 
     rimlightCamera.filters = [rimlightFilter];
 
-		tankmanCutscene = ScriptedFlxAtlasSprite.init('TankmanEndingSprite', 0, 0);
+    if(tankmanCutscene == null)
+    {
+      tankmanCutscene = ScriptedFlxAtlasSprite.init('TankmanEndingSprite', 0, 0);
+      PlayState.instance.currentStage.add(tankmanCutscene);
+    }
+
 		tankmanCutscene.setPosition(PlayState.instance.currentStage.getDad().x + 723, PlayState.instance.currentStage.getDad().y + 145);
 
     PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 70, 2.8, FlxEase.expoOut);
     PlayState.instance.tweenCameraZoom(0.65, 2, true, FlxEase.expoOut);
 
     PlayState.instance.currentStage.getDad().visible = false;
-		PlayState.instance.currentStage.add(tankmanCutscene);
 		tankmanCutscene.cameras = [rimlightCamera];
 
     tankmanCutscene.scriptCall('doAnim');
@@ -245,7 +278,7 @@ class StressSong extends Song {
 
     new FlxTimer(cutsceneTimerManager).start(270/24, _ -> {
       PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 370, 2, FlxEase.quadInOut);
-      FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
+      bgSprTween = FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
     });
 
     new FlxTimer(cutsceneTimerManager).start(320/24, _ -> {
@@ -254,6 +287,34 @@ class StressSong extends Song {
       PlayState.instance.endSong(true);
     });
 	}
+
+  function resumeEndCutscene()
+  {
+    if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+    if(bgSprTween != null) bgSprTween.active = true;
+    tankmanCutscene.scriptCall('resumeSounds');
+  }
+
+  function skipEndCutscene()
+  {
+      canPause = false;
+      PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 370, 2, FlxEase.quadInOut);
+      bgSprTween = FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
+  }
+
+  function restartEndCutscene()
+  {
+    if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+    cutsceneTimerManager.clear();
+    if(bgSprTween != null) bgSprTween.cancel();
+    bgSprite.alpha = 0;
+    PlayState.instance.currentStage.getBoyfriend().canPlayOtherAnims = true;
+    PlayState.instance.currentStage.getBoyfriend().dance(true);
+    tankmanCutscene.scriptCall('cancelSounds');
+    startEndCutscene();
+  }
 
   function kill():Void {
     cleanupTankmanGroup();

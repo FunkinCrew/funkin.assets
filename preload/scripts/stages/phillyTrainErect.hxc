@@ -518,6 +518,7 @@ class PhillyTrainErectStage extends Stage
 		cutsceneTimerManager.clear();
 		picoPlayer.scriptCall('cancelSounds');
 		picoOpponent.scriptCall('cancelSounds');
+		
 		cutsceneMusic.stop();
 		doppleGangerCutscene();
 	}
