@@ -19,6 +19,8 @@ import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
+import funkin.play.PauseSubState;
+import funkin.play.PauseMode;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -33,11 +35,10 @@ class PhillyTrainErectStage extends Stage
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
   var colorShader:AdjustColorShader;
-	var cutsceneMusic:FunkinSound;
+	var cutsceneMusic:FunkinSound = null;
 
 	var hasPlayedInGameCutscene:Bool = false;
 	var cutsceneSkipped:Bool = false;
-	var canSkipCutscene:Bool = false;
 
 	/**
    * Replay the cutscene after leaving the song.
@@ -48,7 +49,6 @@ class PhillyTrainErectStage extends Stage
 
     hasPlayedInGameCutscene = false;
 		cutsceneSkipped = false;
-	  canSkipCutscene = false;
 		playerShoots = false;
 		explode = true;
   }
@@ -71,15 +71,13 @@ class PhillyTrainErectStage extends Stage
     }else{
 			hasPlayedInGameCutscene = true;
 			cutsceneSkipped = true;
-	 	 	canSkipCutscene = true;
 		}
 	}
 
-	var picoPlayer:ScriptedFlxAtlasSprite;
-	var picoOpponent:ScriptedFlxAtlasSprite;
-	var bloodPool:ScriptedFlxAtlasSprite;
-	var cigarette:FlxSprite;
-	var skipText:FlxText;
+	var picoPlayer:ScriptedFlxAtlasSprite = null;
+	var picoOpponent:ScriptedFlxAtlasSprite = null;
+	var bloodPool:ScriptedFlxAtlasSprite = null;
+	var cigarette:FlxSprite = null;
 
 	var playerShoots:Bool;
 	var explode:Bool;
@@ -88,18 +86,12 @@ class PhillyTrainErectStage extends Stage
 
 	var cutsceneTimerManager:FlxTimerManager;
 
-	function doppleGangerCutscene(){
+	var gaspSound:FunkinSound = null;
 
+	function doppleGangerCutscene()
+	{
 		// Disable player input during cutscene, so you can't get a gameover during cutscene
 		PlayState.instance.isInCutscene = true;
-		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
-    skipText.scrollFactor.set();
-		skipText.borderSize = 2;
-		skipText.alpha = 0;
-    add(skipText);
-
-    skipText.cameras = [PlayState.instance.camCutscene];
 
 		cutsceneTimerManager = new FlxTimerManager();
 
@@ -127,10 +119,10 @@ class PhillyTrainErectStage extends Stage
 		var cigarettePos:Array<Float> = [];
 		var shooterPos:Array<Float> = [];
 
-		bloodPool = ScriptedFlxAtlasSprite.init('PicoBloodPool', 0, 0);
-		picoPlayer = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
-		picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
-		cigarette = new FlxSprite(0, 0);
+		if(bloodPool == null) bloodPool = ScriptedFlxAtlasSprite.init('PicoBloodPool', 0, 0);
+		if(picoPlayer == null) picoPlayer = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+		if(picoOpponent == null) picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+		if(cigarette == null) cigarette = new FlxSprite(0, 0);
 
 		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 48.5, PlayState.instance.currentStage.getBoyfriend().y + 400);
 		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 82, PlayState.instance.currentStage.getDad().y + 400);
@@ -178,18 +170,26 @@ class PhillyTrainErectStage extends Stage
 		PlayState.instance.currentStage.getBoyfriend().visible = false;
 		PlayState.instance.currentStage.getDad().visible = false;
 
-		if(explode == false){
-			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
-		}else{
-			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3"), true);
+		if(cutsceneMusic == null)
+		{
+			if(explode == false){
+				cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
+			}else{
+				cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3"), true);
+			}
 		}
+
 		cutsceneMusic.volume = 1;
-		cutsceneMusic.play(false);
+		cutsceneMusic.play(true);
 
 		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
 		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
 
-		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
+		if(gaspSound == null)
+			gaspSound = FunkinSound.load(Paths.sound('cutscene/picoGasp'), false);
+
+		gaspSound.volume = 1;
+		gaspSound.play(true);
 
 		PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
@@ -205,9 +205,8 @@ class PhillyTrainErectStage extends Stage
 
 		new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
 			cutsceneSkipped = true;
-			canSkipCutscene = false;
-			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadIn, onComplete: _ -> {skipText.visible = false;}});
-			// cutting off skipping here. really dont think its needed after this point and it saves problems from happening
+			canPause = false;
+			// cutting off pausing here. really dont think its needed after this point and it saves problems from happening
 			PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
 			if(explode == true)
 				PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
@@ -267,26 +266,22 @@ class PhillyTrainErectStage extends Stage
 		cutsceneSkipped = true;
 		explode = false;
 		hasPlayedCutscene = true;
-		PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
-		cutsceneMusic.fadeOut(0.5, 0);
 
-		new FlxTimer().start(0.5, _ -> {
-			PlayState.instance.justUnpaused = true;
-			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+		if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
 
-			cutsceneTimerManager.clear();
-			picoPlayer.scriptCall('cancelSounds');
-			picoOpponent.scriptCall('cancelSounds');
-			cutsceneMusic.stop();
+		PlayState.instance.justUnpaused = true;
 
-			PlayState.instance.startCountdown();
+		cutsceneTimerManager.clear();
+		picoPlayer.scriptCall('cancelSounds');
+		picoOpponent.scriptCall('cancelSounds');
+		cutsceneMusic.stop();
 
-			skipText.visible = false;
-			picoPlayer.visible = false;
-			picoOpponent.visible = false;
-			PlayState.instance.currentStage.getBoyfriend().visible = true;
-			PlayState.instance.currentStage.getDad().visible = true;
-		});
+		PlayState.instance.startCountdown();
+
+		picoPlayer.visible = false;
+		picoOpponent.visible = false;
+		PlayState.instance.currentStage.getBoyfriend().visible = true;
+		PlayState.instance.currentStage.getDad().visible = true;
 
 	}
 
@@ -349,7 +344,7 @@ class PhillyTrainErectStage extends Stage
 	function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
-		if(cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
+		if(cutsceneTimerManager != null && cutsceneTimerManager.active) cutsceneTimerManager.update(event.elapsed);
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
@@ -368,21 +363,28 @@ class PhillyTrainErectStage extends Stage
 			}
 		}
 
-		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
+		if (PlayState.instance.controls.PAUSE && cutsceneSkipped == false && !PlayState.instance.isGamePaused && !PlayState.instance.justUnpaused)
     {
-			if(canSkipCutscene == false){
-				trace('cant skip yet!');
-				FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-				new FlxTimer().start(0.5, _ -> {
-					canSkipCutscene = true;
-					trace('can skip!');
-				});
-			}
+			if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
+
+			cutsceneMusic.pause();
+			gaspSound.pause();
+
+			picoPlayer.scriptCall('pauseSounds', []);
+			picoOpponent.scriptCall('pauseSounds', []);
+
+			var pauseSubState:FlxSubState = new PauseSubState(
+        {
+          mode: PauseMode.Cutscene(
+						'Cutscene', 'In-Game Cutscene',
+						resumeCutscene, skipCutscene, restartCutscene
+					)
+        });
+
+      PlayState.instance.persistentUpdate = false;
+      pauseSubState.camera = PlayState.instance.camCutscene;
+      PlayState.instance.openSubState(pauseSubState);
     }
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true){
-			skipCutscene();
-			trace('skipped');
-		}
 
 
 		if (cutsceneConductor != null && cutsceneMusic != null) {
@@ -497,5 +499,26 @@ class PhillyTrainErectStage extends Stage
 		super.kill();
 		if(cutsceneTimerManager != null) cutsceneTimerManager.destroy();
 		lightShader = null;
+	}
+
+	function resumeCutscene():Void
+	{
+		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+		cutsceneMusic.resume();
+		gaspSound.resume();
+		picoPlayer.scriptCall('resumeSounds');
+		picoOpponent.scriptCall('resumeSounds');
+	}
+
+	function restartCutscene():Void
+	{
+		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+		cutsceneTimerManager.clear();
+		picoPlayer.scriptCall('cancelSounds');
+		picoOpponent.scriptCall('cancelSounds');
+		cutsceneMusic.stop();
+		doppleGangerCutscene();
 	}
 }
