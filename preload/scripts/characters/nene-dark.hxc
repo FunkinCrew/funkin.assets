@@ -354,11 +354,11 @@ class NeneDarkCharacter extends SparrowCharacter {
 		abotViz.initAnalyzer();
 	}
 
-	override function onSongRetry(event:ScriptEvent)
+	/*override function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry();
 		abotViz.dumpSound();
-	}
+	}*/
 
 	var animationFinished:Bool = false;
 
