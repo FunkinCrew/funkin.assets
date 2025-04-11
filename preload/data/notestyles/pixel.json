@@ -5,7 +5,7 @@
   "fallback": "funkin",
   "assets": {
     "note": {
-      "assetPath": "week6:weeb/pixelUI/arrows-pixels",
+      "assetPath": "shared:notestyles/pixel/arrows-pixels",
       "scale": 6.0,
       "isPixel": true,
       "data": {
@@ -16,7 +16,7 @@
       }
     },
     "noteStrumline": {
-      "assetPath": "week6:weeb/pixelUI/arrows-pixels",
+      "assetPath": "shared:notestyles/pixel/arrows-pixels",
       "scale": 6.0,
       "offsets": [28, 32],
       "isPixel": true,
@@ -40,14 +40,14 @@
       }
     },
     "holdNote": {
-      "assetPath": "week6:weeb/pixelUI/arrowEndsNew",
+      "assetPath": "shared:notestyles/pixel/arrowEndsNew",
       "scale": 6.0,
       "offsets": [2, 1],
       "isPixel": true,
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "week6:pixelNoteSplash",
+      "assetPath": "shared:notestyles/pixel/pixelNoteSplash",
       "scale": 4.0,
       "alpha": 1.0,
       "isPixel": true,
@@ -80,7 +80,7 @@
       }
     },
     "holdNoteCover": {
-      "assetPath": "week6:pixelNoteHoldCover",
+      "assetPath": "shared:notestyles/pixel/pixelNoteHoldCover",
       "scale": 6.0,
       "isPixel": true,
       "offsets": [29, -4],

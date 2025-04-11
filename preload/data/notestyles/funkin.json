@@ -5,7 +5,7 @@
   "fallback": null,
   "assets": {
     "note": {
-      "assetPath": "shared:notes",
+      "assetPath": "shared:notestyles/funkin/notes",
       "scale": 0.7,
       "data": {
         "left": { "prefix": "noteLeft" },
@@ -15,7 +15,7 @@
       }
     },
     "noteStrumline": {
-      "assetPath": "shared:noteStrumline",
+      "assetPath": "shared:notestyles/funkin/noteStrumline",
       "scale": 0.7,
       "offsets": [0, 0],
       "data": {
@@ -38,12 +38,12 @@
       }
     },
     "holdNote": {
-      "assetPath": "NOTE_hold_assets",
+      "assetPath": "shared:notestyles/funkin/NOTE_hold_assets",
       "scale": 0.7,
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "shared:noteSplashes",
+      "assetPath": "shared:notestyles/funkin/noteSplashes",
       "alpha": 0.8,
       "data": {
         "enabled": true,
@@ -71,25 +71,25 @@
       "data": {
         "enabled": true,
         "left": {
-          "assetPath": "shared:holdCoverPurple",
+          "assetPath": "shared:notestyles/funkin/holdCoverPurple",
           "start": { "prefix": "holdCoverStartPurple" },
           "hold": { "prefix": "holdCoverPurple" },
           "end": { "prefix": "holdCoverEndPurple" }
         },
         "right": {
-          "assetPath": "shared:holdCoverRed",
+          "assetPath": "shared:notestyles/funkin/holdCoverRed",
           "start": { "prefix": "holdCoverStartRed" },
           "hold": { "prefix": "holdCoverRed" },
           "end": { "prefix": "holdCoverEndRed" }
         },
         "up": {
-          "assetPath": "shared:holdCoverGreen",
+          "assetPath": "shared:notestyles/funkin/holdCoverGreen",
           "start": { "prefix": "holdCoverStartGreen" },
           "hold": { "prefix": "holdCoverGreen" },
           "end": { "prefix": "holdCoverEndGreen" }
         },
         "down": {
-          "assetPath": "shared:holdCoverBlue",
+          "assetPath": "shared:notestyles/funkin/holdCoverBlue",
           "start": { "prefix": "holdCoverStartBlue" },
           "hold": { "prefix": "holdCoverBlue" },
           "end": { "prefix": "holdCoverEndBlue" }
