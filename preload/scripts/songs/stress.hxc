@@ -145,6 +145,22 @@ class StressSong extends Song {
 
 	}
 
+  /**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+	{
+		super.onSongEvent(scriptEvent);
+
+    // this is a bit of a work around, but it works for now.
+		if (scriptEvent.eventData.eventKind == "EnableMask" && PlayState.instance.currentVariation == 'pico')
+		{
+			PlayState.instance.isInGameplayCutscene = true;
+		} else if (scriptEvent.eventData.eventKind == "SetHealthIcon" && PlayState.instance.currentVariation == 'pico') {
+			PlayState.instance.isInGameplayCutscene = false;
+		}
+	}
+
   var bgSprite:FunkinSprite;
 
   public override function onSongEnd(event:CountdownScriptEvent):Void {
