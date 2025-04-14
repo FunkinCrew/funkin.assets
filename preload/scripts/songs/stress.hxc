@@ -72,7 +72,15 @@ class StressSong extends Song {
       startVideo(usePicoVideo);
     }
 
+    if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid')) {
+      // Destroy the tankman group if it's not valid.
+      tankmanGroup.destroy();
+      PlayState.instance.currentStage.remove(tankmanGroup);
+      tankmanGroup = null;
+    }
+
     if (tankmanGroup == null) {
+      // Initialize the tankman group if it's not available.
       trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
       tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
     }

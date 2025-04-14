@@ -27,6 +27,10 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
 	}
 
+	public function isValid():Bool {
+		return group != null;
+	}
+
 	function reset()
 	{
 		group.clear();
