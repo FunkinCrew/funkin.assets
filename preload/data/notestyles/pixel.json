@@ -83,7 +83,7 @@
       "assetPath": "week6:pixelNoteHoldCover",
       "scale": 6.0,
       "isPixel": true,
-      "offsets": [29, -4],
+      "offsets": [29, -2.5],
       "data": {
         "enabled": true,
         "left": {
