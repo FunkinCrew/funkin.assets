@@ -407,7 +407,7 @@ class TwoHOTSong extends Song
 
 			blackenStageProps();
 		}
-		else if (Preferences.vibration)
+		else if (HapticUtil.hapticsAvailable)
 		{
 			// Can hits pico.
 			HapticUtil.vibrateByPreset(canDamageVibrationPreset);
