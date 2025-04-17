@@ -57,8 +57,6 @@ class StressSong extends Song {
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    var usePicoVideo = false;
-
     // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
     if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
@@ -69,7 +67,7 @@ class StressSong extends Song {
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo(usePicoVideo);
+      startVideo(PlayState.instance.currentVariation == 'pico');
     }
 
     if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid')) {
