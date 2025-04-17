@@ -36,6 +36,8 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
 
+	var muzzleFlash:FlxSprite;
+
 	function new() {
 		super('otis-speaker');
 
@@ -93,7 +95,26 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 
 		this.playAnimation('idle', true, true);
 
+		muzzleFlash = new FlxSprite(0, 0);
+		muzzleFlash.frames = Paths.getSparrowAtlas("erect/otis_flashes");
+		muzzleFlash.animation.addByPrefix('shoot1', 'shoot back0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot2', 'shoot back low0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot3', 'shoot forward0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot4', 'shoot forward low0', 24, false);
+
+		muzzleFlash.animation.onFrameChange.add(function() {
+			updateMuzzle();
+    });
+
 		initTimemap();
+	}
+
+	function updateMuzzle(){
+		if(muzzleFlash.animation.curAnim.curFrame > 1){
+			muzzleFlash.blend = null;
+		}
+
+		muzzleFlash.visible = !muzzleFlash.animation.finished;
 	}
 
 	override function dance(force:Bool):Void
@@ -204,6 +225,9 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 			stereoBG.zIndex = abot.zIndex - 8;
 			PlayState.instance.currentStage.add(stereoBG);
 
+			muzzleFlash.zIndex = this.zIndex - 1;
+			PlayState.instance.currentStage.add(muzzleFlash);
+
 			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
 
@@ -242,11 +266,24 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 
 	function playPicoAnimation(direction:Int):Void
   {
+		muzzleFlash.blend = 0;
 		switch (direction) {
-			case 0: this.playAnimation('shoot1', true, true);
-			case 1: this.playAnimation('shoot2', true, true);
-			case 2: this.playAnimation('shoot3', true, true);
-			case 3: this.playAnimation('shoot4', true, true);
+			case 0:
+				this.playAnimation('shoot1', true, true);
+				muzzleFlash.setPosition(this.x + 590, this.y - 130);
+				muzzleFlash.animation.play('shoot1', true);
+			case 1:
+				this.playAnimation('shoot2', true, true);
+				muzzleFlash.setPosition(this.x + 620, this.y - 170);
+				muzzleFlash.animation.play('shoot2', true);
+			case 2:
+				this.playAnimation('shoot3', true, true);
+				muzzleFlash.setPosition(this.x - 560, this.y - 190);
+				muzzleFlash.animation.play('shoot3', true);
+			case 3:
+				this.playAnimation('shoot4', true, true);
+				muzzleFlash.setPosition(this.x - 520, this.y - 230);
+				muzzleFlash.animation.play('shoot4', true);
 		}
 	}
 
