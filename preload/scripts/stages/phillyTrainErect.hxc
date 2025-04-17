@@ -20,6 +20,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
 import funkin.util.TouchUtil;
+import funkin.ui.FullScreenScaleMode;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -40,7 +41,7 @@ class PhillyTrainErectStage extends Stage
 	var cutsceneSkipped:Bool = false;
 	var canSkipCutscene:Bool = false;
 
-   var isMobilePauseButtonPressed:Bool = false;
+  var isMobilePauseButtonPressed:Bool = false;
 
 	/**
    * Replay the cutscene after leaving the song.
@@ -93,7 +94,7 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
-		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		skipText = new FlxText(936 * FullScreenScaleMode.windowScale.x, 618 * FullScreenScaleMode.windowScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
     {
         skipText.text = 'Skip [Pause Button]';
