@@ -18,6 +18,8 @@ import funkin.play.stage.StageProp;
 import funkin.save.Save;
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
+import funkin.util.TouchUtil;
+import funkin.ui.FullScreenScaleMode;
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 
 class EggnogSong extends Song
@@ -31,6 +33,9 @@ class EggnogSong extends Song
 	var shootSound:FunkinSound;
 
 	var debugTesting:Bool = false;
+
+	var isMobilePauseButtonPressed:Bool = false;
+
 	function new()
 	{
 		super('eggnog');
@@ -89,7 +94,12 @@ class EggnogSong extends Song
 
 	function startCutscene(){
 
-		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		skipText = new FlxText(936 * FullScreenScaleMode.windowScale.x, 618 * FullScreenScaleMode.windowScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+    if (FlxG.onMobile)
+    {
+        skipText.text = 'Skip [Pause Button]';
+        skipText.x -= 136;
+    }
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
 		skipText.borderSize = 2;
@@ -189,9 +199,15 @@ class EggnogSong extends Song
 
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
+
+		if (FlxG.onMobile)
+		{
+			isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+		}
+
 		if(PlayState.instance.isInCutscene)
 		{
-			if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
+			if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
     		{
 				if(canSkipCutscene == false){
 					trace('cant skip yet!');
@@ -204,7 +220,7 @@ class EggnogSong extends Song
    			}
 		}
 
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE  && canSkipCutscene)
+		if((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && canSkipCutscene)
 		{
 			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
 			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});

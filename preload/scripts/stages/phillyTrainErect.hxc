@@ -375,10 +375,10 @@ class PhillyTrainErectStage extends Stage
 			}
 		}
 
-      if (FlxG.onMobile)
-      {
-          isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
-      }
+		if (FlxG.onMobile)
+		{
+				isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+		}
 
 		if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
     {
