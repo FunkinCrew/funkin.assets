@@ -44,7 +44,7 @@ class SchoolPicoStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.onFrameChange(function() {
+				character.animation.onFrameChange.add(function() {
 					if (getBoyfriend() != null)
 					{
       			rim.updateFrameInfo(getBoyfriend().frame);
@@ -62,7 +62,7 @@ class SchoolPicoStage extends Stage
 
 				character.scriptCall('addSunsetShaders');
 
-				character.animation.onFrameChange(function() {
+				character.animation.onFrameChange.add(function() {
 					if (getGirlfriend() != null)
 					{
 						rim.updateFrameInfo(getGirlfriend().frame);
@@ -78,7 +78,7 @@ class SchoolPicoStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.animation.onFrameChange(function() {
+				character.animation.onFrameChange.add(function() {
 					if (getDad() != null)
 					{
 						rim.updateFrameInfo(getDad().frame);
