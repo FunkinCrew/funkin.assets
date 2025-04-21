@@ -73,6 +73,8 @@ class SenpaiSong extends Song
   {
     trace('Transitioning to dialogue.');
 
+    PlayState.instance.disableKeys = true;
+
     PlayState.instance.camCutscene.visible = true;
 
     var black:FlxSprite = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
@@ -102,8 +104,8 @@ class SenpaiSong extends Song
       }, tweenFunction);
   }
 
-  function startDialogue()
-  {
+  function startDialogue() {
+    PlayState.instance.disableKeys = false;
     var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'senpai-pico' : 'senpai';
     PlayState.instance.startConversation(targetDialogue);
   }
