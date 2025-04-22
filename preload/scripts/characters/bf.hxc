@@ -3,6 +3,8 @@ import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.GameOverSubState;
+import funkin.play.PlayState;
+import funkin.Preferences;
 
 class BoyfriendCharacter extends MultiSparrowCharacter {
 	function new() {
@@ -36,5 +38,18 @@ class BoyfriendCharacter extends MultiSparrowCharacter {
     });
     bfFakeout.visible = true;
 		this.visible = false;
+	}
+
+	override function getDeathQuote():Null<String> {
+
+		switch (PlayState.instance.currentStage.getDad().characterId) {
+			case "tankman":
+				var randomCensor:Array<Int> = [];
+
+				if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
+				return Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor));
+			default:
+				return null;
+		}
 	}
 }
