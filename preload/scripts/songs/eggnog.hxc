@@ -33,7 +33,7 @@ class EggnogSong extends Song
 	var debugTesting:Bool = false;
 	function new()
 	{
-		super('eggnog');	
+		super('eggnog');
 	}
 
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
@@ -97,7 +97,7 @@ class EggnogSong extends Song
      PlayState.instance.currentStage.add(skipText);
 
     skipText.cameras = [PlayState.instance.camCutscene];
-	
+
     var normalSanta = PlayState.instance.currentStage.getNamedProp('santa');
     normalSanta.visible = false;
 
@@ -106,6 +106,7 @@ class EggnogSong extends Song
     santaDead.x = -458;
 		santaDead.y = 498;
 		santaDead.zIndex = normalSanta.zIndex - 1;
+		santaDead.shader = normalSanta.shader;
 
     PlayState.instance.currentStage.add(santaDead);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
@@ -118,6 +119,7 @@ class EggnogSong extends Song
     parentsShoot.x = -516;
 		parentsShoot.y = 503;
 		parentsShoot.zIndex = santaDead.zIndex - 1;
+		parentsShoot.shader = normalSanta.shader;
 
     PlayState.instance.currentStage.add(parentsShoot);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
@@ -142,7 +144,7 @@ class EggnogSong extends Song
 
 		shootSound = FunkinSound.load(Paths.sound('santa_shot_n_falls'), 1);
 		shootSound.volume = 1;
-		
+
 		new FlxTimer().start(2.8, function(tmr)
 		{
 			PlayState.instance.tweenCameraToPosition(santaDead.x + 150, santaDead.y, 9, FlxEase.quartInOut);
@@ -155,12 +157,12 @@ class EggnogSong extends Song
 			//PlayState.instance.tweenCameraToPosition(santaDead.x + 220, santaDead.y, 0.8, FlxEase.expoOut);
 			//PlayState.instance.camGame.shake(0.007, 0.4);
 		});
-	
-		
+
+
 		new FlxTimer().start(11.375, function(tmr){
 				if(!cutsceneSkipped)shootSound.play(false);
 		});
-	
+
 
 		new FlxTimer().start(12.83, function(tmr)
 		{
@@ -173,7 +175,7 @@ class EggnogSong extends Song
 		{
 			PlayState.instance.camHUD.fade(0xFF000000, 1, false, null, true);
 		});
-		
+
 			new FlxTimer().start(16, function(tmr)
 			{
 				if(!cutsceneSkipped)
@@ -182,7 +184,7 @@ class EggnogSong extends Song
 					PlayState.instance.endSong(true);
 				}
 			});
-		
+
 	}
 
 	function onUpdate(event:UpdateScriptEvent) {
@@ -212,9 +214,9 @@ class EggnogSong extends Song
 			new FlxTimer().start(0.5, function(tmr)
 			{
 				PlayState.instance.endSong(true);
-			});		
+			});
 
-		} 
+		}
 	}
 
 	/**
@@ -223,8 +225,8 @@ class EggnogSong extends Song
   function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
-	cutsceneSkipped = false;
-	canSkipCutscene = false;
+		cutsceneSkipped = false;
+		canSkipCutscene = false;
     hasPlayedCutscene = false;
   }
 }
