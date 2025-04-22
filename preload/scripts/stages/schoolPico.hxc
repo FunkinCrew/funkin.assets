@@ -62,9 +62,10 @@ class SchoolPicoStage extends Stage
 
 				character.scriptCall('addSunsetShaders');
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getGirlfriend().frame);
-    		};
+				// Bopper already uses `animation.callback` for onAnimationFrame which is overridden by Nene
+				character.animation.onFrameChange.add(function() {
+					rim.updateFrameInfo(getGirlfriend().frame);
+				});
 
 			case CharacterType.DAD:
 

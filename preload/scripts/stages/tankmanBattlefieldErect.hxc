@@ -53,9 +53,10 @@ class TankmanBattlefieldErectStage extends Stage
 
 				rim.angle = 90;
 
-				character.animation.callback = function() {
-      		rim.updateFrameInfo(getGirlfriend().frame);
-    		};
+				// Bopper already uses `animation.callback` for onAnimationFrame which is overridden by Nene
+				character.animation.onFrameChange.add(function() {
+					rim.updateFrameInfo(getGirlfriend().frame);
+				});
 
 				if(getGirlfriend().characterId == 'gf-tankmen'){
 					rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
