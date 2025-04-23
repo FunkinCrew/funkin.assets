@@ -1,9 +1,13 @@
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
 import flixel.FlxG;
+import funkin.graphics.FunkinSprite;
 
 class PicoGoodResults extends FlxAtlasSprite
 {
+  var WHITE_FLASH_FRAMES:Array<Int> = [43, 49, 81, 87, 143, 149, 156, 338, 344, 351, 364, 517, 521, 537, 546, 559, 570, 576, 676, 682, 714, 720, 776, 782, 789];
+  var BLACK_FLASH_FRAMES:Array<Int> = [46, 52, 84, 90, 147, 153, 158, 335, 345, 353, 359, 362, 366, 523, 529, 533, 541, 547, 554, 563, 569, 577, 580, 679, 685, 717, 723, 780, 786, 791];
+
   function new(x:Float, y:Float)
   {
     super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"), {
@@ -12,6 +16,39 @@ class PicoGoodResults extends FlxAtlasSprite
       ShowPivot: false,
       Antialiasing: true,
       ScrollFactor: new FlxPoint(1, 1),
+    });
+
+    // TODO: Make it easier to get the current result state
+
+    var whiteFlash:FunkinSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width, FlxG.height, 0x33FFFFFF);
+    var blackFlash:FunkinSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width, FlxG.height, 0x33000000);
+
+    var resultState:ResultState = FlxG.state;
+    while (resultState.subState != null) {
+      resultState = resultState.subState;
+    }
+
+    resultState.add(whiteFlash);
+    resultState.add(blackFlash);
+
+    whiteFlash.zIndex = 1000;
+    whiteFlash.visible = false;
+    blackFlash.zIndex = 1000;
+    blackFlash.visible = false;
+
+    onAnimationFrame.add((animation:String, frame:Int) -> {
+      if (WHITE_FLASH_FRAMES.contains(frame)) {
+        whiteFlash.visible = true;
+        blackFlash.visible = false;
+      }
+      else if (BLACK_FLASH_FRAMES.contains(frame)) {
+        whiteFlash.visible = false;
+        blackFlash.visible = true;
+      }
+      else {
+        whiteFlash.visible = false;
+        blackFlash.visible = false;
+      }
     });
     onAnimationComplete.addOnce(() -> {
       trace('Looping Pico shooting animation...');
@@ -23,15 +60,15 @@ class PicoGoodResults extends FlxAtlasSprite
   {
     if (FlxG.random.bool(5)) {
       trace('Playing special Fatass animation...');
-      super.playAnimation("intro fat gf", true);
+      super.playAnimation("intro fat gf", true, false, false);
     }
     else if (FlxG.random.bool(20)) {
       trace('Playing special Cass animation...');
-      super.playAnimation("intro cass", true);
+      super.playAnimation("intro cass", true, false, false);
     }
     else {
       trace('Playing Pico shooting animation...');
-      super.playAnimation("intro", true);
+      super.playAnimation("intro", true, false, false);
     }
   }
 }
