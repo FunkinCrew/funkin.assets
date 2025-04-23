@@ -58,14 +58,21 @@
             </frame>
         </vbox>
         <vbox width="50%" height="100%">
+            <dropdown id="inputTimeChange" value="Time Change" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected time change.">
+                <data>
+                    <item text="0 : BPM: 100 in 4/4" />
+                </data>
+            </dropdown> <!--Placing this in the frame after the grid causes it to overlap, idk. Looks cooler here anyway. -->
             <frame text="Timing Data" width="100%" id="frameTiming">
                 <grid columns="2">
-                    <label text="Starting BPM:" verticalAlign="center" />
+                    <label text="BPM:" verticalAlign="center" />
                     <number-stepper id="inputBPM" pos="100" step="0.1" min="10" max="500" precision="1" horizontalAlign="right" width="100" tooltip="Adjust the BPM of the song, which helps align the grid and character animations to the music." />
-                    <label text="Starting Time Signature" verticalAlign="center" />
+                    <label id="labelTimeStamp" text="Timestamp:" verticalAlign="center" />
+                    <number-stepper id="inputTimeStamp" pos="100" step="0.1" precision="1" horizontalAlign="right" width="100" tooltip="Adjust the timestamp of when the currently selected time change will start occurring in the song." />
+                    <label text="Time Signature" verticalAlign="center" />
                     <spacer />
                     <label text="Numerator:" verticalAlign="center" />
-                    <dropdown id="inputTSNum" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature numerator of the song, which helps align the grid.">
+                    <dropdown id="inputTSNum" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature numerator of the currently selected time change, which helps align the grid.">
                         <data>
                             <item text="1" />
                             <item text="2" />
@@ -86,7 +93,7 @@
                         </data>
                     </dropdown>
                     <label text="Denominator:" verticalAlign="center" />
-                    <dropdown id="inputTSDen" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature denominator of the song, which helps align the grid.">
+                    <dropdown id="inputTSDen" value="4" horizontalAlign="right" width="50" tooltip="Adjust the time signature denominator of the currently selected time change, which helps align the grid.">
                         <data>
                             <item text="2" />
                             <item text="4" />
@@ -96,6 +103,9 @@
                     </dropdown>
                 </grid>
             </frame>
+            <button allowFocus="false" id="addTimeChange" text="Add time change" tooltip="Add a time change after the currently selected time change." />
+            <spacer />
+            <button allowFocus="false" id="removeTimeChange" text="Remove current time change" tooltip="Remove the currently selected time change." />
         </vbox>
     </hbox>
 </collapsible-dialog>
