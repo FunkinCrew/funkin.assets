@@ -18,6 +18,7 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import funkin.Preferences;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -120,6 +121,7 @@ class PhillyTrainErectStage extends Stage
 			// trace('Doppelganger will smoke!');
 			explode = false;
 		}
+		explode = true;
 
 		var cigarettePos:Array<Float> = [];
 		var shooterPos:Array<Float> = [];
@@ -129,8 +131,8 @@ class PhillyTrainErectStage extends Stage
 		picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
 		cigarette = new FlxSprite(0, 0);
 
-		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 48.5, PlayState.instance.currentStage.getBoyfriend().y + 400);
-		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 82, PlayState.instance.currentStage.getDad().y + 400);
+		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 150.2, PlayState.instance.currentStage.getBoyfriend().y + 191.2);
+		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 600.8, PlayState.instance.currentStage.getDad().y + 192.2);
 
 		picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
@@ -141,7 +143,14 @@ class PhillyTrainErectStage extends Stage
 			cigarette.flipX = true;
 
 			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
-			bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
+			if (Preferences.naughtyness)
+				bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
+			else
+			{
+				bloodPool.setPosition(PlayState.instance.currentStage.getDad().x + 1220, PlayState.instance.currentStage.getDad().y - 173);
+				bloodPool.flipX = true;
+			}
+
 
 			shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
 			cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
