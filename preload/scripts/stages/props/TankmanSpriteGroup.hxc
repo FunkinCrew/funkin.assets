@@ -16,8 +16,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
 	var isErect:Bool = false;
 
-	var isEasterEgg:Bool = false;
-
 	function new(erect:Bool)
 	{
 		super(0, 0, 4);
@@ -41,11 +39,19 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		tankmanTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
+		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentInstrumental);
 		if (animChart == null)
 		{
-			trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
-			return;
+			trace('Skip initializing TankmanSpriteGroup: no picospeaker chart found for this difficulty.');
+			animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+			if (animChart == null)
+			{
+				trace('Skip initializing TankmanSpriteGroup: no picospeaker chart found for this song.');
+				animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+				return;
+			} else {
+				trace('Found picospeaker chart for TankmanSpriteGroup.');
+			}
 		} else {
 			trace('Found picospeaker chart for TankmanSpriteGroup.');
 		}
@@ -61,7 +67,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		for (note in animNotes)
 		{
 			// Only one out of every 16 notes, on average, is a tankman.
-			if (FlxG.random.bool(1 / 16 * 100))
+			if (FlxG.random.bool(6.25))
 			{
 				tankmanTimes.push(note.time);
 				var goingRight:Bool = (note.data == 2 || note.data == 3) ? false : true;
