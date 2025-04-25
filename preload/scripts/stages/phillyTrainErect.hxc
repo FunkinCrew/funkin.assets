@@ -56,12 +56,15 @@ class PhillyTrainErectStage extends Stage
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
+
     if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
       trace('Pausing countdown to play in game cutscene');
 
       hasPlayedInGameCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
+
+
 
       PlayState.instance.camHUD.visible = false;
       doppleGangerCutscene();
@@ -85,10 +88,7 @@ class PhillyTrainErectStage extends Stage
 
 	var cutsceneTimerManager:FlxTimerManager;
 
-	function doppleGangerCutscene()
-	{
-		// Disable player input during cutscene, so you can't get a gameover during cutscene
-		PlayState.instance.isInCutscene = true;
+	function doppleGangerCutscene(){
 
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
@@ -121,7 +121,6 @@ class PhillyTrainErectStage extends Stage
 			// trace('Doppelganger will smoke!');
 			explode = false;
 		}
-		explode = true;
 
 		var cigarettePos:Array<Float> = [];
 		var shooterPos:Array<Float> = [];
@@ -131,8 +130,8 @@ class PhillyTrainErectStage extends Stage
 		picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
 		cigarette = new FlxSprite(0, 0);
 
-		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 150.2, PlayState.instance.currentStage.getBoyfriend().y + 191.2);
-		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 600.8, PlayState.instance.currentStage.getDad().y + 192.2);
+		picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 48.5, PlayState.instance.currentStage.getBoyfriend().y + 400);
+		picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 82, PlayState.instance.currentStage.getDad().y + 400);
 
 		picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
@@ -143,14 +142,7 @@ class PhillyTrainErectStage extends Stage
 			cigarette.flipX = true;
 
 			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
-			if (Preferences.naughtyness)
-				bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
-			else
-			{
-				bloodPool.setPosition(PlayState.instance.currentStage.getDad().x + 1220, PlayState.instance.currentStage.getDad().y - 173);
-				bloodPool.flipX = true;
-			}
-
+			bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
 
 			shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
 			cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
@@ -173,7 +165,7 @@ class PhillyTrainErectStage extends Stage
 
 		PlayState.instance.currentStage.add(cigarette);
 		PlayState.instance.currentStage.add(picoPlayer);
-    	PlayState.instance.currentStage.add(picoOpponent);
+    PlayState.instance.currentStage.add(picoOpponent);
 		PlayState.instance.currentStage.add(bloodPool);
 		PlayState.instance.currentStage.refresh();
 
@@ -198,8 +190,7 @@ class PhillyTrainErectStage extends Stage
 		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
-   	 	PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
-		PlayState.instance.isInCutscene = true;
+    PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
 
 		new FlxTimer(cutsceneTimerManager).start(4, _ -> {
 
@@ -266,8 +257,7 @@ class PhillyTrainErectStage extends Stage
 			}
 
 			hasPlayedCutscene = true;
-			cutsceneMusic.stop();		
-
+			cutsceneMusic.stop();
 		});
 	}
 
