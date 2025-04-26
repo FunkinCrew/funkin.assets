@@ -94,6 +94,7 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
+		PlayState.instance.isInCutscene = true;
 		skipText = new FlxText(936 * FullScreenScaleMode.windowScale.x, 618 * FullScreenScaleMode.windowScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
     {
