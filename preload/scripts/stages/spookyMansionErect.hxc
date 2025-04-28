@@ -1,5 +1,7 @@
 import flixel.FlxG;
+import funkin.Conductor;
 import funkin.audio.FunkinSound;
+import funkin.data.event.SongEventRegistry;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import flixel.tweens.FlxEase;
@@ -26,6 +28,7 @@ class SpookyMansionErectStage extends Stage
 
   var lightningStrikeBeat:Int = 0;
   var lightningStrikeOffset:Int = 8;
+  var bfAnimations = [];
 
   override function onCreate(event:ScriptEvent):Void
   {
@@ -46,6 +49,24 @@ class SpookyMansionErectStage extends Stage
   function onBranchFrame(name, frameNum, frameIndex)
   {
     rainShader.updateFrameInfo(rainShaderTarget.frame);
+  }
+
+  function onSongLoaded(scriptEvent:SongLoadScriptEvent)
+  {
+    super.onSongLoaded(scriptEvent);
+    var songEvents = scriptEvent.events;
+
+    for (event in songEvents)
+    {
+      if (event.eventKind == "PlayAnimation")
+      {
+        var eventProps = event.value;
+        if ((eventProps.target == "boyfriend" || eventProps.target == "bf") && eventProps.force)
+        {
+          bfAnimations.push(event);
+        }
+      }
+    }
   }
 
   override function buildStage()
@@ -99,9 +120,14 @@ class SpookyMansionErectStage extends Stage
     });
 
     lightningStrikeBeat = beat;
+    var lightningStrikeMs = Conductor.instance.getBeatTimeInMs(lightningStrikeBeat);
     lightningStrikeOffset = FlxG.random.int(8, 24);
 
-    if (getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer')
+    var bfAnimationsToPlay = SongEventRegistry.queryEvents(bfAnimations, lightningStrikeMs);
+    var bfHasAnimationToPlay:Bool = false;
+    if (bfAnimationsToPlay.length > 0) bfHasAnimationToPlay = true;
+
+    if (getBoyfriend().hasAnimation('scared') && !bfHasAnimationToPlay)
     {
       getBoyfriend().playAnimation('scared', true, true);
     }
