@@ -433,7 +433,6 @@ class StressSong extends Song
         });
       });
 
-      picoNeneCutscene.anim.timeScale = 1;
       picoNeneCutscene.playAnimation('nene fucking chokes pico', false);
 
       // good cutoff point for the cutscene skip
