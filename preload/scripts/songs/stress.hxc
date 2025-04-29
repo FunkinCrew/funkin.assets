@@ -323,9 +323,15 @@ class StressSong extends Song
 
     // TODO: there is a bug where atlas sprites loop infinitely
     // this is a workaround until it's fixed!!
-    tankmanCutscene.onAnimationComplete.add(tankmanCutscene.cleanupAnimation);
-    picoNeneCutscene.onAnimationComplete.add(picoNeneCutscene.cleanupAnimation);
-    abotCutscene.onAnimationComplete.add(abotCutscene.cleanupAnimation);
+    tankmanCutscene.onAnimationComplete.add(function () {
+      tankmanCutscene.anim.pause();
+    });
+    picoNeneCutscene.onAnimationComplete.add(function () {
+      picoNeneCutscene.anim.pause();
+    });
+    abotCutscene.onAnimationComplete.add(function () {
+      abotCutscene.anim.pause();
+    });
 
     picoNeneCutscene.onAnimationComplete.add(function(name:String) {
       if (name == "pico nene idle dance")
