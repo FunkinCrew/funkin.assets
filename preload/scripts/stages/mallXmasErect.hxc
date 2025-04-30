@@ -13,28 +13,30 @@ import flixel.FlxG;
 
 class MallXmasErectStage extends Stage
 {
-	function new()
-	{
-		super('mallXmasErect');
-	}
+  function new()
+  {
+    super('mallXmasErect');
+  }
 
-	var colorShader:AdjustColorShader;
+  var colorShader:AdjustColorShader;
 
-	function onCreate(event:ScriptEvent):Void {
-		super.onCreate(event);
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
 
-		// Create a single color shader and reuse it.
+    // Create a single color shader and reuse it.
     colorShader = new AdjustColorShader();
-		colorShader.hue = 5;
-		colorShader.saturation = 20;
+    colorShader.hue = 5;
+    colorShader.saturation = 20;
 
-		getNamedProp('santa').shader = colorShader;
-	}
+    getNamedProp('santa').shader = colorShader;
+  }
 
-	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
-		// Apply the shader automatically to each character as it gets added.
-		super.addCharacter(character, charType);
-		trace('Applied stage shader to ' + character.characterName);
-		character.shader = colorShader;
-	}
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    // Apply the shader automatically to each character as it gets added.
+    super.addCharacter(character, charType);
+    trace('Applied stage shader to ' + character.characterName);
+    character.shader = colorShader;
+  }
 }

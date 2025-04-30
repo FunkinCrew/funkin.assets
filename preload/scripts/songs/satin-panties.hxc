@@ -18,11 +18,10 @@ import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
 
-
 class SatinPantiesSong extends Song
 {
-	function new()
-	{
-		super('satin-panties');
-	}
+  function new()
+  {
+    super('satin-panties');
+  }
 }

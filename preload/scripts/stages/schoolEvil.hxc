@@ -7,39 +7,41 @@ import funkin.play.Countdown;
 
 class SchoolEvilStage extends Stage
 {
-	function new()
-	{
-		super('schoolEvil');
-	}
+  function new()
+  {
+    super('schoolEvil');
+  }
 
-	var wiggle:FlxRuntimeShader = null;
+  var wiggle:FlxRuntimeShader = null;
 
-	override function buildStage()
-	{
-		super.buildStage();
+  override function buildStage()
+  {
+    super.buildStage();
 
-		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+    wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
 
-		getNamedProp('evilSchoolBG').shader = wiggle;
-		getNamedProp('evilSchoolFG').shader = wiggle;
-	}
+    getNamedProp('evilSchoolBG').shader = wiggle;
+    getNamedProp('evilSchoolFG').shader = wiggle;
+  }
 
-	override function addCharacter(char:BaseCharacter, charType:CharacterType)
-	{
+  override function addCharacter(char:BaseCharacter, charType:CharacterType)
+  {
+    super.addCharacter(char, charType);
+  }
 
-		super.addCharacter(char, charType);
-	}
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
 
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
+    if (wiggle != null)
+    {
+      wiggle.update(event.elapsed);
+    }
+  }
 
-		if (wiggle != null) {
-			wiggle.update(event.elapsed);
-		}
-	}
-
-	function kill() {
-		super.kill();
-		wiggle = null;
-	}
+  function kill()
+  {
+    super.kill();
+    wiggle = null;
+  }
 }
