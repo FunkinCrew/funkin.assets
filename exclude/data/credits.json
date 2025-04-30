@@ -51,7 +51,8 @@
     {
       "header": "Pixel Art",
       "body": [
-        { "line": "moawling" }
+        { "line": "moawling" },
+        { "line": "IGJHSpritin"}
       ]
     },
     {
@@ -100,6 +101,16 @@
       ]
     },
     {
+      "header": "Additional Character Design",
+      "body": [
+        { "line": "Tom Fulp - Pico School Characters" },
+        { "line": "JohnnyUtah - Tankman" },
+        { "line": "SrPelo - Skid and Pump" },
+        { "line": "Magna - Otis" },
+        { "line": "gacktenzo - Preppy Otis" }
+      ]
+    },
+    {
       "header": "Music Production",
       "body": [
         { "line": "Saruky" },
@@ -119,7 +130,9 @@
         { "line": "TeraVex"},
         { "line": "ThatAndyGuy"},
         { "line": "tsuyunoshi"},
-        { "line": "xploshi"}
+        { "line": "xploshi"},
+        { "line": "Tee Lopes"},
+        { "line": "RRThiel"}
       ]
     },
     {
@@ -181,7 +194,9 @@
         { "line": "Jeff Bandelin" },
         { "line": "PhantomArcade"},
         { "line": "evilsk8r" },
-        { "line": "beck" }
+        { "line": "beck" },
+        { "line": "Makeship: Seebs"},
+        { "line": "Makeship: Anna N"}
       ]
     },
     {
@@ -201,6 +216,7 @@
       "header": "Quality Assurance - Indium Play",
       "body": [
         { "line": "Lead Tester: Mihajlo Vuković" },
+        { "line": "Tester: Andrej Naumovski" },
         { "line": "Dajana Dimovska" }
       ]
     },

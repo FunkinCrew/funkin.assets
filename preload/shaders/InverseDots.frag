@@ -5,31 +5,11 @@
 
 uniform float _amount;
 
-vec4 dots(vec4 color) {
-  float xPix = floor(openfl_TextureCoordv.x * openfl_TextureSize.x );
-  float yPix = floor(openfl_TextureCoordv.y * openfl_TextureSize.y);
-
-  int x = int(mod(xPix, 6.0));
-  int y = int(mod(yPix, 4.0));
-
-  if (color.a > 0.0 && ((x == 0.0 && y == 0.0) || (x == 3.0 && y == 2.0)))
-  {
-    color.rgb = 1.0 - color.rgb;
-  }
-
-
-
-  return color;
-}
-
-
 void main() {
-	// Get the texture to apply to.
-	vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
-
-
-  color = mix(color, dots(color), _amount);
-
-  // Return the value.
-	gl_FragColor = color;
+	gl_FragColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
+	if (_amount <= 0.0 || gl_FragColor.a == 0.0) {return;}
+	vec2 texel = floor(mod(openfl_TextureCoordv * openfl_TextureSize, 4.0));
+	if (texel.x == texel.y && mod(texel.x, 2.0) == 0.0) {
+		gl_FragColor.rgb -= (2.0 * gl_FragColor.rgb - 1.0) * min(_amount * gl_FragColor.a, 1.0);
+	}
 }

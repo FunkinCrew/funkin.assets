@@ -1,0 +1,115 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.math.FlxPoint;
+import flixel.FlxG;
+import funkin.graphics.FunkinSprite;
+import funkin.Preferences;
+
+class PicoGoodResults extends FlxAtlasSprite
+{
+  var WHITE_FLASH_FRAMES:Array<Int> = [43, 49, 81, 87, 143, 149, 156, 338, 344, 351, 364, 517, 521, 537, 546, 559, 570, 576, 676, 682, 714, 720, 776, 782, 789];
+  var BLACK_FLASH_FRAMES:Array<Int> = [46, 52, 84, 90, 147, 153, 158, 335, 345, 353, 359, 362, 366, 523, 529, 533, 541, 547, 554, 563, 569, 577, 580, 679, 685, 717, 723, 780, 786, 791];
+
+  function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"), {
+      Reversed: false,
+      // ?OnComplete:Void -> Void,
+      ShowPivot: false,
+      Antialiasing: true,
+      ScrollFactor: new FlxPoint(1, 1),
+    });
+
+    var baseX:Float = this.x;
+    var baseY:Float = this.y;
+
+    // TODO: Make it easier to get the current result state
+
+    var whiteFlash:FunkinSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width, FlxG.height, 0x33FFFFFF);
+    var blackFlash:FunkinSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width, FlxG.height, 0x33000000);
+
+    var resultState:ResultState = FlxG.state;
+    while (resultState.subState != null) {
+      resultState = resultState.subState;
+    }
+
+    resultState.add(whiteFlash);
+    whiteFlash.zIndex = 1000;
+    whiteFlash.visible = false;
+
+    resultState.add(blackFlash);
+    blackFlash.zIndex = 1000;
+    blackFlash.visible = false;
+
+    var first:Bool = false;
+
+    onAnimationFrame.add((animation:String, frame:Int) -> {
+      if (!Preferences.flashingLights) return;
+
+      if (!first) {
+        // BUGFIX: Resolve an issue where Pico's sprite shifts up and to the left when the flash effect appears.
+        // IDK why Pico's moving but the easiest fix is to just shove him back into place.
+        // TODO: This code sucks, so if you can figure out how to remove it without messing up Pico's offsets, feel free.
+        whiteFlash.visible = true;
+        whiteFlash.alpha = 0.01;
+        blackFlash.visible = true;
+        blackFlash.alpha = 0.01;
+        this.x = baseX + 150;
+        this.y = baseY + 75;
+        first = true;
+      } else if (WHITE_FLASH_FRAMES.contains(frame)) {
+        whiteFlash.visible = true;
+        whiteFlash.alpha = 1;
+        blackFlash.visible = false;
+        blackFlash.alpha = 0;
+      }
+      else if (BLACK_FLASH_FRAMES.contains(frame)) {
+        whiteFlash.visible = false;
+        whiteFlash.alpha = 0;
+        blackFlash.visible = true;
+        blackFlash.alpha = 1;
+      }
+      else {
+        whiteFlash.visible = false;
+        blackFlash.alpha = 0;
+        blackFlash.visible = false;
+        blackFlash.alpha = 0;
+      }
+    });
+    onAnimationComplete.addOnce(() -> {
+      trace('Looping Pico shooting animation...');
+      super.playAnimation("loop", true, false, true);
+    });
+  }
+
+  override function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
+  {
+    if (FlxG.random.bool(5)) {
+      trace('Playing special Fatass animation...');
+      super.playAnimation("intro fat gf", true, false, false);
+    }
+    else if (FlxG.random.bool(20)) {
+      trace('Playing special Cass animation...');
+      super.playAnimation("intro cass", true, false, false);
+    }
+    else {
+      trace('Playing Pico shooting animation...');
+      super.playAnimation("intro", true, false, false);
+    }
+  }
+
+  override function update(elapsed:Float):Void {
+    super.update(elapsed);
+
+    trace('PicoGoodResults.update()');
+    FlxG.watch.addQuick('picoResultsPos', this.offset);
+
+    var resultState:ResultState = FlxG.state;
+    while (resultState.subState != null) {
+      resultState = resultState.subState;
+    }
+
+    FlxG.watch.addQuick('cameraBG', new FlxPoint(resultState.cameraBG.x, resultState.cameraBG.y));
+    FlxG.watch.addQuick('cameraScroll', new FlxPoint(resultState.cameraScroll.x, resultState.cameraScroll.y));
+    FlxG.watch.addQuick('cameraEverything', new FlxPoint(resultState.cameraEverything.x, resultState.cameraEverything.y));
+  }
+}

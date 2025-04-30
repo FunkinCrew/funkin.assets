@@ -28,8 +28,25 @@ class PicoDarkCharacter extends MultiSparrowCharacter {
     return val;
 	}
 
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		super.onNoteHit(event);
+
+		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+			// Override the hit note animation.
+			switch(event.note.kind) {
+				case "cheer":
+					holdTimer = 0;
+					this.playAnimation('cheer', true, true);
+					return;
+			}
+		}
+	}
+
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		if (name == "firstDeath") {
+		if (name == "scared") {
+			return;
+		} else if (name == "firstDeath") {
 			createDeathSprites();
 
 			GameOverSubState.instance.add(deathSpriteRetry);

@@ -4,16 +4,17 @@
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
   "playData": {
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "pico"],
     "stage": "mallXmas",
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
-      "opponent": "parents-christmas"
+      "opponent": "parents-christmas",
+      "altInstrumentals": ["pico"]
     },
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000

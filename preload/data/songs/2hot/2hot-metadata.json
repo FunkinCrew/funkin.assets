@@ -14,6 +14,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "album": "volume3",
+    "stickerPack": "bonus-weekend1",
     "previewStart": 0,
     "previewEnd": 15000
   },

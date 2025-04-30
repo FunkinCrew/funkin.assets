@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "scrollSpeed": { "easy": 1, "normal": 1.2, "hard": 1.4 },
+  "scrollSpeed": { "easy": 1.4, "normal": 1.6, "hard": 1.7 },
   "events": [
     {
       "t": 3018.8679245283,

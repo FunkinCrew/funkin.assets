@@ -5,6 +5,7 @@ import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 import flixel.util.FlxTimer;
 import flixel.FlxG;
+import funkin.Preferences;
 import funkin.audio.FunkinSound;
 
 class PicoBloodPool extends FlxAtlasSprite
@@ -15,7 +16,9 @@ class PicoBloodPool extends FlxAtlasSprite
   var el = null;
   public function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("philly/erect/bloodPool", "week3"), {
+    var path = (Preferences.naughtyness) ? "bloodPool" : "picoFlowers";
+
+    super(x, y, Paths.animateAtlas("philly/erect/" + path, "week3"), {
       FrameRate: 24.0,
       Reversed: false,
       // ?OnComplete:Void -> Void,
@@ -25,15 +28,21 @@ class PicoBloodPool extends FlxAtlasSprite
     });
 
    // onAnimationFinish.add(finishCanAnimation);
-   onAnimationComplete.addOnce((_)->{
-    el = anim.curSymbol.getElement(0);
-    extend = true;
-  });
+    if (Preferences.naughtyness)
+    {
+      onAnimationComplete.addOnce((_)->{
+        el = anim.curSymbol.getElement(0);
+        extend = true;
+      });
+    }
+    // else
+    //   onAnimationComplete.add((_)->this.anim.play(true));
+
     this.visible = false;
   }
 
   public function doAnim(){
-    playAnimation("poolAnim", true, false, false);
+    playAnimation(anim.stageInstance.symbol.name, true, false, !Preferences.naughtyness);
     //backingTextYeah.anim.play("");
     this.visible = true;
   }

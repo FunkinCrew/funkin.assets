@@ -20,6 +20,8 @@ class ThornsSong extends Song {
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
+
+    // Skip the cutscene unless we are in Story Mode.
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {

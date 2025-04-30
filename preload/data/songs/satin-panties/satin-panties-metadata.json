@@ -15,7 +15,7 @@
     "songVariations": ["erect"],
     "stage": "limoRide",
     "noteStyle": "funkin",
-    "ratings": { "easy": 2, "normal": 2, "hard": 3 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "album": "volume1",
     "previewStart": 0,
     "previewEnd": 15000

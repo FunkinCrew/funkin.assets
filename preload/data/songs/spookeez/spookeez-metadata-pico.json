@@ -14,8 +14,8 @@
     },
     "stage": "spookyMansionErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 7 },
-    "album": "expansion2",
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
+    "album": "volume4",
     "previewStart": 0,
     "previewEnd": 15000
   },

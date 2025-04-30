@@ -6,10 +6,7 @@
   "divisions": 96,
   "looped": false,
   "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
+    "instrumental": 0
   },
   "playData": {
     "songVariations": [],
@@ -21,10 +18,10 @@
       "instrumental": "pico",
       "altInstrumentals": []
     },
-    "stage": "tankmanBattlefield",
+    "stage": "tankmanBattlefieldErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 5, "hard": 13 },
-    "album": "expansion2",
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume4",
     "previewStart": 0,
     "previewEnd": 0
   },
