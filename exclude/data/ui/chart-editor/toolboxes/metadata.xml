@@ -33,18 +33,18 @@
                             <item text="Pixel" />
                         </data>
                     </dropdown>
-                    <hbox width="100%" horizontalAlign="center">
-                        <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
-                            Daddy Dearest
-                        </button>
-                        <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
-                            Girlfriend
-                        </button>
-                        <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
-                            Boyfriend
-                        </button>
-                    </hbox>
                 </grid>
+                <hbox width="100%" horizontalAlign="center" verticalAlign="bottom">
+                    <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
+                        Daddy Dearest
+                    </button>
+                    <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
+                        Girlfriend
+                    </button>
+                    <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
+                        Boyfriend
+                    </button>
+                </hbox>
             </frame>
             <frame text="Difficulty: Normal" width="100%" height="30%" id="frameDifficulty">
                 <grid columns="2">
