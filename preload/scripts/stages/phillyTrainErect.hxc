@@ -311,8 +311,7 @@ class PhillyTrainErectStage extends Stage
 
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
-		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
-
+		trainSound = FunkinSound.load(Paths.sound('train_passes'));
     colorShader = new AdjustColorShader();
 		colorShader.hue = -26;
 		colorShader.saturation = -16;
@@ -431,6 +430,20 @@ class PhillyTrainErectStage extends Stage
 				getNamedProp('lights' + i).visible = (i == curLight);
 			}
 		}
+	}
+
+	public override function onPause(event:PauseScriptEvent) {
+		super.onPause(event);
+
+		// Temporarily stop ambiance.
+		if (trainSound != null) trainSound.pause();
+	}
+
+	public override function onResume(event:ScriptEvent) {
+		super.onResume(event);
+
+		// Resume temporarily stopped ambiance.
+		if (trainSound != null) trainSound.resume();
 	}
 
 	function trainStart():Void
