@@ -2,7 +2,7 @@
   "version": "2.2.4",
   "songName": "Monster",
   "artist": "BassetFilms",
-  "charter": "ChaoticGamerCG + Spazkid",
+  "charter": "ChaoticGamerCG + MtH + Spazkid",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
