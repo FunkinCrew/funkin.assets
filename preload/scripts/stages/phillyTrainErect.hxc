@@ -18,7 +18,6 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import funkin.Preferences;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -90,8 +89,6 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
-		// Disable player input during cutscene, so you can't get a gameover during cutscene
-		PlayState.instance.isInCutscene = true;
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
@@ -490,6 +487,13 @@ class PhillyTrainErectStage extends Stage
 		trainCars = 8;
 		trainFinishing = false;
 		startedMoving = false;
+	}
+	/**
+	 * Make sure the train is reset when the song restarts.
+	 */
+	 function onSongRetry(event:ScriptEvent) {
+		super.onSongRetry(event);
+		trainReset();
 	}
 
 	function kill()
