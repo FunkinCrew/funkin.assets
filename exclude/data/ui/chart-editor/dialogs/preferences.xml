@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="preferenceDialog" title="Preferences" width="320" style="minHeight:200">
+	<vbox width="100%">
+		<checkbox id="optionsViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
+		<checkbox id="optionsViewSubtitles" text="Show Subtitles" tooltip="Show subtitles." />
+		<checkbox id="optionsViewWaveforms" text="Show Waveforms" />
+		<checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the chart editor." />
+		<grid columns="2" width="100%">
+			<label text="Editor Theme" verticalAlign="center" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="254" />
+		</grid>
+		<menu-separator />
+		<checkbox id="optionsConfirmationExit" text="Confirmation on Exit" tooltip="Whether to show a confirmation dialog when exiting\nif the chart hasn't been saved." />
+		<grid columns="2" width="100%">
+			<label text="Auto Save Timer (Minutes)" verticalAlign="center" />
+			<number-stepper id="optionsAutoSaveTimer" style="font-size: 10px" pos="5" step="0.5" min="1" max="10" precision="1" width="100%" validator="required" />
+		</grid>
+		<menu-separator />
+		<grid columns="2" width="100%">
+			<label text="Live Input Mode" verticalAlign="center" />
+			<option-stepper id="optionsLiveInputMode" width="100%">
+				<data>
+					<item id="NumberKeys" text="Number Keys" />
+					<item id="WASDKeys" text="WASD + Arrows" />
+					<item id="None" text="None" />
+				</data>
+			</option-stepper>
+		</grid>
+		<grid columns="2" width="100%">
+			<label text="Note Stack Threshold" verticalAlign="center" />
+			<dropdown id="optionsStackedNoteThreshold" width="100%">
+				<data>
+					<item text="Exact" />
+				</data>
+			</dropdown>
+		</grid>
+		<menu-separator />
+		<grid columns="2" width="100%">
+			<label text="Song Starting Difficulty" verticalAlign="center" />
+			<dropdown id="optionsStartingDifficulty" width="100%" dropdownSize="10" dropdownWidth="254" />
+		</grid>
+		<grid columns="2" width="100%">
+			<label text="Song Starting Variation" verticalAlign="center" />
+			<dropdown id="optionsStartingVariation" width="100%" dropdownSize="10" dropdownWidth="254" />
+		</grid>
+	</vbox>
+</collapsible-dialog>

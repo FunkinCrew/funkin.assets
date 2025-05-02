@@ -1,0 +1,9 @@
+<collapsible-dialog id="preferenceDialog" title="Preferences" width="320" style="minHeight:200">
+	<vbox width="100%">
+		<checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the chart editor." />
+		<grid columns="2" width="100%">
+			<label text="Editor Theme" verticalAlign="center" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="254" />
+		</grid>
+	</vbox>
+</collapsible-dialog>

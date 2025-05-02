@@ -15,7 +15,7 @@
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-item id="menubarItemPreferences" text="Preferences" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
@@ -48,38 +48,14 @@
     <menu-item id="menubarItemSelectBeforePlayhead" text="Select Before Playhead" shortcutText="Shift+Home" />
     <menu-item id="menubarItemSelectAfterPlayhead" text="Select After Playhead" shortcutText="Shift+End" />
     <menu-separator />
-    <hbox>
-      <label text="Note Stack Threshold" styleName="menuLabel" paddingLeft="12px;" horizontalAlign="left" verticalAlign="center" />
-      <dropdown id="menuBarStackedNoteThreshold" width="100%">
-        <data>
-          <item text="Exact" />
-        </data>
-      </dropdown>
-    </hbox>
-    <menu-separator />
     <menu text="Note Snapping">
       <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
       <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
-    </menu>
-    <menu text="Live Input Mode">
-      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
     </menu>
   </menu>
   <menu text="View">
     <vbox width="100%">
     <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
-    </vbox>
-    <menu text="Theme">
-      <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" />
-      <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
-    </menu>
-    <menu-separator />
-    <vbox width="100%">
-    <menu-checkbox width="100%" id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
-    <menu-checkbox width="100%" id="menubarItemViewSubtitles" text="Subtitles" tooltip="Show subtitles." />
-    <menu-checkbox width="100%" id="menubarItemViewWaveforms" text="Waveforms" />
     </vbox>
     <menu-separator />
     <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
@@ -131,10 +107,6 @@
     <vbox width="100%" style="padding: 5px;">
       <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
-    </vbox>
-    <menu-separator />
-    <vbox width="100%">
-    <menu-checkbox width="100%" id="menubarItemThemeMusic" text="Play Theme Music" />
     </vbox>
   </menu>
   <menu text="Test">
