@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="preferenceDialog" title="Preferences" width="320" style="minHeight:200">
+  <vbox width="100%">
+    <checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the chart editor." />
+		<menu-separator />
+		<checkbox id="optionsAutoSaveExit" text="Auto Save on Exit" tooltip="Whether to auto save the chart every few minutes." />
+		<grid columns="2" width="100%" tooltip="test">
+			<label text="Auto Save Timer (Minutes)" verticalAlign="center" />
+			<number-stepper id="optionsAutoSaveTimer" style="font-size: 10px" pos="5" step="0.5" min="1" max="10" precision="1" width="100%" validator="required" />
+		</grid>
+		<menu-separator />
+		<checkbox id="optionsHitsoundPitchNoteDirection" text="Hitsound Note Direction Pitch" tooltip="Changes the pitch of the hitsound based on the note direction.\nLeft: 0.75\nDown: 0.65\nUp: 1\nRight: 0.85" disabled="true" />
+		<checkbox id="optionsRandomPitch" text="Random Pitch" tooltip="Changes the pitch of the hitsound to be random." disabled="true" />
+		<menu-separator />
+		<grid columns="2" width="100%">
+			<label text="Theme" verticalAlign="center" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="254" />
+		</grid>
+  </vbox>
+</collapsible-dialog>

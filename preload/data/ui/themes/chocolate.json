@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "Chocolate",
+  "chart": {
+    "background": "0xFFBF955F",
+    "gridColors": ["0xFFF5E8D3", "0xFFFFF5E6", "0xFFE6D2B5"],
+    "gridStrumlineDivider": "0xFF8B5A2B",
+    "gridMeasureDivider": "0xFF8B5A2B",
+    "gridBeatDivider": "0xFF6B4226",
+    "selectionSquareBorder": "0xFFA67B5B",
+    "selectionSquareFill": "0x40A67B5B",
+    "notePreviewViewportBorder": "0xFFDAC4A6",
+    "notePreviewViewportFill": "0x80DAC4A6"
+  }
+}

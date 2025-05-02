@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "Legacy",
+  "chart": {
+    "background": "0xFF303030",
+    "gridColors": ["0xFFDFDFDF", "0xFFBFBFBF", "0xFF9F9F9F"],
+    "gridStrumlineDivider": "0xFF000000",
+    "gridBeatDivider": "0xFF7F7F7F"
+  }
+}

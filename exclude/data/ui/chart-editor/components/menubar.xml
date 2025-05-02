@@ -15,7 +15,7 @@
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-item id="menubarItemPreferences" text="Preferences" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
@@ -106,8 +106,6 @@
       <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
-    <menu-separator />
-    <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />

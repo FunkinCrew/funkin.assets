@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "Light",
+  "chart": {
+    "background": "0xFF673AB7",
+    "gridColors": ["0xFFE7E6E6", "0xFFF8F8F8", "0xFFD9D5D5"],
+    "gridStrumlineDivider": "0xFF111111",
+    "gridMeasureDivider": "0xFF111111",
+    "gridBeatDivider": "0xFFC1C1C1",
+    "selectionSquareBorder": "0xFF339933",
+    "selectionSquareFill": "0x4033FF33",
+    "notePreviewViewportBorder": "0xFFF8A657",
+    "notePreviewViewportFill": "0x80F8A657"
+  }
+}
