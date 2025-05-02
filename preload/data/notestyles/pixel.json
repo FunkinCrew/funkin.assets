@@ -47,15 +47,65 @@
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "",
+      "assetPath": "week6:pixelNoteSplash",
+      "scale": 4.0,
+      "alpha": 1.0,
+      "isPixel": true,
+      "offsets": [27.5, 18.5],
       "data": {
-        "enabled": false
+        "blendMode": "screen",
+        "framerateDefault": 33,
+        "framerateVariance": 2,
+        "enabled": true,
+        "leftSplashes": [
+          { "prefix": "purple1" },
+          { "prefix": "purple2" },
+          { "prefix": "purple3" }
+        ],
+        "rightSplashes": [
+          { "prefix": "orange1" },
+          { "prefix": "orange2" },
+          { "prefix": "orange3" }
+        ],
+        "upSplashes": [
+          { "prefix": "green1" },
+          { "prefix": "green2" },
+          { "prefix": "green3" }
+        ],
+        "downSplashes": [
+          { "prefix": "blue1" },
+          { "prefix": "blue2" },
+          { "prefix": "blue3" }
+        ]
       }
     },
     "holdNoteCover": {
-      "assetPath": "",
+      "assetPath": "week6:pixelNoteHoldCover",
+      "scale": 6.0,
+      "isPixel": true,
+      "offsets": [29, -4],
       "data": {
-        "enabled": false
+        "enabled": true,
+        "left": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "right": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "up": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        },
+        "down": {
+          "start": { "prefix": "loop0000" },
+          "hold": { "prefix": "loop" },
+          "end": { "prefix": "explode" }
+        }
       }
     },
     "countdownThree": {

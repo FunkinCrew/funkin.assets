@@ -14,10 +14,21 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
 	var MAX_SIZE = 4;
 
-	function new()
+	var isErect:Bool = false;
+
+	var isEasterEgg:Bool = false;
+
+	function new(erect:Bool)
 	{
 		super(0, 0, 4);
 		this.zIndex = 30;
+
+		this.isErect = (erect != null) ? erect : false;
+		trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
+	}
+
+	public function isValid():Bool {
+		return group != null;
 	}
 
 	function reset()
@@ -34,7 +45,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		tankmanTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
+		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
 		if (animChart == null)
 		{
 			trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
@@ -54,10 +65,10 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		for (note in animNotes)
 		{
 			// Only one out of every 16 notes, on average, is a tankman.
-			if (FlxG.random.bool(6.25))
+			if (FlxG.random.bool(1 / 16 * 100))
 			{
 				tankmanTimes.push(note.time);
-				var goingRight:Bool = note.data == 3 ? false : true;
+				var goingRight:Bool = (note.data == 2 || note.data == 3) ? false : true;
 				tankmanDirs.push(goingRight);
 			}
 		}
@@ -66,7 +77,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 	/**
 	 * Creates a Tankman sprite and adds it to the group.
 	 */
-	function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool)
+	function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
 	{
 		// recycle() is neat; it looks for a sprite which has completed its animation and resets it,
 		// rather than calling the constructor again. It only calls the constructor if it can't find one.
@@ -76,12 +87,19 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 		// We can directly set values which are defined by the script's superclass.
 		tankman.x = initX;
 		tankman.y = initY;
+		tankman.scale.set(scale, scale);
 		tankman.flipX = !goingRight;
 		// We need to use scriptSet for values which were defined in a script.
 		tankman.scriptSet('strumTime', strumTime);
 		tankman.scriptSet('endingOffset', FlxG.random.float(50, 200));
 		tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
 		tankman.scriptSet('goingRight', goingRight);
+
+
+
+		if (isErect) {
+			tankman.scriptCall('addRimlight');
+		}
 
 		this.add(tankman);
 	}
@@ -107,8 +125,9 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 				var nextTime:Float = tankmanTimes.shift();
 				var goingRight:Bool = tankmanDirs.shift();
 				var xPos = 500;
-				var yPos:Float = 200 + FlxG.random.int(50, 100);
-				createTankman(xPos, yPos, nextTime, goingRight);
+				var yPos:Float = isErect ? 350 : (200 + FlxG.random.int(50, 100));
+				var scale:Float = isErect ? 1.10 : 1.0;
+				createTankman(xPos, yPos, nextTime, goingRight, scale);
 			}
 			else
 			{

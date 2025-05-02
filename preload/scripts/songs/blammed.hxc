@@ -19,14 +19,6 @@ class BlammedSong extends Song {
 		super('blammed');
 	}
 
-	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
-  {
-    if (currentVariation == 'pico')
-      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
-
-    return false;
-	}
-
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
     {

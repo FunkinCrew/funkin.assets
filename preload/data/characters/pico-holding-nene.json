@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Holding Nene)",
+  "assetPath": "characters/picoAndNene",
+  "healthIcon": {
+    "id": "pico",
+    "flipX": false
+  },
+  "offsets": [20, 2],
+  "death": {
+    "cameraOffsets": [10, -40],
+    "cameraZoom": 1.0,
+    "deathQuoteDelay": 3.0
+  },
+  "flipX": true,
+  "renderType": "sparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Pico Idle Dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Pico Note Right0",
+      "offsets": [-48, -20]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Pico Down Note0",
+      "offsets": [93, -70]
+    },
+    {
+      "name": "singUP",
+      "prefix": "pico Up note0",
+      "offsets": [56, 3]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Pico NOTE LEFT0",
+      "offsets": [27, -16]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "note miss right pico nene0",
+      "offsets": [-45, -19]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "note miss down pico nene0",
+      "offsets": [95, -74]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "note miss up piconene0",
+      "offsets": [60, 2]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "note miss left pico nene0",
+      "offsets": [28, -11]
+    },
+    {
+      "name": "knifeToss",
+      "prefix": "pico nene knife toss0",
+      "offsets": [14, 26]
+    },
+    {
+      "name": "laughEnd",
+      "prefix": "pico nene laughing full0",
+      "offsets": [5, 7]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": ""
+    }
+  ]
+}

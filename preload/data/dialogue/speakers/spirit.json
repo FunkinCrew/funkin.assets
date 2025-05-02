@@ -14,8 +14,7 @@
     },
     {
       "name": "talk",
-      "prefix": "portraitTalk0",
-      "frameRate": 12
+      "prefix": "portraitTalk0"
     }
   ]
 }

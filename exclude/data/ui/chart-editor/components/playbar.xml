@@ -10,7 +10,7 @@
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
 		<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
-		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarForward" text=">>" />
+		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Forward" id="playbarForward" text=">>" />
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to End" id="playbarEnd" text=">|" />
 	</hbox>
 	<hbox horizontalAlign="right">

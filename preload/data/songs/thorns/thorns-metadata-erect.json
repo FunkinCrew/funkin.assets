@@ -11,9 +11,9 @@
       "opponent": "spirit",
       "instrumental": "erect"
     },
-    "stage": "schoolEvil",
+    "stage": "schoolEvilErect",
     "noteStyle": "pixel",
-    "ratings": { "erect": 6, "nightmare": 8 },
+    "ratings": { "erect": 9, "nightmare": 10 },
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000

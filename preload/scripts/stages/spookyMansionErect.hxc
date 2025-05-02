@@ -38,21 +38,21 @@ class SpookyMansionErectStage extends Stage
 
 		rainShaderTarget = getNamedProp('bgTrees');
 		rainShaderTarget.shader = rainShader;
-		rainShaderTarget.animation.callback = onBranchFrame;
+		rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 	}
 
 	function onBranchFrame(name, frameNum, frameIndex) {
 		rainShader.updateFrameInfo(rainShaderTarget.frame);
 	}
 
-  override function buildStage()
+  	override function buildStage()
 	{
 		super.buildStage();
-    getNamedProp('bgLight').alpha = 0;
-    getNamedProp('stairsLight').alpha = 0;
+    	getNamedProp('bgLight').alpha = 0;
+    	getNamedProp('stairsLight').alpha = 0;
 	}
 
-  override function onUpdate(event:UpdateScriptEvent)
+  	override function onUpdate(event:UpdateScriptEvent)
 	{
 		super.onUpdate(event);
 		rainShader.update(event.elapsed);
@@ -68,41 +68,41 @@ class SpookyMansionErectStage extends Stage
 		}
 
 		//getNamedProp('halloweenBG').animation.play('lightning');
-    getNamedProp('bgLight').alpha = 1;
-    getNamedProp('stairsLight').alpha = 1;
-    PlayState.instance.currentStage.getBoyfriend().alpha = 0;
-    PlayState.instance.currentStage.getDad().alpha = 0;
-    PlayState.instance.currentStage.getGirlfriend().alpha = 0;
+		getNamedProp('bgLight').alpha = 1;
+		getNamedProp('stairsLight').alpha = 1;
+		getBoyfriend().alpha = 0;
+		getDad().alpha = 0;
+		getGirlfriend().alpha = 0;
 
-    new FlxTimer().start(0.06, function(_) {
-      getNamedProp('bgLight').alpha = 0;
-      getNamedProp('stairsLight').alpha = 0;
-        PlayState.instance.currentStage.getBoyfriend().alpha = 1;
-        PlayState.instance.currentStage.getDad().alpha = 1;
-        PlayState.instance.currentStage.getGirlfriend().alpha = 1;
+		new FlxTimer().start(0.06, function(_) {
+			getNamedProp('bgLight').alpha = 0;
+			getNamedProp('stairsLight').alpha = 0;
+			getBoyfriend().alpha = 1;
+			getDad().alpha = 1;
+			getGirlfriend().alpha = 1;
 		});
 
-    new FlxTimer().start(0.12, function(_) {
-      getNamedProp('bgLight').alpha = 1;
-      getNamedProp('stairsLight').alpha = 1;
-      PlayState.instance.currentStage.getBoyfriend().alpha = 0;
-      PlayState.instance.currentStage.getDad().alpha = 0;
-      PlayState.instance.currentStage.getGirlfriend().alpha = 0;
-      FlxTween.tween(getNamedProp('bgLight'), {alpha: 0}, 1.5);
-      FlxTween.tween(getNamedProp('stairsLight'), {alpha: 0}, 1.5);
-      FlxTween.tween(PlayState.instance.currentStage.getBoyfriend(), {alpha: 1}, 1.5);
-      FlxTween.tween(PlayState.instance.currentStage.getDad(), {alpha: 1}, 1.5);
-      FlxTween.tween(PlayState.instance.currentStage.getGirlfriend(), {alpha: 1}, 1.5);
+		new FlxTimer().start(0.12, function(_) {
+			getNamedProp('bgLight').alpha = 1;
+			getNamedProp('stairsLight').alpha = 1;
+			getBoyfriend().alpha = 0;
+			getDad().alpha = 0;
+			getGirlfriend().alpha = 0;
+			FlxTween.tween(getNamedProp('bgLight'), {alpha: 0}, 1.5);
+			FlxTween.tween(getNamedProp('stairsLight'), {alpha: 0}, 1.5);
+			FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
+			FlxTween.tween(getDad(), {alpha: 1}, 1.5);
+			FlxTween.tween(getGirlfriend(), {alpha: 1}, 1.5);
 		});
 
 		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
 
-		if (getBoyfriend() != null) {
+		if (getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer') {
 			getBoyfriend().playAnimation('scared', true, true);
 		}
 
-		if (getGirlfriend() != null) {
+		if (getGirlfriend().hasAnimation('scared')) {
 			getGirlfriend().playAnimation('scared', true, true);
 		}
 	}

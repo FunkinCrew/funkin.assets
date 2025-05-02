@@ -27,8 +27,22 @@
       "offsets": [12, -6]
     },
     {
+      "name": "singLEFT-hold",
+      "prefix": "BF NOTE LEFT0",
+      "frameIndices": [10, 11, 12, 13],
+      "looped": true,
+      "offsets": [12, -6]
+    },
+    {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
+      "offsets": [-10, -50]
+    },
+    {
+      "name": "singDOWN-hold",
+      "prefix": "BF NOTE DOWN0",
+      "frameIndices": [10, 11, 12, 13],
+      "looped": true,
       "offsets": [-10, -50]
     },
     {
@@ -37,8 +51,22 @@
       "offsets": [-29, 27]
     },
     {
+      "name": "singUP-hold",
+      "prefix": "BF NOTE UP0",
+      "frameIndices": [10, 11, 12, 13],
+      "looped": true,
+      "offsets": [-29, 27]
+    },
+    {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
+      "offsets": [-38, -7]
+    },
+    {
+      "name": "singRIGHT-hold",
+      "prefix": "BF NOTE RIGHT0",
+      "frameIndices": [10, 11, 12, 13],
+      "looped": true,
       "offsets": [-38, -7]
     },
     {
@@ -70,6 +98,14 @@
     {
       "name": "dodge",
       "prefix": "boyfriend dodge",
+      "assetPath": "characters/BOYFRIEND",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "dodge-hold",
+      "prefix": "boyfriend dodge",
+      "frameIndices": [10, 11, 12],
+      "looped": true,
       "assetPath": "characters/BOYFRIEND",
       "offsets": [0, 0]
     },

@@ -9,7 +9,7 @@
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "pico" },
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-     "altInstrumentals": ["pico"],
+    "altInstrumentals": ["pico"],
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
     "noteStyle": "funkin"
   },

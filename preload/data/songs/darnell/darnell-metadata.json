@@ -4,7 +4,7 @@
   "artist": "Kawai Sprite",
   "charter": "fabs",
   "playData": {
-    "songVariations": ["bf"],
+    "songVariations": ["bf", "erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "album": "volume3",
@@ -16,6 +16,7 @@
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
+    "stickerPack": "bonus-weekend1",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "album": "volume3",
     "previewStart": 0,

@@ -8,10 +8,12 @@
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
-      "opponent": "senpai"
+      "opponent": "senpai",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
     },
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "pixel",
     "album": "volume2",

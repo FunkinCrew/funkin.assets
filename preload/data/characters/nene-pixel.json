@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "name": "Nene",
+  "assetPath": "characters/nenePixel/nenePixel",
+  "startingAnimation": "danceRight",
+  "isPixel": true,
+  "scale": 6,
+  "animations": [
+    {
+      "name": "danceLeft",
+      "prefix": "idle",
+      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "offsets": [0, 0]
+    },
+    {
+      "name": "danceRight",
+      "prefix": "idle",
+      "frameIndices": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+      "offsets": [0, 0]
+    },
+    {
+      "name": "raiseKnife",
+      "prefix": "raise",
+      "offsets": [0, 10]
+    },
+    {
+      "name": "idleKnife",
+      "prefix": "blink",
+      "frameIndices": [6, 7],
+      "offsets": [0, 10]
+    },
+    {
+      "name": "idleKnifeBlink",
+      "prefix": "blink",
+      "frameIndices": [0, 1, 2, 3, 4, 5],
+      "offsets": [-19, 10]
+    },
+    {
+      "name": "lowerKnife",
+      "prefix": "lower",
+      "frameIndices": [0, 1, 2, 3, 4, 5],
+      "offsets": [0, 10]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "name": "Tankman Battlefield (Erect)",
+  "cameraZoom": 0.7,
+  "props": [
+    {
+      "name": "bg",
+      "assetPath": "erect/bg",
+      "position": [-985, -805],
+      "scale": [1.15, 1.15],
+      "zIndex": 10,
+      "scroll": [1, 1]
+    },
+    {
+      "name": "sniper",
+      "assetPath": "erect/sniper",
+      "zIndex": 20,
+      "position": [-127, 349],
+      "scale": [1.15, 1.15],
+      "scroll": [1, 1],
+      "danceEvery": 2,
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "Tankmanidlebaked instance 1",
+          "looped": false
+        },
+        {
+          "name": "sip",
+          "prefix": "tanksippingBaked instance 1",
+          "looped": false
+        }
+      ],
+      "startingAnimation": "idle"
+    },
+    {
+      "name": "guy",
+      "assetPath": "erect/guy",
+      "zIndex": 20,
+      "position": [1398, 407],
+      "scale": [1.15, 1.15],
+      "scroll": [1, 1],
+      "danceEvery": 2,
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "BLTank2 instance 1",
+          "looped": false
+        }
+      ],
+      "startingAnimation": "idle"
+    }
+  ],
+  "characters": {
+    "bf": {
+      "zIndex": 100,
+      "position": [1340.5, 885],
+      "cameraOffsets": [-220, -100]
+    },
+    "dad": {
+      "zIndex": 100,
+      "position": [230.5, 996],
+      "cameraOffsets": [250, -100]
+    },
+    "gf": { "zIndex": 100, "position": [800.5, 775], "cameraOffsets": [0, 0] }
+  },
+  "directory": "week7"
+}

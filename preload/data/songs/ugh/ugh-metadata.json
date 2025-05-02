@@ -2,12 +2,6 @@
   "version": "2.2.4",
   "songName": "Ugh",
   "artist": "Kawai Sprite",
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

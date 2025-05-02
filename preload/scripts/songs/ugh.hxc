@@ -30,13 +30,6 @@ class UghSong extends Song {
   }
 
 	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool{
-    if(currentVariation == 'pico')
-		  return !Save.instance.hasBeatenSong(this.id, null, 'pico');
-
-		if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
-			return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
-
-
     return false;
 	}
 

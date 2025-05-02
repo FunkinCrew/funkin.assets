@@ -6,7 +6,7 @@
   "isPixel": true,
   "scale": 6,
   "healthIcon": {
-    "id": "senpai",
+    "id": "senpai-angry",
     "isPixel": true
   },
   "animations": [

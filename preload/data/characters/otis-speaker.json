@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "name": "Otis (Speaker Shooter)",
+  "assetPath": "characters/otisSpeaker",
+  "startingAnimation": "idle",
+  "singTime": 4.0,
+  "offsets": [-40, -135],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "otis idle0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "shoot1",
+      "prefix": "shoot back0",
+      "offsets": [0, 13]
+    },
+    {
+      "name": "shoot2",
+      "prefix": "shoot back low0",
+      "offsets": [-35, 21]
+    },
+    {
+      "name": "shoot3",
+      "prefix": "shoot forward0",
+      "offsets": [238, 96]
+    },
+    {
+      "name": "shoot4",
+      "prefix": "shoot forward low0",
+      "offsets": [260, 23]
+    }
+  ]
+}
