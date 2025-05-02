@@ -268,8 +268,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
 		super.onAnimationFrame(name, frameNumber, frameIndex);
 
-		trace('onAnimationFrame: ' + name + ' ' + frameNumber + ' ' + frameIndex);
-
 		if (name == "firstDeath" && frameNumber == 36 - 1) {
 			if (deathSpriteRetry != null && deathSpriteRetry.animation != null)
 			{

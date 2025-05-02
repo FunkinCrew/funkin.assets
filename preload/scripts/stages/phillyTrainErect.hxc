@@ -90,6 +90,8 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
+		// Disable player input during cutscene, so you can't get a gameover during cutscene
+		PlayState.instance.isInCutscene = true;
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
