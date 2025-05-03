@@ -491,7 +491,15 @@ class PhillyTrainErectStage extends Stage
 		trainFinishing = false;
 		startedMoving = false;
 	}
-
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+		// Disable lightning during ending cutscene.
+		trainMoving = false;
+		if (trainSound != null) {
+			trainSound.stop();
+			trainSound = null;
+		}
+	}
 	function kill()
 	{
 		super.kill();
