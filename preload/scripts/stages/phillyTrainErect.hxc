@@ -500,6 +500,15 @@ class PhillyTrainErectStage extends Stage
 			trainSound = null;
 		}
 	}
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+		// Disable train movement sfx during song ending.
+		trainMoving = false;
+		if (trainSound != null) {
+			trainSound.stop();
+			trainSound = null;
+		}
+	}
 	function kill()
 	{
 		super.kill();
