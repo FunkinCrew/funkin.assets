@@ -134,7 +134,7 @@ class TwoHOTSong extends Song
 		VideoCutscene.onVideoEnded.addOnce(function () {
 			if (FlxG.onMobile)
 			{
-				PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - (40 + FullScreenScaleMode.gameNotchSize.x);
+				PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - Math.max(40, FullScreenScaleMode.gameNotchSize.x);
 			}
 			FullScreenScaleMode.removeCutouts();
 		});
