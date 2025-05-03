@@ -100,7 +100,6 @@ class PhillyTrainStage extends Stage
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
-		// Disable lightning during ending cutscene.
 		trainMoving = false;
 		if (trainSound != null) {
 			trainSound.stop();
