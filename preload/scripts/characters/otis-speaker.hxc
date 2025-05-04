@@ -264,6 +264,12 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		abotViz.dumpSound();
 	}
 
+	override function onSongEnd(event:ScriptEvent)
+	{
+		super.onSongEnd();
+		abotViz.dumpSound();
+	}
+
 	function playPicoAnimation(direction:Int):Void
   {
 		muzzleFlash.blend = 0;
