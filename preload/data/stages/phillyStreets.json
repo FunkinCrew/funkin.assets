@@ -94,7 +94,7 @@
     {
       "danceEvery": 0,
       "zIndex": 80,
-      "position": [1748, 818],
+      "position": [1200, 818],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyCars",
@@ -140,7 +140,7 @@
     {
       "danceEvery": 0,
       "zIndex": 78,
-      "position": [1748, 818],
+      "position": [1200, 818],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyCars2",
