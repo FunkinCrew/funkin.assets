@@ -1,0 +1,20 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.GameOverSubState;
+import funkin.Preferences;
+
+class BFHoldingGFCharacter extends MultiSparrowCharacter {
+	function new() {
+		super('bf-holding-gf');
+	}
+
+	override function getDeathQuote():Null<String> {
+		var randomCensor:Array<Int> = [];
+
+		if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
+
+    return Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor));
+	}
+}

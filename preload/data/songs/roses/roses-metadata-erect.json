@@ -2,7 +2,7 @@
   "version": "2.2.4",
   "songName": "Roses Erect",
   "charter": "Jenny + Fabs + SpazKid",
-  "artist": "kawaisprite",
+  "artist": "Kawai Sprite",
   "looped": false,
   "playData": {
     "difficulties": ["erect", "nightmare"],
@@ -12,7 +12,7 @@
       "opponent": "senpai-angry",
       "instrumental": "erect"
     },
-    "stage": "school",
+    "stage": "schoolErect",
     "noteStyle": "pixel",
     "ratings": { "erect": 8, "nightmare": 9 },
     "album": "volume3",

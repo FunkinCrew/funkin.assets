@@ -14,8 +14,8 @@
     },
     "stage": "mainStageErect",
     "noteStyle": "funkin",
-    "ratings": { "easy": 3, "normal": 4, "hard": 12 },
-    "album": "expansion2",
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume4",
     "previewStart": 0,
     "previewEnd": 15000
   },

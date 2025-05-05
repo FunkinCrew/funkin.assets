@@ -1,0 +1,326 @@
+
+import funkin.play.character.SparrowCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
+import flixel.util.FlxSort;
+import funkin.Conductor;
+import funkin.util.SortUtil;
+import funkin.play.PlayState;
+import flixel.group.FlxTypedSpriteGroup;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxSprite;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.DropShadowShader;
+import funkin.graphics.shaders.AdjustColorShader;
+import Lambda;
+
+class OtisSpeakerCharacter extends SparrowCharacter {
+
+	var shootTimes:Array<Float> = [];
+	var shootDirs:Array<Int> = [];
+
+	var pupilState:Int = 0;
+
+	var PUPIL_STATE_NORMAL = 0;
+	var PUPIL_STATE_LEFT = 1;
+
+	var abot:FlxAtlasSprite;
+	var abotViz:ABotVis;
+	var stereoBG:FlxSprite;
+	var eyeWhites:FlxSprite;
+	var pupil:FlxAtlasSprite;
+
+	var muzzleFlash:FlxSprite;
+
+	function new() {
+		super('otis-speaker');
+
+    ignoreExclusionPref.push("shoot1");
+		ignoreExclusionPref.push("shoot2");
+		ignoreExclusionPref.push("shoot3");
+		ignoreExclusionPref.push("shoot4");
+	}
+
+	var adjustColor:AdjustColorShader;
+	var vizAdjustColor:AdjustColorShader;
+
+	override function onCreate(event:ScriptEvent):Void
+  {
+		super.onCreate(event);
+
+		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+
+		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
+
+		adjustColor = new AdjustColorShader();
+
+    adjustColor.hue = -10;
+    adjustColor.saturation = -20;
+    adjustColor.brightness = -30;
+    adjustColor.contrast = -25;
+
+		vizAdjustColor = new AdjustColorShader();
+
+		vizAdjustColor.brightness = -12;
+    vizAdjustColor.hue = -30;
+    vizAdjustColor.contrast = 0;
+		vizAdjustColor.saturation = -10;
+
+		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+		pupil.x = this.x;
+		pupil.y = this.y;
+		pupil.zIndex = this.zIndex - 5;
+
+		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+		abot.x = this.x;
+		abot.y = this.y;
+		abot.zIndex = this.zIndex - 1;
+
+		abotViz = new ABotVis(FlxG.sound.music);
+		abotViz.x = this.x;
+		abotViz.y = this.y;
+		abotViz.zIndex = abot.zIndex + 1;
+
+		pupil.shader = adjustColor;
+		abot.shader = adjustColor;
+		for(spr in abotViz.members){
+			spr.shader = vizAdjustColor;
+		}
+
+		this.playAnimation('idle', true, true);
+
+		muzzleFlash = new FlxSprite(0, 0);
+		muzzleFlash.frames = Paths.getSparrowAtlas("erect/otis_flashes");
+		muzzleFlash.animation.addByPrefix('shoot1', 'shoot back0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot2', 'shoot back low0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot3', 'shoot forward0', 24, false);
+		muzzleFlash.animation.addByPrefix('shoot4', 'shoot forward low0', 24, false);
+
+		muzzleFlash.animation.onFrameChange.add(function() {
+			updateMuzzle();
+    });
+
+		initTimemap();
+	}
+
+	function updateMuzzle(){
+		if(muzzleFlash.animation.curAnim.curFrame > 1){
+			muzzleFlash.blend = null;
+		}
+
+		muzzleFlash.visible = !muzzleFlash.animation.finished;
+	}
+
+	override function dance(force:Bool):Void
+  {
+		super.dance(force);
+		if (abot != null)
+		{
+			abot.playAnimation("");
+    	abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+		}
+	}
+
+	var refershedLol:Bool = false;
+
+	function reset():Void
+	{
+		initTimemap();
+	}
+
+	function initTimemap():Void
+	{
+		trace('Initializing Otis timings...');
+		shootTimes = [];
+		// The tankmen's timings and directions are determined
+		// by the chart, specifically the internal "picospeaker" difficulty.
+		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
+		if (animChart == null)
+		{
+			trace('Initializing Otis (speaker) failed; no `picospeaker` chart found for this song.');
+			return;
+		} else {
+			trace('Initializing Otis (speaker); found `picospeaker` chart, continuing...');
+		}
+		var animNotes:Array<SongNoteData> = animChart.notes;
+
+		// turns out sorting functions are completely useless in polymod right now and do nothing
+		// i had to sort the whole pico chart by hand im gonna go insane
+		animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
+  	{
+    	return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
+  	});
+
+		for (note in animNotes)
+		{
+			shootTimes.push(note.time);
+			shootDirs.push(note.data);
+		}
+	}
+
+	override function onUpdate(event:UpdateScriptEvent):Void
+	{
+		super.onUpdate(event);
+
+		// Set the visibility of ABot to match Nene's.
+		abot.visible = this.visible;
+		pupil.visible = this.visible;
+		eyeWhites.visible = this.visible;
+		stereoBG.visible = this.visible;
+
+		if (pupil?.anim?.isPlaying)
+		{
+			switch (pupilState)
+			{
+				case PUPIL_STATE_NORMAL:
+					if (pupil.anim.curFrame >= 17)
+					{
+						trace('Done moving pupils left');
+						pupilState = PUPIL_STATE_LEFT;
+						pupil.anim.pause();
+					}
+
+				case PUPIL_STATE_LEFT:
+					if (pupil.anim.curFrame >= 30)
+					{
+						trace('Done moving pupils right');
+						pupilState = PUPIL_STATE_NORMAL;
+						pupil.anim.pause();
+					}
+			}
+		}
+
+		// refreshes just for the zIndex shit!
+		if (!refershedLol)
+		{
+			abot.x = this.x - 100;
+			abot.y = this.y + 216; // 764 - 740
+			abot.zIndex = this.zIndex - 10;
+
+			PlayState.instance.currentStage.add(abot);
+
+			abotViz.x = abot.x + 200;
+			abotViz.y = abot.y + 84;
+			abotViz.zIndex = abot.zIndex - 1;
+			PlayState.instance.currentStage.add(abotViz);
+
+			eyeWhites.x = abot.x + 40;
+			eyeWhites.y = abot.y + 250;
+			eyeWhites.zIndex = abot.zIndex - 10;
+			PlayState.instance.currentStage.add(eyeWhites);
+
+			pupil.x = abot.x - 507;
+			pupil.y = abot.y - 492;
+			pupil.zIndex = eyeWhites.zIndex + 5;
+			PlayState.instance.currentStage.add(pupil);
+
+			stereoBG.x = abot.x + 150;
+			stereoBG.y = abot.y + 30;
+			stereoBG.zIndex = abot.zIndex - 8;
+			PlayState.instance.currentStage.add(stereoBG);
+
+			muzzleFlash.zIndex = this.zIndex - 1;
+			PlayState.instance.currentStage.add(muzzleFlash);
+
+			PlayState.instance.currentStage.refresh();
+			refershedLol = true;
+
+			abot.x -= 30;
+			abotViz.x -= 30;
+			eyeWhites.x -= 30;
+			pupil.x -= 30;
+			stereoBG.x -= 30;
+
+			abot.y -= 10;
+			abotViz.y -= 10;
+			eyeWhites.y -= 10;
+			pupil.y -= 10;
+			stereoBG.y -= 10;
+		}
+
+    // Each Pico animation is shifted from the array when it's time to play it.
+		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
+			var nextTime:Float = shootTimes.shift();
+			var nextDir:Int = shootDirs.shift();
+
+			playPicoAnimation(nextDir);
+		}
+	}
+
+	override function onSongStart(event:ScriptEvent) {
+		abotViz.snd = FlxG.sound.music;
+		abotViz.initAnalyzer();
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry();
+		abotViz.dumpSound();
+	}
+
+	function playPicoAnimation(direction:Int):Void
+  {
+		muzzleFlash.blend = 0;
+		switch (direction) {
+			case 0:
+				this.playAnimation('shoot1', true, true);
+				muzzleFlash.setPosition(this.x + 590, this.y - 130);
+				muzzleFlash.animation.play('shoot1', true);
+			case 1:
+				this.playAnimation('shoot2', true, true);
+				muzzleFlash.setPosition(this.x + 620, this.y - 170);
+				muzzleFlash.animation.play('shoot2', true);
+			case 2:
+				this.playAnimation('shoot3', true, true);
+				muzzleFlash.setPosition(this.x - 560, this.y - 190);
+				muzzleFlash.animation.play('shoot3', true);
+			case 3:
+				this.playAnimation('shoot4', true, true);
+				muzzleFlash.setPosition(this.x - 520, this.y - 230);
+				muzzleFlash.animation.play('shoot4', true);
+		}
+	}
+
+
+	function movePupilsLeft():Void {
+		if (pupilState == PUPIL_STATE_LEFT) return;
+		trace('Move pupils left');
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 0;
+		// pupilState = PUPIL_STATE_LEFT;
+	}
+
+	function movePupilsRight():Void {
+		if (pupilState == PUPIL_STATE_NORMAL) return;
+		trace('Move pupils right');
+		pupil.playAnimation('');
+		pupil.anim.curFrame = 17;
+		// pupilState = PUPIL_STATE_NORMAL;
+	}
+
+	/**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+	{
+		super.onSongEvent(scriptEvent);
+		if (scriptEvent.eventData.eventKind == "FocusCamera")
+		{
+			var eventProps = scriptEvent.eventData.value;
+			switch (Std.parseInt(eventProps.char)) {
+				case 0:
+					movePupilsRight();
+				case 1:
+					movePupilsLeft();
+				default:
+			}
+		}
+
+	}
+}

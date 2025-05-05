@@ -67,18 +67,17 @@ class NeneDarkCharacter extends SparrowCharacter {
 		pupil.zIndex = this.zIndex - 5;
 
 		testShader = new TextureSwap();
-		testShader.swappedImage = BitmapData.fromFile('assets/shared/images/characters/abot/dark/abotSystem/spritemap1.png');
+		testShader.loadSwapImage('assets/shared/images/characters/abot/dark/abotSystem/spritemap1.png');
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
 		abot.x = this.x;
 		abot.y = this.y;
 		abot.zIndex = this.zIndex - 1;
 		abot.shader = testShader;
 
-		abotViz = new ABotVis(FlxG.sound.music);
+		abotViz = new ABotVis(FlxG.sound.music, false);
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
-		FlxG.debugger.track(abotViz);
 
 		vizAdjustColor = new AdjustColorShader();
 
@@ -167,11 +166,15 @@ class NeneDarkCharacter extends SparrowCharacter {
 	var blinkCountdown:Int = MIN_BLINK_DELAY;
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-			super.playAnimation(name, restart, ignoreOther);
-      if(normalChar != null){
-        normalChar.playAnimation(name, restart, ignoreOther);
-        normalChar.setPosition(this.x, this.y);
-      }
+		if (name == "scared") {
+			return;
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+    if(normalChar != null){
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x, this.y);
+    }
 	}
 
 	function dance(forceRestart:Bool) {
@@ -346,12 +349,15 @@ class NeneDarkCharacter extends SparrowCharacter {
 		}
 	}
 
-	public function onScriptEvent(event:ScriptEvent):Void {
-		if (event.type == "SONG_START")
-		{
-			abotViz.snd = FlxG.sound.music;
-			abotViz.initAnalyzer();
-		}
+	override function onSongStart(event:ScriptEvent) {
+		abotViz.snd = FlxG.sound.music;
+		abotViz.initAnalyzer();
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry();
+		abotViz.dumpSound();
 	}
 
 	var animationFinished:Bool = false;

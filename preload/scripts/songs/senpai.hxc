@@ -6,6 +6,7 @@ import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import flixel.FlxG;
+import funkin.save.Save;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 
@@ -18,10 +19,19 @@ class SenpaiSong extends Song {
 		super('senpai');
 	}
 
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico')
+      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+    return false;
+	}
+
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
+    if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');
@@ -30,11 +40,29 @@ class SenpaiSong extends Song {
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.currentStage.pause();
+      //  pausing is breaking a lot in the erect stage for some reason disabling this for the sake of not running into issues atm
+      //  PlayState.instance.currentStage.pause();
 
       transitionToDialogue();
     }
 	}
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+      switch (variationId) {
+        case 'pico':
+          // return hasBeatenPicoMix ? [''] : [];
+          // No Pico mix on BF instrumental, sorry!
+          return [];
+        default:
+          return hasBeatenPicoMix ? ['pico'] : [];
+      }
+    }
+
+    return [];
+  }
 
   function transitionToDialogue() {
     trace('Transitioning to dialogue.');
@@ -62,15 +90,14 @@ class SenpaiSong extends Song {
       ease: FlxEase.linear,
       startDelay: 0.25,
       onComplete: function (input) {
-
-        // black.visible = false;
         startDialogue();
       }
     }, tweenFunction);
   }
 
   function startDialogue() {
-    PlayState.instance.startConversation('senpai');
+    var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'senpai-pico' : 'senpai';
+    PlayState.instance.startConversation(targetDialogue);
   }
 
   /**

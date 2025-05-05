@@ -18,6 +18,7 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import funkin.Preferences;
 
 class PhillyTrainErectStage extends Stage
 {
@@ -55,12 +56,15 @@ class PhillyTrainErectStage extends Stage
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
+
     if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
       trace('Pausing countdown to play in game cutscene');
 
       hasPlayedInGameCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
+
+
 
       PlayState.instance.camHUD.visible = false;
       doppleGangerCutscene();
@@ -86,6 +90,8 @@ class PhillyTrainErectStage extends Stage
 
 	function doppleGangerCutscene(){
 
+		// Disable player input during cutscene, so you can't get a gameover during cutscene
+		PlayState.instance.isInCutscene = true;
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
@@ -308,7 +314,14 @@ class PhillyTrainErectStage extends Stage
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+
     colorShader = new AdjustColorShader();
+		colorShader.hue = -26;
+		colorShader.saturation = -16;
+		colorShader.contrast = 0;
+		colorShader.brightness = -5;
+		getNamedProp('train').shader = colorShader;
+
 		FlxG.sound.list.add(trainSound);
 
 		for (i in 0...LIGHT_COUNT)
@@ -340,18 +353,6 @@ class PhillyTrainErectStage extends Stage
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-			PlayState.instance.currentStage.getDad().shader = colorShader;
-			getNamedProp('train').shader = colorShader;
-
-			colorShader.hue = -26;
-			colorShader.saturation = -16;
-			colorShader.contrast = 0;
-			colorShader.brightness = -5;
-    }
 
 		var amount:Int = 1;
 
@@ -387,6 +388,22 @@ class PhillyTrainErectStage extends Stage
 		if (cutsceneConductor != null && cutsceneMusic != null) {
 			cutsceneConductor.update(cutsceneMusic.time);
 		}
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+
+		shader = new AdjustColorShader();
+
+    shader.hue = -26;
+		shader.saturation = -16;
+		shader.contrast = 0;
+		shader.brightness = -5;
+
+		character.shader = shader;
+
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent):Void
@@ -431,7 +448,12 @@ class PhillyTrainErectStage extends Stage
 		if (trainSound.time >= 4700)
 		{
 			startedMoving = true;
-			getGirlfriend().playAnimation('hairBlow');
+			switch(getGirlfriend().characterId){
+				case 'nene':
+					getGirlfriend().scriptSet('trainPassing', true);
+				default:
+					getGirlfriend().playAnimation('hairBlow');
+			}
 		}
 
 		if (startedMoving)
@@ -455,8 +477,14 @@ class PhillyTrainErectStage extends Stage
 
 	function trainReset():Void
 	{
-		getGirlfriend().playAnimation('hairFall');
 		getNamedProp('train').x = FlxG.width + 200;
+
+		switch(getGirlfriend().characterId){
+			case 'nene':
+				getGirlfriend().scriptSet('trainPassing', false);
+			default:
+				getGirlfriend().playAnimation('hairFall');
+		}
 
 		trainMoving = false;
 		trainCars = 8;

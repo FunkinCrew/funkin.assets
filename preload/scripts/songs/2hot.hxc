@@ -88,13 +88,6 @@ class TwoHOTSong extends Song
 			PlayState.instance.tweenCameraZoom(0.69, 2, true, FlxEase.quadInOut);
 		});
 
-		// Since no music plays at this part I'm too lazy to hook Nene up to a conductor,
-		// so we just dance on a timer here.
-		new FlxTimer().start(0.5, function(tmr)
-		{
-			PlayState.instance.currentStage.getGirlfriend().dance(true);
-		}, 10);
-
 		new FlxTimer().start(2, function(tmr)
 		{
 			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);

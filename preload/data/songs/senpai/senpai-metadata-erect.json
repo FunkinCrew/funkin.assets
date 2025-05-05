@@ -11,9 +11,9 @@
       "opponent": "senpai",
       "instrumental": "erect"
     },
-    "stage": "school",
+    "stage": "schoolErect",
     "noteStyle": "pixel",
-    "ratings": { "erect": 7, "nightmare": 8 },
+    "ratings": { "erect": 6, "nightmare": 7 },
     "album": "volume3",
     "previewStart": 0,
     "previewEnd": 15000

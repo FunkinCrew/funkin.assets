@@ -26,11 +26,13 @@ class CasingSprite extends FunkinSprite
 		animation.addByPrefix('pop', "Pop0", 24, false);
 		animation.addByPrefix('idle', "Bullet0", 24, true);
 		animation.play('pop');
-		animation.callback = function(name:String, frameNumber:Int, frameIndex:Int) {
-			if (name == 'pop' && frameNumber == 40) {
-				startRoll();
-			}
-		};
+		animation.onFrameChange.add(onFrame);
+	}
+
+	function onFrame(name:String, frameNumber:Int, frameIndex:Int) {
+		if (name == 'pop' && frameNumber == 40) {
+			startRoll();
+		}
 	}
 
 	function startRoll() {
