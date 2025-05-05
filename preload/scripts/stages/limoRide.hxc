@@ -125,13 +125,4 @@ class LimoRideStage extends Stage
     super.onSongRetry(event);
     resetFastCar();
   }
-
-  /**
-   * Make sure the fast car is reset when the song restarts.
-   */
-  function onCountdownStart(event:ScriptEvent)
-  {
-    super.onCountdownStart(event);
-    resetFastCar();
-  }
 }

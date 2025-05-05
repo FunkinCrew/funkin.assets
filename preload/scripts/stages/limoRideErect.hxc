@@ -265,13 +265,4 @@ class LimoRideErectStage extends Stage
     shootingStarBeat = 0;
     shootingStarOffset = 2;
   }
-
-  /**
-   * Make sure the fast car is reset when the song restarts.
-   */
-  function onCountdownStart(event:ScriptEvent)
-  {
-    super.onCountdownStart(event);
-    resetFastCar();
-  }
 }
