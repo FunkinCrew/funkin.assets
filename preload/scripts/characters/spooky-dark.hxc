@@ -43,7 +43,6 @@ class SpookyDarkCharacter extends SparrowCharacter {
 	}
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		trace('spookyDark.playAnimation(' + name + ', ' + restart + ', ' + ignoreOther + ')');
 		super.playAnimation(name, restart, ignoreOther);
     if(normalChar != null){
       normalChar.playAnimation(name, restart, ignoreOther);
