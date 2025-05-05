@@ -105,14 +105,6 @@ class PhillyStreetsStage extends Stage
     }
   }
 
-  override function onCountdownStart(event:ScriptEvent)
-  {
-    super.onCountdownStart(event);
-
-    resetCar(true, true);
-    resetStageValues();
-  }
-
   override function onCountdownEnd(event:ScriptEvent)
   {
     super.onCountdownEnd(event);
