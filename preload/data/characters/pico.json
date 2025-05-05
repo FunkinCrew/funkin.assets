@@ -1,33 +1,105 @@
 {
-  "version": "1.0.0",
-  "name": "Pico",
-  "assetPath": "characters/Pico_Basic",
-  "flipX": true,
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Pico Idle Dance",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [-86, -10]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Pico Down Note0",
-      "offsets": [-37, -82]
-    },
-    {
-      "name": "singUP",
-      "prefix": "pico Up note0",
-      "offsets": [-32, 28]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Pico Note Right0",
-      "offsets": [61, 2]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "multisparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"flipX": true,
+	"name": "Pico",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"singTime": 8,
+	"assetPath": "characters/Pico_Basic",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"id": "pico",
+		"flipX": false,
+		"isPixel": false,
+		"scale": 1
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Pico Idle Dance",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-86,
+				-10
+			],
+			"frameRate": 24,
+			"prefix": "Pico NOTE LEFT0",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-37,
+				-82
+			],
+			"frameRate": 24,
+			"prefix": "Pico Down Note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-32,
+				28
+			],
+			"frameRate": 24,
+			"prefix": "pico Up note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				61,
+				2
+			],
+			"frameRate": 24,
+			"prefix": "Pico Note Right0",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				30,
+				0
+			],
+			"frameRate": 24,
+			"assetPath": "characters/pico-cheer",
+			"prefix": "Pico HEY!!0",
+			"flipX": false,
+			"looped": false,
+			"name": "hey"
+		}
+	]
 }
