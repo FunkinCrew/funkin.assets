@@ -48,10 +48,19 @@ class PicoSpeakerCharacter extends SparrowCharacter {
 		shootTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
+		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentInstrumental);
 		if (animChart == null)
 		{
-			trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this song.');
+			trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this difficulty.');
+			animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+			if (animChart == null)
+			{
+				trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this song.');
+				animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+				return;
+			} else {
+				trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
+			}
 			return;
 		} else {
 			trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
