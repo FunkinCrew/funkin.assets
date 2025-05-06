@@ -10,6 +10,8 @@
 					<textfield id="dialogSongName" placeholder="Song name..." width="100%" validator="required" />
 					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="dialogSongArtist" placeholder="Song artist..." width="100%" validator="required" />
+					<label text="Charter:" verticalAlign="center" horizontalAlign="right" />
+					<textfield id="dialogSongCharter" placeholder="Song charter..." width="100%" validator="required" />
 					<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
 					<dropdown id="dialogStage" text="Stage..." horizontalAlign="right" width="100%">
 						<validator type="required" />
