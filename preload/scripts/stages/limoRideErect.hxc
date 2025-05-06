@@ -132,36 +132,31 @@ class LimoRideErectStage extends Stage
 		mist5.y = -450 + (Math.sin(_timer*0.2)*150);
 		//trace(mist1.y);
 
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getDad().shader = colorShader;
-		  getNamedProp('limoDancer1').shader = colorShader;
-      getNamedProp('limoDancer2').shader = colorShader;
-  	  getNamedProp('limoDancer3').shader = colorShader;
-      getNamedProp('limoDancer4').shader = colorShader;
-      getNamedProp('limoDancer5').shader = colorShader;
-      getNamedProp('fastCar').shader = colorShader;
+		getNamedProp('limoDancer1').shader = colorShader;
+		getNamedProp('limoDancer2').shader = colorShader;
+		getNamedProp('limoDancer3').shader = colorShader;
+		getNamedProp('limoDancer4').shader = colorShader;
+		getNamedProp('limoDancer5').shader = colorShader;
+		getNamedProp('fastCar').shader = colorShader;
 
-			// PlayState.instance.currentStage.getBoyfriend().visible = false;
-		  // PlayState.instance.currentStage.getGirlfriend().visible = false;
-		  // PlayState.instance.currentStage.getDad().visible = false;
-		 	// getNamedProp('limo').visible = false;
-			// getNamedProp('limoDancer1').visible = false;
-      // getNamedProp('limoDancer2').visible = false;
-  	  // getNamedProp('limoDancer3').visible = false;
-      // getNamedProp('limoDancer4').visible = false;
-      // getNamedProp('limoDancer5').visible = false;
-      // getNamedProp('fastCar').visible = false;
-			// getNamedProp('bgLimo').visible = false;
-			// getNamedProp('limoSunset').visible = false;
-			// getNamedProp('shootingStar').visible = false;
+		// PlayState.instance.currentStage.getBoyfriend().visible = false;
+		// PlayState.instance.currentStage.getGirlfriend().visible = false;
+		// PlayState.instance.currentStage.getDad().visible = false;
+		// getNamedProp('limo').visible = false;
+		// getNamedProp('limoDancer1').visible = false;
+		// getNamedProp('limoDancer2').visible = false;
+		// getNamedProp('limoDancer3').visible = false;
+		// getNamedProp('limoDancer4').visible = false;
+		// getNamedProp('limoDancer5').visible = false;
+		// getNamedProp('fastCar').visible = false;
+		// getNamedProp('bgLimo').visible = false;
+		// getNamedProp('limoSunset').visible = false;
+		// getNamedProp('shootingStar').visible = false;
 
-		  colorShader.hue = -30;
-		  colorShader.saturation = -20;
-		  colorShader.contrast = 0;
-		  colorShader.brightness = -30;
-    }
+		colorShader.hue = -30;
+		colorShader.saturation = -20;
+		colorShader.contrast = 0;
+		colorShader.brightness = -30;
   }
 
 	function doShootingStar(beat:Int):Void
@@ -174,6 +169,13 @@ class LimoRideErectStage extends Stage
 		shootingStarBeat = beat;
 		shootingStarOffset = FlxG.random.int(4, 8);
 
+	}
+
+	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
+		// Apply the shader automatically to each character as it gets added.
+		super.addCharacter(character, charType);
+		trace('Applied stage shader to ' + character.characterName);
+		character.shader = colorShader;
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent)
