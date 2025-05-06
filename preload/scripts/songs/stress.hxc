@@ -323,13 +323,13 @@ class StressSong extends Song
 
     // TODO: there is a bug where atlas sprites loop infinitely
     // this is a workaround until it's fixed!!
-    tankmanCutscene.onAnimationComplete.add(function () {
+    tankmanCutscene.onAnimationComplete.add(function() {
       tankmanCutscene.anim.pause();
     });
-    picoNeneCutscene.onAnimationComplete.add(function () {
+    picoNeneCutscene.onAnimationComplete.add(function() {
       picoNeneCutscene.anim.pause();
     });
-    abotCutscene.onAnimationComplete.add(function () {
+    abotCutscene.onAnimationComplete.add(function() {
       abotCutscene.anim.pause();
     });
 
@@ -434,18 +434,6 @@ class StressSong extends Song
       });
 
       picoNeneCutscene.playAnimation('nene fucking chokes pico', false);
-
-      // good cutoff point for the cutscene skip
-      cutsceneSkipped = true;
-      canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5,
-        {
-          ease: FlxEase.quadOut,
-          onComplete: function() {
-            PlayState.instance.remove(skipText);
-            skipText = null;
-          }
-        });
     });
 
     new FlxTimer(cutsceneTimerManager).start(345 / 24, _ -> {
