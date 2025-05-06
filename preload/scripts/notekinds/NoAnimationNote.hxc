@@ -1,0 +1,21 @@
+import funkin.play.notes.notekind.ScriptedNoteKind;
+import funkin.data.song.NoteParamData;
+
+class NoAnimationNote extends ScriptedNoteKind {
+    function new() {
+        super("no-anim", "No Animation");
+    }
+
+    override function onNoteHit(event:HitNoteScriptEvent):Void {
+        event.note.playSingAnimation = false;
+
+        super.onNoteHit(event);
+    }
+
+    override function onNoteMiss(event:NoteScriptEvent) {
+        event.note.playSingAnimation = false;
+
+        super.onNoteMiss(event);
+    }
+
+}
