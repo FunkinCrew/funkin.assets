@@ -1,5 +1,4 @@
 import funkin.play.character.SparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
@@ -12,7 +11,7 @@ class DarnellCharacter extends SparrowCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (!event.note.noteData.getMustHitNote() && characterType == 'dad') {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "weekend-1-lightcan":
@@ -31,7 +30,7 @@ class DarnellCharacter extends SparrowCharacter {
 	}
 
 	function onNoteIncoming(event:NoteScriptEvent) {
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (!event.note.noteData.getMustHitNote() && characterType == 'dad') {
 			// Get how long until it's time to strum the note.
 			var msTilStrum = event.note.strumTime - Conductor.instance.songPosition;
 

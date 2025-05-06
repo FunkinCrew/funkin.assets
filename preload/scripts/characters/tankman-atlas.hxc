@@ -1,5 +1,4 @@
 import funkin.play.character.AnimateAtlasCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
 /**
@@ -12,7 +11,7 @@ class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (!event.note.noteData.getMustHitNote() && characterType == 'dad') {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "ugh":

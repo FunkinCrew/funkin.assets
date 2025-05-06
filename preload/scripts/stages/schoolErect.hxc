@@ -1,6 +1,5 @@
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.DropShadowShader;
 
 class SchoolErectStage extends Stage
@@ -35,7 +34,7 @@ class SchoolErectStage extends Stage
 		rim.distance = 5;
 
 		switch(charType){
-			case CharacterType.BF:
+			case 'bf':
 
 				rim.angle = 90;
 				character.shader = rim;
@@ -51,7 +50,7 @@ class SchoolErectStage extends Stage
 					}
     		});
 
-			case CharacterType.GF:
+			case 'gf':
 
 				rim.setAdjustColor(-42, -10, 5, -25);
 				rim.angle = 90;
@@ -70,7 +69,7 @@ class SchoolErectStage extends Stage
 					}
     		});
 
-			case CharacterType.DAD:
+			case 'dad':
 
 				rim.angle = 90;
 				character.shader = rim;

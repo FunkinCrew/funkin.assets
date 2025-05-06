@@ -1,5 +1,4 @@
 import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import flixel.FlxG;
 
@@ -30,7 +29,7 @@ class TankmanBloodyCharacter extends MultiSparrowCharacter {
 	{
 		super.onNoteHit(event);
 
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (!event.note.noteData.getMustHitNote() && characterType == 'dad') {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "ugh":

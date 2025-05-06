@@ -1,5 +1,4 @@
 import funkin.play.character.SparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import flixel.addons.effects.FlxTrail;
 
@@ -9,7 +8,7 @@ class GirlfriendCharacter extends SparrowCharacter {
 	}
 
 	override function onAdd() {
-		if (!debug && this.characterType == CharacterType.DAD) {
+		if (!debug && this.characterType == 'dad') {
       // If Girlfriend is the opponent, set her position to the stage's assigned Girlfriend position,
       // while maintaining her status as an opponent. This allows the Girlfriend character to use a shared
       // character file without weird offsets.

@@ -1,5 +1,4 @@
 import funkin.play.character.SparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
 class ParentsChristmasCharacter extends SparrowCharacter {
@@ -9,7 +8,7 @@ class ParentsChristmasCharacter extends SparrowCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (!event.note.noteData.getMustHitNote() && characterType == 'dad') {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "mom":

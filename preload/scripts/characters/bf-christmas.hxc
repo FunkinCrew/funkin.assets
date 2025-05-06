@@ -2,7 +2,6 @@ import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.character.CharacterType;
 import funkin.play.GameOverSubState;
 
 class BoyfriendChristmasCharacter extends MultiSparrowCharacter {
@@ -17,7 +16,7 @@ function onNoteHit(event:HitNoteScriptEvent)
 			return;
 		}
 
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+		if (event.note.noteData.getMustHitNote() && characterType == 'bf') {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "censor":
