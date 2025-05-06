@@ -15,7 +15,7 @@ class LimoRideErectStage extends Stage
 		super('limoRideErect');
 	}
 
-  var colorShader:AdjustColorShader;
+	var colorShader:AdjustColorShader;
 	var mist1:FlxBackdrop;
 	var mist2:FlxBackdrop;
 	var mist3:FlxBackdrop;
@@ -25,7 +25,7 @@ class LimoRideErectStage extends Stage
 	var shootingStarBeat:Int = 0;
 	var shootingStarOffset:Int = 2;
 
-	function buildStage()
+	override function buildStage()
 	{
 		super.buildStage();
 
@@ -46,13 +46,13 @@ class LimoRideErectStage extends Stage
 		// I don't know what it's for, but it's not used in the game.
 		// If you want to re-add it, go find it in version control.
 
-    colorShader = new AdjustColorShader();
+		colorShader = new AdjustColorShader();
 
-    mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
+		mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 400;
-    mist1.blend = 0;
+		mist1.blend = 0;
 		mist1.color = 0xFFc6bfde;
 		mist1.alpha = 0.4;
 		mist1.velocity.x = 1700;
@@ -64,7 +64,7 @@ class LimoRideErectStage extends Stage
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 401;
-    mist2.blend = 0;
+		mist2.blend = 0;
 		mist2.color = 0xFF6a4da1;
 		mist2.alpha = 1;
 		mist2.velocity.x = 2100;
@@ -77,7 +77,7 @@ class LimoRideErectStage extends Stage
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.8, 0.8);
 		mist3.zIndex = 99;
-   	mist3.blend = 0;
+	 	mist3.blend = 0;
 		mist3.color = 0xFFa7d9be;
 		mist3.alpha = 0.5;
 		mist3.velocity.x = 900;
@@ -91,7 +91,7 @@ class LimoRideErectStage extends Stage
 		mist4.setPosition(-650, -380);
 		mist4.scrollFactor.set(0.6, 0.6);
 		mist4.zIndex = 98;
-    mist4.blend = 0;
+		mist4.blend = 0;
 		mist4.color = 0xFF9c77c7;
 		mist4.alpha = 1;
 		mist4.velocity.x = 700;
@@ -104,7 +104,7 @@ class LimoRideErectStage extends Stage
 		mist5.setPosition(-650, -400);
 		mist5.scrollFactor.set(0.2, 0.2);
 		mist5.zIndex = 15;
-   	mist5.blend = 0;
+	 	mist5.blend = 0;
 		mist5.color = 0xFFE7A480;
 		mist5.alpha = 1;
 		mist5.velocity.x = 100;
@@ -115,12 +115,13 @@ class LimoRideErectStage extends Stage
 
 		getNamedProp('shootingStar').blend = 0;
 
+		fastCarTimer = new FlxTimer();
 		resetFastCar();
 	}
 
 	var _timer:Float = 0;
 
-  function onUpdate(event:UpdateScriptEvent):Void
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
 
@@ -132,37 +133,37 @@ class LimoRideErectStage extends Stage
 		mist5.y = -450 + (Math.sin(_timer*0.2)*150);
 		//trace(mist1.y);
 
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getDad().shader = colorShader;
-		  getNamedProp('limoDancer1').shader = colorShader;
-      getNamedProp('limoDancer2').shader = colorShader;
-  	  getNamedProp('limoDancer3').shader = colorShader;
-      getNamedProp('limoDancer4').shader = colorShader;
-      getNamedProp('limoDancer5').shader = colorShader;
-      getNamedProp('fastCar').shader = colorShader;
+		if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
+			PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+			PlayState.instance.currentStage.getDad().shader = colorShader;
+			getNamedProp('limoDancer1').shader = colorShader;
+			getNamedProp('limoDancer2').shader = colorShader;
+			getNamedProp('limoDancer3').shader = colorShader;
+			getNamedProp('limoDancer4').shader = colorShader;
+			getNamedProp('limoDancer5').shader = colorShader;
+			getNamedProp('fastCar').shader = colorShader;
 
 			// PlayState.instance.currentStage.getBoyfriend().visible = false;
-		  // PlayState.instance.currentStage.getGirlfriend().visible = false;
-		  // PlayState.instance.currentStage.getDad().visible = false;
+			// PlayState.instance.currentStage.getGirlfriend().visible = false;
+			// PlayState.instance.currentStage.getDad().visible = false;
 		 	// getNamedProp('limo').visible = false;
 			// getNamedProp('limoDancer1').visible = false;
-      // getNamedProp('limoDancer2').visible = false;
-  	  // getNamedProp('limoDancer3').visible = false;
-      // getNamedProp('limoDancer4').visible = false;
-      // getNamedProp('limoDancer5').visible = false;
-      // getNamedProp('fastCar').visible = false;
+			// getNamedProp('limoDancer2').visible = false;
+			// getNamedProp('limoDancer3').visible = false;
+			// getNamedProp('limoDancer4').visible = false;
+			// getNamedProp('limoDancer5').visible = false;
+			// getNamedProp('fastCar').visible = false;
 			// getNamedProp('bgLimo').visible = false;
 			// getNamedProp('limoSunset').visible = false;
 			// getNamedProp('shootingStar').visible = false;
 
-		  colorShader.hue = -30;
-		  colorShader.saturation = -20;
-		  colorShader.contrast = 0;
-		  colorShader.brightness = -30;
-    }
-  }
+			colorShader.hue = -30;
+			colorShader.saturation = -20;
+			colorShader.contrast = 0;
+			colorShader.brightness = -30;
+		}
+	}
 
 	function doShootingStar(beat:Int):Void
 	{
@@ -173,10 +174,9 @@ class LimoRideErectStage extends Stage
 
 		shootingStarBeat = beat;
 		shootingStarOffset = FlxG.random.int(4, 8);
-
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent)
+	override function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
@@ -208,16 +208,17 @@ class LimoRideErectStage extends Stage
 		fastCar.y = FlxG.random.int(140, 250);
 		fastCar.velocity.x = 0;
 		fastCarCanDrive = true;
+		fastCarSound = null;
 	}
 
 	function fastCarDrive():Void
 	{
-		FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
+		fastCarSound = FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
 
 		var fastCar = getNamedProp('fastCar');
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		fastCarTimer.start(2, function(tmr:FlxTimer)
 		{
 			resetFastCar();
 		});
@@ -227,7 +228,7 @@ class LimoRideErectStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
+	override function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 
@@ -242,7 +243,7 @@ class LimoRideErectStage extends Stage
 	/**
 	 * Make sure the fast car is reset when the song restarts.
 	 */
-	function onSongRetry(event:ScriptEvent) {
+	override function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 		resetFastCar();
 		shootingStarBeat = 0;
@@ -252,8 +253,22 @@ class LimoRideErectStage extends Stage
 	/**
 	 * Make sure the fast car is reset when the song restarts.
 	 */
-	function onCountdownStart(event:ScriptEvent) {
+	override function onCountdownStart(event:ScriptEvent) {
 		super.onCountdownStart(event);
 		resetFastCar();
+	}
+
+	override function onPause(event:PauseScriptEvent) {
+		super.onPause(event);
+
+		if (fastCarTimer != null) fastCarTimer.active = false;
+		if (fastCarSound != null) fastCarSound.pause();
+	}
+
+	override function onResume(event:ScriptEvent) {
+		super.onResume(event);
+
+		if (fastCarTimer != null) fastCarTimer.active = true;
+		if (fastCarSound != null) fastCarSound.resume();
 	}
 }
