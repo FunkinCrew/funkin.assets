@@ -1,0 +1,56 @@
+# Configuration for Label Actions - https://github.com/dessant/label-actions
+
+# Automatically close pull requests when the `status: duplicate` label is applied
+'status: duplicate':
+  prs:
+    # Post a comment
+    comment: >
+      This pull request is a duplicate. Please direct all discussion to the original pull request.
+    # Close the pull request
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'status: accepted'
+      - 'status: needs clarification'
+      - 'status: needs r&d'
+      - 'status: needs revision'
+      - 'status: pending triage'
+      - 'status: rejected'
+      - 'status: resolved'
+      - 'status: resolved internally'
+      - 'status: reviewing internally'
+      - 'status: stale'
+
+'status: stale':
+  prs:
+    # Close the pull request
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'status: accepted'
+      - 'status: duplicate'
+      - 'status: needs clarification'
+      - 'status: needs r&d'
+      - 'status: needs revision'
+      - 'status: pending triage'
+      - 'status: rejected'
+      - 'status: resolved'
+      - 'status: resolved internally'
+      - 'status: reviewing internally'
+
+'status: rejected':
+  prs:
+    # Close the pull request
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'status: accepted'
+      - 'status: duplicate'
+      - 'status: needs clarification'
+      - 'status: needs r&d'
+      - 'status: needs revision'
+      - 'status: pending triage'
+      - 'status: resolved'
+      - 'status: resolved internally'
+      - 'status: reviewing internally'
+      - 'status: stale'
