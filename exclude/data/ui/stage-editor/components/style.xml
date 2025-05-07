@@ -65,7 +65,7 @@
 		padding-left: 0px;
 		}
 		.dialog-close-button {
-		resource: "haxeui-flixel/styles/flixel-ui/images/close.png";
+		resource: "shared:assets/shared/images/ui/chart-editor/close.png";
 		vertical-align: "center";
 		cursor: "pointer";
 		pointer-events: true;
@@ -73,7 +73,7 @@
 		border-radius: 2px;
 		}
 		.dialog-close-button:hover {
-		resource: $close-hover;
+		resource: "shared:assets/shared/images/ui/chart-editor/close.png";
 		background-color: $selection-background-color;
 		}
 		.dialog-minimize-button {

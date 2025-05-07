@@ -82,7 +82,7 @@
 		border-radius: 2px;
 		}
 		.dialog-close-button:hover {
-		resource: $close-hover;
+		resource: "shared:assets/shared/images/ui/chart-editor/close.png";
 		background-color: $selection-background-color;
 		}
 		.dialog-minimize-button {
