@@ -321,18 +321,6 @@ class StressSong extends Song
     abotCutscene.setPosition(PlayState.instance.currentStage.getGirlfriend().x + 270, PlayState.instance.currentStage.getGirlfriend().y + 226);
     abotCutscene.zIndex = PlayState.instance.currentStage.getGirlfriend().zIndex - 100;
 
-    // TODO: there is a bug where atlas sprites loop infinitely
-    // this is a workaround until it's fixed!!
-    tankmanCutscene.onAnimationComplete.add(function() {
-      tankmanCutscene.anim.pause();
-    });
-    picoNeneCutscene.onAnimationComplete.add(function() {
-      picoNeneCutscene.anim.pause();
-    });
-    abotCutscene.onAnimationComplete.add(function() {
-      abotCutscene.anim.pause();
-    });
-
     picoNeneCutscene.onAnimationComplete.add(function(name:String) {
       if (name == "pico nene idle dance")
       {
