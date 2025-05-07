@@ -107,6 +107,11 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
     <menu-separator />
+    <vbox width="100%" style="padding: 5px;">
+      <menu-checkbox width="100%" id="menubarItemHitsoundPitchNoteDirection" text="Hitsound note direction" tooltip="Hitsound pitch by note direction:\nLeft: 0.75\nDown: 0.65\nUp: 1\nRight: 0.85" />
+      <menu-checkbox width="100%" id="menubarItemRandomPitch" text="Random pitch for SFX" tooltip="The definition of insanity is:\nHearing the exact same funkin sound over and over and over and over again, expecting it to change.\nThis option prevents that from happening." />
+    </vbox>
+    <menu-separator />
     <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
   </menu>
   <menu text="Test">
