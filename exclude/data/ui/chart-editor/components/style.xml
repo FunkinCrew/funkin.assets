@@ -44,6 +44,14 @@
 		font-size: 24px;
 		font-bold: true;
 		}
+		.playbarRightDuration {
+		font-size: 24px;
+		font-bold: true;
+		pointer-events: true;
+		}
+		.playbarRightDuration:hover {
+		background-color: #CCCCCC;
+		}
 		.playbarDifficulty {
 		font-size: 18px;
 		font-bold: true;
