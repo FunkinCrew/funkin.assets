@@ -280,7 +280,8 @@ class StressSong extends Song
     skipText.cameras = [PlayState.instance.camCutscene];
 
     PlayState.instance.cameraFollowPoint.x += 300;
-    FlxG.camera.snapToTarget();
+    PlayState.instance.cameraFollowPoint.y -= 50;
+    PlayState.instance.resetCamera(false);
 
     cutsceneTimerManager = new FlxTimerManager();
 
@@ -369,52 +370,77 @@ class StressSong extends Song
       abotCutscene.playAnimation('otis saves them sequence', false);
     });
 
+    new FlxTimer(cutsceneTimerManager).start(204 / 24, _ -> {
+      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x - 20, PlayState.instance.cameraFollowPoint.y, 10 / 24, FlxEase.quartOut);
+    });
+
     new FlxTimer(cutsceneTimerManager).start(254 / 24, _ -> {
       picoNeneCutscene.playAnimation('pico idle dance slow down', false);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(270 / 24, _ -> {
-      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x - 40, PlayState.instance.cameraFollowPoint.y - 340, 1.125,
-        FlxEase.quadIn);
-      PlayState.instance.tweenCameraZoom(1.3, 1.125, false, FlxEase.quadIn);
+    new FlxTimer(cutsceneTimerManager).start(269 / 24, _ -> {
+      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x - 40, PlayState.instance.cameraFollowPoint.y - 550, 27 / 24,
+        FlxEase.quadInOut);
+      PlayState.instance.tweenCameraZoom(1.3, 27 / 24, false, FlxEase.quadInOut);
     });
 
     new FlxTimer(cutsceneTimerManager).start(301 / 24, _ -> {
-      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 30, PlayState.instance.cameraFollowPoint.y + 30, 1, FlxEase.linear);
+      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 30, PlayState.instance.cameraFollowPoint.y + 30, 2, FlxEase.linear);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(325 / 24, _ -> {
-      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 50, PlayState.instance.cameraFollowPoint.y + 300, 0.129,
-        FlxEase.linear);
-      PlayState.instance.tweenCameraZoom(1.45, 0.129, false, FlxEase.linear);
+    // copying the keyframes from the fla
+    new FlxTimer(cutsceneTimerManager).start(326 / 24, _ -> {
+      PlayState.instance.cameraFollowPoint.x += 5;
+      PlayState.instance.cameraFollowPoint.y += 42;
+
+      // We HAVE to reset the camera instead of doing FlxG.camera.snapToTarget() for some fucking reason
+      PlayState.instance.resetCamera(false);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(327 / 24, _ -> {
+      PlayState.instance.cameraFollowPoint.x += 18;
+      PlayState.instance.cameraFollowPoint.y += 64;
+      PlayState.instance.resetCamera(false);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(328 / 24, _ -> {
+      PlayState.instance.cameraFollowPoint.x += 34;
+      PlayState.instance.cameraFollowPoint.y += 148;
+      PlayState.instance.resetCamera(false);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(328 / 24, _ -> {
+      PlayState.instance.cameraFollowPoint.x += 42;
+      PlayState.instance.cameraFollowPoint.y += 292;
+      PlayState.instance.resetCamera(false);
     });
 
     // apologies for the weird nested flxtimers
-    // this is to replicate the keyframes in the fla!
+    // again this is to replicate the keyframes in the fla!
     new FlxTimer(cutsceneTimerManager).start(330 / 24, _ -> {
-      PlayState.instance.cameraFollowPoint.x += 50;
-      PlayState.instance.cameraFollowPoint.y += 40;
-      FlxG.camera.snapToTarget();
+      PlayState.instance.cameraFollowPoint.x += 20;
+      PlayState.instance.cameraFollowPoint.y += 38;
+      PlayState.instance.resetCamera(false);
 
       new FlxTimer(cutsceneTimerManager).start(0.02, _ -> {
-        PlayState.instance.cameraFollowPoint.x += 150;
-        PlayState.instance.cameraFollowPoint.y += 53;
-        FlxG.camera.snapToTarget();
+        PlayState.instance.cameraFollowPoint.x += 130;
+        PlayState.instance.cameraFollowPoint.y += 51;
+        PlayState.instance.resetCamera(false);
 
         new FlxTimer(cutsceneTimerManager).start(0.02, _ -> {
-          PlayState.instance.cameraFollowPoint.x += 150;
-          PlayState.instance.cameraFollowPoint.y += 53;
-          FlxG.camera.snapToTarget();
+          PlayState.instance.cameraFollowPoint.x += 130;
+          PlayState.instance.cameraFollowPoint.y += 51;
+          PlayState.instance.resetCamera(false);
 
           new FlxTimer(cutsceneTimerManager).start(0.02, _ -> {
-            PlayState.instance.cameraFollowPoint.x += 150;
-            PlayState.instance.cameraFollowPoint.y += 54;
-            FlxG.camera.snapToTarget();
+            PlayState.instance.cameraFollowPoint.x += 130;
+            PlayState.instance.cameraFollowPoint.y += 52;
+            PlayState.instance.resetCamera(false);
 
             PlayState.instance.tweenCameraZoom(1.5, 0.208, false, FlxEase.quadIn);
 
             new FlxTimer(cutsceneTimerManager).start(0.2, _ -> {
-              PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 20, PlayState.instance.cameraFollowPoint.y + 20, 0.708,
+              PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 6, PlayState.instance.cameraFollowPoint.y + 20, 0.708,
                 FlxEase.quadOut);
             });
           });
@@ -441,9 +467,9 @@ class StressSong extends Song
     });
 
     new FlxTimer(cutsceneTimerManager).start(579 / 24, _ -> {
-      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x - 735, PlayState.instance.cameraFollowPoint.y - 85, 1.08,
-        FlxEase.quadOut);
-      PlayState.instance.tweenCameraZoom(1.25, 1.08, false, FlxEase.quadOut);
+      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x - 620, PlayState.instance.cameraFollowPoint.y - 60, 1.08,
+        FlxEase.cubeInOut);
+      PlayState.instance.tweenCameraZoom(1.25, 1.08, false, FlxEase.cubeInOut);
     });
 
     new FlxTimer(cutsceneTimerManager).start(590 / 24, _ -> {
@@ -463,19 +489,19 @@ class StressSong extends Song
     // more damn nested timers, apologies!!!
     new FlxTimer(cutsceneTimerManager).start(669 / 24, _ -> {
       PlayState.instance.cameraFollowPoint.x -= 5;
-      FlxG.camera.snapToTarget();
+      PlayState.instance.resetCamera(false);
 
       new FlxTimer(cutsceneTimerManager).start(0.083, _ -> {
         PlayState.instance.cameraFollowPoint.x -= 30;
-        FlxG.camera.snapToTarget();
+        PlayState.instance.resetCamera(false);
 
         new FlxTimer(cutsceneTimerManager).start(0.083, _ -> {
           PlayState.instance.cameraFollowPoint.x += 5;
-          FlxG.camera.snapToTarget();
+          PlayState.instance.resetCamera(false);
 
           new FlxTimer(cutsceneTimerManager).start(0.125, _ -> {
             PlayState.instance.cameraFollowPoint.x += 5;
-            FlxG.camera.snapToTarget();
+            PlayState.instance.resetCamera(false);
           });
         });
       });
@@ -486,7 +512,7 @@ class StressSong extends Song
     });
 
     new FlxTimer(cutsceneTimerManager).start(733 / 24, _ -> {
-      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 250, PlayState.instance.cameraFollowPoint.y + 45, 2.5, FlxEase.quadIn);
+      PlayState.instance.tweenCameraToPosition(PlayState.instance.cameraFollowPoint.x + 205, PlayState.instance.cameraFollowPoint.y - 20, 2.5, FlxEase.quadIn);
       PlayState.instance.tweenCameraZoom(1.1, 2.5, false, FlxEase.quadIn);
     });
 
