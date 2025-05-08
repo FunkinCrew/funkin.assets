@@ -73,7 +73,7 @@ class DarnellCharacter extends SparrowCharacter {
 	 * Play the animation where Darnell kicks the can into the air.
 	 */
 	function playKickCanAnim() {
-		this.playAnimation('kickCan', true, true);
+		this.playAnimation('kickCan', true, false);
 	}
 
 	var kickCanSound:FunkinSound;
