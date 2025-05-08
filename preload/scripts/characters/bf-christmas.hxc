@@ -17,7 +17,6 @@ function onNoteHit(event:HitNoteScriptEvent)
 			return;
 		}
 
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "censor":
@@ -27,6 +26,5 @@ function onNoteHit(event:HitNoteScriptEvent)
 				default:
 					super.onNoteHit(event);
 			}
-		}
 	}
 }

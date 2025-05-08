@@ -80,22 +80,20 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			return;
 		}
 
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
-			// Override the hit note animation.
-			switch(event.note.kind) {
-				case "censor":
-					holdTimer = 0;
-					this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
-					return;
-				case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
-					holdTimer = 0;
-					playCockGunAnim();
-				case "weekend-1-firegun":
-					holdTimer = 0;
-					playFireGunAnim();
-				default:
-					super.onNoteHit(event);
-			}
+		// Override the hit note animation.
+		switch(event.note.kind) {
+			case "censor":
+				holdTimer = 0;
+				this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
+				return;
+			case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
+				holdTimer = 0;
+				playCockGunAnim();
+			case "weekend-1-firegun":
+				holdTimer = 0;
+				playFireGunAnim();
+			default:
+				super.onNoteHit(event);
 		}
 	}
 
