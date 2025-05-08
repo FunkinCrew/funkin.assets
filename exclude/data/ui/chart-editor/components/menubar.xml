@@ -107,7 +107,16 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
     <menu-separator />
-    <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
+    <vbox width="100%" style="padding: 5px;">
+    <menu-checkbox width="100%" id="menubarItemThemeMusic" text="Play Theme Music" />
+        <label text="Fade in..." style="padding-bottom: 2px; padding-left: 2px; padding-right: 2px; font-size: 12px;" textAlign="center" verticalAlign="center" width="50%" horizontalAlign="center" />
+    		<grid columns="2" width="100%">
+    <label text="Delay" styleName="menuLabel" verticalAlign="center" textAlign="center" width="50%" horizontalAlign="center" />
+    <label text="Duration" styleName="menuLabel" verticalAlign="center" textAlign="center" width="50%" horizontalAlign="center" />
+    <number-stepper id="numberStepperItemThemeMusicFadeInDelay" step="0.1" min="0.0" max="600.0" precision="1" horizontalAlign="center" tooltip="The time in seconds when the welcome music fade in starts." width="50%" />
+    <number-stepper id="numberStepperItemThemeMusicFadeInDuration" step="0.1" min="0.0" max="120.0" precision="1" horizontalAlign="center" tooltip="The time in seconds of the welcome music fade in duration." width="50%" />
+    </grid>
+    </vbox>
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
