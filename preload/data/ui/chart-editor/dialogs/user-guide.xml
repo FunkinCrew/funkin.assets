@@ -51,6 +51,7 @@
 					<item action="Cut Selection" keybind="Ctrl + X" />
 					<item action="Paste" keybind="Ctrl + V" />
 					<item action="Delete Selection" keybind="Delete" />
+					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Select All" keybind="Ctrl + A" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />
