@@ -18,7 +18,7 @@
     "noteStrumline": {
       "assetPath": "week6:weeb/pixelUI/arrows-pixels",
       "scale": 6.0,
-      "offsets": [28, 40],
+      "offsets": [28, 30],
       "isPixel": true,
       "data": {
         "leftStatic": { "prefix": "staticLeft0" },
@@ -42,7 +42,7 @@
     "holdNote": {
       "assetPath": "week6:weeb/pixelUI/arrowEndsNew",
       "scale": 6.0,
-      "offsets": [2, -8],
+      "offsets": [2, 4],
       "isPixel": true,
       "data": {}
     },
@@ -83,7 +83,7 @@
       "assetPath": "week6:pixelNoteHoldCover",
       "scale": 6.0,
       "isPixel": true,
-      "offsets": [29, -2.5],
+      "offsets": [29, -4.2],
       "data": {
         "enabled": true,
         "left": {
