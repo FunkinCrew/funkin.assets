@@ -36,10 +36,10 @@
 	<SubTexture name="-angry faic-0001" x="228" y="80" width="54" height="54" />
 	<SubTexture name="-angry faic-0002" x="284" y="80" width="54" height="54" />
 	<SubTexture name="-angry faic-0003" x="284" y="80" width="54" height="54" />
-	<SubTexture name="-apostraphie-0000" x="340" y="80" width="29" height="39" />
-	<SubTexture name="-apostraphie-0001" x="340" y="80" width="29" height="39" />
-	<SubTexture name="-apostraphie-0002" x="371" y="80" width="29" height="39" />
-	<SubTexture name="-apostraphie-0003" x="371" y="80" width="29" height="39" />
+	<SubTexture name="-apostraphie-0000" x="340" y="80" width="29" height="69" />
+	<SubTexture name="-apostraphie-0001" x="340" y="80" width="29" height="69" />
+	<SubTexture name="-apostraphie-0002" x="371" y="80" width="29" height="69" />
+	<SubTexture name="-apostraphie-0003" x="371" y="80" width="29" height="69" />
 	<SubTexture name="-back slash-0000" x="402" y="80" width="43" height="59" />
 	<SubTexture name="-back slash-0001" x="402" y="80" width="43" height="59" />
 	<SubTexture name="-back slash-0002" x="447" y="80" width="43" height="59" />
@@ -48,18 +48,18 @@
 	<SubTexture name="-comma-0001" x="2" y="149" width="31" height="35" />
 	<SubTexture name="-comma-0002" x="35" y="149" width="31" height="35" />
 	<SubTexture name="-comma-0003" x="35" y="149" width="31" height="35" />
-	<SubTexture name="-dash-0000" x="68" y="149" width="49" height="25" />
-	<SubTexture name="-dash-0001" x="68" y="149" width="49" height="25" />
-	<SubTexture name="-dash-0002" x="119" y="149" width="49" height="25" />
-	<SubTexture name="-dash-0003" x="119" y="149" width="49" height="25" />
+	<SubTexture name="-dash-0000" x="68" y="149" width="49" height="45" />
+	<SubTexture name="-dash-0001" x="68" y="149" width="49" height="45" />
+	<SubTexture name="-dash-0002" x="119" y="149" width="49" height="45" />
+	<SubTexture name="-dash-0003" x="119" y="149" width="49" height="45" />
 	<SubTexture name="-down arrow-0000" x="170" y="149" width="39" height="44" />
 	<SubTexture name="-down arrow-0001" x="170" y="149" width="39" height="44" />
 	<SubTexture name="-down arrow-0002" x="211" y="149" width="39" height="44" />
 	<SubTexture name="-down arrow-0003" x="211" y="149" width="39" height="44" />
-	<SubTexture name="-end quote-0000" x="252" y="149" width="40" height="48" />
-	<SubTexture name="-end quote-0001" x="252" y="149" width="40" height="48" />
-	<SubTexture name="-end quote-0002" x="294" y="149" width="40" height="48" />
-	<SubTexture name="-end quote-0003" x="294" y="149" width="40" height="48" />
+	<SubTexture name="-end quote-0000" x="2" y="306" width="43" height="63" />
+	<SubTexture name="-end quote-0001" x="2" y="306" width="43" height="63" />
+	<SubTexture name="-end quote-0002" x="47" y="306" width="43" height="63" />
+	<SubTexture name="-end quote-0003" x="47" y="306" width="43" height="63" />
 	<SubTexture name="-exclamation point-0000" x="336" y="149" width="29" height="76" />
 	<SubTexture name="-exclamation point-0001" x="336" y="149" width="29" height="76" />
 	<SubTexture name="-exclamation point-0002" x="367" y="149" width="29" height="76" />
@@ -100,18 +100,18 @@
 	<SubTexture name="-right arrow-0001" x="412" y="227" width="40" height="36" />
 	<SubTexture name="-right arrow-0002" x="454" y="227" width="40" height="36" />
 	<SubTexture name="-right arrow-0003" x="454" y="227" width="40" height="36" />
-	<SubTexture name="-start quote-0000" x="2" y="306" width="43" height="45" />
-	<SubTexture name="-start quote-0001" x="2" y="306" width="43" height="45" />
-	<SubTexture name="-start quote-0002" x="47" y="306" width="43" height="45" />
-	<SubTexture name="-start quote-0003" x="47" y="306" width="43" height="45" />
+	<SubTexture name="-start quote-0000" x="252" y="149" width="40" height="63" />
+	<SubTexture name="-start quote-0001" x="252" y="149" width="40" height="63" />
+	<SubTexture name="-start quote-0002" x="294" y="149" width="40" height="63" />
+	<SubTexture name="-start quote-0003" x="294" y="149" width="40" height="63" />
 	<SubTexture name="-up arrow-0000" x="92" y="306" width="36" height="42" />
 	<SubTexture name="-up arrow-0001" x="92" y="306" width="36" height="42" />
 	<SubTexture name="-up arrow-0002" x="130" y="306" width="36" height="42" />
 	<SubTexture name="-up arrow-0003" x="130" y="306" width="36" height="42" />
-	<SubTexture name=":0000" x="168" y="306" width="26" height="52" />
-	<SubTexture name=":0001" x="168" y="306" width="26" height="52" />
-	<SubTexture name=":0002" x="196" y="306" width="26" height="52" />
-	<SubTexture name=":0003" x="196" y="306" width="26" height="52" />
+	<SubTexture name=":0000" x="168" y="306" width="26" height="56" />
+	<SubTexture name=":0001" x="168" y="306" width="26" height="56" />
+	<SubTexture name=":0002" x="196" y="306" width="26" height="56" />
+	<SubTexture name=":0003" x="196" y="306" width="26" height="56" />
 	<SubTexture name=";0000" x="224" y="306" width="27" height="56" />
 	<SubTexture name=";0001" x="224" y="306" width="27" height="56" />
 	<SubTexture name=";0002" x="253" y="306" width="27" height="56" />
