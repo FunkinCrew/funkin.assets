@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "Disgusting Orange Boy",
+  "chart": {
+    "background": "0xFFD9954B",
+    "gridColors": ["0xFFF1E2D1", "0xFFFDF7F0", "0xFFF4DDC6"],
+    "gridStrumlineDivider": "0xFFCDB7A6",
+    "gridMeasureDivider": "0xFFCDB7A6",
+    "gridBeatDivider": "0xFF9C8574",
+    "selectionSquareBorder": "0xFFD9964C",
+    "selectionSquareFill": "0x40D9964C",
+    "notePreviewViewportBorder": "0xFFE9B181",
+    "notePreviewViewportFill": "0x80E9B181"
+  }
+}
