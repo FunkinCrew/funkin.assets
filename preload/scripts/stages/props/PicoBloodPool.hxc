@@ -10,26 +10,27 @@ import funkin.audio.FunkinSound;
 
 class PicoBloodPool extends FlxAtlasSprite
 {
-
   var extend:Bool = false;
 
   var el = null;
+
   public function new(x:Float, y:Float)
   {
     // Use bloodPool as the path since the animation isn't implemented in-game atm.
-    super(x, y, Paths.animateAtlas("philly/erect/bloodPool", "week3"), {
-      FrameRate: 24.0,
-      Reversed: false,
-      // ?OnComplete:Void -> Void,
-      ShowPivot: false,
-      Antialiasing: true,
-      ScrollFactor: new FlxPoint(1, 1),
-    });
+    super(x, y, Paths.animateAtlas("philly/erect/bloodPool", "week3"),
+      {
+        FrameRate: 24.0,
+        Reversed: false,
+        // ?OnComplete:Void -> Void,
+        ShowPivot: false,
+        Antialiasing: true,
+        ScrollFactor: new FlxPoint(1, 1),
+      });
 
-   // onAnimationFinish.add(finishCanAnimation);
+    // onAnimationFinish.add(finishCanAnimation);
     if (Preferences.naughtyness)
     {
-      onAnimationComplete.addOnce((_)->{
+      onAnimationComplete.addOnce((_) -> {
         el = anim.curSymbol.getElement(0);
         extend = true;
       });
@@ -40,12 +41,12 @@ class PicoBloodPool extends FlxAtlasSprite
     this.visible = false;
   }
 
-  public function doAnim(){
+  public function doAnim()
+  {
     playAnimation(anim.stageInstance.symbol.name, true, false, !Preferences.naughtyness);
-    //backingTextYeah.anim.play("");
+    // backingTextYeah.anim.play("");
     this.visible = true;
   }
-
 
   override public function update(elapsed:Float)
   {
@@ -61,6 +62,5 @@ class PicoBloodPool extends FlxAtlasSprite
       mat.tx -= el.symbol.transformationPoint.x * val;
       mat.ty -= el.symbol.transformationPoint.y * val;
     }
-
   }
 }
