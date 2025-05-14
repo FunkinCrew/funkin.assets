@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <collapsible-dialog id="preferenceDialog" title="Preferences" width="320" style="minHeight:200">
-  <vbox width="100%">
-    <checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the chart editor." />
+	<vbox width="100%">
+		<checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the chart editor." />
 		<menu-separator />
 		<grid columns="2" width="100%" tooltip="At what difficulty the song will start at when using the 'Welcome' dialogue.">
 			<label text="Song Starting Difficulty" verticalAlign="center" />
-			<dropdown id="optionsStartingDifficulty" width="100%" dropdownSize="10" dropdownWidth="122" />
+			<dropdown id="optionsStartingDifficulty" width="100%" dropdownSize="10" dropdownWidth="120" />
 		</grid>
 		<grid columns="2" width="100%" tooltip="At what variation the song will start at when using the 'Welcome' dialogue.">
 			<label text="Song Starting Variation" verticalAlign="center" />
@@ -15,12 +15,23 @@
 		<checkbox id="optionsAutoSaveExit" text="Auto Save on Exit" tooltip="Whether to auto save the chart every few minutes." />
 		<grid columns="2" width="100%" tooltip="The time in minutes that the auto save will occur.">
 			<label text="Auto Save Timer (Minutes)" verticalAlign="center" />
-			<number-stepper id="optionsAutoSaveTimer" style="font-size: 10px" pos="5" step="0.5" min="1" max="10" precision="1" width="100%" validator="required" />
+			<number-stepper id="optionsAutoSaveTimer" style="font-size: 10px" pos="5" step="0.5" min="1" max="10" precision="1" width="100%" />
+		</grid>
+		<menu-separator />
+		<grid columns="2" width="100%" tooltip="The live input mode to use when charting.">
+			<label text="Live Input Mode" verticalAlign="center" />
+			<option-stepper id="optionsLiveInputMode" width="100%">
+				<data>
+					<item text="None" id="None" />
+					<item text="Number Keys" id="NumberKeys" />
+					<item text="WASD + Arrows" id="WASDKeys" />
+				</data>
+			</option-stepper>
 		</grid>
 		<menu-separator />
 		<grid columns="2" width="100%">
-			<label text="Theme" verticalAlign="center" />
-			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="254" />
+			<label text="Charter Theme" verticalAlign="center" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="199" />
 		</grid>
-  </vbox>
+	</vbox>
 </collapsible-dialog>
