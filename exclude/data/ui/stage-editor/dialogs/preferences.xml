@@ -3,9 +3,9 @@
   <vbox width="100%">
     <checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the stage editor." />
 		<menu-separator />
-    <grid columns="2" width="100%">
+    <grid columns="2" width="100%" tooltip="Adjust how you want your stage editor to look.\nMake it as unique as you can!">
 			<label text="Stage Editor Theme" verticalAlign="center" />
-			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="199" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="160" />
 		</grid>
   </vbox>
 </collapsible-dialog>
