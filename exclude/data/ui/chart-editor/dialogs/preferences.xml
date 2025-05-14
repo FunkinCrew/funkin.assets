@@ -31,7 +31,7 @@
 		<menu-separator />
 		<grid columns="2" width="100%" tooltip="Adjust how you want your chart editor to look.\nMake it as unique as you can!">
 			<label text="Chart Editor Theme" verticalAlign="center" />
-			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="160" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="5" dropdownWidth="160" searchable="true" />
 		</grid>
 	</vbox>
 </collapsible-dialog>
