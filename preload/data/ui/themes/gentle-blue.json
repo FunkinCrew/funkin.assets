@@ -11,5 +11,8 @@
     "selectionSquareFill": "0x4070A1D7",
     "notePreviewViewportBorder": "0xFF9EC6E9",
     "notePreviewViewportFill": "0x809EC6E9"
+  },
+  "stage": {
+    "backgroundColors": ["0xFFE2ECF8", "0xFFF6FAFF"]
   }
 }

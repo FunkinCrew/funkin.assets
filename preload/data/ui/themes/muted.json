@@ -9,5 +9,8 @@
     "gridBeatDivider": "0xFF7D7D7D",
     "selectionSquareBorder": "0xFF88C0D0",
     "selectionSquareFill": "0x4088C0D0"
+  },
+  "stage": {
+    "backgroundColors": ["0xFFD6D6D6", "0xFFE0E1DD"]
   }
 }

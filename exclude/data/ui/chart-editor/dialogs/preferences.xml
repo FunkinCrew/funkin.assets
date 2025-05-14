@@ -30,7 +30,7 @@
 		</grid>
 		<menu-separator />
 		<grid columns="2" width="100%">
-			<label text="Charter Theme" verticalAlign="center" />
+			<label text="Chart Editor Theme" verticalAlign="center" />
 			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="199" />
 		</grid>
 	</vbox>

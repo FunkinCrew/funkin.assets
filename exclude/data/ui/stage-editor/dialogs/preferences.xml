@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="preferenceDialog" title="Preferences" width="320" style="minHeight:200">
+  <vbox width="100%">
+    <checkbox id="optionsThemeMusic" text="Play Theme Music" tooltip="Whether to play theme music whenever opening the stage editor." />
+		<menu-separator />
+    <grid columns="2" width="100%">
+			<label text="Stage Editor Theme" verticalAlign="center" />
+			<dropdown id="optionsThemeGroup" width="100%" dropdownSize="10" dropdownWidth="199" />
+		</grid>
+  </vbox>
+</collapsible-dialog>

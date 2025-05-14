@@ -6,5 +6,8 @@
     "gridColors": ["0xFFDFDFDF", "0xFFBFBFBF", "0xFF9F9F9F"],
     "gridStrumlineDivider": "0xFF000000",
     "gridBeatDivider": "0xFF7F7F7F"
+  },
+  "stage": {
+    "backgroundColors": ["0xFF303030", "0xFF404040"]
   }
 }
