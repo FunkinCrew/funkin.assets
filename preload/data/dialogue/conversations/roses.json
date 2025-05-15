@@ -8,9 +8,9 @@
   },
 
   "music": {
-    "asset": "Lunchbox",
-    "fadeTime": 2.0,
-    "looped": true
+    "asset": "",
+    "fadeTime": 0,
+    "looped": false
   },
 
   "outro": {

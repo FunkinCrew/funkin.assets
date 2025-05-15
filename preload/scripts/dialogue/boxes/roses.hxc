@@ -2,6 +2,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.play.cutscene.dialogue.ConversationState;
 import funkin.play.cutscene.dialogue.DialogueBox;
+import funkin.audio.FunkinSound;
 
 class RosesDialogueBox extends DialogueBox {
 	function new() {
@@ -43,8 +44,10 @@ class RosesDialogueBox extends DialogueBox {
     // Override the default box animation behavior by switching the state
     event.conversation.state = ConversationState.Opening;
 
+    FunkinSound.playOnce(Paths.sound('textboxClick'), 0.6);
+
     playAnimation('click', false);
-    super.onDialogueEnd(event);
+    super.onDialogueLine(event);
   }
 
   public function onDialogueEnd(event:DialogueScriptEvent):Void {

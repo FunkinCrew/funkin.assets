@@ -10,6 +10,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin",
     "album": "volume1",
+    "stickerPack": "bonus-tutorial",
     "previewStart": 0,
     "previewEnd": 15000
   },

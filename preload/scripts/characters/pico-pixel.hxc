@@ -1,0 +1,55 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.PlayState;
+import funkin.play.GameOverSubState;
+import funkin.play.PauseSubState;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import flixel.FlxG;
+
+class PicoPixelCharacter extends SparrowCharacter {
+	function new() {
+		super('pico-pixel');
+	}
+
+	var deathSpriteNene:FunkinSprite;
+
+	/**
+     * Initialize and cache sprites used for the death animation,
+	 * for use later.
+	 */
+	function createDeathSprites() {
+		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/nenePixel/nenePixelKnifeToss");
+		var gf = PlayState.instance.currentStage.getGirlfriend();
+		deathSpriteNene.x = gf.originalPosition.x + 280;
+		deathSpriteNene.y = gf.originalPosition.y + 170;
+		deathSpriteNene.animation.addByPrefix('throw', "knifetosscolor0", 24, false);
+		deathSpriteNene.scale.set(6, 6);
+		deathSpriteNene.antialiasing = false;
+		deathSpriteNene.visible = true;
+		deathSpriteNene.animation.finishCallback = function(name:String) {
+			deathSpriteNene.visible = false;
+		}
+	}
+
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+
+		GameOverSubState.musicSuffix = '-pixel-pico';
+		GameOverSubState.blueBallSuffix = '-pixel-pico';
+
+		PauseSubState.musicSuffix = '-pixel';
+	}
+
+	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+
+		if (name == "firstDeath") {
+			this.shader = null;
+			createDeathSprites();
+
+			GameOverSubState.instance.add(deathSpriteNene);
+			deathSpriteNene.animation.play("throw");
+		}
+
+		super.playAnimation(name, restart, ignoreOther);
+	}
+}

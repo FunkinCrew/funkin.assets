@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "scrollSpeed": { "easy": 2, "normal": 2.3, "hard": 2.6 },
+  "scrollSpeed": { "easy": 2, "hard": 2.6, "normal": 2.3 },
   "events": [
     { "t": 0, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 3096.77419354839, "e": "FocusCamera", "v": { "char": 0 } },
@@ -2184,5 +2184,5 @@
       { "t": 123870.967741935, "d": 3, "l": 483.870967741935 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.5.0 (runners-fixins-v2:b962c1a) PROTOTYPE"
+  "generatedBy": "Friday Night Funkin' - v0.6.2 (rewrite/master:f001562:MODIFIED) PROTOTYPE"
 }

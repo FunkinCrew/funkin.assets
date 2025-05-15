@@ -12,7 +12,7 @@ import funkin.save.Save;
 
 import funkin.effects.RetroCameraFade;
 
-class PhillyNiceSong extends Song {
+class PicoSong extends Song {
   var hasPlayedCutscene:Bool;
 
 	public function new() {
@@ -20,9 +20,6 @@ class PhillyNiceSong extends Song {
 	}
 
 	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool{
-		if(currentVariation == 'pico')
-		  return !Save.instance.hasBeatenSong(this.id, null, 'pico');
-
     return false;
 	}
 

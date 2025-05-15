@@ -4,13 +4,16 @@
   "ownedChars": [
     "pico",
     "pico-playable",
+    "pico-pixel",
     "pico-blazin",
     "pico-christmas",
-    "pico-dark"
+    "pico-dark",
+    "pico-holding-nene"
   ],
   "showUnownedChars": false,
   "unlocked": true,
   "freeplayStyle": "pico",
+  "stickerPack": "standard-pico",
   "freeplayDJ": {
     "assetPath": "freeplay/freeplay-pico",
     "text1": "PICO",
@@ -132,11 +135,10 @@
     "good": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsGOOD",
+        "scriptClass": "PicoGoodResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [350, 25],
-        "loopFrame": 41
+        "offsets": [350, 25]
       }
     ],
     "loss": [

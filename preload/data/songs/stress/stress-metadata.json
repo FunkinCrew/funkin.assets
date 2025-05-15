@@ -8,11 +8,14 @@
     "characters": {
       "player": "bf-holding-gf",
       "girlfriend": "pico-speaker",
-      "opponent": "tankman"
+      "opponent": "tankman",
+      "instrumental": "",
+      "altInstrumentals": ["pico"]
     },
     "stage": "tankmanBattlefield",
+    "songVariations": ["pico"],
     "noteStyle": "funkin",
-    "ratings": { "easy": 2, "normal": 3, "hard": 5 },
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
     "album": "volume2",
     "previewStart": 0,
     "previewEnd": 15000

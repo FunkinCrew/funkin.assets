@@ -1,6 +1,7 @@
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
+import funkin.graphics.shaders.DropShadowShader;
 import flixel.effects.FlxFlicker;
 
 /**
@@ -47,6 +48,35 @@ class TankmanSprite extends FunkinSprite
     });
 	}
 
+	var rim:DropShadowShader;
+
+	public function addRimlight()
+	{
+		rim = new DropShadowShader();
+
+		rim.baseBrightness = -46;
+    rim.baseHue = -38;
+    rim.baseContrast = -25;
+    rim.baseSaturation = -20;
+
+		rim.threshold = 0.4;
+
+  	rim.color = 0xFFDFEF3C;
+
+		shader = rim;
+
+		//rim.attachedSprite = tankman;
+
+		animation.onFrameChange.add(function() {
+      rim.updateFrameInfo(this.frame);
+    });
+
+		// If goingRight is false, 0 degrees = facing right.
+		// If goingRight is true, 0 degrees = facing left.
+
+		rim.angle = 135; //goingRight ? 135 : 45;
+	}
+
 	function initAnim()
 	{
 		// Called when the sprite is created as well as when it is revived.
@@ -90,14 +120,19 @@ class TankmanSprite extends FunkinSprite
 			// Here, the position is set to the target position where it will be shot.
 			// Then, we move the sprite away from that position in the direction it's coming from.
 			// songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
+			var runFactor = ((Conductor.instance.songPosition - strumTime) * runSpeed);
 			if (!goingRight)
 			{
-				x = (FlxG.width * 0.02 - endingOffset) + ((Conductor.instance.songPosition - strumTime) * runSpeed);
+				x = (FlxG.width * 0.02 - endingOffset) + runFactor;
 			}
 			else
 			{
-				x = (FlxG.width * 0.74 + endingOffset) - ((Conductor.instance.songPosition - strumTime) * runSpeed);
+				x = (FlxG.width * 0.74 + endingOffset) - runFactor;
 			}
+
+			// if (this.shader != null) {
+			// 	this.shader.angle =
+			// }
 		}
 
 		// Hide this sprite if it is out of view.

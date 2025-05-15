@@ -1,0 +1,82 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Playable)",
+  "assetPath": "characters/picoPixel/picoPixel",
+  "healthIcon": {
+    "id": "pico-pixel",
+    "flipX": false,
+    "isPixel": true
+  },
+  "death": {
+    "cameraOffsets": [10, -40],
+    "cameraZoom": 1.0
+  },
+  "singTime": 8.0,
+  "isPixel": true,
+  "scale": 6,
+  "flipX": true,
+  "renderType": "sparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "down0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "up0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "right0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "leftmiss0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "downmiss0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "upmiss0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "rightmiss0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "firstDeath",
+      "prefix": "firstDeath0",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "deathLoop0",
+      "looped": true,
+      "offsets": [0, 0]
+    },
+    {
+      "name": "deathConfirm",
+      "prefix": "deathConfirm0",
+      "offsets": [0, 0]
+    }
+  ]
+}

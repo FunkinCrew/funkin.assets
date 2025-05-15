@@ -1,0 +1,415 @@
+import funkin.play.character.SparrowCharacter;
+import funkin.play.PlayState;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxSprite;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.graphics.shaders.DropShadowShader;
+
+class NenePixelCharacter extends SparrowCharacter {
+	function new() {
+		super('nene-pixel');
+	}
+
+	var pupilState:Int = 0;
+
+	var PUPIL_STATE_NORMAL = 0;
+	var PUPIL_STATE_LEFT = 1;
+
+	var abot:FunkinSprite;
+	var abotHead:FlxAtlasSprite;
+	var abotSpeaker:FlxAtlasSprite;
+	var abotViz:ABotVis;
+
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+
+		// Reposition sprites in onUpdate!
+
+		abotHead = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/abotHead');
+		abotHead.scale.set(6, 6);
+		abotHead.antialiasing = false;
+		abotHead.animation.addByPrefix('toleft', 'toleft0', 24, false);
+		abotHead.animation.addByPrefix('toright', 'toright0', 24, false);
+
+		abot = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixelBody');
+		abot.scale.set(6, 6);
+		abot.origin.x = Math.round(abot.origin.x);
+		abot.origin.y = Math.round(abot.origin.y);
+		abot.antialiasing = false;
+		abot.x = this.x;
+		abot.y = this.y;
+		abot.animation.addByPrefix('danceLeft', 'danceLeft', 24, false);
+		abot.animation.addByPrefix('danceRight', 'danceRight', 24, false);
+		abot.animation.addByPrefix('lowerKnife', 'return', 24, false);
+
+		abotSpeaker = FunkinSprite.createSparrow(0, 0, 'characters/abotPixel/aBotPixelSpeaker');
+		abotSpeaker.scale.set(6, 6);
+		abotSpeaker.origin.x = Math.round(abotSpeaker.origin.x);
+		abotSpeaker.origin.y = Math.round(abotSpeaker.origin.y);
+		abotSpeaker.antialiasing = false;
+		abotSpeaker.x = this.x;
+		abotSpeaker.y = this.y;
+		// danceLeft and danceRight are identical for the speakers, we can just use 1 of em
+		abotSpeaker.animation.addByPrefix('danceLeft', 'danceLeft', 24, false);
+
+		abotBack = FunkinSprite.create(0, 0, 'characters/abotPixel/aBotPixelBack');
+		abotBack.scale.set(6.1, 6);
+		abotBack.antialiasing = false;
+		abotBack.x = this.x;
+		abotBack.y = this.y;
+
+		abotHead.animation.finishCallback = function(name:String):Void {
+			if (name == 'toleft') {
+				pupilState = PUPIL_STATE_LEFT;
+			}
+
+			if (name == 'toright') {
+				pupilState = PUPIL_STATE_NORMAL;
+			}
+		}
+
+		abotViz = new ABotVis(FlxG.sound.music, true);
+		abotViz.x = this.x;
+		abotViz.y = this.y;
+		FlxG.debugger.track(abotSpeaker);
+		// FlxG.debugger.track(abotSpeaker);
+
+
+		abot.zIndex = this.zIndex - 10;
+		abotViz.zIndex = abot.zIndex - 1;
+		abotBack.zIndex = abot.zIndex - 2;
+		abotSpeaker.zIndex = abot.zIndex - 3;
+		abotHead.zIndex = abot.zIndex - 4;
+	}
+
+	/**
+	 * At this amount of life, Nene will raise her knife.
+	 */
+	var VULTURE_THRESHOLD = 0.25 * 2;
+
+	/**
+	 * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
+	 * or maybe her 'combo' or 'drop' animations are active.
+	 *
+	 * Transitions:
+	 * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
+	 */
+	var STATE_DEFAULT = 0;
+
+	/**
+	 * Nene has recognized the player is at low health,
+	 * but has to wait for the appropriate point in the animation to move on.
+	 *
+	 * Transitions:
+	 * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
+	 * If current animation is combo or drop, transition when animation completes.
+	 * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
+	 * If current animation is danceRight, wait until danceLeft starts.
+	 */
+	var STATE_PRE_RAISE = 1;
+
+	/**
+	 * Nene is raising her knife.
+	 * When moving to this state, immediately play the 'raiseKnife' animation.
+	 *
+	 * Transitions:
+	 * Once 'raiseKnife' animation completes, transition to STATE_READY.
+	 */
+	var STATE_RAISE = 2;
+
+	/**
+	 * Nene is holding her knife ready to strike.
+	 * During this state, hold the animation on the first frame, and play it at random intervals.
+	 * This makes the blink look less periodic.
+	 *
+	 * Transitions:
+	 * If the player runs out of health, move to the GameOverSubState. No transition needed.
+	 * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
+	 */
+	var STATE_READY = 3;
+
+	/**
+	 * Nene is raising her knife.
+	 * When moving to this state, immediately play the 'lowerKnife' animation.
+	 *
+	 * Transitions:
+	 * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
+	 */
+	var STATE_LOWER = 4;
+
+	/**
+	 * Nene's animations are tracked in a simple state machine.
+	 * Given the current state and an incoming event, the state changes.
+	 */
+	var currentState:Int = STATE_DEFAULT;
+
+	/**
+	 * Nene blinks every X beats, with X being randomly generated each time.
+	 * This keeps the animation from looking too periodic.
+	 */
+	var MIN_BLINK_DELAY:Int = 3;
+	var MAX_BLINK_DELAY:Int = 7;
+	var blinkCountdown:Int = MIN_BLINK_DELAY;
+
+	function addSunsetShaders(){
+
+		var abotSpeakerShader = new DropShadowShader();
+		abotSpeakerShader.setAdjustColor(-66, -10, 24, -23);
+		abotSpeakerShader.angle = 90;
+    abotSpeakerShader.color = 0xFF52351d;
+		abotSpeakerShader.distance = 5;
+		abotSpeakerShader.antialiasAmt = 0;
+		abotSpeakerShader.threshold = 1;
+
+		abotSpeakerShader.attachedSprite = abotSpeaker;
+		abotSpeaker.animation.onFrameChange.add(function() {
+			abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
+		});
+
+		abotSpeakerShader.loadAltMask('assets/week6/images/weeb/erect/masks/aBotPixelSpeaker_mask.png');
+		abotSpeakerShader.maskThreshold = 0;
+		abotSpeakerShader.useAltMask = true;
+
+		var noRimShader = new AdjustColorShader();
+		noRimShader.hue = -10;
+    noRimShader.saturation = -23;
+    noRimShader.brightness = -66;
+    noRimShader.contrast = 24;
+
+		abot.shader = noRimShader;
+		abotBack.shader = noRimShader;
+		abotHead.shader = noRimShader;
+		abotViz.shader = noRimShader;
+		abotSpeaker.shader = abotSpeakerShader;
+	}
+
+	function dance(forceRestart:Bool) {
+
+		if (abotSpeaker != null)
+			abotSpeaker.animation.play("danceLeft", true);
+		// Then, perform the appropriate animation for the current state.
+		switch(currentState) {
+			case STATE_DEFAULT:
+				if (hasDanced)
+				{
+					playAnimation('danceRight', true);
+					if (abot != null)
+						abot.animation.play("danceRight", true);
+				}
+				else
+				{
+					playAnimation('danceLeft', true);
+					if (abot != null)
+						abot.animation.play("danceLeft", true);
+				}
+				hasDanced = !hasDanced;
+			case STATE_PRE_RAISE:
+				playAnimation('danceLeft', false);
+				hasDanced = false;
+			case STATE_READY:
+				if (blinkCountdown == 0) {
+					// trace('NENE: Blinking...');
+					playAnimation('idleKnifeBlink', false);
+					blinkCountdown = FlxG.random.int(MIN_BLINK_DELAY, MAX_BLINK_DELAY);
+				} else {
+					blinkCountdown--;
+					// trace('NENE: blink timer ' + blinkCountdown);
+				}
+			default:
+				// In other states, don't interrupt the existing animation.
+		}
+	}
+
+	var refershedLol:Bool = false;
+
+	/**
+	 * Called when the chart hits a song event.
+	 */
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+	{
+		super.onSongEvent(scriptEvent);
+		if (scriptEvent.eventData.eventKind == "FocusCamera")
+		{
+			var eventProps = scriptEvent.eventData.value;
+			switch (Std.parseInt(eventProps.char)) {
+				case 0:
+					movePupilsRight();
+				case 1:
+					movePupilsLeft();
+				default:
+			}
+		}
+
+	}
+
+	function movePupilsLeft():Void {
+		if (pupilState == PUPIL_STATE_LEFT) return;
+		// trace('Move pupils left');
+
+		abotHead.animation.play('toleft');
+	}
+
+	function movePupilsRight():Void {
+		if (pupilState == PUPIL_STATE_NORMAL) return;
+		// trace('Move pupils right');
+
+		abotHead.animation.play('toright');
+	}
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		// Set the visibility of ABot to match Nene's.
+		abot.visible = this.visible;
+		abotHead.visible = this.visible;
+		abotViz.visible = this.visible;
+		abotSpeaker.visible = this.visible;
+
+		// refreshes just for the zIndex shit!
+		if (!refershedLol)
+		{
+			abot.x = this.x + 296;
+			abot.y = this.y + 430;
+			abot.zIndex = this.zIndex - 10;
+			PlayState.instance.currentStage.add(abot);
+
+
+			abotBack.x = abot.x - 55;
+			abotBack.y = abot.y + 0;
+			abotBack.zIndex = abot.zIndex - 2;
+			PlayState.instance.currentStage.add(abotBack);
+
+			abotSpeaker.x = abot.x - 78;
+			abotSpeaker.y = abot.y + 9;
+			abotSpeaker.zIndex = abot.zIndex - 3;
+			PlayState.instance.currentStage.add(abotSpeaker);
+
+			abotHead.x = abot.x - 325;
+			abotHead.y = abot.y + 72;
+			abotHead.zIndex = abot.zIndex - 4;
+			PlayState.instance.currentStage.add(abotHead);
+
+			abotViz.x = abot.x - 160;
+			abotViz.y = abot.y + 13;
+			abotViz.zIndex = abot.zIndex - 1;
+			PlayState.instance.currentStage.add(abotViz);
+
+			PlayState.instance.currentStage.refresh();
+			refershedLol = true;
+		}
+
+		if (shouldTransitionState()) {
+			transitionState();
+		}
+	}
+
+	override function onSongStart(event:ScriptEvent) {
+		abotViz.snd = FlxG.sound.music;
+		abotViz.initAnalyzer();
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry();
+		abotViz.dumpSound();
+	}
+
+	var animationFinished:Bool = false;
+
+	function onAnimationFinished(name:String) {
+		super.onAnimationFinished(name);
+
+		switch(currentState) {
+			case STATE_RAISE:
+				if (name == "raiseKnife") {
+					animationFinished = true;
+					transitionState();
+				}
+			case STATE_LOWER:
+				if (name == "lowerKnife") {
+					animationFinished = true;
+					transitionState();
+				}
+			case STATE_READY:
+				if (name == "idleKnifeBlink") {
+					animationFinished = true;
+					transitionState();
+				}
+			default:
+				// Ignore.
+		}
+	}
+
+	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
+		super.onAnimationFrame(name, frameNumber, frameIndex);
+
+		switch(currentState) {
+			case STATE_PRE_RAISE:
+				if (name == "danceLeft" && frameNumber == 13) {
+					animationFinished = true;
+					transitionState();
+				}
+			default:
+				// Ignore.
+		}
+	}
+
+	function shouldTransitionState():Bool {
+		return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
+	}
+
+	function transitionState() {
+		switch (currentState) {
+			case STATE_DEFAULT:
+				if (PlayState.instance.health <= VULTURE_THRESHOLD) {
+					trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
+					currentState = STATE_PRE_RAISE;
+				} else {
+					currentState = STATE_DEFAULT;
+				}
+			case STATE_PRE_RAISE:
+				if (PlayState.instance.health > VULTURE_THRESHOLD) {
+					// trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
+					currentState = STATE_DEFAULT;
+				} else if (animationFinished) {
+					// trace('NENE: Animation finished, transitioning to STATE_RAISE');
+					currentState = STATE_RAISE;
+					playAnimation('raiseKnife');
+					animationFinished = false;
+				}
+			case STATE_RAISE:
+				if (animationFinished) {
+					// trace('NENE: Animation finished, transitioning to STATE_READY');
+					currentState = STATE_READY;
+					playAnimation('idleKnife');
+					animationFinished = false;
+				}
+			case STATE_READY:
+				if (PlayState.instance.health > VULTURE_THRESHOLD) {
+					// trace('NENE: Health went back up, transitioning to STATE_LOWER');
+					currentState = STATE_LOWER;
+					playAnimation('lowerKnife');
+				} else if (animationFinished) {
+					// trace('NENE: Animation finished, transitioning to STATE_READY');
+					playAnimation('idleKnife');
+					animationFinished = false;
+				}
+			case STATE_LOWER:
+				if (animationFinished) {
+					// trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
+					currentState = STATE_DEFAULT;
+					animationFinished = false;
+				}
+			default:
+				// trace('UKNOWN STATE ' + currentState);
+				currentState = STATE_DEFAULT;
+		}
+	}
+}
