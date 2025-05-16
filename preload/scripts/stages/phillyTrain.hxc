@@ -20,6 +20,8 @@ class PhillyTrainStage extends Stage
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FunkinSound;
 
+	var gfHasHairBlowAnim:Bool;
+
 	function buildStage()
 	{
 		super.buildStage();
@@ -81,6 +83,7 @@ class PhillyTrainStage extends Stage
 		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
 		{
 			trainCooldown = FlxG.random.int(-4, 0);
+			if(gfHasHairBlowAnim == null) gfHasHairBlowAnim = getGirlfriend().hasAnimation('hairBlow');
 			trainStart();
 		}
 
@@ -136,7 +139,7 @@ class PhillyTrainStage extends Stage
 		if (trainSound.time >= 4700)
 		{
 			startedMoving = true;
-			getGirlfriend().playAnimation('hairBlow');
+			if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairBlow');
 		}
 
 		if (startedMoving)
@@ -160,7 +163,7 @@ class PhillyTrainStage extends Stage
 
 	function trainReset():Void
 	{
-		getGirlfriend().playAnimation('hairFall');
+		if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairFall');
 		getNamedProp('train').x = FlxG.width + 200;
 
 		trainMoving = false;
