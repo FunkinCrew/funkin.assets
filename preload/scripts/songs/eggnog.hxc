@@ -53,18 +53,21 @@ class EggnogSong extends Song
 	}
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-		if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
-    	var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+    if(variationId == 'default')
+    {
+      var toReturn:Array<String> = [];
+      for(variation in super.listAltInstrumentalIds(difficultyId, variationId))
+      {
+        if(Save.instance.hasBeatenSong(this.id, null, variation))
+          toReturn.push(variation);
+      }
 
-    	switch (variationId) {
-    	  case 'pico':
-    	    // return hasBeatenPicoMix ? [''] : [];
-    	    // No Pico mix on BF instrumental, sorry!
-    	    return [];
-    	  default:
-    	    return hasBeatenPicoMix ? ['pico'] : [];
-    	}
-		}
+      return toReturn;
+    }
+    else
+    {
+      return [];
+    }
   }
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
