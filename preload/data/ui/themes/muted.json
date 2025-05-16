@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "name": "Muted",
+  "chart": {
+    "background": "0xFF4A4E69",
+    "gridColors": ["0xFFD6D6D6", "0xFFE0E1DD", "0xFFB8B8B8"],
+    "gridStrumlineDivider": "0xFF2E2E2E",
+    "gridMeasureDivider": "0xFF2E2E2E",
+    "gridBeatDivider": "0xFF7D7D7D",
+    "selectionSquareBorder": "0xFF88C0D0",
+    "selectionSquareFill": "0x4088C0D0"
+  },
+  "stage": {
+    "backgroundColors": ["0xFFD6D6D6", "0xFFE0E1DD"]
+  }
+}

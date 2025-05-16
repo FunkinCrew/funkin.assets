@@ -18,6 +18,8 @@
     <menu-separator />
     <menu-item id="menubarItemClearAssets" text="Clear Assets" style="color: indianred"/>
     <menu-separator />
+    <menu-item id="menubarItemPreferences" text="Preferences"/>
+    <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
   </menu>
 
@@ -35,11 +37,6 @@
   </menu>
 
   <menu text="View" id="menubarMenuView">
-    <menu text="Theme">
-      <menu-option-box id="menubarItemThemeLight" text="Light" group="menubarItemThemeGroup" tooltip="Change the Background's Color Scheme to Light Mode."/>
-      <menu-option-box id="menubarItemThemeDark" text="Dark" group="menubarItemThemeGroup" tooltip="Change the Background's Color Scheme to Dark Mode." />
-    </menu>
-    <menu-separator />
     <menu-checkbox id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters."/>
     <menu-checkbox id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor."/>
     <menu-checkbox id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters."/>

@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "name": "Dark",
+  "chart": {
+    "background": "0xFF361E60",
+    "gridColors": ["0xFF181919", "0xFF202020", "0xFF262A2A"],
+    "gridStrumlineDivider": "0xFFC4C4C4",
+    "gridMeasureDivider": "0xFFC4C4C4",
+    "gridBeatDivider": "0xFF848484",
+    "selectionSquareBorder": "0xFF339933",
+    "selectionSquareFill": "0x4033FF33",
+    "notePreviewViewportBorder": "0xFFF8A657",
+    "notePreviewViewportFill": "0x80F8A657"
+  },
+  "stage": {
+    "backgroundColors": ["0xFF181919", "0xFF202020"]
+  }
+}
