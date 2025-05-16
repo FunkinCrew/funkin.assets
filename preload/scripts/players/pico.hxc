@@ -3,12 +3,13 @@ import funkin.save.Save;
 
 class PicoPlayableCharacter extends PlayableCharacter
 {
-	function new()
-	{
-		super('pico');
-	}
+  function new()
+  {
+    super('pico');
+  }
 
-  override function isUnlocked():Bool {
+  override function isUnlocked():Bool
+  {
     return Save.instance.hasBeatenLevel('weekend1');
   }
 }
