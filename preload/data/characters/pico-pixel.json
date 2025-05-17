@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Pico (Playable)",
+  "name": "Pico (Pixel)",
   "assetPath": "characters/picoPixel/picoPixel",
   "healthIcon": {
     "id": "pico-pixel",
