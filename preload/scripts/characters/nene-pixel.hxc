@@ -321,6 +321,12 @@ class NenePixelCharacter extends SparrowCharacter {
 		abotViz.dumpSound();
 	}
 
+	override function onSongEnd(event:ScriptEvent)
+	{
+		super.onSongEnd();
+		abotViz.dumpSound();
+	}
+
 	var animationFinished:Bool = false;
 
 	function onAnimationFinished(name:String) {
