@@ -115,7 +115,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
 		// restore vocal volume to ensure burps always play
 		// not needed on the dark variant because this one always exists anyway..
-		if(name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
+		if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
 
 		if (name == "firstDeath") {
 			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
