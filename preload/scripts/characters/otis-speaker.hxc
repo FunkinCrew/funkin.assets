@@ -22,8 +22,7 @@ import Lambda;
 
 class OtisSpeakerCharacter extends SparrowCharacter {
 
-	var shootTimes:Array<Float> = [];
-	var shootDirs:Array<Int> = [];
+	var shootNotes:Array<SongNoteData> = [];
 
 	var pupilState:Int = 0;
 
@@ -137,7 +136,6 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 	function initTimemap():Void
 	{
 		trace('Initializing Otis timings...');
-		shootTimes = [];
 		// The tankmen's timings and directions are determined
 		// by the chart, specifically the internal "picospeaker" difficulty.
 		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
@@ -148,20 +146,14 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		} else {
 			trace('Initializing Otis (speaker); found `picospeaker` chart, continuing...');
 		}
-		var animNotes:Array<SongNoteData> = animChart.notes;
+		shootNotes = animChart.notes.copy();
 
 		// turns out sorting functions are completely useless in polymod right now and do nothing
 		// i had to sort the whole pico chart by hand im gonna go insane
-		animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
+		shootNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
   	{
     	return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
   	});
-
-		for (note in animNotes)
-		{
-			shootTimes.push(note.time);
-			shootDirs.push(note.data);
-		}
 	}
 
 	override function onUpdate(event:UpdateScriptEvent):Void
@@ -245,9 +237,10 @@ class OtisSpeakerCharacter extends SparrowCharacter {
 		}
 
     // Each Pico animation is shifted from the array when it's time to play it.
-		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
-			var nextTime:Float = shootTimes.shift();
-			var nextDir:Int = shootDirs.shift();
+		if (shootNotes.length > 0 && shootNotes[0].time <= Conductor.instance.songPosition) {
+			var nextNoteData:SongNoteData = shootNotes.shift();
+			var nextTime:Float = nextNoteData.time;
+			var nextDir:Int = nextNoteData.getDirection();
 
 			playPicoAnimation(nextDir);
 		}
