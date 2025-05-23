@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxEvents" title="Events" width="350"  style="minHeight:200">
+<collapsible-dialog id="toolboxEvents" title="Events" width="360"  style="minHeight:200">
 	<vbox width="100%">
-		<checkbox id="toolboxEventsModifyAllEvents" text="Modify all selected events" tooltip="Will apply only to events of the same type.\nWarning! Selecting an event type will set the entire selection to that type!" />
-		<dropdown id="toolboxEventsSelectedEvents" width="100%" value="normal" dropdownSize="10" dropdownWidth="300" tooltip="The current event selection.">
+		<checkbox id="toolboxEventsModifyAllEvents" text="Modify All Selected Eevents" tooltip="Will apply only to events of the same type.\nWarning! Selecting an event type will set the entire selection to that type!" />
+		<dropdown id="toolboxEventsSelectedEvents" width="100%" value="normal" dropdownSize="10" dropdownWidth="300" tooltip="The current event selection.\nUse No Selected Event to safely set the new data of the next event to place.">
 			<data>
 					  <item text="0 : Focus Camera
 							Boyfriend" />
@@ -14,8 +14,11 @@
 				<dropdown id="toolboxEventsEventKind" width="100%" value="normal" dropdownSize="10" searchable="true">
 					<data />
 				</dropdown>
+				<label id="toolboxEventsCustomKindLabel" text="Custom" verticalAlign="center" hidden="true" />
+				<textfield id="toolboxEventsCustomKind" style="font-size: 10px" placeholder="Type..." width="100%" hidden="true" tooltip="The type for the unknown event." />
 			</grid>
-			<grid id="toolboxEventsDataGrid" columns="2" width="100%" marginTop="30"  paddingBottom="30"  />
+			<grid id="toolboxEventsDataGrid" columns="2" width="100%" marginTop="60"  paddingBottom="60" >
+			</grid>
 		</frame>
 	</vbox>
 </collapsible-dialog>
