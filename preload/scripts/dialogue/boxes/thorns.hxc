@@ -8,17 +8,6 @@ class ThornsDialogueBox extends DialogueBox {
 		super('thorns');
 	}
 
-  public function onDialogueLine(event:DialogueScriptEvent):Void {
-    super.onDialogueLine(event);
-
-    if (getCurrentAnimation() == 'idle') {
-      // click, then speaking
-      playAnimation('click');
-    } else if (getCurrentAnimation() == 'click') {
-      playAnimation('speaking');
-    }
-  }
-
   function onAnimationFinished(name:String):Void {
     super.onAnimationFinished(name);
 
@@ -43,8 +32,14 @@ class ThornsDialogueBox extends DialogueBox {
     // Override the default box animation behavior by switching the state
     event.conversation.state = ConversationState.Opening;
 
-    playAnimation('click', false);
     super.onDialogueLine(event);
+
+    if (getCurrentAnimation() == 'idle') {
+      // click, then speaking
+      playAnimation('click');
+    } else if (getCurrentAnimation() == 'click') {
+      playAnimation('speaking');
+    }
   }
 
   public function onDialogueEnd(event:DialogueScriptEvent):Void {

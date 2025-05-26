@@ -9,17 +9,6 @@ class RosesDialogueBox extends DialogueBox {
 		super('roses');
 	}
 
-  public function onDialogueLine(event:DialogueScriptEvent):Void {
-    super.onDialogueLine(event);
-
-    if (getCurrentAnimation() == 'idle') {
-      // click, then speaking
-      playAnimation('click');
-    } else if (getCurrentAnimation() == 'click') {
-      playAnimation('speaking');
-    }
-  }
-
   function onAnimationFinished(name:String):Void {
     super.onAnimationFinished(name);
 
@@ -46,8 +35,14 @@ class RosesDialogueBox extends DialogueBox {
 
     FunkinSound.playOnce(Paths.sound('textboxClick'), 0.6);
 
-    playAnimation('click', false);
     super.onDialogueLine(event);
+
+    if (getCurrentAnimation() == 'idle') {
+      // click, then speaking
+      playAnimation('click');
+    } else if (getCurrentAnimation() == 'click') {
+      playAnimation('speaking');
+    }
   }
 
   public function onDialogueEnd(event:DialogueScriptEvent):Void {
