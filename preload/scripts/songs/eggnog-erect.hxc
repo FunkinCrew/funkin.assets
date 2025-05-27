@@ -22,7 +22,7 @@ import funkin.util.TouchUtil;
 import funkin.ui.FullScreenScaleMode;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
-class EggnogSong extends Song
+class EggnogErectSong extends Song
 {
   // var santaDead:ScriptedFlxAtlasSprite;
   var hasPlayedCutscene:Bool = false;
@@ -32,8 +32,6 @@ class EggnogSong extends Song
   var shootSound:FunkinSound;
 
   var debugTesting:Bool = false;
-
-  var isMobilePauseButtonPressed:Bool = false;
 
   function new()
   {
@@ -77,8 +75,6 @@ class EggnogSong extends Song
   public override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
-    if (PlayState.instance.currentVariation != 'erect') hasPlayedCutscene = true;
-    // only play this on erect..
 
     if (!hasPlayedCutscene)
     {

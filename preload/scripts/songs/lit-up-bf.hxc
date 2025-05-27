@@ -1,0 +1,21 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class LitUpBFMixSong extends Song {
+	public function new() {
+		super('lit-up',
+			{
+				variation: 'bf'
+			});
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+	{
+		return !Save.instance.hasBeatenSong(this.id, null, this.variation);
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		// NOTE: Lit Up (BF Mix) is incompatible with the base song, so this should always be empty.
+		return [];
+	}
+}

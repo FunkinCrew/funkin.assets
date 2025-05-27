@@ -1,0 +1,18 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class DarnellBFMixSong extends Song {
+	public function new() {
+		super('darnell', {
+      variation: 'bf'
+    });
+	}
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+      var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
+
+      return hasBeatenBFMix ? ['bf'] : [];
+    }
+  }
+}

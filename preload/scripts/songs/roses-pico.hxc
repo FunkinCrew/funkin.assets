@@ -1,0 +1,91 @@
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.Preferences;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import flixel.FlxG;
+import funkin.play.PlayStatePlaylist;
+import funkin.audio.FunkinSound;
+import flixel.tweens.FlxTween;
+import funkin.save.Save;
+import flixel.tweens.FlxEase;
+import funkin.ui.options.PreferencesMenu;
+
+class RosesSong extends Song {
+  var hasPlayedCutscene:Bool;
+
+	public function new() {
+		super('roses', {
+      variation: 'pico'
+    });
+	}
+
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    return !Save.instance.hasBeatenSong(this.id, null, this.variation);
+  }
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
+
+      return hasBeatenPicoMix ? ['pico'] : [];
+    }
+  }
+
+  public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+    if (!hasPlayedCutscene) {
+      trace('Pausing countdown to play cutscene.');
+
+      hasPlayedCutscene = true;
+
+      event.cancel(); // CANCEL THE COUNTDOWN!
+
+      // Play a SFX
+      FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
+
+      // ERIC: There's a known bug where, on the School stage, pausing the stage animations then trying
+      // to restart them causes the animations to freeze.
+      // TODO: Commenting out this line causes the animations to work but they play even during the dialogue, which is supposed to pause everything.
+      // PlayState.instance.currentStage.pause();
+
+      startDialogue();
+    }
+	}
+
+  function startDialogue() {
+    var targetDialogue = 'roses-pico';
+
+    if (!Preferences.naughtyness) targetDialogue += "-censored";
+
+    trace('Playing dialogue...');
+    PlayState.instance.startConversation(targetDialogue);
+  }
+
+  /**
+   * Don't replay the cutscene between restarts.
+   */
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+
+    hasPlayedCutscene = true;
+  }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
+
+  public override function onDialogueEnd() {
+    // We may need to wait for the outro to play.
+    Countdown.performCountdown();
+  }
+}
