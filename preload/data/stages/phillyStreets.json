@@ -16,14 +16,16 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [625, 94],
+      "position": [1865, 220],
       "scale": [1, 1],
       "animType": "sparrow",
-      "name": "phillyForegroundCity",
+      "name": "phillyForegroundCity2",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyForegroundCity",
       "scroll": [0.3, 0.3],
       "alpha": 1,
+      "angle": 5,
+      "flipX": true,
       "animations": []
     },
     {
