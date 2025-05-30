@@ -12,16 +12,24 @@ class SchoolEvilStage extends Stage
 		super('schoolEvil');
 	}
 
-	var wiggle:FlxRuntimeShader = null;
+	var wiggleBack:FlxRuntimeShader = null;
+	var wiggleSchool:FlxRuntimeShader = null;
+	var wiggleGround:FlxRuntimeShader = null;
+	var wiggleTrees:FlxRuntimeShader = null;
 
 	override function buildStage()
 	{
 		super.buildStage();
 
-		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+		wiggleBack = new WiggleEffectRuntime(2 * 0.8, 4 * 0.4, 0.011, WiggleEffectType.DREAMY);
+		wiggleSchool = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+		wiggleGround = new WiggleEffectRuntime(2, 4, 0.007, WiggleEffectType.DREAMY);
+		wiggleTrees = new WiggleEffectRuntime(2, 4, 0.007, WiggleEffectType.DREAMY);
 
-		getNamedProp('evilSchoolBG').shader = wiggle;
-		getNamedProp('evilSchoolFG').shader = wiggle;
+		getNamedProp('backTrees').shader = wiggleBack;
+		getNamedProp('school').shader = wiggleSchool;
+		getNamedProp('street').shader = wiggleGround;
+		getNamedProp('trees').shader = wiggleTrees;
 	}
 
 	override function addCharacter(char:BaseCharacter, charType:CharacterType)
@@ -33,13 +41,19 @@ class SchoolEvilStage extends Stage
 	override function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
-		if (wiggle != null) {
-			wiggle.update(event.elapsed);
+		if (wiggleBack != null) {
+			wiggleBack.update(event.elapsed);
+			wiggleSchool.update(event.elapsed);
+			wiggleGround.update(event.elapsed);
+			wiggleTrees.update(event.elapsed);
 		}
 	}
 
 	function kill() {
 		super.kill();
-		wiggle = null;
+		wiggleBack = null;
+		wiggleSchool = null;
+		wiggleGround = null;
+		wiggleTrees = null;
 	}
 }
