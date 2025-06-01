@@ -194,7 +194,7 @@ class PhillyStreetsStage extends Stage
 		var path:Array<FlxPoint> = [
 			FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15),
 			FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
-			FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
+			FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
 		];
 
 		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay} );
@@ -295,7 +295,7 @@ class PhillyStreetsStage extends Stage
 		var path:Array<FlxPoint> = [
 				FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
 				FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
-				FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
+				FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
 		];
 
 		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null );
