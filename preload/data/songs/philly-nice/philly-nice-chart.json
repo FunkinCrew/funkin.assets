@@ -1,22 +1,69 @@
 {
+  "version": "2.0.0",
+  "scrollSpeed": { "easy": 1.6, "normal": 1.8, "hard": 2 },
   "events": [
-    { "e": "FocusCamera", "t": 0, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 2914, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 8400, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 14057, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 19542, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 24685, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 30171, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 35657, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 41142, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 46628, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 52114, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 57600, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 63085, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 68571, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 74057, "v": { "char": 0 } },
-    { "e": "FocusCamera", "t": 79542, "v": { "char": 1 } },
-    { "e": "FocusCamera", "t": 85028, "v": { "char": 0 } }
+    { "t": 0, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 2914, "e": "FocusCamera", "v": { "char": 1 } },
+    { "t": 8400, "e": "FocusCamera", "v": { "char": 0 } },
+    {
+      "t": 13714.2857142857,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    {
+      "t": 13714.2857142857,
+      "e": "PlayAnimation",
+      "v": { "anim": "cheer", "force": true, "target": "gf" }
+    },
+    { "t": 14057, "e": "FocusCamera", "v": { "char": 1 } },
+    { "t": 19542, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 24685, "e": "FocusCamera", "v": { "char": 1 } },
+    {
+      "t": 24728.5714285714,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    { "t": 30171, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 35657, "e": "FocusCamera", "v": { "char": 1 } },
+    {
+      "t": 35700,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    { "t": 41142, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 46628, "e": "FocusCamera", "v": { "char": 1 } },
+    {
+      "t": 46671.4285714286,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    { "t": 52114, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 57600, "e": "FocusCamera", "v": { "char": 1 } },
+    {
+      "t": 57642.8571428571,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    {
+      "t": 57685.7142857143,
+      "e": "ZoomCamera",
+      "v": { "duration": 12, "ease": "expoOut", "zoom": 1.05, "mode": "stage" }
+    },
+    { "t": 63085, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 68571, "e": "FocusCamera", "v": { "char": 1 } },
+    { "t": 74057, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 79542, "e": "FocusCamera", "v": { "char": 1 } },
+    {
+      "t": 79585.7142857143,
+      "e": "PlayAnimation",
+      "v": { "target": "boyfriend", "force": true, "anim": "hey" }
+    },
+    {
+      "t": 79628.5714285714,
+      "e": "ZoomCamera",
+      "v": { "duration": 24, "ease": "expoOut", "zoom": 1, "mode": "stage" }
+    },
+    { "t": 85028, "e": "FocusCamera", "v": { "char": 0 } }
   ],
   "notes": {
     "easy": [
@@ -673,6 +720,7 @@
       { "t": 27257, "d": 5 },
       { "t": 27600, "d": 4 },
       { "t": 27771, "d": 5 },
+      { "t": 27857.1428571429, "d": 4 },
       { "t": 27942, "d": 7 },
       { "t": 28114.2857142857, "d": 4 },
       { "t": 28285.7142857143, "d": 7 },
@@ -1025,7 +1073,5 @@
       { "t": 90514.2857142857, "d": 1 }
     ]
   },
-  "scrollSpeed": { "easy": 1.6, "normal": 1.8, "hard": 2 },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (chart-editor-port-legacy:76a614e) PROTOTYPE",
-  "version": "2.0.0"
+  "generatedBy": "Friday Night Funkin' - v0.7.0 (rewrite/master:25e04cf) PROTOTYPE"
 }

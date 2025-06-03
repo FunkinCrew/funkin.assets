@@ -2,6 +2,7 @@
   "version": "2.2.4",
   "songName": "Ugh",
   "artist": "Kawai Sprite",
+  "charter": "MtH",
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
     "characters": {

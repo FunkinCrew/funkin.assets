@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "scrollSpeed": { "nightmare": 2.8, "erect": 2.2 },
+  "scrollSpeed": { "erect": 2.2, "nightmare": 2.8 },
   "events": [
     { "t": 0, "e": "FocusCamera", "v": { "char": 1, "x": 0, "y": 0 } },
     {

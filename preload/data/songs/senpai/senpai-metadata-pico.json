@@ -2,14 +2,14 @@
   "version": "2.2.4",
   "songName": "Senpai (Pico Mix)",
   "artist": "Tee Lopes (Feat. Saruky)",
-  "charter": "Fabs + Spazkid",
+  "charter": "fabs + Spazkid",
   "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0
   },
   "playData": {
-    "difficulties": ["normal", "easy", "hard"],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-pixel",
       "girlfriend": "nene-pixel",
