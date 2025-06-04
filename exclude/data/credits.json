@@ -35,6 +35,12 @@
       ]
     },
     {
+      "header": "Mobile Lead",
+      "body":  [
+        { "line": "MoonDroid (Zack)"}
+      ]
+    },
+    {
       "header": "Producer",
       "body": [
         { "line": "Kawa Teaño" }
@@ -139,7 +145,8 @@
       "header": "Programming",
       "body": [
         { "line": "Eric \"EliteMasterEric\" Myllyoja" },
-        { "line": "fabs" }
+        { "line": "fabs" },
+        { "line": "KadeDev" }
       ]
     },
     {
@@ -154,7 +161,17 @@
         { "line": "Emma (MtH)" },
         { "line": "George Kurelic" },
         { "line": "Will Blanton" },
-        { "line": "Victor - Cheemsandfriends" }
+        { "line": "Victor - Cheemsandfriends" },
+        { "line": "Hundrec" }
+      ]
+    },
+    {
+      "header": "Mobile Porting",
+      "body": [
+        { "line": "MAJigsaw77" },
+        { "line": "Luckydog7" },
+        { "line": "Karim Akra" },
+        { "line": "sector_5" }
       ]
     },
     {
@@ -178,17 +195,6 @@
       "header": "Kickstarter Backer Portal Programming",
       "body": [
         { "line": "Shingai Shamu" }
-      ]
-    },
-    {
-      "header": "Mobile Porting",
-      "body": [
-        { "line": "ZackDroid" },
-        { "line": "MAJigsaw77" },
-        { "line": "Luckydog7" },
-        { "line": "Karim Akra" },
-        { "line": "sector_5" },
-        { "line": "mcagabe19" }
       ]
     },
     {
@@ -320,7 +326,27 @@
         { "line": "d1ggo" }
 
       ]
+    },
+    {
+      "header": "Mobile Team special thanks",
+      "body": [
+        { "line": "GalacticBaguette, Yowze, Snovi" },
+        { "line": "AguaCrunch, pb_lauro, Rulet, Rusron, Megalo_palewhite, Serizyu" },
+        { "line": "8-bitryan" },
+        { "line": "Stax, NoraYotsu, AndroidSharky, IdioticLuwuke" },
+        { "line": "PeppyWall, Klavier, Roadr, Poyo, Limon" },
+        { "line": "Koniro, Key, Zuki, LunaMyria, Rattatuwu" },
+        { "line": "Ninkey, Snak, Codist" },
+        { "line": "ValenPratama" },
+        { "line": "yetet (June)" },
+        { "line": "Schepka" },
+        { "line": "Amari, DatRand (Vlad), Ressu2, Kekkra, CaptainRoku" },
+        { "line": "cat (Ariel), deathgobbr"},
+        { "line": "Mario Master (MasterX)"},
+        { "line": "richTrash21, PurSnake, Naisonji, Hopka, Matr4ass"},
+        { "line": "Redar13, cub, Sirox, Shufa, D.Dregz, Sodaree"},
+        { "line": "dUmer, G0lda, Voodoo, Vemer, Sadshrimp"}
+      ]
     }
-
   ]
 }
