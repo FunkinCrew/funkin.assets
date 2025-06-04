@@ -30,7 +30,7 @@ class TwoHOTSong extends Song
 	//var tempConductor:Conductor;
 	var cutsceneMusic:FunkinSound;
 
-	var canDamageVibrationPreset:VibrationPreset = {period: 0.1, duration: 0.1, amplitude: 1};
+	var canDamageVibrationPreset:VibrationPreset = {period: 0.1, duration: 0.1, amplitude: 1, sharpness: 1};
 
 	function new()
 	{
