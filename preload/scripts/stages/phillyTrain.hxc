@@ -7,6 +7,7 @@ import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.util.HapticUtil;
 
 class PhillyTrainStage extends Stage
 {
@@ -96,6 +97,14 @@ class PhillyTrainStage extends Stage
 			{
 				getNamedProp('lights' + i).visible = (i == curLight);
 			}
+		}
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		if (event.step % 2 == 0 && trainSound.time >= 4700 && trainMoving)
+		{
+			HapticUtil.vibrate(0, 0.1, 1, 0);
 		}
 	}
 
