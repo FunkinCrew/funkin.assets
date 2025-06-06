@@ -20,6 +20,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
 import funkin.util.TouchUtil;
+import funkin.util.HapticUtil;
 import funkin.ui.FullScreenScaleMode;
 
 class PhillyTrainErectStage extends Stage
@@ -445,6 +446,14 @@ class PhillyTrainErectStage extends Stage
 			{
 				getNamedProp('lights' + i).visible = (i == curLight);
 			}
+		}
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		if (trainSound.time >= 4700 && trainMoving)
+		{
+			HapticUtil.vibrate(0, 0.1, 0.3, 0);
 		}
 	}
 
