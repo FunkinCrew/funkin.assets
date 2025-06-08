@@ -27,8 +27,6 @@ class SpookyMansionStage extends Stage
 		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
 
-
-
 		if (getBoyfriend() != null && getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer') {
 			getBoyfriend().playAnimation('scared', true, true);
 		}
@@ -37,8 +35,15 @@ class SpookyMansionStage extends Stage
 			getGirlfriend().playAnimation('scared', true, true);
 		}
 
-		// Haptic
+		triggerLightningHaptics();
+	}
+
+	var doPostShockHaptics:Bool = false;
+	function triggerLightningHaptics()
+	{
 		HapticUtil.vibrate(0, 0.05, 1);
+
+		doPostShockHaptics = true;
 	}
 
 	/**
@@ -70,6 +75,27 @@ class SpookyMansionStage extends Stage
 		if (FlxG.random.bool(10) && event.beat > (lightningStrikeBeat + lightningStrikeOffset))
 		{
 			doLightningStrike(true, event.beat);
+		}
+	}
+
+	var postShockCounter:Int = 0;
+	var counterTargetNum:Int = 10;
+	function onStepHit(event:SongTimeScriptEvent)
+	{
+		super.onStepHit(event);
+
+		if (doPostShockHaptics)
+		{
+			postShockCounter++;
+
+			var postShockAmplitude:Float = 0.01 * (counterTargetNum - postShockCounter);
+			HapticUtil.vibrate(0, 0.01, postShockAmplitude, 0);
+
+			if (postShockCounter == counterTargetNum)
+			{
+				doPostShockHaptics = false;
+				postShockCounter = 0;
+			}
 		}
 	}
 
