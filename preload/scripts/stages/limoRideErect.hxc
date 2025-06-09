@@ -7,6 +7,7 @@ import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.graphics.shaders.AdjustColorShader;
 import flixel.addons.display.FlxBackdrop;
+import funkin.util.HapticUtil;
 
 class LimoRideErectStage extends Stage
 {
@@ -120,6 +121,7 @@ class LimoRideErectStage extends Stage
 
 	var _timer:Float = 0;
 
+	var doCarHaptics:Bool = false;
   function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
@@ -162,6 +164,11 @@ class LimoRideErectStage extends Stage
 		  colorShader.contrast = 0;
 		  colorShader.brightness = -30;
     }
+
+		if (doCarHaptics)
+		{
+			HapticUtil.vibrate(0, 0.05, 0.2, 0);
+		}
   }
 
 	function doShootingStar(beat:Int):Void
@@ -217,6 +224,15 @@ class LimoRideErectStage extends Stage
 		var fastCar = getNamedProp('fastCar');
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
+
+		new FlxTimer().start(1, function(tmr:FlxTimer){
+			doCarHaptics = true;
+
+			new FlxTimer().start(0.4, function(tmr:FlxTimer){
+				doCarHaptics = false;
+			});
+		});
+
 		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{
 			resetFastCar();
