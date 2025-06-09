@@ -49,6 +49,15 @@
         }
       ],
       "startingAnimation": "idle"
+    },
+    {
+      "name": "tankBricks",
+      "assetPath": "erect/bricksGround",
+      "position": [465, 760],
+      "scroll": [1, 1],
+      "scale": [1.15, 1.15],
+      "zIndex": 101,
+      "flipX": true
     }
   ],
   "characters": {
