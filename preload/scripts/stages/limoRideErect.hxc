@@ -121,6 +121,7 @@ class LimoRideErectStage extends Stage
 
 	var _timer:Float = 0;
 
+	var doCarHaptics:Bool = false;
   function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
@@ -163,6 +164,11 @@ class LimoRideErectStage extends Stage
 		  colorShader.contrast = 0;
 		  colorShader.brightness = -30;
     }
+
+		if (doCarHaptics)
+		{
+			HapticUtil.vibrate(0, 0.05, 0.2, 0);
+		}
   }
 
 	function doShootingStar(beat:Int):Void
@@ -189,17 +195,6 @@ class LimoRideErectStage extends Stage
 		if (FlxG.random.bool(10) && event.beat > (shootingStarBeat + shootingStarOffset))
 		{
 			doShootingStar(event.beat);
-		}
-	}
-
-	var doCarHaptics:Bool = false;
-	function onUpdate(event:UpdateScriptEvent)
-	{
-		super.onUpdate(event);
-
-		if (doCarHaptics)
-		{
-			HapticUtil.vibrate(0, 0.05, 0.2, 0);
 		}
 	}
 
