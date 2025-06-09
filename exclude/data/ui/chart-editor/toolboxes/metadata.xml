@@ -90,6 +90,22 @@
                             <item text="14" />
                             <item text="15" />
                             <item text="16" />
+                            <item text="17" />
+                            <item text="18" />
+                            <item text="19" />
+                            <item text="20" />
+                            <item text="21" />
+                            <item text="22" />
+                            <item text="23" />
+                            <item text="24" />
+                            <item text="25" />
+                            <item text="26" />
+                            <item text="27" />
+                            <item text="28" />
+                            <item text="29" />
+                            <item text="30" />
+                            <item text="31" />
+                            <item text="32" />
                         </data>
                     </dropdown>
                     <label text="Denominator:" verticalAlign="center" />
