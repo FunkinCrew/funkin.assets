@@ -4,7 +4,7 @@
   "assetPath": "characters/picoSpeaker",
   "startingAnimation": "idle",
   "singTime": 8.0,
-  "offsets": [125, 0],
+  "offsets": [125, 5],
   "animations": [
     {
       "name": "idle",
