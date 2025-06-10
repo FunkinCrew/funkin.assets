@@ -453,7 +453,7 @@ class PhillyTrainErectStage extends Stage
 
 	function onStepHit(event:SongTimeScriptEvent):Void
 	{
-		if (trainSound.time >= 4700 && trainMoving)
+		if (trainSound?.time >= 4700 && trainMoving)
 		{
 			HapticUtil.vibrate(0, 0.1, 0.3, 0);
 		}
