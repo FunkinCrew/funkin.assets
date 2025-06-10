@@ -118,20 +118,6 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
-	public override function onPause(event:PauseScriptEvent) {
-		super.onPause(event);
-
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.pause();
-	}
-
-	public override function onResume(event:ScriptEvent) {
-		super.onResume(event);
-
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.resume();
-	}
-
 	function trainStart():Void
 	{
 		trainMoving = true;
