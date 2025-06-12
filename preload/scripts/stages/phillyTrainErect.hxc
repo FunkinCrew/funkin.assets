@@ -20,6 +20,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.Preferences;
 import funkin.util.TouchUtil;
+import funkin.util.HapticUtil;
 import funkin.ui.FullScreenScaleMode;
 
 class PhillyTrainErectStage extends Stage
@@ -91,6 +92,7 @@ class PhillyTrainErectStage extends Stage
 	var cutsceneConductor:Conductor;
 
 	var cutsceneTimerManager:FlxTimerManager;
+	var gaspSound:FunkinSound = null;
 
 	function doppleGangerCutscene(){
 
@@ -197,7 +199,8 @@ class PhillyTrainErectStage extends Stage
 		picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
 		picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
 
-		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
+		if (gaspSound == null)
+			gaspSound = FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
@@ -445,6 +448,14 @@ class PhillyTrainErectStage extends Stage
 			{
 				getNamedProp('lights' + i).visible = (i == curLight);
 			}
+		}
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		if (trainSound?.time >= 4700 && trainMoving)
+		{
+			HapticUtil.vibrate(0, 0.1, 0.3, 0);
 		}
 	}
 

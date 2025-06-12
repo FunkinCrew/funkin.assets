@@ -5,6 +5,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
+import funkin.util.HapticUtil;
 
 class LimoRideStage extends Stage
 {
@@ -47,6 +48,17 @@ class LimoRideStage extends Stage
 			fastCarDrive();
 	}
 
+	var doCarHaptics:Bool = false;
+	function onUpdate(event:UpdateScriptEvent)
+	{
+		super.onUpdate(event);
+
+		if (doCarHaptics)
+		{
+			HapticUtil.vibrate(0, 0.05, 0.2, 0);
+		}
+	}
+
 	var fastCarCanDrive:Bool = false;
 
 	function resetFastCar():Void
@@ -73,6 +85,15 @@ class LimoRideStage extends Stage
 		var fastCar = getNamedProp('fastCar');
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
+
+		new FlxTimer().start(1, function(tmr:FlxTimer){
+			doCarHaptics = true;
+
+			new FlxTimer().start(0.4, function(tmr:FlxTimer){
+				doCarHaptics = false;
+			});
+		});
+
 		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{
 			resetFastCar();

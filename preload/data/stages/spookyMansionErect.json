@@ -30,7 +30,7 @@
       "name": "bgDark",
       "assetPath": "erect/bgDark",
       "zIndex": -100,
-      "position": [-360, -220],
+      "position": [-560, -220],
       "scale": [1, 1],
       "scroll": [1, 1]
     },
@@ -38,7 +38,7 @@
       "name": "bgLight",
       "assetPath": "erect/bgLight",
       "zIndex": -99,
-      "position": [-360, -220],
+      "position": [-560, -220],
       "scale": [1, 1],
       "scroll": [1, 1]
     },

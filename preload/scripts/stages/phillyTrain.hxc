@@ -7,6 +7,7 @@ import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.util.HapticUtil;
 
 class PhillyTrainStage extends Stage
 {
@@ -99,6 +100,14 @@ class PhillyTrainStage extends Stage
 		}
 	}
 
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		if (trainSound?.time >= 4700 && trainMoving)
+		{
+			HapticUtil.vibrate(0, 0.1, 0.3, 0);
+		}
+	}
+
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
 		// Disable lightning during ending cutscene.
@@ -107,20 +116,6 @@ class PhillyTrainStage extends Stage
 			trainSound.stop();
 			trainSound = null;
 		}
-	}
-
-	public override function onPause(event:PauseScriptEvent) {
-		super.onPause(event);
-
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.pause();
-	}
-
-	public override function onResume(event:ScriptEvent) {
-		super.onResume(event);
-
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.resume();
 	}
 
 	function trainStart():Void

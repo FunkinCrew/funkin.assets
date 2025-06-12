@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.math.FlxAngle;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import flixel.addons.display.FlxTiledSprite;
 
 class TankmanBattlefieldStage extends Stage
 {
@@ -15,16 +16,21 @@ class TankmanBattlefieldStage extends Stage
 			super.onCreate(event);
 	}
 
+	var clouds:FlxTiledSprite;
+
 	override function buildStage()
 	{
 		super.buildStage();
 
-		// Give the clouds a random position, and a velocity to make them move.
-		var clouds = getNamedProp('clouds');
-		clouds.active = true;
-		clouds.x = FlxG.random.int(-700, -100);
-		clouds.y = FlxG.random.int(-20, 20);
-		clouds.velocity.x = FlxG.random.float(5, 15);
+		clouds = new FlxTiledSprite(Paths.image('tankClouds'), 3200, 235, true, false);
+		clouds.setPosition(-1100, 20);
+		clouds.scrollFactor.set(0.25, 0.25);
+		clouds.zIndex = 12;
+
+		clouds.velocity.x = 8;
+
+		PlayState.instance.currentStage.add(clouds);
+		PlayState.instance.currentStage.refresh(); // Apply z-index.
 
 		tankAngle = FlxG.random.int(-90, 45);
 		tankSpeed = FlxG.random.float(5, 7);
@@ -60,12 +66,5 @@ class TankmanBattlefieldStage extends Stage
 	function onSongRetry(event:ScriptEvent)
 	{
 		super.onSongRetry(event);
-
-		// resets the clouds!
-		var clouds = getNamedProp('clouds');
-		clouds.active = true;
-		clouds.x = FlxG.random.int(-700, -100);
-		clouds.y = FlxG.random.int(-20, 20);
-		clouds.velocity.x = FlxG.random.float(5, 15);
 	}
 }

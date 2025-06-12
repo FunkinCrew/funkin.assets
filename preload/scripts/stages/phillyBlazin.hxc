@@ -176,8 +176,36 @@ class PhillyBlazinStage extends Stage
 		// Sound
 		FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3), 1.0);
 
-		// Haptic
+		triggerLightningHaptics();
+	}
+
+	var doPostShockHaptics:Bool = false;
+	function triggerLightningHaptics()
+	{
 		HapticUtil.vibrate(0, 0.05, 1);
+
+		doPostShockHaptics = true;
+	}
+
+	var postShockCounter:Int = 0;
+	var counterTargetNum:Int = 10;
+	function onStepHit(event:SongTimeScriptEvent)
+	{
+		super.onStepHit(event);
+
+		if (doPostShockHaptics)
+		{
+			postShockCounter++;
+
+			var postShockAmplitude:Float = 0.05 * (counterTargetNum - postShockCounter);
+			HapticUtil.vibrate(0, 0.01, postShockAmplitude, 0);
+
+			if (postShockCounter == counterTargetNum)
+			{
+				doPostShockHaptics = false;
+				postShockCounter = 0;
+			}
+		}
 	}
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
