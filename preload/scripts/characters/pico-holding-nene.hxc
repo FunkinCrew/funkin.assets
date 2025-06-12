@@ -121,7 +121,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter {
 			// 8 - fuck
 			// 9 - ass, bitch
 			randomCensor = [4, 7, 8, 9];
-		} else if (Constants.MOBILE_CENSORSHIP) {
+		} else if (Constants.CENSOR_EXPLETIVES) {
 			randomCensor = [4, 8];
 		}
 

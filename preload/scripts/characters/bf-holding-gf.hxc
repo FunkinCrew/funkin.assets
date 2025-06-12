@@ -22,7 +22,7 @@ class BFHoldingGFCharacter extends MultiSparrowCharacter {
 			// 17 - shit, asshole
 			// 21 - fucking
 			randomCensor = [1, 3, 8, 13, 17, 21];
-		} else if (Constants.MOBILE_CENSORSHIP) {
+		} else if (Constants.CENSOR_EXPLETIVES) {
 			randomCensor = [13, 21];
 		}
 
