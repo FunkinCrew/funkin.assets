@@ -107,6 +107,8 @@ class DarnellSong extends Song {
 	}
 
 	function introCutscene() {
+		PlayState.instance.togglePauseButton();
+
 		var picoPos:Array<Float> = [
 			PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
 			PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
@@ -240,6 +242,8 @@ class DarnellSong extends Song {
 			PlayState.instance.isInCutscene = false;
 			PlayState.instance.startCountdown();
 			cutsceneMusic.stop(); // stop the music!!!!!!
+
+			PlayState.instance.togglePauseButton(true);
 		});
 	}
 
