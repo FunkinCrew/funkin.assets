@@ -10,6 +10,7 @@ import flixel.tweens.FlxTween;
 import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
+import funkin.util.HapticUtil;
 
 class RosesSong extends Song {
   var hasPlayedCutscene:Bool;
@@ -58,6 +59,8 @@ class RosesSong extends Song {
 
       // Play a SFX
       FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
+
+      HapticUtil.vibrate(0.1, 0.5, 0.2, 1);
 
       // ERIC: There's a known bug where, on the School stage, pausing the stage animations then trying
       // to restart them causes the animations to freeze.
