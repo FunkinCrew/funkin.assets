@@ -5,6 +5,7 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
+import funkin.util.Constants;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
@@ -291,7 +292,12 @@ class DarnellSong extends Song {
 	}
 
 	function startVideo() {
-		VideoCutscene.play(Paths.videos('darnellCutscene'));
+		var videoPath = 'darnellCutscene';
+		if (Constants.CENSOR_EXPLETIVES) {
+			videoPath += '-censored';
+		}
+
+		VideoCutscene.play(Paths.videos(videoPath));
 	}
 
 	/**

@@ -2,6 +2,7 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.save.Save;
 import funkin.play.PlayStatePlaylist;
+import funkin.util.Constants;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.play.cutscene.VideoCutscene;
 import openfl.filters.ShaderFilter;
@@ -103,9 +104,12 @@ class StressSong extends Song {
   }
 
   function startVideo(usePicoVideo:Bool) {
-    var targetVideo = usePicoVideo ? Paths.videos('stressPicoCutscene') : Paths.videos('stressCutscene');
+    var videoPath = usePicoVideo ? 'stressPicoCutscene' : 'stressCutscene';
+    if (Constants.CENSOR_EXPLETIVES) {
+      videoPath += '-censored';
+    }
 
-    VideoCutscene.play(targetVideo);
+    VideoCutscene.play(Paths.videos(videoPath));
   }
 
   /**
