@@ -75,7 +75,7 @@ class PicoCard extends BackingCard
       });
   }
 
-  public override function initCard():Void
+  public override function onCreate(event:ScriptEvent):Void
   {
     FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
     add(pinkBack);
