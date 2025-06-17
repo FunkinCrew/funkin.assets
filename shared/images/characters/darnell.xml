@@ -14,20 +14,6 @@
   <SubTexture name="Idle0012" x="409" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
   <SubTexture name="Idle0013" x="810" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
   <SubTexture name="Idle0014" x="810" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0015" x="432" y="921" width="374" height="471" frameX="-44" frameY="-79" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0016" x="822" y="927" width="374" height="471" frameX="-44" frameY="-79" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0017" x="1212" y="927" width="394" height="471" frameX="-45" frameY="-79" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0018" x="1212" y="927" width="394" height="471" frameX="-45" frameY="-79" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0019" x="1553" y="1423" width="391" height="482" frameX="-47" frameY="-68" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0020" x="1553" y="1423" width="391" height="482" frameX="-47" frameY="-68" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0021" x="4299" y="1463" width="388" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0022" x="4299" y="1463" width="388" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0023" x="8" y="1902" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0024" x="8" y="1902" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0025" x="409" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0026" x="409" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0027" x="810" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
-  <SubTexture name="Idle0028" x="810" y="1908" width="385" height="487" frameX="-47" frameY="-63" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Left0001" x="4322" y="8" width="419" height="461" frameX="-0" frameY="-90" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Left0002" x="8" y="444" width="419" height="461" frameX="-0" frameY="-90" frameWidth="643" frameHeight="665" />
   <SubTexture name="Pose Left0003" x="2083" y="450" width="408" height="468" frameX="-16" frameY="-83" frameWidth="643" frameHeight="665" />
