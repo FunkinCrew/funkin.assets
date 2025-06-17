@@ -17,7 +17,7 @@
     <menu-separator />
     <menu-item id="menubarItemClearAssets" text="Clear Assets" style="color: indianred" />
     <menu-separator />
-    <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
   <menu text="Edit" id="menubarMenuEdit">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl + Z" />
