@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Object Animations" width="425" height="360">
+  <vbox width="100%" height="100%">
+    <hbox width="100%">
+      <dropdown id="objAnims" width="45%" text="Search Animation" searchable="true" searchPrompt="Search Animation">
+        <data/> <!--fill with code-->
+      </dropdown>
+      <textfield id="objAnimName" width="55%" placeholder="Animation Name"/>
+     </hbox>
+
+     <hbox width="100%">
+      <listview id="objFrameList" width="45%" height="100%">
+        <item-renderer width="100%" allowHover="true">
+          <label id="name" horizontalAlign="left"/>
+        </item-renderer>
+        <data /> <!-- fill with code-->
+      </listview>
+
+      <vbox width="55%">
+        <textfield id="objAnimPrefix" placeholder="Frame Prefix" width="100%"/>
+        <textfield id="objAnimIndices" placeholder="Frame Indices (Optional)" width="100%"/>
+        <grid width="100%" columns="2">
+          <label text="Loop" verticalAlign="center" horizontalAlign="center"/>
+          <checkbox id="objAnimLooped" text="Enabled"/>
+          <label text="Flip Horizontally" verticalAlign="center" horizontalAlign="center"/>
+          <checkbox id="objAnimFlipX" text="Enabled"/>
+          <label text="Flip Vertically" verticalAlign="center" horizontalAlign="center"/>
+          <checkbox id="objAnimFlipY" text="Enabled"/>
+          <label text="Plays on Init" verticalAlign="center" horizontalAlign="center"/>
+          <checkbox id="objAnimStart" text="Enabled"/>
+          <label text="Framerate" verticalAlign="center" horizontalAlign="center"/>
+          <number-stepper id="objAnimFramerate" min="1" step="1" pos="24"/>
+          <label text="Offset (X)" verticalAlign="center" horizontalAlign="center"/>
+          <number-stepper id="objAnimOffsetX" step="1" pos="0"/>
+          <label text="Offset (Y)" verticalAlign="center" horizontalAlign="center"/>
+          <number-stepper id="objAnimOffsetY" step="1" pos="0"/>
+        </grid>
+      </vbox>
+    </hbox>
+
+    <hbox width="100%">
+      <spacer width="100%" />
+      <button id="objAnimSave" text="Save"/>
+      <button id="objAnimDelete" text="Remove"/>
+    </hbox>
+  </vbox>
+</collapsible-dialog>
