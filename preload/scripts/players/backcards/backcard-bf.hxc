@@ -1,4 +1,5 @@
 import funkin.ui.freeplay.BGScrollingText;
+import funkin.ui.freeplay.FreeplayState;
 import funkin.ui.freeplay.backcards.BackingCard;
 import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
@@ -150,12 +151,12 @@ class BoyfriendCard extends BackingCard
     funnyScroll3.speed = -3.8;
     add(funnyScroll3);
 
-    glowDark = new FlxSprite(-300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
-    glowDark.blend = 9;
+    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
+    glowDark.blend = BlendMode.MULTIPLY;
     add(glowDark);
 
-    glow = new FlxSprite(-300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
-    glow.blend = 0;
+    glow = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/beatglow'));
+    glow.blend = BlendMode.ADD;
     add(glow);
 
     glowDark.visible = false;
