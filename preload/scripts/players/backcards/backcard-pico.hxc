@@ -1,6 +1,8 @@
 import funkin.ui.freeplay.backcards.BackingCard;
 import flixel.math.FlxMath;
 import flixel.FlxSprite;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.util.BitmapUtil;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -127,11 +129,11 @@ class PicoCard extends BackingCard
     scrollMiddle.velocity.x = 220;
 
     glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/backingCards/pico/glow'));
-    glowDark.blend = BlendMode.MULTIPLY;
+    glowDark.blend = 9;
     add(glowDark);
 
     glow = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/backingCards/pico/glow'));
-    glow.blend = BlendMode.ADD;
+    glow.blend = 0;
     add(glow);
 
     blueBar.visible = false;
@@ -144,7 +146,7 @@ class PicoCard extends BackingCard
 
     confirmAtlas = new FlxAtlasSprite(5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
     confirmAtlas.visible = false;
-    confirmAtlas.scale *= FullScreenScaleMode.wideScale.x;
+    confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
     confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
     add(confirmAtlas);
 
