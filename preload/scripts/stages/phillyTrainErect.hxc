@@ -62,7 +62,7 @@ class PhillyTrainErectStage extends Stage
   {
     super.onCountdownStart(event);
 
-    if (!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable')
+    if (!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend()?.characterId == 'pico-playable')
     {
       trace('Pausing countdown to play in game cutscene');
 
