@@ -1,20 +1,21 @@
-import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
-import funkin.play.GameOverSubState;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import flixel.util.FlxTimer;
-import funkin.graphics.FunkinSprite;
-import funkin.audio.FunkinSound;
-import flixel.FlxSprite;
-import funkin.util.Constants;
-import flixel.FlxG;
-import funkin.modding.base.ScriptedFunkinSprite;
-import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
-import funkin.play.PauseSubState;
-import funkin.modding.module.ModuleHandler;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import funkin.audio.FunkinSound;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
+import funkin.modding.module.ModuleHandler;
+import funkin.play.character.CharacterType;
+import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.GameOverSubState;
+import funkin.play.PauseSubState;
+import funkin.play.PlayState;
+import funkin.util.Constants;
+import funkin.Preferences;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter
 {
