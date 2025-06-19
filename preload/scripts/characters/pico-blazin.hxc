@@ -30,21 +30,13 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		PauseSubState.musicSuffix = '-pico';
 	}
 
-	function getSafeNoteKind(event:HitNoteScriptEvent):String {
-		if (event == null) return '';
-		if (event.note == null) return '';
-		if (event.note.kind == null) return '';
-
-		return event.note.kind;
-	}
-
 	var cantUppercut = false;
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		holdTimer = 0;
 
-		if (!StringTools.startsWith(getSafeNoteKind(event), 'weekend-1-')) return;
+		if (!StringTools.startsWith(event?.note?.kind ?? '', 'weekend-1-')) return;
 
 		// SPECIAL CASE: If Pico hits a poor note at low health (at 30% chance),
 		// Pico may instead punch high (but Darnell will duck below Pico to attempt an uppercut)
@@ -64,7 +56,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		}
 
 		// Override the hit note animation.
-		switch (getSafeNoteKind(event))
+		switch (event?.note?.kind ?? '')
 		{
 			case "weekend-1-punchlow":
 				playPunchLowAnim();
