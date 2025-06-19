@@ -508,7 +508,24 @@ class PhillyStreetsErectStage extends Stage
 
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
 
+    var mustApplyShader = false;
+
     if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null)
+    {
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader
+      && PlayState.instance.currentStage.getGirlfriend() != null
+      && PlayState.instance.currentStage.getGirlfriend().shader == null)
+    {
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader && PlayState.instance.currentStage.getDad() != null && PlayState.instance.currentStage.getDad().shader == null)
+    {
+      mustApplyShader = true;
+    }
+
+    if (mustApplyShader)
     {
       PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
       PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
