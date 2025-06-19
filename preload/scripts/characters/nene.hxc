@@ -447,7 +447,7 @@ class NeneCharacter extends MultiSparrowCharacter
 
   function shouldTransitionState():Bool
   {
-    return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
+    return PlayState.instance.currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function checkTrainPassing(raised:Bool = false)
