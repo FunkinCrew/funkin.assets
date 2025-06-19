@@ -429,14 +429,17 @@ class PhillyTrainErectStage extends Stage
 
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
     {
-      if (canSkipCutscene == false)
+      if (!canSkipCutscene)
       {
         trace('cant skip yet!');
-        FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-        new FlxTimer().start(0.5, _ -> {
-          canSkipCutscene = true;
-          trace('can skip!');
-        });
+        if (skipText != null)
+        {
+          FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+          new FlxTimer().start(0.5, _ -> {
+            canSkipCutscene = true;
+            trace('can skip!');
+          });
+        }
       }
     }
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed)
