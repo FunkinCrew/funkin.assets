@@ -25,7 +25,7 @@ class LimoRideErectStage extends Stage
 	var shootingStarBeat:Int = 0;
 	var shootingStarOffset:Int = 2;
 
-	function buildStage()
+	override function buildStage()
 	{
 		super.buildStage();
 
@@ -115,12 +115,13 @@ class LimoRideErectStage extends Stage
 
 		getNamedProp('shootingStar').blend = 0;
 
+		fastCarTimer = new FlxTimer();
 		resetFastCar();
 	}
 
 	var _timer:Float = 0;
 
-  function onUpdate(event:UpdateScriptEvent):Void
+	override function onUpdate(event:UpdateScriptEvent):Void
 	{
 		super.onUpdate(event);
 
@@ -176,7 +177,7 @@ class LimoRideErectStage extends Stage
 
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent)
+	override function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
@@ -191,6 +192,7 @@ class LimoRideErectStage extends Stage
 		}
 	}
 
+	var fastCarTimer:FlxTimer;
 	var fastCarCanDrive:Bool = false;
 
 	function resetFastCar():Void
@@ -217,7 +219,7 @@ class LimoRideErectStage extends Stage
 		var fastCar = getNamedProp('fastCar');
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		fastCarTimer.start(2, function(_)
 		{
 			resetFastCar();
 		});
@@ -227,7 +229,7 @@ class LimoRideErectStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
+	override function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 
@@ -242,10 +244,22 @@ class LimoRideErectStage extends Stage
 	/**
 	 * Make sure the fast car is reset when the song restarts.
 	 */
-	function onSongRetry(event:ScriptEvent) {
+	override function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 		resetFastCar();
 		shootingStarBeat = 0;
 		shootingStarOffset = 2;
 	}
+
+  override function onPause(event:PauseScriptEvent) {
+    super.onPause(event);
+
+    if (fastCarTimer != null) fastCarTimer.active = false;
+  }
+
+  override function onResume(event:ScriptEvent) {
+    super.onResume(event);
+
+    if (fastCarTimer != null) fastCarTimer.active = true;
+  }
 }
