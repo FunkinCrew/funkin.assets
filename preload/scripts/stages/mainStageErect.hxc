@@ -9,6 +9,7 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.play.character.CharacterType;
 
 class MainStageErectStage extends Stage
 {
@@ -56,35 +57,6 @@ class MainStageErectStage extends Stage
     getNamedProp('lightAbove').blend = 0;
   }
 
-  function onUpdate(event:UpdateScriptEvent):Void
-  {
-    super.onUpdate(event);
-
-    var mustApplyShader = false;
-
-    if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null)
-    {
-      mustApplyShader = true;
-    }
-    if (!mustApplyShader
-      && PlayState.instance.currentStage.getGirlfriend() != null
-      && PlayState.instance.currentStage.getGirlfriend().shader == null)
-    {
-      mustApplyShader = true;
-    }
-    if (!mustApplyShader && PlayState.instance.currentStage.getDad() != null && PlayState.instance.currentStage.getDad().shader == null)
-    {
-      mustApplyShader = true;
-    }
-
-    if (mustApplyShader)
-    {
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
-      PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
-      PlayState.instance.currentStage.getDad().shader = colorShaderDad;
-    }
-  }
-
   function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
@@ -93,5 +65,24 @@ class MainStageErectStage extends Stage
   function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
+  }
+
+  /**
+   * Apply the shader to the character as it is added.
+   */
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    // Apply the shader automatically to each character as it gets added.
+    super.addCharacter(character, charType);
+    trace('Applied stage shader to ' + character.characterName);
+    switch (charType)
+    {
+      case CharacterType.BF:
+        character.shader = colorShaderBf;
+      case CharacterType.DAD:
+        character.shader = colorShaderDad;
+      case CharacterType.GF:
+        character.shader = colorShaderGf;
+    }
   }
 }
