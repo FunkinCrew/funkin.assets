@@ -137,11 +137,28 @@ class LimoRideErectStage extends Stage
     mist5.y = -450 + (Math.sin(_timer * 0.2) * 150);
     // trace(mist1.y);
 
+    var mustApplyShader = false;
+
     if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null)
     {
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-      PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-      PlayState.instance.currentStage.getDad().shader = colorShader;
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader
+      && PlayState.instance.currentStage.getGirlfriend() != null
+      && PlayState.instance.currentStage.getGirlfriend().shader == null)
+    {
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader && PlayState.instance.currentStage.getDad() != null && PlayState.instance.currentStage.getDad().shader == null)
+    {
+      mustApplyShader = true;
+    }
+
+    if (mustApplyShader)
+    {
+      if (PlayState.instance.currentStage.getBoyfriend() != null) PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
+      if (PlayState.instance.currentStage.getGirlfriend() != null) PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
+      if (PlayState.instance.currentStage.getDad() != null) PlayState.instance.currentStage.getDad().shader = colorShader;
       getNamedProp('limoDancer1').shader = colorShader;
       getNamedProp('limoDancer2').shader = colorShader;
       getNamedProp('limoDancer3').shader = colorShader;
