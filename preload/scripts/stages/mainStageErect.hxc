@@ -60,7 +60,24 @@ class MainStageErectStage extends Stage
   {
     super.onUpdate(event);
 
+    var mustApplyShader = false;
+
     if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null)
+    {
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader
+      && PlayState.instance.currentStage.getGirlfriend() != null
+      && PlayState.instance.currentStage.getGirlfriend().shader == null)
+    {
+      mustApplyShader = true;
+    }
+    if (!mustApplyShader && PlayState.instance.currentStage.getDad() != null && PlayState.instance.currentStage.getDad().shader == null)
+    {
+      mustApplyShader = true;
+    }
+
+    if (mustApplyShader)
     {
       PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
       PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
