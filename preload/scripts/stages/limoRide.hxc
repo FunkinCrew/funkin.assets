@@ -6,6 +6,7 @@ import funkin.play.stage.Stage;
 import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.util.HapticUtil;
+import funkin.util.Sequence;
 
 class LimoRideStage extends Stage
 {
@@ -14,7 +15,7 @@ class LimoRideStage extends Stage
     super('limoRide');
   }
 
-  function buildStage()
+  override function buildStage()
   {
     super.buildStage();
 
@@ -38,10 +39,16 @@ class LimoRideStage extends Stage
     // I don't know what it's for, but it's not used in the game.
     // If you want to re-add it, go find it in version control.
 
+    carSequenceData = [
+      {time: 1, callback: () -> doCarHaptics = true},
+      {time: 1.4, callback: () -> doCarHaptics = false},
+      {time: 2, callback: () -> resetFastCar()}
+    ];
+
     resetFastCar();
   }
 
-  function onBeatHit(event:SongTimeScriptEvent)
+  override function onBeatHit(event:SongTimeScriptEvent)
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
@@ -50,9 +57,11 @@ class LimoRideStage extends Stage
     if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
   }
 
+  var carSequence:Sequence;
+  var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
-  function onUpdate(event:UpdateScriptEvent)
+  override function onUpdate(event:UpdateScriptEvent)
   {
     super.onUpdate(event);
 
@@ -88,17 +97,7 @@ class LimoRideStage extends Stage
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
     fastCarCanDrive = false;
 
-    new FlxTimer().start(1, function(tmr:FlxTimer) {
-      doCarHaptics = true;
-
-      new FlxTimer().start(0.4, function(tmr:FlxTimer) {
-        doCarHaptics = false;
-      });
-    });
-
-    new FlxTimer().start(2, function(tmr:FlxTimer) {
-      resetFastCar();
-    });
+    carSequence = new Sequence(carSequenceData);
   }
 
   /**
@@ -120,9 +119,23 @@ class LimoRideStage extends Stage
   /**
    * Make sure the fast car is reset when the song restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
     resetFastCar();
+  }
+
+  override function onPause(event:PauseScriptEvent)
+  {
+    super.onPause(event);
+
+    if (carSequence != null) carSequence.running = false;
+  }
+
+  override function onResume(event:ScriptEvent)
+  {
+    super.onResume(event);
+
+    if (carSequence != null) carSequence.running = true;
   }
 }
