@@ -86,7 +86,7 @@ class BoyfriendCard extends BackingCard
     moreWays = new BGScrollingText(0, 160, player.getFreeplayDJText(2), FlxG.width, true, 43);
     moreWays2 = new BGScrollingText(0, 397, player.getFreeplayDJText(2), FlxG.width, true, 43);
     txtNuts = new BGScrollingText(0, 285, player.getFreeplayDJText(3), FlxG.width / 2, true, 43);
-    funnyScroll3 = new BGScrollingText(0, orangeBackShit.y + 10, player.getFreeplayDJText(1), FlxG.width / 2, 60);
+    funnyScroll3 = new BGScrollingText(0, orangeBackShit.y + 10, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
   }
 
   public override function onCreate(event:ScriptEvent):Void
