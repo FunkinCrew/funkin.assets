@@ -94,7 +94,7 @@ class EggnogSong extends Song
 
 	function startCutscene(){
 
-		skipText = new FlxText(936 * FullScreenScaleMode.windowScale.x, 618 * FullScreenScaleMode.windowScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
     {
         skipText.text = 'Skip [Pause Button]';
