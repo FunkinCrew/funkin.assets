@@ -97,6 +97,7 @@ class PhillyTrainErectStage extends Stage
 	function doppleGangerCutscene(){
 		// Disable player input during cutscene, so you can't get a gameover during cutscene
 		PlayState.instance.isInCutscene = true;
+		PlayState.instance.mayPauseGame = false;
 		skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
     {
@@ -290,6 +291,8 @@ class PhillyTrainErectStage extends Stage
 			picoOpponent.scriptCall('cancelSounds');
 			cutsceneMusic.stop();
 
+			PlayState.instance.isInCutscene = false;
+			PlayState.instance.mayPauseGame = true;
 			PlayState.instance.startCountdown();
 
 			skipText.visible = false;

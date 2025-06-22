@@ -70,6 +70,8 @@ class TwoHOTSong extends Song
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
+			PlayState.instance.isInCutscene = true;
+			PlayState.instance.mayPauseGame = false;
       hasPlayedCutscene = true;
 
       event.cancel();
@@ -79,6 +81,8 @@ class TwoHOTSong extends Song
     } else {
 			// Make sure the cutscene can play again next time!
 			hasPlayedCutscene = false;
+			PlayState.instance.isInCutscene = false;
+			PlayState.instance.mayPauseGame = true;
 			// DO NOT CANCEL THE EVENT!
 		}
 	}
