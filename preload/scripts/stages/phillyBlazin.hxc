@@ -97,7 +97,7 @@ class PhillyBlazinStage extends Stage
 
 		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
 		rainShader.update(event.elapsed * rainTimeScale);
-		rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.05);
+		rainTimeScale = MathUtil.smoothLerpPrecision(rainTimeScale, 0.02, event.elapsed, 1.535);
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
