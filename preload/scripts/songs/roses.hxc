@@ -12,26 +12,30 @@ import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 import funkin.util.HapticUtil;
 
-class RosesSong extends Song {
+class RosesSong extends Song
+{
   var hasPlayedCutscene:Bool;
 
-	public function new() {
-		super('roses');
-	}
+  public function new()
+  {
+    super('roses');
+  }
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    if (currentVariation == 'pico')
-      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, 'pico');
 
     return false;
-	}
+  }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      switch (variationId) {
+      switch (variationId)
+      {
         case 'pico':
           // return hasBeatenPicoMix ? [''] : [];
           // No Pico mix on BF instrumental, sorry!
@@ -44,13 +48,15 @@ class RosesSong extends Song {
     return [];
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
 
     // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
     if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
+    if (!hasPlayedCutscene)
+    {
       trace('Pausing countdown to play cutscene.');
 
       hasPlayedCutscene = true;
@@ -69,9 +75,10 @@ class RosesSong extends Song {
 
       startDialogue();
     }
-	}
+  }
 
-  function startDialogue() {
+  function startDialogue()
+  {
     var targetDialogue = 'roses';
 
     if (PlayState.instance.currentVariation == 'pico') targetDialogue += "-pico";
@@ -101,13 +108,14 @@ class RosesSong extends Song {
     hasPlayedCutscene = false;
   }
 
-	function onBeatHit(event:SongTimeScriptEvent)
+  function onBeatHit(event:SongTimeScriptEvent)
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
     super.onBeatHit(event);
 
-    if (event.beat == 180 && PlayStatePlaylist.isStoryMode) {
+    if (event.beat == 180 && PlayStatePlaylist.isStoryMode)
+    {
       trace('Hit end of song! Starting outro.');
 
       PlayState.instance.camCutscene.visible = true;
@@ -122,7 +130,8 @@ class RosesSong extends Song {
     }
   }
 
-  public override function onDialogueEnd() {
+  public override function onDialogueEnd()
+  {
     // We may need to wait for the outro to play.
     Countdown.performCountdown();
   }

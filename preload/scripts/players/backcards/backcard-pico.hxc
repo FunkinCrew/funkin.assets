@@ -128,7 +128,8 @@ class PicoCard extends BackingCard
     add(scrollMiddle);
     scrollMiddle.velocity.x = 220;
 
-    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300, 330).loadGraphic(Paths.image('freeplay/backingCards/pico/glow'));
+    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI)
+      + -300, 330).loadGraphic(Paths.image('freeplay/backingCards/pico/glow'));
     glowDark.blend = 9;
     add(glowDark);
 

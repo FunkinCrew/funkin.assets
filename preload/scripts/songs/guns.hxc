@@ -2,23 +2,27 @@ import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.save.Save;
-
 import funkin.play.PlayStatePlaylist;
 
-class GunsSong extends Song {
+class GunsSong extends Song
+{
   var hasPlayedCutscene:Bool;
 
-	public function new() {
-		super('guns');
+  public function new()
+  {
+    super('guns');
 
     hasPlayedCutscene = false;
-	}
+  }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      switch (variationId) {
+      switch (variationId)
+      {
         case 'pico':
           // return hasBeatenPicoMix ? [''] : [];
           // No Pico mix on BF instrumental, sorry!
@@ -29,12 +33,14 @@ class GunsSong extends Song {
     }
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
 
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
+    if (!hasPlayedCutscene)
+    {
       trace('Pausing countdown to play a video cutscene (`guns`)');
 
       hasPlayedCutscene = true;
@@ -43,9 +49,10 @@ class GunsSong extends Song {
 
       startVideo();
     }
-	}
+  }
 
-  function startVideo() {
+  function startVideo()
+  {
     VideoCutscene.play(Paths.videos('gunsCutscene'));
   }
 

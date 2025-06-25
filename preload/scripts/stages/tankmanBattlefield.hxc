@@ -6,65 +6,65 @@ import flixel.addons.display.FlxTiledSprite;
 
 class TankmanBattlefieldStage extends Stage
 {
-	function new()
-	{
-		super('tankmanBattlefield');
-	}
+  function new()
+  {
+    super('tankmanBattlefield');
+  }
 
-	function onCreate(event:ScriptEvent):Void
-	{
-			super.onCreate(event);
-	}
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+  }
 
-	var clouds:FlxTiledSprite;
+  var clouds:FlxTiledSprite;
 
-	override function buildStage()
-	{
-		super.buildStage();
+  override function buildStage()
+  {
+    super.buildStage();
 
-		clouds = new FlxTiledSprite(Paths.image('tankClouds'), 3200, 235, true, false);
-		clouds.setPosition(-1100, 20);
-		clouds.scrollFactor.set(0.25, 0.25);
-		clouds.zIndex = 12;
+    clouds = new FlxTiledSprite(Paths.image('tankClouds'), 3200, 235, true, false);
+    clouds.setPosition(-1100, 20);
+    clouds.scrollFactor.set(0.25, 0.25);
+    clouds.zIndex = 12;
 
-		clouds.velocity.x = 8;
+    clouds.velocity.x = 8;
 
-		PlayState.instance.currentStage.add(clouds);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+    PlayState.instance.currentStage.add(clouds);
+    PlayState.instance.currentStage.refresh(); // Apply z-index.
 
-		tankAngle = FlxG.random.int(-90, 45);
-		tankSpeed = FlxG.random.float(5, 7);
-	}
+    tankAngle = FlxG.random.int(-90, 45);
+    tankSpeed = FlxG.random.float(5, 7);
+  }
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
-		super.onUpdate(event);
-		moveTank(event.elapsed);
-	}
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+    moveTank(event.elapsed);
+  }
 
-	var tankMoving:Bool = false;
-	var tankAngle:Float = FlxG.random.int(-90, 45);
-	var tankSpeed:Float = FlxG.random.float(5, 7);
-	var tankX:Float = 400;
+  var tankMoving:Bool = false;
+  var tankAngle:Float = FlxG.random.int(-90, 45);
+  var tankSpeed:Float = FlxG.random.float(5, 7);
+  var tankX:Float = 400;
 
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-	}
+  function onBeatHit(event:SongTimeScriptEvent):Void
+  {
+    super.onBeatHit(event);
+  }
 
-	function moveTank(elapsed:Float):Void
-	{
-		var daAngleOffset:Float = 1;
-		tankAngle += elapsed * tankSpeed;
+  function moveTank(elapsed:Float):Void
+  {
+    var daAngleOffset:Float = 1;
+    tankAngle += elapsed * tankSpeed;
 
-		var tankRolling = getNamedProp('tankRolling');
-		tankRolling.angle = tankAngle - 90 + 15;
-		tankRolling.x = tankX + Math.cos(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1500;
-		tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
-	}
+    var tankRolling = getNamedProp('tankRolling');
+    tankRolling.angle = tankAngle - 90 + 15;
+    tankRolling.x = tankX + Math.cos(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1500;
+    tankRolling.y = 1300 + Math.sin(FlxAngle.asRadians((tankAngle * daAngleOffset) + 180)) * 1100;
+  }
 
-	function onSongRetry(event:ScriptEvent)
-	{
-		super.onSongRetry(event);
-	}
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+  }
 }

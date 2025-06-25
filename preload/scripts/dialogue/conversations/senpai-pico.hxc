@@ -2,21 +2,27 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.play.cutscene.dialogue.Conversation;
 
-class SenpaiPicoConversation extends Conversation {
-	function new() {
-		super('senpai-pico');
-	}
+class SenpaiPicoConversation extends Conversation
+{
+  function new()
+  {
+    super('senpai-pico');
+  }
 
   var musicStopped = false;
 
-  override function showCurrentSpeaker():Void {
+  override function showCurrentSpeaker():Void
+  {
     super.showCurrentSpeaker();
 
     // Funny moment; stop the music for dramatic effect.
-    if (currentSpeaker.id == 'senpai-bwuh') {
+    if (currentSpeaker.id == 'senpai-bwuh')
+    {
       musicStopped = true;
       this.music.pause();
-    } else if (musicStopped && currentSpeaker.id == 'senpai') {
+    }
+    else if (musicStopped && currentSpeaker.id == 'senpai')
+    {
       musicStopped = false;
       this.music.resume();
       this.music.volume = 0.0;

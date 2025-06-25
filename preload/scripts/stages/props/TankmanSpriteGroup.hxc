@@ -9,136 +9,137 @@ import Lambda;
 
 class TankmanSpriteGroup extends FlxTypedSpriteGroup
 {
-	var tankmanTimes:Array<Float> = [];
-	var tankmanDirs:Array<Bool> = [];
+  var tankmanTimes:Array<Float> = [];
+  var tankmanDirs:Array<Bool> = [];
 
-	var MAX_SIZE = 4;
+  var MAX_SIZE = 4;
 
-	var isErect:Bool = false;
+  var isErect:Bool = false;
 
-	var isEasterEgg:Bool = false;
+  var isEasterEgg:Bool = false;
 
-	function new(erect:Bool)
-	{
-		super(0, 0, 4);
-		this.zIndex = 30;
+  function new(erect:Bool)
+  {
+    super(0, 0, 4);
+    this.zIndex = 30;
 
-		this.isErect = (erect != null) ? erect : false;
-		trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
-	}
+    this.isErect = (erect != null) ? erect : false;
+    trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
+  }
 
-	public function isValid():Bool {
-		return group != null;
-	}
+  public function isValid():Bool
+  {
+    return group != null;
+  }
 
-	function reset()
-	{
-		group.clear();
+  function reset()
+  {
+    group.clear();
 
-		// Create the other tankmen.
-		initTimemap();
-	}
+    // Create the other tankmen.
+    initTimemap();
+  }
 
-	function initTimemap()
-	{
-		trace('Initializing Tankman timings...');
-		tankmanTimes = [];
-		// The tankmen's timings and directions are determined
-		// by the chart, specifically the internal "picospeaker" difficulty.
-		var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
-		if (animChart == null)
-		{
-			trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
-			return;
-		} else {
-			trace('Found picospeaker chart for TankmanSpriteGroup.');
-		}
-		var animNotes:Array<SongNoteData> = animChart.notes;
+  function initTimemap()
+  {
+    trace('Initializing Tankman timings...');
+    tankmanTimes = [];
+    // The tankmen's timings and directions are determined
+    // by the chart, specifically the internal "picospeaker" difficulty.
+    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
+    if (animChart == null)
+    {
+      trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
+      return;
+    }
+    else
+    {
+      trace('Found picospeaker chart for TankmanSpriteGroup.');
+    }
+    var animNotes:Array<SongNoteData> = animChart.notes;
 
-		// turns out sorting functions are completely useless in polymod right now and do nothing
-		// i had to sort the whole pico chart by hand im gonna go insane
-		animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
-  	{
-    	return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
-  	});
+    // turns out sorting functions are completely useless in polymod right now and do nothing
+    // i had to sort the whole pico chart by hand im gonna go insane
+    animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int {
+      return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
+    });
 
-		for (note in animNotes)
-		{
-			// Only one out of every 16 notes, on average, is a tankman.
-			if (FlxG.random.bool(1 / 16 * 100))
-			{
-				tankmanTimes.push(note.time);
-				var goingRight:Bool = (note.data == 2 || note.data == 3) ? false : true;
-				tankmanDirs.push(goingRight);
-			}
-		}
-	}
+    for (note in animNotes)
+    {
+      // Only one out of every 16 notes, on average, is a tankman.
+      if (FlxG.random.bool(1 / 16 * 100))
+      {
+        tankmanTimes.push(note.time);
+        var goingRight:Bool = (note.data == 2 || note.data == 3) ? false : true;
+        tankmanDirs.push(goingRight);
+      }
+    }
+  }
 
-	/**
-	 * Creates a Tankman sprite and adds it to the group.
-	 */
-	function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
-	{
-		// recycle() is neat; it looks for a sprite which has completed its animation and resets it,
-		// rather than calling the constructor again. It only calls the constructor if it can't find one.
+  /**
+   * Creates a Tankman sprite and adds it to the group.
+   */
+  function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
+  {
+    // recycle() is neat; it looks for a sprite which has completed its animation and resets it,
+    // rather than calling the constructor again. It only calls the constructor if it can't find one.
 
-		var tankman:ScriptedFunkinSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
+    var tankman:ScriptedFunkinSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
 
-		// We can directly set values which are defined by the script's superclass.
-		tankman.x = initX;
-		tankman.y = initY;
-		tankman.scale.set(scale, scale);
-		tankman.flipX = !goingRight;
-		// We need to use scriptSet for values which were defined in a script.
-		tankman.scriptSet('strumTime', strumTime);
-		tankman.scriptSet('endingOffset', FlxG.random.float(50, 200));
-		tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
-		tankman.scriptSet('goingRight', goingRight);
+    // We can directly set values which are defined by the script's superclass.
+    tankman.x = initX;
+    tankman.y = initY;
+    tankman.scale.set(scale, scale);
+    tankman.flipX = !goingRight;
+    // We need to use scriptSet for values which were defined in a script.
+    tankman.scriptSet('strumTime', strumTime);
+    tankman.scriptSet('endingOffset', FlxG.random.float(50, 200));
+    tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
+    tankman.scriptSet('goingRight', goingRight);
 
+    if (isErect)
+    {
+      tankman.scriptCall('addRimlight');
+    }
 
+    this.add(tankman);
+  }
 
-		if (isErect) {
-			tankman.scriptCall('addRimlight');
-		}
+  function _initTankmanObj():ScriptedFunkinSprite
+  {
+    var result:ScriptedFunkinSprite = ScriptedFunkinSprite.init('TankmanSprite');
+    return result;
+  }
 
-		this.add(tankman);
-	}
+  var timer:Float = 0;
 
-	function _initTankmanObj():ScriptedFunkinSprite
-	{
-		var result:ScriptedFunkinSprite = ScriptedFunkinSprite.init('TankmanSprite');
-		return result;
-	}
+  function update(elapsed:Float)
+  {
+    super.update(elapsed);
 
-	var timer:Float = 0;
+    while (true)
+    {
+      // Create tankmen 10 seconds in advance.
+      var cutoff:Float = Conductor.instance.songPosition + (1000 * 3);
+      if (tankmanTimes.length > 0 && tankmanTimes[0] <= cutoff)
+      {
+        var nextTime:Float = tankmanTimes.shift();
+        var goingRight:Bool = tankmanDirs.shift();
+        var xPos = 500;
+        var yPos:Float = isErect ? 350 : (200 + FlxG.random.int(50, 100));
+        var scale:Float = isErect ? 1.10 : 1.0;
+        createTankman(xPos, yPos, nextTime, goingRight, scale);
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
 
-	function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		while (true)
-		{
-			// Create tankmen 10 seconds in advance.
-			var cutoff:Float = Conductor.instance.songPosition + (1000 * 3);
-			if (tankmanTimes.length > 0 && tankmanTimes[0] <= cutoff)
-			{
-				var nextTime:Float = tankmanTimes.shift();
-				var goingRight:Bool = tankmanDirs.shift();
-				var xPos = 500;
-				var yPos:Float = isErect ? 350 : (200 + FlxG.random.int(50, 100));
-				var scale:Float = isErect ? 1.10 : 1.0;
-				createTankman(xPos, yPos, nextTime, goingRight, scale);
-			}
-			else
-			{
-				break;
-			}
-		}
-	}
-
-	function kill()
-	{
-		super.kill();
-		tankmanTimes = [];
-	}
+  function kill()
+  {
+    super.kill();
+    tankmanTimes = [];
+  }
 }

@@ -19,27 +19,28 @@ import funkin.play.stage.StageProp;
 import funkin.save.Save;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
-
 class CocoaSong extends Song
 {
-	function new()
-	{
-		super('cocoa');
-	}
+  function new()
+  {
+    super('cocoa');
+  }
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    if (currentVariation == 'pico')
-      return !Save.instance.hasBeatenSong(this.id, null, 'pico');
+    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, 'pico');
 
     return false;
-	}
+  }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      switch (variationId) {
+      switch (variationId)
+      {
         case 'pico':
           // return hasBeatenPicoMix ? [''] : [];
           // No Pico mix on BF instrumental, sorry!
@@ -52,22 +53,23 @@ class CocoaSong extends Song
     return [];
   }
 
-	public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
-		trace(PlayState.instance.currentVariation);
-	}
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+    trace(PlayState.instance.currentVariation);
+  }
 
-	function onSongRetry(event:ScriptEvent)
-	{
-		super.onSongRetry(event);
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+  }
 
-	}
+  function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
+  }
 
-	function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
-	}
-
-	/**
+  /**
    * Replay the cutscene after leaving the song.
    */
   function onCreate(event:ScriptEvent):Void
