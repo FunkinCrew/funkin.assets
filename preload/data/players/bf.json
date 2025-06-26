@@ -1,7 +1,14 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend",
-  "ownedChars": ["bf", "bf-car", "bf-pixel", "bf-christmas", "bf-holding-gf"],
+  "ownedChars": [
+    "bf",
+    "bf-car",
+    "bf-pixel",
+    "bf-christmas",
+    "bf-holding-gf",
+    "bf-dark"
+  ],
   "showUnownedChars": true,
   "unlocked": true,
   "freeplayStyle": "bf",
