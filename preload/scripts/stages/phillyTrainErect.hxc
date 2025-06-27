@@ -276,6 +276,8 @@ class PhillyTrainErectStage extends Stage
         {
           picoPlayer.visible = false;
           PlayState.instance.currentStage.getBoyfriend().visible = true;
+          PlayState.instance.isInCutscene = false;
+          PlayState.instance.mayPauseGame = true;
         }
         else
         {
@@ -295,6 +297,8 @@ class PhillyTrainErectStage extends Stage
       }
       else
       {
+        PlayState.instance.isInCutscene = false;
+        PlayState.instance.mayPauseGame = true;
         picoPlayer.visible = false;
         PlayState.instance.currentStage.getBoyfriend().visible = true;
         picoOpponent.visible = false;
