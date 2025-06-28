@@ -34,6 +34,9 @@ class SenpaiSong extends Song
     // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
     if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
+
     if (!hasPlayedCutscene)
     {
       trace('Pausing countdown to play cutscene.');
@@ -104,7 +107,8 @@ class SenpaiSong extends Song
       }, tweenFunction);
   }
 
-  function startDialogue() {
+  function startDialogue()
+  {
     PlayState.instance.disableKeys = false;
     var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'senpai-pico' : 'senpai';
     PlayState.instance.startConversation(targetDialogue);

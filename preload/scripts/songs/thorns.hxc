@@ -25,6 +25,9 @@ class ThornsSong extends Song
     // Skip the cutscene unless we are in Story Mode.
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
+
     if (!hasPlayedCutscene)
     {
       trace('Pausing countdown to play cutscene.');
