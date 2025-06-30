@@ -121,7 +121,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			if (GameOverSubState.blueBallSuffix == '-pico-explode') {
 				// Explosion death animation.
 				doExplosionDeath();
-				return; // Don't play the stab death animation, sure, pico is set as invisible, but still good to do this
+				return; // No need to play the stab death animation.
 			} else {
 				// Standard death animation.
 				createDeathSprites();
@@ -224,6 +224,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		// Start the (standard) death music, 3.5 seconds after the explosion starts,
 		// not when the explosion sound finishes or when the loop starts.
 		GameOverSubState.instance.startDeathMusic(1.0, false);
+		// Set the game over music to the default to make it loop properly.
+		GameOverSubState.musicSuffix = '-pico';
 		singed = FunkinSound.load(Paths.sound('singed_loop'), true, false, true);
 		// singed.fadeIn(0.5, 0.3, 1.0);
 	}
@@ -279,8 +281,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			}
 
 			GameOverSubState.instance.startDeathMusic(1.0, false);
-			// set the game over music to the default to make it loop properly
-			GameOverSubState.musicSuffix = '-pico';
 			// force the deathloop to play in here, since we are starting the music early it
 			// doesn't check this in gameover substate !
 			// also no animation suffix 🤔
