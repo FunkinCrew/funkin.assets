@@ -244,9 +244,13 @@ class PhillyTrainErectStage extends Stage
     new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadIn, onComplete: _ -> {
-        skipText.visible = false;
-      }});
+      FlxTween.tween(skipText, {alpha: 0}, 0.5,
+        {
+          ease: FlxEase.quadIn,
+          onComplete: _ -> {
+            skipText.visible = false;
+          }
+        });
       // cutting off skipping here. really dont think its needed after this point and it saves problems from happening
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
       if (explode == true) PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
