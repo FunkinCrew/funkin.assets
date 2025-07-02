@@ -16,6 +16,7 @@
           <item action="Zoom In/Out" keybind="Mouse Wheel"/>
           <item action="Reset Camera" keybind="T"/>
           <item action="Select Object/Character" keybind="Left Click"/>
+          <item action="Deselect Object" keybind="Left Click + Ctrl"/>
           <item action="Move Selected (Mouse)" keybind="Left Click + Drag Mouse"/>
           <item action="Move Selected (Keys)" keybind="Up/Down/Left/Right"/>
           <item action="Move Selected (Free)" keybind="Up/Down/Left/Right + Shift"/>
@@ -28,12 +29,14 @@
           <item action="Paste Object" keybind="Ctrl + V"/>
           <item action="Delete Object" keybind="Del"/>
           <item action="Find Object" keybind="Ctrl + F"/>
+          <item action="Select None" keybind="Ctrl + D"/>
           <item action="Rotate Object" keybind="R + Left/Right"/>
           <item action="Test Stage (In Editor)" keybind="Enter"/>
+          <item action="New Stage" keybind="Ctrl + N"/>
+          <item action="Open Stage" keybind="Ctrl + O"/>
           <item action="Save Stage" keybind="Ctrl + S"/>
           <item action="Save Stage As" keybind="Ctrl + Shift + S"/>
-          <item action="Open Stage" keybind="Ctrl + O"/>
-          <item action="Exit" keybind="Esc"/>
+          <item action="Exit" keybind="Ctrl + Q"/>
 				</data>
 			</tableview>
 		</box>
