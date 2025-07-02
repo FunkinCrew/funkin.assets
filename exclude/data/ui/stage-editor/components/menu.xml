@@ -7,7 +7,7 @@
     }
   </style>
   <menu text="File" id="menubarMenuFile">
-    <menu-item id="menubarItemNewStage" text="New Stage" />
+    <menu-item id="menubarItemNewStage" text="New Stage" shortcutText="Ctrl+N" />
     <menu-separator />
     <menu-item id="menubarItemOpenStage" text="Open Stage..." shortcutText="Ctrl+O" />
     <menu id="menubarItemOpenRecent" text="Open Recent" />
@@ -30,6 +30,7 @@
     <menu-separator />
     <menu-item id="menubarItemNewObj" text="New Object" />
     <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl + F" />
+    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl + D" />
   </menu>
   <menu text="View" id="menubarMenuView">
     <menu text="Theme">
