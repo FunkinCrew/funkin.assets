@@ -51,8 +51,8 @@ class SpookyMansionErectStage extends Stage
   override function buildStage()
   {
     super.buildStage();
-    getNamedProp('bgLight').alpha = 0;
-    getNamedProp('stairsLight').alpha = 0;
+    getNamedProp('bgLight').alpha = 0.0001;
+    getNamedProp('stairsLight').alpha = 0.0001;
   }
 
   override function onUpdate(event:UpdateScriptEvent)

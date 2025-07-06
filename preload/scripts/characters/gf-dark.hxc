@@ -22,7 +22,7 @@ class GirlfriendDarkCharacter extends SparrowCharacter
     super.set_alpha(val);
     if (val != 1) normalChar.alpha = 1;
     else
-      normalChar.alpha = 0;
+      normalChar.alpha = 0.0001;
 
     return val;
   }
@@ -42,7 +42,7 @@ class GirlfriendDarkCharacter extends SparrowCharacter
     super.onCreate(event);
     normalChar = CharacterDataParser.fetchCharacter('gf');
     normalChar.zIndex = 99;
-    normalChar.alpha = 0;
+    normalChar.alpha = 0.0001;
     normalChar.flipX = false;
 
     PlayState.instance.currentStage.add(normalChar);

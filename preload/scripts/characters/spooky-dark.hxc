@@ -24,7 +24,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     super.set_alpha(val);
     if (val != 1) normalChar.alpha = 1;
     else
-      normalChar.alpha = 0;
+      normalChar.alpha = 0.0001;
 
     return val;
   }
@@ -61,7 +61,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     super.onCreate(event);
     normalChar = CharacterDataParser.fetchCharacter('spooky');
     normalChar.zIndex = 199;
-    normalChar.alpha = 0;
+    normalChar.alpha = 0.0001;
     normalChar.flipX = false;
 
     PlayState.instance.currentStage.add(normalChar);
