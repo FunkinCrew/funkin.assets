@@ -1,7 +1,6 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
-import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
@@ -110,7 +109,6 @@ class PhillyTrainStage extends Stage
   public override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
-    // Disable lightning during ending cutscene.
     trainMoving = false;
     if (trainSound != null)
     {
@@ -161,6 +159,15 @@ class PhillyTrainStage extends Stage
     trainCars = 8;
     trainFinishing = false;
     startedMoving = false;
+  }
+
+  /**
+   * Make sure the train is reset when the song restarts.
+   */
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+    trainReset();
   }
 
   function kill()
