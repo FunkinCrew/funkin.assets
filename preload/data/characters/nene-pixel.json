@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Nene",
+  "name": "Nene (Pixel)",
   "assetPath": "characters/nenePixel/nenePixel",
   "startingAnimation": "danceRight",
   "isPixel": true,
