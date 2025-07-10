@@ -27,7 +27,8 @@
     { "t": 73333, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 76666, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 80000, "e": "FocusCamera", "v": { "char": 1 } },
-    { "t": 86666, "e": "FocusCamera", "v": { "char": 0 } }
+    { "t": 86666, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 96666, "e": "FocusCamera", "v": { "char": 1 } }
   ],
   "notes": {
     "easy": [
