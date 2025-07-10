@@ -39,6 +39,8 @@ class PhillyTrainErectStage extends Stage
 	var cutsceneSkipped:Bool = false;
 	var canSkipCutscene:Bool = false;
 
+	var gfHasHairBlowAnim:Bool;
+
 	/**
    * Replay the cutscene after leaving the song.
    */
@@ -332,7 +334,6 @@ class PhillyTrainErectStage extends Stage
 			light.shader = lightShader;
 			light.visible = false;
 		}
-
 	}
 
 	function fetchAssetPaths():Array<String>
@@ -419,6 +420,7 @@ class PhillyTrainErectStage extends Stage
 		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
 		{
 			trainCooldown = FlxG.random.int(-4, 0);
+			if(gfHasHairBlowAnim == null) gfHasHairBlowAnim = getGirlfriend().hasAnimation('hairBlow');
 			trainStart();
 		}
 
@@ -454,7 +456,7 @@ class PhillyTrainErectStage extends Stage
 				case 'nene':
 					getGirlfriend().scriptSet('trainPassing', true);
 				default:
-					getGirlfriend().playAnimation('hairBlow');
+					if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairBlow');
 			}
 		}
 
@@ -485,7 +487,7 @@ class PhillyTrainErectStage extends Stage
 			case 'nene':
 				getGirlfriend().scriptSet('trainPassing', false);
 			default:
-				getGirlfriend().playAnimation('hairFall');
+				if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairFall');
 		}
 
 		trainMoving = false;
