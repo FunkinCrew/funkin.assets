@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu>
+<menu width="220px">
+	<property-grid>
+		<property id="contextmenuOffset" label="Offset (MS)" type="float" value="0" />
+	</property-grid>
+	<dropdown id="contextmenuUnit" text="Milliseconds" value="MILLISECONDS" selectedIndex="0" >
+     <data>
+        <item id="MILLISECONDS" text="Milliseconds" />
+        <item id="STEPS" text="Steps" />
+    </data>
+	</dropdown>
+		<menu-item id="contextmenuOffsetMove" text="Offset Selection" />
+	<menu-separator />
 	<menu-item id="contextmenuCut" text="Cut Selection" shortcutText="Ctrl+X" />
 	<menu-item id="contextmenuCopy" text="Copy Selection" shortcutText="Ctrl+C" />
 	<menu-item id="contextmenuDelete" text="Delete Selection" shortcutText="Delete" />
 	<menu-separator />
-	<menu-item id="contextmenuFlip" text="Flip Selected Notes" />
+	<menu-item id="contextmenuFlip" text="Flip Selected Notes" shortcutText="Ctrl+F" />
 	<menu-separator />
 	<menu-item id="contextmenuSelectAll" text="Select All" shortcutText="Ctrl+A" />
 	<menu-item id="contextmenuSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />
