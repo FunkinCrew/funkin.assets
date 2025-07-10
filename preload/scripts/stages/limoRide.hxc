@@ -13,7 +13,7 @@ class LimoRideStage extends Stage
 		super('limoRide');
 	}
 
-	function buildStage()
+	override function buildStage()
 	{
 		super.buildStage();
 
@@ -34,10 +34,11 @@ class LimoRideStage extends Stage
 		// I don't know what it's for, but it's not used in the game.
 		// If you want to re-add it, go find it in version control.
 
+		fastCarTimer = new FlxTimer();
 		resetFastCar();
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent)
+	override function onBeatHit(event:SongTimeScriptEvent)
 	{
 		// When overriding onBeatHit, make sure to call super.onBeatHit,
 		// otherwise boppers will not work.
@@ -48,6 +49,7 @@ class LimoRideStage extends Stage
 	}
 
 	var fastCarCanDrive:Bool = false;
+	var fastCarTimer:FlxTimer;
 
 	function resetFastCar():Void
 	{
@@ -73,7 +75,7 @@ class LimoRideStage extends Stage
 		var fastCar = getNamedProp('fastCar');
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		fastCarTimer.start(2, function(tmr:FlxTimer)
 		{
 			resetFastCar();
 		});
@@ -83,7 +85,7 @@ class LimoRideStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
+	override function fetchAssetPaths():Array<String>
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 
@@ -98,8 +100,20 @@ class LimoRideStage extends Stage
 	/**
 	 * Make sure the fast car is reset when the song restarts.
 	 */
-	function onSongRetry(event:ScriptEvent) {
+	override function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 		resetFastCar();
 	}
+
+  override function onPause(event:PauseScriptEvent) {
+    super.onPause(event);
+
+    if (fastCarTimer != null) fastCarTimer.active = false;
+  }
+
+  override function onResume(event:ScriptEvent) {
+    super.onResume(event);
+
+    if (fastCarTimer != null) fastCarTimer.active = true;
+  }
 }
