@@ -9,6 +9,7 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.AdjustColorShader;
 
 class NeneChristmasCharacter extends SparrowCharacter {
 	function new() {
@@ -25,6 +26,7 @@ class NeneChristmasCharacter extends SparrowCharacter {
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
+	var colorShader:AdjustColorShader;
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
@@ -47,6 +49,19 @@ class NeneChristmasCharacter extends SparrowCharacter {
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
+
+		colorShader = new AdjustColorShader();
+		colorShader.hue = 5;
+		colorShader.saturation = 20;
+		//colorShader.contrast = -25;
+		//colorShader.brightness = -30;
+
+
+		for(spr in abotViz.members){
+			spr.shader = colorShader;
+		}
+		pupil.shader = colorShader;
+		abot.shader = colorShader;
 	}
 
 	/**

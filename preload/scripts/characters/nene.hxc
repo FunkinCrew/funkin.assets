@@ -9,6 +9,8 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.play.stage.Stage;
 
 class NeneCharacter extends MultiSparrowCharacter {
 	function new() {
@@ -25,6 +27,9 @@ class NeneCharacter extends MultiSparrowCharacter {
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
+	var colorShader:AdjustColorShader;
+	var stage;
+
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
@@ -47,6 +52,45 @@ class NeneCharacter extends MultiSparrowCharacter {
 		abotViz.x = this.x;
 		abotViz.y = this.y;
 		abotViz.zIndex = abot.zIndex + 1;
+
+		colorShader = new AdjustColorShader();
+		stage = PlayState.instance.currentStage.stageName;
+
+		if (stage == 'Main Stage [Erect]') {
+			colorShader.hue = -9;
+			colorShader.saturation = 0;
+			colorShader.contrast = -4;
+			colorShader.brightness = -30;
+
+		}
+		else if (stage == 'Philly (Train) [Erect]') {
+			colorShader.hue = -26;
+			colorShader.saturation = -16;
+			colorShader.contrast = 0;
+			colorShader.brightness = -5;
+		}
+		else if (stage == 'Philly (Streets) [Erect]') {
+			colorShader.hue = -5;
+			colorShader.saturation = -40;
+			colorShader.contrast = -25;
+			colorShader.brightness = -20;
+		}
+		else if (stage == 'Tankman Battlefield (Erect)') {
+			colorShader.hue = -10;
+			colorShader.saturation = -20;
+			colorShader.contrast = -25;
+			colorShader.brightness = -30;
+		}
+		else {
+			//Nothing
+		}
+
+		for(spr in abotViz.members){
+			spr.shader = colorShader;
+		}
+		pupil.shader = colorShader;
+		abot.shader = colorShader;
+
 	}
 
 	/**
@@ -204,6 +248,15 @@ class NeneCharacter extends MultiSparrowCharacter {
 
 	var refershedLol:Bool = false;
 
+	override function onSongLoaded(event) {
+        super.onSongLoaded(event);
+        if (stage == 'Tankman Battlefield (Erect)')
+        {
+		    PlayState.instance.currentStage.getGirlfriend().x = 525;
+            PlayState.instance.currentStage.getGirlfriend().y = 255;
+        }
+    }
+
 	/**
 	 * Called when the chart hits a song event.
 	 */
@@ -277,6 +330,7 @@ class NeneCharacter extends MultiSparrowCharacter {
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
+		trace('Current stage: ' + PlayState.instance.currentStage.stageName);
 		// Set the visibility of ABot to match Nene's.
 		abot.visible = this.visible;
 		pupil.visible = this.visible;
