@@ -282,7 +282,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
     return (event.judgement == "bad" || event.judgement == "shit");
   }
 
-  function isPlayerLowHealth(event:HitNoteScriptEvent):Bool
+  function isPlayerLowHealth():Bool
   {
     return PlayState.instance.health <= 0.30 * 2.0;
   }
