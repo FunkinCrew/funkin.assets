@@ -211,7 +211,7 @@ class PhillyBlazinStage extends Stage
     {
       postShockCounter++;
 
-      var postShockAmplitude:Float = 0.05 * (counterTargetNum - postShockCounter);
+      var postShockAmplitude:Float = 0.05 * (counterTargetNum - postShockCounter) * 2.5;
       HapticUtil.vibrate(0, 0.01, postShockAmplitude, 0);
 
       if (postShockCounter == counterTargetNum)

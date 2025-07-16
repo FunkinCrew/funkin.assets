@@ -58,7 +58,7 @@ class LimoRideStage extends Stage
 
     if (doCarHaptics)
     {
-      HapticUtil.vibrate(0, 0.05, 0.1, 0);
+      HapticUtil.vibrate(0, 0.05, 0.25, 0);
     }
   }
 
