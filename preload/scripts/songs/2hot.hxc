@@ -422,7 +422,8 @@ class TwoHOTSong extends Song
       GameOverSubState.musicSuffix = '-pico-explode';
       GameOverSubState.blueBallSuffix = '-pico-explode';
 
-      blackenStageProps();
+      if (!PlayState.instance.isPracticeMode)
+        blackenStageProps();
     }
     else if (HapticUtil.hapticsAvailable)
     {
