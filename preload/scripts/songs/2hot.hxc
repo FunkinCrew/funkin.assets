@@ -81,7 +81,6 @@ class TwoHOTSong extends Song
     {
       PlayState.instance.isInCutscene = true;
       PlayState.instance.mayPauseGame = false;
-      PlayState.instance.isSongEnd = false;
       hasPlayedCutscene = true;
 
       event.cancel();
