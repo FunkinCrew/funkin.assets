@@ -20,6 +20,8 @@ class PhillyTrainStage extends Stage
   var lightShader:FlxRuntimeShader;
   var trainSound:FunkinSound;
 
+  var trainEnabled:Bool = true;
+
   function buildStage()
   {
     super.buildStage();
@@ -58,7 +60,7 @@ class PhillyTrainStage extends Stage
     lightShader.scriptCall('update', [shaderInput]);
 
     // Update train
-    if (trainMoving)
+    if (trainEnabled && trainMoving)
     {
       trainFrameTiming += event.elapsed;
 
@@ -73,14 +75,17 @@ class PhillyTrainStage extends Stage
   function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
-    // Update train cooldown
-    if (!trainMoving) trainCooldown += 1;
-
-    // Start train
-    if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+    if (trainEnabled)
     {
-      trainCooldown = FlxG.random.int(-4, 0);
-      trainStart();
+      // Update train cooldown
+      if (!trainMoving) trainCooldown += 1;
+
+      // Start train
+      if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+      {
+        trainCooldown = FlxG.random.int(-4, 0);
+        trainStart();
+      }
     }
 
     // Update lights
@@ -100,7 +105,7 @@ class PhillyTrainStage extends Stage
 
   function onStepHit(event:SongTimeScriptEvent):Void
   {
-    if (trainSound?.time >= 4700 && trainMoving)
+    if (trainEnabled && trainSound?.time >= 4700 && trainMoving)
     {
       HapticUtil.vibrate(0, 0.1, 0.75, 0);
     }
@@ -108,13 +113,15 @@ class PhillyTrainStage extends Stage
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
   {
-    super.onSongEnd(event);
     trainMoving = false;
+    trainEnabled = false;
     if (trainSound != null)
     {
       trainSound.stop();
       trainSound = null;
     }
+
+    super.onSongEnd(event);
   }
 
   function trainStart():Void

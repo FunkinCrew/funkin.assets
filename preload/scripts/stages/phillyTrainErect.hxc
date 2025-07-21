@@ -41,6 +41,7 @@ class PhillyTrainErectStage extends Stage
   var hasPlayedInGameCutscene:Bool = false;
   var cutsceneSkipped:Bool = false;
   var canSkipCutscene:Bool = false;
+  var trainEnabled:Bool = true;
 
   var isMobilePauseButtonPressed:Bool = false;
 
@@ -411,7 +412,7 @@ class PhillyTrainErectStage extends Stage
     var amount:Int = 1;
 
     // Update train
-    if (trainMoving)
+    if (trainEnabled && trainMoving)
     {
       trainFrameTiming += event.elapsed;
 
@@ -475,14 +476,17 @@ class PhillyTrainErectStage extends Stage
   function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
-    // Update train cooldown
-    if (!trainMoving) trainCooldown += 1;
-
-    // Start train
-    if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+    if (trainEnabled)
     {
-      trainCooldown = FlxG.random.int(-4, 0);
-      trainStart();
+      // Update train cooldown
+      if (!trainMoving) trainCooldown += 1;
+
+      // Start train
+      if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+      {
+        trainCooldown = FlxG.random.int(-4, 0);
+        trainStart();
+      }
     }
 
     // Update lights
@@ -502,7 +506,7 @@ class PhillyTrainErectStage extends Stage
 
   function onStepHit(event:SongTimeScriptEvent):Void
   {
-    if (trainSound?.time >= 4700 && trainMoving)
+    if (trainEnabled && trainSound?.time >= 4700 && trainMoving)
     {
       HapticUtil.vibrate(0, 0.1, 0.75, 0);
     }
@@ -573,14 +577,16 @@ class PhillyTrainErectStage extends Stage
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
   {
-    super.onSongEnd(event);
     // Disable train movement sfx during song ending.
     trainMoving = false;
+    trainEnabled = false;
     if (trainSound != null)
     {
       trainSound.stop();
       trainSound = null;
     }
+
+    super.onSongEnd(event);
   }
 
   function kill()
