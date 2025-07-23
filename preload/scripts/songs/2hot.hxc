@@ -28,7 +28,7 @@ class TwoHOTSong extends Song
   // var tempConductor:Conductor;
   var cutsceneMusic:FunkinSound;
 
-  var canDamageVibrationPreset:VibrationPreset =
+  var canVibrationPreset:VibrationPreset =
     {
       period: 0.1,
       duration: 0.1,
@@ -349,6 +349,12 @@ class TwoHOTSong extends Song
 
       new FlxTimer().start(1 / 24, function(tmr) {
         darkenStageProps();
+
+        if (HapticUtil.hapticsAvailable)
+        {
+          HapticUtil.vibrateByPreset(canVibrationPreset);
+          trace("AAAAA");
+        }
       });
     }
   }
@@ -427,11 +433,11 @@ class TwoHOTSong extends Song
     else if (HapticUtil.hapticsAvailable)
     {
       // Can hits pico.
-      HapticUtil.vibrateByPreset(canDamageVibrationPreset);
+      HapticUtil.vibrateByPreset(canVibrationPreset);
 
       new FlxTimer().start(0.45, function(tmr) {
         // Can explodes.
-        HapticUtil.vibrateByPreset(canDamageVibrationPreset);
+        HapticUtil.vibrateByPreset(canVibrationPreset);
       });
     }
   }
