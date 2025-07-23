@@ -127,7 +127,7 @@ class PhillyTrainStage extends Stage
   function trainStart():Void
   {
     trainMoving = true;
-    trainSound.play();
+    trainSound.play(true);
   }
 
   var startedMoving:Bool = false;
