@@ -206,14 +206,6 @@
       ]
     },
     {
-      "header": "Mobile Beta-testing",
-      "body": [
-        { "line": "shyllis" },
-        { "line": "IDontCareAboutKaz" },
-        { "line": "Sirox" }
-      ]
-    },
-    {
       "header": "Merchandise Partners and Designers",
       "body": [
         { "line": "Needlejuice Records: Jace McLain" },
@@ -338,6 +330,7 @@
     {
       "header": "Mobile Team special thanks",
       "body": [
+        { "line": "cub, setai" },
         { "line": "GalacticBaguette, Yowze, Snovi" },
         { "line": "AguaCrunch, pb_lauro, Rulet, Rusron, Megalo_palewhite, Serizyu" },
         { "line": "8-bitryan" },
@@ -351,8 +344,8 @@
         { "line": "Amari, DatRand (Vlad), Ressu2, Kekkra, CaptainRoku" },
         { "line": "cat (Ariel), deathgobrr" },
         { "line": "Mario Master (MasterX)" },
-        { "line": "richTrash21, PurSnake, Naisonji, HopKa, Matr4ass" },
-        { "line": "Redar13, cub, Sirox, Shufa, D.Dregz, Sodaree" },
+        { "line": "richTrash21, PurSnake, Naisonji, HopKa, Matr4ss" },
+        { "line": "Redar13, Sirox, Shufa, D.Dregz, Sodaree" },
         { "line": "dUmer, G0lda, Voodoo, Vemer, Sadshrimp" }
       ]
     }
