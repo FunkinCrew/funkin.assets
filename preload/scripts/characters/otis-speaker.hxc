@@ -54,15 +54,11 @@ class OtisSpeakerCharacter extends SparrowCharacter
   {
     super.onCreate(event);
 
-    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
-
-    eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
-
     adjustColor = new AdjustColorShader();
 
-    adjustColor.hue = -10;
+    adjustColor.hue = -40;
     adjustColor.saturation = -20;
-    adjustColor.brightness = -30;
+    adjustColor.brightness = -40;
     adjustColor.contrast = -25;
 
     vizAdjustColor = new AdjustColorShader();
@@ -71,6 +67,10 @@ class OtisSpeakerCharacter extends SparrowCharacter
     vizAdjustColor.hue = -30;
     vizAdjustColor.contrast = 0;
     vizAdjustColor.saturation = -10;
+
+    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+
+    eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
     pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
     pupil.x = this.x;
@@ -87,6 +87,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
     abotViz.y = this.y;
     abotViz.zIndex = abot.zIndex + 1;
 
+    stereoBG.shader = adjustColor;
     pupil.shader = adjustColor;
     abot.shader = adjustColor;
     for (spr in abotViz.members)

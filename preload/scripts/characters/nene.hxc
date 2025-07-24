@@ -295,6 +295,8 @@ class NeneCharacter extends MultiSparrowCharacter
   {
     super.onUpdate(event);
 
+    synchronizeShader();
+
     // Set the visibility of ABot to match Nene's.
     abot.visible = this.visible;
     pupil.visible = this.visible;
@@ -360,6 +362,26 @@ class NeneCharacter extends MultiSparrowCharacter
     {
       transitionState();
     }
+  }
+
+  var currentShader = null;
+  function synchronizeShader():Void
+  {
+    if (currentShader == this.shader) return;
+
+    currentShader = this.shader;
+
+    abot.shader = currentShader;
+    abotViz.shader = currentShader;
+    stereoBG.shader = currentShader;
+    eyeWhites.shader = currentShader;
+
+    for (member in abotViz.members)
+    {
+      member.shader = currentShader;
+    }
+
+    trace("Synchronized shader between children!");
   }
 
   override function onSongStart(event:ScriptEvent)
