@@ -3,6 +3,7 @@ import flixel.math.FlxPoint;
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Preferences;
+import funkin.util.HapticUtil;
 
 class PicoGoodResults extends FlxAtlasSprite
 {
@@ -49,6 +50,11 @@ class PicoGoodResults extends FlxAtlasSprite
     var first:Bool = false;
 
     onAnimationFrame.add((animation:String, frame:Int) -> {
+      if ((WHITE_FLASH_FRAMES.contains(frame) || BLACK_FLASH_FRAMES.contains(frame)) && HapticUtil.hapticsAvailable)
+      {
+        HapticUtil.vibrate(0, 0.01, 1);
+      }
+
       if (!Preferences.flashingLights) return;
 
       if (!first)
