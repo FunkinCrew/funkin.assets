@@ -109,7 +109,7 @@
     "perfectGold": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO",
         "filter": "naughty",
         "zIndex": 500,
@@ -127,7 +127,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO 2",
         "filter": "safe",
         "zIndex": 500,
@@ -149,7 +149,7 @@
     "perfect": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO",
         "filter": "naughty",
         "zIndex": 500,
@@ -167,7 +167,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO 2",
         "filter": "safe",
         "zIndex": 500,
@@ -238,7 +238,7 @@
     "loss": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsSHIT",
+        "scriptClass": "BFShitResults",
         "zIndex": 500,
         "offsets": [0, 20],
         "loopFrameLabel": "Loop Start"
