@@ -6,12 +6,32 @@ import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.Preferences;
 import funkin.util.Constants;
+import funkin.util.HapticUtil;
 
 class BoyfriendCharacter extends MultiSparrowCharacter
 {
   function new()
   {
     super('bf');
+  }
+
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
+
+    if (!HapticUtil.hapticsAvailable) return;
+
+    // BF's mic drops.
+    if (name == 'firstDeath' && frameNumber == 27)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // BF's balls pulsating.
+    if (name == 'deathLoop' && (frameNumber == 0 || frameNumber == 18))
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
   }
 
   override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)

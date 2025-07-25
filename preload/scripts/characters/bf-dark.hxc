@@ -8,12 +8,32 @@ import funkin.play.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.character.MultiSparrowCharacter;
+import funkin.util.HapticUtil;
 
 class BoyfriendDarkCharacter extends MultiSparrowCharacter
 {
   function new()
   {
     super('bf-dark');
+  }
+
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
+
+    if (!HapticUtil.hapticsAvailable) return;
+
+    // BF's mic drops.
+    if (name == 'firstDeath' && frameNumber == 27)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // BF's balls pulsating.
+    if (name == 'deathLoop' && (frameNumber == 0 || frameNumber == 18))
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
   }
 
   var normalChar:BaseCharacter;

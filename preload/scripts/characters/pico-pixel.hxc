@@ -2,6 +2,7 @@ import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
+import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import flixel.FlxG;
@@ -56,5 +57,27 @@ class PicoPixelCharacter extends SparrowCharacter
     }
 
     super.playAnimation(name, restart, ignoreOther);
+  }
+
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
+
+    if (!HapticUtil.hapticsAvailable) return;
+
+    // Pico falls on his back.
+    if (name == 'firstDeath' && frameNumber == 20)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // Blood firework woohoo!!!!
+    if (name == 'deathLoop' && frameNumber % 2 == 0)
+    {
+      final randomAmplitude:Float = FlxG.random.float(0.1, 0.5);
+      final randomDuration:Float = FlxG.random.float(0.1, 0.3);
+
+      HapticUtil.vibrate(0, randomDuration, randomAmplitude);
+    }
   }
 }

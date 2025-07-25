@@ -14,6 +14,7 @@ import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
+import funkin.util.HapticUtil;
 
 class PicoChristmasCharacter extends MultiSparrowCharacter
 {
@@ -127,6 +128,23 @@ class PicoChristmasCharacter extends MultiSparrowCharacter
 
       deathSpriteRetry.x = this.x + 195;
       deathSpriteRetry.y = this.y - 70;
+    }
+
+    if (!HapticUtil.hapticsAvailable) return;
+
+    // Pico falls on his back.
+    if (name == 'firstDeath' && frameNumber == 20)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // Blood firework woohoo!!!!
+    if (name == 'deathLoop' && frameNumber % 2 == 0)
+    {
+      final randomAmplitude:Float = FlxG.random.float(0.1, 0.5);
+      final randomDuration:Float = FlxG.random.float(0.1, 0.3);
+
+      HapticUtil.vibrate(0, randomDuration, randomAmplitude);
     }
   }
 

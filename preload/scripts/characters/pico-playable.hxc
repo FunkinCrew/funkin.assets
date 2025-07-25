@@ -15,6 +15,7 @@ import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
 import funkin.util.Constants;
+import funkin.util.HapticUtil;
 import funkin.Preferences;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter
@@ -232,8 +233,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // Move the camera up.
     GameOverSubState.instance.cameraFollowPoint.y -= 100;
 
-    // Indicates that it is a special game over animation. Used for haptics.
-    GameOverSubState.instance.isSpecialAnimation = true;
+    HapticUtil.vibrate(0, 0.5);
+
+    // Death by Darnell's can.
+    new FlxTimer().start(1.85, function(tmr:FlxTimer) {
+      // Pico falls on his knees.
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    });
 
     var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
     picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
@@ -330,6 +336,23 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     if (name == "cock" && frameNumber == 3)
     {
       createCasing();
+    }
+
+    if (!HapticUtil.hapticsAvailable || picoDeathExplosion != null) return;
+
+    // Pico falls on his back.
+    if (name == 'firstDeath' && frameNumber == 20)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // Blood firework woohoo!!!!
+    if (name == 'deathLoop' && frameNumber % 2 == 0)
+    {
+      final randomAmplitude:Float = FlxG.random.float(0.1, 0.5);
+      final randomDuration:Float = FlxG.random.float(0.1, 0.3);
+
+      HapticUtil.vibrate(0, randomDuration, randomAmplitude);
     }
   }
 
