@@ -41,11 +41,11 @@
     <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
     <menu-separator />
     <hbox>
-      <label text="Note Stack Threshold" styleName="menuLabel" paddingLeft="12px;" horizontalAlign="left" verticalAlign="center"/>
+      <label text="Note Stack Threshold" styleName="menuLabel" paddingLeft="12px;" horizontalAlign="left" verticalAlign="center" />
       <dropdown id="menuBarStackedNoteThreshold" width="100%">
-          <data>
-              <item text="Exact"/>
-          </data>
+        <data>
+          <item text="Exact" />
+        </data>
       </dropdown>
     </hbox>
     <menu-separator />
@@ -65,6 +65,8 @@
       <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
       <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
     </menu>
+    <menu-separator />
+    <menu-checkbox id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
     <menu-separator />
     <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
     <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
