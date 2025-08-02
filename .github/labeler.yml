@@ -1,0 +1,36 @@
+# Add Documentation tag to PR's changing markdown files, or anything in the docs folder
+'pr: documentation':
+- changed-files:
+  - any-glob-to-any-file: '**/*.md'
+
+# Add HScript tag to PR's changing hscript files
+'pr: hscript':
+- changed-files:
+  - any-glob-to-any-file: '**/*.hxc'
+
+# Add Chart tag to PR's changing chart files
+'pr: chart':
+- changed-files:
+  - any-glob-to-any-file: 'preload/data/songs/**'
+
+# Add Audio tag to PR's changing audio files
+'pr: audio':
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.mp3'
+    - '**/*.ogg'
+
+# Add Art tag to PR's changing image or animation files
+'pr: art':
+- changed-files:
+  - any-glob-to-any-file:
+    - 'preload/images/**'
+    - 'shared/images/**'
+    - '**/*.png'
+
+# Add GitHub tag to PR's changing yml files, or anything in the .github folder 
+'pr: github':
+- changed-files:
+  - any-glob-to-any-file:
+    - '.github/**'
+    - '**/*.yml'
