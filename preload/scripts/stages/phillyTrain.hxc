@@ -25,6 +25,7 @@ class PhillyTrainStage extends Stage
   function buildStage()
   {
     super.buildStage();
+    trainEnabled = true;
 
     // NOTE: You pass the constructor variables directly, not as an array.
     lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
