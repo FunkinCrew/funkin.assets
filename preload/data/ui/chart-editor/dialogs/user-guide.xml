@@ -28,17 +28,17 @@
 						<grid columns="3" style="padding: 5px; margin-left: 300px" contentWidth="100%">
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/note.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/note.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Note"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/hold-note.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/hold-note.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Hold Note"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/note-kind.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/note-kind.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Note Kind"/>
 							</vbox>
 
@@ -80,7 +80,7 @@
 						<label width="100%" text="Used to determine the number of beats in a measure and the type of beat in a full measure.\n\n"/>
 					</vbox>
 					<vbox width="100%">
-						<image resource="shared/images/ui/chart-editor/help-guide/time-sig.png" imageScale="0.5" horizontalAlign="right"/>
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/time-sig.png" imageScale="0.5" horizontalAlign="right"/>
 						<label width="100%" text="The top number is the number of beats per measure, if a song is 5/4, then a full measure is 5 beats long instead of the usual four, if it's 7/4, then a full measure is 7 beats long and so on.\n\nThe bottom number is the type of beat or note snap in a full measure, if a song is 4/8, it means a full measure is 4 beats long and every measure/beat starts with 8ths instead of 4ths.\n\n"/>
 					</vbox>
 
@@ -103,7 +103,7 @@
 					</vbox>
 					<vbox width="100%">
 						<label width="100%" text="Each column is a notelane, the leftmost column in a strumline is always 1 and only goes up depending on how many strums/arrows a strumline has and the chart editor has 4 columns, so 1, 2, 3, 4 which correspond to the appropriate strum/arrow.\n\nThis is useful when describing patterns in textfrom instead of screenshots and images, read more on the Patterns tab.\n\nA strumline is a group of arrows/strums, BF's strumline is all of the strums/arrows that belong to BF."/>
-						<image resource="shared/images/ui/chart-editor/help-guide/notelanes-and-strumline.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 10px;"/>
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/notelanes-and-strumline.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 10px;"/>
 					</vbox>
 
 					<vbox width="100%">
@@ -111,7 +111,7 @@
 					</vbox>
 					<vbox width="100%">
 						<label width="100%" text="The speed at which notes come relative to measures. 4ths means four notes per measure (beats), 8ths means eight notes per measure (beats + half beats) and so on.\n\nWhy is this important? Well, if you intend on making your chart on-sync, then all notes should be placed in the correct snap.\n\nYou can change the note snap by pressing Right or Left arrows or clicking on this to decrease or increase the note snap level.\n\n"/>
-						<image resource="images/snap-level.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 5px;"/>
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/snap-level.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 5px;"/>
 					</vbox>
 
 					<vbox width="100%">
@@ -191,97 +191,97 @@
 						<grid columns="7" style="padding: 5px;" contentWidth="100%">
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/triplet.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/triplet.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Triplet" />
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/roll.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/roll.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Roll\ncan be reversed or complex such as 1423 or 2314." />
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/staircase.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/staircase.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Staircase" />
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/stream.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/stream.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Stream\na stream of singles. (as in single notes.)"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/minijack.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/minijack.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Minijacks\ntwo-quicktaps."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/longjack.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/longjack.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Long jack/jack/jackhammer\nmore than two-quicktaps and is guaranteed to break a combo."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/anchor.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/anchor.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Anchor\nbasically hidden long jack."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/runningman.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/runningman.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Runningman\nanchored stream. (chords can also be placed.)"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/one-handed-trills.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/one-handed-trills.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="One-handed trills"/>
 							</vbox>
 							
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/two-handed-trills.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/two-handed-trills.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Two-handed trills"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/chords.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/chords.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Chords\ndoubles, triples, or quads."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/jumpstream.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/jumpstream.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Jumpstream."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/handstream.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/handstream.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Handstream."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/quadstream.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/quadstream.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Quadstream."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/jumptrill.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/jumptrill.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Jumptrill"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/split-jumptrill.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/split-jumptrill.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Split jumptrill [13] [24]"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/split-jumptrill-2.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/split-jumptrill-2.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Split jumptrill [14] [23]"/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/grace-notes.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/grace-notes.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Grace notes\nSlightly offset notes that is featured in Erect Remixes frequently.\nCould be mistaken for a chord at first glance due to how close they are in-game."/>
 							</vbox>
 
 							<vbox id="pattern">
-								<image resource="shared/images/ui/chart-editor/help-guide/patterns/burst.png" imageScale="0.5"/>
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/burst.png" imageScale="0.5"/>
 								<label id="img-desc" width="100%" text="Burst\nA sudden burst of notes, requires very good note placements and playtesting."/>
 							</vbox>
 
@@ -325,15 +325,15 @@
 						<vbox width="100%">
 							<grid columns="3" style="padding: 5px; margin-left: 300px" contentWidth="100%">
 								<vbox id="pattern">
-									<image resource="shared/images/ui/chart-editor/help-guide/tips/flow1.png" imageScale="0.5"/>
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow1.png" imageScale="0.5"/>
 								</vbox>
 
 								<vbox id="pattern">
-									<image resource="shared/images/ui/chart-editor/help-guide/tips/flow2.png" imageScale="0.5"/>
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow2.png" imageScale="0.5"/>
 								</vbox>
 
 								<vbox id="pattern">
-									<image resource="shared/images/ui/chart-editor/help-guide/tips/flow3.png" imageScale="0.5"/>
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow3.png" imageScale="0.5"/>
 								</vbox>
 
 							</grid>
@@ -349,11 +349,11 @@
 						<vbox width="100%">
 							<grid columns="2" style="padding: 5px; margin-left: 300px" contentWidth="100%">
 								<vbox id="pattern">
-									<image resource="shared/images/ui/chart-editor/help-guide/tips/minijack1.png" imageScale="0.5"/>
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/minijack1.png" imageScale="0.5"/>
 								</vbox>
 
 								<vbox id="pattern">
-									<image resource="shared/images/ui/chart-editor/help-guide/tips/minijack2.png" imageScale="0.5"/>
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/minijack2.png" imageScale="0.5"/>
 								</vbox>
 
 							</grid>
@@ -403,7 +403,7 @@
 		</box>
 
 		<box width="100%" text="Hotkeys">
-			<tableview width="100%" height="510" contentWidth="100%">
+			<tableview width="100%" height="500" contentWidth="100%">
 				<header width="100%">
 					<column id="action" text="Action" width="50%" />
 					<column id="keybind" text="Keybind" width="50%" />
