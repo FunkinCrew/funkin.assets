@@ -262,6 +262,7 @@ class StressSong extends Song
     ];
 
     cutsceneTimerManager = new FlxTimerManager();
+    canPause = true;
 
     // Disable player input during cutscene, so you can't get a gameover during cutscene
     PlayState.instance.isInCutscene = true;
