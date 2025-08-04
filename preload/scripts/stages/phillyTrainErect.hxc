@@ -292,9 +292,11 @@ class PhillyTrainErectStage extends Stage
       {
         PlayState.instance.isInCutscene = false;
         PlayState.instance.mayPauseGame = true;
-        picoPlayer.visible = false;
+        picoPlayer.destroy();
+        picoPlayer = null;
         PlayState.instance.currentStage.getBoyfriend().visible = true;
-        picoOpponent.visible = false;
+        picoOpponent.destroy();
+        picoOpponent = null;
         PlayState.instance.currentStage.getDad().visible = true;
       }
 
@@ -324,8 +326,10 @@ class PhillyTrainErectStage extends Stage
       PlayState.instance.mayPauseGame = true;
       PlayState.instance.startCountdown();
 
-			picoPlayer.visible = false;
-			picoOpponent.visible = false;
+			picoPlayer.destroy();
+      picoPlayer = null;
+			picoOpponent.destroy();
+      picoOpponent = null;
 			PlayState.instance.currentStage.getBoyfriend().visible = true;
 			PlayState.instance.currentStage.getDad().visible = true;
 		});
@@ -420,23 +424,13 @@ class PhillyTrainErectStage extends Stage
     {
 			if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
 
-			cutsceneMusic.pause();
-			gaspSound.pause();
+      cutsceneMusic.pause();
 
-			picoPlayer.scriptCall('pauseSounds', []);
-			picoOpponent.scriptCall('pauseSounds', []);
-
-			var pauseSubState:FlxSubState = new PauseSubState(
-        {
-          mode: PauseMode.Cutscene(
-						'Cutscene', 'In-Game Cutscene',
-						resumeCutscene, skipCutscene, restartCutscene
-					)
-        });
-
-      PlayState.instance.persistentUpdate = false;
-      pauseSubState.camera = PlayState.instance.camCutscene;
-      PlayState.instance.openSubState(pauseSubState);
+			PlayState.instance.preparePauseUI();
+      PlayState.instance.openPauseSubState(PauseMode.Cutscene(
+        'Cutscene', 'In-Game Cutscene',
+				resumeCutscene, skipCutscene, restartCutscene
+      ), FullScreenScaleMode.hasFakeCutouts ? PlayState.instance.camCutouts : PlayState.instance.camCutscene, null);
     }
 
     if (cutsceneConductor != null && cutsceneMusic != null)
@@ -582,6 +576,18 @@ class PhillyTrainErectStage extends Stage
     super.kill();
     if (cutsceneTimerManager != null) cutsceneTimerManager.destroy();
     lightShader = null;
+
+    if(bloodPool != null)
+    {
+      bloodPool.destroy();
+      bloodPool = null;
+    }
+
+    if(cigarette != null)
+    {
+      cigarette.destroy();
+      cigarette = null;
+    }
   }
 
   function resumeCutscene():Void
@@ -589,9 +595,6 @@ class PhillyTrainErectStage extends Stage
 		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
 
 		cutsceneMusic.resume();
-		gaspSound.resume();
-		picoPlayer.scriptCall('resumeSounds');
-		picoOpponent.scriptCall('resumeSounds');
 	}
 
 	function restartCutscene():Void

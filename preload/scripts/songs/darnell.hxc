@@ -22,6 +22,7 @@ import funkin.play.cutscene.CutsceneType;
 import funkin.play.PauseSubState;
 import funkin.play.PauseMode;
 import funkin.play.PlayStatePlaylist;
+import funkin.ui.FullScreenScaleMode;
 
 class DarnellSong extends Song
 {
@@ -127,11 +128,8 @@ class DarnellSong extends Song
 	var cutsceneCan:FunkinSprite = null;
 	var newCan:ScriptedFlxAtlasSprite = null;
 
-	var cutsceneSounds:Array<FunkinSound> = [];
-
   function introCutscene()
   {
-    PlayState.instance.togglePauseButton();
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
@@ -288,11 +286,13 @@ class DarnellSong extends Song
 			PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
 			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 2, FlxEase.sineInOut);
 			PlayState.instance.isInCutscene = false;
+      PlayState.instance.mayPauseGame = true;
 			PlayState.instance.startCountdown();
+
 			cutsceneMusic.stop(); // stop the music!!!!!!
 
 			while(cutsceneSounds.length > 0)
-			cutsceneSounds.shift().stop();
+        cutsceneSounds.shift().stop();
 
 			cutsceneTimerManager.destroy();
 			cutsceneTimerManager = null;
@@ -400,41 +400,22 @@ class DarnellSong extends Song
 		{
 			if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
 
-			cutsceneMusic.pause();
-
-			for(i in cutsceneSounds)
-			{
-				i.pause();
-			}
-
 			for(i in propColorTweens)
 			{
 				i.active = false;
 			}
 
-			var pauseSubState:FlxSubState = new PauseSubState(
-        {
-          mode: PauseMode.Cutscene(
-						'Cutscene', 'In-Game Cutscene',
-						resumeCutscene, skipCutscene, restartCutscene
-					)
-        });
-
-      PlayState.instance.persistentUpdate = false;
-      pauseSubState.camera = PlayState.instance.camCutscene;
-      PlayState.instance.openSubState(pauseSubState);
+      PlayState.instance.preparePauseUI();
+      PlayState.instance.openPauseSubState(PauseMode.Cutscene(
+        'Cutscene', 'In-Game Cutscene',
+				resumeCutscene, skipCutscene, restartCutscene
+      ), FullScreenScaleMode.hasFakeCutouts ? PlayState.instance.camCutouts : PlayState.instance.camCutscene, null);
 		}
 	}
 
 	function resumeCutscene()
 	{
 		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
-		cutsceneMusic.resume();
-
-		for(i in cutsceneSounds)
-		{
-			i.resume();
-		}
 
 		for(i in propColorTweens)
 		{
@@ -449,6 +430,7 @@ class DarnellSong extends Song
 		PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
 		PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 2, FlxEase.sineInOut);
 		PlayState.instance.isInCutscene = false;
+    PlayState.instance.mayPauseGame = true;
 		PlayState.instance.startCountdown();
 		cutsceneMusic.stop(); // stop the music!!!!!!
 

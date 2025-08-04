@@ -43,7 +43,15 @@ class TankmanEndingSprite extends FlxAtlasSprite
   function doAnim()
   {
     playAnimation("tankman stress ending", true, false, false);
-    cutsceneSounds = FunkinSound.load(Paths.sound('erect/endCutscene'), 1.0, false, true, true);
-    cutsceneSounds.play(true);
+
+    // playOnce/load makes the sound twice for whatever reason???
+    var embeddedSound:String = Paths.sound('erect/endCutscene');
+    cutsceneSounds = new FunkinSound();
+    cutsceneSounds.loadEmbedded(embeddedSound, false, true);
+    cutsceneSounds.play();
+    cutsceneSounds.volume = 1.0;
+    cutsceneSounds._label = embeddedSound;
+    FlxG.sound.defaultSoundGroup.add(cutsceneSounds);
+    FlxG.sound.list.add(cutsceneSounds);
   }
 }
