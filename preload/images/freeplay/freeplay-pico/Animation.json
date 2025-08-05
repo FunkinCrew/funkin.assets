@@ -23688,7 +23688,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 0,
 "LP": "LP",
@@ -23725,7 +23725,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 1,
 "LP": "LP",
@@ -23762,7 +23762,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 2,
 "LP": "LP",
@@ -23799,7 +23799,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 3,
 "LP": "LP",
@@ -23836,7 +23836,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 4,
 "LP": "LP",
@@ -23873,7 +23873,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 5,
 "LP": "LP",
@@ -23910,7 +23910,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 6,
 "LP": "LP",
@@ -23947,7 +23947,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 7,
 "LP": "LP",
@@ -23984,7 +23984,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 8,
 "LP": "LP",
@@ -24021,7 +24021,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 9,
 "LP": "LP",
@@ -24058,7 +24058,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 10,
 "LP": "LP",
@@ -24095,7 +24095,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 11,
 "LP": "LP",
@@ -24132,7 +24132,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 12,
 "LP": "LP",
@@ -24169,7 +24169,7 @@
 {
 "SI": {
 "SN": "turntable lights",
-"IN": "_bl0_",
+"IN": "",
 "ST": "G",
 "FF": 13,
 "LP": "LP",
