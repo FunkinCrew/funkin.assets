@@ -52,6 +52,7 @@ class PhillyTrainErectStage extends Stage
   {
     super.onCreate(event);
 
+    trainEnabled = true;
     hasPlayedInGameCutscene = false;
     cutsceneSkipped = false;
     canSkipCutscene = false;
