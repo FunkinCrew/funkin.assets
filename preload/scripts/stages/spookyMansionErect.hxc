@@ -9,7 +9,7 @@ import funkin.util.HapticUtil;
 import funkin.util.Constants;
 import flixel.util.FlxTimer;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.graphics.shaders.RuntimeRainShader;

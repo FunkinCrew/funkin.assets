@@ -10,7 +10,7 @@ import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.TextureSwap;
 import openfl.display.BitmapData;

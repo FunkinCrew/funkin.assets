@@ -4,7 +4,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
