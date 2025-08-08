@@ -379,13 +379,15 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 
   function playPunchHighAnim()
   {
-    this.playAnimation('punchHigh' + doAlternate(), true, false);
+    var postfix:String = doAlternate();
+    this.playAnimation('punchHigh' + postfix, true, false);
     moveToFront();
   }
 
   function playPunchLowAnim()
   {
-    this.playAnimation('punchLow' + doAlternate(), true, false);
+    var postfix:String = doAlternate();
+    this.playAnimation('punchLow' + postfix, true, false);
     moveToFront();
   }
 
