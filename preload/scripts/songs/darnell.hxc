@@ -4,6 +4,7 @@ import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
+import flixel.util.FlxTimerManager;
 import funkin.Conductor;
 import funkin.util.Constants;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
@@ -18,14 +19,18 @@ import funkin.save.Save;
 import funkin.audio.FunkinSound;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.cutscene.CutsceneType;
+import funkin.play.PauseSubState;
+import funkin.play.PauseMode;
 import funkin.play.PlayStatePlaylist;
+import funkin.ui.FullScreenScaleMode;
 
 class DarnellSong extends Song
 {
   var hasPlayedCutscene:Bool;
   var hasPlayedInGameCutscene:Bool;
   var cutsceneMusic:FunkinSound;
-  var cutsceneConductor:Conductor;
+  var cutsceneConductor:Conductor = null;
+	var cutsceneTimerManager:FlxTimerManager = null;
   var bgSprite:FunkinSprite;
 
   public function new()
@@ -120,9 +125,11 @@ class DarnellSong extends Song
     }
   }
 
+	var cutsceneCan:FunkinSprite = null;
+	var newCan:ScriptedFlxAtlasSprite = null;
+
   function introCutscene()
   {
-    PlayState.instance.togglePauseButton();
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
@@ -141,8 +148,21 @@ class DarnellSong extends Song
 
     var cutsceneDelay:Float = 2;
 
-    cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
-    cutsceneMusic.volume = 1;
+		if(cutsceneTimerManager == null) cutsceneTimerManager = new FlxTimerManager();
+
+		if(cutsceneCan != null)
+		{
+			cutsceneCan.destroy();
+			cutsceneCan = null;
+		}
+
+		if(newCan != null)
+		{
+			newCan.destroy();
+			newCan = null;
+		}
+
+		if(cutsceneMusic == null) cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
 
     cutsceneConductor = new Conductor();
 
@@ -154,10 +174,10 @@ class DarnellSong extends Song
 
     cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
-    var cutsceneCan:FunkinSprite = FunkinSprite.createSparrow(darnellPos[0], darnellPos[1], 'wked1_cutscene_1_can');
-    cutsceneCan.animation.addByPrefix('forward', "can kick quick0", 24, false);
-    cutsceneCan.animation.addByPrefix('up', "can kicked up0", 24, false);
-    PlayState.instance.currentStage.add(cutsceneCan);
+		cutsceneCan = FunkinSprite.createSparrow(darnellPos[0], darnellPos[1], 'wked1_cutscene_1_can');
+		cutsceneCan.animation.addByPrefix('forward', "can kick quick0", 24, false);
+		cutsceneCan.animation.addByPrefix('up', "can kicked up0", 24, false);
+		PlayState.instance.currentStage.add(cutsceneCan);
     cutsceneCan.visible = false;
 
     var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
@@ -166,70 +186,75 @@ class DarnellSong extends Song
     cutsceneCan.zIndex = spraycanPile.zIndex - 1;
     PlayState.instance.currentStage.refresh();
 
-    var newCan:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', 0, 0);
-    var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
-    newCan.x = spraycanPile.x - 430;
-    newCan.y = spraycanPile.y - 840;
-    newCan.zIndex = 300;
-    PlayState.instance.currentStage.add(newCan);
-    PlayState.instance.currentStage.refresh();
+		newCan = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', 0, 0);
+		var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
+		newCan.x = spraycanPile.x - 430;
+		newCan.y = spraycanPile.y - 840;
+		newCan.zIndex = 300;
+		PlayState.instance.currentStage.add(newCan);
+		PlayState.instance.currentStage.refresh();
     newCan.visible = false;
 
     PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true);
 
-    // camera sets up, pico does his animation showing him pissed
-    new FlxTimer().start(0.1, function(tmr) {
-      PlayState.instance.tweenCameraToPosition(picoPos[0] + 250, picoPos[1], 0);
+		// camera sets up, pico does his animation showing him pissed
+		new FlxTimer(cutsceneTimerManager).start(0.1, function(tmr)
+		{
+			PlayState.instance.tweenCameraToPosition(picoPos[0] + 250, picoPos[1], 0);
 
       PlayState.instance.tweenCameraZoom(1.3, 0, true, FlxEase.quadInOut);
     });
 
-    new FlxTimer().start(0.7, function(tmr) {
-      cutsceneMusic.play(false);
-      FlxTween.tween(bgSprite, {alpha: 0}, 2, {startDelay: 0.3}, function() {
-        bgSprite.visible = false;
-      });
-    });
+		new FlxTimer(cutsceneTimerManager).start(0.7, function(tmr){
+			cutsceneMusic.play(true);
+			cutsceneMusic.volume = 1;
+      FlxTween.tween(bgSprite, { alpha: 0}, 2, {startDelay: 0.3}, function(){bgSprite.visible = false;});
+		});
 
-    // move camera out to show everything
-    new FlxTimer().start(cutsceneDelay, function(tmr) {
-      PlayState.instance.tweenCameraToPosition(darnellPos[0] + 100, darnellPos[1], 2.5, FlxEase.quadInOut);
-      PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
-    });
+		// move camera out to show everything
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay, function(tmr){
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+100, darnellPos[1], 2.5, FlxEase.quadInOut);
+			PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
+		});
 
-    // darnell lights up a can
-    new FlxTimer().start(cutsceneDelay + 3, function(tmr) {
-      PlayState.instance.currentStage.getDad().playAnimation('lightCan', true);
-      FunkinSound.playOnce(Paths.sound('Darnell_Lighter'), 1.0);
-    });
+		// darnell lights up a can
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 3, function(tmr)
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('lightCan', true);
+			FunkinSound.playOnce(Paths.sound('Darnell_Lighter'), 1.0);
+		});
 
-    // pico cocks his gun, camera shifts to his side to show this
-    new FlxTimer().start(cutsceneDelay + 4, function(tmr) {
-      PlayState.instance.currentStage.getBoyfriend().playAnimation('cock', true);
-      PlayState.instance.tweenCameraToPosition(darnellPos[0] + 180, darnellPos[1], 0.4, FlxEase.backOut);
-      FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
-    });
+		// pico cocks his gun, camera shifts to his side to show this
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 4, function(tmr)
+		{
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('cock', true);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 0.4, FlxEase.backOut);
+			FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
+		});
 
-    // darnell kicks the can up
-    new FlxTimer().start(cutsceneDelay + 4.4, function(tmr) {
-      PlayState.instance.currentStage.getDad().playAnimation('kickCan', true);
-      FunkinSound.playOnce(Paths.sound('Kick_Can_UP'), 1.0);
+		// darnell kicks the can up
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 4.4, function(tmr)
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('kickCan', true);
+			FunkinSound.playOnce(Paths.sound('Kick_Can_UP'), 1.0);
       cutsceneCan.animation.play('up');
       cutsceneCan.visible = true;
     });
 
-    // darnell knees the can forward
-    new FlxTimer().start(cutsceneDelay + 4.9, function(tmr) {
-      PlayState.instance.currentStage.getDad().playAnimation('kneeCan', true);
-      FunkinSound.playOnce(Paths.sound('Kick_Can_FORWARD'), 1.0);
+		// darnell knees the can forward
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 4.9, function(tmr)
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('kneeCan', true);
+			cutsceneSounds.push(FunkinSound.playOnce(Paths.sound('Kick_Can_FORWARD'), 1.0));
       cutsceneCan.animation.play('forward');
     });
 
-    // pico shoots the can, it explodes
-    new FlxTimer().start(cutsceneDelay + 5.1, function(tmr) {
-      PlayState.instance.currentStage.getBoyfriend().playAnimation('intro2', true, true);
+		// pico shoots the can, it explodes
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 5.1, function(tmr)
+		{
+			PlayState.instance.currentStage.getBoyfriend().playAnimation('intro2', true, true);
 
-      FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
+			cutsceneSounds.push(FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4)));
 
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 100, darnellPos[1], 1, FlxEase.quadInOut);
 
@@ -241,31 +266,38 @@ class DarnellSong extends Song
       });
     });
 
-    // darnell laughs
-    new FlxTimer().start(cutsceneDelay + 5.9, function(tmr) {
-      PlayState.instance.currentStage.getDad().playAnimation('laughCutscene', true);
-      FunkinSound.playOnce(Paths.sound('cutscene/darnell_laugh'), 0.6);
-    });
+		// darnell laughs
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 5.9, function(tmr)
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('laughCutscene', true);
+			cutsceneSounds.push(FunkinSound.playOnce(Paths.sound('cutscene/darnell_laugh'), 0.6));
+		});
 
-    // nene spits and laughs
-    new FlxTimer().start(cutsceneDelay + 6.2, function(tmr) {
-      PlayState.instance.currentStage.getGirlfriend().playAnimation('laughCutscene', true);
-      FunkinSound.playOnce(Paths.sound('cutscene/nene_laugh'), 0.6);
-    });
+		// nene spits and laughs
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 6.2, function(tmr)
+		{
+			PlayState.instance.currentStage.getGirlfriend().playAnimation('laughCutscene', true);
+			cutsceneSounds.push(FunkinSound.playOnce(Paths.sound('cutscene/nene_laugh'), 0.6));
+		});
 
-    // camera returns to normal, cutscene flags set and countdown starts.
-    new FlxTimer().start(cutsceneDelay + 8, function(tmr) {
-      PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
-      PlayState.instance.tweenCameraToPosition(darnellPos[0] + 180, darnellPos[1], 2, FlxEase.sineInOut);
-      PlayState.instance.isInCutscene = false;
-      PlayState.instance.startCountdown();
-      cutsceneMusic.stop(); // stop the music!!!!!!
-
-      PlayState.instance.togglePauseButton(true);
-      PlayState.instance.isInCutscene = false;
+		// camera returns to normal, cutscene flags set and countdown starts.
+		new FlxTimer(cutsceneTimerManager).start(cutsceneDelay + 8, function(tmr)
+		{
+			PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
+			PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 2, FlxEase.sineInOut);
+			PlayState.instance.isInCutscene = false;
       PlayState.instance.mayPauseGame = true;
-    });
-  }
+			PlayState.instance.startCountdown();
+
+			cutsceneMusic.stop(); // stop the music!!!!!!
+
+			while(cutsceneSounds.length > 0)
+        cutsceneSounds.shift().stop();
+
+			cutsceneTimerManager.destroy();
+			cutsceneTimerManager = null;
+		});
+	}
 
   function onCutsceneBeatHit()
   {
@@ -282,6 +314,7 @@ class DarnellSong extends Song
     }
   }
 
+	var propColorTweens:Array<FlxTween> = [];
   function darkenStageProps()
   {
     // Darken the background, then fade it back.
@@ -309,14 +342,17 @@ class DarnellSong extends Song
         continue;
       }
 
-      // If not excluded, darken.
-      stageProp.color = 0xFF111111;
-      new FlxTimer().start(1 / 24, (tmr) -> {
-        stageProp.color = 0xFF222222;
-        FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
-      });
-    }
-  }
+			// If not excluded, darken.
+			stageProp.color = 0xFF111111;
+			new FlxTimer().start(1/24, (tmr) ->
+			{
+				stageProp.color = 0xFF222222;
+				propColorTweens.push(FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF, {onComplete: function(tween:FlxTween) {
+					propColorTweens.remove(tween);
+				}}));
+			});
+		}
+	}
 
   function startVideo()
   {
@@ -351,13 +387,101 @@ class DarnellSong extends Song
     hasPlayedInGameCutscene = false;
   }
 
-  function onUpdate(event:UpdateScriptEvent)
-  {
-    super.onUpdate(event);
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
 
-    if (cutsceneConductor != null && cutsceneMusic != null)
-    {
-      cutsceneConductor.update(cutsceneMusic.time);
-    }
-  }
+		if(cutsceneTimerManager != null && cutsceneTimerManager.active) cutsceneTimerManager.update(event.elapsed);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
+
+		if (PlayState.instance.controls.PAUSE && cutsceneTimerManager != null && !PlayState.instance.isGamePaused && !PlayState.instance.justUnpaused)
+		{
+			if(cutsceneTimerManager != null) cutsceneTimerManager.active = false;
+
+			for(i in propColorTweens)
+			{
+				i.active = false;
+			}
+
+      PlayState.instance.preparePauseUI();
+      PlayState.instance.openPauseSubState(PauseMode.Cutscene(
+        'Cutscene', 'In-Game Cutscene',
+				resumeCutscene, skipCutscene, restartCutscene
+      ), FullScreenScaleMode.hasFakeCutouts ? PlayState.instance.camCutouts : PlayState.instance.camCutscene, null);
+		}
+	}
+
+	function resumeCutscene()
+	{
+		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+		for(i in propColorTweens)
+		{
+			i.active = true;
+		}
+	}
+
+	function skipCutscene()
+	{
+		var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+
+		PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
+		PlayState.instance.tweenCameraToPosition(darnellPos[0]+180, darnellPos[1], 2, FlxEase.sineInOut);
+		PlayState.instance.isInCutscene = false;
+    PlayState.instance.mayPauseGame = true;
+		PlayState.instance.startCountdown();
+		cutsceneMusic.stop(); // stop the music!!!!!!
+
+		while(cutsceneSounds.length > 0)
+			cutsceneSounds.shift().stop();
+
+		if(cutsceneCan != null)
+		{
+			cutsceneCan.destroy();
+			cutsceneCan = null;
+		}
+
+		if(newCan != null)
+		{
+			newCan.destroy();
+			newCan = null;
+		}
+
+		while(propColorTweens.length > 0)
+		{
+			var i:FlxTween = propColorTweens.shift();
+			i.active = true;
+			i.onComplete = null; // its removed already, no need
+			i.finish();
+		}
+
+		cutsceneTimerManager.destroy();
+		cutsceneTimerManager = null;
+	}
+
+	function restartCutscene()
+	{
+		if(cutsceneTimerManager != null) cutsceneTimerManager.active = true;
+
+		cutsceneTimerManager.clear();
+		FlxTween.cancelTweensOf(bgSprite);
+		bgSprite.alpha = 1;
+
+		// reset characters
+		PlayState.instance.currentStage.getBoyfriend().canPlayOtherAnims = true;
+		PlayState.instance.currentStage.getBoyfriend().dance(true);
+
+		PlayState.instance.currentStage.getGirlfriend().scriptSet('currentState', 0);
+		PlayState.instance.currentStage.getGirlfriend().dance(true);
+
+		PlayState.instance.currentStage.getDad().dance(true);
+
+		cutsceneMusic.stop(); // stop the music!!!!!!
+		while(cutsceneSounds.length > 0)
+			cutsceneSounds.shift().stop();
+
+		introCutscene();
+	}
 }
