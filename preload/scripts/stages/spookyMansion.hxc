@@ -65,6 +65,13 @@ class SpookyMansionStage extends Stage
   {
     super.onBeatHit(event);
 
+    // Reset lightning variables at the start of every song
+    if (event.beat == 0)
+    {
+      lightningStrikeBeat = 0;
+      lightningStrikeOffset = 8;
+    }
+
     // Play lightning on sync at the start of this specific song.
     // TODO: Rework this after chart format redesign.
     if (PlayState.instance.currentSong != null)
