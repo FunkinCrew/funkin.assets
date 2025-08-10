@@ -1,15 +1,20 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
 
-class FreshPicoMixSong extends Song {
-	public function new() {
-		super('fresh', {
-      variation: 'pico'
-    });
-	}
+class FreshPicoMixSong extends Song
+{
+  public function new()
+  {
+    super('fresh',
+      {
+        variation: 'pico'
+      });
+  }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
 
       return hasBeatenPicoMix ? ['pico'] : [];

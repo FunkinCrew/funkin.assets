@@ -3,21 +3,23 @@ import funkin.save.Save;
 
 class BlammedPicoMixSong extends Song
 {
-	function new()
-	{
-		super('blammed',
+  function new()
+  {
+    super('blammed',
       {
         variation: 'pico'
       });
-	}
+  }
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
     return !Save.instance.hasBeatenSong(this.id, null, this.variation);
-	}
+  }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
 
       return hasBeatenPicoMix ? ['pico'] : [];

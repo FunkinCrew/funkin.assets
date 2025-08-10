@@ -11,32 +11,39 @@ import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 
-class RosesSong extends Song {
+class RosesSong extends Song
+{
   var hasPlayedCutscene:Bool;
 
-	public function new() {
-		super('roses', {
-      variation: 'pico'
-    });
-	}
+  public function new()
+  {
+    super('roses',
+      {
+        variation: 'pico'
+      });
+  }
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
     return !Save.instance.hasBeatenSong(this.id, null, this.variation);
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard') {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
 
       return hasBeatenPicoMix ? ['pico'] : [];
     }
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
 
-    if (!hasPlayedCutscene) {
+    if (!hasPlayedCutscene)
+    {
       trace('Pausing countdown to play cutscene.');
 
       hasPlayedCutscene = true;
@@ -53,9 +60,10 @@ class RosesSong extends Song {
 
       startDialogue();
     }
-	}
+  }
 
-  function startDialogue() {
+  function startDialogue()
+  {
     var targetDialogue = 'roses-pico';
 
     if (!Preferences.naughtyness) targetDialogue += "-censored";
@@ -84,7 +92,8 @@ class RosesSong extends Song {
     hasPlayedCutscene = false;
   }
 
-  public override function onDialogueEnd() {
+  public override function onDialogueEnd()
+  {
     // We may need to wait for the outro to play.
     Countdown.performCountdown();
   }
