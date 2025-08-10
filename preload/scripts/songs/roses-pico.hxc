@@ -11,7 +11,7 @@ import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 
-class RosesSong extends Song
+class RosesPicoSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
@@ -41,6 +41,9 @@ class RosesSong extends Song
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
+
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {

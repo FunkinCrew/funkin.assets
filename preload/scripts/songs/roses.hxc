@@ -7,7 +7,6 @@ import flixel.FlxG;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
-import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 import funkin.util.HapticUtil;
@@ -21,39 +20,12 @@ class RosesSong extends Song
     super('roses');
   }
 
-  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
-  {
-    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, 'pico');
-
-    return false;
-  }
-
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
-  {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
-    {
-      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
-
-      switch (variationId)
-      {
-        case 'pico':
-          // return hasBeatenPicoMix ? [''] : [];
-          // No Pico mix on BF instrumental, sorry!
-          return [];
-        default:
-          return hasBeatenPicoMix ? ['pico'] : [];
-      }
-    }
-
-    return [];
-  }
-
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
     // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
-    if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     // Skip the cutscene if we're playtesting in the Chart Editor.
     if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
@@ -83,8 +55,6 @@ class RosesSong extends Song
   function startDialogue()
   {
     var targetDialogue = 'roses';
-
-    if (PlayState.instance.currentVariation == 'pico') targetDialogue += "-pico";
     if (!Preferences.naughtyness) targetDialogue += "-censored";
 
     trace('Playing dialogue...');
