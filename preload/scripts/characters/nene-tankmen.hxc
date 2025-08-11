@@ -29,6 +29,12 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
   var eyeWhites:FlxSprite;
   var pupil:FlxAtlasSprite;
 
+  var tankmanRightBottom:FlxAtlasSprite;
+  var tankmanRightTop:FlxAtlasSprite;
+
+  var tankmanLeftBottom:FlxAtlasSprite;
+  var tankmanLeftTop:FlxAtlasSprite;
+
   var adjustColor:AdjustColorShader;
   var vizAdjustColor:AdjustColorShader;
 
@@ -69,6 +75,26 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     abotViz.y = this.y;
     abotViz.zIndex = abot.zIndex + 1;
 
+    tankmanRightBottom = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanRight/tankmanBottom", "shared"));
+    tankmanRightBottom.x = this.x;
+    tankmanRightBottom.y = this.y;
+    tankmanRightBottom.zIndex = stereoBG.zIndex - 1;
+
+    tankmanRightTop = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanRight/tankmanTop", "shared"));
+    tankmanRightTop.x = this.x;
+    tankmanRightTop.y = this.y;
+    tankmanRightTop.zIndex = abot.zIndex + 1;
+
+    tankmanLeftBottom = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanLeft/tankmanBottom", "shared"));
+    tankmanLeftBottom.x = this.x;
+    tankmanLeftBottom.y = this.y;
+    tankmanLeftBottom.zIndex = stereoBG.zIndex - 1;
+
+    tankmanLeftTop = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanLeft/tankmanTop", "shared"));
+    tankmanLeftTop.x = this.x;
+    tankmanLeftTop.y = this.y;
+    tankmanLeftTop.zIndex = abot.zIndex + 1;
+
     stereoBG.shader = adjustColor;
     pupil.shader = adjustColor;
     abot.shader = adjustColor;
@@ -76,6 +102,10 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     {
       spr.shader = vizAdjustColor;
     }
+    tankmanRightBottom.shader = adjustColor;
+    tankmanRightTop.shader = adjustColor;
+    tankmanLeftBottom.shader = adjustColor;
+    tankmanLeftTop.shader = adjustColor;
   }
 
   /**
@@ -205,6 +235,30 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
       abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
     }
 
+    if (tankmanRightBottom != null)
+    {
+      tankmanRightBottom.playAnimation("");
+      tankmanRightBottom.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+    }
+
+    if (tankmanRightTop != null)
+    {
+      tankmanRightTop.playAnimation("");
+      tankmanRightTop.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+    }
+
+    if (tankmanLeftBottom != null)
+    {
+      tankmanLeftBottom.playAnimation("");
+      tankmanLeftBottom.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+    }
+
+    if (tankmanLeftTop != null)
+    {
+      tankmanLeftTop.playAnimation("");
+      tankmanLeftTop.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+    }
+
     // Then, perform the appropriate animation for the current state.
     switch (currentState)
     {
@@ -326,6 +380,10 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     pupil.visible = this.visible;
     eyeWhites.visible = this.visible;
     stereoBG.visible = this.visible;
+    tankmanRightBottom.visible = this.visible;
+    tankmanRightTop.visible = this.visible;
+    tankmanLeftBottom.visible = this.visible;
+    tankmanLeftTop.visible = this.visible;
 
     if (pupil?.anim?.isPlaying)
     {
@@ -352,8 +410,8 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 100;
-      abot.y = this.y + 216; // 764 - 740
+      abot.x = this.x - 140;
+      abot.y = this.y + 236; // 764 - 740
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);
@@ -377,6 +435,26 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
       stereoBG.y = abot.y + 30;
       stereoBG.zIndex = abot.zIndex - 8;
       PlayState.instance.currentStage.add(stereoBG);
+
+      tankmanRightBottom.x = abot.x + 245;
+      tankmanRightBottom.y = abot.y - 20;
+      tankmanRightBottom.zIndex = stereoBG.zIndex - 1;
+      PlayState.instance.currentStage.add(tankmanRightBottom);
+
+      tankmanRightTop.x = tankmanRightBottom.x;
+      tankmanRightTop.y = tankmanRightBottom.y;
+      tankmanRightTop.zIndex = this.zIndex + 1;
+      PlayState.instance.currentStage.add(tankmanRightTop);
+
+      tankmanLeftBottom.x = abot.x + 175;
+      tankmanLeftBottom.y = abot.y - 20;
+      tankmanLeftBottom.zIndex = stereoBG.zIndex - 1;
+      PlayState.instance.currentStage.add(tankmanLeftBottom);
+
+      tankmanLeftTop.x = tankmanLeftBottom.x;
+      tankmanLeftTop.y = tankmanLeftBottom.y;
+      tankmanLeftTop.zIndex = this.zIndex + 1;
+      PlayState.instance.currentStage.add(tankmanLeftTop);
 
       PlayState.instance.currentStage.refresh();
       refershedLol = true;
