@@ -10,6 +10,11 @@
   "singTime": 8.0,
   "animations": [
     {
+      "name": "hey",
+      "prefix": "BF HEY!!",
+      "offsets": [-2, 5]
+    },
+    {
       "name": "idle",
       "prefix": "BF idle dance",
       "offsets": [-5, 0]

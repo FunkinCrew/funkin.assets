@@ -47,6 +47,10 @@ class BoyfriendChristmasCharacter extends MultiSparrowCharacter
         holdTimer = 0;
         this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
         return;
+      case "hey":
+        holdTimer = 0;
+        this.playAnimation('hey', true, true);
+        return;
       default:
         super.onNoteHit(event);
     }
