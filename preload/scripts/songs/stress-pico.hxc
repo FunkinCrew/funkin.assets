@@ -77,7 +77,7 @@ class StressPicoMixSong extends Song
     {
       // Initialize the tankman group if it's not available.
       trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-      tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+      tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', true);
     }
 
     if (tankmanGroup != null)
