@@ -1,41 +1,82 @@
 import flixel.tweens.FlxEase;
 import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxTween;
-import funkin.Paths;
 import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import flixel.FlxG;
+import funkin.save.Save;
 import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import funkin.effects.RetroCameraFade;
 
-class SenpaiSong extends Song {
+class SenpaiSong extends Song
+{
   var hasPlayedCutscene:Bool;
 
-	public function new() {
-		super('senpai');
-	}
+  public function new()
+  {
+    super('senpai');
+  }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    return false;
+  }
 
-    if (!hasPlayedCutscene) {
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+
+    // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
+    if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
+
+    if (!hasPlayedCutscene)
+    {
       trace('Pausing countdown to play cutscene.');
 
       hasPlayedCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.currentStage.pause();
+      //  pausing is breaking a lot in the erect stage for some reason disabling this for the sake of not running into issues atm
+      //  PlayState.instance.currentStage.pause();
 
       transitionToDialogue();
     }
-	}
+  }
 
-  function transitionToDialogue() {
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+      switch (variationId)
+      {
+        case 'pico':
+          // return hasBeatenPicoMix ? [''] : [];
+          // No Pico mix on BF instrumental, sorry!
+          return [];
+        default:
+          return hasBeatenPicoMix ? ['pico'] : [];
+      }
+    }
+
+    return [];
+  }
+
+  function transitionToDialogue()
+  {
     trace('Transitioning to dialogue.');
+
+    PlayState.instance.disableKeys = true;
 
     PlayState.instance.camCutscene.visible = true;
 
@@ -48,22 +89,29 @@ class SenpaiSong extends Song {
 
     var tweenFunction = function(x) {
       var xSnapped = Math.floor(x * 8) / 8;
-      black.alpha = 1.0 - xSnapped;
+      // black.alpha = 1.0 - xSnapped;
     };
 
-    FlxTween.num(0.0, 1.0, 2.0, {
-      ease: FlxEase.linear,
-      startDelay: 0.25,
-      onComplete: function (input) {
+    new FlxTimer().start(0.25, _ -> {
+      PlayState.instance.remove(black);
+      RetroCameraFade.fadeBlack(PlayState.instance.camGame, 12, 2);
+    });
 
-        // black.visible = false;
-        startDialogue();
-      }
-    }, tweenFunction);
+    FlxTween.num(0.0, 1.0, 2.0,
+      {
+        ease: FlxEase.linear,
+        startDelay: 0.25,
+        onComplete: function(input) {
+          startDialogue();
+        }
+      }, tweenFunction);
   }
 
-  function startDialogue() {
-    PlayState.instance.startConversation('senpai');
+  function startDialogue()
+  {
+    PlayState.instance.disableKeys = false;
+    var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'senpai-pico' : 'senpai';
+    PlayState.instance.startConversation(targetDialogue);
   }
 
   /**
@@ -86,7 +134,8 @@ class SenpaiSong extends Song {
     hasPlayedCutscene = false;
   }
 
-  public override function onDialogueEnd() {
+  public override function onDialogueEnd()
+  {
     // We may need to wait for the outro to play.
     PlayState.instance.currentStage.resume();
     Countdown.performCountdown();

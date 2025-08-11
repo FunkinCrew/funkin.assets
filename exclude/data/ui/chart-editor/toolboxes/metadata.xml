@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="472">
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="492">
     <vbox width="100%" height="100%">
-        <frame text="Variation: Default" width="100%" height="230" id="frameVariation">
+        <frame text="Variation: Default" width="100%" height="250" id="frameVariation">
             <vbox width="100%" height="100%">
                 <grid columns="2" height="100%">
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />

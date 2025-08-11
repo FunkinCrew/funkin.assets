@@ -2,21 +2,33 @@ import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
-import funkin.Paths;
 import flixel.FlxSprite;
 import flixel.FlxG;
 
-class BFPixelCharacter extends MultiSparrowCharacter {
-	function new() {
-		super('bf-pixel');
-	}
+class BFPixelCharacter extends MultiSparrowCharacter
+{
+  function new()
+  {
+    super('bf-pixel');
+  }
 
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
 
-		GameOverSubState.musicSuffix = '-pixel';
-		GameOverSubState.blueBallSuffix = '-pixel';
+    GameOverSubState.musicSuffix = '-pixel';
+    GameOverSubState.blueBallSuffix = '-pixel';
 
-		PauseSubState.musicSuffix = '-pixel';
-	}
+    PauseSubState.musicSuffix = '-pixel';
+  }
+
+  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  {
+    if (name == "firstDeath")
+    {
+      this.shader = null;
+    }
+
+    super.playAnimation(name, restart, ignoreOther);
+  }
 }

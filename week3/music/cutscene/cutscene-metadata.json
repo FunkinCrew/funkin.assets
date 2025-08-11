@@ -1,0 +1,9 @@
+{
+  "timeFormat": "ms",
+  "artist": "METAROOM",
+  "songName": "Pico (Pico Mix) (Cutscene Version)",
+  "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 150 }],
+  "generatedBy": "Manual (by Fabs)",
+  "looped": true,
+  "version": "2.0.0"
+}

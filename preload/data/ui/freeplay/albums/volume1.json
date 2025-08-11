@@ -3,15 +3,5 @@
   "name": "Volume 1",
   "artists": ["Kawai Sprite"],
   "albumArtAsset": "freeplay/albumRoll/volume1",
-  "albumTitleAsset": "freeplay/albumRoll/fnf-ost-v1",
-  "albumTitleAnimations": [
-    {
-      "name": "active",
-      "prefix": "fnf ost vol 1 active0"
-    },
-    {
-      "name": "idle",
-      "prefix": "fnf ost vol 1 idle0"
-    }
-  ]
+  "albumTitleAsset": "freeplay/albumRoll/volume1-text"
 }

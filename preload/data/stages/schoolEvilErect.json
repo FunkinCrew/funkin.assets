@@ -1,0 +1,77 @@
+{
+  "props": [
+    {
+      "name": "solid",
+      "assetPath": "#000000",
+      "position": [-500, -1000],
+      "scale": [2400, 2000],
+      "scroll": [0, 0]
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 20,
+      "position": [-816, -38],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "school",
+      "isPixel": true,
+      "assetPath": "weeb/erect/evil/weebSchool",
+      "scroll": [0.75, 0.75],
+      "animations": []
+    },
+
+    {
+      "danceEvery": 0,
+      "zIndex": 25,
+      "position": [1416, 464],
+      "scale": [6, 6],
+      "name": "backspike",
+      "animType": "sparrow",
+      "isPixel": true,
+      "assetPath": "weeb/erect/evil/backSpike",
+      "scroll": [0.85, 0.85],
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 15,
+      "position": [-842, -180],
+      "scale": [6, 6],
+      "name": "backspikes",
+      "animType": "sparrow",
+      "isPixel": true,
+      "assetPath": "weeb/erect/evil/weebBackSpikes",
+      "scroll": [0.5, 0.5],
+      "animations": []
+    },
+    {
+      "danceEvery": 0,
+      "zIndex": 30,
+      "position": [-662, 6],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "evilstreet",
+      "isPixel": true,
+      "assetPath": "weeb/erect/evil/weebStreet",
+      "scroll": [1, 1],
+      "animations": []
+    }
+  ],
+  "cameraZoom": 1,
+  "version": "1.0.0",
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "cameraOffsets": [-200, -94],
+      "position": [1168, 900]
+    },
+    "dad": {
+      "zIndex": 200,
+      "position": [0, 648],
+      "cameraOffsets": [440, 270]
+    },
+    "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 823] }
+  },
+  "name": "School (Hate) [Erect]",
+  "directory": "week6"
+}

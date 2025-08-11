@@ -10,6 +10,8 @@
 					<textfield id="dialogSongName" placeholder="Song name..." width="100%" validator="required" />
 					<label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="dialogSongArtist" placeholder="Song artist..." width="100%" validator="required" />
+					<label text="Charter:" verticalAlign="center" horizontalAlign="right" />
+					<textfield id="dialogSongCharter" placeholder="Song charter..." width="100%" validator="required" />
 					<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
 					<dropdown id="dialogStage" text="Stage..." horizontalAlign="right" width="100%">
 						<validator type="required" />
@@ -59,8 +61,8 @@
 							<item id="nene" text="Nene" />
 						</data>
 					</dropdown>
-					<label text="Starting BPM:" verticalAlign="center" style="font-size: 10px" horizontalAlign="right" />
-					<number-stepper id="dialogBPM" style="font-size: 10px" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" validator="required" />
+					<label text="Starting BPM:" verticalAlign="center" horizontalAlign="right" />
+					<number-stepper id="dialogBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" validator="required" />
 				</grid>
 			</vbox>
 		</form>

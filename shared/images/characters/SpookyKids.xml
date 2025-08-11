@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="SpookyKids.png" width="4046" height="1119">
   <SubTexture name="SingDOWN0001" x="0" y="0" width="464" height="409" frameX="-0" frameY="-3" frameWidth="464" frameHeight="412" />
   <SubTexture name="SingDOWN0003" x="464" y="0" width="450" height="409" frameX="-7" frameY="-0" frameWidth="464" frameHeight="412" />
-  <SubTexture name="Idle0005" x="914" y="0" width="358" height="484" frameX="-79" frameY="-61" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0007" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0011" x="1627" y="0" width="482" height="524" frameX="-7" frameY="-20" frameWidth="493" frameHeight="549" />
   <SubTexture name="SingRIGHT0001" x="2109" y="0" width="442" height="524" frameX="-0" frameY="-9" frameWidth="442" frameHeight="533" />
   <SubTexture name="SingLEFT0001" x="2551" y="0" width="557" height="527" frameX="-0" frameY="-2" frameWidth="564" frameHeight="531" />
   <SubTexture name="SingLEFT0003" x="3108" y="0" width="558" height="531" frameX="-6" frameY="-0" frameWidth="564" frameHeight="531" />
-  <SubTexture name="Idle0003" x="3666" y="0" width="380" height="541" frameX="-55" frameY="-8" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0009" x="0" y="409" width="493" height="532" frameX="-0" frameY="-16" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0001" x="493" y="409" width="382" height="549" frameX="-50" frameY="-0" frameWidth="493" frameHeight="549" />
   <SubTexture name="SingRIGHT0003" x="875" y="494" width="438" height="533" frameX="-0" frameY="-0" frameWidth="442" frameHeight="533" />
   <SubTexture name="Cheer0003" x="1313" y="524" width="619" height="558" frameX="-13" frameY="-19" frameWidth="644" frameHeight="578" />
   <SubTexture name="SingUP0003" x="1932" y="524" width="405" height="565" frameX="-0" frameY="-6" frameWidth="405" frameHeight="571" />
@@ -37,16 +29,22 @@ Created with Free texture packer v0.6.7 http://free-tex-packer.com
   <SubTexture name="Cheer0018" x="2337" y="527" width="630" height="566" frameX="-5" frameY="-11" frameWidth="644" frameHeight="578" />
   <SubTexture name="Cheer0019" x="2337" y="527" width="630" height="566" frameX="-5" frameY="-11" frameWidth="644" frameHeight="578" />
   <SubTexture name="Cheer0020" x="2337" y="527" width="630" height="566" frameX="-5" frameY="-11" frameWidth="644" frameHeight="578" />
+  <SubTexture name="Idle0001" x="493" y="409" width="382" height="549" frameX="-50" frameY="-0" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0002" x="493" y="409" width="382" height="549" frameX="-50" frameY="-0" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0003" x="3666" y="0" width="380" height="541" frameX="-55" frameY="-8" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0004" x="3666" y="0" width="380" height="541" frameX="-55" frameY="-8" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0005" x="914" y="0" width="358" height="484" frameX="-79" frameY="-61" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0006" x="914" y="0" width="358" height="484" frameX="-79" frameY="-61" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0007" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0008" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0009" x="0" y="409" width="493" height="532" frameX="-0" frameY="-16" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0010" x="0" y="409" width="493" height="532" frameX="-0" frameY="-16" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0011" x="1627" y="0" width="482" height="524" frameX="-7" frameY="-20" frameWidth="493" frameHeight="549" />
+  <SubTexture name="Idle0012" x="1627" y="0" width="482" height="524" frameX="-7" frameY="-20" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0013" x="914" y="0" width="358" height="484" frameX="-79" frameY="-61" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0014" x="914" y="0" width="358" height="484" frameX="-79" frameY="-61" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0008" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0015" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
   <SubTexture name="Idle0016" x="1272" y="0" width="355" height="494" frameX="-78" frameY="-52" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0010" x="0" y="409" width="493" height="532" frameX="-0" frameY="-16" frameWidth="493" frameHeight="549" />
-  <SubTexture name="Idle0012" x="1627" y="0" width="482" height="524" frameX="-7" frameY="-20" frameWidth="493" frameHeight="549" />
   <SubTexture name="SingDOWN0002" x="0" y="0" width="464" height="409" frameX="-0" frameY="-3" frameWidth="464" frameHeight="412" />
   <SubTexture name="SingDOWN0004" x="464" y="0" width="450" height="409" frameX="-7" frameY="-0" frameWidth="464" frameHeight="412" />
   <SubTexture name="SingDOWN0005" x="464" y="0" width="450" height="409" frameX="-7" frameY="-0" frameWidth="464" frameHeight="412" />

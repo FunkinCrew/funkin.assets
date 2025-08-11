@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Pixel)",
+  "assetPath": "weeb/portrait-pico",
+  "flipX": false,
+  "isPixel": true,
+  "scale": 5.4,
+  "offsets": [800, 160],
+  "animations": [
+    {
+      "name": "talkEnter",
+      "prefix": "portraitEnter0",
+      "frameRate": 12
+    },
+    {
+      "name": "talk",
+      "prefix": "portraitTalk0"
+    }
+  ]
+}

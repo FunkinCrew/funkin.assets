@@ -55,5 +55,6 @@
       "cameraOffsets": [150, -100]
     }
   },
-  "name": "Spooky Mansion"
+  "name": "Spooky Mansion",
+  "directory": "week2"
 }

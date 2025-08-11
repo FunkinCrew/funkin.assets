@@ -1,23 +1,20 @@
 {
   "version": "1.0.0",
-  "name": "BF (Pixel)",
-  "assetPath": "weeb/bfPortrait",
+  "name": "Boyfriend (Pixel)",
+  "assetPath": "weeb/portrait-boyfriend",
   "flipX": false,
   "isPixel": true,
   "scale": 5.4,
-  "offsets": [-20, 17],
+  "offsets": [800, 248],
   "animations": [
     {
       "name": "talkEnter",
-      "prefix": "Boyfriend portrait enter instance 1",
-      "offsets": [0, 0],
+      "prefix": "portraitEnter0",
       "frameRate": 12
     },
     {
       "name": "talk",
-      "prefix": "Boyfriend portrait idle instance 10",
-      "offsets": [0, 0],
-      "frameRate": 12
+      "prefix": "portraitTalk0"
     }
   ]
 }

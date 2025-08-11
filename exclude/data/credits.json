@@ -35,6 +35,19 @@
       ]
     },
     {
+      "header": "Mobile Lead",
+      "body":  [
+        { "line": "MoonDroid (Zack)"}
+      ]
+    },
+    {
+      "header": "Team Organizers",
+      "body": [
+        { "line": "Hundrec" },
+        { "line": "AbnormalPoof" }
+      ]
+    },
+    {
       "header": "Producer",
       "body": [
         { "line": "Kawa Teaño" }
@@ -51,7 +64,8 @@
     {
       "header": "Pixel Art",
       "body": [
-        { "line": "moawling" }
+        { "line": "moawling" },
+        { "line": "IGJHSpritin"}
       ]
     },
     {
@@ -100,6 +114,16 @@
       ]
     },
     {
+      "header": "Additional Character Design",
+      "body": [
+        { "line": "Tom Fulp - Pico School Characters" },
+        { "line": "JohnnyUtah - Tankman" },
+        { "line": "SrPelo - Skid and Pump" },
+        { "line": "Magna - Otis" },
+        { "line": "gacktenzo - Preppy Otis" }
+      ]
+    },
+    {
       "header": "Music Production",
       "body": [
         { "line": "Saruky" },
@@ -111,22 +135,32 @@
       "body": [
         { "line": "BassetFilms" },
         { "line": "Kohta Takahashi" },
+        { "line": "Lotus Juice"},
+        { "line": "METAROOM"},
+        { "line": "nuphory"},
+        { "line": "Saster" },
         { "line": "SixImpala" },
-        { "line": "Saster" }
+        { "line": "TeraVex"},
+        { "line": "ThatAndyGuy"},
+        { "line": "tsuyunoshi"},
+        { "line": "xploshi"},
+        { "line": "Tee Lopes"},
+        { "line": "RRThiel"}
       ]
     },
     {
       "header": "Programming",
       "body": [
         { "line": "Eric \"EliteMasterEric\" Myllyoja" },
-        { "line": "fabs" }
+        { "line": "fabs" },
+        { "line": "KadeDev" }
       ]
     },
     {
       "header": "Additional Programming",
       "body": [
         { "line": "Jenny Crowe" },
-        { "line": "hazel (ravy)" },
+        { "line": "ember ana" },
         { "line": "Mike Welsh" },
         { "line": "Saharan" },
         { "line": "Ian Harrigan" },
@@ -134,13 +168,24 @@
         { "line": "Emma (MtH)" },
         { "line": "George Kurelic" },
         { "line": "Will Blanton" },
-        { "line": "Cheemsandfriends - FlxAnimate" }
+        { "line": "Victor - Cheemsandfriends" },
+        { "line": "Hundrec" },
+        { "line": "AbnormalPoof" }
+      ]
+    },
+    {
+      "header": "Mobile Porting",
+      "body": [
+        { "line": "MAJigsaw77" },
+        { "line": "Luckydog7" },
+        { "line": "Karim Akra" },
+        { "line": "sector_5" }
       ]
     },
     {
       "header": "Devops and Additional Internal Tooling",
       "body": [
-        { "line": "hazel (ravy)" }
+        { "line": "ember ana" }
       ]
     },
     {
@@ -161,6 +206,14 @@
       ]
     },
     {
+      "header": "Mobile Beta-testing",
+      "body": [
+        { "line": "shyllis" },
+        { "line": "IDontCareAboutKaz" },
+        { "line": "Sirox" }
+      ]
+    },
+    {
       "header": "Merchandise Partners and Designers",
       "body": [
         { "line": "Needlejuice Records: Jace McLain" },
@@ -174,7 +227,9 @@
         { "line": "Jeff Bandelin" },
         { "line": "PhantomArcade"},
         { "line": "evilsk8r" },
-        { "line": "beck" }
+        { "line": "beck" },
+        { "line": "Makeship: Seebs"},
+        { "line": "Makeship: Anna N"}
       ]
     },
     {
@@ -194,6 +249,7 @@
       "header": "Quality Assurance - Indium Play",
       "body": [
         { "line": "Lead Tester: Mihajlo Vuković" },
+        { "line": "Tester: Andrej Naumovski" },
         { "line": "Dajana Dimovska" }
       ]
     },
@@ -236,7 +292,7 @@
     {
       "header": "Cameron would like to specially thank",
       "body": [
-        { "line": "wanda, henry, snackers, digi, joemega, caddy, pewpew" },
+        { "line": "henry, snackers, digi, joemega, caddy, pewpew" },
         { "line": "milkhead jack" },
         { "line": "katt" },
         { "line": "arko, pepe, cashu, ookiyo" },
@@ -278,7 +334,27 @@
         { "line": "d1ggo" }
 
       ]
+    },
+    {
+      "header": "Mobile Team special thanks",
+      "body": [
+        { "line": "GalacticBaguette, Yowze, Snovi" },
+        { "line": "AguaCrunch, pb_lauro, Rulet, Rusron, Megalo_palewhite, Serizyu" },
+        { "line": "8-bitryan" },
+        { "line": "Stax, NoraYotsu, AndroidSharky, IdioticLuwuke" },
+        { "line": "PeppyWall, Klavier, Roadr, Limon" },
+        { "line": "Koniro, Key, Zuki, LunaMyria, Rattatuwu, ToffeeCaramel" },
+        { "line": "Ninkey, Snak, Codist" },
+        { "line": "ValenPratama" },
+        { "line": "yetet (June), IDontCareAbtKaz" },
+        { "line": "Schepka" },
+        { "line": "Amari, DatRand (Vlad), Ressu2, Kekkra, CaptainRoku" },
+        { "line": "cat (Ariel), deathgobrr" },
+        { "line": "Mario Master (MasterX)" },
+        { "line": "richTrash21, PurSnake, Naisonji, HopKa, Matr4ass" },
+        { "line": "Redar13, cub, Sirox, Shufa, D.Dregz, Sodaree" },
+        { "line": "dUmer, G0lda, Voodoo, Vemer, Sadshrimp" }
+      ]
     }
-
   ]
 }

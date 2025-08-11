@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Free texture packer v0.6.7 http://free-tex-packer.com
--->
+
 <TextureAtlas imagePath="darnell.png" width="1821" height="217">
   <SubTexture name="idle0001" x="8" y="8" width="240" height="191" rotated="true" frameX="-0" frameY="-8" frameWidth="201" frameHeight="248" />
   <SubTexture name="idle0002" x="264" y="8" width="240" height="191" rotated="true" frameX="-0" frameY="-8" frameWidth="201" frameHeight="248" />

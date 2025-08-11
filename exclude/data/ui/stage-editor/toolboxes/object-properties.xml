@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Object Properties" width="300" height="492">
+  <vbox width="100%" height="100%">
+    <frame text="Properties" width="100%" height="100%" horizontalAlign="center">
+      <vbox width="100%" height="100%">
+        <scrollview width="100%" height="100%" contentWidth="100%">
+          <grid columns="2" width="100%">
+            <label text="Position (X)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objPosX" step="5" pos="0" />
+            <label text="Position (Y)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objPosY" step="5" pos="0" />
+            <label text="Z-Index" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objZIdx" />
+            <label text="Opacity" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objAlpha" pos="1" min="0" max="1" step="0.05" precision="2" />
+            <label text="Angle" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objAngle" pos="0" min="0" max="360" />
+            <label text="Scale (X)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objScaleX" step="0.05" pos="1" precision="2" min="0.05" />
+            <label text="Scale (Y)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objScaleY" step="0.05" pos="1" precision="2" min="0.05" />
+            <label text="Scroll Factor (X)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objScrollX" step="0.05" pos="1" precision="2" />
+            <label text="Scroll Factor (Y)" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objScrollY" step="0.05" pos="1" precision="2" />
+            <label text="Dance every n Beats" verticalAlign="center" horizontalAlign="center" />
+            <number-stepper id="objDance" step="1" pos="0" min="0" />
+            <label text="Antialiasing" verticalAlign="center" horizontalAlign="center" />
+            <checkbox id="objPixel" text="Enabled" />
+            <label text="Flip Horizontally" verticalAlign="center" horizontalAlign="center" />
+            <checkbox id="objFlipX" text="Enabled" />
+            <label text="Flip Vertically" verticalAlign="center" horizontalAlign="center" />
+            <checkbox id="objFlipY" text="Enabled" />
+            <label text="Blend Mode" verticalAlign="center" horizontalAlign="center" />
+            <dropdown id="objBlend" text="Select Mode" width="100%" selectedIndex="0">
+              <data>
+                <item text="NONE" />
+                <item text="ADD" />
+                <item text="ALPHA" />
+                <item text="DARKEN" />
+                <item text="DIFFERENCE" />
+                <item text="ERASE" />
+                <item text="HARDLIGHT" />
+                <item text="INVERT" />
+                <item text="LAYER" />
+                <item text="LIGHTEN" />
+                <item text="MULTIPLY" />
+                <item text="NORMAL" />
+                <item text="OVERLAY" />
+                <item text="SCREEN" />
+                <item text="SHADER" />
+                <item text="SUBSCTRACT" />
+              </data>
+            </dropdown>
+            <label text="Tint" verticalAlign="center" horizontalAlign="center" />
+            <dropdown id="objTint" type="objTint" selectedItem="0xFFFFFFFF" />
+          </grid>
+        </scrollview>
+      </vbox>
+    </frame>
+  </vbox>
+</collapsible-dialog>

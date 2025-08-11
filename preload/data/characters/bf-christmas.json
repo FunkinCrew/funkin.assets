@@ -35,6 +35,18 @@
       "offsets": [-38, -7]
     },
     {
+      "name": "singDOWN-censor",
+      "assetPath": "characters/bfChristmas_Censored",
+      "prefix": "bf swear down",
+      "offsets": [-10, -50]
+    },
+    {
+      "name": "singRIGHT-censor",
+      "assetPath": "characters/bfChristmas_Censored",
+      "prefix": "bf swear right",
+      "offsets": [-38, -7]
+    },
+    {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
       "offsets": [12, 24]

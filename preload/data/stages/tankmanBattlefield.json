@@ -1,13 +1,13 @@
 {
   "version": "1.0.0",
   "name": "Tankman Battlefield",
-  "cameraZoom": 0.8,
+  "cameraZoom": 0.9,
   "props": [
     {
       "name": "tankSky",
       "assetPath": "tankSky",
-      "position": [-400, -400],
-      "scale": [1, 1],
+      "position": [-2000, -400],
+      "scale": [4, 1],
       "zIndex": 10,
       "scroll": [0, 0]
     },
@@ -19,38 +19,42 @@
       "scroll": [0, 0]
     },
     {
-      "assetPath": "tankMountains",
-      "position": [-280, -20],
+      "name": "mountains",
+      "assetPath": "mountains2",
+      "position": [-500, -35],
       "scale": [1.2, 1.2],
       "zIndex": 11,
       "scroll": [0.2, 0.2]
     },
     {
+      "name": "buildings",
       "assetPath": "tankBuildings",
-      "position": [-180, 0],
+      "position": [-260, -35],
       "scale": [1.1, 1.1],
       "zIndex": 13,
       "scroll": [0.3, 0.3]
     },
     {
-      "assetPath": "tankRuins",
-      "position": [-180, 0],
+      "name": "ruins",
+      "assetPath": "cityruins2",
+      "position": [-200, 150],
       "scale": [1.1, 1.1],
       "zIndex": 13,
       "scroll": [0.35, 0.35]
     },
     {
-      "name": "clouds",
+      "name": "clouds2",
       "assetPath": "tankClouds",
       "scale": [1, 1],
       "position": [0, 0],
       "zIndex": 11,
-      "scroll": [0.4, 0.4]
+      "scroll": [0.4, 0.4],
+      "alpha": 0
     },
     {
       "name": "smokeLeft",
       "assetPath": "smokeLeft",
-      "position": [-200, 0],
+      "position": [-380, -40],
       "scale": [1, 1],
       "scroll": [0.4, 0.4],
       "zIndex": 14,
@@ -62,7 +66,7 @@
     {
       "name": "smokeRight",
       "assetPath": "smokeRight",
-      "position": [1100, -100],
+      "position": [1050, -35],
       "scale": [1, 1],
       "zIndex": 15,
       "scroll": [0.4, 0.4],
@@ -74,9 +78,9 @@
     {
       "name": "watchtower",
       "assetPath": "tankWatchtower",
-      "position": [100, 50],
+      "position": [-35, 110],
       "scroll": [0.5, 0.5],
-      "scale": [1, 1],
+      "scale": [0.85, 0.85],
       "zIndex": 21,
       "danceEvery": 1,
       "animations": [
@@ -108,6 +112,14 @@
       "zIndex": 40
     },
     {
+      "name": "tankBricks",
+      "assetPath": "bricksGround",
+      "position": [438, 715],
+      "scroll": [1, 1],
+      "scale": [1.15, 1.15],
+      "zIndex": 101
+    },
+    {
       "name": "tankmanAudience0",
       "assetPath": "tank0",
       "zIndex": 1000,
@@ -115,7 +127,13 @@
       "scale": [1, 1],
       "scroll": [1.7, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead far right instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -127,7 +145,11 @@
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
       "animations": [
-        { "name": "idle", "prefix": "foreground", "looped": false }
+        {
+          "name": "idle",
+          "prefix": "foreground man 3 instance 1",
+          "looped": false
+        }
       ],
       "startingAnimation": "idle"
     },
@@ -139,7 +161,13 @@
       "scale": [1, 1],
       "scroll": [3.5, 2.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead 4 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -150,7 +178,13 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankman bobbin 3 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -161,7 +195,13 @@
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead far right instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     },
     {
@@ -172,21 +212,28 @@
       "scale": [1, 1],
       "scroll": [2.0, 0.2],
       "danceEvery": 1,
-      "animations": [{ "name": "idle", "prefix": "fg", "looped": false }],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "fg tankhead 5 instance 1",
+          "looped": false
+        }
+      ],
       "startingAnimation": "idle"
     }
   ],
   "characters": {
     "bf": {
-      "zIndex": 100,
+      "zIndex": 102,
       "position": [1090.5, 885],
       "cameraOffsets": [-220, -100]
     },
     "dad": {
-      "zIndex": 100,
+      "zIndex": 102,
       "position": [230.5, 996],
       "cameraOffsets": [250, -100]
     },
-    "gf": { "zIndex": 100, "position": [660.5, 715], "cameraOffsets": [0, 0] }
-  }
+    "gf": { "zIndex": 100, "position": [660.5, 730], "cameraOffsets": [0, 0] }
+  },
+  "directory": "week7"
 }

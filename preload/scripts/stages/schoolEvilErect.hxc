@@ -1,0 +1,61 @@
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.graphics.shaders.WiggleEffectRuntime;
+import funkin.graphics.shaders.WiggleEffectType;
+import flixel.addons.effects.FlxTrail;
+import funkin.play.Countdown;
+
+class SchoolEvilErectStage extends Stage
+{
+  function new()
+  {
+    super('schoolEvilErect');
+  }
+
+  var wiggleBack:FlxRuntimeShader = null;
+  var wiggleSchool:FlxRuntimeShader = null;
+  var wiggleGround:FlxRuntimeShader = null;
+  var wiggleSpike:FlxRuntimeShader = null;
+
+  override function buildStage()
+  {
+    super.buildStage();
+
+    wiggleBack = new WiggleEffectRuntime(2 * 0.8, 4 * 0.4, 0.011, WiggleEffectType.DREAMY);
+    wiggleSchool = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+    wiggleSpike = new WiggleEffectRuntime(2, 4, 0.01, WiggleEffectType.DREAMY);
+    wiggleGround = new WiggleEffectRuntime(2, 4, 0.007, WiggleEffectType.DREAMY);
+
+    getNamedProp('school').shader = wiggleSchool;
+    getNamedProp('evilstreet').shader = wiggleGround;
+    getNamedProp('backspikes').shader = wiggleBack;
+    getNamedProp('backspike').shader = wiggleSpike;
+  }
+
+  override function addCharacter(char:BaseCharacter, charType:CharacterType)
+  {
+    super.addCharacter(char, charType);
+  }
+
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
+
+    if (wiggleBack != null)
+    {
+      wiggleBack.update(event.elapsed);
+      wiggleSchool.update(event.elapsed);
+      wiggleGround.update(event.elapsed);
+      wiggleSpike.update(event.elapsed);
+    }
+  }
+
+  function kill()
+  {
+    super.kill();
+    wiggleBack = null;
+    wiggleSchool = null;
+    wiggleGround = null;
+    wiggleSpike = null;
+  }
+}

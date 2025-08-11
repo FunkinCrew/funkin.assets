@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="backButton.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="back0000" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0001" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0002" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0003" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0004" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0005" x="232" y="0" width="255" height="232" frameX="-21" frameY="-19" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0006" x="492" y="0" width="297" height="270"/>
+	<SubTexture name="back0007" x="0" y="275" width="285" height="260" frameX="-6" frameY="-5" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0008" x="290" y="275" width="275" height="251" frameX="-11" frameY="-9" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0009" x="570" y="275" width="261" height="238" frameX="-18" frameY="-16" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0010" x="0" y="540" width="215" height="196" frameX="-41" frameY="-37" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0011" x="0" y="540" width="215" height="196" frameX="-41" frameY="-37" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0012" x="220" y="540" width="221" height="201" frameX="-38" frameY="-34" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0013" x="220" y="540" width="221" height="201" frameX="-38" frameY="-34" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0014" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0015" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0016" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0017" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0018" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0019" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0020" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0021" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+	<SubTexture name="back0022" x="0" y="0" width="227" height="207" frameX="-35" frameY="-31" frameWidth="297" frameHeight="270"/>
+</TextureAtlas>
