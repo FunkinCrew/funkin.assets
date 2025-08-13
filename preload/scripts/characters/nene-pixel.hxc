@@ -344,24 +344,9 @@ class NenePixelCharacter extends SparrowCharacter
 
     switch (currentState)
     {
-      case STATE_RAISE:
-        if (name == "raiseKnife")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_LOWER:
-        if (name == "lowerKnife")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_READY:
-        if (name == "idleKnifeBlink")
-        {
-          animationFinished = true;
-          transitionState();
-        }
+      case STATE_RAISE, STATE_LOWER, STATE_READY:
+        animationFinished = true;
+        transitionState();
       default:
         // Ignore.
     }

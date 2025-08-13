@@ -491,42 +491,9 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
 
     switch (currentState)
     {
-      case STATE_RAISE:
-        if (name == "raiseKnife")
-        {
+      case STATE_RAISE, STATE_LOWER, STATE_HAIR_BLOWING, STATE_HAIR_FALLING, STATE_HAIR_BLOWING_RAISE, STATE_HAIR_FALLING_RAISE:
           animationFinished = true;
           transitionState();
-        }
-      case STATE_LOWER:
-        if (name == "lowerKnife")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_HAIR_BLOWING:
-        if (name == "hairBlowNormal")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_HAIR_FALLING:
-        if (name == "hairFallNormal")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_HAIR_BLOWING_RAISE:
-        if (name == "hairBlowKnife")
-        {
-          animationFinished = true;
-          transitionState();
-        }
-      case STATE_HAIR_FALLING_RAISE:
-        if (name == "hairFallKnife")
-        {
-          animationFinished = true;
-          transitionState();
-        }
       default:
         // Ignore.
     }
