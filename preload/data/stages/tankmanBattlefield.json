@@ -6,8 +6,8 @@
     {
       "name": "tankSky",
       "assetPath": "tankSky",
-      "position": [-2000, -400],
-      "scale": [4, 1],
+      "position": [-1000, -400],
+      "scale": [3000, 1],
       "zIndex": 10,
       "scroll": [0, 0]
     },
