@@ -2,29 +2,53 @@ import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
+import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import flixel.FlxG;
 
-class BFPixelCharacter extends MultiSparrowCharacter {
-	function new() {
-		super('bf-pixel');
-	}
+class BFPixelCharacter extends MultiSparrowCharacter
+{
+  function new()
+  {
+    super('bf-pixel');
+  }
 
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
 
-		GameOverSubState.musicSuffix = '-pixel';
-		GameOverSubState.blueBallSuffix = '-pixel';
+    if (!HapticUtil.hapticsAvailable) return;
 
-		PauseSubState.musicSuffix = '-pixel';
-	}
+    // BF's mic drops.
+    if (name == 'firstDeath' && frameNumber == 27)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
 
-		function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+    // BF's balls pulsating.
+    if (name == 'deathLoop' && (frameNumber == 0 || frameNumber == 18))
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+  }
 
-		if (name == "firstDeath") {
-			this.shader = null;
-		}
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
 
-		super.playAnimation(name, restart, ignoreOther);
-	}
+    GameOverSubState.musicSuffix = '-pixel';
+    GameOverSubState.blueBallSuffix = '-pixel';
+
+    PauseSubState.musicSuffix = '-pixel';
+  }
+
+  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  {
+    if (name == "firstDeath")
+    {
+      this.shader = null;
+    }
+
+    super.playAnimation(name, restart, ignoreOther);
+  }
 }

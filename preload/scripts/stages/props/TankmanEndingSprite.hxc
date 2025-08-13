@@ -10,26 +10,28 @@ import funkin.audio.FunkinSound;
 
 class TankmanEndingSprite extends FlxAtlasSprite
 {
-
   public function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("erect/cutscene/tankmanEnding", "week7"), {
-      FrameRate: 24.0,
-      Reversed: false,
-      // ?OnComplete:Void -> Void,
-      ShowPivot: false,
-      Antialiasing: true,
-      ScrollFactor: new FlxPoint(1, 1),
-    });
+    super(x, y, Paths.animateAtlas("erect/cutscene/tankmanEnding", "week7"),
+      {
+        FrameRate: 24.0,
+        Reversed: false,
+        // ?OnComplete:Void -> Void,
+        ShowPivot: false,
+        Antialiasing: true,
+        ScrollFactor: new FlxPoint(1, 1),
+      });
   }
 
   var cutsceneSounds:FunkinSound = null;
 
-  public function cancelSounds(){
-    if(cutsceneSounds != null) cutsceneSounds.destroy();
+  public function cancelSounds()
+  {
+    if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
-  function doAnim(){
+  function doAnim()
+  {
     playAnimation("tankman stress ending", true, false, false);
     cutsceneSounds = FunkinSound.load(Paths.sound('erect/endCutscene'), 1.0, false, true, true);
   }

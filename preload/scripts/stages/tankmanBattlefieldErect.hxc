@@ -9,123 +9,124 @@ import flixel.graphics.FlxGraphic;
 
 class TankmanBattlefieldErectStage extends Stage
 {
-	function new()
-	{
-		super('tankmanBattlefieldErect');
-	}
+  function new()
+  {
+    super('tankmanBattlefieldErect');
+  }
 
-	function onCreate(event:ScriptEvent):Void {
-		super.onCreate(event);
-	}
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+  }
 
-	var tankmanRim:DropShadowShader;
+  var tankmanRim:DropShadowShader;
 
-	public function onGameOver(event:ScriptEvent) {
-		super.onGameOver(event);
-		getBoyfriend().shader = null;
-	}
+  public function onGameOver(event:ScriptEvent)
+  {
+    super.onGameOver(event);
+    getBoyfriend().shader = null;
+  }
 
-	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
-		// Apply the shader automatically to each character as it gets added.
-		super.addCharacter(character, charType);
-		trace('Applied stage shader to ' + character.characterName);
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    // Apply the shader automatically to each character as it gets added.
+    super.addCharacter(character, charType);
+    trace('Applied stage shader to ' + character.characterName);
 
-		var rim = new DropShadowShader();
-		rim.setAdjustColor(-46, -38, -25, -20);
+    var rim = new DropShadowShader();
+    rim.setAdjustColor(-46, -38, -25, -20);
     rim.color = 0xFFDFEF3C;
-		character.shader = rim;
-		rim.attachedSprite = character;
+    character.shader = rim;
+    rim.attachedSprite = character;
 
-		switch(charType){
-			case CharacterType.BF:
+    switch (charType)
+    {
+      case CharacterType.BF:
+        rim.angle = 90;
 
-				rim.angle = 90;
+        character.animation.onFrameChange.add(function() {
+          if (getBoyfriend() != null)
+          {
+            rim.updateFrameInfo(getBoyfriend().frame);
+          }
+        });
 
-				character.animation.onFrameChange.add(function() {
-					if (getBoyfriend() != null)
-					{
-      			rim.updateFrameInfo(getBoyfriend().frame);
-					}
-    		});
+      case CharacterType.GF:
+        rim.angle = 90;
 
-			case CharacterType.GF:
+        character.animation.onFrameChange.add(function() {
+          rim.updateFrameInfo(getGirlfriend().frame);
+        });
 
-				rim.angle = 90;
+        if (getGirlfriend().characterId == 'gf-tankmen')
+        {
+          rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
+          rim.maskThreshold = 0.4;
+          rim.useAltMask = true;
+        }
 
-				character.animation.onFrameChange.add(function() {
-      		rim.updateFrameInfo(getGirlfriend().frame);
-    		});
+        if (getGirlfriend().characterId == 'otis-speaker')
+        {
+          getNamedProp('tankBricks').setPosition(445, 774);
+        }
 
-				if(getGirlfriend().characterId == 'gf-tankmen'){
-					rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
-					rim.maskThreshold = 0.4;
-					rim.useAltMask = true;
-				}
+      case CharacterType.DAD:
+        rim.angle = 135;
+        rim.threshold = 0.3;
 
-			case CharacterType.DAD:
+        character.animation.onFrameChange.add(function() {
+          rim.updateFrameInfo(getDad().frame);
+        });
 
-				rim.angle = 135;
-				rim.threshold = 0.3;
+        if (getDad().characterId == 'tankman-bloody')
+        {
+          rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
+          rim.maskThreshold = 1;
+          rim.useAltMask = false;
+        }
 
-				character.animation.onFrameChange.add(function() {
-      		rim.updateFrameInfo(getDad().frame);
-    		});
+        // need to save this for later for when the mask is needed
+        tankmanRim = rim;
 
-				if(getDad().characterId == 'tankman-bloody'){
-					rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
-					rim.maskThreshold = 1;
-					rim.useAltMask = false;
-				}
+      default:
+    }
+  }
 
-				// need to save this for later for when the mask is needed
-				tankmanRim = rim;
+  /**
+   * Called when the chart hits a song event.
+   */
+  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  {
+    super.onSongEvent(scriptEvent);
 
-			default:
+    if (scriptEvent.eventData.eventKind == "EnableMask" && tankmanRim != null)
+    {
+      tankmanRim.useAltMask = true;
+    }
+  }
 
-		}
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+  }
 
-	}
+  function onBeatHit(event:SongTimeScriptEvent):Void
+  {
+    super.onBeatHit(event);
 
-	/**
-	 * Called when the chart hits a song event.
-	 */
-	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-	{
-		super.onSongEvent(scriptEvent);
+    if (FlxG.random.bool(2))
+    {
+      getNamedProp('sniper').playAnimation('sip', false, true);
+    }
+  }
 
-		if (scriptEvent.eventData.eventKind == "EnableMask" && tankmanRim != null)
-		{
-			tankmanRim.useAltMask = true;
-		}
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
 
-	}
-
-	override function buildStage()
-	{
-		super.buildStage();
-	}
-
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
-		super.onUpdate(event);
-	}
-
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-
-		if(FlxG.random.bool(2)){
-			getNamedProp('sniper').playAnimation('sip', false, true);
-		}
-	}
-
-	function onSongRetry(event:ScriptEvent)
-	{
-		super.onSongRetry(event);
-
-		if (tankmanRim != null)
-		{
-			tankmanRim.useAltMask = false;
-		}
-	}
+    if (tankmanRim != null)
+    {
+      tankmanRim.useAltMask = false;
+    }
+  }
 }

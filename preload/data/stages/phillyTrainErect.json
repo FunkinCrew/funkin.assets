@@ -15,8 +15,8 @@
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "city",
       "isPixel": false,
@@ -27,8 +27,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights0",
       "isPixel": false,
@@ -39,8 +39,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights1",
       "isPixel": false,
@@ -51,8 +51,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights2",
       "isPixel": false,
@@ -63,8 +63,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights3",
       "isPixel": false,
@@ -75,8 +75,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-10, 0],
-      "scale": [0.85, 0.85],
+      "position": [-255, 45],
+      "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights4",
       "isPixel": false,
@@ -87,7 +87,7 @@
     {
       "danceEvery": 0,
       "zIndex": 50,
-      "position": [-40, 50],
+      "position": [-299, 144],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "behindTrain",
@@ -111,7 +111,7 @@
     {
       "danceEvery": 0,
       "zIndex": 70,
-      "position": [-40, 50],
+      "position": [-299, 144],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "street",

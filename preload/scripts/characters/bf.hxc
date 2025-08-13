@@ -5,51 +5,94 @@ import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.Preferences;
+import funkin.util.Constants;
+import funkin.util.HapticUtil;
 
-class BoyfriendCharacter extends MultiSparrowCharacter {
-	function new() {
-		super('bf');
-	}
+class BoyfriendCharacter extends MultiSparrowCharacter
+{
+  function new()
+  {
+    super('bf');
+  }
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		if (name == "fakeoutDeath" && !this.debug) {
-			doFakeoutDeath();
-		} else {
-			super.playAnimation(name, restart, ignoreOther);
-		}
-	}
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
 
-	function doFakeoutDeath():Void {
-		FunkinSound.playOnce(Paths.sound("gameplay/gameover/fakeout_death"), 1.0);
+    if (!HapticUtil.hapticsAvailable) return;
 
-		var bfFakeout:FlxAtlasSprite = new FlxAtlasSprite(this.x - 440, this.y - 240, Paths.animateAtlas("characters/bfFakeOut", "shared"));
-    FlxG.state.subState.add(bfFakeout);
-		bfFakeout.zIndex = 1000;
+    // BF's mic drops.
+    if (name == 'firstDeath' && frameNumber == 27)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // BF's balls pulsating.
+    if (name == 'deathLoop' && (frameNumber == 0 || frameNumber == 18))
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+  }
+
+  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  {
+    if (name == "fakeoutDeath" && !this.debug)
+    {
+      doFakeoutDeath();
+    }
+    else
+    {
+      super.playAnimation(name, restart, ignoreOther);
+    }
+  }
+
+  function doFakeoutDeath():Void
+  {
+    FunkinSound.playOnce(Paths.sound("gameplay/gameover/fakeout_death"), 1.0);
+
+    var bfFakeout:FlxAtlasSprite = new FlxAtlasSprite(this.x - 440, this.y - 240, Paths.animateAtlas("characters/bfFakeOut", "shared"));
+    GameOverSubState.instance.add(bfFakeout);
+    bfFakeout.zIndex = 1000;
     bfFakeout.playAnimation('');
-		// We don't want people to miss this.
-		FlxG.state.subState.mustNotExit = true;
+    // We don't want people to miss this.
+    GameOverSubState.instance.mustNotExit = true;
     bfFakeout.onAnimationComplete.add(() -> {
       bfFakeout.visible = false;
       this.visible = true;
-			FlxG.state.subState.mustNotExit = false;
+      GameOverSubState.instance.mustNotExit = false;
       this.playAnimation('firstDeath', true, true);
       // Play the "blue balled" sound. May play a variant if one has been assigned.
       GameOverSubState.playBlueBalledSFX();
     });
     bfFakeout.visible = true;
-		this.visible = false;
-	}
+    this.visible = false;
+  }
 
-	override function getDeathQuote():Null<String> {
+  override function getDeathQuote():Null<String>
+  {
+    switch (PlayState.instance.currentStage.getDad().characterId)
+    {
+      case "tankman":
+        var randomCensor:Array<Int> = [];
 
-		switch (PlayState.instance.currentStage.getDad().characterId) {
-			case "tankman":
-				var randomCensor:Array<Int> = [];
+        if (!Preferences.naughtyness)
+        {
+          // 1 - cock
+          // 3 - shitty
+          // 8 - shit
+          // 13 - fuck
+          // 17 - shit, asshole
+          // 21 - fucking
+          randomCensor = [1, 3, 8, 13, 17, 21];
+        }
+        else if (Constants.CENSOR_EXPLETIVES)
+        {
+          randomCensor = [13, 21];
+        }
 
-				if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
-				return Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor));
-			default:
-				return null;
-		}
-	}
+        return Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor));
+      default:
+        return null;
+    }
+  }
 }

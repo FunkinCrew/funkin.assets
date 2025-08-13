@@ -10,135 +10,135 @@ import flixel.effects.FlxFlicker;
  */
 class TankmanSprite extends FunkinSprite
 {
-	// Randomize the horizontal position of the tankman when 'shot' plays.
-	public var endingOffset:Float = 0;
-	// Randomize the speed that the tankman moves to where it will be shot.
-	public var runSpeed:Float = 0;
-	// The time in milliseconds when the 'shot' animation should play.
-	public var strumTime:Float = 0;
-	// the side the tankman is running from
-	public var goingRight:Bool = false;
+  // Randomize the horizontal position of the tankman when 'shot' plays.
+  public var endingOffset:Float = 0;
+  // Randomize the speed that the tankman moves to where it will be shot.
+  public var runSpeed:Float = 0;
+  // The time in milliseconds when the 'shot' animation should play.
+  public var strumTime:Float = 0;
+  // the side the tankman is running from
+  public var goingRight:Bool = false;
 
-	function new()
-	{
-		super();
+  function new()
+  {
+    super();
 
-		loadSparrow('tankmanKilled1');
-		animation.addByPrefix('run', 'tankman running', 24, true);
-		animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
+    loadSparrow('tankmanKilled1');
+    animation.addByPrefix('run', 'tankman running', 24, true);
+    animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
 
-		initAnim();
+    initAnim();
 
-		setGraphicSize(Std.int(width * 0.4));
+    setGraphicSize(Std.int(width * 0.4));
 
-		updateHitbox();
-	}
+    updateHitbox();
+  }
 
-	// shamelessly stolen from pico thank u ericc
-	var tankmanFlicker:FlxFlicker = null;
+  // shamelessly stolen from pico thank u ericc
+  var tankmanFlicker:FlxFlicker = null;
 
-	function deathFlicker() {
-			// ERIC: You have to use super instead of this or it breaks.
-			// This is because typeof(this) is PolymodAbstractClass.
+  function deathFlicker()
+  {
+    // ERIC: You have to use super instead of this or it breaks.
+    // This is because typeof(this) is PolymodAbstractClass.
      tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 10, true, true, function(_) {
       tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 20, false, true, function(_) {
-				tankmanFlicker = null;
-				kill();
-			});
+        tankmanFlicker = null;
+        kill();
+      });
     });
-	}
+  }
 
-	var rim:DropShadowShader;
+  var rim:DropShadowShader;
 
-	public function addRimlight()
-	{
-		rim = new DropShadowShader();
+  public function addRimlight()
+  {
+    rim = new DropShadowShader();
 
-		rim.baseBrightness = -46;
+    rim.baseBrightness = -46;
     rim.baseHue = -38;
     rim.baseContrast = -25;
     rim.baseSaturation = -20;
 
-		rim.threshold = 0.4;
+    rim.threshold = 0.4;
 
-  	rim.color = 0xFFDFEF3C;
+    rim.color = 0xFFDFEF3C;
 
-		shader = rim;
+    shader = rim;
 
-		//rim.attachedSprite = tankman;
+    // rim.attachedSprite = tankman;
 
-		animation.onFrameChange.add(function() {
+    animation.onFrameChange.add(function() {
       rim.updateFrameInfo(this.frame);
     });
 
-		// If goingRight is false, 0 degrees = facing right.
-		// If goingRight is true, 0 degrees = facing left.
+    // If goingRight is false, 0 degrees = facing right.
+    // If goingRight is true, 0 degrees = facing left.
 
-		rim.angle = 135; //goingRight ? 135 : 45;
-	}
+    rim.angle = 135; // goingRight ? 135 : 45;
+  }
 
-	function initAnim()
-	{
-		// Called when the sprite is created as well as when it is revived.
+  function initAnim()
+  {
+    // Called when the sprite is created as well as when it is revived.
 
-		animation.play('run');
-		animation.curAnim.curFrame = FlxG.random.int(0, animation.curAnim.numFrames - 1);
+    animation.play('run');
+    animation.curAnim.curFrame = FlxG.random.int(0, animation.curAnim.numFrames - 1);
 
-		offset.y = 0;
-		offset.x = 0;
-	}
+    offset.y = 0;
+    offset.x = 0;
+  }
 
-	function revive()
-	{
-		// Sprite has been revived! This allows it to be reused without reinstantiating.
-		super.revive();
-		visible = true;
-		initAnim();
-	}
+  function revive()
+  {
+    // Sprite has been revived! This allows it to be reused without reinstantiating.
+    super.revive();
+    visible = true;
+    initAnim();
+  }
 
-	function update(elapsed:Float):Void
-	{
-		super.update(elapsed);
+  function update(elapsed:Float):Void
+  {
+    super.update(elapsed);
 
+    if (animation.curAnim.name == 'shot' && animation.curAnim.curFrame >= 10 && tankmanFlicker == null)
+    {
+      deathFlicker();
+    }
+    // Check if we've reached the time when the tankman should be shot.
+    if (Conductor.instance.songPosition >= strumTime && animation.curAnim.name == 'run')
+    {
+      animation.play('shot');
 
-		if (animation.curAnim.name == 'shot' && animation.curAnim.curFrame >= 10 && tankmanFlicker == null)
-		{
-			deathFlicker();
-		}
-		// Check if we've reached the time when the tankman should be shot.
-		if (Conductor.instance.songPosition >= strumTime && animation.curAnim.name == 'run')
-		{
-			animation.play('shot');
+      offset.y = 200;
+      offset.x = 300;
+    }
 
-			offset.y = 200;
-			offset.x = 300;
-		}
+    // Move the sprite while it is running.
+    if (animation.curAnim.name == 'run')
+    {
+      // Here, the position is set to the target position where it will be shot.
+      // Then, we move the sprite away from that position in the direction it's coming from.
+      // songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
+      var runFactor = ((Conductor.instance.songPosition - strumTime) * runSpeed);
+      if (!goingRight)
+      {
+        x = (FlxG.width * 0.02 - endingOffset) + runFactor;
+      }
+      else
+      {
+        x = (FlxG.width * 0.74 + endingOffset) - runFactor;
+      }
 
-		// Move the sprite while it is running.
-		if (animation.curAnim.name == 'run')
-		{
-			// Here, the position is set to the target position where it will be shot.
-			// Then, we move the sprite away from that position in the direction it's coming from.
-			// songPosition - strumTime will get smaller over time until it reaches 0, when the 'shot' anim plays.
-			var runFactor = ((Conductor.instance.songPosition - strumTime) * runSpeed);
-			if (!goingRight)
-			{
-				x = (FlxG.width * 0.02 - endingOffset) + runFactor;
-			}
-			else
-			{
-				x = (FlxG.width * 0.74 + endingOffset) - runFactor;
-			}
+      // if (this.shader != null) {
+      // 	this.shader.angle =
+      // }
+    }
 
-			// if (this.shader != null) {
-			// 	this.shader.angle =
-			// }
-		}
-
-		// Hide this sprite if it is out of view.
-		// if (x >= FlxG.width * 1.2 || x <= FlxG.width * -0.5)
-		// 	visible = false;
-		// else
-		// 	visible = true;
-	}
+    // Hide this sprite if it is out of view.
+    // if (x >= FlxG.width * 1.2 || x <= FlxG.width * -0.5)
+    // 	visible = false;
+    // else
+    // 	visible = true;
+  }
 }

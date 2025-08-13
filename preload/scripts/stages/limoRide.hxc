@@ -5,109 +5,137 @@ import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
+import funkin.util.HapticUtil;
+import funkin.util.Sequence;
 
 class LimoRideStage extends Stage
 {
-	function new()
-	{
-		super('limoRide');
-	}
+  function new()
+  {
+    super('limoRide');
+  }
 
-	function buildStage()
-	{
-		super.buildStage();
+  override function buildStage()
+  {
+    super.buildStage();
 
-		// Apply sky shader.
-		var skyOverlay:OverlayBlend = new OverlayBlend();
-		var sunOverlay:FlxSprite = new FlxSprite().loadGraphic(Paths.image('limo/limoOverlay'));
-		sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
-		sunOverlay.updateHitbox();
-		skyOverlay.funnyShit.input = sunOverlay.pixels;
-		var limoSunset:FlxSprite = getNamedProp('limoSunset');
-		if (limoSunset == null) {
-			trace('[WARN] Could not retrieve limoSunset');
-		} else {
-			limoSunset.shader = skyOverlay;
-		}
+    // Apply sky shader.
+    var skyOverlay:OverlayBlend = new OverlayBlend();
+    var sunOverlay:FlxSprite = new FlxSprite().loadGraphic(Paths.image('limo/limoOverlay'));
+    sunOverlay.setGraphicSize(Std.int(sunOverlay.width * 2));
+    sunOverlay.updateHitbox();
+    skyOverlay.funnyShit.input = sunOverlay.pixels;
+    var limoSunset:FlxSprite = getNamedProp('limoSunset');
+    if (limoSunset == null)
+    {
+      trace('[WARN] Could not retrieve limoSunset');
+    }
+    else
+    {
+      limoSunset.shader = skyOverlay;
+    }
 
-		// There's some commented-out shader BS in the original code.
-		// I don't know what it's for, but it's not used in the game.
-		// If you want to re-add it, go find it in version control.
+    // There's some commented-out shader BS in the original code.
+    // I don't know what it's for, but it's not used in the game.
+    // If you want to re-add it, go find it in version control.
 
-		resetFastCar();
-	}
+    carSequenceData = [
+      {time: 1, callback: () -> doCarHaptics = true},
+      {time: 1.4, callback: () -> doCarHaptics = false},
+      {time: 2, callback: () -> resetFastCar()}
+    ];
 
-	function onBeatHit(event:SongTimeScriptEvent)
-	{
-		// When overriding onBeatHit, make sure to call super.onBeatHit,
-		// otherwise boppers will not work.
-		super.onBeatHit(event);
+    resetFastCar();
+  }
 
-		if (FlxG.random.bool(10) && fastCarCanDrive)
-			fastCarDrive();
-	}
+  override function onBeatHit(event:SongTimeScriptEvent)
+  {
+    // When overriding onBeatHit, make sure to call super.onBeatHit,
+    // otherwise boppers will not work.
+    super.onBeatHit(event);
 
-	var fastCarCanDrive:Bool = false;
+    if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
+  }
 
-	function resetFastCar():Void
-	{
-		var fastCar = getNamedProp('fastCar');
+  var carSequence:Sequence;
+  var carSequenceData:Array<SequenceData>;
+  var doCarHaptics:Bool = false;
 
-		if (fastCar == null)
-			return;
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
 
-		// Props are inactive by default.
-		// Set active to true so position is calculated based on velocity.
-		fastCar.active = true;
+    if (doCarHaptics)
+    {
+      HapticUtil.vibrate(0, 0.05, 0.25, 0);
+    }
+  }
 
-		fastCar.x = -12600;
-		fastCar.y = FlxG.random.int(140, 250);
-		fastCar.velocity.x = 0;
-		fastCarCanDrive = true;
-	}
+  var fastCarCanDrive:Bool = false;
 
-	function fastCarDrive():Void
-	{
-		FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
+  function resetFastCar():Void
+  {
+    var fastCar = getNamedProp('fastCar');
 
-		var fastCar = getNamedProp('fastCar');
-		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
-		fastCarCanDrive = false;
-		new FlxTimer().start(2, function(tmr:FlxTimer)
-		{
-			resetFastCar();
-		});
-	}
+    if (fastCar == null) return;
 
-	/**
-	 * If your stage uses additional assets not specified in the JSON,
-	 * make sure to specify them like this, or they won't get cached in the loading screen.
-	 */
-	function fetchAssetPaths():Array<String>
-	{
-		var results:Array<String> = super.fetchAssetPaths();
+    // Props are inactive by default.
+    // Set active to true so position is calculated based on velocity.
+    fastCar.active = true;
 
-		// This graphic is applied by shader to the background, so it's not included in the default stage function.
-		results.push(Paths.image('limo/limoOverlay'));
-		results.push(Paths.sound('carPass0'));
-		results.push(Paths.sound('carPass1'));
+    fastCar.x = -12600;
+    fastCar.y = FlxG.random.int(140, 250);
+    fastCar.velocity.x = 0;
+    fastCarCanDrive = true;
+  }
 
-		return results;
-	}
+  function fastCarDrive():Void
+  {
+    FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
 
-	/**
-	 * Make sure the fast car is reset when the song restarts.
-	 */
-	function onSongRetry(event:ScriptEvent) {
-		super.onSongRetry(event);
-		resetFastCar();
-	}
+    var fastCar = getNamedProp('fastCar');
+    fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
+    fastCarCanDrive = false;
 
-	/**
-	 * Make sure the fast car is reset when the song restarts.
-	 */
-	function onCountdownStart(event:ScriptEvent) {
-		super.onCountdownStart(event);
-		resetFastCar();
-	}
+    carSequence = new Sequence(carSequenceData);
+  }
+
+  /**
+   * If your stage uses additional assets not specified in the JSON,
+   * make sure to specify them like this, or they won't get cached in the loading screen.
+   */
+  function fetchAssetPaths():Array<String>
+  {
+    var results:Array<String> = super.fetchAssetPaths();
+
+    // This graphic is applied by shader to the background, so it's not included in the default stage function.
+    results.push(Paths.image('limo/limoOverlay'));
+    results.push(Paths.sound('carPass0'));
+    results.push(Paths.sound('carPass1'));
+
+    return results;
+  }
+
+  /**
+   * Make sure the fast car is reset when the song restarts.
+   */
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+    resetFastCar();
+  }
+
+  override function onPause(event:PauseScriptEvent)
+  {
+    super.onPause(event);
+
+    if (carSequence != null) carSequence.running = false;
+  }
+
+  override function onResume(event:ScriptEvent)
+  {
+    super.onResume(event);
+
+    if (carSequence != null) carSequence.running = true;
+  }
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Tankman",
+  "name": "Tankman (Atlas)",
   "renderType": "animateatlas",
   "assetPath": "characters/tankman",
   "flipX": true,

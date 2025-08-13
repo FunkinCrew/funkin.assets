@@ -1,17 +1,12 @@
 {
   "props": [
     {
-      "danceEvery": 0,
+      "name": "solid",
       "zIndex": 0,
-      "position": [729, -170],
-      "scale": [1, 1],
-      "animType": "sparrow",
-      "name": "backDark",
-      "isPixel": false,
-      "assetPath": "erect/backDark",
-      "scroll": [1, 1],
-      "alpha": 1,
-      "animations": []
+      "assetPath": "#222026",
+      "position": [-500, -1000],
+      "scale": [2400, 2000],
+      "scroll": [0, 0]
     },
     {
       "danceEvery": 0,
@@ -29,7 +24,7 @@
     {
       "name": "crowd",
       "assetPath": "erect/crowd",
-      "position": [560, 290],
+      "position": [682, 290],
       "scale": [1, 1],
       "scroll": [0.8, 0.8],
       "danceEvery": 0,
@@ -38,7 +33,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "Symbol 2 instance 1",
+          "prefix": "idle0",
           "frameRate": 12,
           "looped": true,
           "flipX": false,
@@ -49,47 +44,44 @@
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-603, -187],
+      "position": [-765, -247],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "bg",
       "isPixel": false,
       "assetPath": "erect/bg",
       "scroll": [1, 1],
-      "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-361, 205],
+      "position": [-991, 205],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "server",
       "isPixel": false,
       "assetPath": "erect/server",
       "scroll": [1, 1],
-      "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 4000,
-      "position": [-601, -147],
+      "position": [-847, -245],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "lights",
       "isPixel": false,
       "assetPath": "erect/lights",
       "scroll": [1.2, 1.2],
-      "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 80,
-      "position": [189, -195],
-      "scale": [1, 1],
+      "position": [189, -500],
+      "scale": [1, 3],
       "animType": "sparrow",
       "name": "orangeLight",
       "isPixel": false,

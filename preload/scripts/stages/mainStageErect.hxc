@@ -9,25 +9,27 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.play.character.CharacterType;
 
 class MainStageErectStage extends Stage
 {
-	function new()
-	{
-		super('mainStageErect');
-	}
+  function new()
+  {
+    super('mainStageErect');
+  }
 
   var colorShaderBf:AdjustColorShader;
   var colorShaderDad:AdjustColorShader;
   var colorShaderGf:AdjustColorShader;
 
-	public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
-	}
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+  }
 
-	function buildStage()
-	{
-		super.buildStage();
+  function buildStage()
+  {
+    super.buildStage();
 
     colorShaderBf = new AdjustColorShader();
     colorShaderDad = new AdjustColorShader();
@@ -36,45 +38,51 @@ class MainStageErectStage extends Stage
     colorShaderBf.brightness = -23;
     colorShaderBf.hue = 12;
     colorShaderBf.contrast = 7;
-		colorShaderBf.saturation = 0;
+    colorShaderBf.saturation = 0;
 
     colorShaderGf.brightness = -30;
     colorShaderGf.hue = -9;
     colorShaderGf.contrast = -4;
-		colorShaderGf.saturation = 0;
+    colorShaderGf.saturation = 0;
 
     colorShaderDad.brightness = -33;
     colorShaderDad.hue = -32;
     colorShaderDad.contrast = -23;
-		colorShaderDad.saturation = 0;
+    colorShaderDad.saturation = 0;
 
     getNamedProp('brightLightSmall').blend = 0;
     getNamedProp('orangeLight').blend = 0;
     getNamedProp('lightgreen').blend = 0;
     getNamedProp('lightred').blend = 0;
     getNamedProp('lightAbove').blend = 0;
+  }
 
-	}
-
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
-		super.onUpdate(event);
-
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
-			PlayState.instance.currentStage.getDad().shader = colorShaderDad;
-    }
-
-	}
-
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-	}
+  function onBeatHit(event:SongTimeScriptEvent):Void
+  {
+    super.onBeatHit(event);
+  }
 
   function onStepHit(event:SongTimeScriptEvent):Void
-	{
-		super.onStepHit(event);
-	}
+  {
+    super.onStepHit(event);
+  }
+
+  /**
+   * Apply the shader to the character as it is added.
+   */
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    // Apply the shader automatically to each character as it gets added.
+    super.addCharacter(character, charType);
+    trace('Applied stage shader to ' + character.characterName);
+    switch (charType)
+    {
+      case CharacterType.BF:
+        character.shader = colorShaderBf;
+      case CharacterType.DAD:
+        character.shader = colorShaderDad;
+      case CharacterType.GF:
+        character.shader = colorShaderGf;
+    }
+  }
 }

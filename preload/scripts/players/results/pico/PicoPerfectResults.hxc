@@ -1,0 +1,25 @@
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.math.FlxPoint;
+import funkin.util.HapticUtil;
+
+class PicoPerfectResults extends FlxAtlasSprite
+{
+  function new(x:Float, y:Float)
+  {
+    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsPERFECT", "shared"),
+      {
+        Reversed: false,
+        // ?OnComplete:Void -> Void,
+        ShowPivot: false,
+        Antialiasing: true,
+        ScrollFactor: new FlxPoint(1, 1),
+      });
+
+    onAnimationFrame.add((animation:String, frame:Int) -> {
+      if (!HapticUtil.hapticsAvailable) return;
+
+      // Pico drop-kicking Nene.
+      if (frame == 52) HapticUtil.vibrate(0.1, 0.5, 1);
+    });
+  }
+}

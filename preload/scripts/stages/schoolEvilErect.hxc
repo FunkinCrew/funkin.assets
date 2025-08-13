@@ -7,38 +7,55 @@ import funkin.play.Countdown;
 
 class SchoolEvilErectStage extends Stage
 {
-	function new()
-	{
-		super('schoolEvilErect');
-	}
+  function new()
+  {
+    super('schoolEvilErect');
+  }
 
-	var wiggle:FlxRuntimeShader = null;
+  var wiggleBack:FlxRuntimeShader = null;
+  var wiggleSchool:FlxRuntimeShader = null;
+  var wiggleGround:FlxRuntimeShader = null;
+  var wiggleSpike:FlxRuntimeShader = null;
 
-	override function buildStage()
-	{
-		super.buildStage();
+  override function buildStage()
+  {
+    super.buildStage();
 
-		wiggle = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+    wiggleBack = new WiggleEffectRuntime(2 * 0.8, 4 * 0.4, 0.011, WiggleEffectType.DREAMY);
+    wiggleSchool = new WiggleEffectRuntime(2, 4, 0.017, WiggleEffectType.DREAMY);
+    wiggleSpike = new WiggleEffectRuntime(2, 4, 0.01, WiggleEffectType.DREAMY);
+    wiggleGround = new WiggleEffectRuntime(2, 4, 0.007, WiggleEffectType.DREAMY);
 
-		getNamedProp('evilSchoolBG').shader = wiggle;
-	}
+    getNamedProp('school').shader = wiggleSchool;
+    getNamedProp('evilstreet').shader = wiggleGround;
+    getNamedProp('backspikes').shader = wiggleBack;
+    getNamedProp('backspike').shader = wiggleSpike;
+  }
 
-	override function addCharacter(char:BaseCharacter, charType:CharacterType)
-	{
+  override function addCharacter(char:BaseCharacter, charType:CharacterType)
+  {
+    super.addCharacter(char, charType);
+  }
 
-		super.addCharacter(char, charType);
-	}
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
 
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
+    if (wiggleBack != null)
+    {
+      wiggleBack.update(event.elapsed);
+      wiggleSchool.update(event.elapsed);
+      wiggleGround.update(event.elapsed);
+      wiggleSpike.update(event.elapsed);
+    }
+  }
 
-		if (wiggle != null) {
-			wiggle.update(event.elapsed);
-		}
-	}
-
-	function kill() {
-		super.kill();
-		wiggle = null;
-	}
+  function kill()
+  {
+    super.kill();
+    wiggleBack = null;
+    wiggleSchool = null;
+    wiggleGround = null;
+    wiggleSpike = null;
+  }
 }

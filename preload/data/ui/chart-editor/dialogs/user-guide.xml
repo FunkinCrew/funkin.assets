@@ -18,6 +18,9 @@
 					<item action="Select Note/Event" keybind="Left Click on Note" />
 					<item action="Select Multiple Notes/Events" keybind="Ctrl + Left Click" />
 					<item action="Remove Note/Event" keybind="Right Click on Note" />
+					<item action="Show Note Options" keybind="Shift + Right Click on Note" />
+					<item action="Place Focus Camera - Player Event at Playhead" keybind="Dot (.)"/>
+					<item action="Place Focus Camera - Opponent Event at Playhead" keybind="Comma (,)"/>
 					<item action="Select Box" keybind="Left Click and Drag" />
 					<item action="Scroll Up/Down" keybind="Mouse Wheel" />
 					<item action="Scroll Up/Down (Fast)" keybind="Shift + Mouse Wheel" />
@@ -48,6 +51,7 @@
 					<item action="Cut Selection" keybind="Ctrl + X" />
 					<item action="Paste" keybind="Ctrl + V" />
 					<item action="Delete Selection" keybind="Delete" />
+					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Select All" keybind="Ctrl + A" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />

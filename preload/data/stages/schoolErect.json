@@ -3,7 +3,7 @@
     {
       "danceEvery": 0,
       "zIndex": 10,
-      "position": [-164, -78],
+      "position": [-626, -78],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "sky",
@@ -15,7 +15,7 @@
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-216, -38],
+      "position": [-816, -38],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "school",
@@ -27,7 +27,7 @@
     {
       "danceEvery": 0,
       "zIndex": 15,
-      "position": [-242, -80],
+      "position": [-842, -80],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "backTrees",
@@ -39,7 +39,7 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-200, 6],
+      "position": [-662, 6],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "street",
@@ -51,7 +51,7 @@
     {
       "danceEvery": 0,
       "zIndex": 40,
-      "position": [-200, 6],
+      "position": [-500, 6],
       "scale": [6, 6],
       "animType": "sparrow",
       "name": "treesFG",

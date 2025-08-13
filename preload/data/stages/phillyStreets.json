@@ -1,6 +1,14 @@
 {
   "props": [
     {
+      "name": "solid",
+      "zIndex": 0,
+      "assetPath": "#8E9191",
+      "position": [-500, -1000],
+      "scale": [4000, 3000],
+      "scroll": [0, 0]
+    },
+    {
       "danceEvery": 0,
       "zIndex": 20,
       "position": [-545, -273],
@@ -16,14 +24,16 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [625, 94],
+      "position": [1865, 220],
       "scale": [1, 1],
       "animType": "sparrow",
-      "name": "phillyForegroundCity",
+      "name": "phillyForegroundCity2",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyForegroundCity",
       "scroll": [0.3, 0.3],
       "alpha": 1,
+      "angle": 5,
+      "flipX": true,
       "animations": []
     },
     {
@@ -42,46 +52,46 @@
     {
       "danceEvery": 0,
       "zIndex": 50,
-      "position": [284, 305],
+      "position": [122, 201],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyHighwayLights",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyHighwayLights",
-      "scroll": [1, 1],
+      "scroll": [0.8, 0.8],
       "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 50,
-      "position": [284, 305],
+      "position": [122, 201],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyHighwayLights_lightmap",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyHighwayLights_lightmap",
-      "scroll": [1, 1],
+      "scroll": [0.8, 0.8],
       "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 60,
-      "position": [139, 209],
+      "position": [-23, 105],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyHighway",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyHighway",
-      "scroll": [1, 1],
+      "scroll": [0.8, 0.8],
       "alpha": 1,
       "animations": []
     },
     {
       "danceEvery": 0,
       "zIndex": 70,
-      "position": [-6, 245],
+      "position": [-6, 305],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillySmog",
@@ -94,7 +104,7 @@
     {
       "danceEvery": 0,
       "zIndex": 80,
-      "position": [1748, 818],
+      "position": [1200, 818],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyCars",
@@ -140,7 +150,7 @@
     {
       "danceEvery": 0,
       "zIndex": 78,
-      "position": [1748, 818],
+      "position": [1200, 818],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "phillyCars2",

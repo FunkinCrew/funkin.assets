@@ -10,496 +10,556 @@ import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 
-class NeneCharacter extends MultiSparrowCharacter {
-	function new() {
-		super('nene');
-	}
+class NeneCharacter extends MultiSparrowCharacter
+{
+  function new()
+  {
+    super('nene');
+  }
 
-	var pupilState:Int = 0;
+  var pupilState:Int = 0;
 
-	var PUPIL_STATE_NORMAL = 0;
-	var PUPIL_STATE_LEFT = 1;
+  var PUPIL_STATE_NORMAL = 0;
+  var PUPIL_STATE_LEFT = 1;
 
-	var abot:FlxAtlasSprite;
-	var abotViz:ABotVis;
-	var stereoBG:FlxSprite;
-	var eyeWhites:FlxSprite;
-	var pupil:FlxAtlasSprite;
+  var abot:FlxAtlasSprite;
+  var abotViz:ABotVis;
+  var stereoBG:FlxSprite;
+  var eyeWhites:FlxSprite;
+  var pupil:FlxAtlasSprite;
 
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
 
-		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
-		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
+    eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
-		pupil.x = this.x;
-		pupil.y = this.y;
-		pupil.zIndex = this.zIndex - 5;
+    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+    pupil.x = this.x;
+    pupil.y = this.y;
+    pupil.zIndex = this.zIndex - 5;
 
-		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
-		abot.x = this.x;
-		abot.y = this.y;
-		abot.zIndex = this.zIndex - 1;
+    abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+    abot.x = this.x;
+    abot.y = this.y;
+    abot.zIndex = this.zIndex - 1;
 
-		abotViz = new ABotVis(FlxG.sound.music, false);
-		abotViz.x = this.x;
-		abotViz.y = this.y;
-		abotViz.zIndex = abot.zIndex + 1;
-	}
+    abotViz = new ABotVis(FlxG.sound.music, false);
+    abotViz.x = this.x;
+    abotViz.y = this.y;
+    abotViz.zIndex = abot.zIndex + 1;
+  }
 
-	/**
-	 * At this amount of life, Nene will raise her knife.
-	 */
-	var VULTURE_THRESHOLD = 0.25 * 2;
+  /**
+   * At this amount of life, Nene will raise her knife.
+   */
+  var VULTURE_THRESHOLD = 0.25 * 2;
 
-	/**
-	 * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
-	 * or maybe her 'combo' or 'drop' animations are active.
-	 *
-	 * Transitions:
-	 * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
-	 * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-	 */
-	var STATE_DEFAULT = 0;
+  /**
+   * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
+   * or maybe her 'combo' or 'drop' animations are active.
+   *
+   * Transitions:
+   * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
+   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
+   */
+  var STATE_DEFAULT = 0;
 
-	/**
-	 * Nene has recognized the player is at low health,
-	 * but has to wait for the appropriate point in the animation to move on.
-	 *
-	 * Transitions:
-	 * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
-	 * If current animation is combo or drop, transition when animation completes.
-	 * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
-	 * If current animation is danceRight, wait until danceLeft starts.
-	 * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-	 */
-	var STATE_PRE_RAISE = 1;
+  /**
+   * Nene has recognized the player is at low health,
+   * but has to wait for the appropriate point in the animation to move on.
+   *
+   * Transitions:
+   * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
+   * If current animation is combo or drop, transition when animation completes.
+   * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
+   * If current animation is danceRight, wait until danceLeft starts.
+   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
+   */
+  var STATE_PRE_RAISE = 1;
 
-	/**
-	 * Nene is raising her knife.
-	 * When moving to this state, immediately play the 'raiseKnife' animation.
-	 *
-	 * Transitions:
-	 * Once 'raiseKnife' animation completes, transition to STATE_READY.
-	 * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
-	 */
-	var STATE_RAISE = 2;
+  /**
+   * Nene is raising her knife.
+   * When moving to this state, immediately play the 'raiseKnife' animation.
+   *
+   * Transitions:
+   * Once 'raiseKnife' animation completes, transition to STATE_READY.
+   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
+   */
+  var STATE_RAISE = 2;
 
-	/**
-	 * Nene is holding her knife ready to strike.
-	 * During this state, hold the animation on the first frame, and play it at random intervals.
-	 * This makes the blink look less periodic.
-	 *
-	 * Transitions:
-	 * If the player runs out of health, move to the GameOverSubState. No transition needed.
-	 * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
-	 * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
-	 */
-	var STATE_READY = 3;
+  /**
+   * Nene is holding her knife ready to strike.
+   * During this state, hold the animation on the first frame, and play it at random intervals.
+   * This makes the blink look less periodic.
+   *
+   * Transitions:
+   * If the player runs out of health, move to the GameOverSubState. No transition needed.
+   * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
+   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
+   */
+  var STATE_READY = 3;
 
-	/**
-	 * Nene is about to lower her knife.
-	 * When moving to this state, play the 'lowerKnife' animation on the next beat.
-	 *
-	 * Transitions:
-	 * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
-	 * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-	 */
-	var STATE_LOWER = 4;
+  /**
+   * Nene is about to lower her knife.
+   * When moving to this state, play the 'lowerKnife' animation on the next beat.
+   *
+   * Transitions:
+   * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
+   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
+   */
+  var STATE_LOWER = 4;
 
-	/**
-	 * Nene's hair is blowing to the side.
-	 * When moving to this state, immediately play the 'hairBlowNormal' animation.
-	 * If still in this state when the animation completes, loop the animation.
-	 *
-	 * Transitions:
-	 * If trainPassing is set to false, transition to STATE_HAIR_FALLING.
-	 */
-	var STATE_HAIR_BLOWING = 5;
+  /**
+   * Nene's hair is blowing to the side.
+   * When moving to this state, immediately play the 'hairBlowNormal' animation.
+   * If still in this state when the animation completes, loop the animation.
+   *
+   * Transitions:
+   * If trainPassing is set to false, transition to STATE_HAIR_FALLING.
+   */
+  var STATE_HAIR_BLOWING = 5;
 
-	/**
-	 * Nene's hair is returning to normal.
-	 * When moving to this state, immediately play the 'hairFallNormal' animation.
-	 *
-	 * Transitions:
-	 * Once 'hairFallNormal' animation completes, transition to STATE_DEFAULT.
-	 */
-	var STATE_HAIR_FALLING = 6;
+  /**
+   * Nene's hair is returning to normal.
+   * When moving to this state, immediately play the 'hairFallNormal' animation.
+   *
+   * Transitions:
+   * Once 'hairFallNormal' animation completes, transition to STATE_DEFAULT.
+   */
+  var STATE_HAIR_FALLING = 6;
 
-	/**
-	 * Nene's hair is blowing to the side, with her knife raised in the air.
-	 * When moving to this state, immediately play the 'hairBlowKnife' animation.
-	 * If still in this state when the animation completes, loop the animation.
-	 *
-	 * Transitions:
-	 * If trainPassing is set to false, transition to STATE_HAIR_FALLING_RAISE.
-	 */
-	var STATE_HAIR_BLOWING_RAISE = 7;
+  /**
+   * Nene's hair is blowing to the side, with her knife raised in the air.
+   * When moving to this state, immediately play the 'hairBlowKnife' animation.
+   * If still in this state when the animation completes, loop the animation.
+   *
+   * Transitions:
+   * If trainPassing is set to false, transition to STATE_HAIR_FALLING_RAISE.
+   */
+  var STATE_HAIR_BLOWING_RAISE = 7;
 
-	/**
-	 * Nene's hair is returning to normal, while her knife is raised in the air.
-	 * When moving to this state, immediately play the 'hairFallKnife' animation.
-	 *
-	 * Transitions:
-	 * Once 'hairFallKnife' animation completes, transition to STATE_READY.
-	 */
-	var STATE_HAIR_FALLING_RAISE = 8;
+  /**
+   * Nene's hair is returning to normal, while her knife is raised in the air.
+   * When moving to this state, immediately play the 'hairFallKnife' animation.
+   *
+   * Transitions:
+   * Once 'hairFallKnife' animation completes, transition to STATE_READY.
+   */
+  var STATE_HAIR_FALLING_RAISE = 8;
 
-	/**
-	 * Nene's animations are tracked in a simple state machine.
-	 * Given the current state and an incoming event, the state changes.
-	 */
-	var currentState:Int = STATE_DEFAULT;
+  /**
+   * Nene's animations are tracked in a simple state machine.
+   * Given the current state and an incoming event, the state changes.
+   */
+  var currentState:Int = STATE_DEFAULT;
 
-	/**
-	 * Nene blinks every X beats, with X being randomly generated each time.
-	 * This keeps the animation from looking too periodic.
-	 */
-	var MIN_BLINK_DELAY:Int = 3;
-	var MAX_BLINK_DELAY:Int = 7;
-	var blinkCountdown:Int = MIN_BLINK_DELAY;
+  /**
+   * Nene blinks every X beats, with X being randomly generated each time.
+   * This keeps the animation from looking too periodic.
+   */
+  var MIN_BLINK_DELAY:Int = 3;
 
-	/**
-	 * When true, Nene's hair will start blowing to the side, used in Week 3.
-	 * Depending on the state she's in, her hair will blow with or without her knife raised.
-	 */
-	var trainPassing:Bool = false;
+  var MAX_BLINK_DELAY:Int = 7;
+  var blinkCountdown:Int = MIN_BLINK_DELAY;
 
-	function dance(forceRestart:Bool) {
-		if (abot != null)
-		{
-			abot.playAnimation("");
-    	abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
-		}
+  /**
+   * When true, Nene's hair will start blowing to the side, used in Week 3.
+   * Depending on the state she's in, her hair will blow with or without her knife raised.
+   */
+  var trainPassing:Bool = false;
 
-		// Then, perform the appropriate animation for the current state.
-		switch(currentState) {
-			case STATE_DEFAULT:
-				if (hasDanced) {
-					playAnimation('danceRight', forceRestart);
-				} else {
-					playAnimation('danceLeft', forceRestart);
-				}
-				hasDanced = !hasDanced;
-			case STATE_PRE_RAISE:
-				playAnimation('danceLeft', false);
-				hasDanced = false;
-			case STATE_READY:
-				if (blinkCountdown == 0) {
-					playAnimation('idleKnife', false);
-					blinkCountdown = FlxG.random.int(MIN_BLINK_DELAY, MAX_BLINK_DELAY);
-				} else {
-					blinkCountdown--;
-				}
-			case STATE_LOWER:
-				if(getCurrentAnimation() != 'lowerKnife'){
-					playAnimation('lowerKnife');
-				}
-			default:
-				// In other states, don't interrupt the existing animation.
-		}
-	}
+  function dance(forceRestart:Bool)
+  {
+    if (abot != null)
+    {
+      abot.playAnimation("");
+      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+    }
 
-	var refershedLol:Bool = false;
+    // Then, perform the appropriate animation for the current state.
+    switch (currentState)
+    {
+      case STATE_DEFAULT:
+        if (hasDanced)
+        {
+          playAnimation('danceRight', forceRestart);
+        }
+        else
+        {
+          playAnimation('danceLeft', forceRestart);
+        }
+        hasDanced = !hasDanced;
+      case STATE_PRE_RAISE:
+        playAnimation('danceLeft', false);
+        hasDanced = false;
+      case STATE_READY:
+        if (blinkCountdown == 0)
+        {
+          playAnimation('idleKnife', false);
+          blinkCountdown = FlxG.random.int(MIN_BLINK_DELAY, MAX_BLINK_DELAY);
+        }
+        else
+        {
+          blinkCountdown--;
+        }
+      case STATE_LOWER:
+        if (getCurrentAnimation() != 'lowerKnife')
+        {
+          playAnimation('lowerKnife');
+        }
+      default:
+        // In other states, don't interrupt the existing animation.
+    }
+  }
 
-	/**
-	 * Called when the chart hits a song event.
-	 */
-	public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-	{
-		super.onSongEvent(scriptEvent);
-		if (scriptEvent.eventData.eventKind == "FocusCamera")
-		{
-			var eventProps = scriptEvent.eventData.value;
-			switch (Std.parseInt(eventProps.char)) {
-				case 0:
-					movePupilsRight();
-				case 1:
-					movePupilsLeft();
-				default:
-			}
-		}
+  var refershedLol:Bool = false;
 
-	}
+  /**
+   * Called when the chart hits a song event.
+   */
+  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  {
+    super.onSongEvent(scriptEvent);
+    if (scriptEvent.eventData.eventKind == "FocusCamera")
+    {
+      var eventProps = scriptEvent.eventData.value;
+      switch (Std.parseInt(eventProps.char))
+      {
+        case 0:
+          movePupilsRight();
+        case 1:
+          movePupilsLeft();
+        default:
+      }
+    }
+  }
 
-	function movePupilsLeft():Void {
-		if (pupilState == PUPIL_STATE_LEFT) return;
-		trace('Move pupils left');
-		pupil.playAnimation('');
-		pupil.anim.curFrame = 0;
-		// pupilState = PUPIL_STATE_LEFT;
-	}
+  function movePupilsLeft():Void
+  {
+    if (pupilState == PUPIL_STATE_LEFT) return;
+    trace('Move pupils left');
+    pupil.playAnimation('');
+    pupil.anim.curFrame = 0;
+    // pupilState = PUPIL_STATE_LEFT;
+  }
 
-	function movePupilsRight():Void {
-		if (pupilState == PUPIL_STATE_NORMAL) return;
-		trace('Move pupils right');
-		pupil.playAnimation('');
-		pupil.anim.curFrame = 17;
-		// pupilState = PUPIL_STATE_NORMAL;
-	}
+  function movePupilsRight():Void
+  {
+    if (pupilState == PUPIL_STATE_NORMAL) return;
+    trace('Move pupils right');
+    pupil.playAnimation('');
+    pupil.anim.curFrame = 17;
+    // pupilState = PUPIL_STATE_NORMAL;
+  }
 
-	public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
-	{
-		super.playAnimation(name, restart, ignoreOther, reversed);
-	}
+  public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  {
+    super.playAnimation(name, restart, ignoreOther, reversed);
+  }
 
-	function moveByNoteKind(kind:String) {
-		// Force ABot to look where the action is happening.
-		switch(event.note.kind) {
-			case "weekend-1-lightcan":
-				movePupilsLeft();
-			case "weekend-1-kickcan":
-				// movePupilsLeft();
-			case "weekend-1-kneecan":
-				// movePupilsLeft();
-			case "weekend-1-cockgun":
-				movePupilsRight();
-			case "weekend-1-firegun":
-				// movePupilsRight();
-			default: // Nothing
-		}
-	}
+  function moveByNoteKind(kind:String)
+  {
+    // Force ABot to look where the action is happening.
+    switch (event.note.kind)
+    {
+      case "weekend-1-lightcan":
+        movePupilsLeft();
+      case "weekend-1-kickcan":
+        // movePupilsLeft();
+      case "weekend-1-kneecan":
+        // movePupilsLeft();
+      case "weekend-1-cockgun":
+        movePupilsRight();
+      case "weekend-1-firegun":
+        // movePupilsRight();
+      default: // Nothing
+    }
+  }
 
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		super.onNoteHit(event);
-		moveByNoteKind(event.note.kind);
-	}
+  function onNoteHit(event:HitNoteScriptEvent)
+  {
+    super.onNoteHit(event);
+    moveByNoteKind(event.note.kind);
+  }
 
-	function onNoteMiss(event:NoteScriptEvent)
-	{
-		super.onNoteMiss(event);
-		moveByNoteKind(event.note.kind);
-	}
+  function onNoteMiss(event:NoteScriptEvent)
+  {
+    super.onNoteMiss(event);
+    moveByNoteKind(event.note.kind);
+  }
 
-	function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
+  function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
 
-		// Set the visibility of ABot to match Nene's.
-		abot.visible = this.visible;
-		pupil.visible = this.visible;
-		eyeWhites.visible = this.visible;
-		stereoBG.visible = this.visible;
+    // Set the visibility of ABot to match Nene's.
+    abot.visible = this.visible;
+    pupil.visible = this.visible;
+    eyeWhites.visible = this.visible;
+    stereoBG.visible = this.visible;
 
-		if (pupil?.anim?.isPlaying)
-		{
-			switch (pupilState)
-			{
-				case PUPIL_STATE_NORMAL:
-					if (pupil.anim.curFrame >= 17)
-					{
-						trace('Done moving pupils left');
-						pupilState = PUPIL_STATE_LEFT;
-						pupil.anim.pause();
-					}
+    if (pupil?.anim?.isPlaying)
+    {
+      switch (pupilState)
+      {
+        case PUPIL_STATE_NORMAL:
+          if (pupil.anim.curFrame >= 17)
+          {
+            trace('Done moving pupils left');
+            pupilState = PUPIL_STATE_LEFT;
+            pupil.anim.pause();
+          }
 
-				case PUPIL_STATE_LEFT:
-					if (pupil.anim.curFrame >= 30)
-					{
-						trace('Done moving pupils right');
-						pupilState = PUPIL_STATE_NORMAL;
-						pupil.anim.pause();
-					}
-			}
-		}
+        case PUPIL_STATE_LEFT:
+          if (pupil.anim.curFrame >= 30)
+          {
+            trace('Done moving pupils right');
+            pupilState = PUPIL_STATE_NORMAL;
+            pupil.anim.pause();
+          }
+      }
+    }
 
-		// refreshes just for the zIndex shit!
-		if (!refershedLol)
-		{
-			abot.x = this.x - 100;
-			abot.y = this.y + 216; // 764 - 740
-			abot.zIndex = this.zIndex - 10;
+    // refreshes just for the zIndex shit!
+    if (!refershedLol)
+    {
+      abot.x = this.x - 100;
+      abot.y = this.y + 216; // 764 - 740
+      abot.zIndex = this.zIndex - 10;
 
-			PlayState.instance.currentStage.add(abot);
+      PlayState.instance.currentStage.add(abot);
 
-			abotViz.x = abot.x + 200;
-			abotViz.y = abot.y + 84;
-			abotViz.zIndex = abot.zIndex - 1;
-			PlayState.instance.currentStage.add(abotViz);
+      abotViz.x = abot.x + 200;
+      abotViz.y = abot.y + 84;
+      abotViz.zIndex = abot.zIndex - 1;
+      PlayState.instance.currentStage.add(abotViz);
 
-			eyeWhites.x = abot.x + 40;
-			eyeWhites.y = abot.y + 250;
-			eyeWhites.zIndex = abot.zIndex - 10;
-			PlayState.instance.currentStage.add(eyeWhites);
+      eyeWhites.x = abot.x + 40;
+      eyeWhites.y = abot.y + 250;
+      eyeWhites.zIndex = abot.zIndex - 10;
+      PlayState.instance.currentStage.add(eyeWhites);
 
-			pupil.x = abot.x - 507;
-			pupil.y = abot.y - 492;
-			pupil.zIndex = eyeWhites.zIndex + 5;
-			PlayState.instance.currentStage.add(pupil);
+      pupil.x = abot.x - 507;
+      pupil.y = abot.y - 492;
+      pupil.zIndex = eyeWhites.zIndex + 5;
+      PlayState.instance.currentStage.add(pupil);
 
-			stereoBG.x = abot.x + 150;
-			stereoBG.y = abot.y + 30;
-			stereoBG.zIndex = abot.zIndex - 8;
-			PlayState.instance.currentStage.add(stereoBG);
+      stereoBG.x = abot.x + 150;
+      stereoBG.y = abot.y + 30;
+      stereoBG.zIndex = abot.zIndex - 8;
+      PlayState.instance.currentStage.add(stereoBG);
 
-			PlayState.instance.currentStage.refresh();
-			refershedLol = true;
-		}
+      PlayState.instance.currentStage.refresh();
+      refershedLol = true;
+    }
 
-		if (shouldTransitionState()) {
-			transitionState();
-		}
-	}
+    if (shouldTransitionState())
+    {
+      transitionState();
+    }
+  }
 
-	override function onSongStart(event:ScriptEvent) {
-		abotViz.snd = FlxG.sound.music;
-		abotViz.initAnalyzer();
-	}
+  override function onSongStart(event:ScriptEvent)
+  {
+    abotViz.snd = FlxG.sound.music;
+    abotViz.initAnalyzer();
+  }
 
-	override function onSongRetry(event:ScriptEvent)
-	{
-		super.onSongRetry();
-		abotViz.dumpSound();
-	}
+  /*override function onSongRetry(event:ScriptEvent)
+    {
+      super.onSongRetry();
+      abotViz.dumpSound();
+  }*/
+  override function onSongEnd(event:ScriptEvent)
+  {
+    super.onSongEnd();
+    abotViz.dumpSound();
+  }
 
-	var animationFinished:Bool = false;
+  var animationFinished:Bool = false;
 
-	function onAnimationFinished(name:String) {
-		super.onAnimationFinished(name);
+  function onAnimationFinished(name:String)
+  {
+    super.onAnimationFinished(name);
 
-		switch(currentState) {
-			case STATE_RAISE:
-				if (name == "raiseKnife") {
-					animationFinished = true;
-					transitionState();
-				}
-			case STATE_LOWER:
-				if (name == "lowerKnife") {
-					animationFinished = true;
-					transitionState();
-				}
-			case STATE_HAIR_BLOWING:
-				if (name == "hairBlowNormal") {
-					animationFinished = true;
-					transitionState();
-				}
-			case STATE_HAIR_FALLING:
-				if (name == "hairFallNormal") {
-					animationFinished = true;
-					transitionState();
-				}
-			case STATE_HAIR_BLOWING_RAISE:
-				if (name == "hairBlowKnife") {
-					animationFinished = true;
-					transitionState();
-				}
-			case STATE_HAIR_FALLING_RAISE:
-				if (name == "hairFallKnife") {
-					animationFinished = true;
-					transitionState();
-				}
-			default:
-				// Ignore.
-		}
-	}
+    switch (currentState)
+    {
+      case STATE_RAISE:
+        if (name == "raiseKnife")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      case STATE_LOWER:
+        if (name == "lowerKnife")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      case STATE_HAIR_BLOWING:
+        if (name == "hairBlowNormal")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      case STATE_HAIR_FALLING:
+        if (name == "hairFallNormal")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      case STATE_HAIR_BLOWING_RAISE:
+        if (name == "hairBlowKnife")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      case STATE_HAIR_FALLING_RAISE:
+        if (name == "hairFallKnife")
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      default:
+        // Ignore.
+    }
+  }
 
-	function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int) {
-		super.onAnimationFrame(name, frameNumber, frameIndex);
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
 
-		switch(currentState) {
-			case STATE_PRE_RAISE:
-				if (name == "danceLeft" && frameNumber == 13) {
-					animationFinished = true;
-					transitionState();
-				}
-			default:
-				// Ignore.
-		}
-	}
+    switch (currentState)
+    {
+      case STATE_PRE_RAISE:
+        if (name == "danceLeft" && frameNumber == 13)
+        {
+          animationFinished = true;
+          transitionState();
+        }
+      default:
+        // Ignore.
+    }
+  }
 
-	function shouldTransitionState():Bool {
-		return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
-	}
+  function shouldTransitionState():Bool
+  {
+    return PlayState.instance.currentStage.getBoyfriend()?.characterId != "pico-blazin";
+  }
 
-	function checkTrainPassing(raised:Bool = false){
-		if(!trainPassing) return;
+  function checkTrainPassing(raised:Bool = false)
+  {
+    if (!trainPassing) return;
 
-		if(raised){
-			currentState = STATE_HAIR_BLOWING_RAISE;
-			playAnimation('hairBlowKnife');
-			animationFinished = false;
-		}else{
-			currentState = STATE_HAIR_BLOWING;
-			playAnimation('hairBlowNormal');
-			animationFinished = false;
-		}
-	}
+    if (raised)
+    {
+      currentState = STATE_HAIR_BLOWING_RAISE;
+      playAnimation('hairBlowKnife');
+      animationFinished = false;
+    }
+    else
+    {
+      currentState = STATE_HAIR_BLOWING;
+      playAnimation('hairBlowNormal');
+      animationFinished = false;
+    }
+  }
 
-	function transitionState() {
-		switch (currentState) {
-			case STATE_DEFAULT:
-				if (PlayState.instance.health <= VULTURE_THRESHOLD) {
-					// trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
-					currentState = STATE_PRE_RAISE;
-				} else {
-					currentState = STATE_DEFAULT;
-				}
-				checkTrainPassing();
-			case STATE_PRE_RAISE:
-				if (PlayState.instance.health > VULTURE_THRESHOLD) {
-					// trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
-					currentState = STATE_DEFAULT;
-				} else if (animationFinished) {
-					// trace('NENE: Animation finished, transitioning to STATE_RAISE');
-					currentState = STATE_RAISE;
-					playAnimation('raiseKnife');
-					animationFinished = false;
-				}
-				checkTrainPassing();
-			case STATE_RAISE:
-				if (animationFinished) {
-					// trace('NENE: Animation finished, transitioning to STATE_READY');
-					currentState = STATE_READY;
-					animationFinished = false;
-				}
-				checkTrainPassing(true);
-			case STATE_READY:
-				if (PlayState.instance.health > VULTURE_THRESHOLD) {
-					// trace('NENE: Health went back up, transitioning to STATE_LOWER');
-					currentState = STATE_LOWER;
-					// lowerKnife will play on the next beat, so it syncs up properly
-				}
-				checkTrainPassing(true);
-			case STATE_LOWER:
-				if (animationFinished) {
-					// trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
-					currentState = STATE_DEFAULT;
-					animationFinished = false;
-				}
-				checkTrainPassing();
-			case STATE_HAIR_BLOWING:
-				if(!trainPassing){
-					currentState = STATE_HAIR_FALLING;
-					playAnimation('hairFallNormal');
-					animationFinished = false;
-				}else if (animationFinished) {
-					playAnimation('hairBlowNormal');
-					animationFinished = false;
-				}
-			case STATE_HAIR_FALLING:
-				if (animationFinished) {
-					currentState = STATE_DEFAULT;
-					animationFinished = false;
-				}
-			case STATE_HAIR_BLOWING_RAISE:
-				if(!trainPassing){
-					currentState = STATE_HAIR_FALLING_RAISE;
-					playAnimation('hairFallKnife');
-					animationFinished = false;
-				}else if (animationFinished) {
-					playAnimation('hairBlowKnife');
-					animationFinished = false;
-				}
-			case STATE_HAIR_FALLING_RAISE:
-				if (animationFinished) {
-					currentState = STATE_READY;
-					animationFinished = false;
-				}
-			default:
-				// trace('UKNOWN STATE ' + currentState);
-				currentState = STATE_DEFAULT;
-		}
-	}
+  function transitionState()
+  {
+    switch (currentState)
+    {
+      case STATE_DEFAULT:
+        if (PlayState.instance.health <= VULTURE_THRESHOLD)
+        {
+          // trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
+          currentState = STATE_PRE_RAISE;
+        }
+        else
+        {
+          currentState = STATE_DEFAULT;
+        }
+        checkTrainPassing();
+      case STATE_PRE_RAISE:
+        if (PlayState.instance.health > VULTURE_THRESHOLD)
+        {
+          // trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
+          currentState = STATE_DEFAULT;
+        }
+        else if (animationFinished)
+        {
+          // trace('NENE: Animation finished, transitioning to STATE_RAISE');
+          currentState = STATE_RAISE;
+          playAnimation('raiseKnife');
+          animationFinished = false;
+        }
+        checkTrainPassing();
+      case STATE_RAISE:
+        if (animationFinished)
+        {
+          // trace('NENE: Animation finished, transitioning to STATE_READY');
+          currentState = STATE_READY;
+          animationFinished = false;
+        }
+        checkTrainPassing(true);
+      case STATE_READY:
+        if (PlayState.instance.health > VULTURE_THRESHOLD)
+        {
+          // trace('NENE: Health went back up, transitioning to STATE_LOWER');
+          currentState = STATE_LOWER;
+          // lowerKnife will play on the next beat, so it syncs up properly
+        }
+        checkTrainPassing(true);
+      case STATE_LOWER:
+        if (animationFinished)
+        {
+          // trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
+          currentState = STATE_DEFAULT;
+          animationFinished = false;
+        }
+        checkTrainPassing();
+      case STATE_HAIR_BLOWING:
+        if (!trainPassing)
+        {
+          currentState = STATE_HAIR_FALLING;
+          playAnimation('hairFallNormal');
+          animationFinished = false;
+        }
+        else if (animationFinished)
+        {
+          playAnimation('hairBlowNormal');
+          animationFinished = false;
+        }
+      case STATE_HAIR_FALLING:
+        if (animationFinished)
+        {
+          currentState = STATE_DEFAULT;
+          animationFinished = false;
+        }
+      case STATE_HAIR_BLOWING_RAISE:
+        if (!trainPassing)
+        {
+          currentState = STATE_HAIR_FALLING_RAISE;
+          playAnimation('hairFallKnife');
+          animationFinished = false;
+        }
+        else if (animationFinished)
+        {
+          playAnimation('hairBlowKnife');
+          animationFinished = false;
+        }
+      case STATE_HAIR_FALLING_RAISE:
+        if (animationFinished)
+        {
+          currentState = STATE_READY;
+          animationFinished = false;
+        }
+      default:
+        // trace('UKNOWN STATE ' + currentState);
+        currentState = STATE_DEFAULT;
+    }
+  }
 }

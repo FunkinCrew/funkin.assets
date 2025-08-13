@@ -1,177 +1,186 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
-import flixel.sound.FlxSound;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.util.HapticUtil;
 
 class PhillyTrainStage extends Stage
 {
-	function new()
-	{
-		super('phillyTrain');
-	}
+  function new()
+  {
+    super('phillyTrain');
+  }
 
-	var LIGHT_COUNT:Int = 5;
+  var LIGHT_COUNT:Int = 5;
 
-	var lightShader:FlxRuntimeShader;
-	var trainSound:FunkinSound;
+  var lightShader:FlxRuntimeShader;
+  var trainSound:FunkinSound;
 
-	function buildStage()
-	{
-		super.buildStage();
+  var trainEnabled:Bool = true;
 
-		// NOTE: You pass the constructor variables directly, not as an array.
-		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
-		trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
-		PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
+  function buildStage()
+  {
+    super.buildStage();
+    trainEnabled = true;
 
-		for (i in 0...LIGHT_COUNT)
-		{
-			var light:FlxSprite = getNamedProp('lights' + i);
-			light.shader = lightShader;
-			light.visible = false;
-		}
-	}
+    // NOTE: You pass the constructor variables directly, not as an array.
+    lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
+    trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
+    PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
-	function fetchAssetPaths():Array<String>
-	{
-		var results:Array<String> = super.fetchAssetPaths();
-		results.push(Paths.sound('train_passes'));
-		return results;
-	}
+    for (i in 0...LIGHT_COUNT)
+    {
+      var light:FlxSprite = getNamedProp('lights' + i);
+      light.shader = lightShader;
+      light.visible = false;
+    }
+  }
 
-	var trainMoving:Bool = false;
-	var trainFrameTiming:Float = 0;
-	var trainCars:Int = 8;
-	var trainFinishing:Bool = false;
-	var trainCooldown:Int = 0;
+  function fetchAssetPaths():Array<String>
+  {
+    var results:Array<String> = super.fetchAssetPaths();
+    results.push(Paths.sound('train_passes'));
+    return results;
+  }
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
-		super.onUpdate(event);
-		// Update beat lights
-		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
-		lightShader.scriptCall('update', [shaderInput]);
+  var trainMoving:Bool = false;
+  var trainFrameTiming:Float = 0;
+  var trainCars:Int = 8;
+  var trainFinishing:Bool = false;
+  var trainCooldown:Int = 0;
 
-		// Update train
-		if (trainMoving)
-		{
-			trainFrameTiming += event.elapsed;
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+    // Update beat lights
+    var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
+    lightShader.scriptCall('update', [shaderInput]);
 
-			if (trainFrameTiming >= 1 / 24)
-			{
-				updateTrainPos();
-				trainFrameTiming = 0;
-			}
-		}
-	}
+    // Update train
+    if (trainEnabled && trainMoving)
+    {
+      trainFrameTiming += event.elapsed;
 
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-		// Update train cooldown
-		if (!trainMoving)
-			trainCooldown += 1;
+      if (trainFrameTiming >= 1 / 24)
+      {
+        updateTrainPos();
+        trainFrameTiming = 0;
+      }
+    }
+  }
 
-		// Start train
-		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
-		{
-			trainCooldown = FlxG.random.int(-4, 0);
-			trainStart();
-		}
+  function onBeatHit(event:SongTimeScriptEvent):Void
+  {
+    super.onBeatHit(event);
+    if (trainEnabled)
+    {
+      // Update train cooldown
+      if (!trainMoving) trainCooldown += 1;
 
-		// Update lights
-		if (event.beat % 4 == 0)
-		{
-			// Reset opacity
-			lightShader.scriptCall('reset');
+      // Start train
+      if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+      {
+        trainCooldown = FlxG.random.int(-4, 0);
+        trainStart();
+      }
+    }
 
-			// Switch to a different light
-			curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
-			for (i in 0...LIGHT_COUNT)
-			{
-				getNamedProp('lights' + i).visible = (i == curLight);
-			}
-		}
-	}
+    // Update lights
+    if (event.beat % 4 == 0)
+    {
+      // Reset opacity
+      lightShader.scriptCall('reset');
 
-	public override function onSongEnd(event:CountdownScriptEvent):Void {
-		super.onSongEnd(event);
-		// Disable lightning during ending cutscene.
-		trainMoving = false;
-		if (trainSound != null) {
-			trainSound.stop();
-			trainSound = null;
-		}
-	}
+      // Switch to a different light
+      curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
+      for (i in 0...LIGHT_COUNT)
+      {
+        getNamedProp('lights' + i).visible = (i == curLight);
+      }
+    }
+  }
 
-	public override function onPause(event:PauseScriptEvent) {
-		super.onPause(event);
+  function onStepHit(event:SongTimeScriptEvent):Void
+  {
+    if (trainEnabled && trainSound?.time >= 4700 && trainMoving)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.75, 0);
+    }
+  }
 
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.pause();
-	}
+  public override function onSongEnd(event:CountdownScriptEvent):Void
+  {
+    trainMoving = false;
+    trainEnabled = false;
+    if (trainSound != null)
+    {
+      trainSound.stop();
+      trainSound = null;
+    }
 
-	public override function onResume(event:ScriptEvent) {
-		super.onResume(event);
+    super.onSongEnd(event);
+  }
 
-		// Temporarily stop ambiance.
-		if (trainSound != null) trainSound.resume();
-	}
+  function trainStart():Void
+  {
+    trainMoving = true;
+    trainSound.play(true);
+  }
 
-	function trainStart():Void
-	{
-		trainMoving = true;
-		trainSound.play();
-	}
+  var startedMoving:Bool = false;
 
-	var startedMoving:Bool = false;
+  function updateTrainPos():Void
+  {
+    if (trainSound.time >= 4700)
+    {
+      startedMoving = true;
+      getGirlfriend().playAnimation('hairBlow');
+    }
 
-	function updateTrainPos():Void
-	{
-		if (trainSound.time >= 4700)
-		{
-			startedMoving = true;
-			getGirlfriend().playAnimation('hairBlow');
-		}
+    if (startedMoving)
+    {
+      var train:FlxSprite = getNamedProp('train');
+      train.x -= 400;
 
-		if (startedMoving)
-		{
-			var train:FlxSprite = getNamedProp('train');
-			train.x -= 400;
+      if (train.x < -2000 && !trainFinishing)
+      {
+        train.x = -1150;
+        trainCars -= 1;
 
-			if (train.x < -2000 && !trainFinishing)
-			{
-				train.x = -1150;
-				trainCars -= 1;
+        if (trainCars <= 0) trainFinishing = true;
+      }
 
-				if (trainCars <= 0)
-					trainFinishing = true;
-			}
+      if (train.x < -4000 && trainFinishing) trainReset();
+    }
+  }
 
-			if (train.x < -4000 && trainFinishing)
-				trainReset();
-		}
-	}
+  function trainReset():Void
+  {
+    getGirlfriend().playAnimation('hairFall');
+    getNamedProp('train').x = FlxG.width + 200;
 
-	function trainReset():Void
-	{
-		getGirlfriend().playAnimation('hairFall');
-		getNamedProp('train').x = FlxG.width + 200;
+    trainMoving = false;
+    trainCars = 8;
+    trainFinishing = false;
+    startedMoving = false;
+  }
 
-		trainMoving = false;
-		trainCars = 8;
-		trainFinishing = false;
-		startedMoving = false;
-	}
+  /**
+   * Make sure the train is reset when the song restarts.
+   */
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+    trainReset();
+  }
 
-	function kill()
-	{
-		super.kill();
-		lightShader = null;
-	}
+  function kill()
+  {
+    super.kill();
+    lightShader = null;
+  }
 }

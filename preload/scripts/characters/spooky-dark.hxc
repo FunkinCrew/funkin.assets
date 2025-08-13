@@ -8,58 +8,63 @@ import funkin.play.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
-class SpookyDarkCharacter extends SparrowCharacter {
-	function new() {
-		super('spooky-dark');
+class SpookyDarkCharacter extends SparrowCharacter
+{
+  function new()
+  {
+    super('spooky-dark');
 
-		this.ignoreExclusionPref = ["cheer"];
-	}
+    this.ignoreExclusionPref = ["cheer"];
+  }
 
   var normalChar:BaseCharacter;
 
-	override function set_alpha(val:Float):Float{
-		super.set_alpha(val);
-		if(val != 1)
-			normalChar.alpha = 1;
-		else
-			normalChar.alpha = 0;
+  override function set_alpha(val:Float):Float
+  {
+    super.set_alpha(val);
+    if (val != 1) normalChar.alpha = 1;
+    else
+      normalChar.alpha = 0.0001;
 
     return val;
-	}
+  }
 
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		super.onNoteHit(event);
+  function onNoteHit(event:HitNoteScriptEvent)
+  {
+    super.onNoteHit(event);
 
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
-			// Override the hit note animation.
-			switch(event.note.kind) {
-				case "cheer":
-					holdTimer = 0;
-					this.playAnimation('cheer', true, true);
-					return;
-			}
-		}
-	}
+    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD)
+    {
+      // Override the hit note animation.
+      switch (event.note.kind)
+      {
+        case "cheer":
+          holdTimer = 0;
+          this.playAnimation('cheer', true, true);
+          return;
+      }
+    }
+  }
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		trace('spookyDark.playAnimation(' + name + ', ' + restart + ', ' + ignoreOther + ')');
-		super.playAnimation(name, restart, ignoreOther);
-    if(normalChar != null){
+  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  {
+    super.playAnimation(name, restart, ignoreOther);
+    if (normalChar != null)
+    {
       normalChar.playAnimation(name, restart, ignoreOther);
       normalChar.setPosition(this.x, this.y);
     }
-	}
+  }
 
-  function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
-	  normalChar = CharacterDataParser.fetchCharacter('spooky');
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+    normalChar = CharacterDataParser.fetchCharacter('spooky');
     normalChar.zIndex = 199;
-		normalChar.alpha = 0;
+    normalChar.alpha = 0.0001;
     normalChar.flipX = false;
 
-		PlayState.instance.currentStage.add(normalChar);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
-	}
-
+    PlayState.instance.currentStage.add(normalChar);
+    PlayState.instance.currentStage.refresh(); // Apply z-index.
+  }
 }

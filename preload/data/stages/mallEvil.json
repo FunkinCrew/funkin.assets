@@ -29,7 +29,7 @@
     {
       "name": "evilSnow",
       "assetPath": "christmas/evilSnow",
-      "position": [-200, 700],
+      "position": [-500, 700],
       "scale": [1, 1],
       "scroll": [1, 1],
       "zIndex": 20

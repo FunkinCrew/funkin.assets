@@ -1,7 +1,14 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend",
-  "ownedChars": ["bf", "bf-car", "bf-pixel", "bf-christmas", "bf-holding-gf"],
+  "ownedChars": [
+    "bf",
+    "bf-car",
+    "bf-pixel",
+    "bf-christmas",
+    "bf-holding-gf",
+    "bf-dark"
+  ],
   "showUnownedChars": true,
   "unlocked": true,
   "freeplayStyle": "bf",
@@ -102,24 +109,7 @@
     "perfectGold": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
-        "zIndex": 500,
-        "offsets": [1342, 370],
-        "loopFrameLabel": "LOOP START"
-      },
-      {
-        "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
-        "zIndex": 501,
-        "delay": 4.41,
-        "offsets": [1342, 370],
-        "loopFrame": 43
-      }
-    ],
-    "perfect": [
-      {
-        "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO",
         "filter": "naughty",
         "zIndex": 500,
@@ -137,7 +127,47 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/bed",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO 2",
+        "filter": "safe",
+        "zIndex": 500,
+        "offsets": [1342, 370],
+        "loopFrameLabel": "LOOP 2"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/tickleFight",
+        "filter": "safe",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [650, 370],
+        "scale": 0.6,
+        "sound": "shared:tickleFight",
+        "loopFrameLabel": "LOOP"
+      }
+    ],
+    "perfect": [
+      {
+        "renderType": "animateatlas",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO",
+        "filter": "naughty",
+        "zIndex": 500,
+        "offsets": [1342, 370],
+        "loopFrameLabel": "LOOP START"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
+        "filter": "naughty",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [1342, 370],
+        "loopFrame": 43
+      },
+      {
+        "renderType": "animateatlas",
+        "scriptClass": "BFBedPerfectResults",
         "startFrameLabel": "INTRO 2",
         "filter": "safe",
         "zIndex": 500,
@@ -208,7 +238,7 @@
     "loss": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsSHIT",
+        "scriptClass": "BFShitResults",
         "zIndex": 500,
         "offsets": [0, 20],
         "loopFrameLabel": "Loop Start"

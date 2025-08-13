@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Object Graphic" width="375" height="500">
+    <vbox width="100%" height="100%">
+        <frame width="100%" height="50%" text="Object Image">
+            <hbox width="100%" height="100%">
+                <box width="175" height="175" style="border:1px dashed $normal-border-color" >
+                    <scrollview width="100%" height="100%" styleName="no-padding">
+                        <image id="objImage" imageScale=".5"/>
+                    </scrollview>
+                </box>
+                <vbox>
+                    <button id="objLoad" text="Load Image"/>
+                    <button id="objLoadNet" text="Load From Internet"/>
+                    <button id="objReset" text="Reset Image"/>
+                    <spacer height="100%"/>
+                    <button id="objResetFrames" text="Reset Frames"/>
+                </vbox>
+            </hbox>
+        </frame>
+
+        <frame width="100%" height="50%" text="Object Frames">
+            <vbox width="100%" height="100%">
+                <tabview width="100%" height="100%" styleName="full-width-buttons">
+                    <hbox text="By Data" width="100%" height="100%">
+                        <textarea id="objFrameTxt" width="50%" height="100%"/>
+                        <vbox>
+                            <button id="objLoadFrames" text="Load File"/>
+                            <button id="objSetSparrow" text="Set as Sparrow"/>
+                            <button id="objSetPacker" text="Set as Packer"/>
+                        </vbox>
+                    </hbox>
+                    <vbox text="By Image" width="100%" height="100%">
+                        <label text="Frame Width/Height"/>
+                        <hbox>
+                            <number-stepper id="objImageWidth" step="1" min="1"/> <!-- max will be set through code-->
+                            <number-stepper id="objImageHeight" step="1" min="1"/>
+                        </hbox>
+                        <button id="objSplit" text="Set Frames"/>
+                    </vbox>
+
+                </tabview>
+            </vbox>
+        </frame>
+    </vbox>
+</collapsible-dialog>

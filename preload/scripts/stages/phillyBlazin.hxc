@@ -12,198 +12,247 @@ import flixel.tweens.FlxTween;
 import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
 import funkin.util.MathUtil;
+import funkin.util.HapticUtil;
 
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
  */
 class PhillyBlazinStage extends Stage
 {
-	function new()
-	{
-		super('phillyBlazin');
-	}
+  function new()
+  {
+    super('phillyBlazin');
+  }
 
-	var rainShader:RuntimeRainShader = new RuntimeRainShader();
-	var scrollingSky:FlxTiledSprite;
-	// var rainShaderFilter:ShaderFilter;
+  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var scrollingSky:FlxTiledSprite;
 
-	override function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
-		cameraInitialized = false;
-		cameraDarkened = false;
-		lightningActive = true;
+  // var rainShaderFilter:ShaderFilter;
 
-		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
-		rainShader.intensity = 0.5;
+  override function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+    cameraInitialized = false;
+    cameraDarkened = false;
+    lightningActive = true;
 
-		rainShaderFilter = new ShaderFilter(rainShader);
-		FlxG.camera.filters = [rainShaderFilter];
-	}
+    rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
+    rainShader.intensity = 0.5;
 
-	override function onGameOver(event:ScriptEvent):Void {
-		super.onGameOver(event);
-		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.filters = [];
-	}
+    rainShaderFilter = new ShaderFilter(rainShader);
+    FlxG.camera.filters = [rainShaderFilter];
+  }
 
-	override function onSongRetry(event:ScriptEvent):Void {
-		super.onSongRetry(event);
-		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.filters = [rainShaderFilter];
-		lightningActive = true;
-	}
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    // Make it so the rain shader doesn't show over the game over screen
+    FlxG.camera.filters = [];
+  }
 
-	override function buildStage()
-	{
-		super.buildStage();
+  override function onSongRetry(event:ScriptEvent):Void
+  {
+    super.onSongRetry(event);
+    // Make it so the rain shader doesn't show over the game over screen
+    FlxG.camera.filters = [rainShaderFilter];
+    lightningActive = true;
+  }
 
-		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
-		skyAdditive.blend = 0; // ADD
-		skyAdditive.visible = false;
+  override function buildStage()
+  {
+    super.buildStage();
 
-		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
-		lightning.visible = false;
+    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+    skyAdditive.blend = 0; // ADD
+    skyAdditive.visible = false;
 
-		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
-		foregroundMultiply.blend = 9; // MULTIPLY
-		foregroundMultiply.visible = false;
+    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+    lightning.visible = false;
 
-		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
-		additionalLighten.blend = 0; // ADD
-		additionalLighten.visible = false;
+    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+    foregroundMultiply.blend = 9; // MULTIPLY
+    foregroundMultiply.visible = false;
 
-		scrollingSky = new FlxTiledSprite(Paths.image('phillyBlazin/skyBlur'), 2000, 359, true, false);
-		scrollingSky.setPosition(-500, -120);
-		scrollingSky.scrollFactor.set(0, 0);
-		scrollingSky.zIndex = 10;
+    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+    additionalLighten.blend = 0; // ADD
+    additionalLighten.visible = false;
 
-		PlayState.instance.currentStage.add(scrollingSky);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+    scrollingSky = new FlxTiledSprite(Paths.image('phillyBlazin/skyBlur'), 4000, 495, true, false);
+    scrollingSky.setPosition(-700, -120);
+    scrollingSky.scrollFactor.set(0, 0);
+    scrollingSky.zIndex = 10;
 
-		//scrollingSky.velocity.x = -20;
-	}
+    PlayState.instance.currentStage.add(scrollingSky);
+    PlayState.instance.currentStage.refresh(); // Apply z-index.
 
-	var cameraInitialized:Bool = false;
-	var cameraDarkened:Bool = false;
+    // scrollingSky.velocity.x = -20;
+  }
 
-	var lightningTimer:Float = 3.0;
-	var lightningActive:Bool = true;
+  var cameraInitialized:Bool = false;
+  var cameraDarkened:Bool = false;
 
-	var rainTimeScale:Float = 1.0;
+  var lightningTimer:Float = 3.0;
+  var lightningActive:Bool = true;
 
-	override function onUpdate(event:ScriptEvent)
-	{
-		super.onUpdate(event);
+  var rainTimeScale:Float = 1.0;
 
-		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-		rainShader.update(event.elapsed * rainTimeScale);
-		rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.05);
+  override function onUpdate(event:ScriptEvent)
+  {
+    super.onUpdate(event);
 
-		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
+    rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+    rainShader.update(event.elapsed * rainTimeScale);
+    rainTimeScale = MathUtil.smoothLerpPrecision(rainTimeScale, 0.02, event.elapsed, 1.535);
 
-		// Manually focus the camera before the song starts.
-		if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
-		{
-			cameraInitialized = true;
-			initializeCamera();
+    if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
-			PlayState.instance.currentStage.getBoyfriend().color = 0xFFDEDEDE;
-			PlayState.instance.currentStage.getDad().color = 0xFFDEDEDE;
-			PlayState.instance.currentStage.getGirlfriend().color = 0xFF888888;
-			PlayState.instance.currentStage.getGirlfriend().scriptGet('abot').color = 0xFF888888;
-		}
+    // Manually focus the camera before the song starts.
+    if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
+    {
+      cameraInitialized = true;
+      initializeCamera();
 
-		if (lightningActive) {
-			lightningTimer -= FlxG.elapsed;
-		} else {
-			lightningTimer = 1;
-		}
+      PlayState.instance.currentStage.getBoyfriend().color = 0xFFDEDEDE;
+      PlayState.instance.currentStage.getDad().color = 0xFFDEDEDE;
+      PlayState.instance.currentStage.getGirlfriend().color = 0xFF888888;
+      PlayState.instance.currentStage.getGirlfriend().scriptGet('abot').color = 0xFF888888;
+    }
 
-		if (lightningTimer <= 0) {
-			applyLightning();
-			lightningTimer = FlxG.random.float(7, 15);
-		}
-	}
+    if (lightningActive)
+    {
+      lightningTimer -= FlxG.elapsed;
+    }
+    else
+    {
+      lightningTimer = 1;
+    }
 
-	public function onNoteHit(event:HitNoteScriptEvent) {
-		super.onNoteHit(event);
-		rainTimeScale += 0.7;
-	}
+    if (lightningTimer <= 0)
+    {
+      applyLightning();
+      lightningTimer = FlxG.random.float(7, 15);
+    }
+  }
 
+  public function onNoteHit(event:HitNoteScriptEvent)
+  {
+    super.onNoteHit(event);
+    rainTimeScale += 0.7;
+  }
 
-	function applyLightning():Void {
-		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
-		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
-		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
-		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+  function applyLightning():Void
+  {
+    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
 
-		var LIGHTNING_FULL_DURATION = 1.5;
-		var LIGHTNING_FADE_DURATION = 0.3;
+    var LIGHTNING_FULL_DURATION = 1.5;
+    var LIGHTNING_FADE_DURATION = 0.3;
 
-		skyAdditive.visible = true;
-		skyAdditive.alpha = 0.7;
-		FlxTween.tween(skyAdditive, {alpha: 0.0}, LIGHTNING_FULL_DURATION, {
-			onComplete: cleanupLightning, // Make sure to call this only once!
-		});
+    skyAdditive.visible = true;
+    skyAdditive.alpha = 0.7;
+    FlxTween.tween(skyAdditive, {alpha: 0.0}, LIGHTNING_FULL_DURATION,
+      {
+        onComplete: cleanupLightning, // Make sure to call this only once!
+      });
 
-		foregroundMultiply.visible = true;
-		foregroundMultiply.alpha = 0.64;
-		FlxTween.tween(foregroundMultiply, {alpha: 0.0}, LIGHTNING_FULL_DURATION);
+    foregroundMultiply.visible = true;
+    foregroundMultiply.alpha = 0.64;
+    FlxTween.tween(foregroundMultiply, {alpha: 0.0}, LIGHTNING_FULL_DURATION);
 
-		additionalLighten.visible = true;
-		additionalLighten.alpha = 0.3;
-		FlxTween.tween(additionalLighten, {alpha: 0.0}, LIGHTNING_FADE_DURATION);
+    additionalLighten.visible = true;
+    additionalLighten.alpha = 0.3;
+    FlxTween.tween(additionalLighten, {alpha: 0.0}, LIGHTNING_FADE_DURATION);
 
-		lightning.visible = true;
-		lightning.animation.play('strike');
+    lightning.visible = true;
+    lightning.animation.play('strike');
 
-		if(FlxG.random.bool(65)){
-			lightning.x = FlxG.random.int(-250, 280);
-		}else{
-			lightning.x = FlxG.random.int(780, 900);
-		}
+    if (FlxG.random.bool(65))
+    {
+      lightning.x = FlxG.random.int(-250, 280);
+    }
+    else
+    {
+      lightning.x = FlxG.random.int(780, 900);
+    }
 
+    // Darken characters
+    var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+    FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
+    var dad = PlayState.instance.currentStage.getDad();
+    FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
+    var girlfriend = PlayState.instance.currentStage.getGirlfriend();
+    FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFF888888);
 
-		// Darken characters
-		var boyfriend = PlayState.instance.currentStage.getBoyfriend();
-		FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
-		var dad = PlayState.instance.currentStage.getDad();
-		FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
-		var girlfriend = PlayState.instance.currentStage.getGirlfriend();
-		FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFF888888);
+    // Sound
+    FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3), 1.0);
 
-		// Sound
-		FunkinSound.playOnce(Paths.soundRandom('Lightning', 1, 3), 1.0);
-	}
+    triggerLightningHaptics();
+  }
 
-	public override function onSongEnd(event:CountdownScriptEvent):Void {
-		super.onSongEnd(event);
-		// Disable lightning during ending cutscene.
-		lightningActive = false;
-	}
+  var doPostShockHaptics:Bool = false;
 
-	function cleanupLightning(tween:FlxTween):Void {
-		var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
-		var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
-		var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
-		var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
-		skyAdditive.visible = false;
-		foregroundMultiply.visible = false;
-		additionalLighten.visible = false;
-		lightning.visible = false;
-	}
+  function triggerLightningHaptics()
+  {
+    HapticUtil.vibrate(0, 0.05, 1);
 
-	function initializeCamera():Void {
-		var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
+    doPostShockHaptics = true;
+  }
+
+  var postShockCounter:Int = 0;
+  var counterTargetNum:Int = 10;
+
+  function onStepHit(event:SongTimeScriptEvent)
+  {
+    super.onStepHit(event);
+
+    if (doPostShockHaptics)
+    {
+      postShockCounter++;
+
+      var postShockAmplitude:Float = 0.05 * (counterTargetNum - postShockCounter) * 2.5;
+      HapticUtil.vibrate(0, 0.01, postShockAmplitude, 0);
+
+      if (postShockCounter == counterTargetNum)
+      {
+        doPostShockHaptics = false;
+        postShockCounter = 0;
+      }
+    }
+  }
+
+  public override function onSongEnd(event:CountdownScriptEvent):Void
+  {
+    super.onSongEnd(event);
+    // Disable lightning during ending cutscene.
+    lightningActive = false;
+  }
+
+  function cleanupLightning(tween:FlxTween):Void
+  {
+    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+    skyAdditive.visible = false;
+    foregroundMultiply.visible = false;
+    additionalLighten.visible = false;
+    lightning.visible = false;
+  }
+
+  function initializeCamera():Void
+  {
+    var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
     var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
-		// yTarget += 200;
-		xTarget += 50;
-		yTarget -= 90;
+    // yTarget += 200;
+    xTarget += 50;
+    yTarget -= 90;
     PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
-		PlayState.instance.resetCamera();
+    PlayState.instance.resetCamera();
 
-		PlayState.instance.comboPopUps.offsets = [480, -50];
+    PlayState.instance.comboPopUps.offsets = [480, -50];
 
-		PlayState.instance.camGame.fade(0xFF000000, 1.5, true, null, true);
-	}
+    PlayState.instance.camGame.fade(0xFF000000, 1.5, true, null, true);
+  }
 }

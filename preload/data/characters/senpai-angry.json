@@ -17,22 +17,22 @@
     },
     {
       "name": "singLEFT",
-      "prefix": "Angry Senpai LEFT NOTE",
+      "prefix": "Angry Senpai LEFT NOTE instance 10",
       "offsets": [6.6, 0]
     },
     {
       "name": "singDOWN",
-      "prefix": "Angry Senpai DOWN NOTE",
+      "prefix": "Angry Senpai DOWN NOTE instance 10",
       "offsets": [2.33, 0]
     },
     {
       "name": "singUP",
-      "prefix": "Angry Senpai UP NOTE",
+      "prefix": "Angry Senpai UP NOTE instance 10",
       "offsets": [0.83, 6.16]
     },
     {
       "name": "singRIGHT",
-      "prefix": "Angry Senpai RIGHT NOTE",
+      "prefix": "Angry Senpai RIGHT NOTE instance 10",
       "offsets": [0, 0]
     }
   ]
