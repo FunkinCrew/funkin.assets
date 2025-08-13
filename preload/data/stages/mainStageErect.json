@@ -81,7 +81,7 @@
       "danceEvery": 0,
       "zIndex": 80,
       "position": [189, -500],
-      "scale": [1, 3],
+      "scale": [1, 1700],
       "animType": "sparrow",
       "name": "orangeLight",
       "isPixel": false,
