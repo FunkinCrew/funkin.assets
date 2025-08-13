@@ -11,16 +11,13 @@ class ParentsChristmasCharacter extends SparrowCharacter
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
-    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD)
+    // Override the hit note animation.
+    switch (event.note.kind)
     {
-      // Override the hit note animation.
-      switch (event.note.kind)
-      {
-        case "mom":
-          holdTimer = 0;
-          this.playSingAnimation(event.note.noteData.getDirection(), false, 'alt');
-          return;
-      }
+      case "mom":
+        holdTimer = 0;
+        this.playSingAnimation(event.note.noteData.getDirection(), false, 'alt');
+        return;
     }
 
     super.onNoteHit(event);

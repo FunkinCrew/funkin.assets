@@ -40,18 +40,19 @@ class BoyfriendChristmasCharacter extends MultiSparrowCharacter
       return;
     }
 
-    if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF)
+    // Override the hit note animation.
+    switch (event.note.kind)
     {
-      // Override the hit note animation.
-      switch (event.note.kind)
-      {
-        case "censor":
-          holdTimer = 0;
-          this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
-          return;
-        default:
-          super.onNoteHit(event);
-      }
+      case "censor":
+        holdTimer = 0;
+        this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
+        return;
+      case "hey":
+        holdTimer = 0;
+        this.playAnimation('hey', true, true);
+        return;
+      default:
+        super.onNoteHit(event);
     }
   }
 }

@@ -353,7 +353,6 @@ class TwoHOTSong extends Song
         if (HapticUtil.hapticsAvailable)
         {
           HapticUtil.vibrateByPreset(canVibrationPreset);
-          trace("AAAAA");
         }
       });
     }

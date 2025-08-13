@@ -112,4 +112,13 @@ class SpookyMansionStage extends Stage
     lightningStrikeBeat = 0;
     lightningStrikeOffset = 8;
   }
+
+  function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+
+    // Reset lightning variables at the start of every song
+    lightningStrikeBeat = 0;
+    lightningStrikeOffset = 8;
+  }
 }

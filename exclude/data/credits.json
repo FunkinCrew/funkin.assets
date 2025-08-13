@@ -37,7 +37,13 @@
     {
       "header": "Mobile Lead",
       "body":  [
-        { "line": "MoonDroid (Zack)"}
+        { "line": "MoonDroid (Zack)" }
+      ]
+    },
+    {
+      "header": "Production Manager",
+      "body": [
+        { "line": "Hundrec" }
       ]
     },
     {
