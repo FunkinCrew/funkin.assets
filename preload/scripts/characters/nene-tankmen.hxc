@@ -410,8 +410,8 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 140;
-      abot.y = this.y + 236; // 764 - 740
+      abot.x = this.x - 145;
+      abot.y = this.y + 232; // 764 - 740
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);
