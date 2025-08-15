@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="492">
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="345" height="532">
     <vbox width="100%" height="100%">
-        <frame text="Variation: Default" width="100%" height="250" id="frameVariation">
+        <frame text="Variation: Default" width="100%" height="290" id="frameVariation">
             <vbox width="100%" height="100%">
                 <grid columns="2" height="100%">
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
@@ -31,6 +31,12 @@
                         <data>
                             <item text="Normal" />
                             <item text="Pixel" />
+                        </data>
+                    </dropdown>
+                    <label text="Album:" verticalAlign="center" horizontalAlign="right" />
+                    <dropdown id="inputAlbum" value="placeholding" horizontalAlign="right" width="100%">
+                        <data>
+                            <item id="" text="placeholder" />
                         </data>
                     </dropdown>
                 </grid>

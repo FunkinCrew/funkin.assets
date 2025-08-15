@@ -20,6 +20,12 @@
 						<item id="funkin" text="Funkin'" />
 					</data>
 				</dropdown>
+				<label text="Album:" verticalAlign="center" horizontalAlign="right" />
+				<dropdown id="inputAlbum" value="placeholding" horizontalAlign="right" width="100%">
+					<data>
+						<item id="" text="placeholder" />
+					</data>
+				</dropdown>
 				<label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
 				<dropdown id="inputCharacterPlayer" value="bf" dropdownSize="10" dropdownWidth="300" horizontalAlign="right" width="100%" searchable="true">
 					<validator type="required" />
