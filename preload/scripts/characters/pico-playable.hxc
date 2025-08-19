@@ -90,6 +90,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // Override the hit note animation.
     switch (event.note.kind)
     {
+      case "hey":
+        holdTimer = 0;
+        this.playAnimation('hey', true, true);
+        return;
+      case "cheer":
+        holdTimer = 0;
+        this.playAnimation('cheer', true, true);
+        return;
       case "censor":
         holdTimer = 0;
         this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
