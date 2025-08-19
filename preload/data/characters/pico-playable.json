@@ -122,25 +122,25 @@
       "name": "hey",
       "prefix": "Pico HEY!!0",
       "assetPath": "characters/pico-cheer",
-      "offsets": [0, 0]
+      "offsets": [36, 0]
     },
     {
       "name": "cheer",
       "prefix": "Pico YEAH cheer0",
       "assetPath": "characters/pico-yeah",
-      "offsets": [0, 0]
+      "offsets": [62, 23]
     },
     {
       "name": "cock",
       "assetPath": "characters/Pico_Shooting",
       "prefix": "Pico Reload0",
-      "offsets": [0, 0]
+      "offsets": [30, -8]
     },
     {
       "name": "shoot",
       "assetPath": "characters/Pico_Shooting",
       "prefix": "Pico Shoot Hip Full0",
-      "offsets": [300, 250]
+      "offsets": [330, 232]
     },
     {
       "name": "intro1",
