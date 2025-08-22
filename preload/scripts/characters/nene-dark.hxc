@@ -189,7 +189,7 @@ class NeneDarkCharacter extends SparrowCharacter
     if (abot != null)
     {
       abot.playAnimation("");
-      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      abot.anim.curFrame = 0; // we start on frame zero manually so that the animation plays every beat
     }
 
     // Then, perform the appropriate animation for the current state.
