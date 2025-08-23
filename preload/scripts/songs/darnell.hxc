@@ -311,6 +311,7 @@ class DarnellSong extends Song
   function startVideo()
   {
     var videoPath = 'darnellCutscene';
+
     if (Constants.CENSOR_EXPLETIVES)
     {
       videoPath += '-censored';

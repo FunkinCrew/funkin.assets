@@ -67,7 +67,14 @@ class StressSong extends Song
 
   function startVideo()
   {
-    VideoCutscene.play(Paths.videos('stressCutscene'));
+    var videoPath = 'stressCutscene';
+
+    if (Constants.CENSOR_EXPLETIVES)
+    {
+      videoPath += '-censored';
+    }
+
+    VideoCutscene.play(Paths.videos(videoPath));
   }
 
   function kill():Void
