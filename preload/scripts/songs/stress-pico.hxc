@@ -102,7 +102,14 @@ class StressPicoMixSong extends Song
 
   function startVideo()
   {
-    VideoCutscene.play(Paths.videos('stressPicoCutscene'));
+    var videoPath = 'stressPicoCutscene';
+
+    if (Constants.CENSOR_EXPLETIVES)
+    {
+      videoPath += '-censored';
+    }
+
+    VideoCutscene.play(Paths.videos(videoPath));
   }
 
   /**
