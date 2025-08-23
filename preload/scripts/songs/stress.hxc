@@ -91,4 +91,14 @@ class StressSong extends Song
       tankmanGroup = null;
     }
   }
+
+  function onSongFadeIn(event:ScriptEvent)
+  {
+    super.onSongFadeIn(event);
+
+    if (PlayStatePlaylist.isStoryMode)
+    {
+      event.cancel();
+    }
+  }
 }
