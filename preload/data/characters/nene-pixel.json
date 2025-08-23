@@ -1,45 +1,156 @@
 {
-  "version": "1.0.0",
-  "name": "Nene",
-  "assetPath": "characters/nenePixel/nenePixel",
-  "startingAnimation": "danceRight",
-  "isPixel": true,
-  "scale": 6,
-  "animations": [
-    {
-      "name": "danceLeft",
-      "prefix": "idle",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "danceRight",
-      "prefix": "idle",
-      "frameIndices": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "raiseKnife",
-      "prefix": "raise",
-      "offsets": [0, 10]
-    },
-    {
-      "name": "idleKnife",
-      "prefix": "blink",
-      "frameIndices": [6, 7],
-      "offsets": [0, 10]
-    },
-    {
-      "name": "idleKnifeBlink",
-      "prefix": "blink",
-      "frameIndices": [0, 1, 2, 3, 4, 5],
-      "offsets": [-19, 10]
-    },
-    {
-      "name": "lowerKnife",
-      "prefix": "lower",
-      "frameIndices": [0, 1, 2, 3, 4, 5],
-      "offsets": [0, 10]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 6,
+	"name": "Nene",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"isPixel": true,
+	"startingAnimation": "danceRight",
+	"singTime": 8,
+	"assetPath": "characters/nenePixel/nenePixel",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"id": "nene-pixel",
+		"flipX": false,
+		"isPixel": true,
+		"scale": 1
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "danceLeft"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle",
+			"frameIndices": [
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "danceRight"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-2,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "raise",
+			"flipX": false,
+			"looped": false,
+			"name": "raiseKnife"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-2,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "blink",
+			"frameIndices": [
+				6,
+				7
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "idleKnife"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-21,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "blink",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "idleKnifeBlink"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-2,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "lower",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "lowerKnife"
+		}
+	]
 }

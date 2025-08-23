@@ -1,68 +1,192 @@
 {
-  "version": "1.0.0",
-  "name": "Daddy Dearest",
-  "assetPath": "characters/daddyDearest",
-  "singTime": 8.0,
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "idle",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "idle-hold",
-      "prefix": "idle",
-      "looped": true,
-      "frameIndices": [11, 12],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "singLEFT",
-      "offsets": [-10, 10]
-    },
-    {
-      "name": "singLEFT-hold",
-      "prefix": "singLEFT",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [-10, 10]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "singDOWN",
-      "offsets": [0, -30]
-    },
-    {
-      "name": "singDOWN-hold",
-      "prefix": "singDOWN",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [0, -30]
-    },
-    {
-      "name": "singUP",
-      "prefix": "singUP",
-      "offsets": [-6, 50]
-    },
-    {
-      "name": "singUP-hold",
-      "prefix": "singUP",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [-6, 50]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "singRIGHT",
-      "offsets": [0, 27]
-    },
-    {
-      "name": "singRIGHT-hold",
-      "prefix": "singRIGHT",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      "offsets": [0, 27]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Daddy Dearest",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"assetPath": "characters/daddyDearest",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"id": "dad",
+		"flipX": false,
+		"isPixel": false,
+		"scale": 1
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle",
+			"frameIndices": [
+				11,
+				12
+			],
+			"flipX": false,
+			"name": "idle-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-6,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "singLEFT",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-6,
+				10
+			],
+			"frameRate": 24,
+			"prefix": "singLEFT",
+			"frameIndices": [
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"flipX": false,
+			"name": "singLEFT-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-1,
+				-30
+			],
+			"frameRate": 24,
+			"prefix": "singDOWN",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-10,
+				51
+			],
+			"frameRate": 24,
+			"prefix": "singUP",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-10,
+				51
+			],
+			"frameRate": 24,
+			"prefix": "singUP",
+			"frameIndices": [
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"flipX": false,
+			"name": "singUP-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-6,
+				27
+			],
+			"frameRate": 24,
+			"prefix": "singRIGHT",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-6,
+				27
+			],
+			"frameRate": 24,
+			"prefix": "singRIGHT",
+			"frameIndices": [
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"flipX": false,
+			"name": "singRIGHT-hold",
+			"looped": true
+		}
+	]
 }

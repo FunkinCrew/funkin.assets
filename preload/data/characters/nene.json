@@ -1,101 +1,392 @@
 {
-  "version": "1.0.0",
-  "name": "Nene",
-  "assetPath": "characters/Nene",
-  "startingAnimation": "danceRight",
-  "renderType": "multisparrow",
-  "offsets": [0, -100],
-  "animations": [
-    {
-      "name": "danceLeft",
-      "prefix": "Idle0",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "danceRight",
-      "prefix": "Idle0",
-      "frameIndices": [
-        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "combo50",
-      "prefix": "ComboCheer0",
-      "offsets": [-120, 50]
-    },
-    {
-      "name": "drop70",
-      "prefix": "Laugh0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
-        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "laughCutscene",
-      "prefix": "Laugh0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11,
-        7, 8, 9, 10, 11, 7, 8, 9, 10, 11, 7, 8, 9, 10, 11
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "combo200",
-      "prefix": "ComboFawn0",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-        6, 6, 6, 6, 6, 6
-      ],
-      "offsets": [-50, -25]
-    },
-    {
-      "name": "raiseKnife",
-      "prefix": "KnifeRaise0",
-      "offsets": [0, 52]
-    },
-    {
-      "name": "idleKnife",
-      "prefix": "KnifeIdle0",
-      "offsets": [-99, 52]
-    },
-    {
-      "name": "lowerKnife",
-      "prefix": "KnifeLower0",
-      "offsets": [135, 52]
-    },
-    {
-      "name": "hairBlowNormal",
-      "prefix": "HairBlow0",
-      "assetPath": "characters/Nene_Hair_Blowing",
-      "frameIndices": [0, 1, 2, 3, 0, 1, 2, 3],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "hairFallNormal",
-      "prefix": "HairBlow0",
-      "assetPath": "characters/Nene_Hair_Blowing",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "hairBlowKnife",
-      "prefix": "HairBlowKnife0",
-      "frameIndices": [0, 1, 2, 3, 0, 1, 2, 3],
-      "assetPath": "characters/Nene_Hair_Blowing",
-      "offsets": [-79, 51]
-    },
-    {
-      "name": "hairFallKnife",
-      "prefix": "HairBlowKnife0",
-      "assetPath": "characters/Nene_Hair_Blowing",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-79, 51]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "multisparrow",
+	"offsets": [
+		0,
+		-100
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Nene",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"startingAnimation": "danceRight",
+	"isPixel": false,
+	"singTime": 8,
+	"assetPath": "characters/Nene",
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "nene",
+		"flipX": false
+	},
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"prefix": "Idle0",
+			"name": "danceLeft",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"frameIndices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			],
+			"prefix": "Idle0",
+			"name": "danceRight",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-124,
+				51
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "ComboCheer0",
+			"name": "combo50",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-46,
+				-11
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"prefix": "ComboFawn0",
+			"name": "combo200",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				2,
+				-4
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11
+			],
+			"prefix": "Laugh0",
+			"name": "drop70",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				0,
+				51
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "KnifeRaise0",
+			"name": "raiseKnife",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-98,
+				51
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "KnifeIdle0",
+			"name": "idleKnife",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				135,
+				51
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "KnifeLower0",
+			"name": "lowerKnife",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"prefix": "HairBlow0",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				0,
+				1,
+				2,
+				3
+			],
+			"name": "hairBlowNormal",
+			"looped": false,
+			"flipX": false,
+			"flipY": false,
+			"frameRate": 24,
+			"assetPath": "characters/Nene_Hair_Blowing"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"prefix": "HairBlow0",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"name": "hairFallNormal",
+			"looped": false,
+			"flipX": false,
+			"flipY": false,
+			"frameRate": 24,
+			"assetPath": "characters/Nene_Hair_Blowing"
+		},
+		{
+			"offsets": [
+				-79,
+				51
+			],
+			"prefix": "HairBlowKnife0",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				0,
+				1,
+				2,
+				3
+			],
+			"name": "hairBlowKnife",
+			"looped": false,
+			"flipX": false,
+			"flipY": false,
+			"frameRate": 24,
+			"assetPath": "characters/Nene_Hair_Blowing"
+		},
+		{
+			"offsets": [
+				-79,
+				51
+			],
+			"prefix": "HairBlowKnife0",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "hairFallKnife",
+			"looped": false,
+			"flipX": false,
+			"flipY": false,
+			"frameRate": 24,
+			"assetPath": "characters/Nene_Hair_Blowing"
+		},
+		{
+			"offsets": [
+				2,
+				-4
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11,
+				7,
+				8,
+				9,
+				10,
+				11
+			],
+			"prefix": "Laugh0",
+			"name": "laughCutscene",
+			"looped": false,
+			"flipX": false
+		}
+	]
 }

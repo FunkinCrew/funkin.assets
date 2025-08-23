@@ -1,78 +1,172 @@
 {
-  "version": "1.0.0",
-  "name": "Pico (Holding Nene)",
-  "assetPath": "characters/picoAndNene",
-  "healthIcon": {
-    "id": "pico",
-    "flipX": false
-  },
-  "offsets": [20, 2],
-  "death": {
-    "cameraOffsets": [10, -40],
-    "cameraZoom": 1.0,
-    "deathQuoteDelay": 3.0
-  },
-  "flipX": true,
-  "renderType": "sparrow",
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Pico Idle Dance",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Pico Note Right0",
-      "offsets": [-48, -20]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Pico Down Note0",
-      "offsets": [93, -70]
-    },
-    {
-      "name": "singUP",
-      "prefix": "pico Up note0",
-      "offsets": [56, 3]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [27, -16]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "note miss right pico nene0",
-      "offsets": [-45, -19]
-    },
-    {
-      "name": "singDOWNmiss",
-      "prefix": "note miss down pico nene0",
-      "offsets": [95, -74]
-    },
-    {
-      "name": "singUPmiss",
-      "prefix": "note miss up piconene0",
-      "offsets": [60, 2]
-    },
-    {
-      "name": "singLEFTmiss",
-      "prefix": "note miss left pico nene0",
-      "offsets": [28, -11]
-    },
-    {
-      "name": "knifeToss",
-      "prefix": "pico nene knife toss0",
-      "offsets": [14, 26]
-    },
-    {
-      "name": "laughEnd",
-      "prefix": "pico nene laughing full0",
-      "offsets": [5, 7]
-    },
-    {
-      "name": "firstDeath",
-      "prefix": ""
-    }
-  ]
+	"version": "1.0.0",
+	"offsets": [
+		20,
+		2
+	],
+	"renderType": "sparrow",
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Pico (Holding Nene)",
+	"flipX": true,
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"death": {
+		"cameraZoom": 1,
+		"deathQuoteDelay": 3,
+		"cameraOffsets": [
+			10,
+			-40
+		]
+	},
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"singTime": 8,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "pico",
+		"flipX": false
+	},
+	"assetPath": "characters/picoAndNene",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Pico Idle Dance",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				27,
+				-16
+			],
+			"frameRate": 24,
+			"prefix": "Pico NOTE LEFT0",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				30,
+				-11
+			],
+			"frameRate": 24,
+			"prefix": "note miss left pico nene0",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFTmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				89,
+				-73
+			],
+			"frameRate": 24,
+			"prefix": "Pico Down Note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				94,
+				-77
+			],
+			"frameRate": 24,
+			"prefix": "note miss down pico nene0",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWNmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				56,
+				2
+			],
+			"frameRate": 24,
+			"prefix": "pico Up note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				60,
+				2
+			],
+			"frameRate": 24,
+			"prefix": "note miss up piconene0",
+			"flipX": false,
+			"looped": false,
+			"name": "singUPmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-54,
+				-21
+			],
+			"frameRate": 24,
+			"prefix": "Pico Note Right0",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-48,
+				-19
+			],
+			"frameRate": 24,
+			"prefix": "note miss right pico nene0",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHTmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				13,
+				26
+			],
+			"frameRate": 24,
+			"prefix": "pico nene knife toss0",
+			"flipX": false,
+			"looped": false,
+			"name": "knifeToss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				5,
+				7
+			],
+			"frameRate": 24,
+			"prefix": "pico nene laughing full0",
+			"flipX": false,
+			"looped": false,
+			"name": "laughEnd"
+		}
+	]
 }

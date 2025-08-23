@@ -1,94 +1,216 @@
 {
-  "version": "1.0.0",
-  "name": "Boyfriend (Dark)",
-  "renderType": "multisparrow",
-  "assetPath": "characters/bf_dark",
-  "flipX": true,
-  "healthIcon": {
-    "id": "bf",
-    "flipX": false
-  },
-  "singTime": 8.0,
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "BF idle dance",
-      "offsets": [-5, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "BF NOTE LEFT0",
-      "offsets": [12, -6]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "BF NOTE DOWN0",
-      "offsets": [-10, -50]
-    },
-    {
-      "name": "singUP",
-      "prefix": "BF NOTE UP0",
-      "offsets": [-29, 27]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "BF NOTE RIGHT0",
-      "offsets": [-38, -7]
-    },
-    {
-      "name": "singLEFTmiss",
-      "prefix": "BF NOTE LEFT MISS",
-      "offsets": [12, 24]
-    },
-    {
-      "name": "singDOWNmiss",
-      "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-11, -19]
-    },
-    {
-      "name": "singUPmiss",
-      "prefix": "BF NOTE UP MISS",
-      "offsets": [-29, 27]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-30, 21]
-    },
-    {
-      "name": "hey",
-      "prefix": "BF HEY!!",
-      "offsets": [7, 4]
-    },
-    {
-      "name": "scared",
-      "prefix": "BF idle shaking",
-      "offsets": [-4, 0]
-    },
-    {
-      "name": "firstDeath",
-      "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
-    },
-    {
-      "name": "fakeoutDeath",
-      "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
-    },
-    {
-      "name": "deathLoop",
-      "prefix": "BF Dead Loop",
-      "looped": true,
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 5]
-    },
-    {
-      "name": "deathConfirm",
-      "prefix": "BF Dead confirm",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 69]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "multisparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Boyfriend (Dark)",
+	"flipX": true,
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "bf",
+		"flipX": false
+	},
+	"assetPath": "characters/bf_dark",
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF idle dance",
+			"name": "idle",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				14,
+				-6
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE LEFT0",
+			"name": "singLEFT",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				14,
+				20
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE LEFT MISS",
+			"name": "singLEFTmiss",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-23,
+				-51
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE DOWN0",
+			"name": "singDOWN",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-23,
+				-21
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE DOWN MISS",
+			"name": "singDOWNmiss",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-43,
+				34
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE UP0",
+			"name": "singUP",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-39,
+				34
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE UP MISS",
+			"name": "singUPmiss",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-47,
+				-5
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE RIGHT0",
+			"name": "singRIGHT",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-41,
+				23
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF NOTE RIGHT MISS",
+			"name": "singRIGHTmiss",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				1,
+				6
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF HEY!!",
+			"name": "hey",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-1,
+				1
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "BF idle shaking",
+			"name": "scared",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				28,
+				5
+			],
+			"flipY": false,
+			"assetPath": "characters/BOYFRIEND",
+			"frameRate": 24,
+			"prefix": "BF dies",
+			"name": "firstDeath",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				28,
+				5
+			],
+			"flipY": false,
+			"assetPath": "characters/BOYFRIEND",
+			"frameRate": 24,
+			"prefix": "BF dies",
+			"name": "fakeoutDeath",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				28,
+				-1
+			],
+			"flipY": false,
+			"assetPath": "characters/BOYFRIEND",
+			"frameRate": 24,
+			"prefix": "BF Dead Loop",
+			"looped": true,
+			"name": "deathLoop",
+			"flipX": false
+		},
+		{
+			"offsets": [
+				28,
+				63
+			],
+			"flipY": false,
+			"assetPath": "characters/BOYFRIEND",
+			"frameRate": 24,
+			"prefix": "BF Dead confirm",
+			"name": "deathConfirm",
+			"looped": false,
+			"flipX": false
+		}
+	]
 }

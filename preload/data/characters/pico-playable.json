@@ -1,194 +1,517 @@
 {
-  "version": "1.0.0",
-  "name": "Pico (Playable)",
-  "assetPath": "characters/Pico_Basic",
-  "healthIcon": {
-    "id": "pico",
-    "flipX": false
-  },
-  "death": {
-    "cameraOffsets": [10, -40],
-    "cameraZoom": 1.0
-  },
-  "flipX": true,
-  "renderType": "multisparrow",
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Pico Idle Dance",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Pico Note Right0",
-      "offsets": [-50, 1]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Pico Down Note0",
-      "offsets": [84, -77]
-    },
-    {
-      "name": "singUP",
-      "prefix": "pico Up note0",
-      "offsets": [21, 28]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [84, -11]
-    },
-    {
-      "name": "singRIGHT-censor",
-      "prefix": "pico swear right",
-      "assetPath": "characters/Pico_Censored",
-      "offsets": [-50, 1]
-    },
-    {
-      "name": "singDOWN-censor",
-      "prefix": "pico swear down",
-      "assetPath": "characters/Pico_Censored",
-      "offsets": [84, -77]
-    },
-    {
-      "name": "singUP-censor",
-      "prefix": "pico swear up",
-      "assetPath": "characters/Pico_Censored",
-      "offsets": [21, 28]
-    },
-    {
-      "name": "singLEFT-censor",
-      "prefix": "pico swear left",
-      "assetPath": "characters/Pico_Censored",
-      "offsets": [84, -11]
-    },
-    {
-      "name": "singLEFTmiss",
-      "assetPath": "characters/Pico_Playable",
-      "prefix": "Pico Left Note MISS",
-      "offsets": [68, 20]
-    },
-    {
-      "name": "singDOWNmiss",
-      "assetPath": "characters/Pico_Playable",
-      "prefix": "Pico Down Note MISS",
-      "offsets": [80, -40]
-    },
-    {
-      "name": "singUPmiss",
-      "assetPath": "characters/Pico_Playable",
-      "prefix": "Pico Up Note MISS",
-      "offsets": [29, 70]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "assetPath": "characters/Pico_Playable",
-      "prefix": "Pico Right Note MISS",
-      "offsets": [-55, 45]
-    },
-    {
-      "name": "shootMISS",
-      "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Hit Can0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "firstDeath",
-      "prefix": "Pico Death Stab",
-      "assetPath": "characters/Pico_Death",
-      "frameIndices": [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-        21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-        38, 39, 40, 41, 42, 43, 44, 45, 46, 47
-      ],
-      "offsets": [225, 125]
-    },
-    {
-      "name": "firstDeathExplosion",
-      "prefix": "Pico Idle Dance",
-      "offsets": [225, 125]
-    },
-    {
-      "name": "deathLoop",
-      "prefix": "Pico Death Stab",
-      "looped": true,
-      "assetPath": "characters/Pico_Death",
-      "frameIndices": [
-        48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63
-      ],
-      "offsets": [225, 125]
-    },
-    {
-      "name": "hey",
-      "prefix": "Pico HEY!!0",
-      "assetPath": "characters/pico-cheer",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "cheer",
-      "prefix": "Pico YEAH cheer0",
-      "assetPath": "characters/pico-yeah",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "cock",
-      "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Reload0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "shoot",
-      "assetPath": "characters/Pico_Shooting",
-      "prefix": "Pico Shoot Hip Full0",
-      "offsets": [300, 250]
-    },
-    {
-      "name": "intro1",
-      "assetPath": "characters/Pico_Intro",
-      "prefix": "Pico Gets Pissed0",
-      "offsets": [60, 0]
-    },
-    {
-      "name": "cockCutscene",
-      "assetPath": "characters/Pico_Intro",
-      "prefix": "cutscene cock0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "intro2",
-      "assetPath": "characters/Pico_Intro",
-      "prefix": "shoot and return0",
-      "offsets": [260, 230]
-    },
-    {
-      "name": "burpShit",
-      "assetPath": "characters/Pico_Burps",
-      "prefix": "burpshit",
-      "offsets": [33, -3]
-    },
-    {
-      "name": "burpSmile",
-      "assetPath": "characters/Pico_Burps",
-      "prefix": "burpsmile",
-      "offsets": [33, -3]
-    },
-    {
-      "name": "burpSmileLong",
-      "prefix": "burpsmile",
-      "assetPath": "characters/Pico_Burps",
-      "frameIndices": [
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 31, 31, 31, 31, 31,
-        31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
-        31, 31, 31, 31, 31, 31
-      ],
-      "offsets": [33, -3]
-    },
-    {
-      "name": "shit",
-      "assetPath": "characters/Pico_Burps",
-      "prefix": "shit",
-      "offsets": [0, -3]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "multisparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Pico (Playable)",
+	"flipX": true,
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"death": {
+		"cameraZoom": 1,
+		"cameraOffsets": [
+			10,
+			-40
+		]
+	},
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"singTime": 8,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "pico",
+		"flipX": false
+	},
+	"assetPath": "characters/Pico_Basic",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Pico Idle Dance",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				88,
+				-11
+			],
+			"frameRate": 24,
+			"prefix": "Pico NOTE LEFT0",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				89,
+				24
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Playable",
+			"prefix": "Pico Left Note MISS",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFTmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				92,
+				-84
+			],
+			"frameRate": 24,
+			"prefix": "Pico Down Note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				89,
+				-41
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Playable",
+			"prefix": "Pico Down Note MISS",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWNmiss"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				20,
+				29
+			],
+			"frameRate": 24,
+			"prefix": "pico Up note0",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				27,
+				66
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Playable",
+			"prefix": "Pico Up Note MISS",
+			"flipX": false,
+			"looped": false,
+			"name": "singUPmiss"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				-56,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Pico Note Right0",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				-46,
+				47
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Playable",
+			"prefix": "Pico Right Note MISS",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHTmiss"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				88,
+				-11
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Censored",
+			"prefix": "pico swear left",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT-censor"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				92,
+				-84
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Censored",
+			"prefix": "pico swear down",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN-censor"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				20,
+				29
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Censored",
+			"prefix": "pico swear up",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP-censor"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				-56,
+				0
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Censored",
+			"prefix": "pico swear right",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT-censor"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				35,
+				2
+			],
+			"frameRate": 24,
+			"assetPath": "characters/pico-cheer",
+			"prefix": "Pico HEY!!0",
+			"flipX": false,
+			"looped": false,
+			"name": "hey"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				69,
+				16
+			],
+			"frameRate": 24,
+			"assetPath": "characters/pico-yeah",
+			"prefix": "Pico YEAH cheer0",
+			"flipX": false,
+			"looped": false,
+			"name": "cheer"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				37,
+				0
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Burps",
+			"prefix": "burpsmile",
+			"flipX": false,
+			"looped": false,
+			"name": "burpSmile"
+		},
+		{
+			"offsets": [
+				37,
+				0
+			],
+			"prefix": "burpsmile",
+			"frameIndices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31,
+				31
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "burpSmileLong",
+			"flipY": false,
+			"assetPath": "characters/Pico_Burps",
+			"frameRate": 24
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				37,
+				0
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Burps",
+			"prefix": "burpshit",
+			"flipX": false,
+			"looped": false,
+			"name": "burpShit"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				1,
+				1
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Burps",
+			"prefix": "shit",
+			"flipX": false,
+			"looped": false,
+			"name": "shit"
+		},
+    	{
+			"flipY": false,
+			"offsets": [
+				-50,
+				-9
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Shooting",
+			"prefix": "Pico Reload0",
+			"flipX": false,
+			"looped": false,
+			"name": "cock"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				253,
+				232
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Shooting",
+			"prefix": "Pico Shoot Hip Full0",
+			"flipX": false,
+			"looped": false,
+			"name": "shoot"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-24,
+				-6
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Shooting",
+			"prefix": "Pico Hit Can0",
+			"flipX": false,
+			"looped": false,
+			"name": "shootMISS"
+		},
+    	{
+			"offsets": [
+				213,
+				102
+			],
+			"prefix": "Pico Death Stab",
+			"frameIndices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "firstDeath",
+			"flipY": false,
+			"assetPath": "characters/Pico_Death",
+			"frameRate": 24
+		},
+    	{
+			"offsets": [
+				213,
+				102
+			],
+			"frameIndices": [
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63
+			],
+			"prefix": "Pico Death Stab",
+			"flipX": false,
+			"name": "deathLoop",
+			"looped": true,
+			"flipY": false,
+			"assetPath": "characters/Pico_Death",
+			"frameRate": 24
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				57,
+				0
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Intro",
+			"prefix": "Pico Gets Pissed0",
+			"flipX": false,
+			"looped": false,
+			"name": "intro1"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-55,
+				10
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Intro",
+			"prefix": "cutscene cock0",
+			"flipX": false,
+			"looped": false,
+			"name": "cockCutscene"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				252,
+				231
+			],
+			"frameRate": 24,
+			"assetPath": "characters/Pico_Intro",
+			"prefix": "shoot and return0",
+			"flipX": false,
+			"looped": false,
+			"name": "intro2"
+		}
+	]
 }

@@ -1,72 +1,208 @@
 {
-  "version": "1.0.0",
-  "name": "Mommy Mearest (Car)",
-  "assetPath": "characters/momCar",
-  "singTime": 8.0,
-  "healthIcon": {
-    "id": "mom"
-  },
-  "cameraOffsets": [0, -100],
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "Mom Idle0",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "idle-hold",
-      "prefix": "Mom Idle",
-      "looped": true,
-      "frameIndices": [10, 11, 12, 13],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "Mom Left Pose0",
-      "offsets": [250, -23]
-    },
-    {
-      "name": "singLEFT-hold",
-      "prefix": "Mom Left Pose0",
-      "looped": true,
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9],
-      "offsets": [250, -23]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "MOM DOWN POSE0",
-      "offsets": [20, -160]
-    },
-    {
-      "name": "singDOWN-hold",
-      "prefix": "MOM DOWN POSE0",
-      "looped": true,
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [20, -160]
-    },
-    {
-      "name": "singUP",
-      "prefix": "Mom Up Pose0",
-      "offsets": [14, 71]
-    },
-    {
-      "name": "singUP-hold",
-      "prefix": "Mom Up Pose0",
-      "looped": true,
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [14, 71]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "Mom Pose Left0",
-      "offsets": [10, -60]
-    },
-    {
-      "name": "singRIGHT-hold",
-      "prefix": "Mom Pose Left0",
-      "looped": true,
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9],
-      "offsets": [10, -60]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Mommy Mearest (Car)",
+	"cameraOffsets": [
+		0,
+		-100
+	],
+	"flipX": false,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "mom",
+		"flipX": false
+	},
+	"assetPath": "characters/momCar",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Mom Idle0",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Mom Idle",
+			"frameIndices": [
+				10,
+				11,
+				12,
+				13
+			],
+			"flipX": false,
+			"name": "idle-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				250,
+				-21
+			],
+			"frameRate": 24,
+			"prefix": "Mom Left Pose0",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				250,
+				-21
+			],
+			"frameRate": 24,
+			"prefix": "Mom Left Pose0",
+			"frameIndices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			],
+			"flipX": false,
+			"name": "singLEFT-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-12,
+				-160
+			],
+			"frameRate": 24,
+			"prefix": "MOM DOWN POSE0",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-12,
+				-160
+			],
+			"frameRate": 24,
+			"prefix": "MOM DOWN POSE0",
+			"frameIndices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"flipX": false,
+			"name": "singDOWN-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-5,
+				81
+			],
+			"frameRate": 24,
+			"prefix": "Mom Up Pose0",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-5,
+				81
+			],
+			"frameRate": 24,
+			"prefix": "Mom Up Pose0",
+			"frameIndices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"flipX": false,
+			"name": "singUP-hold",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-34,
+				-52
+			],
+			"frameRate": 24,
+			"prefix": "Mom Right Pose0",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-34,
+				-52
+			],
+			"frameRate": 24,
+			"prefix": "Mom Right Pose0",
+			"frameIndices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			],
+			"flipX": false,
+			"name": "singRIGHT-hold",
+			"looped": true
+		}
+	]
 }

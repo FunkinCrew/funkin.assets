@@ -1,41 +1,97 @@
 {
-  "version": "1.0.0",
-  "name": "Spirit",
-  "assetPath": "characters/spirit",
-  "singTime": 8.0,
-  "renderType": "packer",
-  "isPixel": true,
-  "scale": 6,
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "idle spirit_",
-      "frameIndices": [],
-      "offsets": [-36.66, -46.66]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "left_",
-      "frameIndices": [],
-      "offsets": [-33.33, -46.66]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "spirit down_",
-      "frameIndices": [],
-      "offsets": [28.33, 18.33]
-    },
-    {
-      "name": "singUP",
-      "prefix": "up_",
-      "frameIndices": [],
-      "offsets": [-36.66, -40.0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "right_",
-      "frameIndices": [],
-      "offsets": [-36.66, -46.66]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "packer",
+	"offsets": [
+		31,
+		40
+	],
+	"danceEvery": 1,
+	"scale": 6,
+	"name": "Spirit",
+	"cameraOffsets": [
+		-31,
+		-40
+	],
+	"flipX": false,
+	"isPixel": true,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"assetPath": "characters/spirit",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"isPixel": true,
+		"scale": 1,
+		"flipX": false,
+		"id": "spirit"
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle spirit_",
+			"frameIndices": [],
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				2,
+				-2
+			],
+			"frameRate": 24,
+			"prefix": "left_",
+			"frameIndices": [],
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				65,
+				64
+			],
+			"frameRate": 24,
+			"prefix": "spirit down_",
+			"frameIndices": [],
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				9
+			],
+			"frameRate": 24,
+			"prefix": "up_",
+			"frameIndices": [],
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-3,
+				1
+			],
+			"frameRate": 24,
+			"prefix": "right_",
+			"frameIndices": [],
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
+	]
 }

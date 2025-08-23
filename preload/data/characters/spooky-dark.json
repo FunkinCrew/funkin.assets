@@ -1,53 +1,136 @@
 {
-  "version": "1.0.0",
-  "name": "Spooky Kids (Dark)",
-  "renderType": "sparrow",
-  "assetPath": "characters/spooky_dark",
-  "singTime": 8.0,
-  "healthIcon": {
-    "id": "spooky",
-    "flipX": false
-  },
-  "startingAnimation": "danceRight",
-  "animations": [
-    {
-      "name": "danceLeft",
-      "prefix": "Idle",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7],
-      "frameRate": 24,
-      "offsets": [0, 0]
-    },
-    {
-      "name": "danceRight",
-      "prefix": "Idle",
-      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
-      "frameRate": 24,
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "SingLEFT",
-      "offsets": [130, -10]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "SingDOWN",
-      "offsets": [-50, -130]
-    },
-    {
-      "name": "singUP",
-      "prefix": "SingUP",
-      "offsets": [-20, 26]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "SingRIGHT",
-      "offsets": [-130, -14]
-    },
-    {
-      "name": "cheer",
-      "prefix": "Cheer",
-      "offsets": [0, 0]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Spooky Kids (Dark)",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"startingAnimation": "danceRight",
+	"singTime": 8,
+	"isPixel": false,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "spooky",
+		"flipX": false
+	},
+	"assetPath": "characters/spooky_dark",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Idle",
+			"frameIndices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "danceLeft"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "Idle",
+			"frameIndices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"flipX": false,
+			"looped": false,
+			"name": "danceRight"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				114,
+				-15
+			],
+			"frameRate": 24,
+			"prefix": "SingLEFT",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-29,
+				-145
+			],
+			"frameRate": 24,
+			"prefix": "SingDOWN",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-24,
+				25
+			],
+			"frameRate": 24,
+			"prefix": "SingUP",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-151,
+				-13
+			],
+			"frameRate": 24,
+			"prefix": "SingRIGHT",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				45,
+				30
+			],
+			"frameRate": 24,
+			"prefix": "Cheer",
+			"flipX": false,
+			"looped": false,
+			"name": "cheer"
+		}
+	]
 }
