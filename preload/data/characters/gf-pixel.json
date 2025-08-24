@@ -15,15 +15,7 @@
     {
       "name": "danceRight",
       "prefix": "GF IDLE",
-      "frameIndices": [
-        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
-      ],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singUP",
-      "prefix": "GF IDLE",
-      "frameIndices": [2],
+      "frameIndices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
       "offsets": [0, 0]
     }
   ]
