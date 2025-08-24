@@ -96,6 +96,14 @@
       "offsets": [18, 18]
     },
     {
+      "name": "hit-hold",
+      "prefix": "BF hit",
+      "assetPath": "characters/BOYFRIEND",
+      "frameIndices": [10, 11],
+      "looped": true,
+      "offsets": [18, 18]
+    },
+    {
       "name": "dodge",
       "prefix": "boyfriend dodge",
       "assetPath": "characters/BOYFRIEND",
