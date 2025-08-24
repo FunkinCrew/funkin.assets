@@ -70,7 +70,6 @@
     {
       "name": "hit",
       "prefix": "BF hit",
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [18, 18]
     },
     {
@@ -78,13 +77,11 @@
       "prefix": "BF hit",
       "frameIndices": [10, 11],
       "looped": true,
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [18, 18]
     },
     {
       "name": "dodge",
       "prefix": "boyfriend dodge",
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [2, -8]
     },
     {
@@ -92,7 +89,6 @@
       "prefix": "boyfriend dodge",
       "frameIndices": [10, 11, 12],
       "looped": true,
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [2, -8]
     },
     {
@@ -108,26 +104,22 @@
     {
       "name": "firstDeath",
       "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [28, 5]
     },
     {
       "name": "fakeoutDeath",
       "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [28, 5]
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
       "looped": true,
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [28, -1]
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
-      "assetPath": "characters/BOYFRIEND",
       "offsets": [28, 63]
     }
   ]
