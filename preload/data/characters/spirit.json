@@ -6,36 +6,33 @@
   "renderType": "packer",
   "isPixel": true,
   "scale": 6,
+  "offsets": [31, 40],
+  "cameraOffsets": [-31, -40],
   "animations": [
     {
       "name": "idle",
       "prefix": "idle spirit_",
-      "frameIndices": [],
-      "offsets": [-36.66, -46.66]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "left_",
-      "frameIndices": [],
-      "offsets": [-33.33, -46.66]
+      "offsets": [2, -2]
     },
     {
       "name": "singDOWN",
       "prefix": "spirit down_",
-      "frameIndices": [],
-      "offsets": [28.33, 18.33]
+      "offsets": [65, 64]
     },
     {
       "name": "singUP",
       "prefix": "up_",
-      "frameIndices": [],
-      "offsets": [-36.66, -40.0]
+      "offsets": [0, 9]
     },
     {
       "name": "singRIGHT",
       "prefix": "right_",
-      "frameIndices": [],
-      "offsets": [-36.66, -46.66]
+      "offsets": [-3, 1]
     }
   ]
 }
