@@ -36,10 +36,21 @@ class NeneCharacter extends MultiSparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"),
+      {
+        applyStageMatrix: true
+      });
     pupil.x = this.x;
     pupil.y = this.y;
+    pupil.offset.x += 5;
     pupil.zIndex = this.zIndex - 5;
+
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+      if (frameNumber == 16)
+      {
+        pupil.anim.pause();
+      }
+    });
 
     abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
@@ -175,8 +186,8 @@ class NeneCharacter extends MultiSparrowCharacter
   {
     if (abot != null)
     {
-      abot.playAnimation("");
-      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
+      abot.playAnimation("", true, false, false, 1);
     }
 
     // Then, perform the appropriate animation for the current state.
@@ -239,25 +250,14 @@ class NeneCharacter extends MultiSparrowCharacter
 
   function movePupilsLeft():Void
   {
-    if (pupilState == PUPIL_STATE_LEFT) return;
     trace('Move pupils left');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 0;
-    // pupilState = PUPIL_STATE_LEFT;
+    pupil.playAnimation('', true, false, false, 0);
   }
 
   function movePupilsRight():Void
   {
-    if (pupilState == PUPIL_STATE_NORMAL) return;
     trace('Move pupils right');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 17;
-    // pupilState = PUPIL_STATE_NORMAL;
-  }
-
-  public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
-  {
-    super.playAnimation(name, restart, ignoreOther, reversed);
+    pupil.playAnimation('', true, false, false, 17);
   }
 
   function moveByNoteKind(kind:String)
@@ -365,6 +365,7 @@ class NeneCharacter extends MultiSparrowCharacter
   }
 
   var currentShader = null;
+
   function synchronizeShader():Void
   {
     if (currentShader == this.shader) return;

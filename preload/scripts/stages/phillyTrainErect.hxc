@@ -156,12 +156,12 @@ class PhillyTrainErectStage extends Stage
     picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
     cigarette = new FlxSprite(0, 0);
 
-    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 48.5, PlayState.instance.currentStage.getBoyfriend().y + 400);
-    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x + 82, PlayState.instance.currentStage.getDad().y + 400);
+    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 537, PlayState.instance.currentStage.getBoyfriend().y - 209);
+    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 502, PlayState.instance.currentStage.getDad().y - 209);
 
     picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
-    if (playerShoots == true)
+    if (playerShoots)
     {
       picoOpponent.zIndex = picoPlayer.zIndex - 1;
       bloodPool.zIndex = picoOpponent.zIndex - 1;
@@ -169,7 +169,7 @@ class PhillyTrainErectStage extends Stage
       cigarette.flipX = true;
 
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
-      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
+      bloodPool.setPosition(990, 340);
 
       shooterPos = [
         PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
@@ -186,7 +186,7 @@ class PhillyTrainErectStage extends Stage
       bloodPool.zIndex = picoPlayer.zIndex - 1;
       cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 788.5, PlayState.instance.currentStage.getBoyfriend().y - 173);
+      bloodPool.setPosition(1451, 795);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
 
       cigarettePos = [
@@ -217,7 +217,7 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.currentStage.getBoyfriend().visible = false;
     PlayState.instance.currentStage.getDad().visible = false;
 
-    if (explode == false)
+    if (explode)
     {
       cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
     }
@@ -254,15 +254,15 @@ class PhillyTrainErectStage extends Stage
         });
       // cutting off skipping here. really dont think its needed after this point and it saves problems from happening
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
-      if (explode == true) PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
+      if (explode) PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
     });
 
     new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
-      if (explode == true) bloodPool.scriptCall('doAnim');
+      if (explode) bloodPool.scriptCall('doAnim');
     });
 
     new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
-      if (explode == false)
+      if (explode)
       {
         cigarette.visible = true;
         cigarette.animation.play('cigarette spit');
@@ -270,19 +270,15 @@ class PhillyTrainErectStage extends Stage
     });
 
     new FlxTimer(cutsceneTimerManager).start(13, _ -> {
-      if (explode == false || playerShoots == true)
+      if (explode)
       {
-        PlayState.instance.startCountdown();
-      }
-
-      if (explode == true)
-      {
-        if (playerShoots == true)
+        if (playerShoots)
         {
           picoPlayer.visible = false;
           PlayState.instance.currentStage.getBoyfriend().visible = true;
           PlayState.instance.isInCutscene = false;
           PlayState.instance.mayPauseGame = true;
+          PlayState.instance.startCountdown();
         }
         else
         {
@@ -356,7 +352,7 @@ class PhillyTrainErectStage extends Stage
   {
     super.onNoteHit(event);
     if (PlayState.instance.currentStage == null) return;
-    if (!event.note.noteData.getMustHitNote() && explode == true && playerShoots == true)
+    if (!event.note.noteData.getMustHitNote() && explode && playerShoots)
     {
       event.cancelEvent();
       PlayState.instance.vocals.opponentVolume = 0;
@@ -428,7 +424,7 @@ class PhillyTrainErectStage extends Stage
       isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     }
 
-    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
+    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
       if (!canSkipCutscene)
       {
@@ -443,9 +439,7 @@ class PhillyTrainErectStage extends Stage
         }
       }
     }
-    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed)
-      && cutsceneSkipped == false
-      && canSkipCutscene == true)
+    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped && canSkipCutscene)
     {
       skipCutscene();
       trace('skipped');

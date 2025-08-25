@@ -13,6 +13,7 @@
     "cameraOffsets": [1700, 1550],
     "cameraZoom": 0.8
   },
+  "offsets": [500, 100],
   "animations": [
     {
       "name": "idle",

@@ -145,7 +145,7 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = new FlxAtlasSprite(5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
+    confirmAtlas = new FlxAtlasSprite(-5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
     confirmAtlas.visible = false;
     confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
     confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
@@ -159,7 +159,7 @@ class PicoCard extends BackingCard
   override public function confirm():Void
   {
     confirmAtlas.visible = true;
-    confirmAtlas.anim.play("");
+    confirmAtlas.playAnimation("");
 
     FlxTween.color(instance.backingImage, 10 / 24, 0xFFFFFFFF, 0xFF8A8A8A,
       {

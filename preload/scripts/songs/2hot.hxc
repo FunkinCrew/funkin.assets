@@ -214,7 +214,7 @@ class TwoHOTSong extends Song
 
         var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
-        newCan.x = spraycanPile.x - 430;
+        newCan.x = spraycanPile.x - 250;
         newCan.y = spraycanPile.y - 840;
         newCan.zIndex = spraycanPile.zIndex - 1;
 

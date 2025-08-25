@@ -36,10 +36,21 @@ class NeneChristmasCharacter extends SparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"),
+      {
+        applyStageMatrix: true
+      });
     pupil.x = this.x;
     pupil.y = this.y;
+    pupil.offset.x += 5;
     pupil.zIndex = this.zIndex - 5;
+
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+      if (frameNumber == 16)
+      {
+        pupil.anim.pause();
+      }
+    });
 
     abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
@@ -126,8 +137,8 @@ class NeneChristmasCharacter extends SparrowCharacter
   {
     if (abot != null)
     {
-      abot.playAnimation("");
-      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
+      abot.playAnimation("", true, false, false, 1);
     }
 
     // Then, perform the appropriate animation for the current state.
@@ -185,18 +196,14 @@ class NeneChristmasCharacter extends SparrowCharacter
 
   function movePupilsLeft():Void
   {
-    if (pupilState == PUPIL_STATE_LEFT) return;
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 0;
-    // pupilState = PUPIL_STATE_LEFT;
+    trace('Move pupils left');
+    pupil.playAnimation('', true, false, false, 0);
   }
 
   function movePupilsRight():Void
   {
-    if (pupilState == PUPIL_STATE_NORMAL) return;
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 17;
-    // pupilState = PUPIL_STATE_NORMAL;
+    trace('Move pupils right');
+    pupil.playAnimation('', true, false, false, 17);
   }
 
   function onUpdate(event:UpdateScriptEvent)
@@ -210,26 +217,6 @@ class NeneChristmasCharacter extends SparrowCharacter
     pupil.visible = this.visible;
     eyeWhites.visible = this.visible;
     stereoBG.visible = this.visible;
-
-    if (pupil != null && pupil.anim.isPlaying)
-    {
-      switch (pupilState)
-      {
-        case PUPIL_STATE_NORMAL:
-          if (pupil.anim.curFrame >= 17)
-          {
-            pupilState = PUPIL_STATE_LEFT;
-            pupil.anim.pause();
-          }
-
-        case PUPIL_STATE_LEFT:
-          if (pupil.anim.curFrame >= 31)
-          {
-            pupilState = PUPIL_STATE_NORMAL;
-            pupil.anim.pause();
-          }
-      }
-    }
 
     // refreshes just for the zIndex shit!
     if (!refershedLol)
@@ -271,6 +258,7 @@ class NeneChristmasCharacter extends SparrowCharacter
   }
 
   var currentShader = null;
+
   function synchronizeShader():Void
   {
     if (currentShader == this.shader) return;
@@ -344,7 +332,7 @@ class NeneChristmasCharacter extends SparrowCharacter
 
   function shouldTransitionState():Bool
   {
-    return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
+    return PlayState.instance.currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function transitionState()

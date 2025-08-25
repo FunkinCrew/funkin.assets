@@ -237,7 +237,7 @@ class StressPicoMixSong extends Song
     rimlightCamera.filters = [rimlightFilter];
 
     tankmanCutscene = ScriptedFlxAtlasSprite.init('TankmanEndingSprite', 0, 0);
-    tankmanCutscene.setPosition(PlayState.instance.currentStage.getDad().x + 723, PlayState.instance.currentStage.getDad().y + 145);
+    tankmanCutscene.setPosition(35, 240);
 
     PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 70, 2.8, FlxEase.expoOut);
     PlayState.instance.tweenCameraZoom(0.65, 2, true, FlxEase.expoOut);

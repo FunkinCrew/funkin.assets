@@ -16,17 +16,7 @@ class PicoGoodResults extends FlxAtlasSprite
 
   function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"),
-      {
-        Reversed: false,
-        // ?OnComplete:Void -> Void,
-        ShowPivot: false,
-        Antialiasing: true,
-        ScrollFactor: new FlxPoint(1, 1),
-      });
-
-    var baseX:Float = this.x;
-    var baseY:Float = this.y;
+    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"));
 
     // TODO: Make it easier to get the current result state
 
@@ -59,15 +49,10 @@ class PicoGoodResults extends FlxAtlasSprite
 
       if (!first)
       {
-        // BUGFIX: Resolve an issue where Pico's sprite shifts up and to the left when the flash effect appears.
-        // IDK why Pico's moving but the easiest fix is to just shove him back into place.
-        // TODO: This code sucks, so if you can figure out how to remove it without messing up Pico's offsets, feel free.
         whiteFlash.visible = true;
         whiteFlash.alpha = 0.01;
         blackFlash.visible = true;
         blackFlash.alpha = 0.01;
-        this.x = baseX + 150;
-        this.y = baseY + 75;
         first = true;
       }
       else if (WHITE_FLASH_FRAMES.contains(frame))
@@ -121,7 +106,6 @@ class PicoGoodResults extends FlxAtlasSprite
   {
     super.update(elapsed);
 
-    trace('PicoGoodResults.update()');
     FlxG.watch.addQuick('picoResultsPos', this.offset);
 
     var resultState:ResultState = FlxG.state;

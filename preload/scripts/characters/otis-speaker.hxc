@@ -72,10 +72,21 @@ class OtisSpeakerCharacter extends SparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"),
+      {
+        applyStageMatrix: true
+      });
     pupil.x = this.x;
     pupil.y = this.y;
+    pupil.offset.x += 5;
     pupil.zIndex = this.zIndex - 5;
+
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+      if (frameNumber == 16)
+      {
+        pupil.anim.pause();
+      }
+    });
 
     abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
@@ -126,8 +137,8 @@ class OtisSpeakerCharacter extends SparrowCharacter
     super.dance(force);
     if (abot != null)
     {
-      abot.playAnimation("");
-      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
+      abot.playAnimation("", true, false, false, 1);
     }
   }
 
@@ -178,28 +189,6 @@ class OtisSpeakerCharacter extends SparrowCharacter
     pupil.visible = this.visible;
     eyeWhites.visible = this.visible;
     stereoBG.visible = this.visible;
-
-    if (pupil?.anim?.isPlaying)
-    {
-      switch (pupilState)
-      {
-        case PUPIL_STATE_NORMAL:
-          if (pupil.anim.curFrame >= 17)
-          {
-            trace('Done moving pupils left');
-            pupilState = PUPIL_STATE_LEFT;
-            pupil.anim.pause();
-          }
-
-        case PUPIL_STATE_LEFT:
-          if (pupil.anim.curFrame >= 30)
-          {
-            trace('Done moving pupils right');
-            pupilState = PUPIL_STATE_NORMAL;
-            pupil.anim.pause();
-          }
-      }
-    }
 
     // refreshes just for the zIndex shit!
     if (!refershedLol)
@@ -300,24 +289,6 @@ class OtisSpeakerCharacter extends SparrowCharacter
     }
   }
 
-  function movePupilsLeft():Void
-  {
-    if (pupilState == PUPIL_STATE_LEFT) return;
-    trace('Move pupils left');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 0;
-    // pupilState = PUPIL_STATE_LEFT;
-  }
-
-  function movePupilsRight():Void
-  {
-    if (pupilState == PUPIL_STATE_NORMAL) return;
-    trace('Move pupils right');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 17;
-    // pupilState = PUPIL_STATE_NORMAL;
-  }
-
   /**
    * Called when the chart hits a song event.
    */
@@ -336,5 +307,17 @@ class OtisSpeakerCharacter extends SparrowCharacter
         default:
       }
     }
+  }
+
+  function movePupilsLeft():Void
+  {
+    trace('Move pupils left');
+    pupil.playAnimation('', true, false, false, 0);
+  }
+
+  function movePupilsRight():Void
+  {
+    trace('Move pupils right');
+    pupil.playAnimation('', true, false, false, 17);
   }
 }

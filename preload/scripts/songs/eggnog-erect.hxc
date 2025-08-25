@@ -99,8 +99,8 @@ class EggnogErectSong extends Song
 
     var santaDead:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SantaDiesSprite', 0, 0);
 
-    santaDead.x = -458;
-    santaDead.y = 498;
+    santaDead.x = -1300;
+    santaDead.y = 100;
     santaDead.zIndex = normalSanta.zIndex - 1;
     santaDead.shader = normalSanta.shader;
 
@@ -112,8 +112,8 @@ class EggnogErectSong extends Song
     PlayState.instance.currentStage.getDad().visible = false;
     var parentsShoot:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('DadShootsSprite', 0, 0);
 
-    parentsShoot.x = -516;
-    parentsShoot.y = 503;
+    parentsShoot.x = -616;
+    parentsShoot.y = -3.5;
     parentsShoot.zIndex = santaDead.zIndex - 1;
     parentsShoot.shader = normalSanta.shader;
 
