@@ -11,11 +11,6 @@ class BopeeboPicoMixSong extends Song
       });
   }
 
-  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
-  {
-    return !Save.instance.hasBeatenSong(this.id, null, this.variation);
-  }
-
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
