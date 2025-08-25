@@ -6,6 +6,8 @@ import funkin.graphics.FunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.save.Save;
+import funkin.mobile.input.ControlsHandler;
+import funkin.Preferences;
 
 /**
  * Apply middlescroll to the song.
@@ -81,6 +83,9 @@ class BlazinSong extends Song
   function centerPlayerStrumline()
   {
     // This is a song gimmick we are never making middlescroll an option.
+
+    if (Preferences.controlsScheme == "Arrows"
+      && !ControlsHandler.usingExternalInputDevice) return;
 
     var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
     if (playerStrumline != null)
