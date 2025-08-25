@@ -4,10 +4,9 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 
 class NeneCharacter extends MultiSparrowCharacter
@@ -22,11 +21,11 @@ class NeneCharacter extends MultiSparrowCharacter
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
 
-  var abot:FlxAtlasSprite;
+  var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FlxSprite;
   var eyeWhites:FlxSprite;
-  var pupil:FlxAtlasSprite;
+  var pupil:FunkinSprite;
 
   function onCreate(event:ScriptEvent)
   {
@@ -36,12 +35,19 @@ class NeneCharacter extends MultiSparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared");
     pupil.x = this.x;
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
 
-    abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+      if (frameNumber == 16)
+      {
+        pupil.anim.pause();
+      }
+    });
+
+    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;
@@ -175,8 +181,8 @@ class NeneCharacter extends MultiSparrowCharacter
   {
     if (abot != null)
     {
-      abot.playAnimation("");
-      abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
+      abot.anim.play("", true, false, 1);
     }
 
     // Then, perform the appropriate animation for the current state.
@@ -239,25 +245,14 @@ class NeneCharacter extends MultiSparrowCharacter
 
   function movePupilsLeft():Void
   {
-    if (pupilState == PUPIL_STATE_LEFT) return;
     trace('Move pupils left');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 0;
-    // pupilState = PUPIL_STATE_LEFT;
+    pupil.anim.play('', true, false, 0);
   }
 
   function movePupilsRight():Void
   {
-    if (pupilState == PUPIL_STATE_NORMAL) return;
     trace('Move pupils right');
-    pupil.playAnimation('');
-    pupil.anim.curFrame = 17;
-    // pupilState = PUPIL_STATE_NORMAL;
-  }
-
-  public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
-  {
-    super.playAnimation(name, restart, ignoreOther, reversed);
+    pupil.anim.play('', true, false, 17);
   }
 
   function moveByNoteKind(kind:String)
@@ -328,13 +323,13 @@ class NeneCharacter extends MultiSparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 100;
-      abot.y = this.y + 216; // 764 - 740
+      abot.x = this.x - 135;
+      abot.y = this.y + 210;
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);
 
-      abotViz.x = abot.x + 200;
+      abotViz.x = abot.x + 207;
       abotViz.y = abot.y + 84;
       abotViz.zIndex = abot.zIndex - 1;
       PlayState.instance.currentStage.add(abotViz);
@@ -344,8 +339,8 @@ class NeneCharacter extends MultiSparrowCharacter
       eyeWhites.zIndex = abot.zIndex - 10;
       PlayState.instance.currentStage.add(eyeWhites);
 
-      pupil.x = abot.x - 507;
-      pupil.y = abot.y - 492;
+      pupil.x = abot.x + 50;
+      pupil.y = abot.y + 238;
       pupil.zIndex = eyeWhites.zIndex + 5;
       PlayState.instance.currentStage.add(pupil);
 
@@ -365,6 +360,7 @@ class NeneCharacter extends MultiSparrowCharacter
   }
 
   var currentShader = null;
+
   function synchronizeShader():Void
   {
     if (currentShader == this.shader) return;

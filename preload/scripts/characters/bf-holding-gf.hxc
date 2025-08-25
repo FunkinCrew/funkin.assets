@@ -1,4 +1,3 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
