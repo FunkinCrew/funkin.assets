@@ -1,66 +1,36 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import flixel.math.FlxPoint;
-import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.play.PlayState;
-import flixel.util.FlxTimer;
-import flixel.FlxG;
-import funkin.Preferences;
-import funkin.audio.FunkinSound;
 
-class PicoBloodPool extends FlxAtlasSprite
+class PicoBloodPool extends FunkinSprite
 {
-  var extend:Bool = false;
-
-  var el = null;
+  var extendBloodPool:Bool = false;
 
   public function new(x:Float, y:Float)
   {
-    // Use bloodPool as the path since the animation isn't implemented in-game atm.
-    super(x, y, Paths.animateAtlas("philly/erect/bloodPool", "week3"),
-      {
-        FrameRate: 24.0,
-        Reversed: false,
-        // ?OnComplete:Void -> Void,
-        ShowPivot: false,
-        Antialiasing: true,
-        ScrollFactor: new FlxPoint(1, 1),
-      });
+    super(x, y);
 
-    // onAnimationFinish.add(finishCanAnimation);
-    if (Preferences.naughtyness)
-    {
-      onAnimationComplete.addOnce((_) -> {
-        el = anim.curSymbol.getElement(0);
-        extend = true;
-      });
-    }
-    // else
-    //   onAnimationComplete.add((_)->this.anim.play(true));
+    loadTextureAtlas("philly/erect/bloodPool", "week3");
+
+    animation.onFinish.addOnce((_) -> {
+      extendBloodPool = true;
+    });
 
     this.visible = false;
   }
 
-  public function doAnim()
+  public function doAnim():Void
   {
-    playAnimation(anim.stageInstance.symbol.name, true, false, !Preferences.naughtyness);
-    // backingTextYeah.anim.play("");
+    animation.play("", true);
     this.visible = true;
   }
 
   override public function update(elapsed:Float)
   {
     super.update(elapsed);
-    if (extend)
+
+    if (extendBloodPool)
     {
-      var val = 0.02 * elapsed;
-
-      var mat = el.matrix;
-      mat.a += val;
-      mat.d += val;
-
-      mat.tx -= el.symbol.transformationPoint.x * val;
-      mat.ty -= el.symbol.transformationPoint.y * val;
+      var extendFactor:Float = 0.02 * elapsed;
+      this.scale.set(this.scale.x + extendFactor, this.scale.y + extendFactor);
     }
   }
 }

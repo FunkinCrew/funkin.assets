@@ -1,21 +1,16 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
 import flixel.math.FlxPoint;
 import funkin.util.HapticUtil;
 
-class PicoGreatResults extends FlxAtlasSprite
+class PicoGreatResults extends FunkinSprite
 {
   function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGREAT", "shared"),
-      {
-        Reversed: false,
-        // ?OnComplete:Void -> Void,
-        ShowPivot: false,
-        Antialiasing: true,
-        ScrollFactor: new FlxPoint(1, 1),
-      });
+    super(x, y);
 
-    onAnimationFrame.add((animation:String, frame:Int) -> {
+    loadTextureAtlas("resultScreen/results-pico/resultsGREAT", "shared");
+
+    anim.onFrameChange.add((animation:String, frame:Int) -> {
       if (!HapticUtil.hapticsAvailable) return;
 
       // Pico shoots.
