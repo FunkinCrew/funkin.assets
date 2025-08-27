@@ -19,7 +19,5 @@ class UghPicoMixSong extends Song
 
       return hasBeatenPicoMix ? ['pico'] : [];
     }
-
-    return [];
   }
 }

@@ -25,12 +25,17 @@ class SenpaiPicoMixSong extends Song
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    return !Save.instance.hasBeatenSong(this.id, null, this.variation);
+    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, this.variation);
+
+    return false;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
+
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
@@ -60,6 +65,8 @@ class SenpaiPicoMixSong extends Song
   function transitionToDialogue()
   {
     trace('Transitioning to dialogue.');
+
+    PlayState.instance.disableKeys = true;
 
     PlayState.instance.camCutscene.visible = true;
 
@@ -92,6 +99,7 @@ class SenpaiPicoMixSong extends Song
 
   function startDialogue()
   {
+    PlayState.instance.disableKeys = false;
     PlayState.instance.startConversation('senpai-pico');
   }
 

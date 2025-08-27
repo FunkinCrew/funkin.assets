@@ -47,24 +47,6 @@ class DarnellSong extends Song
     return [];
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
-  {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
-    {
-      var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, 'bf');
-
-      switch (variationId)
-      {
-        case 'bf':
-          // return hasBeatenBFMix ? [''] : [];
-          // No BF mix on Pico instrumental, sorry!
-          return [];
-        default:
-          return hasBeatenBFMix ? ['bf'] : [];
-      }
-    }
-  }
-
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
