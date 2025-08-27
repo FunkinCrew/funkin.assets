@@ -13,6 +13,11 @@ class DarnellErectSong extends Song
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+    if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+    {
+      return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+    }
+
+    return false;
   }
 }
