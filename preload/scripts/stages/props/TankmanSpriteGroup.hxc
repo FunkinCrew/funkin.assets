@@ -3,6 +3,7 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
+import funkin.FunkinMemory;
 import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.PlayState;
 import Lambda;
@@ -25,6 +26,9 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
     this.isErect = (erect != null) ? erect : false;
     trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
+
+    // Precache the Tankman sprite.
+    FunkinMemory.cacheTexture(Paths.image('tankmanKilled1', 'week7'));
   }
 
   public function isValid():Bool
