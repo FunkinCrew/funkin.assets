@@ -1,5 +1,6 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.util.Constants;
 
 class DarnellErectSong extends Song
 {
@@ -13,7 +14,7 @@ class DarnellErectSong extends Song
 
   public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+    if (Constants.DEFAULT_DIFFICULTY_LIST_ERECT.contains(currentDifficulty))
     {
       return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
     }
