@@ -4,6 +4,7 @@ import funkin.Preferences;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import flixel.FlxG;
+import funkin.save.Save;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
@@ -18,6 +19,20 @@ class RosesSong extends Song
   public function new()
   {
     super('roses');
+  }
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+      if (!hasBeatenPicoMix) results.remove('pico');
+    }
+
+    return results;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void

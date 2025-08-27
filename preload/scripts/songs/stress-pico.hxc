@@ -41,18 +41,6 @@ class StressPicoMixSong extends Song
     return false;
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
-  {
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
-    {
-      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
-
-      return hasBeatenPicoMix ? ['pico'] : [];
-    }
-
-    return [];
-  }
-
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
