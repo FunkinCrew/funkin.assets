@@ -1,11 +1,11 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
 
-class PicoSong extends Song
+class BopeeboSong extends Song
 {
-  public function new()
+  function new()
   {
-    super('pico');
+    super('bopeebo');
   }
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>

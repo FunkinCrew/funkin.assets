@@ -1,23 +1,24 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
 
-class DarnellBFMixSong extends Song
+class FreshSong extends Song
 {
   public function new()
   {
-    super('darnell',
-      {
-        variation: 'bf'
-      });
+    super('fresh');
   }
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
     {
-      var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      return hasBeatenBFMix ? ['bf'] : [];
+      if (!hasBeatenPicoMix) results.remove('pico');
     }
+
+    return results;
   }
 }

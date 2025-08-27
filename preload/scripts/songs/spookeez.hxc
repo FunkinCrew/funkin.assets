@@ -1,23 +1,24 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
 
-class DadbattlePicoMixSong extends Song
+class SpookeezSong extends Song
 {
   public function new()
   {
-    super('dadbattle',
-      {
-        variation: 'pico'
-      });
+    super('spookeez');
   }
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
     {
-      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, this.variation);
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      return hasBeatenPicoMix ? ['pico'] : [];
+      if (!hasBeatenPicoMix) results.remove('pico');
     }
+
+    return results;
   }
 }

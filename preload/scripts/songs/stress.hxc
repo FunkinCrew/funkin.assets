@@ -1,4 +1,5 @@
 import funkin.play.song.Song;
+import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.util.Constants;
@@ -15,6 +16,20 @@ class StressSong extends Song
     super('stress');
 
     hasPlayedCutscene = false;
+  }
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+      if (!hasBeatenPicoMix) results.remove('pico');
+    }
+
+    return results;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
