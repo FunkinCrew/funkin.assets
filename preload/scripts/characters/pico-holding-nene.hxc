@@ -57,13 +57,8 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
    */
   function createDeathSprites()
   {
-    deathSpriteRetry = new FlxAtlasSprite(this.x + 15, this.y + 39, Paths.animateAtlas("characters/picoAndNene-DEAD", "shared"));
+    deathSpriteRetry = new FlxAtlasSprite(this.x - 410, this.y - 30, Paths.animateAtlas("characters/picoAndNene-DEAD", "shared"));
     deathSpriteRetry.zIndex = 1000;
-  }
-
-  function onUpdate(event:UpdateScriptEvent):Void
-  {
-    super.onUpdate(event);
   }
 
   function addToStage(sprite:FlxSprite)
