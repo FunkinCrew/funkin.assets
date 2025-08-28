@@ -304,6 +304,7 @@ class PhillyTrainErectStage extends Stage
         PlayState.instance.currentStage.getBoyfriend().visible = true;
         picoOpponent.visible = false;
         PlayState.instance.currentStage.getDad().visible = true;
+        PlayState.instance.startCountdown();
       }
 
       hasPlayedCutscene = true;
