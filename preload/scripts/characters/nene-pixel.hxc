@@ -22,6 +22,7 @@ class NenePixelCharacter extends SparrowCharacter
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
 
+  var abotSpeaker:FunkinSprite;
   var abot:FunkinSprite;
   var abotViz:ABotVis;
 
