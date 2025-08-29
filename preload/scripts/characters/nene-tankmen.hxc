@@ -440,7 +440,7 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
       PlayState.instance.currentStage.add(tankmanLeftBottom);
 
       tankmanLeftTop.x = tankmanLeftBottom.x - 30;
-      tankmanLeftTop.y = tankmanLeftBottom.y - 130;
+      tankmanLeftTop.y = tankmanLeftBottom.y - 120;
       tankmanLeftTop.flipX = true;
       tankmanLeftTop.zIndex = this.zIndex + 1;
       PlayState.instance.currentStage.add(tankmanLeftTop);
