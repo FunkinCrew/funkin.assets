@@ -10,10 +10,9 @@ import funkin.util.SortUtil;
 import funkin.play.PlayState;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.DropShadowShader;
 import funkin.graphics.shaders.AdjustColorShader;
@@ -29,11 +28,11 @@ class OtisSpeakerCharacter extends SparrowCharacter
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
 
-  var abot:FlxAtlasSprite;
+  var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FlxSprite;
   var eyeWhites:FlxSprite;
-  var pupil:FlxAtlasSprite;
+  var pupil:FunkinSprite;
 
   var muzzleFlash:FlxSprite;
 
@@ -72,7 +71,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"),
+    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared",
       {
         applyStageMatrix: true
       });
@@ -88,7 +87,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
       }
     });
 
-    abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;
@@ -138,7 +137,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
     if (abot != null)
     {
       // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
-      abot.playAnimation("", true, false, false, 1);
+      abot.anim.play("", true, false, 1);
     }
   }
 
@@ -312,12 +311,12 @@ class OtisSpeakerCharacter extends SparrowCharacter
   function movePupilsLeft():Void
   {
     trace('Move pupils left');
-    pupil.playAnimation('', true, false, false, 0);
+    pupil.anim.play('', true, false, 0);
   }
 
   function movePupilsRight():Void
   {
     trace('Move pupils right');
-    pupil.playAnimation('', true, false, false, 17);
+    pupil.anim.play('', true, false, 17);
   }
 }

@@ -1,11 +1,10 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.Preferences;
 import funkin.util.HapticUtil;
 
-class PicoGoodResults extends FlxAtlasSprite
+class PicoGoodResults extends FunkinSprite
 {
   var WHITE_FLASH_FRAMES:Array<Int> = [
     43, 49, 81, 87, 143, 149, 156, 338, 344, 351, 364, 517, 521, 537, 546, 559, 570, 576, 676, 682, 714, 720, 776, 782, 789
@@ -16,7 +15,8 @@ class PicoGoodResults extends FlxAtlasSprite
 
   function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("resultScreen/results-pico/resultsGOOD", "shared"));
+    super(x, y);
+    loadTextureAtlas("resultScreen/results-pico/resultsGOOD", "shared");
 
     // TODO: Make it easier to get the current result state
 
@@ -39,7 +39,13 @@ class PicoGoodResults extends FlxAtlasSprite
 
     var first:Bool = false;
 
-    onAnimationFrame.add((animation:String, frame:Int) -> {
+    anim.onFrameChange.add((animation:String, frame:Int) -> {
+      if (animation == "pico good placeholder" && this.visible)
+      {
+        playAnimation();
+        return;
+      }
+
       if ((WHITE_FLASH_FRAMES.contains(frame) || BLACK_FLASH_FRAMES.contains(frame)) && HapticUtil.hapticsAvailable)
       {
         HapticUtil.vibrate(0, 0.01, 1);
@@ -77,28 +83,31 @@ class PicoGoodResults extends FlxAtlasSprite
         blackFlash.alpha = 0;
       }
     });
-    onAnimationComplete.addOnce(() -> {
+
+    anim.onFinish.add((name:String) -> {
+      if (name == "pico good placeholder") return;
       trace('Looping Pico shooting animation...');
-      super.playAnimation("loop", true, false, true);
+      anim.play("loop", true);
+      anim.curAnim.looped = true;
     });
   }
 
-  override function playAnimation(id:String, restart:Bool = false, ignoreOther:Bool = false, loop:Bool = false, startFrame:Int = 0):Void
+  public function playAnimation():Void
   {
     if (FlxG.random.bool(5))
     {
       trace('Playing special Fatass animation...');
-      super.playAnimation("intro fat gf", true, false, false);
+      anim.play("intro fat gf", true, false, 0);
     }
     else if (FlxG.random.bool(20))
     {
       trace('Playing special Cass animation...');
-      super.playAnimation("intro cass", true, false, false);
+      anim.play("intro cass", true, false, 0);
     }
     else
     {
       trace('Playing Pico shooting animation...');
-      super.playAnimation("intro", true, false, false);
+      anim.play("intro", true, false, 0);
     }
   }
 

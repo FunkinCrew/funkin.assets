@@ -13,7 +13,7 @@
     "cameraOffsets": [1700, 1550],
     "cameraZoom": 0.8
   },
-  "offsets": [500, 100],
+  "offsets": [580, 630],
   "animations": [
     {
       "name": "idle",
@@ -107,18 +107,18 @@
     {
       "name": "firstDeath",
       "prefix": "Low Death Intro",
-      "offsets": [0, 0]
+      "offsets": [0, 300]
     },
     {
       "name": "deathLoop",
       "prefix": "Low Death Loop",
       "looped": true,
-      "offsets": [0, 0]
+      "offsets": [300, 200]
     },
     {
       "name": "deathConfirm",
       "prefix": "Low Death Confirm",
-      "offsets": [0, 0]
+      "offsets": [300, 200]
     }
   ]
 }

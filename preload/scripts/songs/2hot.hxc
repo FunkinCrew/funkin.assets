@@ -8,9 +8,8 @@ import funkin.util.HapticUtil;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.Preferences;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -195,7 +194,7 @@ class TwoHOTSong extends Song
   }
 
   var gunCocked:Bool = false;
-  var spawnedCans:Array<ScriptedFlxAtlasSprite> = [];
+  var spawnedCans:Array<ScriptedFunkinSprite> = [];
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
@@ -210,8 +209,7 @@ class TwoHOTSong extends Song
         // This creates the can and starts the animation.
         // We define the behavior of the can in a separate scripted class,
         // which allows the can to track and manage its own properties.
-        var newCan:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', 0, 0);
-
+        var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
         var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
         newCan.x = spraycanPile.x - 250;

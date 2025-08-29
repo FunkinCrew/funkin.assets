@@ -8,8 +8,7 @@ import funkin.graphics.shaders.DropShadowScreenspace;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
@@ -136,7 +135,7 @@ class StressPicoMixSong extends Song
 
   var hasPlayedEndCutscene:Bool = false;
 
-  var tankmanCutscene:ScriptedFlxAtlasSprite;
+  var tankmanCutscene:ScriptedFunkinSprite;
   var rimlightCamera:FlxCamera;
   var screenspaceRimlight:DropShadowScreenspace = new DropShadowScreenspace();
 
@@ -236,7 +235,7 @@ class StressPicoMixSong extends Song
 
     rimlightCamera.filters = [rimlightFilter];
 
-    tankmanCutscene = ScriptedFlxAtlasSprite.init('TankmanEndingSprite', 0, 0);
+    tankmanCutscene = ScriptedFunkinSprite.init('TankmanEndingSprite', 0, 0);
     tankmanCutscene.setPosition(35, 240);
 
     PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 70, 2.8, FlxEase.expoOut);

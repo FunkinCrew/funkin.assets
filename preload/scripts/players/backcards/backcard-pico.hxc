@@ -6,7 +6,7 @@ import funkin.util.BitmapUtil;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
@@ -22,7 +22,7 @@ class PicoCard extends BackingCard
   var glowDark:FlxSprite;
   var blueBar:FlxSprite;
 
-  var confirmAtlas:FlxAtlasSprite;
+  var confirmAtlas:FunkinSprite;
 
   public function new()
   {
@@ -145,7 +145,7 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = new FlxAtlasSprite(-5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
+    confirmAtlas = FunkinSprite.createTextureAtlas(-5, 55, "freeplay/backingCards/pico/pico-confirm");
     confirmAtlas.visible = false;
     confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
     confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
@@ -159,7 +159,7 @@ class PicoCard extends BackingCard
   override public function confirm():Void
   {
     confirmAtlas.visible = true;
-    confirmAtlas.playAnimation("");
+    confirmAtlas.anim.play("");
 
     FlxTween.color(instance.backingImage, 10 / 24, 0xFFFFFFFF, 0xFF8A8A8A,
       {

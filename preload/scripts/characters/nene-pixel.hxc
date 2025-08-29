@@ -4,10 +4,8 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.graphics.shaders.DropShadowShader;
@@ -25,8 +23,6 @@ class NenePixelCharacter extends SparrowCharacter
   var PUPIL_STATE_LEFT = 1;
 
   var abot:FunkinSprite;
-  var abotHead:FlxAtlasSprite;
-  var abotSpeaker:FlxAtlasSprite;
   var abotViz:ABotVis;
 
   function onCreate(event:ScriptEvent)

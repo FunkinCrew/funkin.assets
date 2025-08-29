@@ -4,10 +4,9 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.audio.visualize.ABotVis;
 
@@ -23,17 +22,17 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
 
-  var abot:FlxAtlasSprite;
+  var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FlxSprite;
   var eyeWhites:FlxSprite;
-  var pupil:FlxAtlasSprite;
+  var pupil:FunkinSprite;
 
-  var tankmanRightBottom:FlxAtlasSprite;
-  var tankmanRightTop:FlxAtlasSprite;
+  var tankmanRightBottom:FunkinSprite;
+  var tankmanRightTop:FunkinSprite;
 
-  var tankmanLeftBottom:FlxAtlasSprite;
-  var tankmanLeftTop:FlxAtlasSprite;
+  var tankmanLeftBottom:FunkinSprite;
+  var tankmanLeftTop:FunkinSprite;
 
   var adjustColor:AdjustColorShader;
   var vizAdjustColor:AdjustColorShader;
@@ -60,7 +59,7 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"),
+    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared",
       {
         applyStageMatrix: true
       });
@@ -76,7 +75,7 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
       }
     });
 
-    abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;
@@ -86,22 +85,22 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     abotViz.y = this.y;
     abotViz.zIndex = abot.zIndex + 1;
 
-    tankmanRightBottom = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanRight/tankmanBottom", "shared"));
+    tankmanRightBottom = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanRight/tankmanBottom", "shared");
     tankmanRightBottom.x = this.x;
     tankmanRightBottom.y = this.y;
     tankmanRightBottom.zIndex = stereoBG.zIndex - 1;
 
-    tankmanRightTop = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanRight/tankmanTop", "shared"));
+    tankmanRightTop = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanRight/tankmanTop", "shared");
     tankmanRightTop.x = this.x;
     tankmanRightTop.y = this.y;
     tankmanRightTop.zIndex = abot.zIndex + 1;
 
-    tankmanLeftBottom = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanLeft/tankmanBottom", "shared"));
+    tankmanLeftBottom = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanLeft/tankmanBottom", "shared");
     tankmanLeftBottom.x = this.x;
     tankmanLeftBottom.y = this.y;
     tankmanLeftBottom.zIndex = stereoBG.zIndex - 1;
 
-    tankmanLeftTop = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/neneTankman/tankmanLeft/tankmanTop", "shared"));
+    tankmanLeftTop = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanLeft/tankmanTop", "shared");
     tankmanLeftTop.x = this.x;
     tankmanLeftTop.y = this.y;
     tankmanLeftTop.zIndex = abot.zIndex + 1;
@@ -243,31 +242,27 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     if (abot != null)
     {
       // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
-      abot.playAnimation("", true, false, false, 1);
+      abot.anim.play("", true, false, 1);
     }
 
     if (tankmanRightBottom != null)
     {
-      tankmanRightBottom.playAnimation("");
-      tankmanRightBottom.anim.curAnim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      tankmanRightBottom.anim.play("", false, false, 1);
     }
 
     if (tankmanRightTop != null)
     {
-      tankmanRightTop.playAnimation("");
-      tankmanRightTop.anim.curAnim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      tankmanRightTop.anim.play("", false, false, 1);
     }
 
     if (tankmanLeftBottom != null)
     {
-      tankmanLeftBottom.playAnimation("");
-      tankmanLeftBottom.anim.curAnim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      tankmanLeftBottom.anim.play("", false, false, 1);
     }
 
     if (tankmanLeftTop != null)
     {
-      tankmanLeftTop.playAnimation("");
-      tankmanLeftTop.anim.curAnim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+      tankmanLeftTop.anim.play("", false, false, 1);
     }
 
     // Then, perform the appropriate animation for the current state.
@@ -331,13 +326,13 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
   function movePupilsLeft():Void
   {
     trace('Move pupils left');
-    pupil.playAnimation('', true, false, false, 0);
+    pupil.anim.play('', true, false, 0);
   }
 
   function movePupilsRight():Void
   {
     trace('Move pupils right');
-    pupil.playAnimation('', true, false, false, 17);
+    pupil.anim.play('', true, false, 17);
   }
 
   function moveByNoteKind(kind:String)

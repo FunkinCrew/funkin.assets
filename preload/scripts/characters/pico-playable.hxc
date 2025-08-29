@@ -5,7 +5,6 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.modding.module.ModuleHandler;
@@ -223,7 +222,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     return [result[0], result[1]];
   }
 
-  var picoDeathExplosion:FlxAtlasSprite;
+  var picoDeathExplosion:FunkinSprite;
 
   function doExplosionDeath()
   {
@@ -246,8 +245,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       HapticUtil.vibrate(0, 0.1, 0.1, 1);
     });
 
-    var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
-    picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
+    picoDeathExplosion = FunkinSprite.createTextureAtlas(this.x - 640, this.y - 340, "characters/picoExplosionDeath", "weekend1");
     PlayState.instance.subState.add(picoDeathExplosion);
     picoDeathExplosion.zIndex = 1000;
     picoDeathExplosion.onAnimationComplete.add(onExplosionFinishAnim);
@@ -256,7 +254,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
 
     new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
 
-    picoDeathExplosion.playAnimation('intro');
+    picoDeathExplosion.anim.play('intro');
   }
 
   var singed:FunkinSound;
@@ -273,7 +271,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   function doExplosionConfirm()
   {
     // Suffixed confirm music will already play.
-    picoDeathExplosion.playAnimation('Confirm');
+    picoDeathExplosion.anim.play('Confirm');
     if (singed != null)
     {
       singed.stop();
@@ -285,7 +283,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   {
     if (animLabel == 'intro')
     {
-      picoDeathExplosion.playAnimation('Loop Start', true, false, true);
+      picoDeathExplosion.anim.play('Loop Start', true);
+      picoDeathExplosion.anim.curAnim.looped = true;
     }
     else if (animLabel == 'Confirm')
     {

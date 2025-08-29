@@ -7,8 +7,8 @@ import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
 import funkin.audio.FunkinSound;
@@ -85,9 +85,9 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  var picoPlayer:ScriptedFlxAtlasSprite;
-  var picoOpponent:ScriptedFlxAtlasSprite;
-  var bloodPool:ScriptedFlxAtlasSprite;
+  var picoPlayer:ScriptedFunkinSprite;
+  var picoOpponent:ScriptedFunkinSprite;
+  var bloodPool:ScriptedFunkinSprite;
   var cigarette:FlxSprite;
   var skipText:FlxText;
 
@@ -145,15 +145,15 @@ class PhillyTrainErectStage extends Stage
     else
     {
       // trace('Doppelganger will smoke!');
-      explode = false;
+      explode = true;
     }
 
     var cigarettePos:Array<Float> = [];
     var shooterPos:Array<Float> = [];
 
-    bloodPool = ScriptedFlxAtlasSprite.init('PicoBloodPool', 0, 0);
-    picoPlayer = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
-    picoOpponent = ScriptedFlxAtlasSprite.init('PicoDopplegangerSprite', 0, 0);
+    bloodPool = ScriptedFunkinSprite.init('PicoBloodPool', 0, 0);
+    picoPlayer = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
+    picoOpponent = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
     cigarette = new FlxSprite(0, 0);
 
     picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 537, PlayState.instance.currentStage.getBoyfriend().y - 209);
@@ -168,8 +168,8 @@ class PhillyTrainErectStage extends Stage
       cigarette.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 2;
       cigarette.flipX = true;
 
+      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 200, PlayState.instance.currentStage.getDad().y + 400);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
-      bloodPool.setPosition(990, 340);
 
       shooterPos = [
         PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
@@ -186,7 +186,7 @@ class PhillyTrainErectStage extends Stage
       bloodPool.zIndex = picoPlayer.zIndex - 1;
       cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
 
-      bloodPool.setPosition(1451, 795);
+      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 500, PlayState.instance.currentStage.getBoyfriend().y + 400);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
 
       cigarettePos = [

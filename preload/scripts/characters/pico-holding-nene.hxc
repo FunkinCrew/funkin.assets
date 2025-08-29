@@ -2,7 +2,6 @@ import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
@@ -49,7 +48,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
     this.visible = true;
   }
 
-  var deathSpriteRetry:FlxAtlasSprite;
+  var deathSpriteRetry:FunkinSprite;
 
   /**
      * Initialize and cache sprites used for the death animation,
@@ -57,7 +56,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
    */
   function createDeathSprites()
   {
-    deathSpriteRetry = new FlxAtlasSprite(this.x - 410, this.y - 30, Paths.animateAtlas("characters/picoAndNene-DEAD", "shared"));
+    deathSpriteRetry = FunkinSprite.createTextureAtlas(this.x - 410, this.y - 30, "characters/picoAndNene-DEAD", "shared");
     deathSpriteRetry.zIndex = 1000;
   }
 
@@ -87,8 +86,8 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
       createDeathSprites();
       GameOverSubState.instance.add(deathSpriteRetry);
       this.visible = false;
-      deathSpriteRetry.onAnimationComplete.add(onAnimationComplete);
-      deathSpriteRetry.playAnimation("intro", true, false, false);
+      deathSpriteRetry.anim.onFinish.add(onAnimationComplete);
+      deathSpriteRetry.anim.play("intro", true, false);
     }
     else if (name == "deathConfirm")
     {
@@ -117,17 +116,20 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
   {
     if (currentAnim == "confirm")
     {
-      deathSpriteRetry.playAnimation("confirm", true, false, true);
+      deathSpriteRetry.anim.play("confirm", true);
+      deathSpriteRetry.anim.curAnim.looped = true;
     }
     else
     {
-      deathSpriteRetry.playAnimation("loop", true, false, true);
+      deathSpriteRetry.anim.play("loop", true);
+      deathSpriteRetry.anim.curAnim.looped = true;
     }
   }
 
   function doDeathConfirm():Void
   {
-    deathSpriteRetry.playAnimation("confirm", true, false, true);
+    deathSpriteRetry.anim.play("confirm", true);
+    deathSpriteRetry.anim.curAnim.looped = true;
   }
 
   function getDeathQuote():Null<String>
