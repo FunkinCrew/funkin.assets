@@ -245,10 +245,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       HapticUtil.vibrate(0, 0.1, 0.1, 1);
     });
 
-    picoDeathExplosion = FunkinSprite.createTextureAtlas(this.x - 640, this.y - 340, "characters/picoExplosionDeath", "weekend1");
+    picoDeathExplosion = FunkinSprite.createTextureAtlas(this.x - 1100, this.y - 1000, "characters/picoExplosionDeath", "weekend1");
     PlayState.instance.subState.add(picoDeathExplosion);
     picoDeathExplosion.zIndex = 1000;
-    picoDeathExplosion.onAnimationComplete.add(onExplosionFinishAnim);
+    picoDeathExplosion.anim.onFinish.add(onExplosionFinishAnim);
     picoDeathExplosion.visible = true;
     this.visible = false;
 
@@ -427,13 +427,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     this.playAnimation('shootMISS', true, true);
     // Donk.
     FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
-  }
-
-  function onUpdate(event:ScriptEvent)
-  {
-    super.onUpdate(event);
-
-    if (deathSpriteRetry != null) trace('deathSpriteRetry: ' + deathSpriteRetry.visible + ' (' + deathSpriteRetry.x + ', ' + deathSpriteRetry.y + ')');
   }
 
   function addToStage(sprite:FlxSprite)
