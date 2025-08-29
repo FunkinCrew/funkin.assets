@@ -86,23 +86,15 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
     abotViz.zIndex = abot.zIndex + 1;
 
     tankmanRightBottom = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanRight/tankmanBottom", "shared");
-    tankmanRightBottom.x = this.x;
-    tankmanRightBottom.y = this.y;
     tankmanRightBottom.zIndex = stereoBG.zIndex - 1;
 
     tankmanRightTop = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanRight/tankmanTop", "shared");
-    tankmanRightTop.x = this.x;
-    tankmanRightTop.y = this.y;
     tankmanRightTop.zIndex = abot.zIndex + 1;
 
     tankmanLeftBottom = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanLeft/tankmanBottom", "shared");
-    tankmanLeftBottom.x = this.x;
-    tankmanLeftBottom.y = this.y;
     tankmanLeftBottom.zIndex = stereoBG.zIndex - 1;
 
     tankmanLeftTop = FunkinSprite.createTextureAtlas(0, 0, "characters/neneTankman/tankmanLeft/tankmanTop", "shared");
-    tankmanLeftTop.x = this.x;
-    tankmanLeftTop.y = this.y;
     tankmanLeftTop.zIndex = abot.zIndex + 1;
 
     stereoBG.shader = adjustColor;
@@ -431,23 +423,25 @@ class NeneTankmenCharacter extends MultiSparrowCharacter
       stereoBG.zIndex = abot.zIndex - 8;
       PlayState.instance.currentStage.add(stereoBG);
 
-      tankmanRightBottom.x = abot.x + 245;
-      tankmanRightBottom.y = abot.y - 20;
+      tankmanRightBottom.x = abot.x + 610;
+      tankmanRightBottom.y = abot.y - 120;
       tankmanRightBottom.zIndex = stereoBG.zIndex - 1;
       PlayState.instance.currentStage.add(tankmanRightBottom);
 
-      tankmanRightTop.x = tankmanRightBottom.x;
-      tankmanRightTop.y = tankmanRightBottom.y;
+      tankmanRightTop.x = tankmanRightBottom.x - 70;
+      tankmanRightTop.y = tankmanRightBottom.y - 120;
       tankmanRightTop.zIndex = this.zIndex + 1;
       PlayState.instance.currentStage.add(tankmanRightTop);
 
-      tankmanLeftBottom.x = abot.x + 175;
-      tankmanLeftBottom.y = abot.y - 20;
+      tankmanLeftBottom.x = abot.x - 60;
+      tankmanLeftBottom.y = abot.y - 120;
+      tankmanLeftBottom.flipX = true;
       tankmanLeftBottom.zIndex = stereoBG.zIndex - 1;
       PlayState.instance.currentStage.add(tankmanLeftBottom);
 
-      tankmanLeftTop.x = tankmanLeftBottom.x;
-      tankmanLeftTop.y = tankmanLeftBottom.y;
+      tankmanLeftTop.x = tankmanLeftBottom.x - 30;
+      tankmanLeftTop.y = tankmanLeftBottom.y - 130;
+      tankmanLeftTop.flipX = true;
       tankmanLeftTop.zIndex = this.zIndex + 1;
       PlayState.instance.currentStage.add(tankmanLeftTop);
 
