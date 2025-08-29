@@ -51,7 +51,7 @@
     "gf": { "zIndex": 100, "position": [751.5, 787], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [382, 831],
+      "position": [382, 865],
       "cameraOffsets": [150, -100]
     }
   },

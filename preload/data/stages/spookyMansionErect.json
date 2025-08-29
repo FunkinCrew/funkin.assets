@@ -64,13 +64,13 @@
   "characters": {
     "bf": {
       "zIndex": 200,
-      "position": [1250, 835],
+      "position": [1250, 885],
       "cameraOffsets": [-100, -100]
     },
     "gf": { "zIndex": 100, "position": [821.5, 800], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [382, 831],
+      "position": [382, 865],
       "cameraOffsets": [150, -100]
     }
   },
