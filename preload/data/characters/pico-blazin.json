@@ -10,7 +10,7 @@
   "singTime": 999.0,
   "death": {
     "preTransitionDelay": 0.125,
-    "cameraOffsets": [1700, 1550],
+    "cameraOffsets": [600, 200],
     "cameraZoom": 0.8
   },
   "offsets": [580, 340],
@@ -107,18 +107,18 @@
     {
       "name": "firstDeath",
       "prefix": "Low Death Intro",
-      "offsets": [0, 300]
+      "offsets": [-350, -150]
     },
     {
       "name": "deathLoop",
       "prefix": "Low Death Loop",
       "looped": true,
-      "offsets": [300, 200]
+      "offsets": [-350, -150]
     },
     {
       "name": "deathConfirm",
       "prefix": "Low Death Confirm",
-      "offsets": [300, 200]
+      "offsets": [-350, -150]
     }
   ]
 }

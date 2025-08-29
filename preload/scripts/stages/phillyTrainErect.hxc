@@ -145,7 +145,7 @@ class PhillyTrainErectStage extends Stage
     else
     {
       // trace('Doppelganger will smoke!');
-      explode = true;
+      explode = false;
     }
 
     var cigarettePos:Array<Float> = [];
