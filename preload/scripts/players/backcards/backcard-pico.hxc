@@ -148,7 +148,7 @@ class PicoCard extends BackingCard
     confirmAtlas = FunkinSprite.createTextureAtlas(-5, 55, "freeplay/backingCards/pico/pico-confirm");
     confirmAtlas.visible = false;
     confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
-    confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
+    confirmAtlas.x += (FullScreenScaleMode.gameCutoutSize.x / 0.7) - ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
     add(confirmAtlas);
 
     cardGlow.blend = 0;
