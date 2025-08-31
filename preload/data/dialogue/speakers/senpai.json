@@ -5,7 +5,7 @@
   "flipX": false,
   "isPixel": true,
   "scale": 5.4,
-  "offsets": [120, 120],
+  "offsets": [-488, -210],
   "animations": [
     {
       "name": "talkEnter",
