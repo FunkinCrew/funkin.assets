@@ -23,7 +23,7 @@
       "speaker": "senpai-angry",
       "speakerAnimation": "talk",
       "box": "roses",
-      "boxAnimation": "angrySenpai",
+      "boxAnimation": "idle",
 
       "text": ["Not bad for an ugly worm."]
     },
