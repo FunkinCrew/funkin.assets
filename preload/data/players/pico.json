@@ -64,7 +64,7 @@
       {
         "name": "loss",
         "prefix": "Pico DJ loss",
-        "offsets": [10, 257.5]
+        "offsets": [-8, 221]
       },
       {
         "name": "charSelect",
