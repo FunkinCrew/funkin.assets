@@ -29,7 +29,7 @@ class RosesSong extends Song
     {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 
-      if (!hasBeatenPicoMix) results.remove('pico');
+      if (!hasBeatenPicoMix) results = [for (id in results) if (id != 'pico') id];
     }
 
     return results;

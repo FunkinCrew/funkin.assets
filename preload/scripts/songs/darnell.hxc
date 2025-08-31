@@ -55,7 +55,7 @@ class DarnellSong extends Song
     {
       var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, 'bf');
 
-      if (!hasBeatenBFMix) results.remove('bf');
+      if (!hasBeatenBFMix) results = [for (id in results) if (id != 'bf') id];
     }
 
     return results;
