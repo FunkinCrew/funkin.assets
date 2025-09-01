@@ -128,5 +128,10 @@ class TankmanBattlefieldErectStage extends Stage
     {
       tankmanRim.useAltMask = false;
     }
+
+    if (getGirlfriend().characterId == 'otis-speaker')
+    {
+      getNamedProp('tankBricks').setPosition(445, 774);
+    }
   }
 }
