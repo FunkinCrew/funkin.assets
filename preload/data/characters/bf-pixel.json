@@ -21,19 +21,9 @@
       "offsets": [0, 0]
     },
     {
-      "name": "singUP",
-      "prefix": "BF UP NOTE instance 10",
-      "offsets": [0, 0]
-    },
-    {
       "name": "singLEFT",
       "prefix": "BF LEFT NOTE instance 10",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "BF RIGHT NOTE instance 10",
-      "offsets": [0, 0]
+      "offsets": [-1, 0]
     },
     {
       "name": "singDOWN",
@@ -41,19 +31,19 @@
       "offsets": [0, 0]
     },
     {
-      "name": "singUPmiss",
-      "prefix": "BF UP MISS instance 10",
+      "name": "singUP",
+      "prefix": "BF UP NOTE instance 10",
+      "offsets": [-1, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "BF RIGHT NOTE instance 10",
       "offsets": [0, 0]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF LEFT MISS instance 10",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "BF RIGHT MISS instance 10",
-      "offsets": [0, 0]
+      "offsets": [-1, 0]
     },
     {
       "name": "singDOWNmiss",
@@ -61,23 +51,33 @@
       "offsets": [0, 0]
     },
     {
+      "name": "singUPmiss",
+      "prefix": "BF UP MISS instance 10",
+      "offsets": [-1, 0]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "BF RIGHT MISS instance 10",
+      "offsets": [0, 0]
+    },
+    {
       "name": "firstDeath",
       "prefix": "BF Dies pixel",
       "assetPath": "characters/bfPixelsDEAD",
-      "offsets": [8.33, 0]
+      "offsets": [8, -1]
     },
     {
       "name": "deathLoop",
       "prefix": "Retry Loop",
       "assetPath": "characters/bfPixelsDEAD",
       "looped": true,
-      "offsets": [3.33, -2.08]
+      "offsets": [3, -3]
     },
     {
       "name": "deathConfirm",
       "prefix": "RETRY CONFIRM",
       "assetPath": "characters/bfPixelsDEAD",
-      "offsets": [3.33, -2.08]
+      "offsets": [3, -3]
     }
   ]
 }

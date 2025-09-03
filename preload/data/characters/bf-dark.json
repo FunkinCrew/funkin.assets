@@ -13,82 +13,82 @@
     {
       "name": "idle",
       "prefix": "BF idle dance",
-      "offsets": [-5, 0]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT0",
-      "offsets": [12, -6]
+      "offsets": [14, -6]
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
-      "offsets": [-10, -50]
+      "offsets": [-23, -51]
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP0",
-      "offsets": [-29, 27]
+      "offsets": [-43, 34]
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
-      "offsets": [-38, -7]
+      "offsets": [-47, -5]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
-      "offsets": [12, 24]
+      "offsets": [14, 20]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-11, -19]
+      "offsets": [-23, -21]
     },
     {
       "name": "singUPmiss",
       "prefix": "BF NOTE UP MISS",
-      "offsets": [-29, 27]
+      "offsets": [-39, 34]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-30, 21]
+      "offsets": [-41, 23]
     },
     {
       "name": "hey",
       "prefix": "BF HEY!!",
-      "offsets": [7, 4]
+      "offsets": [1, 6]
     },
     {
       "name": "scared",
       "prefix": "BF idle shaking",
-      "offsets": [-4, 0]
+      "offsets": [-1, 1]
     },
     {
       "name": "firstDeath",
       "prefix": "BF dies",
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
+      "offsets": [28, 5]
     },
     {
       "name": "fakeoutDeath",
       "prefix": "BF dies",
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
+      "offsets": [28, 5]
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
       "looped": true,
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 5]
+      "offsets": [28, -1]
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 69]
+      "offsets": [28, 63]
     }
   ]
 }

@@ -10,85 +10,85 @@
   "singTime": 8.0,
   "animations": [
     {
-      "name": "hey",
-      "prefix": "BF HEY!!",
-      "offsets": [-2, 5]
-    },
-    {
       "name": "idle",
       "prefix": "BF idle dance",
-      "offsets": [-5, 0]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT0",
-      "offsets": [12, -6]
+      "offsets": [13, -6]
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
-      "offsets": [-10, -50]
+      "offsets": [-22, -47]
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP0",
-      "offsets": [-29, 27]
+      "offsets": [-39, 31]
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
-      "offsets": [-38, -7]
+      "offsets": [-53, -5]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "BF NOTE LEFT MISS",
+      "offsets": [13, 20]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "BF NOTE DOWN MISS",
+      "offsets": [-22, -17]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "BF NOTE UP MISS",
+      "offsets": [-33, 31]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "BF NOTE RIGHT MISS",
+      "offsets": [-42, 23]
     },
     {
       "name": "singDOWN-censor",
       "assetPath": "characters/bfChristmas_Censored",
       "prefix": "bf swear down",
-      "offsets": [-10, -50]
+      "offsets": [-22, -47]
     },
     {
       "name": "singRIGHT-censor",
       "assetPath": "characters/bfChristmas_Censored",
       "prefix": "bf swear right",
-      "offsets": [-38, -7]
+      "offsets": [-53, -5]
     },
     {
-      "name": "singLEFTmiss",
-      "prefix": "BF NOTE LEFT MISS",
-      "offsets": [12, 24]
-    },
-    {
-      "name": "singDOWNmiss",
-      "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-11, -19]
-    },
-    {
-      "name": "singUPmiss",
-      "prefix": "BF NOTE UP MISS",
-      "offsets": [-29, 27]
-    },
-    {
-      "name": "singRIGHTmiss",
-      "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-30, 21]
+      "name": "hey",
+      "prefix": "BF HEY!!",
+      "offsets": [1, 6]
     },
     {
       "name": "firstDeath",
       "prefix": "BF dies",
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
+      "offsets": [24, 3]
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
       "assetPath": "characters/BOYFRIEND",
       "looped": true,
-      "offsets": [-37, 5]
+      "offsets": [24, -3]
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
       "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 69]
+      "offsets": [24, 61]
     }
   ]
 }
