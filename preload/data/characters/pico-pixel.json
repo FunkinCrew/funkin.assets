@@ -35,7 +35,7 @@
     {
       "name": "singUP",
       "prefix": "up0",
-      "offsets": [0, 0]
+      "offsets": [-1, 0]
     },
     {
       "name": "singRIGHT",
@@ -55,7 +55,7 @@
     {
       "name": "singUPmiss",
       "prefix": "upmiss0",
-      "offsets": [0, 0]
+      "offsets": [-1, 0]
     },
     {
       "name": "singRIGHTmiss",
@@ -65,18 +65,18 @@
     {
       "name": "firstDeath",
       "prefix": "firstDeath0",
-      "offsets": [0, 0]
+      "offsets": [-3, 1]
     },
     {
       "name": "deathLoop",
       "prefix": "deathLoop0",
       "looped": true,
-      "offsets": [0, 0]
+      "offsets": [-3, 1]
     },
     {
       "name": "deathConfirm",
       "prefix": "deathConfirm0",
-      "offsets": [0, 0]
+      "offsets": [-3, 1]
     }
   ]
 }

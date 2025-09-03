@@ -10,24 +10,24 @@
       "offsets": [0, 0]
     },
     {
-      "name": "singRIGHT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [-86, -10]
+      "name": "singLEFT",
+      "prefix": "Pico Note Right0",
+      "offsets": [60, 1]
     },
     {
       "name": "singDOWN",
       "prefix": "Pico Down Note0",
-      "offsets": [-37, -82]
+      "offsets": [-38, -84]
     },
     {
       "name": "singUP",
       "prefix": "pico Up note0",
-      "offsets": [-32, 28]
+      "offsets": [-39, 29]
     },
     {
-      "name": "singLEFT",
-      "prefix": "Pico Note Right0",
-      "offsets": [61, 2]
+      "name": "singRIGHT",
+      "prefix": "Pico NOTE LEFT0",
+      "offsets": [-86, -11]
     }
   ]
 }
