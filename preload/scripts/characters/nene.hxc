@@ -388,13 +388,15 @@ class NeneCharacter extends MultiSparrowCharacter
   {
     abotViz.snd = FlxG.sound.music;
     abotViz.initAnalyzer();
+    abotViz.alpha = 1;
   }
 
-  /*override function onSongRetry(event:ScriptEvent)
-    {
-      super.onSongRetry();
-      abotViz.dumpSound();
-  }*/
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry();
+    abotViz.alpha = 0;
+  }
+
   override function onSongEnd(event:ScriptEvent)
   {
     super.onSongEnd();
