@@ -9,6 +9,7 @@ import flixel.util.FlxTimer;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.ui.FullScreenScaleMode;
+import funkin.Preferences;
 import funkin.Conductor;
 
 class PicoCard extends BackingCard
@@ -22,7 +23,8 @@ class PicoCard extends BackingCard
   var glowDark:FlxSprite;
   var blueBar:FlxSprite;
 
-  var confirmAtlas:FlxAtlasSprite;
+  var confirmAtlasBG:FlxAtlasSprite;
+  var confirmAtlasObjects:FlxAtlasSprite;
 
   public function new()
   {
@@ -145,11 +147,15 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = new FlxAtlasSprite(5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
-    confirmAtlas.visible = false;
-    confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
-    confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
-    add(confirmAtlas);
+    confirmAtlasObjects = new FlxAtlasSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + 645, 415, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm/confirm-objects"));
+    confirmAtlasObjects.visible = false;
+    add(confirmAtlasObjects);
+
+    confirmAtlasBG = new FlxAtlasSprite(0, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm/confirm-bg"));
+    confirmAtlasBG.visible = false;
+    confirmAtlasBG.scale.x *= FullScreenScaleMode.wideScale.x * 2;
+    confirmAtlasBG.x += ((confirmAtlasBG.width * FullScreenScaleMode.wideScale.x) - confirmAtlasBG.width) * 2.58;
+    add(confirmAtlasBG);
 
     cardGlow.blend = 0;
     cardGlow.visible = false;
@@ -158,8 +164,23 @@ class PicoCard extends BackingCard
 
   override public function confirm():Void
   {
-    confirmAtlas.visible = true;
-    confirmAtlas.anim.play("");
+    super.confirm();
+
+    blueBar.visible = false;
+    scrollBack.visible = false;
+    scrollLower.visible = false;
+    scrollTop.visible = false;
+    scrollMiddle.visible = false;
+    glowDark.visible = false;
+    glow.visible = false;
+
+    confirmAtlasObjects.visible = true;
+    confirmAtlasObjects.anim.play("");
+    confirmAtlasObjects.alpha = 0;
+    FlxTween.tween(confirmAtlasObjects, {alpha: 1}, 0.45, {ease: FlxEase.quadOut});
+
+    confirmAtlasBG.visible = true;
+    confirmAtlasBG.playAnimation(Preferences.flashingLights ? "default" : "lessflash");
 
     FlxTween.color(instance.backingImage, 10 / 24, 0xFFFFFFFF, 0xFF8A8A8A,
       {
