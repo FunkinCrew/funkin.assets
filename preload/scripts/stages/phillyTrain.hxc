@@ -20,6 +20,8 @@ class PhillyTrainStage extends Stage
   var lightShader:FlxRuntimeShader;
   var trainSound:FunkinSound;
 
+	var gfHasHairBlowAnim:Bool;
+
   var trainEnabled:Bool = true;
 
   function buildStage()
@@ -81,13 +83,13 @@ class PhillyTrainStage extends Stage
       // Update train cooldown
       if (!trainMoving) trainCooldown += 1;
 
-      // Start train
-      if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
-      {
-        trainCooldown = FlxG.random.int(-4, 0);
-        trainStart();
-      }
-    }
+		// Start train
+		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+		{
+			trainCooldown = FlxG.random.int(-4, 0);
+			if(gfHasHairBlowAnim == null) gfHasHairBlowAnim = getGirlfriend().hasAnimation('hairBlow');
+			trainStart();
+		}
 
     // Update lights
     if (event.beat % 4 == 0)
@@ -133,13 +135,13 @@ class PhillyTrainStage extends Stage
 
   var startedMoving:Bool = false;
 
-  function updateTrainPos():Void
-  {
-    if (trainSound.time >= 4700)
-    {
-      startedMoving = true;
-      getGirlfriend().playAnimation('hairBlow');
-    }
+	function updateTrainPos():Void
+	{
+		if (trainSound.time >= 4700)
+		{
+			startedMoving = true;
+			if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairBlow');
+		}
 
     if (startedMoving)
     {
@@ -158,10 +160,10 @@ class PhillyTrainStage extends Stage
     }
   }
 
-  function trainReset():Void
-  {
-    getGirlfriend().playAnimation('hairFall');
-    getNamedProp('train').x = FlxG.width + 200;
+	function trainReset():Void
+	{
+		if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairFall');
+		getNamedProp('train').x = FlxG.width + 200;
 
     trainMoving = false;
     trainCars = 8;

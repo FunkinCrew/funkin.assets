@@ -45,6 +45,8 @@ class PhillyTrainErectStage extends Stage
 
   var isMobilePauseButtonPressed:Bool = false;
 
+	var gfHasHairBlowAnim:Bool;
+
   /**
    * Replay the cutscene after leaving the song.
    */
@@ -481,13 +483,13 @@ class PhillyTrainErectStage extends Stage
       // Update train cooldown
       if (!trainMoving) trainCooldown += 1;
 
-      // Start train
-      if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
-      {
-        trainCooldown = FlxG.random.int(-4, 0);
-        trainStart();
-      }
-    }
+		// Start train
+		if (event.beat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+		{
+			trainCooldown = FlxG.random.int(-4, 0);
+			if(gfHasHairBlowAnim == null) gfHasHairBlowAnim = getGirlfriend().hasAnimation('hairBlow');
+			trainStart();
+		}
 
     // Update lights
     if (event.beat % 4 == 0)
@@ -520,19 +522,18 @@ class PhillyTrainErectStage extends Stage
 
   var startedMoving:Bool = false;
 
-  function updateTrainPos():Void
-  {
-    if (trainSound.time >= 4700)
-    {
-      startedMoving = true;
-      switch (getGirlfriend().characterId)
-      {
-        case 'nene':
-          getGirlfriend().scriptSet('trainPassing', true);
-        default:
-          getGirlfriend().playAnimation('hairBlow');
-      }
-    }
+	function updateTrainPos():Void
+	{
+		if (trainSound.time >= 4700)
+		{
+			startedMoving = true;
+			switch(getGirlfriend().characterId){
+				case 'nene':
+					getGirlfriend().scriptSet('trainPassing', true);
+				default:
+					if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairBlow');
+			}
+		}
 
     if (startedMoving)
     {
@@ -555,13 +556,12 @@ class PhillyTrainErectStage extends Stage
   {
     getNamedProp('train').x = FlxG.width + 200;
 
-    switch (getGirlfriend().characterId)
-    {
-      case 'nene':
-        getGirlfriend().scriptSet('trainPassing', false);
-      default:
-        getGirlfriend().playAnimation('hairFall');
-    }
+		switch(getGirlfriend().characterId){
+			case 'nene':
+				getGirlfriend().scriptSet('trainPassing', false);
+			default:
+				if(gfHasHairBlowAnim) getGirlfriend().playAnimation('hairFall');
+		}
 
     trainMoving = false;
     trainCars = 8;
