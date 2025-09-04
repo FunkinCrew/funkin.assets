@@ -1,20 +1,26 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Tutorial",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": -1, "bpm": 100, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
-    "ratings": { "easy": 0, "normal": 0, "hard": 1 },
-    "stage": "mainStage",
-    "characters": { "player": "bf", "opponent": "gf" },
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "noteStyle": "funkin",
-    "album": "volume1",
-    "stickerPack": "bonus-tutorial",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "characters": { "player": "bf", "opponent": "gf" },
+    "stage": "mainStage",
+    "noteStyle": "funkin"
   },
-  "songName": "Tutorial",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }],
+  "instrumental": "",
+  "altInstrumentals": [],
+  "ratings": { "easy": 0, "normal": 0, "hard": 1},
+  "album": "volume1",
+  "stickerPack": "bonus-tutorial",
+  "previewStart": 0,
+  "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"
 }
