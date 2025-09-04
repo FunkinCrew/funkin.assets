@@ -3,28 +3,25 @@
   "songName": "Darnell",
   "artist": "Kawai Sprite",
   "charter": "fabs",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": 0, "bpm": 155, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
     "songVariations": ["bf", "erect"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "album": "volume3",
-      "player": "pico-playable",
-      "girlfriend": "nene",
-      "opponent": "darnell",
-      "instrumental": "",
-      "altInstrumentals": ["bf"]
+      "player": "pico-playable","girlfriend": "nene","opponent": "darnell",
+      "instrumental": "","playerVocals": ["pico"],"opponentVocals": ["darnell"], "altInstrumentals": ["bf"]
     },
     "stage": "phillyStreets",
     "noteStyle": "funkin",
-    "stickerPack": "bonus-weekend1",
-    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "ratings": { "easy": 2, "normal": 3, "hard": 4},
     "album": "volume3",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": "bonus-weekend1"
   },
-  "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 155, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "Chart Editor Import (FNF Legacy)"
 }

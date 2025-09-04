@@ -3,24 +3,25 @@
   "songName": "Spookeez Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
   "charter": "Spazkid + fabs",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": 0, "bpm": 166, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
+    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
-      "player": "bf-dark",
-      "girlfriend": "gf-dark",
-      "opponent": "spooky-dark",
-      "instrumental": "erect"
+      "player": "bf-dark","girlfriend": "gf-dark","opponent": "spooky-dark",
+      "instrumental": "erect","playerVocals": ["bf-dark"],"opponentVocals": ["spooky-dark"], "altInstrumentals": []
     },
     "stage": "spookyMansionErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 11, "nightmare": 12 },
-    "album": "volume3",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "album": "volume1",
+    "stickerPack": null
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:f2e682d) PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 166, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:bc783a2) PROTOTYPE"
 }
