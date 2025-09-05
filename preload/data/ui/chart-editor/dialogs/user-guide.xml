@@ -1,12 +1,409 @@
 
 <?xml version="1.0" encoding="utf-8"?>
-<dialog width="500" height="600" title="Help">
+<dialog width="1000" height="600" title="Help">
+	<style>
+	#heading {
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	#pattern {
+		padding-right: 50px;
+	}
+
+	#img-desc {
+		text-align: center;
+	}
+	</style>
 	<tabview width="100%" height="100%">
-		<box width="100%" text="Basics">
-			<label text="No one's around to help." />
+
+		<box width="100%" text="Terms">
+			<vbox width="100%">
+				<scrollview width="950" height="500" contentWidth="100%" scrollMode="default">
+					<vbox width="100%">
+						<section-header text="Must-know terms" id="heading" />
+					</vbox>
+
+					<vbox width="100%">
+						<grid columns="3" style="padding: 5px; margin-left: 300px" contentWidth="100%">
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/note.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Note"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/hold-note.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Hold Note"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/note-kind.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Note Kind"/>
+							</vbox>
+
+						</grid>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Chart/Charting" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="A chart refers to the notes of a song as a whole including their placements, how on-sync the song is, and how good or bad the patterns are and charting is the act of placing notes in the chart.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Sync" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="When a chart is 'on-sync', it means the notes are synced to the beat of the song.\nSyncing is one of the fundemental charting skills to make a good chart.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Offset" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Offset is the numerical value of a song's sync. If the main beat of a song doesn't line up with the rest of the beats, then the chart is offset and leads to the chart feel off when playtesting.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="BPM" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="An abbreviation of beats per minute which measures how fast/slow the pace of the song is with most songs being 4/4 time signature. (a measure is 4 beats)\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Time Signature" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Used to determine the number of beats in a measure and the type of beat in a full measure.\n\n"/>
+					</vbox>
+					<vbox width="100%">
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/time-sig.png" imageScale="0.5" horizontalAlign="right"/>
+						<label width="100%" text="The top number is the number of beats per measure, if a song is 5/4, then a full measure is 5 beats long instead of the usual four, if it's 7/4, then a full measure is 7 beats long and so on.\n\nThe bottom number is the type of beat or note snap in a full measure, if a song is 4/8, it means a full measure is 4 beats long and every measure/beat starts with 8ths instead of 4ths.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="CamGame" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="The camera that controls the level or the 'stage' the song takes in such as characters and backgrounds and doesn't touch the HUD elements.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="CamHUD" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="The camera that controls the heads up display like healthbar and strumlines.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Notelane and Strumline" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Each column is a notelane, the leftmost column in a strumline is always 1 and only goes up depending on how many strums/arrows a strumline has and the chart editor has 4 columns, so 1, 2, 3, 4 which correspond to the appropriate strum/arrow.\n\nThis is useful when describing patterns in textfrom instead of screenshots and images, read more on the Patterns tab.\n\nA strumline is a group of arrows/strums, BF's strumline is all of the strums/arrows that belong to BF."/>
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/notelanes-and-strumline.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 10px;"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Note Snap Level" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="The speed at which notes come relative to measures. 4ths means four notes per measure (beats), 8ths means eight notes per measure (beats + half beats) and so on.\n\nWhy is this important? Well, if you intend on making your chart on-sync, then all notes should be placed in the correct snap.\n\nYou can change the note snap by pressing Right or Left arrows or clicking on this to decrease or increase the note snap level.\n\n"/>
+						<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/snap-level.png" imageScale="1" horizontalAlign="right" style="padding-bottom: 5px;"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Chords" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="If two (or more) notes are in the same beat, we call it a chord\n2-chord: double\n3-chord: triple\n4-chord: Quad\n\nChords are commonly placed to put emphasis in the instrumental.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Note Kind" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="A special hittable note that does custom action wheather to play an animation from a character or trigger something in either CamHUD or CamGame.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Event" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Same as note kind but isn't a hittable note. It's a trigger that can put in the events column (right most column).\nFor example, controlling the camera movement throughout the song.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="General terms" id="heading" />
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Pitch relevance" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Pitch Relevance means placing notes in relation to the pitch of a sound (low, mid, or high?).\nThis is used to reflect specific melodies or parts of a song to make a pattern from the chart stand out from the rest of the chart.\nPitch increase from left-to-right or 1-4, if a note's pitch sounds low, it would be placed in 1 or 2, if a note's pitch sounds high, it would be placed in 3 or 4.\n\nWhy is it important? It makes patterns that feel slightly wrong to something that feels fun to play if used properly, some FNF charters also call it lip-sync charting because you're placing notes that match a specific vocal or tone (I.e. 'Bap' and 'Ah' = 3, 'ooo', 'ooh' = 2).\n\nNot very similar to Pitch Relevance, but they serve the same purpose although the latter is frowned upon most of the time however because, if followed strictly, it leads tobad flow and awkward patterns.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Flow" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="How smooth a chart feels to play depending on how fluid the patterns and notes transition to each other.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Layering" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Layering means placing notes that follow multiple instruments one by one, but there isn't a whole to it that can be applied to FNF charts since they're vocals only and when characters repeat themselves.\n\n"/>
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="Sightread" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="The first and blind playthrough of the chart.\n\n"/>
+					</vbox>
+
+					<vbox width="100%" style="padding-top:10px;">
+						<label width="100%" text="references\n Etterna's help screen. \n https://www.flashflashrevolution.com/vbz/showthread.php?t=127628 \n https://docs.google.com/document/u/0/d/1Yb9hiewZFs27F3mB6V3reiRBA3E00zb_xfjGVcsnYhg/mobilebasic#h.tv62oe7zl3qz \n https://sectofmysticwisdom.com/" style="font-size: 12px; text-color: #808080" />
+					</vbox>
+				</scrollview>
+			</vbox>
 		</box>
+
+		<box width="100%" text="Patterns">
+			<vbox width="100%">
+				<scrollview width="950" height="500" contentWidth="100%" scrollMode="default">
+				<vbox width="100%">
+					<section-header text="Describing Patterns In Text-form" id="heading" />
+				</vbox>
+				<vbox width="100%">
+					<label width="100%" text="Keeping the notelane terminology in mind, 1-4 can be used to indicate a note, for example 1234 translates to Left, Down, Up, Right and 1243 translates to Left, Down, Right, Up\n\nIf there's two (or more) notes in the same beat (chord), it would be surronded in brackets, for example, 12[34] translates to Left, Down, a double of Up and Right." />
+				</vbox>
+
+				<vbox width="100%" style="padding-top:10px;">
+					<section-header text="Common Patterns From Left To Right" id="heading" />
+					
+					<scrollview width="950" height="330" scrollMode="default">
+						<grid columns="7" style="padding: 5px;" contentWidth="100%">
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/triplet.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Triplet" />
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/roll.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Roll\ncan be reversed or complex such as 1423 or 2314." />
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/staircase.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Staircase" />
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/stream.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Stream\na stream of singles. (as in single notes.)"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/minijack.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Minijacks\ntwo-quicktaps."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/longjack.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Long jack/jack/jackhammer\nmore than two-quicktaps and is guaranteed to break a combo."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/anchor.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Anchor\nbasically hidden long jack."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/runningman.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Runningman\nanchored stream. (chords can also be placed.)"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/one-handed-trills.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="One-handed trills"/>
+							</vbox>
+							
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/two-handed-trills.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Two-handed trills"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/chords.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Chords\ndoubles, triples, or quads."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/jumpstream.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Jumpstream."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/handstream.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Handstream."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/quadstream.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Quadstream."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/jumptrill.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Jumptrill"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/split-jumptrill.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Split jumptrill [13] [24]"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/split-jumptrill-2.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Split jumptrill [14] [23]"/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/grace-notes.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Grace notes\nSlightly offset notes that is featured in Erect Remixes frequently.\nCould be mistaken for a chord at first glance due to how close they are in-game."/>
+							</vbox>
+
+							<vbox id="pattern">
+								<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/patterns/burst.png" imageScale="0.5"/>
+								<label id="img-desc" width="100%" text="Burst\nA sudden burst of notes, requires very good note placements and playtesting."/>
+							</vbox>
+
+						</grid>
+					</scrollview>
+				</vbox>
+					<vbox width="100%" style="padding-top:10px;">
+						<label width="100%" text="references\n Etterna's help screen. \n https://www.flashflashrevolution.com/vbz/showthread.php?t=127628 \n https://docs.google.com/document/u/0/d/1Yb9hiewZFs27F3mB6V3reiRBA3E00zb_xfjGVcsnYhg/mobilebasic#h.tv62oe7zl3qz \n https://sectofmysticwisdom.com/" style="font-size: 12px; text-color: #808080" />
+					</vbox>
+				</scrollview>
+			</vbox>
+		</box>
+
+		<box width="100%" text="Tips">
+			<vbox width="100%">
+				<scrollview width="950" height="500" contentWidth="100%" scrollMode="default">
+					<vbox width="100%">
+						<section-header text="Tips" id="heading" />
+					</vbox>
+
+					<vbox width="100%">
+						<label width="100%" text="Treat these as tips I recommend to follow and not rules you should follow as charters have different perspectives on what is considered a bad chart and a good chart.\n\n\n" style="font-weight: bold" />
+					</vbox>
+
+					<vbox width="100%">
+						<section-header text="General Tips" id="heading" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="BPM is provided by the composer(s) who gave the files (if not, ask them) If the BPM is set and you made sure the beats line up correctly then here goes my charting tips:" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Apply PR as much as possible, but should be partially comprmised if the flow is lacking.\n\nRecognise melodies and sections of the song, meaning if a certain section from the song repeats, the chart should reflect that by having the same notes copied & pasted.\nThis makes your chart consistent throughout the entire song.\n\nIf a melody is too repetitive and boring to play though, you could mirror the notes vertically or horizontally (i.e. 4→1 and 3→2) to still put emphasis on the melody without changing too much of the gameplay.\n\n" />
+					</vbox>
+
+					<vbox width="100%">
+					 	<section-header text="Flow" id="heading"/>
+					</vbox>
+
+					<vbox width="100%">
+						<label width="100%" text="In regards to flow, let's say If the player character makes a repeated sound constantly (let's say 2), you don't want players to spam that key, make a two handed trill instead (1 and 4 or 1 and 2)." />
+						<vbox width="100%">
+							<grid columns="3" style="padding: 5px; margin-left: 300px" contentWidth="100%">
+								<vbox id="pattern">
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow1.png" imageScale="0.5"/>
+								</vbox>
+
+								<vbox id="pattern">
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow2.png" imageScale="0.5"/>
+								</vbox>
+
+								<vbox id="pattern">
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/flow3.png" imageScale="0.5"/>
+								</vbox>
+
+							</grid>
+						</vbox>
+					</vbox>
+
+					<vbox width="100%">
+						<label width="100%" text="This may sound like you should avoid jacks at all costs, but jacks and minijacks are both very easy to mess up and very satisfying patterns to hit if placed smartly."/>
+					</vbox>
+
+					<vbox width="100%">
+						<label width="100%" text="For minijacks, don't make 5 mini jacks in a row but instead have constant singles that transition to those mini jacks." />
+						<vbox width="100%">
+							<grid columns="2" style="padding: 5px; margin-left: 300px" contentWidth="100%">
+								<vbox id="pattern">
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/minijack1.png" imageScale="0.5"/>
+								</vbox>
+
+								<vbox id="pattern">
+									<image resource="shared:assets/shared/images/ui/chart-editor/user-guide/tips/minijack2.png" imageScale="0.5"/>
+								</vbox>
+
+							</grid>
+						</vbox>
+					</vbox>
+
+					<vbox width="100%">
+						<label width="100%" text="For jacks, you could replace it with a two-handed trill or a one-handed trill or minijacks depending on the context.\n\nThere's more to it when it comes to good flow, but it comes with playtesting and experience and playing other charts out there.\n\n" />
+					</vbox>
+
+					<vbox width="100%">
+					 	<section-header text="Picking The Right Scroll Speed" id="heading"/>
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="For scroll speed, I recommend just changing the value and pick what best works for your song via playtesting, but rule of the thumb is: the scroll speed can't be too slow nor too fast to sight read.\n\n" />
+					</vbox>
+
+					<vbox width="100%">
+					 	<section-header text="Charting Rules For Difficulties" id="heading"/>
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="For difficulties, It's very important to consider what rules you should avoid in one difficulty and what rules you should follow in another.\n\n" />
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Examples:\n\nThe Hard difficulty has chords, but the Normal and Easy difficulty shouldn't.\n\nThe Hard difficulty has runningmen, achors, jumpstreams, while the normal and Easy difficulty should replace those patterns with ones that are easier to sightread like rolls, a stream, staircase.\n\nThe Hard and Normal difficulties don't remove notes and use all note snaps in their appropriate spots, but Easy should remove all 16ths and above and be replaced with 4ths and 8ths instead.\n\nEvery charter has different rules to follow whether subconsciously or not, so it's important to have your own.\n\n" />
+					</vbox>
+
+					<vbox width="100%">
+					 	<section-header text="Make the chart consistent with your difficulty" id="heading"/>
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Players have expectations when hovering over a difficulty, if a chart doesn't follow those exptectation, it may be regarded as unfair or not fun.\n\nMeaning, if most of the chart is singles only and then you decide to add a difficulty spike out of nowhere in a couple of sections, it's a bad chart.\n\nIf the easy difficulty of a chart changes nothing but the scroll speed, it's a bad chart.\n\n" />
+					</vbox>
+
+					<vbox width="100%">
+					 	<section-header text="Placing Event Rules" id="heading"/>
+					</vbox>
+					<vbox width="100%">
+						<label width="100%" text="Some players like slow movements to not make the notes blend too much into the background or have easier time focusing on reading the notes while others may think it's generic and needs variaty.\n\nLike making rules for difficulties, you decide how often the camera should zoom, how long and what ease type, how often it should bop, when and where, and how (ease type) it should move from player to opponent and vice versa, and when to change a scroll speed in an event.\n\n" />
+					</vbox>
+
+				<vbox width="100%" style="padding-top:10px;">
+					<label width="100%" text="references\n Etterna's help screen. \n https://www.flashflashrevolution.com/vbz/showthread.php?t=127628 \n https://docs.google.com/document/u/0/d/1Yb9hiewZFs27F3mB6V3reiRBA3E00zb_xfjGVcsnYhg/mobilebasic#h.tv62oe7zl3qz \n https://sectofmysticwisdom.com/" style="font-size: 12px; text-color: #808080" />
+				</vbox>
+				</scrollview>
+			</vbox>
+		</box>
+
 		<box width="100%" text="Hotkeys">
-			<tableview width="100%" height="510" contentWidth="100%">
+			<tableview width="100%" height="500" contentWidth="100%">
 				<header width="100%">
 					<column id="action" text="Action" width="50%" />
 					<column id="keybind" text="Keybind" width="50%" />
@@ -63,6 +460,6 @@
 				</data>
 			</tableview>
 		</box>
-		<box width="100%" text="Even More Details" />
+
 	</tabview>
 </dialog>
