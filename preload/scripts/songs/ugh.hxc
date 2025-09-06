@@ -3,6 +3,7 @@ import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
+import funkin.util.Constants;
 
 class UghSong extends Song
 {
@@ -19,7 +20,7 @@ class UghSong extends Song
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    if (Constants.DEFAULT_DIFFICULTY_LIST.contains(difficultyId))
     {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 

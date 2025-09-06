@@ -22,7 +22,7 @@ class StressSong extends Song
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    if (Constants.DEFAULT_DIFFICULTY_LIST.contains(difficultyId))
     {
       var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
 

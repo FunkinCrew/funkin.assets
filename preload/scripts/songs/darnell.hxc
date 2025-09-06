@@ -51,7 +51,7 @@ class DarnellSong extends Song
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    if (Constants.DEFAULT_DIFFICULTY_LIST.contains(difficultyId))
     {
       var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, 'bf');
 
