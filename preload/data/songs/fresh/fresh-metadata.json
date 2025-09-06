@@ -1,23 +1,26 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Fresh",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": -1, "bpm": 120, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
-    "album": "volume1",
-    "stage": "mainStage",
-    "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "dad",
-      "altInstrumentals": ["pico"]
-    },
     "songVariations": ["erect", "pico"],
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "difficulties": ["easy", "normal", "hard"],
+    "characters": {"player": "bf","girlfriend": "gf","opponent": "dad"},
+    "stage": "mainStage",
     "noteStyle": "funkin"
   },
-  "songName": "Fresh",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],
+  "instrumental": "",
+  "altInstrumentals": ["pico"],
+  "ratings": { "easy": 1, "normal": 1, "hard": 2},
+  "album": "volume1",
+  "stickerPack": null,
+  "previewStart": 0,
+  "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"
 }
