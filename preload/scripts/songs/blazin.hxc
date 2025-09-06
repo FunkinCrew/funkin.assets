@@ -18,7 +18,6 @@ class BlazinSong extends Song
   {
     super('blazin');
 
-    this.hasHidden = false;
     this.hasPlayedCutscene = false;
   }
 
@@ -26,20 +25,7 @@ class BlazinSong extends Song
   {
     super.onCreate(event);
 
-    this.hasHidden = false;
     this.hasPlayedCutscene = false;
-  }
-
-  function onDestroy(event:ScriptEvent):Void
-  {
-    super.onDestroy(event);
-
-    this.hasHidden = false;
-  }
-
-  function onNoteHit(event:HitNoteScriptEvent):Void
-  {
-    super.onNoteHit(event);
   }
 
   public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
@@ -53,31 +39,13 @@ class BlazinSong extends Song
     return [];
   }
 
-  var hasHidden = false;
   var hasPlayedCutscene:Bool = false;
 
-  function onUpdate(event:ScriptEvent):Void
+  function onCountdownStart(event)
   {
-    super.onUpdate(event);
-
-    if (!this.hasHidden)
-    {
-      this.hasHidden = true;
-      hideOpponentStrumline();
-      centerPlayerStrumline();
-    }
-  }
-
-  function hideOpponentStrumline()
-  {
-    var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
-    if (opponentStrumline != null)
-    {
-      for (arrow in opponentStrumline.members)
-      {
-        arrow.visible = false;
-      }
-    }
+    super.onCountdownStart(event);
+    PlayState.instance.opponentStrumline.visible = false;
+    centerPlayerStrumline();
   }
 
   function centerPlayerStrumline()
