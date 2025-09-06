@@ -62,6 +62,16 @@ class UghSong extends Song
     hasPlayedCutscene = true;
   }
 
+  function onSongFadeIn(event:ScriptEvent)
+  {
+    super.onSongFadeIn(event);
+
+    if (PlayStatePlaylist.isStoryMode)
+    {
+      event.cancel();
+    }
+  }
+
   /**
    * Replay the cutscene after leaving the song.
    */

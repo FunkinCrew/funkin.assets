@@ -77,6 +77,13 @@ class RosesPicoSong extends Song
     hasPlayedCutscene = true;
   }
 
+  function onSongFadeIn(event:ScriptEvent)
+  {
+    super.onSongFadeIn(event);
+
+    event.cancel();
+  }
+
   /**
    * Replay the cutscene after leaving the song.
    */
