@@ -17,6 +17,8 @@
     <menu-separator />
     <menu-item id="menubarItemClearAssets" text="Clear Assets" style="color: indianred" />
     <menu-separator />
+    <menu-item id="menubarItemPreferences" text="Preferences"/>
+    <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
   <menu text="Edit" id="menubarMenuEdit">
@@ -32,16 +34,11 @@
     <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl + F" />
   </menu>
   <menu text="View" id="menubarMenuView">
-    <menu text="Theme">
-      <menu-option-box id="menubarItemThemeLight" text="Light" group="menubarItemThemeGroup" tooltip="Change the Background's Color Scheme to Light Mode." />
-      <menu-option-box id="menubarItemThemeDark" text="Dark" group="menubarItemThemeGroup" tooltip="Change the Background's Color Scheme to Dark Mode." />
-    </menu>
-    <menu-separator />
-    <menu-checkbox id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters." />
-    <menu-checkbox id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor." />
-    <menu-checkbox id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters." />
-    <menu-checkbox id="menubarItemViewPosMarkers" text="View Position Markers" tooltip="Show Circles that show the Feet Position of Characters." />
-    <menu-checkbox id="menubarItemViewCamBounds" text="View Camera Bounds" tooltip="Show Rectangles representing the Camera View upon being focused on a Character." />
+    <menu-checkbox id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters."/>
+    <menu-checkbox id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor."/>
+    <menu-checkbox id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters."/>
+    <menu-checkbox id="menubarItemViewPosMarkers" text="View Position Markers" tooltip="Show Circles that show the Feet Position of Characters."/>
+    <menu-checkbox id="menubarItemViewCamBounds" text="View Camera Bounds" tooltip="Show Rectangles representing the Camera View upon being focused on a Character."/>
   </menu>
   <menu text="Windows" id="menubarMenuWindow">
     <menu-checkbox id="menubarItemWindowObjectGraphic" text="Object Graphic" />

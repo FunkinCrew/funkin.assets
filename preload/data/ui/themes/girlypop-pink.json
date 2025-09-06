@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "name": "Girlypop Pink",
+  "chart": {
+    "background": "0xFFFFB1CC",
+    "gridColors": ["0xFFFFDBEC", "0xFFFFF3FA", "0xFFFFCBE6"],
+    "gridStrumlineDivider": "0xFFDEAFCA",
+    "gridMeasureDivider": "0xFFDEAFCA",
+    "gridBeatDivider": "0xFFBC8BA9",
+    "selectionSquareBorder": "0xFFFF4081",
+    "selectionSquareFill": "0x40FF4081",
+    "notePreviewViewportBorder": "0xFFFF8AAD",
+    "notePreviewViewportFill": "0x80FF8AAD"
+  },
+  "stage": {
+    "backgroundColors": ["0xFFFFDBEC", "0xFFFFF3FA"]
+  }
+}

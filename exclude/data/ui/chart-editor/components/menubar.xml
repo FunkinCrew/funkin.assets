@@ -15,7 +15,7 @@
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-item id="menubarItemPreferences" text="Preferences" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
@@ -53,18 +53,9 @@
       <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
       <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
     </menu>
-    <menu text="Live Input Mode">
-      <menuoptionbox id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <menuoptionbox id="menuBarItemInputStyleWASD" text="WASD + Arrows" group="menubarItemInputStyleGroup" />
-    </menu>
   </menu>
   <menu text="View">
     <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
-    <menu text="Theme">
-      <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
-      <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
-    </menu>
     <menu-separator />
     <menu-checkbox id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
     <menu-separator />
@@ -118,8 +109,6 @@
       <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
-    <menu-separator />
-    <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
