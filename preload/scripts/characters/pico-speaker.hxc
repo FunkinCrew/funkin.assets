@@ -101,13 +101,20 @@ class PicoSpeakerCharacter extends SparrowCharacter
     switch (direction)
     {
       case 0:
-        this.playAnimation('shoot1', true, true);
+        this.playAnimation('shoot1', true, false);
       case 1:
-        this.playAnimation('shoot2', true, true);
+        this.playAnimation('shoot2', true, false);
       case 2:
-        this.playAnimation('shoot3', true, true);
+        this.playAnimation('shoot3', true, false);
       case 3:
-        this.playAnimation('shoot4', true, true);
+        this.playAnimation('shoot4', true, false);
     }
+  }
+
+  //So pico won't be "doing cool things" after retrying
+  override function onSongRetry()
+  {
+    super.onSongRetry();
+    this.playAnimation('idle', true, true);
   }
 }
