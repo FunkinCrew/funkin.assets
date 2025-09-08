@@ -28,36 +28,36 @@
     {
       "name": "shoot2",
       "prefix": "Pico shoot 2",
-      "offsets": [-1, -128]
+      "offsets": [0, -128]
     },
     {
       "name": "shoot2-hold",
       "prefix": "Pico shoot 2",
-      "offsets": [-1, -128],
+      "offsets": [0, -128],
       "looped": true,
       "frameIndices": [56, 57, 58, 59]
     },
     {
       "name": "shoot3",
       "prefix": "Pico shoot 3",
-      "offsets": [412, -64]
+      "offsets": [413, -64]
     },
     {
       "name": "shoot3-hold",
       "prefix": "Pico shoot 3",
-      "offsets": [412, -64],
+      "offsets": [413, -64],
       "looped": true,
       "frameIndices": [49, 50, 51, 52]
     },
     {
       "name": "shoot4",
       "prefix": "Pico shoot 4",
-      "offsets": [439, -19]
+      "offsets": [440, -19]
     },
     {
       "name": "shoot4-hold",
       "prefix": "Pico shoot 4",
-      "offsets": [439, -19],
+      "offsets": [440, -19],
       "looped": true,
       "frameIndices": [49, 50, 51, 52]
     }

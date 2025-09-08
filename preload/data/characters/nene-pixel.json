@@ -21,25 +21,25 @@
     {
       "name": "raiseKnife",
       "prefix": "raise",
-      "offsets": [0, 10]
+      "offsets": [-2, 10]
     },
     {
       "name": "idleKnife",
       "prefix": "blink",
       "frameIndices": [6, 7],
-      "offsets": [0, 10]
+      "offsets": [-2, 10]
     },
     {
       "name": "idleKnifeBlink",
       "prefix": "blink",
       "frameIndices": [0, 1, 2, 3, 4, 5],
-      "offsets": [-19, 10]
+      "offsets": [-21, 10]
     },
     {
       "name": "lowerKnife",
       "prefix": "lower",
       "frameIndices": [0, 1, 2, 3, 4, 5],
-      "offsets": [0, 10]
+      "offsets": [-2, 10]
     }
   ]
 }
