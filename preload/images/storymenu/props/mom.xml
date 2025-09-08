@@ -10,7 +10,7 @@
   <SubTexture name="idle0007" x="859" y="8" width="411" height="193" rotated="true" frameX="-0" frameY="-3" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0008" x="859" y="8" width="411" height="193" rotated="true" frameX="-0" frameY="-3" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0009" x="1286" y="8" width="413" height="193" rotated="true" frameX="-0" frameY="-1" frameWidth="195" frameHeight="414" />
-  <SubTexture name="idle00010" x="1286" y="8" width="413" height="193" rotated="true" frameX="-0" frameY="-1" frameWidth="195" frameHeight="414" />
+  <SubTexture name="idle0010" x="1286" y="8" width="413" height="193" rotated="true" frameX="-0" frameY="-1" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0011" x="8" y="217" width="414" height="193" rotated="true" frameX="-0" frameY="-0" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0012" x="8" y="217" width="414" height="193" rotated="true" frameX="-0" frameY="-0" frameWidth="195" frameHeight="414" />
   <SubTexture name="idle0013" x="438" y="217" width="414" height="193" rotated="true" frameX="-0" frameY="-0" frameWidth="195" frameHeight="414" />
