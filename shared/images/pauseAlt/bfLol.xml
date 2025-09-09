@@ -1,23 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="bfLol.png">
-	<SubTexture name="funnyThing instance 10000" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10001" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10002" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10003" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10004" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10005" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10006" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10007" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10008" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10009" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10010" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10011" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10012" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10013" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10014" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10015" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10016" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10017" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10018" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
-	<SubTexture name="funnyThing instance 10019" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+-->
+<TextureAtlas imagePath="bfLol.png" width="557" height="175">
+  <SubTexture name="funnyThing instance 10000.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10001.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10002.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10003.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10004.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10005.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10006.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10007.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10008.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10009.png" x="0" y="0"  width="282" height="175" frameX="-1" frameY="-9" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10010.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10011.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10012.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10013.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10014.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10015.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10016.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10017.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10018.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
+  <SubTexture name="funnyThing instance 10019.png" x="282" y="0"  width="275" height="174" frameX="-1" frameY="-1" frameWidth="283" frameHeight="185"/>
 </TextureAtlas>
