@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "name": "Gentle Blue",
+  "chart": {
+    "background": "0xFF70A2D8",
+    "gridColors": ["0xFFE2ECF8", "0xFFF6FAFF", "0xFFD5E5F5"],
+    "gridStrumlineDivider": "0xFFB8C8D5",
+    "gridMeasureDivider": "0xFFB8C8D5",
+    "gridBeatDivider": "0xFF8A9BA7",
+    "selectionSquareBorder": "0xFF70A1D7",
+    "selectionSquareFill": "0x4070A1D7",
+    "notePreviewViewportBorder": "0xFF9EC6E9",
+    "notePreviewViewportFill": "0x809EC6E9"
+  },
+  "stage": {
+    "backgroundColors": ["0xFFE2ECF8", "0xFFF6FAFF"]
+  }
+}
