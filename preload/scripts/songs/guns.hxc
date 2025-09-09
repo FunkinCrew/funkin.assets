@@ -1,12 +1,22 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
+import flixel.util.FlxTimerManager;
+import flixel.util.FlxTimer;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
+import funkin.graphics.FunkinSprite;
+import flixel.tweens.FlxEase;
+import funkin.Paths;
+import flixel.FlxG;
 
 class GunsSong extends Song
 {
   var hasPlayedCutscene:Bool;
+
+  var cutsceneTimerManager:FlxTimerManager;
+  var cutsceneMusic:FunkinSound;
 
   public function new()
   {
@@ -27,29 +37,93 @@ class GunsSong extends Song
     }
 
     return results;
-  }  
-  
+  }
+
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // TODO: again
+    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
-      trace('Pausing countdown to play a video cutscene (`guns`)');
+      trace('Pausing countdown to play in game cutscene');
 
       hasPlayedCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      runCutscene();
     }
   }
 
-  function startVideo()
+  function runCutscene()
   {
-    VideoCutscene.play(Paths.videos('gunsCutscene'));
+    PlayState.instance.isInCutscene = true;
+    PlayState.instance.camHUD.visible = false;
+
+    // beat my dick in the shower
+    PlayState.instance.tweenCameraZoom(0.9 * 1.3, 0.4, true, FlxEase.quadInOut);
+
+    cutsceneTimerManager = new FlxTimerManager();
+
+    cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
+    cutsceneMusic.play();
+
+    var tankmansTightButtholeButFlxSound:FunkinSound = FunkinSound.load(Paths.sound("tankSong2", "week7"), 1, false);
+
+    // we will ALL be calling daddy dearest daddy
+    var daddy:BaseCharacter = PlayState.instance.currentStage.getDad();
+    daddy.visible = false;
+
+    var tankmanCutscene:FunkinSprite = new FunkinSprite(daddy.x - 100, daddy.y - 102);
+    tankmanCutscene.loadTextureAtlas("cutscene/tankman", "week7");
+    tankmanCutscene.anim.addByFrameLabel("tankmansTightButthole", "In Game Cutscene 2", 24, false);
+    tankmanCutscene.zIndex = daddy.zIndex;
+    PlayState.instance.currentStage.add(tankmanCutscene);
+    PlayState.instance.currentStage.refresh();
+
+    new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      tankmansTightButtholeButFlxSound.play();
+      tankmanCutscene.anim.play("tankmansTightButthole");
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(4.1, function(_) {
+      PlayState.instance.tweenCameraZoom(0.9 * 1.4, 0.4, true, FlxEase.quadOut);
+
+      new FlxTimer(cutsceneTimerManager).start(0.45, function(_) {
+        PlayState.instance.tweenCameraZoom(0.9 * 1.3, 0.4, true, FlxEase.quadInOut);
+      });
+
+      PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+
+      PlayState.instance.currentStage.getGirlfriend().anim.finishCallback = (_) -> {
+        PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+      };
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(11, function(_) {
+      cutsceneMusic.stop();
+      cutsceneMusic.destroy();
+
+      tankmanCutscene.destroy();
+      daddy.visible = true;
+
+      PlayState.instance.currentStage.getGirlfriend().anim.finishCallback = null;
+      PlayState.instance.currentStage.getGirlfriend().dance(true);
+
+      PlayState.instance.tweenCameraZoom(1, 0.5, false, FlxEase.quadInOut);
+
+      PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+    }); //um ig uess???
+  }
+
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+    if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
   }
 
   /**
