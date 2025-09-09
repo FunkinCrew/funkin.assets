@@ -34,7 +34,8 @@
         "rightStatic": { "prefix": "staticRight0" },
         "rightPress": { "prefix": "pressRight0" },
         "rightConfirm": { "prefix": "confirmRight0" },
-        "rightConfirmHold": { "prefix": "confirmRight0" }
+        "rightConfirmHold": { "prefix": "confirmRight0" },
+        "FPSYOffset": 10.0
       }
     },
     "holdNote": {
