@@ -117,7 +117,7 @@ class GunsSong extends Song
 
       PlayState.instance.isInCutscene = false;
 			PlayState.instance.startCountdown();
-    }); //um ig uess???
+    });
   }
 
   function onUpdate(event:UpdateScriptEvent):Void
