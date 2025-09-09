@@ -3,6 +3,7 @@
     <vbox width="100%">
         <checkbox id="practiceModeCheckbox" text="Practice mode" selected="true" tooltip="Whether or not you die/game over when you lose all health" />
         <checkbox id="playtestBotPlayCheckbox" text="Bot Play mode" selected="false" tooltip="Whether or not the computer plays the chart for you" />
+        <checkbox id="playtestShowResultsCheckbox" text="Show Results" selected="false" tooltip="Whether or not the results screen is shown after the song finishes" />
         <checkbox id="playtestStartTimeCheckbox" text="Start at Current time" selected="false" tooltip="Starts the song at current time from the chart editor when playtesting" />
         <checkbox id="playtestSongScriptsCheckbox" text="Enable Song Scripts" selected="true" tooltip="Enable .hxc scripts tied to the given song" />
     </vbox>
