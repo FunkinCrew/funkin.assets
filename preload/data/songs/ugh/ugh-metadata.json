@@ -3,26 +3,25 @@
   "songName": "Ugh",
   "artist": "Kawai Sprite",
   "charter": "MtH",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
+    "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "bf",
-      "girlfriend": "gf-tankmen",
-      "opponent": "tankman",
-      "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "player": "bf","girlfriend": "gf-tankmen","opponent": "tankman",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["tankman"], "altInstrumentals": ["pico"]
     },
-    "songVariations": ["erect", "pico"],
     "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
     "album": "volume2",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": null
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:6334d16) PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:6334d16) PROTOTYPE"
 }

@@ -3,24 +3,25 @@
   "songName": "Philly Nice Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
   "charter": "Spazkid + fabs",
+  "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": 0, "bpm": 175, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
+    "songVariations": [],
     "difficulties": ["erect", "nightmare"],
     "characters": {
-      "player": "bf",
-      "girlfriend": "gf",
-      "opponent": "pico",
-      "instrumental": "erect"
+      "player": "bf","girlfriend": "gf","opponent": "pico",
+      "instrumental": "erect","playerVocals": ["bf"],"opponentVocals": ["pico"], "altInstrumentals": []
     },
     "stage": "phillyTrainErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 8, "nightmare": 9 },
     "album": "volume3",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": null
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:fe660bd) PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 175, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:fe660bd) PROTOTYPE"
 }
