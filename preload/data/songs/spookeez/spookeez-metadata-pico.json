@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-dark","girlfriend": "nene-dark","opponent": "spooky-dark"},
+    "characters": {
+      "player": "pico-dark","girlfriend": "nene-dark","opponent": "spooky-dark",
+      "instrumental": "pico","playerVocals": ["pico"],"opponentVocals": ["spooky"], "altInstrumentals": []
+    },
     "stage": "spookyMansionErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
+    "album": "volume4",
+    "stickerPack": null
   },
-  "instrumental": "pico",
-  "altInstrumentals": [],
-  "ratings": { "easy": 1, "normal": 2, "hard": 3 },
-  "album": "volume4",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.4.1 (feature/playable-pico-mode:9b3a748) PROTOTYPE"

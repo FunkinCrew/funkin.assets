@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf","girlfriend": "gf","opponent": "pico"},
+    "characters": {
+      "player": "bf","girlfriend": "gf","opponent": "pico",
+      "instrumental": "erect","playerVocals": ["bf"],"opponentVocals": ["pico"], "altInstrumentals": []
+    },
     "stage": "phillyTrainErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 9, "nightmare": 10 },
+    "album": "volume3",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 9, "nightmare": 10 },
-  "album": "volume3",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:fa92ebe) PROTOTYPE"

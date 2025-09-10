@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf-pixel","girlfriend": "gf-pixel","opponent": "senpai-angry"},
+    "characters": {
+      "player": "bf-pixel","girlfriend": "gf-pixel","opponent": "senpai-angry",
+      "instrumental": "erect","playerVocals": ["bf-pixel"],"opponentVocals": ["senpai-angry"], "altInstrumentals": []
+    },
     "stage": "schoolErect",
-    "noteStyle": "pixel"
+    "noteStyle": "pixel",
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 8, "nightmare": 9 },
-  "album": "volume3",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:7562143) PROTOTYPE"

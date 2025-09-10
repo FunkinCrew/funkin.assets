@@ -9,17 +9,18 @@
   "timeChanges": [{ "t": -1, "bpm": 150, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
   "looped": false,
   "playData": {
-        "songVariations": ["erect", "pico"],
+    "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf","girlfriend": "gf","opponent": "pico"},
+    "characters": {
+      "player": "bf","girlfriend": "gf","opponent": "pico",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["pico"], "altInstrumentals": ["pico"]
+    },
     "stage": "phillyTrain",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 2, "hard": 2},
+    "album": "volume1",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": ["pico"],
-  "ratings": { "easy": 1, "normal": 2, "hard": 2},
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

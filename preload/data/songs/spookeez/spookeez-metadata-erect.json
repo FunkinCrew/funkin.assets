@@ -11,16 +11,17 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf-dark","girlfriend": "gf-dark","opponent": "spooky-dark"},
+    "characters": {
+      "player": "bf-dark","girlfriend": "gf-dark","opponent": "spooky-dark",
+      "instrumental": "erect","playerVocals": ["bf-dark"],"opponentVocals": ["spooky-dark"], "altInstrumentals": []
+    },
     "stage": "spookyMansionErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 11, "nightmare": 12 },
+    "album": "volume1",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 11, "nightmare": 12 },
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
-  "generatedBy": ""
+  "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:bc783a2) PROTOTYPE"
 }

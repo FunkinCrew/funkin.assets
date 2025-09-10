@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-pixel","girlfriend": "gf-pixel","opponent": "spirit"},
+    "characters": {
+      "player": "bf-pixel","girlfriend": "gf-pixel","opponent": "spirit",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["spirit"], "altInstrumentals": []
+    },
     "stage": "schoolEvil",
-    "noteStyle": "pixel"
+    "noteStyle": "pixel",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "volume2",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 2, "normal": 3, "hard": 4 },
-  "album": "volume2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

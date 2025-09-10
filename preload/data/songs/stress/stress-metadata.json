@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-holding-gf","girlfriend": "pico-speaker","opponent": "tankman"},
+    "characters": {
+      "player": "bf-holding-gf","girlfriend": "pico-speaker","opponent": "tankman",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["tankman"], "altInstrumentals": ["pico"]
+    },
     "stage": "tankmanBattlefield",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 3, "normal": 4, "hard": 6},
+    "album": "volume2",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": ["pico"],
-  "ratings": { "easy": 3, "normal": 4, "hard": 6},
-  "album": "volume2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.3 (freeplay-optimize:a72f357) PROTOTYPE"

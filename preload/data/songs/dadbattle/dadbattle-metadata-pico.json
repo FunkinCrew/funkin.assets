@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-playable","girlfriend": "nene","opponent": "dad"},
-    "stage": "mainStage",
-    "noteStyle": "funkin"
+    "characters": {
+      "player": "pico-playable","girlfriend": "nene","opponent": "dad",
+      "instrumental": "pico","playerVocals": ["pico-playable"],"opponentVocals": ["dad"], "altInstrumentals": []
+    },
+    "stage": "mainStageErect",
+    "noteStyle": "funkin",
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume4",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 3, "normal": 4, "hard": 5 },
-  "album": "volume4",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE"

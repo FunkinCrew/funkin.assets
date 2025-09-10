@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-car","girlfriend": "gf-car","opponent": "mom-car"},
+    "characters": {
+      "player": "bf-car","girlfriend": "gf-car","opponent": "mom-car",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["mom"], "altInstrumentals": []
+    },
     "stage": "limoRide",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
+    "album": "volume1",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "EliteMasterEric (by hand)"

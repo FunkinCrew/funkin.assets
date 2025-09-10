@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-christmas","girlfriend": "gf-christmas","opponent": "parents-christmas"},
+    "characters": {
+      "player": "bf-christmas","girlfriend": "gf-christmas","opponent": "parents-christmas",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["parents-christmas"], "altInstrumentals": ["pico"]
+    },
     "stage": "mallXmas",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 2, "hard": 2},
+    "album": "volume1",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": ["pico"],
-  "ratings": { "easy": 1, "normal": 2, "hard": 2},
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["bf"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-playable","girlfriend": "nene","opponent": "darnell"},
+    "characters": {
+      "player": "pico-playable","girlfriend": "nene","opponent": "darnell",
+      "instrumental": "","playerVocals": ["pico"],"opponentVocals": ["darnell"], "altInstrumentals": []
+    },
     "stage": "phillyStreets",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "volume3",
+    "stickerPack": "bonus-weekend1"
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 2, "normal": 3, "hard": 4 },
-  "album": "volume3",
-  "stickerPack": "bonus-weekend1",
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.0 (polish/charting-music-bg:27a4ed4) PROTOTYPE"

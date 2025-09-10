@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf","girlfriend": "gf","opponent": "darnell"},
+    "characters": {
+      "player": "bf","girlfriend": "gf","opponent": "darnell",
+      "instrumental": "bf","playerVocals": ["bf"],"opponentVocals": ["darnell"], "altInstrumentals": []
+    },
     "stage": "phillyStreetsErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 4, "normal": 5, "hard": 6 },
+    "album": "expansion2",
+    "stickerPack": null
   },
-  "instrumental": "bf","opponentVocals": ["darnell"], "playerVocals": ["bf"],
-  "altInstrumentals": [],
-  "ratings": { "easy": 4, "normal": 5, "hard": 6 },
-  "album": "expansion2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.3"

@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf-christmas","girlfriend": "gf-christmas","opponent": "parents-christmas"},
+    "characters": {
+      "player": "bf-christmas","girlfriend": "gf-christmas","opponent": "parents-christmas",
+      "instrumental": "erect","playerVocals": ["bf-christmas"],"opponentVocals": ["parents-christmas"], "altInstrumentals": []
+    },
     "stage": "mallXmasErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 6, "nightmare": 7 },
+    "album": "expansion1",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 6, "nightmare": 7 },
-  "album": "expansion1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.2 (rewrite/master:2f96429:MODIFIED)"

@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf","girlfriend": "gf","opponent": "spooky"},
+    "characters": {
+      "player": "bf","girlfriend": "gf","opponent": "spooky",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["spooky"], "altInstrumentals": ["pico"]
+    },
     "stage": "spookyMansion",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 1, "hard": 2},
+    "album": "volume1",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": ["pico"],
-  "ratings": { "easy": 1, "normal": 1, "hard": 2},
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.3 (rewrite/master:bc783a2) PROTOTYPE"

@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-playable","girlfriend": "nene-tankmen","opponent": "tankman"},
+    "characters": {
+      "player": "pico-playable","girlfriend": "nene-tankmen","opponent": "tankman",
+      "instrumental": "pico","playerVocals": ["pico-playable"],"opponentVocals": ["tankman"], "altInstrumentals": []
+    },
     "stage": "tankmanBattlefieldErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume4",
+    "stickerPack": null
   },
-  "instrumental": "pico",
-  "altInstrumentals": [],
-  "ratings": { "easy": 3, "normal": 4, "hard": 5 },
-  "album": "volume4",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE"

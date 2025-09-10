@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf-car","girlfriend": "gf-car","opponent": "mom-car"},
+    "characters": {
+      "player": "bf-car","girlfriend": "gf-car","opponent": "mom-car", 
+      "instrumental": "erect","playerVocals": ["bf-car"],"opponentVocals": ["mom-car"], "altInstrumentals": []
+    },
     "stage": "limoRideErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 8, "nightmare": 9 },
-  "album": "volume3",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.3.0 (rewrite/master:9c19d95) PROTOTYPE"

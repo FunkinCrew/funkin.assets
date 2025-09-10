@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["bf", "erect"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-playable","girlfriend": "nene","opponent": "darnell"},
+    "characters": {
+      "player": "pico-playable","girlfriend": "nene","opponent": "darnell",
+      "instrumental": "","playerVocals": ["pico"],"opponentVocals": ["darnell"], "altInstrumentals": ["bf"]
+    },
     "stage": "phillyStreets",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4},
+    "album": "volume3",
+    "stickerPack": "bonus-weekend1"
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 2, "normal": 3, "hard": 4},
-  "album": "volume3",
-  "stickerPack": "bonus-weekend1",
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

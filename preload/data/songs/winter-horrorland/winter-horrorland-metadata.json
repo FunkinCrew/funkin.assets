@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-christmas","girlfriend": "gf-christmas","opponent": "monster-christmas"},
+    "characters": {
+      "player": "bf-christmas","girlfriend": "gf-christmas","opponent": "monster-christmas",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["monster"], "altInstrumentals": []
+    },
     "stage": "mallEvil",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 1, "normal": 2, "hard": 2 },
+    "album": "volume2",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-  "album": "volume2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

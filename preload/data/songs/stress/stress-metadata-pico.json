@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-holding-nene","girlfriend": "otis-speaker","opponent": "tankman-bloody"},
-    "stage": "mainStage",
-    "noteStyle": "tankmanBattlefieldErect"
+    "characters": {
+      "player": "pico-holding-nene","girlfriend": "otis-speaker","opponent": "tankman-bloody",
+      "instrumental": "pico","playerVocals": ["pico"],"opponentVocals": ["tankman"], "altInstrumentals": []
+    },
+    "stage": "tankmanBattlefieldErect",
+    "noteStyle": "funkin",
+    "ratings": { "easy": 4, "normal": 5, "hard": 6 },
+    "album": "expansion2",
+    "stickerPack": null
   },
-  "instrumental": "pico","opponentVocals": ["tankman"],"playerVocals": ["pico"],
-  "altInstrumentals": [],
-  "ratings": { "easy": 4, "normal": 5, "hard": 6 },
-  "album": "volume1",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.3"

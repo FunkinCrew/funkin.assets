@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-christmas","girlfriend": "nene-christmas","opponent": "parents-christmas"},
+    "characters": {
+      "player": "pico-christmas","girlfriend": "nene-christmas","opponent": "parents-christmas",
+      "instrumental": "pico","playerVocals": ["pico-christmas"],"opponentVocals": ["parents-christmas"], "altInstrumentals": []
+    },
     "stage": "mallXmasErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4},
+    "album": "expansion2",
+    "stickerPack": null
   },
-  "instrumental": "pico",
-  "altInstrumentals": [],
-  "ratings": { "easy": 2, "normal": 3, "hard": 4},
-  "album": "expansion2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.6.0 (rewrite/master:4891e54) PROTOTYPE"

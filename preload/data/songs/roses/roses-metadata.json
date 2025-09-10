@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "bf-pixel","girlfriend": "gf-pixel","opponent": "senpai-angry"},
+    "characters": {
+      "player": "bf-pixel","girlfriend": "gf-pixel","opponent": "senpai-angry",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["senpai"], "altInstrumentals": ["pico"]
+    },
     "stage": "school",
-    "noteStyle": "pixel"
+    "noteStyle": "pixel",
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "volume2",
+    "stickerPack": null
   },
-  "instrumental": "",
-  "altInstrumentals": ["pico"],
-  "ratings": { "easy": 2, "normal": 3, "hard": 4 },
-  "album": "volume2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

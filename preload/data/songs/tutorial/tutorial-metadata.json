@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": { "player": "bf", "opponent": "gf" },
+    "characters": { 
+      "player": "bf", "opponent": "gf",
+      "instrumental": "","playerVocals": ["bf"],"opponentVocals": ["gf"], "altInstrumentals": []
+    },
     "stage": "mainStage",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "easy": 0, "normal": 0, "hard": 1},
+    "album": "volume1",
+    "stickerPack": "bonus-tutorial"
   },
-  "instrumental": "",
-  "altInstrumentals": [],
-  "ratings": { "easy": 0, "normal": 0, "hard": 1},
-  "album": "volume1",
-  "stickerPack": "bonus-tutorial",
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Chart Editor Import (FNF Legacy)"

@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "characters": {"player": "pico-pixel","girlfriend": "nene-pixel","opponent": "senpai"},
+    "characters": {
+      "player": "pico-pixel","girlfriend": "nene-pixel","opponent": "senpai",
+      "instrumental": "pico","playerVocals": ["pico"],"opponentVocals": ["senpai"], "altInstrumentals": []
+    },
     "stage": "schoolPico",
-    "noteStyle": "pixel"
+    "noteStyle": "pixel",
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
+    "album": "expansion2",
+    "stickerPack": null
   },
-  "instrumental": "pico",
-  "altInstrumentals": [],
-  "ratings": { "easy": 1, "normal": 2, "hard": 3 },
-  "album": "expansion2",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.3"

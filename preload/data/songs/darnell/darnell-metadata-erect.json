@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "pico-playable","girlfriend": "nene","opponent": "darnell"},
+    "characters": {
+      "player": "pico-playable","girlfriend": "nene","opponent": "darnell",
+      "instrumental": "erect","playerVocals": ["pico"],"opponentVocals": ["darnell"], "altInstrumentals": []
+    },
     "stage": "phillyStreetsErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "expansion2",
+    "stickerPack": "bonus-weekend1"
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 8, "nightmare": 9 },
-  "album": "expansion2",
-  "stickerPack": "bonus-weekend1",
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.3"

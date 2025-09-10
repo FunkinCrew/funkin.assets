@@ -11,15 +11,16 @@
   "playData": {
     "songVariations": [],
     "difficulties": ["erect", "nightmare"],
-    "characters": {"player": "bf","girlfriend": "gf-tankmen","opponent": "tankman"},
+    "characters": {
+      "player": "bf","girlfriend": "gf-tankmen","opponent": "tankman",
+      "instrumental": "erect","playerVocals": ["bf"],"opponentVocals": ["tankman"], "altInstrumentals": []
+    },
     "stage": "tankmanBattlefieldErect",
-    "noteStyle": "funkin"
+    "noteStyle": "funkin",
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume4",
+    "stickerPack": null
   },
-  "instrumental": "erect",
-  "altInstrumentals": [],
-  "ratings": { "erect": 8, "nightmare": 9 },
-  "album": "volume4",
-  "stickerPack": null,
   "previewStart": 0,
   "previewEnd": 15000,
   "generatedBy": "Friday Night Funkin' - v0.5.0 (develop:96c151c:MODIFIED) PROTOTYPE"
