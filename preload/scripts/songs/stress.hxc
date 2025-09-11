@@ -91,7 +91,27 @@ class StressSong extends Song
 
     VideoCutscene.play(Paths.videos(videoPath));
   }
+  
+  /**
+   * Don't replay the cutscene between restarts.
+   */
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
 
+    hasPlayedCutscene = true;
+
+    // resets the tankmen!
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.scriptCall('reset');
+    }
+    if (PlayState.instance.currentStage.getGirlfriend() != null)
+    {
+      PlayState.instance.currentStage.getGirlfriend().scriptCall('reset');
+      trace('reset pico!');
+    }
+  }
   function kill():Void
   {
     cleanupTankmanGroup();
