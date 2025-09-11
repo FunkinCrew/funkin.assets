@@ -69,7 +69,6 @@ class GunsSong extends Song
     cutsceneTimerManager = new FlxTimerManager();
 
     cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
-    cutsceneMusic.play();
 
     var tankmansTightButtholeButFlxSound:FunkinSound = FunkinSound.load(Paths.sound("tankSong2", "week7"), 1, false);
 
@@ -85,6 +84,7 @@ class GunsSong extends Song
     PlayState.instance.currentStage.refresh();
 
     new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      cutsceneMusic.play();
       tankmansTightButtholeButFlxSound.play();
       tankmanCutscene.anim.play("tankmansTightButthole");
     });
