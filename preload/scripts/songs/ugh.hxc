@@ -69,8 +69,8 @@ class UghSong extends Song
     cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
     cutsceneMusic.play();
 
-    var eduardoButSound:FunkinSound = FunkinSound.load(Paths.sound("wellWellWell", "week7"), 1, false);
-    var ketamineHitsButSound:FunkinSound = FunkinSound.load(Paths.sound("killYou", "week7"), 1, false);
+    var wellWellWellSound:FunkinSound = FunkinSound.load(Paths.sound("wellWellWell", "week7"), 1, false);
+    var killYouSound:FunkinSound = FunkinSound.load(Paths.sound("killYou", "week7"), 1, false);
     var beep:FunkinSound = FunkinSound.load(Paths.sound("bfBeep", "week7"), 1, false);
 
     // we will ALL be calling daddy dearest daddy
@@ -79,8 +79,8 @@ class UghSong extends Song
 
     var tankmanCutscene:FunkinSprite = new FunkinSprite(daddy.x - 100, daddy.y - 102);
     tankmanCutscene.loadTextureAtlas("cutscene/tankman", "week7");
-    tankmanCutscene.anim.addByFrameLabel("eduardo", "What do we got here", 24, false);
-    tankmanCutscene.anim.addByFrameLabel("ketamineHits", "We should just kill you", 24, false);
+    tankmanCutscene.anim.addByFrameLabel("wellWellWell", "What do we got here", 24, false);
+    tankmanCutscene.anim.addByFrameLabel("killYou", "We should just kill you", 24, false);
     tankmanCutscene.zIndex = daddy.zIndex;
     PlayState.instance.currentStage.add(tankmanCutscene);
     PlayState.instance.currentStage.refresh();
@@ -107,8 +107,8 @@ class UghSong extends Song
     _trans.start(1);*/
 
     new FlxTimer(cutsceneTimerManager).start(0.25, function(_) {
-      eduardoButSound.play();
-      tankmanCutscene.anim.play("eduardo", true);
+      wellWellWellSound.play();
+      tankmanCutscene.anim.play("wellWellWell", true);
     });
 
     new FlxTimer(cutsceneTimerManager).start(3, function(_) {
@@ -130,8 +130,8 @@ class UghSong extends Song
       PlayState.instance.resetCamera(false, false, false);
       PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
 
-      ketamineHitsButSound.play();
-      tankmanCutscene.anim.play("ketamineHits", true);
+      killYouSound.play();
+      tankmanCutscene.anim.play("killYou", true);
     });
 
     new FlxTimer(cutsceneTimerManager).start(12.1, function(_) {

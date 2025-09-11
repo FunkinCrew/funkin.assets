@@ -99,12 +99,6 @@ class StressSong extends Song
     }
   }
 
-  var fakeGeef:BaseCharacter;
-  var fakeBeef:BaseCharacter;
-
-  var geef:BaseCharacter;
-  var beef:BaseCharacter;
-
   var picoCutscene:Bopper;
 
   function runCutscene()
@@ -117,7 +111,7 @@ class StressSong extends Song
     var musicPath:String = 'stressCutscene/stressCutscene';
 
     if (Constants.CENSOR_EXPLETIVES)
-      musicPath += '-censored'; // weird name but ok
+      musicPath += '-censored';
 
     cutsceneMusic = FunkinSound.load(Paths.music(musicPath, "week7"), 1, false);
 
@@ -125,17 +119,17 @@ class StressSong extends Song
     var daddy:BaseCharacter = PlayState.instance.currentStage.getDad();
     daddy.visible = false;
 
-    geef = PlayState.instance.currentStage.getGirlfriend();
+    var geef:BaseCharacter = PlayState.instance.currentStage.getGirlfriend();
     geef.visible = false;
 
-    beef = PlayState.instance.currentStage.getBoyfriend();
+    var beef:BaseCharacter = PlayState.instance.currentStage.getBoyfriend();
     beef.visible = false;
 
-    fakeGeef = CharacterDataParser.fetchCharacter('gf-tankmen');
+    var fakeGeef:BaseCharacter = CharacterDataParser.fetchCharacter('gf-tankmen');
     setupCharacter(fakeGeef, CharacterType.GF);
     PlayState.instance.currentStage.addBopper(fakeGeef, 'gf-cutscene');
 
-    fakeBeef = CharacterDataParser.fetchCharacter('bf');
+    var fakeBeef:BaseCharacter = CharacterDataParser.fetchCharacter('bf');
     setupCharacter(fakeBeef, CharacterType.BF);
     PlayState.instance.currentStage.addBopper(fakeBeef, 'bf-cutscene');
 
@@ -146,12 +140,15 @@ class StressSong extends Song
     tankmanCutscene.zIndex = daddy.zIndex;
     PlayState.instance.currentStage.add(tankmanCutscene);
 
-    picoCutscene = new Bopper();
+    var picoCutscene:Bopper = new Bopper(2.0);
     picoCutscene.setPosition(fakeGeef.x - 739, fakeGeef.y - 482);
     picoCutscene.loadTextureAtlas("cutscene/pico", "week7");
     picoCutscene.anim.addByFrameLabel("gfTurn", "gf turns demon", 24, false);
+    picoCutscene.setAnimationOffsets("gfTurn", 0, 0);
     picoCutscene.anim.addByFrameLabel("picoSaves", "obliteration", 24, false);
+    picoCutscene.setAnimationOffsets("picoSaves", 0, 0);
     picoCutscene.anim.addByFrameLabel("idle", "pico idle", 24, false);
+    picoCutscene.setAnimationOffsets("idle", 0, 0);
     picoCutscene.zIndex = geef.zIndex;
     picoCutscene.visible = false;
     PlayState.instance.currentStage.addBopper(picoCutscene, 'pico-cutscene');
@@ -194,15 +191,11 @@ class StressSong extends Song
       destroyBopper(fakeGeef);
 
       picoCutscene.visible = true;
-      picoCutscene.anim.play("gfTurn", true);
+      picoCutscene.playAnimation("gfTurn", true, true);
 
-      picoCutscene.anim.finishCallback = () -> {
-        picoCutscene.anim.play('picoSaves', true);
-        picoCutscene.anim.finishCallback = () -> {
-          picoCutscene.anim.play('idle', true);
-          picoCutscene.anim.finishCallback = null;
-        };
-      };
+      picoCutscene.anim.onFinish.addOnce(() -> {
+        picoCutscene.playAnimation('picoSaves', true, true);
+      });
 
       PlayState.instance.tweenCameraZoom((0.9 * 1.15) * 1.3, 2.1, true, FlxEase.quadInOut);
     });
@@ -216,11 +209,11 @@ class StressSong extends Song
 
         beef.visible = true;
         beef.playAnimation("bfCatch", true, true);
-        beef.animation.finishCallback = () -> {
-          beef.canPlayOtherAnims = true; // gotta do this since this runs first.
+        beef.animation.onFinish.addOnce(() -> {
+          // force the idle animation.
+          beef.canPlayOtherAnims = true;
           beef.dance(true);
-          beef.anim.finishCallback = null;
-        };
+        });
       });
     });
 
@@ -231,7 +224,7 @@ class StressSong extends Song
     new FlxTimer(cutsceneTimerManager).start(20.3, function(_) {
       PlayState.instance.resetCamera(false, false, false);
       PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
-      PlayState.instance.tweenCameraZoom(0.9, 5, true, FlxEase.expoOut);
+      PlayState.instance.tweenCameraZoom(0.9, 5, true, FlxEase.expoOut); // Zoom in, as one of the audience members get cut off.
     });
 
     new FlxTimer(cutsceneTimerManager).start(31.5, function(_) {
@@ -243,19 +236,18 @@ class StressSong extends Song
 
       beef.playSingAnimation(2, true);
 
-      beef.animation.finishCallback = () -> {
+      beef.animation.onFinish.addOnce(() -> {
         beef.dance(true);
-
-        // sneakily change it back...
-        destroyBopper(picoCutscene);
-        geef.visible = true;
 
         PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
         PlayState.instance.resetCamera(false, false);
 
         PlayState.instance.currentCameraZoom = ((0.9 * 1.4) + 0.1) / 1.4;
-        beef.animation.finishCallback = null;
-      };
+      });
+
+      // sneakily change it back...
+      destroyBopper(picoCutscene);
+      geef.visible = true;
     });
 
     new FlxTimer(cutsceneTimerManager).start(35.1, function(_) {
@@ -345,11 +337,6 @@ class StressSong extends Song
 
   function onCutsceneBeatHit():Void
   {
-    if (picoCutscene != null && picoCutscene.visible && picoCutscene.exists && picoCutscene.anim.curAnim.name == 'idle')
-    {
-      picoCutscene.anim.play('idle');
-    }
-
     var event = new SongTimeScriptEvent("BEAT_HIT", cutsceneConductor.currentBeat, cutsceneConductor.currentStep);
     ScriptEventDispatcher.callEvent(PlayState.instance.currentStage, event);
     PlayState.instance.currentStage.dispatchToCharacters(event);
