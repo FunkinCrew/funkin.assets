@@ -67,7 +67,6 @@ class UghSong extends Song
     cutsceneTimerManager = new FlxTimerManager();
 
     cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
-    cutsceneMusic.play();
 
     var wellWellWellSound:FunkinSound = FunkinSound.load(Paths.sound("wellWellWell", "week7"), 1, false);
     var killYouSound:FunkinSound = FunkinSound.load(Paths.sound("killYou", "week7"), 1, false);
@@ -105,6 +104,10 @@ class UghSong extends Song
     PlayState.instance.openSubState(_trans);
 
     _trans.start(1);*/
+
+    new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      cutsceneMusic.play();
+    });
 
     new FlxTimer(cutsceneTimerManager).start(0.25, function(_) {
       wellWellWellSound.play();
