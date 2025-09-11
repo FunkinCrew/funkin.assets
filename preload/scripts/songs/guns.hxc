@@ -100,17 +100,20 @@ class GunsSong extends Song
       });
 
       gfSadAnim();
-      PlayState.instance.currentStage.getGirlfriend().animation.onFinish.add(gfSadAnim);
+      PlayState.instance.currentStage.getGirlfriend().animation.curAnim.looped = true;
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(10.5, function(_) {
+        cutsceneMusic.fadeOut(0.5, 0, function (_) {
+        cutsceneMusic.stop();
+        cutsceneMusic.destroy();
+      });
     });
 
     new FlxTimer(cutsceneTimerManager).start(11, function(_) {
-      cutsceneMusic.stop();
-      cutsceneMusic.destroy();
-
       tankmanCutscene.destroy();
       daddy.visible = true;
 
-      PlayState.instance.currentStage.getGirlfriend().animation.onFinish.remove(gfSadAnim);
       PlayState.instance.currentStage.getGirlfriend().dance(true);
 
       PlayState.instance.tweenCameraZoom(1, 0.5, false, FlxEase.quadInOut);

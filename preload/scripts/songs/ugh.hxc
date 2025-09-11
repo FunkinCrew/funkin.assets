@@ -137,9 +137,14 @@ class UghSong extends Song
       tankmanCutscene.anim.play("killYou", true);
     });
 
+    new FlxTimer(cutsceneTimerManager).start(11.6, function(_) {
+        cutsceneMusic.fadeOut(0.5, 0, function (_) {
+        cutsceneMusic.stop();
+        cutsceneMusic.destroy();
+      });
+    });
+
     new FlxTimer(cutsceneTimerManager).start(12.1, function(_) {
-      cutsceneMusic.stop();
-      cutsceneMusic.destroy();
 
       tankmanCutscene.destroy();
       daddy.visible = true;
