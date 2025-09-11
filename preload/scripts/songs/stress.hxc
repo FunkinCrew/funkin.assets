@@ -1,15 +1,34 @@
+import funkin.data.song.SongRegistry;
 import funkin.play.song.Song;
 import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
+import funkin.play.character.BaseCharacter;
+import funkin.data.character.CharacterDataParser;
+import funkin.play.character.CharacterType;
+import funkin.graphics.FunkinSprite;
+import funkin.play.stage.Bopper;
+import funkin.Conductor;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxTimerManager;
+import flixel.util.FlxTimer;
+import funkin.audio.FunkinSound;
 import funkin.util.Constants;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
+import funkin.modding.events.SongTimeScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
 import funkin.play.cutscene.VideoCutscene;
+import flixel.FlxG;
+import funkin.Paths;
 
 class StressSong extends Song
 {
   var hasPlayedCutscene:Bool;
   var tankmanGroup:TankmanSpriteGroup = null;
+
+  var cutsceneConductor:Conductor;
+  var cutsceneTimerManager:FlxTimerManager;
+  var cutsceneMusic:FunkinSound;
 
   public function new()
   {
@@ -37,7 +56,8 @@ class StressSong extends Song
     super.onCountdownStart(event);
 
     // Skip the cutscene unless we are in Story Mode.
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // TODO: yet againnnnnnnnnn
+    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
@@ -47,7 +67,7 @@ class StressSong extends Song
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      runCutscene();
     }
 
     if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
@@ -80,16 +100,260 @@ class StressSong extends Song
     }
   }
 
-  function startVideo()
+  var fakeGeef:BaseCharacter;
+  var fakeBeef:BaseCharacter;
+
+  var geef:BaseCharacter;
+  var beef:BaseCharacter;
+
+  var picoCutscene:Bopper;
+
+  function runCutscene()
   {
-    var videoPath = 'stressCutscene';
+    PlayState.instance.isInCutscene = true;
+    PlayState.instance.camHUD.visible = false;
+
+    cutsceneTimerManager = new FlxTimerManager();
+
+    var musicPath:String = 'stressCutscene/stressCutscene';
 
     if (Constants.CENSOR_EXPLETIVES)
+      musicPath += '-censored'; // weird name but ok
+
+    cutsceneMusic = FunkinSound.load(Paths.music(musicPath, "week7"), 1, false);
+
+    // we will ALL be calling daddy dearest daddy
+    var daddy:BaseCharacter = PlayState.instance.currentStage.getDad();
+    daddy.visible = false;
+
+    geef = PlayState.instance.currentStage.getGirlfriend();
+    geef.visible = false;
+
+    beef = PlayState.instance.currentStage.getBoyfriend();
+    beef.visible = false;
+
+    fakeGeef = CharacterDataParser.fetchCharacter('gf-tankmen');
+    setupCharacter(fakeGeef, CharacterType.GF);
+    PlayState.instance.currentStage.addBopper(fakeGeef, 'gf-cutscene');
+
+    fakeBeef = CharacterDataParser.fetchCharacter('bf');
+    setupCharacter(fakeBeef, CharacterType.BF);
+    PlayState.instance.currentStage.addBopper(fakeBeef, 'bf-cutscene');
+
+    var tankmanCutscene:FunkinSprite = new FunkinSprite(daddy.x - 100, daddy.y - 102);
+    tankmanCutscene.loadTextureAtlas("cutscene/tankman", "week7");
+    tankmanCutscene.anim.addByFrameLabel("godEffingDamnIt", "GOD EFFING DAMMIT", 24, false);
+    tankmanCutscene.anim.addByFrameLabel("lookWhoItIs", "Sexually Ambiguous", 24, false);
+    tankmanCutscene.zIndex = daddy.zIndex;
+    PlayState.instance.currentStage.add(tankmanCutscene);
+
+    picoCutscene = new Bopper();
+    picoCutscene.setPosition(fakeGeef.x - 739, fakeGeef.y - 482);
+    picoCutscene.loadTextureAtlas("cutscene/pico", "week7");
+    picoCutscene.anim.addByFrameLabel("gfTurn", "gf turns demon", 24, false);
+    picoCutscene.anim.addByFrameLabel("picoSaves", "obliteration", 24, false);
+    picoCutscene.anim.addByFrameLabel("idle", "pico idle", 24, false);
+    picoCutscene.zIndex = geef.zIndex;
+    picoCutscene.visible = false;
+    PlayState.instance.currentStage.addBopper(picoCutscene, 'pico-cutscene');
+
+    PlayState.instance.currentStage.refresh();
+
+    var bfPos:Array<Float> = [
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+    ];
+
+    var gfPos:Array<Float> = [
+      fakeGeef.cameraFocusPoint.x,
+      fakeGeef.cameraFocusPoint.y - 100 // shushhhh
+    ];
+
+    var tankmanPos:Array<Float> = [
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+    ];
+
+    cutsceneConductor = new Conductor();
+
+    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('stressCutscene');
+    if (songMusicData != null) cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+    cutsceneConductor.onStepHit.add(onCutsceneStepHit);
+    cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
+
+    PlayState.instance.currentCameraZoom = 0.9 * 1.15;
+
+    new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      tankmanCutscene.anim.play('godEffingDamnIt', true);
+      cutsceneMusic.play();
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(15.1, function(_) {
+      PlayState.instance.resetCamera(false, false, false);
+      PlayState.instance.cameraFollowPoint.setPosition(gfPos[0], gfPos[1]);
+
+      destroyBopper(fakeGeef);
+
+      picoCutscene.visible = true;
+      picoCutscene.anim.play("gfTurn", true);
+
+      picoCutscene.anim.finishCallback = () -> {
+        picoCutscene.anim.play('picoSaves', true);
+        picoCutscene.anim.finishCallback = () -> {
+          picoCutscene.anim.play('idle', true);
+          picoCutscene.anim.finishCallback = null;
+        };
+      };
+
+      PlayState.instance.tweenCameraZoom((0.9 * 1.15) * 1.3, 2.1, true, FlxEase.quadInOut);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(17.3, function() {
+      PlayState.instance.currentCameraZoom = 0.8;
+
+      // wait 2 frames before changing back to the real BF, so the gf falling animation makes sense
+      new FlxTimer(cutsceneTimerManager).start(2 / 24, function(_) {
+        destroyBopper(fakeBeef);
+
+        beef.visible = true;
+        beef.playAnimation("bfCatch", true, true);
+        beef.animation.finishCallback = () -> {
+          beef.canPlayOtherAnims = true; // gotta do this since this runs first.
+          beef.dance(true);
+          beef.anim.finishCallback = null;
+        };
+      });
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(19.6, function(_) {
+      tankmanCutscene.anim.play("lookWhoItIs", true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(20.3, function(_) {
+      PlayState.instance.resetCamera(false, false, false);
+      PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
+      PlayState.instance.tweenCameraZoom(0.9, 5, true, FlxEase.expoOut);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(31.5, function(_) {
+      PlayState.instance.cameraFollowPoint.setPosition(bfPos[0], bfPos[1]);
+      PlayState.instance.resetCamera(false, false);
+
+      PlayState.instance.currentCameraZoom = 0.9 * 1.4;
+      PlayState.instance.tweenCameraZoom((0.9 * 1.4) + 0.1, 0.5, true, FlxEase.elasticOut);
+
+      beef.playSingAnimation(2, true);
+
+      beef.animation.finishCallback = () -> {
+        beef.dance(true);
+
+        // sneakily change it back...
+        destroyBopper(picoCutscene);
+        geef.visible = true;
+
+        PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
+        PlayState.instance.resetCamera(false, false);
+
+        PlayState.instance.currentCameraZoom = ((0.9 * 1.4) + 0.1) / 1.4;
+        beef.animation.finishCallback = null;
+      };
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(35.1, function(_) {
+      cutsceneMusic.stop();
+      cutsceneMusic.destroy();
+
+      tankmanCutscene.destroy();
+      daddy.visible = true;
+
+      cutsceneConductor = null;
+      cutsceneMusic = null;
+
+      PlayState.instance.tweenCameraZoom(1, 0.5, false, FlxEase.quadInOut);
+
+      PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+    });
+  }
+
+  /**
+   * Stolen from Stage.hx
+   */
+  function setupCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    var stageCharData:StageDataCharacter = null;
+    switch(charType)
     {
-      videoPath += '-censored';
+      case CharacterType.BF:
+        stageCharData = PlayState.instance.currentStage._data.characters.bf;
+        character.flipX = !character.getDataFlipX();
+      case CharacterType.GF:
+        stageCharData = PlayState.instance.currentStage._data.characters.gf;
+        character.flipX = character.getDataFlipX();
+      case CharacterType.DAD:
+        stageCharData = PlayState.instance.currentStage._data.characters.dad;
+        character.flipX = character.getDataFlipX();
     }
 
-    VideoCutscene.play(Paths.videos(videoPath));
+    character.resetCharacter(true);
+
+    if(stageCharData == null)
+      return;
+
+    character.zIndex = stageCharData.zIndex;
+
+    character.x = stageCharData.position[0] - character.characterOrigin.x;
+    character.y = stageCharData.position[1] - character.characterOrigin.y;
+
+    var finalScale = character.getBaseScale() * stageCharData.scale;
+    character.setScale(finalScale); // Don't use scale.set for characters!
+    character.cameraFocusPoint.x += stageCharData.cameraOffsets[0];
+    character.cameraFocusPoint.y += stageCharData.cameraOffsets[1];
+
+    character.scrollFactor.x = stageCharData.scroll[0];
+    character.scrollFactor.y = stageCharData.scroll[1];
+
+    character.alpha = stageCharData.alpha;
+    character.angle = stageCharData.angle;
+  }
+
+  function destroyBopper(bopper:Bopper):Void
+  {
+    PlayState.instance.currentStage.boppers.remove(bopper);
+    PlayState.instance.currentStage.namedProps.remove(bopper.name);
+    PlayState.instance.currentStage.remove(bopper);
+    bopper.destroy();
+  }
+
+  function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
+
+    if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
+
+    if (cutsceneConductor != null && cutsceneMusic != null)
+    {
+      cutsceneConductor.update(cutsceneMusic.time);
+    }
+	}
+
+  function onCutsceneStepHit():Void
+  {
+    var event = new SongTimeScriptEvent("STEP_HIT", cutsceneConductor.currentBeat, cutsceneConductor.currentStep);
+    ScriptEventDispatcher.callEvent(PlayState.instance.currentStage, event);
+    PlayState.instance.currentStage.dispatchToCharacters(event);
+  }
+
+  function onCutsceneBeatHit():Void
+  {
+    if (picoCutscene != null && picoCutscene.visible && picoCutscene.exists && picoCutscene.anim.curAnim.name == 'idle')
+    {
+      picoCutscene.anim.play('idle');
+    }
+
+    var event = new SongTimeScriptEvent("BEAT_HIT", cutsceneConductor.currentBeat, cutsceneConductor.currentStep);
+    ScriptEventDispatcher.callEvent(PlayState.instance.currentStage, event);
+    PlayState.instance.currentStage.dispatchToCharacters(event);
   }
 
   function kill():Void
