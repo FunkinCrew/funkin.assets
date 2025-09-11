@@ -56,8 +56,7 @@ class StressSong extends Song
     super.onCountdownStart(event);
 
     // Skip the cutscene unless we are in Story Mode.
-    // TODO: yet againnnnnnnnnn
-    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
