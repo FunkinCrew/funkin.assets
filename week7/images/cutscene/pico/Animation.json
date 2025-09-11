@@ -1,0 +1,64 @@
+{
+"AN":{
+"N":"Week_7_cutscene_assets",
+"SN":"pico cutscene assets packaged",
+"TL":{
+"L":[
+{
+"LN":"Layer_2",
+"FR":[
+{
+"N":"gf turns demon",
+"I":0,
+"DU":55,
+"E":[
+]},{
+"N":"obliteration",
+"I":55,
+"DU":84,
+"E":[
+]},{
+"N":"pico idle",
+"I":139,
+"DU":14,
+"E":[
+]}
+]},{
+"LN":"Layer_1",
+"FR":[
+{
+"I":0,
+"DU":55,
+"E":[
+{"SI":{
+"SN":"GF Turnin Demon W Effect",
+"FF":0,
+"ST":"G",
+"TRP":{"x":-124.15,"y":-254.75},
+"LP":"LP",
+"MX":[1,0,0,1,-9.3,-23.35]
+}}]},{
+"I":55,
+"DU":84,
+"E":[
+{"SI":{
+"SN":"Pico Saves them sequence",
+"FF":0,
+"ST":"G",
+"TRP":{"x":-11.65,"y":-22.9},
+"LP":"LP",
+"MX":[1,0,0,1,-211,-28.95]
+}}]},{
+"I":139,
+"DU":14,
+"E":[
+{"SI":{
+"SN":"Pico Dual Wield on Speaker idle",
+"FF":0,
+"ST":"G",
+"TRP":{"x":-211,"y":-28.95},
+"LP":"LP",
+"MX":[1,0,0,1,-211,-28.95]
+}}]}
+]}
+]}}}

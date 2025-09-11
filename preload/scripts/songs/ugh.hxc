@@ -1,12 +1,23 @@
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.transition.Transition;
+import funkin.audio.FunkinSound;
 import funkin.play.song.Song;
 import funkin.save.Save;
+import flixel.util.FlxTimerManager;
+import flixel.util.FlxTimer;
 import funkin.play.PlayState;
-import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
+import funkin.graphics.FunkinSprite;
+import flixel.tweens.FlxEase;
+import funkin.Paths;
+import flixel.FlxG;
 
 class UghSong extends Song
 {
   var hasPlayedCutscene:Bool;
+
+  var cutsceneTimerManager:FlxTimerManager;
+  var cutsceneMusic:FunkinSound;
 
   public function new()
   {
@@ -33,23 +44,122 @@ class UghSong extends Song
   {
     super.onCountdownStart(event);
 
+    // Skip the cutscene unless we are in Story Mode.
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
-      trace('Pausing countdown to play a video cutscene (`ugh`)');
+      trace('Pausing countdown to play in game cutscene');
 
       hasPlayedCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      runCutscene();
     }
   }
 
-  function startVideo()
+  function runCutscene()
   {
-    VideoCutscene.play(Paths.videos('ughCutscene'));
+    PlayState.instance.isInCutscene = true;
+    PlayState.instance.camHUD.visible = false;
+
+    cutsceneTimerManager = new FlxTimerManager();
+
+    cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
+
+    var wellWellWellSound:FunkinSound = FunkinSound.load(Paths.sound("wellWellWell", "week7"), 1, false);
+    var killYouSound:FunkinSound = FunkinSound.load(Paths.sound("killYou", "week7"), 1, false);
+    var beep:FunkinSound = FunkinSound.load(Paths.sound("bfBeep", "week7"), 1, false);
+
+    // we will ALL be calling daddy dearest daddy
+    var daddy:BaseCharacter = PlayState.instance.currentStage.getDad();
+    daddy.visible = false;
+
+    var tankmanCutscene:FunkinSprite = new FunkinSprite(daddy.x - 100, daddy.y - 102);
+    tankmanCutscene.loadTextureAtlas("cutscene/tankman", "week7");
+    tankmanCutscene.anim.addByFrameLabel("wellWellWell", "What do we got here", 24, false);
+    tankmanCutscene.anim.addByFrameLabel("killYou", "We should just kill you", 24, false);
+    tankmanCutscene.zIndex = daddy.zIndex;
+    PlayState.instance.currentStage.add(tankmanCutscene);
+    PlayState.instance.currentStage.refresh();
+
+    var bfPos:Array<Float> = [
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+    ];
+
+    var tankmanPos:Array<Float> = [
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+    ];
+
+    PlayState.instance.currentCameraZoom = 0.9 * 1.2;
+
+    // run the transition out to make it look more like the video.
+    // UPDATE: seems to break the instrumental???
+    /*var _trans = new Transition(FlxTransitionableState.defaultTransIn);
+
+    _trans.setStatus(3);
+    PlayState.instance.openSubState(_trans);
+
+    _trans.start(1);*/
+
+    new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      cutsceneMusic.play();
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(0.25, function(_) {
+      wellWellWellSound.play();
+      tankmanCutscene.anim.play("wellWellWell", true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(3, function(_) {
+      PlayState.instance.resetCamera(false, false, false);
+      PlayState.instance.cameraFollowPoint.setPosition(bfPos[0], bfPos[1]);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(4.5, function(_) {
+      PlayState.instance.currentStage.getPlayer().playSingAnimation(2);
+
+      beep.play();
+      beep.onComplete = () -> {
+        PlayState.instance.currentStage.getPlayer().dance(true);
+        beep.onComplete = null;
+      };
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(6, function(_) {
+      PlayState.instance.resetCamera(false, false, false);
+      PlayState.instance.cameraFollowPoint.setPosition(tankmanPos[0], tankmanPos[1]);
+
+      killYouSound.play();
+      tankmanCutscene.anim.play("killYou", true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(11.6, function(_) {
+        cutsceneMusic.fadeOut(0.5, 0, function (_) {
+        cutsceneMusic.stop();
+        cutsceneMusic.destroy();
+      });
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(12.1, function(_) {
+
+      tankmanCutscene.destroy();
+      daddy.visible = true;
+
+      PlayState.instance.tweenCameraZoom(1, 0.5, false, FlxEase.quadInOut);
+
+      PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+    });
+  }
+
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+    if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
   }
 
   /**
