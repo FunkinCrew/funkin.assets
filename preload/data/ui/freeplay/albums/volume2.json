@@ -1,7 +1,8 @@
 {
   "version": "1.0.0",
   "name": "Volume 2",
-  "artists": ["Kawai Sprite"],
+  "artists": ["Kawai Sprite", "Basset"],
   "albumArtAsset": "freeplay/albumRoll/volume2",
-  "albumTitleAsset": "freeplay/albumRoll/volume2-text"
+  "albumTitleAsset": "freeplay/albumRoll/volume2-text",
+  "albumTitleOffsets": [17, 0]
 }

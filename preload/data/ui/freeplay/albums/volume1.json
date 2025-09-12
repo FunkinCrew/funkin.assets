@@ -3,5 +3,6 @@
   "name": "Volume 1",
   "artists": ["Kawai Sprite"],
   "albumArtAsset": "freeplay/albumRoll/volume1",
-  "albumTitleAsset": "freeplay/albumRoll/volume1-text"
+  "albumTitleAsset": "freeplay/albumRoll/volume1-text",
+  "albumTitleOffsets": [17, 0]
 }
