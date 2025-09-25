@@ -3,6 +3,11 @@
   "scrollSpeed": { "easy": 1.4, "normal": 1.6, "hard": 1.7 },
   "events": [
     {
+      "t": 0,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 2 }
+    },
+    {
       "t": 3018.8679245283,
       "e": "FocusCamera",
       "v": { "x": 0, "duration": 4, "y": 0, "char": 2, "ease": "CLASSIC" }
@@ -11,6 +16,11 @@
     { "t": 15094, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 21132, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 27169, "e": "FocusCamera", "v": { "char": 0 } },
+    {
+      "t": 32830.1886792453,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 1 } 
+    },
     { "t": 33396, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 39433, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 45283, "e": "FocusCamera", "v": { "char": 1 } },
@@ -23,8 +33,18 @@
     { "t": 60566, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 63396, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 64905, "e": "FocusCamera", "v": { "char": 0 } },
+    {
+      "t": 69056.6037735849,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 2 }
+    },
     { "t": 69622, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 75660, "e": "FocusCamera", "v": { "char": 0 } },
+    {
+      "t": 81132.0754716981,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 1 }
+    },
     { "t": 81509, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 83018, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 84528, "e": "FocusCamera", "v": { "char": 1 } },

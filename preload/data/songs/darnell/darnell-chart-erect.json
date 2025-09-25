@@ -278,9 +278,39 @@
       "v": { "duration": 16, "ease": "quartIn", "mode": "stage", "zoom": 0.95 }
     },
     {
+      "t": 73935.4838709677,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 0, "speed": 999}
+    },
+    {
+      "t": 73935.4838709677,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 1, "speed": 999}
+    },
+    {
+      "t": 73935.4838709677,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 999}
+    },
+    {
       "t": 74225.7096774193,
       "e": "SetCameraBop",
       "v": { "rate": 2, "intensity": 0 }
+    },
+    {
+      "t": 77032.2580645161,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 1, "speed": 1}
+    },
+    {
+      "t": 77032.2580645161,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 0, "speed": 1}
+    },
+    {
+      "t": 77032.2580645161,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 2}
     },
     {
       "t": 77322.7096774193,
@@ -428,6 +458,11 @@
       "v": { "duration": 8, "ease": "quartIn", "mode": "stage", "zoom": 1 }
     },
     {
+      "t": 101806.451612903,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 1}
+    },
+    {
       "t": 102096.709677419,
       "e": "SetCameraBop",
       "v": { "rate": 2, "intensity": 1.1 }
@@ -536,6 +571,21 @@
       "t": 143612.193548387,
       "e": "ZoomCamera",
       "v": { "duration": 8, "ease": "quartIn", "mode": "stage", "zoom": 0.9 }
+    },
+    {
+      "t": 143806.451612903,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 999}
+    },
+    {
+      "t": 143806.451612903,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 1, "speed": 999}
+    },
+    {
+      "t": 143806.451612903,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 0,"speed": 999}
     }
   ],
   "notes": {

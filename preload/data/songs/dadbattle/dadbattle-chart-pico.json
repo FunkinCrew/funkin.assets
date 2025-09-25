@@ -3,6 +3,16 @@
   "scrollSpeed": { "easy": 2.2, "normal": 2.4, "hard": 2.6 },
   "events": [
     {
+      "t": 0,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 2}
+    },
+    {
+      "t": 10333.3333333333,
+      "e": "SetCharacterSpeed",
+      "v": { "char": 2, "speed": 1}
+    },
+    {
       "t": 10666,
       "e": "FocusCamera",
       "v": { "x": 200, "duration": 4, "y": 80, "char": 1, "ease": "CLASSIC" }
