@@ -36,16 +36,6 @@ class DarnellSong extends Song
     hasPlayedInGameCutscene = false;
   }
 
-  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
-  {
-    if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
-    {
-      return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
-    }
-
-    return false;
-  }
-
   public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
@@ -59,20 +49,16 @@ class DarnellSong extends Song
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
     {
       var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, 'bf');
 
-      switch (variationId)
-      {
-        case 'bf':
-          // return hasBeatenBFMix ? [''] : [];
-          // No BF mix on Pico instrumental, sorry!
-          return [];
-        default:
-          return hasBeatenBFMix ? ['bf'] : [];
-      }
+      if (!hasBeatenBFMix) results = [for (id in results) if (id != 'bf') id];
     }
+
+    return results;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
@@ -321,6 +307,7 @@ class DarnellSong extends Song
   function startVideo()
   {
     var videoPath = 'darnellCutscene';
+
     if (Constants.CENSOR_EXPLETIVES)
     {
       videoPath += '-censored';

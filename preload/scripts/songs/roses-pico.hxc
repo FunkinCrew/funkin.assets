@@ -4,43 +4,35 @@ import funkin.Preferences;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import flixel.FlxG;
-import funkin.save.Save;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
+import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
-import funkin.util.HapticUtil;
 
-class RosesSong extends Song
+class RosesPicoSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
   public function new()
   {
-    super('roses');
+    super('roses',
+      {
+        variation: 'pico'
+      });
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
-    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+    if (currentVariation == 'pico') return !Save.instance.hasBeatenSong(this.id, null, this.variation);
 
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
-    {
-      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
-
-      if (!hasBeatenPicoMix) results = [for (id in results) if (id != 'pico') id];
-    }
-
-    return results;
+    return false;
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
-
-    // Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     // Skip the cutscene if we're playtesting in the Chart Editor.
     if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
@@ -56,8 +48,6 @@ class RosesSong extends Song
       // Play a SFX
       FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
 
-      HapticUtil.vibrate(0.1, 0.5, 1, 1);
-
       // ERIC: There's a known bug where, on the School stage, pausing the stage animations then trying
       // to restart them causes the animations to freeze.
       // TODO: Commenting out this line causes the animations to work but they play even during the dialogue, which is supposed to pause everything.
@@ -69,7 +59,8 @@ class RosesSong extends Song
 
   function startDialogue()
   {
-    var targetDialogue = 'roses';
+    var targetDialogue = 'roses-pico';
+
     if (!Preferences.naughtyness) targetDialogue += "-censored";
 
     trace('Playing dialogue...');
@@ -94,28 +85,6 @@ class RosesSong extends Song
     super.onCreate(event);
 
     hasPlayedCutscene = false;
-  }
-
-  function onBeatHit(event:SongTimeScriptEvent)
-  {
-    // When overriding onBeatHit, make sure to call super.onBeatHit,
-    // otherwise boppers will not work.
-    super.onBeatHit(event);
-
-    if (event.beat == 180 && PlayStatePlaylist.isStoryMode)
-    {
-      trace('Hit end of song! Starting outro.');
-
-      PlayState.instance.camCutscene.visible = true;
-
-      var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFF1B31);
-      red.cameras = [PlayState.instance.camCutscene];
-
-      red.alpha = 0.0;
-      FlxTween.tween(PlayState.instance.camHUD, {alpha: 0.0}, 1.5, {ease: FlxEase.linear});
-      FlxTween.tween(red, {alpha: 1.0}, 2.0, {ease: FlxEase.linear});
-      PlayState.instance.add(red);
-    }
   }
 
   public override function onDialogueEnd()

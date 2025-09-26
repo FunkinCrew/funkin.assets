@@ -10,7 +10,7 @@ import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
+import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.TextureSwap;
 import openfl.display.BitmapData;
@@ -374,13 +374,15 @@ class NeneDarkCharacter extends SparrowCharacter
   {
     abotViz.snd = FlxG.sound.music;
     abotViz.initAnalyzer();
+    abotViz.alpha = 1;
   }
 
-  /*override function onSongRetry(event:ScriptEvent)
-    {
-      super.onSongRetry();
-      abotViz.dumpSound();
-  }*/
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry();
+    abotViz.alpha = 0;
+  }
+
   override function onSongEnd(event:ScriptEvent)
   {
     super.onSongEnd();

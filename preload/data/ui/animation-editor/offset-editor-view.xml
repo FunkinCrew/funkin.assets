@@ -38,8 +38,8 @@
                 <label text="ARROWS: Nudge Offsets by 5" />
                 <label text="SHIFT+ARROWS: Nudge Offsets by 10" />
                 <label text="CTRL+ARROWS: Nudge Offsets by 1" />
-                <label text="ESC: Save Character Data to File" />
-                <label text="CTRL+ESC: Save Offsets to File" />
+                <label text="CTRL+S: Save Character Data to File" />
+                <label text="CTRL+SHIFT+S: Save Offsets to File" />
             </vbox>
         </scroll-view>
     </vbox>

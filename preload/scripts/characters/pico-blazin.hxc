@@ -139,7 +139,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
       // Make sure the death music plays with PERFECT timing.
       new FlxTimer().start(1.25, afterPicoDeathGutPunchIntro);
 
-      if (HapticUtil.hapticsAvailable) {
+      if (HapticUtil.hapticsAvailable)
+      {
         new FlxTimer().start(0.5, function(tmr:FlxTimer) {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
@@ -150,7 +151,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
           });
         });
       }
-
     }
     else if (name == "deathConfirm")
     {

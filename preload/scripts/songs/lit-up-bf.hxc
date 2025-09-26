@@ -1,0 +1,20 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class LitUpBFMixSong extends Song
+{
+  public function new()
+  {
+    super('lit-up',
+      {
+        variation: 'bf'
+      });
+  }
+
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentVariation == 'bf') return !Save.instance.hasBeatenSong(this.id, null, this.variation);
+
+    return false;
+  }
+}

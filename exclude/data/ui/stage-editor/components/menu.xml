@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menubar id="menubar" width="100%" height="35" paddingLeft="172">
+<menubar id="menubar" width="100%" height="35" paddingLeft="256">
   <style>
     .menu {
     // The width of the individual menu items

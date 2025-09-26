@@ -61,12 +61,12 @@
     {
       "name": "hey",
       "prefix": "Pico HEY!!0",
-      "offsets": [0, 0]
+      "offsets": [36, 0]
     },
     {
       "name": "cheer",
       "prefix": "Pico YEAH cheer0",
-      "offsets": [0, 0]
+      "offsets": [62, 23]
     },
     {
       "name": "burpShit",

@@ -1,0 +1,23 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class DarnellErectSong extends Song
+{
+  public function new()
+  {
+    super('darnell',
+      {
+        variation: 'erect'
+      });
+  }
+
+  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  {
+    if (currentDifficulty == 'erect' || currentDifficulty == 'nightmare')
+    {
+      return !Save.instance.hasBeatenSong(this.id, ['erect', 'nightmare']);
+    }
+
+    return false;
+  }
+}
