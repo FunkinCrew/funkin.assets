@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="bgLimo.png">
-	<SubTexture name="background limo pink0000" x="0" y="0" width="2199" height="379" frameX="-19" frameY="-5" frameWidth="2218" frameHeight="384" />
-	<SubTexture name="background limo pink0001" x="0" y="389" width="2218" height="380" frameX="0" frameY="-4" frameWidth="2218" frameHeight="384" />
-	<SubTexture name="background limo pink0002" x="0" y="779" width="2199" height="384" frameX="-19" frameY="0" frameWidth="2218" frameHeight="384" />
-	<SubTexture name="background limo pink0003" x="0" y="1173" width="2199" height="384" frameX="-19" frameY="0" frameWidth="2218" frameHeight="384" />
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="bgLimo.png" width="2213" height="1534">
+	<SubTexture name="background limo pink0000" x="1" y="383" width="2192" height="378" frameX="-19" frameY="-5" frameWidth="2218" frameHeight="384"/>
+	<SubTexture name="background limo pink0001" x="1" y="1" width="2211" height="379" frameX="-0" frameY="-4" frameWidth="2218" frameHeight="384"/>
+	<SubTexture name="background limo pink0002" x="1" y="764" width="2192" height="383" frameX="-19" frameY="-0" frameWidth="2218" frameHeight="384"/>
+	<SubTexture name="background limo pink0003" x="1" y="1150" width="2192" height="383" frameX="-19" frameY="-0" frameWidth="2218" frameHeight="384"/>
 </TextureAtlas>

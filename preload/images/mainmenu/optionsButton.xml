@@ -1,22 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="optionsThing.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="options0000" x="0" y="0" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0001" x="0" y="0" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0002" x="0" y="0" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0003" x="270" y="0" width="247" height="233" frameX="-12" frameY="-15" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0004" x="522" y="0" width="254" height="254" frameX="-8" frameY="-11" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0005" x="0" y="259" width="258" height="253" frameX="-5" frameY="-6" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0006" x="263" y="259" width="263" height="256" frameX="-5" frameY="-2" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0007" x="531" y="259" width="264" height="255" frameX="-2" frameY="0" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0008" x="0" y="520" width="261" height="249" frameX="0" frameY="-6" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0009" x="266" y="520" width="264" height="247" frameX="-2" frameY="-7" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0010" x="535" y="520" width="264" height="247" frameX="-2" frameY="-7" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0011" x="535" y="520" width="264" height="247" frameX="-2" frameY="-7" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0012" x="0" y="774" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0013" x="0" y="774" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0014" x="270" y="774" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0015" x="270" y="774" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
-	<SubTexture name="options0016" x="270" y="774" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="optionsButton.png" width="2898" height="257">
+	<SubTexture name="options0000" x="250" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0001" x="250" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0002" x="250" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0003" x="1" y="1" width="246" height="231" frameX="-12" frameY="-16" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0004" x="2111" y="1" width="254" height="254" frameX="-8" frameY="-11" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0005" x="1851" y="1" width="257" height="252" frameX="-5" frameY="-7" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0006" x="2368" y="1" width="262" height="255" frameX="-5" frameY="-2" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0007" x="2633" y="1" width="264" height="255" frameX="-2" frameY="-0" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0008" x="1588" y="1" width="260" height="249" frameX="-0" frameY="-6" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0009" x="518" y="1" width="264" height="246" frameX="-2" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0010" x="1321" y="1" width="264" height="247" frameX="-2" frameY="-7" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0011" x="1321" y="1" width="264" height="247" frameX="-2" frameY="-7" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0012" x="785" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0013" x="785" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0014" x="1053" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0015" x="1053" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
+	<SubTexture name="options0016" x="1053" y="1" width="265" height="246" frameX="-1" frameY="-8" frameWidth="268" frameHeight="265"/>
 </TextureAtlas>

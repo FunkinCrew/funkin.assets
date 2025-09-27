@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="dialogueBox-pixel.png">
-	<SubTexture name="Text Box Appear instance 10000" x="0" y="0" width="249" height="144" />
-	<SubTexture name="Text Box Appear instance 10001" x="259" y="0" width="249" height="144" />
-	<SubTexture name="Text Box Appear instance 10002" x="0" y="154" width="249" height="144" />
-	<SubTexture name="Text Box Appear instance 10003" x="259" y="154" width="249" height="144" />
-	<SubTexture name="Text Box Appear instance 10004" x="259" y="154" width="249" height="144" />
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="dialogueBox-pixel.png" width="207" height="158">
+	<SubTexture name="Text Box Appear instance 10000" x="1" y="143" width="202" height="14" frameX="-22" frameY="-62" frameWidth="249" frameHeight="144"/>
+	<SubTexture name="Text Box Appear instance 10001" x="1" y="111" width="204" height="29" frameX="-22" frameY="-64" frameWidth="249" frameHeight="144"/>
+	<SubTexture name="Text Box Appear instance 10002" x="1" y="62" width="204" height="46" frameX="-22" frameY="-65" frameWidth="249" frameHeight="144"/>
+	<SubTexture name="Text Box Appear instance 10003" x="1" y="1" width="205" height="58" frameX="-22" frameY="-66" frameWidth="249" frameHeight="144"/>
+	<SubTexture name="Text Box Appear instance 10004" x="1" y="1" width="205" height="58" frameX="-22" frameY="-66" frameWidth="249" frameHeight="144"/>
 </TextureAtlas>
