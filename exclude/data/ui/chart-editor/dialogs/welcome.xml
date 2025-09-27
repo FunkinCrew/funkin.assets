@@ -16,7 +16,7 @@
 			</card>
 			<card id="splashSectionCenter" width="100%" height="50%" text="Import Chart">
 				<link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />
-				<link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" disabled="true" />
+				<link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" />
 				<link id="splashImportChartStepMania" width="100%" text="StepMania" disabled="true" />
 			</card>
 		</vbox>
