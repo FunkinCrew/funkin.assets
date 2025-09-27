@@ -1,37 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Nene_Hair_Blowing.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="HairBlow0000" x="0" y="0" width="403" height="446" frameX="-8" frameY="-25" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0001" x="408" y="0" width="403" height="438" frameX="-8" frameY="-33" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0002" x="816" y="0" width="403" height="447" frameX="-8" frameY="-25" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0003" x="1224" y="0" width="403" height="452" frameX="-8" frameY="-20" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0004" x="1632" y="0" width="409" height="461" frameX="-2" frameY="-15" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0005" x="1632" y="0" width="409" height="461" frameX="-2" frameY="-15" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0006" x="2046" y="0" width="409" height="463" frameX="-2" frameY="-13" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0007" x="2460" y="0" width="409" height="463" frameX="-2" frameY="-13" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0008" x="2874" y="0" width="425" height="469" frameX="0" frameY="-6" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0009" x="3304" y="0" width="443" height="475" frameX="0" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0010" x="0" y="480" width="440" height="475" frameX="-3" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0011" x="445" y="480" width="439" height="474" frameX="-3" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0012" x="889" y="480" width="440" height="474" frameX="-4" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0013" x="889" y="480" width="440" height="474" frameX="-4" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0014" x="1334" y="480" width="440" height="474" frameX="-4" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0015" x="1779" y="480" width="436" height="474" frameX="-10" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlow0016" x="2220" y="480" width="436" height="471" frameX="-10" frameY="0" frameWidth="446" frameHeight="476"/>
-	<SubTexture name="HairBlowKnife0000" x="2661" y="480" width="325" height="507" frameX="-13" frameY="-18" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0001" x="2991" y="480" width="332" height="507" frameX="0" frameY="-18" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0002" x="3328" y="480" width="317" height="508" frameX="-15" frameY="-17" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0003" x="3650" y="480" width="318" height="508" frameX="-15" frameY="-17" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0004" x="0" y="993" width="312" height="523" frameX="-20" frameY="-2" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0005" x="0" y="993" width="312" height="523" frameX="-20" frameY="-2" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0006" x="317" y="993" width="321" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0007" x="317" y="993" width="321" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0008" x="643" y="993" width="340" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0009" x="988" y="993" width="344" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0010" x="988" y="993" width="344" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0011" x="1337" y="993" width="342" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0012" x="1337" y="993" width="342" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0013" x="1337" y="993" width="342" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
-	<SubTexture name="HairBlowKnife0014" x="1337" y="993" width="342" height="525" frameX="-20" frameY="0" frameWidth="364" frameHeight="525"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="Nene_Hair_Blowing.png" width="2473" height="2094">
+	<SubTexture name="HairBlow0000" x="1423" y="812" width="403" height="445" frameX="-8" frameY="-26" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0001" x="1743" y="1" width="403" height="438" frameX="-8" frameY="-33" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0002" x="455" y="1360" width="446" height="403" rotated="true" frameX="-8" frameY="-26" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0003" x="1" y="1360" width="451" height="403" rotated="true" frameX="-8" frameY="-21" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0004" x="951" y="1349" width="460" height="409" rotated="true" frameX="-2" frameY="-16" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0005" x="951" y="1349" width="460" height="409" rotated="true" frameX="-2" frameY="-16" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0006" x="954" y="477" width="463" height="409" rotated="true" frameX="-2" frameY="-13" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0007" x="1331" y="1" width="409" height="463" frameX="-2" frameY="-13" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0008" x="951" y="921" width="469" height="425" rotated="true" frameX="-0" frameY="-6" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0009" x="1" y="1" width="443" height="474" frameX="-0" frameY="-1" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0010" x="447" y="1" width="440" height="474" frameX="-3" frameY="-1" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0011" x="890" y="1" width="438" height="473" frameX="-3" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0012" x="478" y="478" width="473" height="440" rotated="true" frameX="-4" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0013" x="478" y="478" width="473" height="440" rotated="true" frameX="-4" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0014" x="1" y="478" width="474" height="440" rotated="true" frameX="-4" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0015" x="1" y="921" width="474" height="436" rotated="true" frameX="-10" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlow0016" x="478" y="921" width="470" height="436" rotated="true" frameX="-10" frameY="-0" frameWidth="446" frameHeight="476"/>
+	<SubTexture name="HairBlowKnife0000" x="1829" y="812" width="324" height="507" frameX="-13" frameY="-18" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0001" x="904" y="1761" width="507" height="332" rotated="true" frameX="-0" frameY="-18" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0002" x="2156" y="756" width="316" height="508" frameX="-15" frameY="-17" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0003" x="1942" y="1322" width="318" height="508" frameX="-15" frameY="-17" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0004" x="1948" y="442" width="523" height="311" rotated="true" frameX="-20" frameY="-2" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0005" x="1948" y="442" width="523" height="311" rotated="true" frameX="-20" frameY="-2" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0006" x="1" y="1766" width="525" height="320" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0007" x="1" y="1766" width="525" height="320" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0008" x="1414" y="1695" width="525" height="340" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0009" x="1414" y="1349" width="525" height="343" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0010" x="1414" y="1349" width="525" height="343" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0011" x="1420" y="467" width="525" height="342" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0012" x="1420" y="467" width="525" height="342" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0013" x="1420" y="467" width="525" height="342" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
+	<SubTexture name="HairBlowKnife0014" x="1420" y="467" width="525" height="342" rotated="true" frameX="-20" frameY="-0" frameWidth="364" frameHeight="525"/>
 </TextureAtlas>
