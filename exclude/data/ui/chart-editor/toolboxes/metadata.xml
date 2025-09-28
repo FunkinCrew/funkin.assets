@@ -62,7 +62,7 @@
         <vbox width="50%" height="100%">
             <dropdown id="inputTimeChange" value="Time Change" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected time change.">
                 <data>
-                    <item text="0 : BPM: 100 in 4/4" />
+                    <item text="0 ms : BPM: 100 in 4/4" />
                 </data>
             </dropdown> <!--Placing this in the frame after the grid causes it to overlap, idk. Looks cooler here anyway. -->
             <frame text="Timing Data" width="100%" id="frameTiming">
@@ -121,7 +121,7 @@
                     </dropdown>
                 </grid>
             </frame>
-            <button allowFocus="false" id="addTimeChange" text="Add Time Change" tooltip="Add a time change after the currently selected time change." />
+            <button allowFocus="false" id="createTimeChange" text="Create New Time Change" tooltip="Create a new time change at the playhead." />
             <spacer />
             <button allowFocus="false" id="removeTimeChange" text="Remove Current Time Change" tooltip="Remove the currently selected time change." />
         </vbox>
