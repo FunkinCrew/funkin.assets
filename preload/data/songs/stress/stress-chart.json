@@ -4,6 +4,7 @@
   "events": [
     { "t": 0, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 5393, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 10786.5168539326, "e": "PlayAnimation", "v": { "target": "gf", "anim": "idle", "force": true } },
     { "t": 11123, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 14831, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 21573, "e": "FocusCamera", "v": { "char": 1 } },
@@ -25,7 +26,8 @@
     { "t": 97078, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 102471, "e": "FocusCamera", "v": { "char": 0 } },
     { "t": 107865, "e": "FocusCamera", "v": { "char": 1 } },
-    { "t": 113258, "e": "FocusCamera", "v": { "char": 0 } }
+    { "t": 113258, "e": "FocusCamera", "v": { "char": 0 } },
+    { "t": 122022.471910112, "e": "PlayAnimation", "v": { "target": "gf", "anim": "idle", "force": true } }
   ],
   "notes": {
     "picospeaker": [
