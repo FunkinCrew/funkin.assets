@@ -45,8 +45,8 @@
     <menu-item id="menubarItemSelectInverse" text="Invert Selection" shortcutText="Ctrl+I" />
     <menu-item id="menubarItemSelectNone" text="Deselect All" shortcutText="Ctrl+D" />
     <menu-item id="menubarItemSelectRegion" text="Select Region" shortcutText="Tab" disabled="true" />
-    <menu-item id="menubarItemSelectBeforeCursor" text="Select Before Cursor" shortcutText="Shift+Home" disabled="true" />
-    <menu-item id="menubarItemSelectAfterCursor" text="Select After Cursor" shortcutText="Shift+End" disabled="true" />
+    <menu-item id="menubarItemSelectBeforePlayhead" text="Select Before Playhead" shortcutText="Shift+Home" />
+    <menu-item id="menubarItemSelectAfterPlayhead" text="Select After Playhead" shortcutText="Shift+End" />
     <menu-separator />
     <hbox>
       <label text="Note Stack Threshold" styleName="menuLabel" paddingLeft="12px;" horizontalAlign="left" verticalAlign="center" />
