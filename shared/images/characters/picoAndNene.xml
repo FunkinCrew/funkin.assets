@@ -27,12 +27,6 @@
 	<SubTexture name="Pico Idle Dance0011" x="1063" y="518" width="528" height="513"/>
 	<SubTexture name="Pico Idle Dance0012" x="1063" y="518" width="528" height="513"/>
 	<SubTexture name="Pico Idle Dance0013" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0014" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0015" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0016" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0017" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0018" x="1063" y="518" width="528" height="513"/>
-	<SubTexture name="Pico Idle Dance0019" x="1063" y="518" width="528" height="513"/>
 	<SubTexture name="Pico NOTE LEFT0000" x="1596" y="518" width="496" height="493" frameX="-7" frameY="-4" frameWidth="505" frameHeight="497"/>
 	<SubTexture name="Pico NOTE LEFT0001" x="1596" y="518" width="496" height="493" frameX="-7" frameY="-4" frameWidth="505" frameHeight="497"/>
 	<SubTexture name="Pico NOTE LEFT0002" x="2097" y="518" width="505" height="497"/>
