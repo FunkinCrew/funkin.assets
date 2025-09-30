@@ -62,7 +62,7 @@
 						</data>
 					</dropdown>
 					<label text="Starting BPM:" verticalAlign="center" horizontalAlign="right" />
-					<number-stepper id="dialogBPM" pos="100" step="1" min="10" max="500" precision="1" horizontalAlign="right" width="100%" validator="required" />
+					<number-stepper id="dialogBPM" pos="100" step="1" min="10" max="500" precision="3" horizontalAlign="right" width="100%" validator="required" />
 				</grid>
 			</vbox>
 		</form>
