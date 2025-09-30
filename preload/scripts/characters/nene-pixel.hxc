@@ -408,7 +408,6 @@ class NenePixelCharacter extends SparrowCharacter
         {
           // trace('NENE: Animation finished, transitioning to STATE_READY');
           currentState = STATE_READY;
-          playAnimation('idleKnife');
           animationFinished = false;
         }
       case STATE_READY:
