@@ -7,6 +7,7 @@ import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.song.Song;
+import funkin.util.HapticUtil;
 
 class WinterHorrorlandSong extends Song
 {
@@ -68,6 +69,7 @@ class WinterHorrorlandSong extends Song
       PlayState.instance.resetCamera();
       FlxG.camera.zoom = 2.5;
 
+      HapticUtil.vibrate(0.1, 0.5, 1, 1);
       // Play the Sound effect.
       FunkinSound.playOnce(Paths.sound('Lights_Turn_On'), 1.0, function()
       {
