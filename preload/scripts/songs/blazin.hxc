@@ -37,11 +37,6 @@ class BlazinSong extends Song
     this.hasHidden = false;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent):Void
-  {
-    super.onNoteHit(event);
-  }
-
   public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
@@ -63,35 +58,17 @@ class BlazinSong extends Song
     if (!this.hasHidden)
     {
       this.hasHidden = true;
-      hideOpponentStrumline();
-      centerPlayerStrumline();
+      middleScroll();
     }
   }
 
-  function hideOpponentStrumline()
-  {
-    var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
-    if (opponentStrumline != null)
-    {
-      for (arrow in opponentStrumline.members)
-      {
-        arrow.visible = false;
-      }
-    }
-  }
-
-  function centerPlayerStrumline()
+  function middleScroll()
   {
     // This is a song gimmick we are never making middlescroll an option.
-
-    if (Preferences.controlsScheme == "Arrows"
-      && !ControlsHandler.usingExternalInputDevice) return;
-
-    var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
-    if (playerStrumline != null)
-    {
-      playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
-    }
+    if (PlayState.instance.opponentStrumline != null)
+      PlayState.instance.opponentStrumline.visible = false;
+    if (PlayState.instance.playerStrumline != null  || Preferences.controlsScheme == "Arrows" && !ControlsHandler.usingExternalInputDevice)
+      PlayState.instance.playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
@@ -107,14 +84,8 @@ class BlazinSong extends Song
 
       hasPlayedCutscene = true;
 
-      // Add a black background behind the cutscene to fix a transition bug!
-      trace('Adding black background behind cutscene over UI');
-      var bgSprite = new FunkinSprite(-100, -100);
-      bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
-      bgSprite.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
-      bgSprite.zIndex = 1000000;
-      PlayState.instance.add(bgSprite);
-      PlayState.instance.refresh();
+      PlayState.instance.camGame.visible = false;
+      PlayState.instance.camHUD.visible = false;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
