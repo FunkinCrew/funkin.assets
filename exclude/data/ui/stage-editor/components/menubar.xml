@@ -17,19 +17,22 @@
     <menu-separator />
     <menu-item id="menubarItemClearAssets" text="Clear Assets" style="color: indianred" />
     <menu-separator />
-    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
   <menu text="Edit" id="menubarMenuEdit">
-    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl + Z" />
-    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl + Y" />
-    <menu-separator />
-    <menu-item id="menubarItemCopy" text="Copy Object" shortcutText="Ctrl + C" />
-    <menu-item id="menubarItemCut" text="Cut Object" shortcutText="Ctrl + X" />
-    <menu-item id="menubarItemPaste" text="Paste Object" shortcutText="Ctrl + V" />
-    <menu-item id="menubarItemDelete" text="Delete Object" shortcutText="Ctrl + Del" style="color: indianred" />
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
     <menu-separator />
     <menu-item id="menubarItemNewObj" text="New Object" />
-    <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl + F" />
+    <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl+F" />
+    <menu-item id="menubarItemCopy" text="Copy Object" shortcutText="Ctrl+C" />
+    <menu-item id="menubarItemCut" text="Cut Object" shortcutText="Ctrl+X" />
+    <menu-item id="menubarItemPaste" text="Paste Object" shortcutText="Ctrl+V" />
+    <menu-item id="menubarItemFlipX" text="Flip Horizontally" shortcutText="Ctrl+H" />
+    <menu-item id="menubarItemFlipY" text="Flip Vertically" shortcutText="Ctrl+G" />
+    <menu-separator />
+    <menu-item id="menubarItemDelete" text="Delete Object" shortcutText="Ctrl+Del" style="color: indianred" />
+    <menu-separator />
     <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl + D" />
   </menu>
   <menu text="View" id="menubarMenuView">

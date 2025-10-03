@@ -2,6 +2,6 @@
 <dialog width="300" title="Load from URL">
  <grid width="100%">
     <label text="URL:" verticalAlign="center"/>
-    <textfield id="urlField" width="100%"/>
+    <textfield id="inputURL" width="100%"/>
  </grid>
 </dialog>

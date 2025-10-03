@@ -9,9 +9,5 @@
     <label id="bottomBarAngleStepText" text="15" styleName="infoText" verticalAlign="center" tooltip="Angle Step Level\nLeft Click to Increase\nRight Click to Decrease"/>
   </hbox>
 
-  <hbox horizontalAlign="center">
-  </hbox>
-
-  <hbox horizontalAlign="right">
-  </hbox>
+  <spacer width="100%" />
 </box>
