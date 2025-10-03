@@ -5,6 +5,9 @@
   "assetPath": "shared:characters/parents-christmas",
   "offsets": [1, 9],
   "cameraOffsets": [-1, 10],
+  "healthIcon": {
+    "id": "parents"
+  },
   "animations": [
     {
       "prefix": "Parent Christmas Idle",
