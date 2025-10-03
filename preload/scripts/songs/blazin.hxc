@@ -58,17 +58,29 @@ class BlazinSong extends Song
     if (!this.hasHidden)
     {
       this.hasHidden = true;
-      middleScroll();
+      hideOpponentStrumline();
+      centerPlayerStrumline();
     }
   }
 
-  function middleScroll()
+  function hideOpponentStrumline()
+  {
+    if (PlayState.instance.opponentStrumline != null)
+    {
+      for (arrow in PlayState.instance.opponentStrumline.members)
+      {
+        arrow.visible = false;
+      }
+    }
+  }
+
+  function centerPlayerStrumline()
   {
     // This is a song gimmick we are never making middlescroll an option.
-    if (PlayState.instance.opponentStrumline != null)
-      PlayState.instance.opponentStrumline.visible = false;
-    if (PlayState.instance.playerStrumline != null  || !Preferences.controlsScheme == "Arrows" && ControlsHandler.usingExternalInputDevice)
-      PlayState.instance.playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
+    if (Preferences.controlsScheme == "Arrows" && !ControlsHandler.usingExternalInputDevice) return;
+
+    if (playerStrumline != null)
+      playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
