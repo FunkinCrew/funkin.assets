@@ -67,7 +67,7 @@ class BlazinSong extends Song
     // This is a song gimmick we are never making middlescroll an option.
     if (PlayState.instance.opponentStrumline != null)
       PlayState.instance.opponentStrumline.visible = false;
-    if (PlayState.instance.playerStrumline != null  || Preferences.controlsScheme == "Arrows" && !ControlsHandler.usingExternalInputDevice)
+    if (PlayState.instance.playerStrumline != null  || !Preferences.controlsScheme == "Arrows" && ControlsHandler.usingExternalInputDevice)
       PlayState.instance.playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
   }
 
