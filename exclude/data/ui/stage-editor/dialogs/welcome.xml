@@ -4,7 +4,7 @@
         <vbox width="25%" height="100%">
             <card width="100%" height="50%" text="Open Recent">
                 <scrollview width="100%" height="100%" contentWidth="100%">
-                    <vbox id="contentRecent" width="100%" />
+                    <vbox id="splashRecentContainer" width="100%" />
                 </scrollview>
             </card>
         </vbox>

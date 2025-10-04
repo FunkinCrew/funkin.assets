@@ -12,7 +12,6 @@
                     <button id="objLoad" text="Load Image"/>
                     <button id="objLoadNet" text="Load From Internet"/>
                     <button id="objReset" text="Reset Image"/>
-                    <spacer height="100%"/>
                     <button id="objResetFrames" text="Reset Frames"/>
                 </vbox>
             </hbox>

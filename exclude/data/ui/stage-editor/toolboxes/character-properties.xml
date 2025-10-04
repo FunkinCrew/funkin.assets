@@ -6,30 +6,30 @@
         <scrollview width="100%" height="100%" contentWidth="100%">
           <grid columns="2" width="100%">
             <label text="Position (X)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charPosX" step="5" pos="0" />
+            <number-stepper id="inputCharacterPositionX" step="5" pos="0" />
             <label text="Position (Y)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charPosY" step="5" pos="0" />
+            <number-stepper id="inputCharacterPositionY" step="5" pos="0" />
             <label text="Z-Index" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charZIdx" />
+            <number-stepper id="inputCharacterZIndex" />
             <label text="Scale" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charScale" step="0.05" pos="1" precision="2" min="0.05" />
+            <number-stepper id="inputCharacterScale" step="0.05" pos="1" precision="2" min="0.05" />
             <label text="Camera Offset (X)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charCamX" step="5" pos="0" />
+            <number-stepper id="inputCharacterCameraOffsetX" step="5" pos="0" />
             <label text="Camera Offset (Y)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charCamY" step="5" pos="0" />
+            <number-stepper id="inputCharacterCameraOffsetY" step="5" pos="0" />
             <label text="Opacity" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charAlpha" pos="1" min="0" max="1" step="0.05" precision="2" />
+            <number-stepper id="inputCharacterAlpha" pos="1" min="0" max="1" step="0.05" precision="2" />
             <label text="Angle" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charAngle" pos="0" min="0" max="360" />
+            <number-stepper id="inputCharacterAngle" pos="0" min="0" max="360" />
             <label text="Scroll Factor (X)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charScrollX" step="0.05" pos="1" precision="2" />
+            <number-stepper id="inputCharacterScrollX" step="0.05" pos="1" precision="2" />
             <label text="Scroll Factor (Y)" verticalAlign="center" horizontalAlign="center" />
-            <number-stepper id="charScrollY" step="0.05" pos="1" precision="2" />
+            <number-stepper id="inputCharacterScrollY" step="0.05" pos="1" precision="2" />
           </grid>
         </scrollview>
       </vbox>
     </frame>
-    <section-header text="Test as Character" />
-    <button id="charType" width="70" height="70" padding="8" iconPosition="top" />
+    <section-header text="Test as Character" horizontalAlign="center" />
+    <button id="buttonCharacterSelection" width="70" height="70" padding="8" iconPosition="top" horizontalAlign="center" />
   </vbox>
 </collapsible-dialog>

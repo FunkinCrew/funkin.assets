@@ -52,7 +52,7 @@
   <menu text="Windows" id="menubarMenuWindow">
     <vbox width="100%">
     <menu-checkbox width="100%" id="menubarItemWindowObjectGraphic" text="Object Graphic" />
-    <menu-checkbox width="100%" id="menubarItemWindowObjectAnims" text="Object Animations" />
+    <menu-checkbox width="100%" id="menubarItemWindowObjectAnimations" text="Object Animations" />
     <menu-checkbox width="100%" id="menubarItemWindowObjectProps" text="Object Properties" />
     <menu-checkbox width="100%" id="menubarItemWindowCharacter" text="Character Properties" />
     <menu-checkbox width="100%" id="menubarItemWindowStage" text="Stage Data Settings" />

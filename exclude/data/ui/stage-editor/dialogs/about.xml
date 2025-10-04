@@ -4,6 +4,7 @@
 		<label text="Friday Night Funkin'" horizontalAlign="center" />
 		<label text="Stage Editor v1" horizontalAlign="center" />
 		<label text="Built by KoloInDaCrib" horizontalAlign="center" />
+		<label text="Code refactored by anysad" horizontalAlign="center"/>
 		<label text="HaxeUI by Ian Harrigan" horizontalAlign="center" />
 	</vbox>
 </dialog>
