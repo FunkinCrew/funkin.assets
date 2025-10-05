@@ -79,8 +79,8 @@ class BlazinSong extends Song
     // This is a song gimmick we are never making middlescroll an option.
     if (Preferences.controlsScheme == "Arrows" && !ControlsHandler.usingExternalInputDevice) return;
 
-    if (playerStrumline != null)
-      playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
+    if (PlayState.instance.playerStrumline != null)
+      PlayState.instance.playerStrumline.x = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
