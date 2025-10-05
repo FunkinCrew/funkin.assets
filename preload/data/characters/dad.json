@@ -31,7 +31,7 @@
     {
       "name": "singDOWN",
       "prefix": "singDOWN",
-      "offsets": [-1, -30]
+      "offsets": [2, -30]
     },
     {
       "name": "singUP",
