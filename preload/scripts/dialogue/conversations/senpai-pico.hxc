@@ -9,25 +9,24 @@ class SenpaiPicoConversation extends Conversation
     super('senpai-pico');
   }
 
-  var musicStopped = false;
-
   override function showCurrentSpeaker():Void
   {
     super.showCurrentSpeaker();
 
     // Funny moment; stop the music for dramatic effect.
-    if (currentSpeaker.id == 'senpai-bwuh')
+    switch (currentSpeaker.id)
     {
-      musicStopped = true;
-      this.music.pause();
-    }
-    else if (musicStopped && currentSpeaker.id == 'senpai')
-    {
-      musicStopped = false;
-      this.music.resume();
-      this.music.volume = 0.0;
-      var fadeTime = _data.music.fadeTime != null ? _data.music.fadeTime : 2.0;
-      FlxTween.tween(music, {volume: 1.0}, fadeTime, {ease: FlxEase.linear});
+      case 'senpai-bwuh':
+        if (this.music != null)
+        {
+          this.music.destroy();
+          this.music = null;
+        }
+      case 'senpai':
+        if (this.music == null)
+        {
+          this.setupMusic();
+        }
     }
   }
 }

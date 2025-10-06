@@ -126,7 +126,7 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [989.5, 885],
+      "position": [1020.5, 885],
       "cameraOffsets": [-200, -100]
     },
     "dad": {
@@ -143,3 +143,4 @@
   "name": "Philly (Train)",
   "directory": "week3"
 }
+

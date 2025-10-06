@@ -185,9 +185,9 @@ class EggnogErectSong extends Song
 
     if (PlayState.instance.isInCutscene)
     {
-      if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
+      if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
       {
-        if (canSkipCutscene == false)
+        if (!canSkipCutscene)
         {
           trace('cant skip yet!');
           FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
@@ -199,7 +199,7 @@ class EggnogErectSong extends Song
       }
     }
 
-    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && canSkipCutscene)
+    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && canSkipCutscene && !cutsceneSkipped)
     {
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
       FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});

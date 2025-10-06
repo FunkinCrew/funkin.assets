@@ -43,7 +43,7 @@ class SchoolErectStage extends Stage
         rim.angle = 90;
         character.shader = rim;
 
-        rim.loadAltMask('assets/week6/images/weeb/erect/masks/bfPixel_mask.png');
+        rim.loadAltMask(Paths.image('weeb/erect/masks/bfPixel_mask'));
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 
@@ -61,7 +61,7 @@ class SchoolErectStage extends Stage
         rim.distance = 3;
         rim.threshold = 0.3;
 
-        rim.loadAltMask('assets/week6/images/weeb/erect/masks/gfPixel_mask.png');
+        rim.loadAltMask(Paths.image('weeb/erect/masks/gfPixel_mask'));
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 
@@ -76,7 +76,7 @@ class SchoolErectStage extends Stage
         rim.angle = 90;
         character.shader = rim;
 
-        rim.loadAltMask('assets/week6/images/weeb/erect/masks/senpai_mask.png');
+        rim.loadAltMask(Paths.image('weeb/erect/masks/senpai_mask'));
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 

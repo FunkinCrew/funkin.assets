@@ -178,7 +178,7 @@ class NenePixelCharacter extends SparrowCharacter
       abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
     });
 
-    abotSpeakerShader.loadAltMask('assets/week6/images/weeb/erect/masks/aBotPixelSpeaker_mask.png');
+    abotSpeakerShader.loadAltMask(Paths.image('weeb/erect/masks/aBotPixelSpeaker_mask'));
     abotSpeakerShader.maskThreshold = 0;
     abotSpeakerShader.useAltMask = true;
 
@@ -323,13 +323,15 @@ class NenePixelCharacter extends SparrowCharacter
   {
     abotViz.snd = FlxG.sound.music;
     abotViz.initAnalyzer();
+    abotViz.alpha = 1;
   }
 
-  /*override function onSongRetry(event:ScriptEvent)
-    {
-      super.onSongRetry();
-      abotViz.dumpSound();
-  }*/
+  override function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry();
+    abotViz.alpha = 0;
+  }
+
   override function onSongEnd(event:ScriptEvent)
   {
     super.onSongEnd();

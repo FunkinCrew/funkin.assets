@@ -1,0 +1,24 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class PicoSong extends Song
+{
+  public function new()
+  {
+    super('pico');
+  }
+
+  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  {
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
+      var hasBeatenPicoMix = Save.instance.hasBeatenSong(this.id, null, 'pico');
+
+      if (!hasBeatenPicoMix) results = [for (id in results) if (id != 'pico') id];
+    }
+
+    return results;
+  }
+}

@@ -60,7 +60,7 @@ class TankmanBattlefieldErectStage extends Stage
 
         if (getGirlfriend().characterId == 'gf-tankmen')
         {
-          rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
+          rim.loadAltMask(Paths.image('erect/masks/gfTankmen_mask'));
           rim.maskThreshold = 0.4;
           rim.useAltMask = true;
         }
@@ -80,7 +80,7 @@ class TankmanBattlefieldErectStage extends Stage
 
         if (getDad().characterId == 'tankman-bloody')
         {
-          rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
+          rim.loadAltMask(Paths.image('erect/masks/tankmanCaptainBloody_mask'));
           rim.maskThreshold = 1;
           rim.useAltMask = false;
         }
@@ -127,6 +127,11 @@ class TankmanBattlefieldErectStage extends Stage
     if (tankmanRim != null)
     {
       tankmanRim.useAltMask = false;
+    }
+
+    if (getGirlfriend().characterId == 'otis-speaker')
+    {
+      getNamedProp('tankBricks').setPosition(445, 774);
     }
   }
 }
