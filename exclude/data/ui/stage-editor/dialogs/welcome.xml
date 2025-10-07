@@ -10,7 +10,7 @@
         </vbox>
         <card width="50%" height="500" text="Browse for Stage">
             <vbox width="100%" height="100%">
-                <box id="boxDrag" width="100%" height="85%" styleName="uploadBG" style="border: 2px dotted #DDDDDD; padding: 5px;">
+                <box id="stageBox" width="100%" height="85%" styleName="uploadBG" style="border: 2px dotted #DDDDDD; padding: 5px;">
                     <label text="Drag and drop a stage file (.fnfs) here, or click to browse." horizontalAlign="center" verticalAlign="center" textAlign="center" style="font-size: 18px" width="100%" />
                 </box>
                 <box width="100%" height="15%" style="spacing:0px;border:1px solid $normal-border-color;padding:1px;">
