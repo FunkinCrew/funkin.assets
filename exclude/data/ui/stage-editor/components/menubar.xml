@@ -42,7 +42,7 @@
     </menu>
     <menu-separator />
     <vbox width="100%">
-    <menu-checkbox width="100%" id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters." />
+    <menu-checkbox width="100%" id="menubarItemViewCharacters" text="View Characters" selected="true" tooltip="Show Characters." />
     <menu-checkbox width="100%" id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor." />
     <menu-checkbox width="100%" id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters." />
     <menu-checkbox width="100%" id="menubarItemViewPosMarkers" text="View Position Markers" tooltip="Show Circles that show the Feet Position of Characters." />
