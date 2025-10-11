@@ -1,54 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="500">
-    <hbox width="100%" height="100%">
-        <vbox width="50%" height="100%">
-            <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
-                <grid columns="2" height="100%">
-                    <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
-                    <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
-                    <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongArtist" value="Kawai Sprite" tooltip="The artist who composed the song." />
-                    <label text="Charter:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongCharter" value="" tooltip="The person who charted the song. That's you!" />
-                    <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-                    <dropdown id="inputStage" value="Main Stage" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which stage the level takes place on.">
-                        <data>
-                            <item text="Main Stage" />
-                            <item text="Spooky Mansion" />
-                            <item text="Philly Train" />
-                            <item text="Limo Ride" />
-                            <item text="Mall (Xmas)" />
-                            <item text="Mall (Evil)" />
-                            <item text="School" />
-                            <item text="School (Evil)" />
-                            <item text="Tankman Battlefield" />
-                            <item text="Philly Streets" />
-                            <item text="Philly Streets (Blazin')" />
-                        </data>
-                    </dropdown>
-                    <label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
-                    <dropdown id="inputNoteStyle" value="Normal" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which graphical style of notes to use.">
-                        <data>
-                            <item text="Normal" />
-                            <item text="Pixel" />
-                        </data>
-                    </dropdown>
-                </grid>
-                <hbox width="100%" horizontalAlign="center" verticalAlign="bottom">
-                    <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
-                        Daddy Dearest
-                    </button>
-                    <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
-                        Girlfriend
-                    </button>
-                    <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
-                        Boyfriend
-                    </button>
-                </hbox>
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600">
+    <hbox width="100%">
+        <vbox width="50%">
+            <frame text="Variation: Default" width="100%" id="frameVariation">
+                <vbox width="100%">
+                    <grid columns="2">
+                        <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
+                        <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
+                        <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
+                        <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
+                        <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
+                        <textfield id="inputSongArtist" value="Kawai Sprite" tooltip="The artist who composed the song." />
+                        <label text="Charter:" verticalAlign="center" horizontalAlign="right" />
+                        <textfield id="inputSongCharter" value="" tooltip="The person who charted the song. That's you!" />
+                        <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
+                        <dropdown id="inputStage" value="Main Stage" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="200" searchable="true" tooltip="Which stage the level takes place on.">
+                            <data>
+                                <item text="Main Stage" />
+                                <item text="Spooky Mansion" />
+                                <item text="Philly Train" />
+                                <item text="Limo Ride" />
+                                <item text="Mall (Xmas)" />
+                                <item text="Mall (Evil)" />
+                                <item text="School" />
+                                <item text="School (Evil)" />
+                                <item text="Tankman Battlefield" />
+                                <item text="Philly Streets" />
+                                <item text="Philly Streets (Blazin')" />
+                            </data>
+                        </dropdown>
+                        <label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
+                        <dropdown id="inputNoteStyle" value="Normal" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="200" tooltip="Which graphical style of notes to use.">
+                            <data>
+                                <item text="Normal" />
+                                <item text="Pixel" />
+                            </data>
+                        </dropdown>
+                        <label text="Album:" verticalAlign="center" horizontalAlign="right" />
+                        <dropdown id="inputAlbum" value="Volume 1" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="200" tooltip="Which album art cover to use.">
+                            <data>
+                                <item text="Volume 1" />
+                                <item text="Volume 2" />
+                                <item text="Volume 3" />
+                                <item text="Volume 4" />
+                                <item text="OST Expansion Vol. 1" />
+                                <item text="OST Expansion Vol. 2" />
+                            </data>
+                        </dropdown>
+                        <label text="Sticker Pack:" verticalAlign="center" horizontalAlign="right" />
+                        <dropdown id="inputStickerPack" value="Default" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="200" tooltip="Which sticker pack to use.">
+                            <data>
+                                <item text="Default" />
+                                <item text="Boyfriend - Tutorial" />
+                                <item text="Boyfriend" />
+                                <item text="Pico" />
+                                <item text="Pico - Weekend 1" />
+                            </data>
+                        </dropdown>
+                    </grid>
+                    <hbox width="100%">
+                        <button id="buttonCharacterOpponent" width="70" height="70" padding="8" iconPosition="top">
+                            Daddy Dearest
+                        </button>
+                        <button id="buttonCharacterGirlfriend" width="70" height="70" padding="8" iconPosition="top">
+                            Girlfriend
+                        </button>
+                        <button id="buttonCharacterPlayer" width="70" height="70" padding="8" iconPosition="top">
+                            Boyfriend
+                        </button>
+                    </hbox>
+                </vbox>
             </frame>
-            <frame text="Difficulty: Normal" width="100%" height="30%" id="frameDifficulty">
+            <frame text="Difficulty: Normal" width="100%" id="frameDifficulty">
                 <grid columns="2">
                     <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                     <spacer />
@@ -59,7 +82,7 @@
                 </grid>
             </frame>
         </vbox>
-        <vbox width="50%" height="100%">
+        <vbox width="50%">
             <dropdown id="inputTimeChange" value="Time Change" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected time change.">
                 <data>
                     <item text="0 ms : BPM: 100 in 4/4" />
