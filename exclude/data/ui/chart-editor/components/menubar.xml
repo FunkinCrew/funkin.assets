@@ -62,7 +62,7 @@
   <menu text="View">
     <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
     <menu text="Theme">
-      <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
+      <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" />
       <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
     </menu>
     <menu-separator />
