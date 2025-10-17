@@ -74,46 +74,6 @@ class PhillyTrainStage extends Stage
         trainFrameTiming = 0;
       }
     }
-
-    if (FlxG.keys.justPressed.J)
-    {
-      lightWindow.x -= 1;
-
-      if (FlxG.keys.pressed.SHIFT)
-        lightWindow.x -= 4;
-
-      trace('x: ' + lightWindow.x + ' | y: ' + lightWindow.y);
-    }
-
-    if (FlxG.keys.justPressed.L)
-    {
-      lightWindow.x += 1;
-
-      if (FlxG.keys.pressed.SHIFT)
-        lightWindow.x += 4;
-
-      trace('x: ' + lightWindow.x + ' | y: ' + lightWindow.y);
-    }
-
-    if (FlxG.keys.justPressed.I)
-    {
-      lightWindow.y -= 1;
-
-      if (FlxG.keys.pressed.SHIFT)
-        lightWindow.y -= 4;
-
-      trace('x: ' + lightWindow.x + ' | y: ' + lightWindow.y);
-    }
-
-    if (FlxG.keys.justPressed.K)
-    {
-      lightWindow.y += 1;
-
-      if (FlxG.keys.pressed.SHIFT)
-        lightWindow.y += 4;
-
-      trace('x: ' + lightWindow.x + ' | y: ' + lightWindow.y);
-    }
   }
 
   function onBeatHit(event:SongTimeScriptEvent):Void
