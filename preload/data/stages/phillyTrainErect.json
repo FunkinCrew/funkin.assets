@@ -27,7 +27,7 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-255, 45],
+      "position": [-184, 155],
       "scale": [0.9, 0.9],
       "animType": "sparrow",
       "name": "lights",
