@@ -31,8 +31,15 @@ class PhillyTrainErectStage extends Stage
     hasPlayedInGameCutscene = false;
   }
 
-  var LIGHT_COUNT:Int = 5;
+  var lightColors:Array<FlxColor> = [
+    0xFFB66F43,
+    0xFF329A6D,
+    0xFF932C28,
+    0xFF2663AC,
+    0xFF502D64
+  ];
 
+  var lightWindow:FlxSprite;
   var lightShader:FlxRuntimeShader;
   var trainSound:FunkinSound;
   var colorShader:AdjustColorShader;
@@ -377,12 +384,8 @@ class PhillyTrainErectStage extends Stage
 
     FlxG.sound.list.add(trainSound);
 
-    for (i in 0...LIGHT_COUNT)
-    {
-      var light:FlxSprite = getNamedProp('lights' + i);
-      light.shader = lightShader;
-      light.visible = false;
-    }
+    lightWindow = getNamedProp('lights');
+    lightWindow.shader = lightShader;
   }
 
   function fetchAssetPaths():Array<String>
@@ -491,11 +494,8 @@ class PhillyTrainErectStage extends Stage
       lightShader.scriptCall('reset');
 
       // Switch to a different light
-      curLight = FlxG.random.int(0, LIGHT_COUNT - 1);
-      for (i in 0...LIGHT_COUNT)
-      {
-        getNamedProp('lights' + i).visible = (i == curLight);
-      }
+      curLight = FlxG.random.int(0, lightColors.length - 1);
+      lightWindow.color = lightColors[curLight];
     }
   }
 
