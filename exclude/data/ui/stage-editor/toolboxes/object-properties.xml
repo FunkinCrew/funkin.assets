@@ -12,8 +12,8 @@
             </hbox>
             <label text="Scale" verticalAlign="center" />
             <hbox width="100%">
-              <number-stepper id="inputObjectScaleX" step="5" pos="0" width="100%" />
-              <number-stepper id="inputObjectScaleY" step="5" pos="0" width="100%" />
+              <number-stepper id="inputObjectScaleX" step="0.05" pos="1" precision="2" min="0.05" width="100%" />
+              <number-stepper id="inputObjectScaleY" step="0.05" pos="1" precision="2" min="0.05" width="100%" />
             </hbox>
             <label text="Z-Index" verticalAlign="center" />
             <number-stepper id="inputObjectZIndex" width="100%" />
