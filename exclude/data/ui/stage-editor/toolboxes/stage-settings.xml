@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog title="Stage Properties" width="300" height="300">
+<collapsible-dialog title="Stage Properties" width="300" height="280">
   <vbox width="100%" height="100%">
     <section-header text="Stage Name"/>
     <textfield allowFocus="false" id="inputStageName" placeholder="Stage Name" width="100%" verticalAlign="center"/>
