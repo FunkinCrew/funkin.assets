@@ -13,8 +13,6 @@ class SpookyDarkCharacter extends SparrowCharacter
   function new()
   {
     super('spooky-dark');
-
-    this.ignoreExclusionPref = ["cheer"];
   }
 
   var normalChar:BaseCharacter;

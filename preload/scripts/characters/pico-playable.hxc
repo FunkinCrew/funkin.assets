@@ -23,8 +23,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   function new()
   {
     super('pico-playable');
-
-    ignoreExclusionPref.push("shoot");
   }
 
   function onCreate(event:ScriptEvent)

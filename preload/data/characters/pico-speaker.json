@@ -5,6 +5,7 @@
   "startingAnimation": "idle",
   "singTime": 8.0,
   "offsets": [125, 5],
+  "animPriorityQueue": ["shoot*", "idle"],
   "animations": [
     {
       "name": "idle",

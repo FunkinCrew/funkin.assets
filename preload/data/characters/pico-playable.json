@@ -12,6 +12,7 @@
   },
   "flipX": true,
   "renderType": "multisparrow",
+  "animPriorityQueue": ["sing*", "shoot*", "idle"],
   "animations": [
     {
       "name": "idle",

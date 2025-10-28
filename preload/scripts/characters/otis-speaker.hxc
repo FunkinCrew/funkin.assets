@@ -40,11 +40,6 @@ class OtisSpeakerCharacter extends SparrowCharacter
   function new()
   {
     super('otis-speaker');
-
-    ignoreExclusionPref.push("shoot1");
-    ignoreExclusionPref.push("shoot2");
-    ignoreExclusionPref.push("shoot3");
-    ignoreExclusionPref.push("shoot4");
   }
 
   var adjustColor:AdjustColorShader;
