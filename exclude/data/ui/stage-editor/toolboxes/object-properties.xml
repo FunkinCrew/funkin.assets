@@ -32,24 +32,27 @@
             <label text="Flip Vertically" verticalAlign="center" horizontalAlign="center" />
             <checkbox id="objFlipY" text="Enabled" />
             <label text="Blend Mode" verticalAlign="center" horizontalAlign="center" />
-            <dropdown id="objBlend" text="Select Mode" width="100%" selectedIndex="0">
+            <dropdown id="objBlend" text="Select Mode" width="120%" selectedIndex="0">
               <data>
                 <item text="NONE" />
                 <item text="ADD" />
-                <item text="ALPHA" />
                 <item text="DARKEN" />
                 <item text="DIFFERENCE" />
-                <item text="ERASE" />
                 <item text="HARDLIGHT" />
                 <item text="INVERT" />
-                <item text="LAYER" />
                 <item text="LIGHTEN" />
                 <item text="MULTIPLY" />
-                <item text="NORMAL" />
                 <item text="OVERLAY" />
                 <item text="SCREEN" />
-                <item text="SHADER" />
-                <item text="SUBSCTRACT" />
+                <item text="SUBTRACT" />
+                <item text="COLORDODGE" />
+                <item text="COLORBURN" />
+                <item text="SOFTLIGHT" />
+                <item text="EXCLUSION" />
+                <item text="HUE" />
+                <item text="SATURATION" />
+                <item text="COLOR" />
+                <item text="LUMINOSITY" />
               </data>
             </dropdown>
             <label text="Tint" verticalAlign="center" horizontalAlign="center" />
