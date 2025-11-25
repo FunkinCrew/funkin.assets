@@ -66,5 +66,6 @@ class TankmanBattlefieldStage extends Stage
   function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
+    moveTank(0);
   }
 }
