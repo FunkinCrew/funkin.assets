@@ -152,8 +152,8 @@ class DarnellSong extends Song
 
     var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
     var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
-    newCan.x = spraycanPile.x - 430;
-    newCan.y = spraycanPile.y - 840;
+    newCan.x = spraycanPile.x - 10;
+    newCan.y = spraycanPile.y - 550;
     newCan.zIndex = 300;
     PlayState.instance.currentStage.add(newCan);
     PlayState.instance.currentStage.refresh();
