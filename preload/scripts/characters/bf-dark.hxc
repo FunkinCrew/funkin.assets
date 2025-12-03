@@ -40,6 +40,9 @@ class BoyfriendDarkCharacter extends MultiSparrowCharacter
   override function set_alpha(val:Float):Float
   {
     super.set_alpha(val);
+    if (this.debug)
+      return val;
+
     if (val != 1) normalChar.alpha = 1;
     else
       normalChar.alpha = 0.0001;
@@ -60,6 +63,9 @@ class BoyfriendDarkCharacter extends MultiSparrowCharacter
   function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
+    if (this.debug)
+      return;
+
     normalChar = CharacterDataParser.fetchCharacter('bf');
     normalChar.zIndex = 199;
     normalChar.alpha = 0.0001;

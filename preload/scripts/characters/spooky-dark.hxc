@@ -21,6 +21,9 @@ class SpookyDarkCharacter extends SparrowCharacter
   override function set_alpha(val:Float):Float
   {
     super.set_alpha(val);
+    if (this.debug)
+      return val;
+
     if (val != 1) normalChar.alpha = 1;
     else
       normalChar.alpha = 0.0001;
@@ -58,6 +61,9 @@ class SpookyDarkCharacter extends SparrowCharacter
   function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
+    if (this.debug)
+      return;
+
     normalChar = CharacterDataParser.fetchCharacter('spooky');
     normalChar.zIndex = 199;
     normalChar.alpha = 0.0001;

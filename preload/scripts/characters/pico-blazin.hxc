@@ -29,6 +29,14 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     GameOverSubState.blueBallSuffix = '-pico-gutpunch';
 
     PauseSubState.musicSuffix = '-pico';
+
+    // Moving character more to 0,0 position
+    // Its globalOffsets in debug mode, so we wont count it
+    if (this.debug)
+    {
+      globalOffsets[0] -= 1000;
+      globalOffsets[1] -= 650;
+    }
   }
 
   var cantUppercut = false;
@@ -264,7 +272,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   function willMissBeLethal(event:NoteScriptEvent):Bool
   {
-    return (PlayState.instance.health + event.healthChange) <= 0.0;
+    return (this.debug ? false : (PlayState.instance.health + event.healthChange) <= 0.0);
   }
 
   function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
@@ -320,12 +328,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   function isDarnellPreppingUppercut():Void
   {
-    return getDarnell().getCurrentAnimation() == 'uppercutPrep';
+    return this.debug ? false : (getDarnell().getCurrentAnimation() == 'uppercutPrep');
   }
 
   function isDarnellInUppercut():Void
   {
-    return getDarnell().getCurrentAnimation() == 'uppercut' || getDarnell().getCurrentAnimation() == 'uppercut-hold';
+    return this.debug ? false : (getDarnell().getCurrentAnimation() == 'uppercut' || getDarnell().getCurrentAnimation() == 'uppercut-hold');
   }
 
   function wasNoteHitPoorly(event:HitNoteScriptEvent):Bool
@@ -335,7 +343,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   function isPlayerLowHealth():Bool
   {
-    return PlayState.instance.health <= 0.30 * 2.0;
+    return (this.debug ? false : (PlayState.instance.health <= 0.30 * 2.0));
   }
 
   // ANIMATIONS
@@ -350,7 +358,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function playBlockAnim():Void
   {
     this.playAnimation('block', true, false);
-    PlayState.instance.camGame.shake(0.002, 0.1);
+    if (!this.debug)
+      PlayState.instance.camGame.shake(0.002, 0.1);
     moveToBack();
   }
 
@@ -387,7 +396,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function playUppercutAnim(hit:Bool)
   {
     this.playAnimation('uppercut', true, false);
-    if (hit)
+    if (hit && !this.debug)
     {
       PlayState.instance.camGame.shake(0.005, 0.25);
     }
@@ -397,28 +406,32 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function playUppercutHitAnim()
   {
     this.playAnimation('uppercutHit', true, false);
-    PlayState.instance.camGame.shake(0.005, 0.25);
+    if (!this.debug)
+      PlayState.instance.camGame.shake(0.005, 0.25);
     moveToBack();
   }
 
   function playHitHighAnim()
   {
     this.playAnimation('hitHigh', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    if (!this.debug)
+      PlayState.instance.camGame.shake(0.0025, 0.15);
     moveToBack();
   }
 
   function playHitLowAnim()
   {
     this.playAnimation('hitLow', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    if (!this.debug)
+      PlayState.instance.camGame.shake(0.0025, 0.15);
     moveToBack();
   }
 
   function playHitSpinAnim()
   {
     this.playAnimation('hitSpin', true, false, true);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    if (!this.debug)
+      PlayState.instance.camGame.shake(0.0025, 0.15);
     moveToBack();
   }
 

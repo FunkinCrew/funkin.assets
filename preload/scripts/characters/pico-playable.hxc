@@ -130,7 +130,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   {
     // restore vocal volume to ensure burps always play
     // not needed on the dark variant because this one always exists anyway..
-    if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
+    if ((name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") && !this.debug) PlayState.instance.vocals.playerVolume = 1;
 
     if (name == "firstDeath")
     {
