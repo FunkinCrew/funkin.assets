@@ -49,16 +49,20 @@
     {
       "name": "bottomBoppers",
       "assetPath": "christmas/erect/bottomBop",
-      "position": [-410, 100],
-      "scale": [1, 1],
+      "animType": "animateatlas",
+      "position": [-300, -200],
       "scroll": [0.9, 0.9],
-      "danceEvery": 1,
       "zIndex": 50,
+      "danceEvery": 1,
       "startingAnimation": "idle",
+      "atlasSettings": {
+        "applyStageMatrix": true
+      },
       "animations": [
         {
           "name": "idle",
-          "prefix": "bottomBop",
+          "prefix": "BOPPERS_EXPORT",
+          "animType": "symbol",
           "frameRate": 24,
           "flipX": false,
           "flipY": false

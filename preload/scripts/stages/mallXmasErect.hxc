@@ -27,6 +27,11 @@ class MallXmasErectStage extends Stage
     colorShader.saturation = 20;
 
     getNamedProp('santa').shader = colorShader;
+
+    var colorShaderBoppers:AdjustColorShader = new AdjustColorShader();
+    colorShaderBoppers.hue = 15;
+    colorShaderBoppers.brightness = 20;
+    getNamedProp('bottomBoppers').shader = colorShaderBoppers;
   }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
