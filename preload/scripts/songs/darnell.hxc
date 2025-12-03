@@ -6,9 +6,8 @@ import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.util.Constants;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.data.song.SongRegistry;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
@@ -53,9 +52,8 @@ class DarnellSong extends Song
 
     if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
     {
-      var hasBeatenBFMix = Save.instance.hasBeatenSong(this.id, null, 'bf');
-
-      if (!hasBeatenBFMix) results = [for (id in results) if (id != 'bf') id];
+      // NOTE: Pico will not have access to Boyfriend Mix instrumentals, so remove the BF instrumental.
+      results = [for (id in results) if (id != 'bf') id];
     }
 
     return results;
@@ -152,7 +150,7 @@ class DarnellSong extends Song
     cutsceneCan.zIndex = spraycanPile.zIndex - 1;
     PlayState.instance.currentStage.refresh();
 
-    var newCan:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', 0, 0);
+    var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
     var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
     newCan.x = spraycanPile.x - 430;
     newCan.y = spraycanPile.y - 840;

@@ -2,7 +2,6 @@ import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog id="addVariationDialog" width="300" height="425" title="Add Variation">
+<dialog id="addVariationDialog" width="300" height="430" title="Add Variation">
 	<vbox width="100%" height="100%">
 		<form id="variationForm" width="100%" height="100%">
 			<vbox width="100%" height="100%">

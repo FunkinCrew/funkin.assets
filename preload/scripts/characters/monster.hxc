@@ -1,0 +1,25 @@
+import funkin.play.character.AnimateAtlasCharacter;
+
+using StringTools;
+
+class MonsterCharacter extends AnimateAtlasCharacter
+{
+  public function new()
+  {
+    super("monster");
+  }
+
+  override function getAtlasSettings():AtlasSpriteSettings
+  {
+    return {
+      onSymbolCreate: (symbol) -> {
+        symbol.timeline.forEachLayer((layer) -> {
+          if (layer.name.startsWith("HAT"))
+          {
+            layer.visible = false;
+          }
+        });
+      }
+    };
+  }
+}

@@ -1,10 +1,9 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 
-class SpraycanAtlasSprite extends FlxAtlasSprite
+class SpraycanAtlasSprite extends FunkinSprite
 {
   public var STATE_ARCING:Int = 2; // In the air.
   public var STATE_SHOT:Int = 3; // Hit by the player.
@@ -14,17 +13,10 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
 
   public function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("spraycanAtlas", "weekend1"),
-      {
-        FrameRate: 24.0,
-        Reversed: false,
-        // ?OnComplete:Void -> Void,
-        ShowPivot: false,
-        Antialiasing: true,
-        ScrollFactor: new FlxPoint(1, 1),
-      });
+    super(x, y);
 
-    onAnimationComplete.add(finishCanAnimation);
+    loadTextureAtlas("spraycanAtlas", "weekend1");
+    animation.onFinish.add(finishCanAnimation);
   }
 
   public function finishCanAnimation(name:String)
@@ -55,16 +47,16 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
 
   public function playCanStart():Void
   {
-    this.playAnimation('Can Start');
+    this.animation.play('Can Start');
   }
 
   public function playCanShot():Void
   {
-    this.playAnimation('Can Shot');
+    this.animation.play('Can Shot');
   }
 
   public function playHitPico():Void
   {
-    this.playAnimation('Hit Pico');
+    this.animation.play('Hit Pico');
   }
 }

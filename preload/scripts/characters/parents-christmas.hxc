@@ -1,8 +1,8 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
-class ParentsChristmasCharacter extends SparrowCharacter
+class ParentsChristmasCharacter extends AnimateAtlasCharacter
 {
   function new()
   {

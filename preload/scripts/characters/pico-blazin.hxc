@@ -29,9 +29,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     GameOverSubState.blueBallSuffix = '-pico-gutpunch';
 
     PauseSubState.musicSuffix = '-pico';
-
-    // Precache the death anim.
-    FunkinMemory.cacheTexture(Paths.image('picoBlazinDeathConfirm', 'weekend1'));
   }
 
   var cantUppercut = false;
@@ -83,11 +80,11 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
         playPunchHighAnim();
 
       case "weekend-1-blockhigh":
-        playBlockAnim(event.judgement);
+        playBlockAnim();
       case "weekend-1-blocklow":
-        playBlockAnim(event.judgement);
+        playBlockAnim();
       case "weekend-1-blockspin":
-        playBlockAnim(event.judgement);
+        playBlockAnim();
 
       case "weekend-1-dodgehigh":
         playDodgeAnim();
@@ -152,10 +149,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
         });
       }
     }
-    else if (name == "deathConfirm")
-    {
-      doDeathConfirm();
-    }
     else
     {
       super.playAnimation(name, restart, ignoreOther);
@@ -168,23 +161,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   {
     GameOverSubState.instance.startDeathMusic(1.0, false);
     playAnimation('deathLoop', true, false);
-  }
-
-  function doDeathConfirm():Void
-  {
-    var picoDeathConfirm:FunkinSprite = FunkinSprite.createSparrow(this.x + 1045, this.y + 1216, 'picoBlazinDeathConfirm');
-    picoDeathConfirm.animation.addByPrefix('confirm', "Pico Gut Punch Death0", 24, false);
-    picoDeathConfirm.animation.play('confirm');
-    picoDeathConfirm.scale.set(1.75, 1.75);
-    picoDeathConfirm.zIndex = 1000;
-    FlxG.state.subState.add(picoDeathConfirm);
-    picoDeathConfirm.visible = true;
-    this.visible = false;
-
-    picoDeathConfirm.animation.finishCallback = () -> {
-      picoDeathConfirm.visible = false;
-      this.visible = true;
-    }
   }
 
   function onNoteMiss(event:NoteScriptEvent)
@@ -371,27 +347,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     return alternate ? '1' : '2';
   }
 
-  function playBlockAnim(?judgement:String)
+  function playBlockAnim():Void
   {
-    // on sick block, do a 3rd strike esque "tech" effect
-    if (judgement == 'sick')
-    {
-      // var blendAnims:Array<Int> = [10, 0, 10, 0, 0, 10, 0, 0, 10, 0, 10];
-      //
-      // for (blendMode in 0...blendAnims.length)
-      // {
-      //	new FlxTimer().start(blendMode / 60, function(_) {
-      //
-      //		if (blendAnims[blendMode] != 10)
-      //			this.color = 0xFF0000FF;
-      //		else
-      //			this.color = 0xFFFFFFFF;
-      //
-      //		this.blend = blendAnims[blendMode];
-      //	});
-      // }
-    }
-
     this.playAnimation('block', true, false);
     PlayState.instance.camGame.shake(0.002, 0.1);
     moveToBack();

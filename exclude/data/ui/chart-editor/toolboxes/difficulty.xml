@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="425">
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="460">
     <vbox>
         <frame text="Select Difficulty">
             <tree-view id="difficultyToolboxTree" width="260" height="200" />
         </frame>
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" />
-            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" />
+            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" tooltip="Add a new variation to the song."/>
+            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" tooltip="Add a new difficulty to a given variation."/>
         </hbox>
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" />
+            <button allowFocus="false" id="difficultyToolboxMoveDifficulty" text="Move Difficulty" tooltip="Rename the selected difficulty, or move it to a different variation." />
+            <button allowFocus="false" id="difficultyToolboxCloneDifficulty" text="Clone Difficulty" tooltip="Make a new difficulty with all the nodes and events of the current difficulty." />
+        </hbox>
+        <hbox>
+            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" tooltip="Delete the selected difficulty." />
         </hbox>
         <rule />
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" />
-            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" />
+            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" tooltip="Save just the JSON metadata for the current variation." />
+            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" tooltip="Save just the JSON chart data for the current variation." />
         </hbox>
         <hbox>
-            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" />
-            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" />
+            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" tooltip="Load a variation's metadata directly from a JSON file." />
+            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" tooltip="Load a variation's chart data directly from a JSON file." />
         </hbox>
     </vbox>
 </collapsible-dialog>

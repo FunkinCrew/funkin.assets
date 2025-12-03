@@ -1,4 +1,3 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
@@ -8,19 +7,13 @@ import flixel.util.FlxTimerManager;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
 
-class TankmanEndingSprite extends FlxAtlasSprite
+class TankmanEndingSprite extends FunkinSprite
 {
   public function new(x:Float, y:Float)
   {
-    super(x, y, Paths.animateAtlas("erect/cutscene/tankmanEnding", "week7"),
-      {
-        FrameRate: 24.0,
-        Reversed: false,
-        // ?OnComplete:Void -> Void,
-        ShowPivot: false,
-        Antialiasing: true,
-        ScrollFactor: new FlxPoint(1, 1),
-      });
+    super(x, y);
+
+    loadTextureAtlas("erect/cutscene/tankmanEnding", "week7");
   }
 
   var cutsceneSounds:FunkinSound = null;
@@ -32,7 +25,7 @@ class TankmanEndingSprite extends FlxAtlasSprite
 
   function doAnim()
   {
-    playAnimation("tankman stress ending", true, false, false);
+    this.anim.play("tankman stress ending", true);
     cutsceneSounds = FunkinSound.load(Paths.sound('erect/endCutscene'), 1.0, false, true, true);
   }
 }

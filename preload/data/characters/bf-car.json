@@ -1,132 +1,130 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Car)",
-  "assetPath": "characters/bfCar",
-  "flipX": true,
-  "renderType": "multisparrow",
-  "singTime": 8.0,
+  "assetPath": "shared:characters/bf-car",
+  "renderType": "animateatlas",
   "healthIcon": {
     "id": "bf"
+  },
+  "flipX": true,
+  "offsets": [0, -105],
+  "cameraOffsets": [0, -95],
+  "death": {
+    "cameraOffsets": [-70, -370]
   },
   "animations": [
     {
       "name": "idle",
       "prefix": "BF idle dance",
-      "offsets": [-5, 0]
+      "offsets": [-5, 0],
+      "animType": "symbol"
     },
     {
       "name": "idle-hold",
       "prefix": "BF idle dance",
       "frameIndices": [10, 11, 12, 13],
       "looped": true,
-      "offsets": [-5, 0]
+      "offsets": [-5, 0],
+      "animType": "symbol"
     },
     {
       "name": "singLEFT",
-      "prefix": "BF NOTE LEFT0",
-      "offsets": [12, -6]
+      "prefix": "BF NOTE LEFT",
+      "offsets": [-3, 1],
+      "animType": "symbol"
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "BF NOTE LEFT0",
+      "prefix": "BF NOTE LEFT",
       "frameIndices": [10, 11, 12, 13],
       "looped": true,
-      "offsets": [12, -6]
+      "offsets": [-3, 1],
+      "animType": "symbol"
     },
     {
       "name": "singDOWN",
-      "prefix": "BF NOTE DOWN0",
-      "offsets": [-10, -50]
+      "prefix": "BF NOTE DOWN",
+      "offsets": [-15, -40],
+      "animType": "symbol"
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "BF NOTE DOWN0",
+      "prefix": "BF NOTE DOWN",
       "frameIndices": [10, 11, 12, 13],
       "looped": true,
-      "offsets": [-10, -50]
+      "offsets": [-15, -40],
+      "animType": "symbol"
     },
     {
       "name": "singUP",
-      "prefix": "BF NOTE UP0",
-      "offsets": [-29, 27]
+      "prefix": "BF NOTE UP",
+      "offsets": [-17, 67],
+      "animType": "symbol"
     },
     {
       "name": "singUP-hold",
-      "prefix": "BF NOTE UP0",
+      "prefix": "BF NOTE UP",
       "frameIndices": [10, 11, 12, 13],
       "looped": true,
-      "offsets": [-29, 27]
+      "offsets": [-17, 67],
+      "animType": "symbol"
     },
     {
       "name": "singRIGHT",
-      "prefix": "BF NOTE RIGHT0",
-      "offsets": [-38, -7]
+      "prefix": "BF NOTE RIGHT",
+      "offsets": [-52, 7],
+      "animType": "symbol"
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "BF NOTE RIGHT0",
+      "prefix": "BF NOTE RIGHT",
       "frameIndices": [10, 11, 12, 13],
       "looped": true,
-      "offsets": [-38, -7]
+      "offsets": [-52, 7],
+      "animType": "symbol"
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
-      "offsets": [12, 24]
+      "offsets": [-6, 12],
+      "animType": "symbol"
     },
     {
       "name": "singDOWNmiss",
       "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-11, -19]
+      "offsets": [-18, -23],
+      "animType": "symbol"
     },
     {
       "name": "singUPmiss",
       "prefix": "BF NOTE UP MISS",
-      "offsets": [-29, 27]
+      "offsets": [-21, 62],
+      "animType": "symbol"
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-30, 21]
+      "offsets": [-44, 15],
+      "animType": "symbol"
     },
     {
       "name": "firstDeath",
       "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 11]
-    },
-    {
-      "name": "dodge",
-      "prefix": "boyfriend dodge",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "dodge-hold",
-      "prefix": "boyfriend dodge",
-      "frameIndices": [10, 11, 12],
-      "looped": true,
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "hit",
-      "prefix": "BF hit",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [0, 0]
+      "offsets": [-36, 12],
+      "animType": "symbol"
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
-      "assetPath": "characters/BOYFRIEND",
       "looped": true,
-      "offsets": [-37, 5]
+      "offsets": [-47, 5],
+      "animType": "symbol"
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
-      "assetPath": "characters/BOYFRIEND",
-      "offsets": [-37, 69]
+      "offsets": [-47, 93],
+      "animType": "symbol"
     }
   ]
 }

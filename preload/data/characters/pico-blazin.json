@@ -10,8 +10,12 @@
   "singTime": 999.0,
   "death": {
     "preTransitionDelay": 0.125,
-    "cameraOffsets": [1700, 1550],
+    "cameraOffsets": [500, 450],
     "cameraZoom": 0.8
+  },
+  "offsets": [580, 340],
+  "atlasSettings": {
+    "cacheOnLoad": true
   },
   "animations": [
     {
@@ -106,18 +110,18 @@
     {
       "name": "firstDeath",
       "prefix": "Low Death Intro",
-      "offsets": [0, 0]
+      "offsets": [-350, -300]
     },
     {
       "name": "deathLoop",
       "prefix": "Low Death Loop",
       "looped": true,
-      "offsets": [0, 0]
+      "offsets": [-350, -300]
     },
     {
       "name": "deathConfirm",
       "prefix": "Low Death Confirm",
-      "offsets": [0, 0]
+      "offsets": [-350, -300]
     }
   ]
 }

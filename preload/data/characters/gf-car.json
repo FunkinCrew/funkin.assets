@@ -1,19 +1,23 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Car)",
-  "assetPath": "characters/gfCar",
+  "assetPath": "shared:characters/gfCar",
+  "renderType": "animateatlas",
   "startingAnimation": "danceRight",
-  "cameraOffsets": [0, -200],
+  "offsets": [0, -170],
+  "cameraOffsets": [0, -370],
   "animations": [
     {
       "name": "danceLeft",
       "prefix": "GF Dancing Beat Hair blowing CAR",
+      "animType": "symbol",
       "frameIndices": [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "offsets": [0, 0]
     },
     {
       "name": "danceRight",
       "prefix": "GF Dancing Beat Hair blowing CAR",
+      "animType": "symbol",
       "frameIndices": [
         15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
       ],
@@ -22,6 +26,7 @@
     {
       "name": "idle-hold",
       "prefix": "GF Dancing Beat Hair blowing CAR",
+      "animType": "symbol",
       "looped": true,
       "frameIndices": [10, 11, 12, 25, 26, 27],
       "offsets": [0, 0]
@@ -29,8 +34,9 @@
     {
       "name": "duck",
       "prefix": "GF Duck",
+      "animType": "symbol",
       "frameIndices": [0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-      "offsets": [0, -100]
+      "offsets": [5, -60]
     }
   ]
 }

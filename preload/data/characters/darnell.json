@@ -1,92 +1,78 @@
 {
   "version": "1.0.0",
   "name": "Darnell",
-  "assetPath": "characters/darnell",
-  "singTime": 8.0,
-  "offsets": [0, 0],
+  "assetPath": "shared:characters/darnell",
+  "renderType": "animateatlas",
+  "offsets": [50, -150],
+  "cameraOffsets": [-10, -180],
   "animations": [
     {
       "name": "idle",
-      "prefix": "Idle0",
-      "offsets": [0, 0]
+      "prefix": "Idle"
     },
     {
       "name": "singLEFT",
-      "prefix": "Pose Left0",
-      "offsets": [1, 0]
+      "prefix": "Pose Left"
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "Left Flame Loop0",
-      "looped": true,
-      "offsets": [1, 0]
+      "prefix": "Left Flame Loop",
+      "looped": true
     },
     {
       "name": "singDOWN",
-      "prefix": "Pose Down0",
-      "offsets": [0, -3]
+      "prefix": "Pose Down"
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "Down Flame Loop0",
-      "looped": true,
-      "offsets": [0, -3]
+      "prefix": "Down Flame Loop",
+      "looped": true
     },
     {
       "name": "singUP",
-      "prefix": "Pose Up0",
-      "offsets": [8, 5]
+      "prefix": "Pose Up"
     },
     {
       "name": "singUP-hold",
-      "prefix": "Up Flame Loop0",
-      "looped": true,
-      "offsets": [8, 5]
+      "prefix": "Up Flame Loop",
+      "looped": true
     },
     {
       "name": "singRIGHT",
-      "prefix": "Pose Right0",
-      "offsets": [4, 3]
+      "prefix": "Pose Right"
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "Right Flame Loop0",
-      "looped": true,
-      "offsets": [4, 3]
+      "prefix": "Right Flame Loop",
+      "looped": true
     },
     {
       "name": "laugh",
-      "prefix": "Laugh0",
-      "offsets": [0, 0]
+      "prefix": "Laugh"
     },
     {
       "name": "laughCutscene",
-      "prefix": "Laugh0",
+      "prefix": "Laugh",
       "frameIndices": [
         1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6,
         1, 2, 3, 4, 5, 6
-      ],
-      "offsets": [0, 0]
+      ]
     },
     {
       "name": "lightCan",
-      "prefix": "Light Can0",
-      "offsets": [8, 1]
+      "prefix": "Light Can"
     },
     {
       "name": "kickCan",
-      "prefix": "Kick Up0",
-      "offsets": [15, 9]
+      "prefix": "Kick Up"
     },
     {
       "name": "kneeCan",
-      "prefix": "Knee Forward0",
-      "offsets": [7, -1]
+      "prefix": "Knee Forward"
     },
     {
       "name": "pissed",
-      "prefix": "Gets Pissed0",
-      "offsets": [0, 0]
+      "prefix": "Gets Pissed"
     }
   ]
 }

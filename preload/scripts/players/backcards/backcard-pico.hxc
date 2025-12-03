@@ -6,7 +6,7 @@ import funkin.util.BitmapUtil;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
@@ -22,7 +22,7 @@ class PicoCard extends BackingCard
   var glowDark:FlxSprite;
   var blueBar:FlxSprite;
 
-  var confirmAtlas:FlxAtlasSprite;
+  var confirmAtlas:FunkinSprite;
 
   public function new()
   {
@@ -145,11 +145,21 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = new FlxAtlasSprite(5, 55, Paths.animateAtlas("freeplay/backingCards/pico/pico-confirm"));
+    confirmAtlas = FunkinSprite.createTextureAtlas((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120, 55,
+      "freeplay/backingCards/pico/pico-confirm");
     confirmAtlas.visible = false;
-    confirmAtlas.scale.x *= FullScreenScaleMode.wideScale.x;
-    confirmAtlas.x += ((confirmAtlas.width * FullScreenScaleMode.wideScale.x) - confirmAtlas.width) * 2.58;
     add(confirmAtlas);
+
+    // multiply the scale of the bg by 2
+    // this should be enough, since no phone screen should ever be bigger than whatever
+    // this gets scaled to
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("backplate flat blue"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("pink back"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("black flash"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("white flash"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("blue flash"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("blue flash 2"), 2, 100);
+    confirmAtlas.scaleElement(confirmAtlas.getFirstElement("pink flash"), 2, 100);
 
     cardGlow.blend = 0;
     cardGlow.visible = false;

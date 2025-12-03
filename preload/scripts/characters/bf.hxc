@@ -1,4 +1,4 @@
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
@@ -50,13 +50,18 @@ class BoyfriendCharacter extends MultiSparrowCharacter
   {
     FunkinSound.playOnce(Paths.sound("gameplay/gameover/fakeout_death"), 1.0);
 
-    var bfFakeout:FlxAtlasSprite = new FlxAtlasSprite(this.x - 440, this.y - 240, Paths.animateAtlas("characters/bfFakeOut", "shared"));
+    var bfFakeout:FunkinSprite = FunkinSprite.createTextureAtlas(this.x - 430, this.y - 240, "characters/bfFakeOut", "shared");
+
+    // man i'm tired i'm just gonna do this the easy way
+    // TODO: properly reposition him later
+    bfFakeout.applyStageMatrix = true;
+
     GameOverSubState.instance.add(bfFakeout);
     bfFakeout.zIndex = 1000;
-    bfFakeout.playAnimation('');
+    bfFakeout.anim.play('');
     // We don't want people to miss this.
     GameOverSubState.instance.mustNotExit = true;
-    bfFakeout.onAnimationComplete.add(() -> {
+    bfFakeout.animation.onFinish.add(() -> {
       bfFakeout.visible = false;
       this.visible = true;
       GameOverSubState.instance.mustNotExit = false;
@@ -70,7 +75,7 @@ class BoyfriendCharacter extends MultiSparrowCharacter
 
   override function getDeathQuote():Null<String>
   {
-    switch (PlayState.instance.currentStage.getDad().characterId)
+    switch (PlayState.instance?.currentStage?.getDad()?.characterId)
     {
       case "tankman":
         var randomCensor:Array<Int> = [];

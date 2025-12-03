@@ -1,115 +1,116 @@
 {
   "version": "1.0.0",
   "name": "Mommy and Daddy (Festive)",
-  "assetPath": "characters/mom_dad_christmas_assets",
+  "renderType": "animateatlas",
+  "assetPath": "shared:characters/parents-christmas",
+  "offsets": [0, -200],
+  "cameraOffsets": [0, -200],
   "animations": [
     {
-      "name": "idle",
       "prefix": "Parent Christmas Idle",
-      "offsets": [0, 0]
+      "name": "idle"
     },
     {
+      "prefix": "Parent Christmas Idle",
+      "frameIndices": [10, 11, 12],
       "name": "idle-hold",
-      "prefix": "Parent Christmas Idle",
-      "looped": true,
-      "frameIndices": [10, 11, 12, 13],
-      "offsets": [0, 0]
+      "looped": true
     },
     {
-      "name": "singLEFT",
+      "offsets": [14, 16],
       "prefix": "Parent Left Note Dad",
-      "offsets": [-30, 16]
+      "name": "singLEFT"
     },
     {
+      "offsets": [14, 16],
+      "prefix": "Parent Left Note Dad",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "name": "singLEFT-hold",
-      "prefix": "Parent Left Note Dad",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-      "offsets": [-30, 16]
+      "looped": true
     },
     {
-      "name": "singDOWN",
+      "offsets": [-24, -7],
       "prefix": "Parent Down Note Dad",
-      "offsets": [-31, -29]
+      "name": "singDOWN"
     },
     {
+      "offsets": [-24, -7],
+      "prefix": "Parent Down Note Dad",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
       "name": "singDOWN-hold",
-      "prefix": "Parent Down Note Dad",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-31, -29]
+      "looped": true
     },
     {
-      "name": "singUP",
+      "offsets": [-13, 13],
       "prefix": "Parent Up Note Dad",
-      "offsets": [-47, 24]
+      "name": "singUP"
     },
     {
+      "offsets": [-13, 13],
+      "prefix": "Parent Up Note Dad",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12],
       "name": "singUP-hold",
-      "prefix": "Parent Up Note Dad",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [-47, 24]
+      "looped": true
     },
     {
-      "name": "singRIGHT",
+      "offsets": [-37, -9],
       "prefix": "Parent Right Note Dad",
-      "offsets": [-1, -23]
+      "name": "singRIGHT"
     },
     {
+      "offsets": [-37, -9],
+      "prefix": "Parent Right Note Dad",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       "name": "singRIGHT-hold",
-      "prefix": "Parent Right Note Dad",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-      "offsets": [-1, -23]
+      "looped": true
     },
     {
-      "name": "singLEFT-alt",
+      "offsets": [14, 16],
       "prefix": "Parent Left Note Mom",
-      "offsets": [-30, 15]
+      "name": "singLEFT-alt"
     },
     {
-      "name": "singLEFT-alt-hold",
+      "offsets": [14, 16],
       "prefix": "Parent Left Note Mom",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-30, 15]
-    },
-    {
-      "name": "singDOWN-alt",
-      "prefix": "Parent Down Note Mom",
-      "offsets": [-30, -27]
-    },
-    {
-      "name": "singDOWN-alt-hold",
-      "prefix": "Parent Down Note Mom",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-30, -27]
-    },
-    {
-      "name": "singUP-alt",
-      "prefix": "Parent Up Note Mom",
-      "offsets": [-47, 24]
-    },
-    {
-      "name": "singUP-alt-hold",
-      "prefix": "Parent Up Note Mom",
-      "looped": true,
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [-47, 24]
+      "name": "singLEFT-alt-hold",
+      "looped": true
     },
     {
-      "name": "singRIGHT-alt",
+      "offsets": [-24, -7],
+      "prefix": "Parent Down Note Mom",
+      "name": "singDOWN-alt"
+    },
+    {
+      "offsets": [-24, -7],
+      "prefix": "Parent Down Note Mom",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "name": "singDOWN-alt-hold",
+      "looped": true
+    },
+    {
+      "offsets": [-13, 13],
+      "prefix": "Parent Up Note Mom",
+      "name": "singUP-alt"
+    },
+    {
+      "offsets": [-13, 13],
+      "prefix": "Parent Up Note Mom",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "name": "singUP-alt-hold",
+      "looped": true
+    },
+    {
+      "offsets": [-37, -9],
       "prefix": "Parent Right Note Mom",
-      "offsets": [-1, -24]
+      "name": "singRIGHT-alt"
     },
     {
+      "offsets": [-37, -9],
+      "prefix": "Parent Right Note Mom",
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
       "name": "singRIGHT-alt-hold",
-      "prefix": "Parent Right Note Mom",
-      "looped": true,
-      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-1, -24]
+      "looped": true
     }
   ]
 }

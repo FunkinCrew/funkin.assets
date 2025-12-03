@@ -8,9 +8,8 @@ import funkin.util.HapticUtil;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.Preferences;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -25,8 +24,7 @@ import funkin.ui.FullScreenScaleMode;
 class TwoHOTSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
-  // var tempConductor:Conductor;
-  var cutsceneMusic:FunkinSound;
+  var cutsceneConductor:Null<Conductor>;
 
   var canVibrationPreset:VibrationPreset =
     {
@@ -104,6 +102,10 @@ class TwoHOTSong extends Song
     VideoCutscene.onVideoStarted.removeAll();
     VideoCutscene.hideVideo();
 
+    // This ensures Nene plays 'danceLeft' so that she syncs correctly with the cutscene video
+    PlayState.instance.currentStage.getGirlfriend().hasDanced = false;
+    PlayState.instance.currentStage.getGirlfriend().dance(true);
+
     new FlxTimer().start(1, function(tmr) {
       PlayState.instance.tweenCameraToPosition(1539, 833.5, 2, FlxEase.quadInOut);
       PlayState.instance.tweenCameraZoom(0.69, 2, true, FlxEase.quadInOut);
@@ -118,6 +120,7 @@ class TwoHOTSong extends Song
       }
       FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
     });
+
     new FlxTimer().start(2.5, function(tmr) {
       PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
     });
@@ -150,6 +153,15 @@ class TwoHOTSong extends Song
         PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - Math.max(40, FullScreenScaleMode.gameNotchSize.x);
       }
       FullScreenScaleMode.removeCutouts();
+    });
+
+    cutsceneConductor = new Conductor();
+    cutsceneConductor.forceBPM(86.5);
+    cutsceneConductor.onBeatHit.add(() -> {
+      if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished())
+      {
+        PlayState.instance.currentStage.getGirlfriend().dance(true);
+      }
     });
 
     PlayState.instance.camHUD.visible = false;
@@ -195,7 +207,7 @@ class TwoHOTSong extends Song
   }
 
   var gunCocked:Bool = false;
-  var spawnedCans:Array<ScriptedFlxAtlasSprite> = [];
+  var spawnedCans:Array<ScriptedFunkinSprite> = [];
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
@@ -210,11 +222,10 @@ class TwoHOTSong extends Song
         // This creates the can and starts the animation.
         // We define the behavior of the can in a separate scripted class,
         // which allows the can to track and manage its own properties.
-        var newCan:ScriptedFlxAtlasSprite = ScriptedFlxAtlasSprite.init('SpraycanAtlasSprite', 0, 0);
-
+        var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
         var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
-        newCan.x = spraycanPile.x - 430;
+        newCan.x = spraycanPile.x + 30;
         newCan.y = spraycanPile.y - 840;
         newCan.zIndex = spraycanPile.zIndex - 1;
 
@@ -267,7 +278,7 @@ class TwoHOTSong extends Song
 
   function onUpdate(event:UpdateScriptEvent)
   {
-    super.onUpdate(event);
+    cutsceneConductor?.update(cutsceneConductor.songPosition + event.elapsed * 1000);
   }
 
   function darkenStageProps()
@@ -448,5 +459,6 @@ class TwoHOTSong extends Song
     super.onCreate(event);
 
     hasPlayedCutscene = false;
+    cutsceneConductor = null;
   }
 }

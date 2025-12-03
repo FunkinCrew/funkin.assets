@@ -7,37 +7,30 @@ import funkin.data.freeplay.player.PlayerRegistry;
 import funkin.util.Constants;
 import funkin.Paths;
 
-import StringTools;
+using StringTools;
 
 class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
 {
   public var cartoonSnd:FunkinSound = null;
   public var playingCartoon:Bool = false;
 
-  final cartoonList:Array<String> = Assets.list().filter((path) -> return StringTools.startsWith(path, "assets/sounds/cartoons/"));
+  final CARTOON_CHANNEL_FRAME:Int = 60;
+  final CARTOON_LIST:Array<String> = Assets.list().filter((path) -> return path.startsWith("assets/sounds/cartoons/"));
 
   public function new(x:Float, y:Float, characterId:String)
   {
     super(x, y, characterId);
     this.cartoonSnd?.destroy();
 
-    onAnimationFrame.add((name, number) -> {
+    animation.onFrameChange.add((name, number) -> {
       if (name == playableCharData.getAnimationPrefix('cartoon'))
       {
-        if (number == playableCharData.getCartoonSoundClickFrame())
-          FunkinSound.playOnce(Paths.sound('remote_click'));
-
-        if (number == playableCharData.getCartoonSoundCartoonFrame())
-          runTvLogic();
+        if (number == playableCharData.getCartoonSoundClickFrame()) FunkinSound.playOnce(Paths.sound('remote_click'));
+        if (number == playableCharData.getCartoonSoundCartoonFrame()) runTvLogic();
       }
     });
-
-    // You can set you'r own time for unique animations.
-	  //IDLE_EGG_PERIOD = 2.0;
-	  //IDLE_CARTOON_PERIOD = 5.0;
   }
 
-  var channelFrame:Int = 60;
   override function onFinishAnim(name:String):Void
   {
     if (name == playableCharData?.getAnimationPrefix('intro'))
@@ -47,10 +40,8 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     }
     else if (name == playableCharData?.getAnimationPrefix('idle'))
     {
-      if (timeIdling >= IDLE_EGG_PERIOD && !seenIdleEasterEgg)
-        currentState = FreeplayDJState.IdleEasterEgg;
-      else if (timeIdling >= IDLE_CARTOON_PERIOD)
-        currentState = FreeplayDJState.Cartoon;
+      if (timeIdling >= IDLE_EGG_PERIOD && !seenIdleEasterEgg) currentState = FreeplayDJState.IdleEasterEgg;
+      else if (timeIdling >= IDLE_CARTOON_PERIOD) currentState = FreeplayDJState.Cartoon;
     }
     else if (name == playableCharData?.getAnimationPrefix('confirm'))
     {
@@ -75,18 +66,15 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     {
       // trace('Finished cartoon');
 
-      this.channelFrame = FlxG.random.bool(33) ? (playableCharData.getCartoonLoopBlinkFrame()) : (playableCharData.getCartoonLoopFrame());
+      this.CARTOON_CHANNEL_FRAME = FlxG.random.bool(33) ? (playableCharData.getCartoonLoopBlinkFrame()) : (playableCharData.getCartoonLoopFrame());
 
       // Character switches channels when the video ends, or at a 10% chance each time his idle loops.
       if (FlxG.random.bool(10))
       {
-        this.channelFrame = playableCharData.getCartoonChannelChangeFrame();
-        //runTvLogic();
+        this.CARTOON_CHANNEL_FRAME = playableCharData.getCartoonChannelChangeFrame();
       }
       var animPrefix = playableCharData.getAnimationPrefix('cartoon');
-      playFlashAnimation(animPrefix, true, false, false, this.channelFrame);
-
-      // trace('Finished confirm');
+      playFlashAnimation(animPrefix, true, false, false, this.CARTOON_CHANNEL_FRAME);
     }
     else if (name == playableCharData?.getAnimationPrefix('newUnlock'))
     {
@@ -102,7 +90,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     }
   }
 
-  public function runTvLogic()
+  public function runTvLogic():Void
   {
     if (this.cartoonSnd == null)
     {
@@ -120,16 +108,18 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     }
   }
 
-  function loadCartoon()
+  public function loadCartoon():Void
   {
     var cartoonSndPersist:FunkinSound = cartoonSnd;
     playingCartoon = true;
-    // Krue...
+
+    // Krue... or Kralse...?
     if (cartoonSndPersist != null)
     {
       cartoonSndPersist.stop();
       cartoonSndPersist = null;
     }
+
     this.cartoonSnd = FunkinSound.load(Paths.sound(getRandomFlashToon()), 1.0, false, true, true, () -> {
       var animPrefix = playableCharData.getAnimationPrefix('cartoon');
       if (animPrefix != null) playFlashAnimation(animPrefix, true, false, false, 60);
@@ -143,17 +133,12 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     if (this.cartoonSnd != null) this.cartoonSnd.time = FlxG.random.float(0, Math.max(this.cartoonSnd.length - (5 * Constants.MS_PER_SEC), 0.0));
   }
 
-  override function playFlashAnimation(id:String, Force:Bool = false, Reverse:Bool = false, Loop:Bool = false, Frame:Int = 0)
-  {
-    super.playFlashAnimation(id, Force, Reverse, Loop, Frame);
-  }
-
   function getRandomFlashToon():String
   {
-    var randomFile = cartoonList[FlxG.random.int(0, cartoonList.length-1)];
+    var randomFile:String = CARTOON_LIST[FlxG.random.int(0, CARTOON_LIST.length - 1)];
 
     // Strip folder prefix
-    randomFile = StringTools.replace(randomFile, "assets/sounds/", "");
+    randomFile = randomFile.replace("assets/sounds/", "");
     // Strip file extension
     randomFile = randomFile.substring(0, randomFile.length - 4);
 
@@ -168,15 +153,13 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
   public override function onConfirm():Void
   {
     super.onConfirm();
-    if (this.cartoonSnd != null)
-        this.cartoonSnd.fadeOut(.25, 0);
+    if (this.cartoonSnd != null) this.cartoonSnd.fadeOut(.25, 0);
   }
 
   public override function toCharSelect():Void
   {
     super.toCharSelect();
-    if (this.cartoonSnd != null)
-        this.cartoonSnd.fadeOut(.25, 0);
+    if (this.cartoonSnd != null) this.cartoonSnd.fadeOut(.25, 0);
   }
 
   public override function destroy():Void

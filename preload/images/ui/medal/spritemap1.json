@@ -1,23 +1,23 @@
-﻿{"ATLAS": {"SPRITES":[ 
-{"SPRITE" : {"name": "0004","x":169,"y":77,"w":250,"h":70,"rotated": false}},
-{"SPRITE" : {"name": "0005","x":378,"y":152,"w":30,"h":18,"rotated": false}},
-{"SPRITE" : {"name": "0006","x":378,"y":186,"w":50,"h":50,"rotated": false}},
-{"SPRITE" : {"name": "0007","x":433,"y":186,"w":50,"h":50,"rotated": false}},
-{"SPRITE" : {"name": "0008","x":0,"y":193,"w":268,"h":77,"rotated": false}},
-{"SPRITE" : {"name": "0009","x":169,"y":0,"w":250,"h":72,"rotated": false}},
-{"SPRITE" : {"name": "0010","x":273,"y":152,"w":100,"h":100,"rotated": false}},
-{"SPRITE" : {"name": "0011","x":378,"y":186,"w":50,"h":50,"rotated": false}},
-{"SPRITE" : {"name": "0012","x":424,"y":0,"w":61,"h":61,"rotated": false}},
-{"SPRITE" : {"name": "0013","x":424,"y":127,"w":54,"h":54,"rotated": false}},
-{"SPRITE" : {"name": "0014","x":424,"y":66,"w":56,"h":56,"rotated": false}},
-{"SPRITE" : {"name": "0015","x":0,"y":0,"w":164,"h":188,"rotated": false}}
-]},
-"meta": {
-"app": "Adobe Animate",
-"version": "22.0.2.168",
-"image": "spritemap1.png",
-"format": "RGBA8888",
-"size": {"w":485,"h":270},
-"resolution": "1"
+{"ATLAS":{"SPRITES":[
+{"SPRITE":{"name":"0","x":165,"y":75,"w":252,"h":75,"rotated":false}},
+{"SPRITE":{"name":"1","x":418,"y":283,"w":52,"h":52,"rotated":false}},
+{"SPRITE":{"name":"2","x":165,"y":151,"w":252,"h":74,"rotated":false}},
+{"SPRITE":{"name":"3","x":475,"y":226,"w":32,"h":20,"rotated":false}},
+{"SPRITE":{"name":"4","x":165,"y":226,"w":252,"h":72,"rotated":false}},
+{"SPRITE":{"name":"5","x":2,"y":2,"w":446,"h":72,"rotated":false}},
+{"SPRITE":{"name":"6","x":418,"y":75,"w":86,"h":86,"rotated":false}},
+{"SPRITE":{"name":"7","x":110,"y":264,"w":52,"h":52,"rotated":false}},
+{"SPRITE":{"name":"8","x":418,"y":162,"w":63,"h":63,"rotated":false}},
+{"SPRITE":{"name":"9","x":418,"y":226,"w":56,"h":56,"rotated":false}},
+{"SPRITE":{"name":"10","x":449,"y":2,"w":58,"h":58,"rotated":false}},
+{"SPRITE":{"name":"11","x":2,"y":264,"w":107,"h":68,"rotated":false}},
+{"SPRITE":{"name":"12","x":2,"y":75,"w":162,"h":188,"rotated":false}}]},
+"meta":{
+"app":"Adobe Animate (Better TA Extension)",
+"version":"22.0.3.179",
+"image":"spritemap1.png",
+"format":"RGBA8888",
+"size":{"w":509,"h":337},
+"resolution":"1"
 }
 }

@@ -28,7 +28,7 @@ class LimoRideStage extends Stage
     var limoSunset:FlxSprite = getNamedProp('limoSunset');
     if (limoSunset == null)
     {
-      trace('[WARN] Could not retrieve limoSunset');
+      trace(' WARNING '.bg_yellow().bold() + ' Could not retrieve limoSunset');
     }
     else
     {

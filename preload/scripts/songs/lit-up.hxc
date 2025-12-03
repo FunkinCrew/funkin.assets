@@ -21,7 +21,14 @@ class LitUpSong extends Song
 
   public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
-    // NOTE: Lit Up (BF Mix) is incompatible with the base song, so this should always be empty.
-    return [];
+    var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
+
+    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    {
+      // NOTE: Pico will not have access to Boyfriend Mix instrumentals, so remove the BF instrumental.
+      results = [for (id in results) if (id != 'bf') id];
+    }
+
+    return results;
   }
 }

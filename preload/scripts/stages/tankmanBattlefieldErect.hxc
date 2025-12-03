@@ -58,9 +58,12 @@ class TankmanBattlefieldErectStage extends Stage
           rim.updateFrameInfo(getGirlfriend().frame);
         });
 
-        if (getGirlfriend().characterId == 'gf-tankmen')
+        if (getGirlfriend().characterId == 'gf-tankmen' || getGirlfriend().characterId == 'nene-tankmen')
         {
-          rim.loadAltMask(Paths.image('erect/masks/gfTankmen_mask'));
+          if (getGirlfriend().characterId == 'gf-tankmen')
+            rim.loadAltMask(Paths.image('erect/masks/gfTankmen_mask'));
+          else
+            rim.loadAltMask(Paths.image('erect/masks/neneTankmen_mask'));
           rim.maskThreshold = 0.4;
           rim.useAltMask = true;
         }
