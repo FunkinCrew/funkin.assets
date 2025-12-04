@@ -47,7 +47,7 @@ class TankmanBattlefieldErectStage extends Stage
         character.animation.onFrameChange.add(function() {
           if (getBoyfriend() != null)
           {
-            rim.updateFrameInfo(getBoyfriend().frame);
+            rim.updateFrameInfo(getBoyfriend().frameWidth, getBoyfriend().frameHeight, getBoyfriend().frame.angle);
           }
         });
 
@@ -55,7 +55,7 @@ class TankmanBattlefieldErectStage extends Stage
         rim.angle = 90;
 
         character.animation.onFrameChange.add(function() {
-          rim.updateFrameInfo(getGirlfriend().frame);
+          rim.updateFrameInfo(getGirlfriend().frameWidth, getGirlfriend().frameHeight, getGirlfriend().frame.angle);
         });
 
         if (getGirlfriend().characterId == 'gf-tankmen' || getGirlfriend().characterId == 'nene-tankmen')
@@ -78,7 +78,7 @@ class TankmanBattlefieldErectStage extends Stage
         rim.threshold = 0.3;
 
         character.animation.onFrameChange.add(function() {
-          rim.updateFrameInfo(getDad().frame);
+          rim.updateFrameInfo(getDad().frameWidth, getDad().frameHeight, getDad().frame.angle);
         });
 
         if (getDad().characterId == 'tankman-bloody')

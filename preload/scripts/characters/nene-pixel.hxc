@@ -172,7 +172,7 @@ class NenePixelCharacter extends SparrowCharacter
 
     abotSpeakerShader.attachedSprite = abotSpeaker;
     abotSpeaker.animation.onFrameChange.add(function() {
-      abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
+      abotSpeakerShader.updateFrameInfo(abotSpeaker.frameWidth, abotSpeaker.frameHeight, abotSpeaker.frame.angle);
     });
 
     abotSpeakerShader.loadAltMask(Paths.image('weeb/erect/masks/aBotPixelSpeaker_mask'));

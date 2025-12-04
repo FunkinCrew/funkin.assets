@@ -69,7 +69,7 @@ class TankmanSprite extends FunkinSprite
     // rim.attachedSprite = tankman;
 
     animation.onFrameChange.add(function() {
-      rim.updateFrameInfo(this.frame);
+      rim.updateFrameInfo(this.frameWidth, this.frameHeight, this.frame.angle);
     });
 
     // If goingRight is false, 0 degrees = facing right.

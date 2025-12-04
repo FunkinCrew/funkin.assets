@@ -58,7 +58,7 @@ class SchoolErectStage extends Stage
         character.animation.onFrameChange.add(function() {
           if (getBoyfriend() != null)
           {
-            rim.updateFrameInfo(getBoyfriend().frame);
+            rim.updateFrameInfo(getBoyfriend().frameWidth, getBoyfriend().frameHeight, getBoyfriend().frame.angle);
           }
         });
 
@@ -85,7 +85,7 @@ class SchoolErectStage extends Stage
         character.animation.onFrameChange.add(function() {
           if (getGirlfriend() != null)
           {
-            rim.updateFrameInfo(getGirlfriend().frame);
+            rim.updateFrameInfo(getGirlfriend().frameWidth, getGirlfriend().frameHeight, getGirlfriend().frame.angle);
           }
         });
 
@@ -100,7 +100,7 @@ class SchoolErectStage extends Stage
         character.animation.onFrameChange.add(function() {
           if (getDad() != null)
           {
-            rim.updateFrameInfo(getDad().frame);
+            rim.updateFrameInfo(getDad().frameWidth, getDad().frameHeight, getDad().frame.angle);
           }
         });
 
