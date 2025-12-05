@@ -31,6 +31,14 @@
     <menu-item id="menubarItemDeleteStacked" text="Delete Stacked Notes" shortcutText="Shift + Delete" />
     <menu-separator />
     <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" shortcutText="Ctrl+F" />
+    <menu text="Mirror Notes">
+        <menu-item id="menubarItemMirrorX" text="X Axis" shortcutText="Ctrl+Shift+M" />
+        <menu-item id="menubarItemMirrorY" text="Y Axis" shortcutText="Ctrl+Alt+M" />
+        <menu-item id="menubarItemMirrorXY" text="XY Axis" shortcutText="Ctrl+Shift+Alt+M" />
+        <vbox width="100%">
+          <menu-checkbox width="100%" id="menubarItemMirrorFlipWithinStrumline" text="Flip Within Strumline" tooltip="Mirror note selections within their strumlines or across both." selected="true" />
+        </vbox>
+    </menu>
     <menu-separator />
     <menu-item id="menubarItemSelectAllNotes" text="Select All Notes" shortcutText="Ctrl+A" />
     <menu-item id="menubarItemSelectAllEvents" text="Select All Events" shortcutText="Ctrl+Alt+A" />
