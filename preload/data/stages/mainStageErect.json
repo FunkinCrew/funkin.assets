@@ -143,7 +143,7 @@
       "position": [40, 850],
       "cameraOffsets": [270, -100]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [501.5, 825] }
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [501.5, 800] }
   },
   "name": "Main Stage [Erect]",
   "directory": "week1"

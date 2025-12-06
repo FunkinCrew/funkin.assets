@@ -3,8 +3,8 @@
   "name": "Mommy and Daddy (Festive)",
   "renderType": "animateatlas",
   "assetPath": "shared:characters/parents-christmas",
-  "offsets": [0, -200],
-  "cameraOffsets": [0, -200],
+  "offsets": [-50, -195],
+  "cameraOffsets": [-50, -195],
   "animations": [
     {
       "prefix": "Parent Christmas Idle",

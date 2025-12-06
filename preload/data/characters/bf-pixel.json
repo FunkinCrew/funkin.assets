@@ -6,6 +6,8 @@
   "renderType": "multisparrow",
   "singTime": 8.0,
   "isPixel": true,
+  "offsets": [2, 0],
+  "cameraOffsets": [2, 0],
   "healthIcon": {
     "id": "bf-pixel",
     "isPixel": true

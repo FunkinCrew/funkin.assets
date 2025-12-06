@@ -5,6 +5,8 @@
   "startingAnimation": "danceRight",
   "isPixel": true,
   "scale": 6,
+  "offsets": [0, 2],
+  "cameraOffsets": [0, 2],
   "animations": [
     {
       "name": "danceLeft",

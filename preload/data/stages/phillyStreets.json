@@ -266,17 +266,17 @@
   "characters": {
     "bf": {
       "zIndex": 400,
-      "position": [2151, 1228],
+      "position": [2125, 1223],
       "cameraOffsets": [-350, -100]
     },
     "gf": {
       "zIndex": 300,
-      "position": [1453, 1100],
+      "position": [1550, 1060],
       "cameraOffsets": [0, 0]
     },
     "dad": {
       "zIndex": 350,
-      "position": [920, 1310],
+      "position": [910, 1180],
       "cameraOffsets": [500, -100]
     }
   },

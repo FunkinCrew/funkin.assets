@@ -3,7 +3,8 @@
   "name": "Nene (Christmas)",
   "assetPath": "characters/neneChristmas/neneChristmas",
   "startingAnimation": "danceRight",
-  "offsets": [0, -100],
+  "offsets": [-20, -80],
+  "cameraOffsets": [-20, 20],
   "animations": [
     {
       "name": "danceLeft",

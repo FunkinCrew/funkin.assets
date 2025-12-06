@@ -18,7 +18,7 @@
       "opponentVocals": ["senpai"],
       "playerVocals": ["pico"]
     },
-    "stage": "schoolPico",
+    "stage": "schoolErect",
     "noteStyle": "pixel",
     "album": "expansion2",
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },

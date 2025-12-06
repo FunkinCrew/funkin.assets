@@ -4,6 +4,8 @@
   "assetPath": "characters/senpai",
   "singTime": 8.0,
   "isPixel": true,
+  "offsets": [0, 12],
+  "cameraOffsets": [0, 12],
   "scale": 6,
   "healthIcon": {
     "id": "senpai",

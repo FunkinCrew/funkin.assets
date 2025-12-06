@@ -4,6 +4,8 @@
   "renderType": "sparrow",
   "assetPath": "characters/spooky_dark",
   "singTime": 8.0,
+  "offsets": [-35, -5],
+  "cameraOffsets": [-35, -5],
   "healthIcon": {
     "id": "spooky",
     "flipX": false

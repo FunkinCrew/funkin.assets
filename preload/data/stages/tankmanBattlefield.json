@@ -230,8 +230,8 @@
     },
     "dad": {
       "zIndex": 102,
-      "position": [230.5, 996],
-      "cameraOffsets": [250, -100]
+      "position": [230.5, 890],
+      "cameraOffsets": [250, -120]
     },
     "gf": { "zIndex": 100, "position": [660.5, 730], "cameraOffsets": [0, 0] }
   },

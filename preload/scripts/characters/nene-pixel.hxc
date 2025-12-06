@@ -281,8 +281,8 @@ class NenePixelCharacter extends SparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x + 296;
-      abot.y = this.y + 430;
+      abot.x = this.x + 296 - (7 *  6);
+      abot.y = this.y + 430 - (23 * 6);
       abot.zIndex = this.zIndex - 10;
       PlayState.instance.currentStage.add(abot);
 

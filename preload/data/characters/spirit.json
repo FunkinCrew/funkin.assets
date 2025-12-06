@@ -6,6 +6,8 @@
   "renderType": "packer",
   "isPixel": true,
   "scale": 6,
+  "offsets": [-30, -50],
+  "cameraOffsets": [30, 50],
   "animations": [
     {
       "name": "idle",

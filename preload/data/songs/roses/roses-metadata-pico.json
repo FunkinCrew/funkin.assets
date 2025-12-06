@@ -15,7 +15,7 @@
       "instrumental": "pico",
       "altInstrumentals": []
     },
-    "stage": "schoolPico",
+    "stage": "schoolErect",
     "noteStyle": "pixel",
     "album": "expansion2",
     "ratings": { "easy": 2, "normal": 3, "hard": 4 },
