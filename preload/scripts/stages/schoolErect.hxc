@@ -42,7 +42,6 @@ class SchoolErectStage extends Stage
       case CharacterType.BF:
         rim.angle = 90;
         character.shader = rim;
-
         rim.maskThreshold = 1;
         if (charId  == "bf-pixel" || charId  == "pico-pixel")
         {

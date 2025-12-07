@@ -24,8 +24,8 @@ class PicoPixelCharacter extends SparrowCharacter
   {
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/nenePixel/nenePixelKnifeToss");
     var gf = PlayState.instance.currentStage.getGirlfriend();
-    deathSpriteNene.x = gf.originalPosition.x + 280;
-    deathSpriteNene.y = gf.originalPosition.y + 170;
+    deathSpriteNene.x = gf.originalPosition.x + 280 - (-gf.globalOffsets[0] * 6);
+    deathSpriteNene.y = gf.originalPosition.y + 170 - (-gf.globalOffsets[1] * 6);
     deathSpriteNene.animation.addByPrefix('throw', "knifetosscolor0", 24, false);
     deathSpriteNene.scale.set(6, 6);
     deathSpriteNene.antialiasing = false;

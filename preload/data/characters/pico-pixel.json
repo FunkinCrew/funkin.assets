@@ -18,6 +18,8 @@
   "scale": 6,
   "flipX": true,
   "renderType": "sparrow",
+  "offsets": [15, 0],
+  "cameraOffsets": [15, 0],
   "animations": [
     {
       "name": "idle",
