@@ -25,8 +25,6 @@ class GirlfriendCharacter extends AnimateAtlasCharacter
 
       this.resetPosition();
 
-      // For some reason, the position is wrong when Girlfriend is the opponent. So we change it.
-      // There is likely a better way to do this. This is just the easiest way to fix it.
       this.x -= 90;
       this.y -= 170;
     }
