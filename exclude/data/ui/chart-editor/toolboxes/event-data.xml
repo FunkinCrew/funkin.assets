@@ -8,7 +8,7 @@
 			</dropdown>
 		</grid>
 		<frame id="toolboxEventsDataFrame" text="Event Data" width="100%">
-			<grid id="toolboxEventsDataGrid" columns="2" width="100%" />
+			<vbox id="toolboxEventsDataBox" width="100%"/>
 		</frame>
 	</vbox>
 </collapsible-dialog>
