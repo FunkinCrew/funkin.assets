@@ -326,8 +326,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
         deathSpriteRetry.animation.play('idle');
         deathSpriteRetry.visible = true;
 
-        deathSpriteRetry.x = this.x + 195;
-        deathSpriteRetry.y = this.y - 70;
+        deathSpriteRetry.x = this.x + 207;
+        deathSpriteRetry.y = this.y - 65;
       }
 
       GameOverSubState.instance.startDeathMusic(1.0, false);

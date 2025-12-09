@@ -6,7 +6,8 @@
     "id": "pico",
     "flipX": false
   },
-  "offsets": [20, 2],
+  "offsets": [11, 4],
+  "cameraOffsets": [-17, 2],
   "death": {
     "cameraOffsets": [10, -40],
     "cameraZoom": 1.0,

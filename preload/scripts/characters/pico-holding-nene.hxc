@@ -56,7 +56,7 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
    */
   function createDeathSprites()
   {
-    deathSpriteRetry = FunkinSprite.createTextureAtlas(this.x - 410, this.y - 30, "characters/picoAndNene-DEAD", "shared");
+    deathSpriteRetry = FunkinSprite.createTextureAtlas(this.x - 520, this.y - 28, "characters/picoAndNene-DEAD", "shared");
     deathSpriteRetry.zIndex = 1000;
   }
 

@@ -4,6 +4,8 @@
   "assetPath": "characters/bfAndGF",
   "flipX": true,
   "renderType": "multisparrow",
+  "offsets": [11, 0],
+  "cameraOffsets": [11, 0],
   "healthIcon": {
     "id": "bf"
   },

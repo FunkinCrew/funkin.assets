@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Pico (Pixel)",
   "assetPath": "characters/picoPixel/picoPixel",
+  "offsets": [13, 4],
+  "cameraOffsets": [13, 4],
   "healthIcon": {
     "id": "pico-pixel",
     "flipX": false,

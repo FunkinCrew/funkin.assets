@@ -5,6 +5,8 @@
   "singTime": 8.0,
   "isPixel": true,
   "scale": 6,
+  "offsets": [0, 12],
+  "cameraOffsets": [0, 12],
   "healthIcon": {
     "id": "senpai-angry",
     "isPixel": true

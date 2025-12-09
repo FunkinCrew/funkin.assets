@@ -3,6 +3,8 @@
   "name": "Pico",
   "assetPath": "characters/Pico_Basic",
   "flipX": true,
+  "offsets": [-25, 5],
+  "cameraOffsets": [-25, 5],
   "animations": [
     {
       "name": "idle",

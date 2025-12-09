@@ -36,24 +36,18 @@ class SchoolErectStage extends Stage
     rim.antialiasAmt = 0;
     rim.attachedSprite = character;
     rim.distance = 5;
-
+    var charId = character.characterId;
     switch (charType)
     {
       case CharacterType.BF:
         rim.angle = 90;
         character.shader = rim;
-
-        if (character.characterId == 'pico-pixel')
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/picoPixel_mask'));
-        }
-        else
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/bfPixel_mask'));
-        }
-
         rim.maskThreshold = 1;
-        rim.useAltMask = true;
+        if (charId  == "bf-pixel" || charId  == "pico-pixel")
+        {
+          rim.loadAltMask(Paths.image('weeb/erect/masks/' + ((charId  == "pico-pixel") ? 'picoPixel_mask' : 'bfPixel_mask')));
+          rim.useAltMask = true;
+        }
 
         character.animation.onFrameChange.add(function() {
           if (getBoyfriend() != null)
@@ -63,24 +57,23 @@ class SchoolErectStage extends Stage
         });
 
       case CharacterType.GF:
-        rim.setAdjustColor(-42, -10, 5, -25);
         rim.angle = 90;
         character.shader = rim;
-        rim.distance = 3;
-        rim.threshold = 0.3;
 
-        if (character.characterId == 'nene-pixel')
+        if (charId  == "gf-pixel" || charId  == "nene-pixel")
         {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/nenePixel_mask'));
-          character.addSunsetShaders();
-        }
-        else
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/gfPixel_mask'));
-        }
+          rim.loadAltMask(Paths.image('weeb/erect/masks/' + ((charId  == "nene-pixel") ? 'nenePixel_mask' : 'gfPixel_mask')));
+          rim.useAltMask = true;
+          rim.maskThreshold = 1;
 
-        rim.maskThreshold = 1;
-        rim.useAltMask = true;
+          if (charId  == "gf-pixel")
+          {
+            rim.setAdjustColor(-42, -10, 5, -25);
+            rim.threshold = 0.3;
+            rim.distance = 3;
+          } else if (charId  == "nene-pixel")
+            character.scriptCall('addSunsetShaders');
+        }
 
         character.animation.onFrameChange.add(function() {
           if (getGirlfriend() != null)

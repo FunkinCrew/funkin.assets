@@ -307,8 +307,8 @@ class NeneDarkCharacter extends SparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 135;
-      abot.y = this.y + 210;
+      abot.x = this.x - 115;
+      abot.y = this.y + 230;
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);

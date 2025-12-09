@@ -2,6 +2,8 @@
   "version": "1.0.0",
   "name": "Pico (Christmas)",
   "assetPath": "characters/picoChristmas/picoChristmas",
+  "offsets": [0, 5],
+  "cameraOffsets": [0, 5],
   "healthIcon": {
     "id": "pico",
     "flipX": false
@@ -21,50 +23,50 @@
     {
       "name": "singRIGHT",
       "prefix": "Pico Note Right xmas0",
-      "offsets": [-65, 1]
+      "offsets": [-94, -1]
     },
     {
       "name": "singDOWN",
       "prefix": "Pico Down Note xmas0",
-      "offsets": [84, -77]
+      "offsets": [55, -86]
     },
     {
       "name": "singUP",
       "prefix": "pico Up note xmas0",
-      "offsets": [31, 28]
+      "offsets": [23, 23]
     },
     {
       "name": "singLEFT",
       "prefix": "Pico NOTE LEFT xmas0",
-      "offsets": [90, -11]
+      "offsets": [64, -16]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "Pico NOTE LEFT miss xmas0",
       "looped": false,
-      "offsets": [68, 20],
- 	"frameIndices": [ 1, 2, 3, 4]
+      "offsets": [63, 20],
+ 	 "frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "Pico Down Note MISS xmas0",
       "looped": false,
-      "offsets": [80, -40],
- 	"frameIndices": [ 1, 2, 3, 4]
+      "offsets": [54, -42],
+ 	 "frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singUPmiss",
       "prefix": "pico Up note miss xmas0",
       "looped": false,
-      "offsets": [29, 60],
- 	"frameIndices": [ 1, 2, 3, 4]
+      "offsets": [19, 60],
+ 	 "frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "Pico Note Right Miss xmas0",
       "looped": false,
-      "offsets": [-55, 45],
- 	"frameIndices": [ 1, 2, 3, 4]
+      "offsets": [-87, 45],
+ 	 "frameIndices": [ 1, 2, 3, 4]
     },
     {
       "name": "firstDeath",

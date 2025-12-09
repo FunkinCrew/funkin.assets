@@ -3,6 +3,8 @@
   "name": "Spooky Kids",
   "assetPath": "characters/SpookyKids",
   "singTime": 8.0,
+  "offsets": [-35, -5],
+  "cameraOffsets": [-35, -5],
   "startingAnimation": "danceRight",
   "animations": [
     {

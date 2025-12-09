@@ -70,8 +70,8 @@ class PicoDarkCharacter extends MultiSparrowCharacter
       deathSpriteRetry.animation.play('confirm');
       // I think the glow makes the overall animation larger,
       // but a plain FlxSprite doesn't have an animation offset option so we do it manually.
-      deathSpriteRetry.x -= 250;
-      deathSpriteRetry.y -= 200;
+      deathSpriteRetry.x -= 239;
+      deathSpriteRetry.y -= 204;
       // Skip playing the animation.
       return;
     }
