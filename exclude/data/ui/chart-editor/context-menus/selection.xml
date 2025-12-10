@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu width="220px">
-	<property-grid>
-		<property id="contextmenuOffset" label="Offset (MS)" type="float" value="0" />
-	</property-grid>
-	<dropdown id="contextmenuUnit" text="Milliseconds" value="MILLISECONDS" selectedIndex="0" >
-     <data>
-        <item id="MILLISECONDS" text="Milliseconds" />
-        <item id="STEPS" text="Steps" />
-    </data>
-	</dropdown>
-		<menu-item id="contextmenuOffsetMove" text="Offset Selection" />
+<menu width="240px">
+	<grid columns="2">
+		<dropdown width="50%" id="contextmenuUnit" text="Offset (MS)" value="MILLISECONDS" selectedIndex="0" >
+			<data>
+					<item id="MILLISECONDS" text="Offset (MS)" />
+					<item id="STEPS" text="Offset (Steps)" />
+			</data>
+		</dropdown>
+		<number-stepper width="50%" id="contextmenuOffset" pos="0"  />
+	</grid>
+	<menu-item id="contextmenuOffsetMove" text="Offset Selection" />
 	<menu-separator />
 	<menu-item id="contextmenuCut" text="Cut Selection" shortcutText="Ctrl+X" />
 	<menu-item id="contextmenuCopy" text="Copy Selection" shortcutText="Ctrl+C" />
