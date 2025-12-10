@@ -9,6 +9,8 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.graphics.shaders.DropShadowShader;
 
 class NeneChristmasCharacter extends SparrowCharacter
 {
@@ -253,26 +255,40 @@ class NeneChristmasCharacter extends SparrowCharacter
     }
   }
 
-  var currentShader = null;
+var currentShader = null;
+var adjustColor:AdjustColorShader;
 
-  function synchronizeShader():Void
-  {
-    if (currentShader == this.shader) return;
+function synchronizeShader():Void {
+		if (currentShader == this.shader)
+			return;
 
-    currentShader = this.shader;
+		currentShader = this.shader;
 
-    abot.shader = currentShader;
-    abotViz.shader = currentShader;
-    stereoBG.shader = currentShader;
-    eyeWhites.shader = currentShader;
+		if (Std.isOfType(this.shader, DropShadowShader)) {
+			adjustColor = new AdjustColorShader();
+			adjustColor.brightness = this.shader.baseBrightness;
+			adjustColor.hue = this.shader.baseHue;
+			adjustColor.contrast = this.shader.baseContrast;
+			adjustColor.saturation = this.shader.baseSaturation;
+			abot.shader = adjustColor;
 
-    for (member in abotViz.members)
-    {
-      member.shader = currentShader;
-    }
+			stereoBG.shader = adjustColor;
+			eyeWhites.shader = adjustColor;
+			for (member in abotViz.members) {
+				member.shader = adjustColor;
+			}
+		} else {
+			abot.shader = this.shader;
 
-    trace("Synchronized shader between children!");
-  }
+			stereoBG.shader = this.shader;
+			eyeWhites.shader = this.shader;
+			for (member in abotViz.members) {
+				member.shader = this.shader;
+			}
+
+		trace("Synchronized shader between children!");
+	}
+}
 
   override function onSongStart(event:ScriptEvent)
   {
