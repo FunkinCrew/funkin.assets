@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu>
-	<label id="contextmenuEventKindLabel" styleName="menuLabel" style="padding: 2px;" text="Event Kind: " />
-	<label id="contextmenuEventKind" styleName="menuLabel" style="padding: 2px;" text="Event Kind" />
-	<property-grid>
-		<property id="contextmenuPosition" label="Time (MS)" type="float" value="0" />
-	</property-grid>
-		<dropdown id="contextmenuUnit" text="Milliseconds" value="MILLISECONDS" selectedIndex="0" >
-     <data>
-        <item id="MILLISECONDS" text="Milliseconds" />
-        <item id="STEPS" text="Steps" />
-    </data>
-	</dropdown>
+<menu width="220px">
+	<label id="contextmenuEventKindLabel" styleName="menuLabel" style="padding: 2px; padding-left: 12px; padding-top: 8px;" text="Event Kind: " />
+	<label id="contextmenuEventKind" styleName="menuLabel" style="padding: 2px; padding-left: 12px;" text="Event Kind" />
+	<grid columns="2">
+		<dropdown width="50%" id="contextmenuUnit" text="Time (MS)" value="MILLISECONDS" selectedIndex="0" >
+			<data>
+					<item id="MILLISECONDS" text="Time (MS)" />
+					<item id="STEPS" text="Time (Steps)" />
+			</data>
+		</dropdown>
+		<number-stepper width="50%" id="contextmenuPosition" pos="0"  />
+	</grid>
 	<menu-item id="contextmenuEdit" text="Edit Event" />
 	<menu-item id="contextmenuDelete" text="Delete Event" shortcutText="Delete" />
 </menu>
