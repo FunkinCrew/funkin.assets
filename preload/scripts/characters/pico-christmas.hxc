@@ -14,6 +14,7 @@ import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
 import funkin.util.HapticUtil;
+import funkin.FunkinMemory;
 
 class PicoChristmasCharacter extends MultiSparrowCharacter
 {
@@ -32,6 +33,10 @@ class PicoChristmasCharacter extends MultiSparrowCharacter
     GameOverSubState.blueBallSuffix = '-pico';
 
     PauseSubState.musicSuffix = '-pico';
+
+    // Precache the death sprites.
+    for (img in ["characters/Pico_Death_Retry", "characters/neneChristmas/neneChristmasKnife"])
+      FunkinMemory.cacheTexture(Paths.image(img));
   }
 
   var deathSpriteRetry:FunkinSprite;

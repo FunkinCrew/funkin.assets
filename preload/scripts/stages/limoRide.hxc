@@ -7,12 +7,21 @@ import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
+import funkin.FunkinMemory;
 
 class LimoRideStage extends Stage
 {
   function new()
   {
     super('limoRide');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the car passing sfx.
+    for (snd in ['canPass0', 'carPass1']) FunkinMemory.cacheSound(Paths.sound(snd));
   }
 
   override function buildStage()

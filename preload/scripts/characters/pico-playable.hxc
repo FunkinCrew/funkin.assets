@@ -16,6 +16,7 @@ import funkin.play.PlayState;
 import funkin.util.Constants;
 import funkin.util.HapticUtil;
 import funkin.Preferences;
+import funkin.FunkinMemory;
 
 class PicoPlayerCharacter extends MultiSparrowCharacter
 {
@@ -36,6 +37,23 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     GameOverSubState.blueBallSuffix = '-pico';
 
     PauseSubState.musicSuffix = '-pico';
+
+    // Precache images and sounds.
+    var imgs:Array<String> = ["characters/Pico_Death_Retry", "characters/NeneKnifeToss", "weekend1:characters/picoExplosionDeath", "PicoBullet"];
+    var snds:Array<String> = ["singed_loop", "Gun_Prep", "Pico_Bonk", "shot1", "shot2", "shot3", "shot4"];
+
+    for (img in imgs)
+    {
+      var lib:String = Paths.getLibrary(img);
+      var file:String = Paths.stripLibrary(img);
+
+      FunkinMemory.cacheTexture(Paths.image(file, lib == 'preload' ? null : lib));
+    }
+
+    for (snd in snds)
+    {
+      FunkinMemory.cacheSound(Paths.sound(snd));
+    }
   }
 
   var deathSpriteRetry:FunkinSprite;

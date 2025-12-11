@@ -13,6 +13,7 @@ import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.graphics.shaders.RuntimeRainShader;
+import funkin.FunkinMemory;
 
 class SpookyMansionErectStage extends Stage
 {
@@ -41,6 +42,9 @@ class SpookyMansionErectStage extends Stage
     rainShaderTarget = getNamedProp('bgTrees');
     rainShaderTarget.shader = rainShader;
     rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
+
+    // Precache the thunder sounds.
+    for (snd in ["thunder_1", "thunder_2"]) FunkinMemory.cacheSound(Paths.sound(snd));
   }
 
   function onBranchFrame(name, frameNum, frameIndex)

@@ -6,12 +6,21 @@ import funkin.play.PlayState;
 import funkin.Preferences;
 import funkin.util.Constants;
 import funkin.util.HapticUtil;
+import funkin.FunkinMemory;
 
 class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 {
   function new()
   {
     super('bf');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the sound for the fakeout death.
+    FunkinMemory.cacheSound(Paths.sound("gameplay/gameover/fakeout_death"));
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

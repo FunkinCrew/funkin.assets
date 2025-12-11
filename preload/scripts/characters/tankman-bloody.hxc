@@ -3,6 +3,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import flixel.FlxG;
+import funkin.FunkinMemory;
 
 class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 {
@@ -11,6 +12,14 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
   function new()
   {
     super('tankman-bloody');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the ending cutscene sound.
+    FunkinMemory.cacheSound(Paths.sound('erect/endCutscene'));
   }
 
   var isBloody:Bool = false;

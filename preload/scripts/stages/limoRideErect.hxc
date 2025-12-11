@@ -8,6 +8,7 @@ import funkin.graphics.shaders.AdjustColorShader;
 import flixel.addons.display.FlxBackdrop;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
+import funkin.FunkinMemory;
 
 class LimoRideErectStage extends Stage
 {
@@ -255,6 +256,9 @@ class LimoRideErectStage extends Stage
     colorShader.saturation = -20;
     colorShader.contrast = 0;
     colorShader.brightness = -30;
+
+    // Precache the car passing sfx.
+    for (snd in ['canPass0', 'carPass1']) FunkinMemory.cacheSound(Paths.sound(snd));
   }
 
   /**

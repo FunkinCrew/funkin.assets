@@ -19,6 +19,7 @@ import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
+import funkin.FunkinMemory;
 
 // We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 class TwoHOTSong extends Song
@@ -460,5 +461,13 @@ class TwoHOTSong extends Song
 
     hasPlayedCutscene = false;
     cutsceneConductor = null;
+
+    // Precache the assets for the song.
+    FunkinMemory.cacheTexture(Paths.image("CanImpactParticle"));
+    FunkinMemory.cacheTexture(Paths.image("spraypaintExplosionEZ"));
+    FunkinMemory.cacheTexture(Paths.image("spraycanAtlas/spritemap1"));
+
+    // Create a dummy instance of the spray can so the atlas frames can be cached.
+    var dummyCan:FunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
   }
 }

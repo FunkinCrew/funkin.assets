@@ -6,6 +6,7 @@ import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import flixel.FlxG;
+import funkin.FunkinMemory;
 
 class PicoPixelCharacter extends SparrowCharacter
 {
@@ -43,6 +44,9 @@ class PicoPixelCharacter extends SparrowCharacter
     GameOverSubState.blueBallSuffix = '-pixel-pico';
 
     PauseSubState.musicSuffix = '-pixel';
+
+    // Precache death sprites.
+    FunkinMemory.cacheTexture(Paths.image("characters/nenePixel/nenePixelKnifeToss"));
   }
 
   function playAnimation(name:String, restart:Bool, ignoreOther:Bool)

@@ -4,12 +4,24 @@ import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import flixel.FlxG;
+import funkin.FunkinMemory;
 
 class DarnellCharacter extends AnimateAtlasCharacter
 {
   function new()
   {
     super('darnell');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the sounds used in 2hot.
+    for (snd in ['Darnell_Lighter', 'Kick_Can_UP', 'Kick_Can_FORWARD'])
+    {
+      FunkinMemory.cacheSound(Paths.sound(snd));
+    }
   }
 
   function onNoteHit(event:HitNoteScriptEvent)

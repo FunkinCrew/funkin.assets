@@ -10,6 +10,7 @@ import funkin.graphics.FunkinSprite;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
+import funkin.FunkinMemory;
 
 class PicoDarkCharacter extends MultiSparrowCharacter
 {
@@ -99,6 +100,10 @@ class PicoDarkCharacter extends MultiSparrowCharacter
 
     PlayState.instance.currentStage.add(normalChar);
     PlayState.instance.currentStage.refresh(); // Apply z-index.
+
+    // Precache death sprites.
+    for (img in ["characters/Pico_Death_Retry", "characters/NeneKnifeToss"])
+      FunkinMemory.cacheTexture(Paths.image(img));
   }
 
   var deathSpriteRetry:FunkinSprite;
