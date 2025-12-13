@@ -58,33 +58,36 @@ class StressPicoMixSong extends Song
       startVideo();
     }
 
-    if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
+    if (!PlayState.instance.isMinimalMode)
     {
-      // Destroy the tankman group if it's not valid.
-      tankmanGroup.destroy();
-      PlayState.instance.currentStage.remove(tankmanGroup);
-      tankmanGroup = null;
-    }
+      if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
+      {
+        // Destroy the tankman group if it's not valid.
+        tankmanGroup.destroy();
+        PlayState.instance.currentStage.remove(tankmanGroup);
+        tankmanGroup = null;
+      }
 
-    if (tankmanGroup == null)
-    {
-      // Initialize the tankman group if it's not available.
-      trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-      tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', true);
-    }
+      if (tankmanGroup == null)
+      {
+        // Initialize the tankman group if it's not available.
+        trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
+        tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', true);
+      }
 
-    if (tankmanGroup != null)
-    {
-      // resets the tankmen!
-      tankmanGroup.scriptCall('reset');
+      if (tankmanGroup != null)
+      {
+        // resets the tankmen!
+        tankmanGroup.scriptCall('reset');
 
-      tankmanGroup.zIndex = 30;
-      PlayState.instance.currentStage.add(tankmanGroup);
-      PlayState.instance.currentStage.refresh();
-    }
-    else
-    {
-      trace('Failed to initialize tankman group!');
+        tankmanGroup.zIndex = 30;
+        PlayState.instance.currentStage.add(tankmanGroup);
+        PlayState.instance.currentStage.refresh();
+      }
+      else
+      {
+        trace('Failed to initialize tankman group!');
+      }
     }
   }
 
@@ -120,9 +123,9 @@ class StressPicoMixSong extends Song
     {
       tankmanGroup.scriptCall('reset');
     }
-    if (PlayState.instance.currentStage.getGirlfriend() != null)
+    if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
-      PlayState.instance.currentStage.getGirlfriend().scriptCall('reset');
+      PlayState.instance.currentStage?.getGirlfriend().scriptCall('reset');
       trace('reset pico!');
     }
   }
@@ -154,6 +157,9 @@ class StressPicoMixSong extends Song
   public override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
+
+    // Skip the cutscene if in minimal mode.
+    if (PlayState.instance.isMinimalMode) hasPlayedEndCutscene = true;
 
     if (!hasPlayedEndCutscene)
     {

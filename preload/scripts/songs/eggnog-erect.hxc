@@ -57,6 +57,9 @@ class EggnogErectSong extends Song
   {
     super.onSongEnd(event);
 
+    // Skip the cutscene if in minimal mode.
+    if (PlayState.instance.isMinimalMode) hasPlayedCutscene = true;
+
     if (!hasPlayedCutscene)
     {
       hasPlayedCutscene = true;
