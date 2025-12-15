@@ -437,6 +437,7 @@ class TwoHOTSong extends Song
       // Reset to standard death animation.
       GameOverSubState.musicSuffix = '-pico-explode';
       GameOverSubState.blueBallSuffix = '-pico-explode';
+      GameOverSubState.animationSuffix = '-explosion';
 
       if (!PlayState.instance.isPracticeMode && !PlayState.instance.isMinimalMode) blackenStageProps();
     }
@@ -464,6 +465,7 @@ class TwoHOTSong extends Song
 
     // Precache the assets for the song.
     FunkinMemory.cacheTexture(Paths.image("CanImpactParticle"));
+    FunkinMemory.cacheTexture(Paths.image("SpraypaintExplosion"));
     FunkinMemory.cacheTexture(Paths.image("spraypaintExplosionEZ"));
     FunkinMemory.cacheTexture(Paths.image("spraycanAtlas/spritemap1"));
   }

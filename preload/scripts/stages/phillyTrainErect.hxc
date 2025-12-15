@@ -101,11 +101,12 @@ class PhillyTrainErectStage extends Stage
 
   var cutsceneTimerManager:FlxTimerManager;
 
-  function doppleGangerCutscene()
+  function doppleGangerCutscene():Void
   {
     // Disable player input during cutscene, so you can't get a gameover during cutscene
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
+
     skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
       'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
@@ -132,24 +133,8 @@ class PhillyTrainErectStage extends Stage
     cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
     // 50/50 chance for who shoots
-    if (FlxG.random.bool(50))
-    {
-      playerShoots = true;
-    }
-    else
-    {
-      playerShoots = false;
-    }
-    if (FlxG.random.bool(8))
-    {
-      // trace('Doppelganger will explode!');
-      explode = true;
-    }
-    else
-    {
-      // trace('Doppelganger will smoke!');
-      explode = false;
-    }
+    playerShoots = FlxG.random.bool(50);
+    explode = FlxG.random.bool(8);
 
     var cigarettePos:Array<Float> = [];
     var shooterPos:Array<Float> = [];
@@ -159,8 +144,8 @@ class PhillyTrainErectStage extends Stage
     picoOpponent = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
     cigarette = new FlxSprite(0, 0);
 
-    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 537, PlayState.instance.currentStage.getBoyfriend().y - 209);
-    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 502, PlayState.instance.currentStage.getDad().y - 209);
+    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 402, PlayState.instance.currentStage.getBoyfriend().y - 144);
+    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 333, PlayState.instance.currentStage.getDad().y - 144.5);
 
     picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
@@ -168,11 +153,11 @@ class PhillyTrainErectStage extends Stage
     {
       picoOpponent.zIndex = picoPlayer.zIndex - 1;
       bloodPool.zIndex = picoOpponent.zIndex - 1;
-      cigarette.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 2;
+      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
       cigarette.flipX = true;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 200, PlayState.instance.currentStage.getDad().y + 400);
-      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
+      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 460);
+      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 10, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
       shooterPos = [
         PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
@@ -187,10 +172,10 @@ class PhillyTrainErectStage extends Stage
     {
       picoOpponent.zIndex = picoPlayer.zIndex + 1;
       bloodPool.zIndex = picoPlayer.zIndex - 1;
-      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
+      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 1;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 500, PlayState.instance.currentStage.getBoyfriend().y + 400);
-      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
+      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 460);
+      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 350, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
       cigarettePos = [
         PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,

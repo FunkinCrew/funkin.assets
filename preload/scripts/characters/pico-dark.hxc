@@ -1,5 +1,5 @@
 import flixel.FlxG;
-import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.audio.FunkinSound;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.GameOverSubState;
@@ -12,7 +12,7 @@ import funkin.play.PlayState;
 import funkin.util.HapticUtil;
 import funkin.FunkinMemory;
 
-class PicoDarkCharacter extends MultiSparrowCharacter
+class PicoDarkCharacter extends MultiAnimateAtlasCharacter
 {
   function new()
   {
@@ -35,7 +35,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     return val;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
 
@@ -56,7 +56,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
   {
     if (name == "scared")
     {
@@ -66,22 +66,12 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     {
       createDeathSprites();
 
-      GameOverSubState.instance.add(deathSpriteRetry);
       GameOverSubState.instance.add(deathSpriteNene);
       deathSpriteNene.animation.play("throw");
     }
-    else if (name == "deathConfirm")
-    {
-      deathSpriteRetry.animation.play('confirm');
-      // I think the glow makes the overall animation larger,
-      // but a plain FlxSprite doesn't have an animation offset option so we do it manually.
-      deathSpriteRetry.x -= 250;
-      deathSpriteRetry.y -= 200;
-      // Skip playing the animation.
-      return;
-    }
 
     super.playAnimation(name, restart, ignoreOther);
+
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);
@@ -89,7 +79,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     }
   }
 
-  function onCreate(event:ScriptEvent)
+  function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -114,23 +104,14 @@ class PicoDarkCharacter extends MultiSparrowCharacter
       FunkinMemory.cacheTexture(Paths.image(img));
   }
 
-  var deathSpriteRetry:FunkinSprite;
   var deathSpriteNene:FunkinSprite;
 
   /**
      * Initialize and cache sprites used for the death animation,
    * for use later.
    */
-  function createDeathSprites()
+  function createDeathSprites():Void
   {
-    deathSpriteRetry = FunkinSprite.createSparrow(0, 0, "characters/Pico_Death_Retry");
-    deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
-    deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
-
-    deathSpriteRetry.visible = false;
-
-    // FlxG.debugger.track(deathSpriteRetry);
-
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
     var gf = currentStage.getGirlfriend();
     deathSpriteNene.x = gf.originalPosition.x + 120; // + 280;
@@ -142,22 +123,17 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     }
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int):Void
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
-    if (name == "firstDeath" && frameNumber == 36 - 1 && deathSpriteRetry != null)
+    if (name == "firstDeath" && frameNumber == 36 - 1)
     {
-      deathSpriteRetry.animation.play('idle');
-      deathSpriteRetry.visible = true;
       GameOverSubState.instance.startDeathMusic(1.0, false);
       // force the deathloop to play in here, since we are starting the music early it
       // doesn't check this in gameover substate !
       // also no animation suffix 🤔
       GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
-
-      deathSpriteRetry.x = this.x + 195;
-      deathSpriteRetry.y = this.y - 70;
     }
 
     if (!HapticUtil.hapticsAvailable) return;

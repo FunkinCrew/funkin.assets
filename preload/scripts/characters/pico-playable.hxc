@@ -1,6 +1,5 @@
 import flixel.effects.FlxFlicker;
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -9,7 +8,8 @@ import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.modding.module.ModuleHandler;
 import funkin.play.character.CharacterType;
-import funkin.play.character.MultiSparrowCharacter;
+import flixel.graphics.FlxGraphic;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
@@ -18,7 +18,7 @@ import funkin.util.HapticUtil;
 import funkin.Preferences;
 import funkin.FunkinMemory;
 
-class PicoPlayerCharacter extends MultiSparrowCharacter
+class PicoPlayerCharacter extends MultiAnimateAtlasCharacter
 {
   function new()
   {
@@ -35,14 +35,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
 
     GameOverSubState.musicSuffix = '-pico';
     GameOverSubState.blueBallSuffix = '-pico';
+    GameOverSubState.animationSuffix = '';
 
     PauseSubState.musicSuffix = '-pico';
 
     // Precache images and sounds.
     var imgs:Array<String> = [
-      "characters/Pico_Death_Retry",
       "characters/NeneKnifeToss",
-      "weekend1:characters/picoExplosionDeath/spritemap1",
+      "weekend1:characters/pico/explosion-death/spritemap1",
       "weekend1:PicoBullet"
     ];
 
@@ -72,9 +72,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     }
   }
 
-  var deathSpriteRetry:FunkinSprite;
   var deathSpriteNene:FunkinSprite;
-
   var picoFade:FunkinSprite;
 
   /**
@@ -83,23 +81,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
    */
   function createDeathSprites()
   {
-    deathSpriteRetry = FunkinSprite.createSparrow(0, 0, "characters/Pico_Death_Retry");
-
-    // week 3 shader
-    if (shader != null)
-    {
-      deathSpriteRetry.shader = shader;
-    }
-    // Reminder: The position for this is set in `onAnimationFrame`
-    deathSpriteRetry.animation.addByPrefix('idle', "Retry Text Loop0", 24, true);
-    deathSpriteRetry.animation.addByPrefix('confirm', "Retry Text Confirm0", 24, false);
-
-    deathSpriteRetry.zIndex = this.zIndex + 5;
-
-    deathSpriteRetry.visible = false;
-
-    // FlxG.debugger.track(deathSpriteRetry);
-
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
     var gf = currentStage.getGirlfriend();
     deathSpriteNene.x = gf.originalPosition.x + 120;
@@ -164,7 +145,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   {
     // restore vocal volume to ensure burps always play
     // not needed on the dark variant because this one always exists anyway..
-    if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance.vocals.playerVolume = 1;
+    if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance?.vocals?.playerVolume = 1;
 
     if (name == "firstDeath")
     {
@@ -172,32 +153,22 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       {
         // Explosion death animation.
         doExplosionDeath();
+        return;
       }
       else
       {
         // Standard death animation.
         createDeathSprites();
 
-        GameOverSubState.instance.add(deathSpriteRetry);
         GameOverSubState.instance.add(deathSpriteNene);
         deathSpriteNene.animation.play("throw");
       }
     }
     else if (name == "deathConfirm")
     {
-      if (picoDeathExplosion != null)
+      if (GameOverSubState.blueBallSuffix == '-pico-explode')
       {
         doExplosionConfirm();
-      }
-      else
-      {
-        deathSpriteRetry.animation.play('confirm');
-        // I think the glow makes the overall animation larger,
-        // but a plain FlxSprite doesn't have an animation offset option so we do it manually.
-        deathSpriteRetry.x -= 250;
-        deathSpriteRetry.y -= 200;
-
-        // Skip playing the animation.
         return;
       }
     }
@@ -250,15 +221,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
 
     if (GameOverSubState.blueBallSuffix == '-pico-explode')
     {
-      return [result[0], result[1] + 100];
+      return [result[0] - 10, result[1] - 40];
     }
 
     return [result[0], result[1]];
   }
 
-  var picoDeathExplosion:FunkinSprite;
-
-  function doExplosionDeath()
+  function doExplosionDeath():Void
   {
     if (picoFlicker != null)
     {
@@ -279,21 +248,12 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       HapticUtil.vibrate(0, 0.1, 0.1, 1);
     });
 
-    picoDeathExplosion = FunkinSprite.createTextureAtlas(this.x - 1100, this.y - 1000, "characters/picoExplosionDeath", "weekend1");
-    PlayState.instance.subState.add(picoDeathExplosion);
-    picoDeathExplosion.zIndex = 1000;
-    picoDeathExplosion.anim.onFinish.add(onExplosionFinishAnim);
-    picoDeathExplosion.visible = true;
-    this.visible = false;
-
     new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
-
-    picoDeathExplosion.anim.play('intro');
   }
 
   var singed:FunkinSound;
 
-  function afterPicoDeathExplosionIntro(timer:FlxTimer)
+  function afterPicoDeathExplosionIntro(timer:FlxTimer):Void
   {
     // Start the (standard) death music, 3.5 seconds after the explosion starts,
     // not when the explosion sound finishes or when the loop starts.
@@ -302,34 +262,13 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // singed.fadeIn(0.5, 0.3, 1.0);
   }
 
-  function doExplosionConfirm()
+  function doExplosionConfirm():Void
   {
-    // Suffixed confirm music will already play.
-    picoDeathExplosion.anim.play('Confirm');
     if (singed != null)
     {
       singed.stop();
       singed = null;
     }
-  }
-
-  function onExplosionFinishAnim(animLabel:String)
-  {
-    if (animLabel == 'intro')
-    {
-      picoDeathExplosion.anim.play('Loop Start', true);
-      picoDeathExplosion.anim.curAnim.looped = true;
-    }
-    else if (animLabel == 'Confirm')
-    {
-      // Do nothing, the animation will just play.
-    }
-    trace("Explosion animation finished: " + animLabel);
-  }
-
-  override function onGameOver(event:ScriptEvent):Void
-  {
-    super.onGameOver(event);
   }
 
   override function onSongRetry(event:ScriptEvent):Void
@@ -342,11 +281,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // Reset to standard death animation.
     GameOverSubState.musicSuffix = '-pico';
     GameOverSubState.blueBallSuffix = '-pico';
+    GameOverSubState.animationSuffix = '';
 
     PauseSubState.musicSuffix = '-pico';
-
-    picoDeathExplosion = null;
-    this.visible = true;
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
@@ -355,15 +292,6 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
 
     if (name == "firstDeath" && frameNumber == 36 - 1)
     {
-      if (deathSpriteRetry != null && deathSpriteRetry.animation != null)
-      {
-        deathSpriteRetry.animation.play('idle');
-        deathSpriteRetry.visible = true;
-
-        deathSpriteRetry.x = this.x + 195;
-        deathSpriteRetry.y = this.y - 70;
-      }
-
       GameOverSubState.instance.startDeathMusic(1.0, false);
       // force the deathloop to play in here, since we are starting the music early it
       // doesn't check this in gameover substate !
@@ -376,7 +304,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       createCasing();
     }
 
-    if (!HapticUtil.hapticsAvailable || picoDeathExplosion != null) return;
+    if (!HapticUtil.hapticsAvailable || GameOverSubState.blueBallSuffix == '-pico-explode') return;
 
     // Pico falls on his back.
     if (name == 'firstDeath' && frameNumber == 20)
@@ -396,7 +324,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
 
   var casingGroup:FlxTypedSpriteGroup;
 
-  function createCasing()
+  function createCasing():Void
   {
     if (casingGroup == null)
     {
@@ -411,7 +339,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     if (casing != null) casingGroup.add(casing);
   }
 
-  function clearCasings()
+  function clearCasings():Void
   {
     // Clear the casing group.
     if (casingGroup != null)
@@ -424,22 +352,21 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   /**
    * Play the animation where Pico readies his gun to shoot the can.
    */
-  function playCockGunAnim()
+  function playCockGunAnim():Void
   {
     this.playAnimation('cock', true, true);
 
-    picoFade = new FlxSprite(0, 0);
-    picoFade.frames = this.frames;
-    picoFade.frame = this.frame;
-    picoFade.updateHitbox();
-    picoFade.x = this.x;
-    picoFade.y = this.y;
-    // picoFade.stamp(this, 0, 0);
+    var currentFrameGraphic:FlxGraphic = FlxGraphic.fromBitmapData(this.updateFramePixels(), true, null, false);
+
+    picoFade = new FunkinSprite(this.x - 100, this.y - 200);
+    picoFade.frame = currentFrameGraphic.imageFrame.frame;
     picoFade.alpha = 0.3;
     picoFade.zIndex = this.zIndex - 3;
-    addToStage(picoFade);
+    picoFade.updateHitbox();
+
     FlxTween.tween(picoFade.scale, {x: 1.3, y: 1.3}, 0.4);
     FlxTween.tween(picoFade, {alpha: 0}, 0.4);
+    addToStage(picoFade);
 
     FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
   }
@@ -447,7 +374,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   /**
    * Play the animation where Pico shoots the can successfully.
    */
-  function playFireGunAnim(hip:Bool)
+  function playFireGunAnim(hip:Bool):Void
   {
     this.playAnimation('shoot', true, true);
     FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
@@ -456,14 +383,14 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
   /**
    * Play the animation where Pico is hit by the exploding can.
    */
-  function playCanExplodeAnim()
+  function playCanExplodeAnim():Void
   {
     this.playAnimation('shootMISS', true, true);
     // Donk.
     FunkinSound.playOnce(Paths.sound('Pico_Bonk'), 1.0);
   }
 
-  function addToStage(sprite:FlxSprite)
+  function addToStage(sprite:FunkinSprite):Void
   {
     if (this.debug)
     {
