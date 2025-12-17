@@ -12,6 +12,8 @@
   ],
   "showUnownedChars": false,
   "unlocked": true,
+  "deathName": "Deaths",
+  "deathNameSingular": "Death",
   "freeplayStyle": "pico",
   "stickerPack": "standard-pico",
   "freeplayDJ": {
