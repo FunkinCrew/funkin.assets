@@ -1,0 +1,31 @@
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import flixel.FlxG;
+
+// a unique object for tankman talking in his cutscenes
+class TankmanCutsceneSprite extends FunkinSprite
+{
+  public function new(x:Float, y:Float)
+  {
+    super(x, y);
+
+    loadTextureAtlas("cutscene/tankman", "week7");
+
+    // Ugh
+    anim.addByFrameLabel("wellWellWell", "What do we got here", 24, false);
+    anim.addByFrameLabel("killYou", "We should just kill you", 24, false);
+
+    // Guns
+    anim.addByFrameLabel("tightBars", "In Game Cutscene 2", 24, false);
+
+    // Stress
+    anim.addByFrameLabel("godEffingDamnIt", "GOD EFFING DAMMIT", 24, false);
+    anim.addByFrameLabel("lookWhoItIs", "Sexually Ambiguous", 24, false);
+  }
+
+  public function playAnimation(animName:String, force:Bool = false, reversed:Bool = false, frame:Int = 0):Void
+  {
+    this.anim.play(animName, force, reversed, frame);
+  }
+}
+

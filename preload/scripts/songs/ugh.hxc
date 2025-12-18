@@ -1,12 +1,30 @@
+import funkin.audio.FunkinSound;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.song.Song;
-import funkin.save.Save;
 import funkin.play.PlayState;
-import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
+import funkin.save.Save;
+import funkin.ui.FullScreenScaleMode;
+import funkin.Paths;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxTimer;
+import flixel.util.FlxTimerManager;
+import flixel.FlxG;
 
 class UghSong extends Song
 {
-  var hasPlayedCutscene:Bool;
+  var hasPlayedCutscene:Bool = false;
+  var canSkipCutscene:Bool = false;
+  var cutsceneSkipped:Bool = false;
+  var isMobilePauseButtonPressed:Bool = false;
+  var skipText:FlxText;
+
+  var cutsceneTimerManager:FlxTimerManager;
+  var cutsceneMusic:FunkinSound;
 
   public function new()
   {
@@ -33,29 +51,261 @@ class UghSong extends Song
   {
     super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // Skip the cutscene unless we are in Story Mode.
+    if (!PlayStatePlaylist.isStoryMode)
+    {
+      hasPlayedCutscene = true;
+    }
 
     if (!hasPlayedCutscene)
     {
-      trace('Pausing countdown to play a video cutscene (`ugh`)');
+      trace('Pausing countdown to play in-game cutscene (`ugh`)');
 
       hasPlayedCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
+      runCutscene();
     }
   }
 
-  function startVideo()
+  var cutsceneSounds:Array<FunkinSound> = [];
+  var cutsceneTimeDummy:FunkinSound = null;
+
+  var tankmanCutscene:FunkinSprite = null;
+
+  function runCutscene():Void
   {
-    VideoCutscene.play(Paths.videos('ughCutscene.mkv'));
+    PlayState.instance.isInCutscene = true;
+    PlayState.instance.mayPauseGame = false;
+    PlayState.instance.camHUD.visible = false;
+    PlayState.instance.camCutscene.visible = true;
+    PlayState.instance.currentCameraZoom = 1.08;
+
+    PlayState.instance.cameraFollowPoint.setPosition(316, 386.5);
+    FlxG.camera.snapToTarget();
+
+    PlayState.instance.resetCamera(false, false, false);
+
+    skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
+      'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+    if (FlxG.onMobile)
+    {
+      skipText.text = 'Skip [Pause Button]';
+      skipText.x -= 136;
+    }
+    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+    skipText.scrollFactor.set();
+    skipText.borderSize = 2;
+    skipText.alpha = 0;
+    PlayState.instance.add(skipText);
+
+    skipText.cameras = [PlayState.instance.camCutscene];
+
+    cutsceneTimerManager = new FlxTimerManager();
+    cutsceneSounds = [];
+
+    if (PlayState.instance.subtitles != null)
+    {
+      cutsceneTimeDummy = new FunkinSound();
+      cutsceneSounds.push(cutsceneTimeDummy);
+
+      var subtitlesFile:String = 'songs/' + PlayState.instance.currentSong.id + '/subtitles/cutscene';
+      PlayState.instance.subtitles.assignSubtitles(subtitlesFile, cutsceneTimeDummy);
+    }
+
+    cutsceneMusic = FunkinSound.load(Paths.music("DISTORTO/DISTORTO", "week7"), 1, true);
+    cutsceneSounds.push(cutsceneMusic);
+
+    var wellWellWellSound:FunkinSound = FunkinSound.load(Paths.sound("wellWellWell", "week7"), 1, false);
+    cutsceneSounds.push(wellWellWellSound);
+
+    var killYouSound:FunkinSound = FunkinSound.load(Paths.sound("killYou", "week7"), 1, false);
+    cutsceneSounds.push(killYouSound);
+
+    var beep:FunkinSound = FunkinSound.load(Paths.sound("bfBeep", "week7"), 1, false);
+    cutsceneSounds.push(beep);
+
+    var dadPosition:FlxPoint = PlayState.instance.currentStage.getDadPosition();
+    PlayState.instance.currentStage.getDad().visible = false;
+
+    tankmanCutscene = ScriptedFunkinSprite.init('TankmanCutsceneSprite', dadPosition.x - 316, dadPosition.y - 725);
+    tankmanCutscene.zIndex = PlayState.instance.currentStage.getDad().zIndex;
+    PlayState.instance.currentStage.add(tankmanCutscene);
+    PlayState.instance.currentStage.refresh();
+
+    new FlxTimer(cutsceneTimerManager).start(0, function(_) {
+      cutsceneMusic.play();
+
+      PlayState.instance.cameraFollowPoint.y = 486.5;
+      PlayState.instance.resetCamera(false, false, false);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(0.25, function(_) {
+      wellWellWellSound.play();
+      tankmanCutscene.playAnimation("wellWellWell", true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(3, function(_) {
+      PlayState.instance.cameraFollowPoint.setPosition(1116, 586.5);
+      PlayState.instance.resetCamera(false, false, false);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(4.5, function(_) {
+      PlayState.instance.currentStage.getBoyfriend().playSingAnimation(2);
+
+      beep.play();
+      beep.onComplete = () -> {
+        PlayState.instance.currentStage.getBoyfriend().dance(true);
+        beep.onComplete = null;
+      };
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(6, function(_) {
+      PlayState.instance.cameraFollowPoint.setPosition(316, 486.5);
+      PlayState.instance.resetCamera(false, false, false);
+
+      killYouSound.play();
+      tankmanCutscene.playAnimation("killYou", true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(11.6, function(_) {
+      cutsceneSkipped = true;
+      canSkipCutscene = false;
+
+      FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});
+
+      cutsceneMusic.fadeOut(0.5, 0, function(_) {
+        cutsceneMusic.stop();
+        cutsceneMusic.destroy();
+        cutsceneMusic = null;
+      });
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(12.1, function(_) {
+      PlayState.instance.cameraFollowPoint.setPosition(PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.y);
+      PlayState.instance.resetCamera(false, false, false);
+      PlayState.instance.tweenCameraZoom(1, 0.5, false, FlxEase.quadInOut);
+
+      endCutscene();
+    });
+  }
+
+  function skipCutscene():Void
+  {
+    cutsceneSkipped = true;
+    canSkipCutscene = false;
+
+    PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
+
+    while (cutsceneSounds.length > 0)
+    {
+      var sound:FunkinSound = cutsceneSounds.pop();
+      sound.fadeOut(0.5, 0, function(_) {
+        sound.stop();
+        sound.destroy();
+        sound = null;
+      });
+    }
+
+    // The camera used for subtitles is ABOVE `camCutscene`.
+    // So let's destroy it before anyone sees the problem!
+    if (PlayState.instance.subtitles != null)
+    {
+      PlayState.instance.subtitles.assignedSound = null;
+      PlayState.instance.subtitles.subtitlesData = null;
+      PlayState.instance.subtitles.setText([], true);
+      cutsceneTimeDummy = null;
+    }
+
+    new FlxTimer(cutsceneTimerManager).start(0.5, _ -> {
+      PlayState.instance.justUnpaused = true;
+      PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+
+      PlayState.instance.cameraFollowPoint.setPosition(PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.y);
+      PlayState.instance.resetCamera(true, true, true);
+
+      skipText.visible = false;
+
+      endCutscene();
+    });
+  }
+
+  function endCutscene():Void
+  {
+    cutsceneTimerManager.clear();
+    cutsceneTimerManager.destroy();
+    cutsceneTimerManager = null;
+
+    skipText.destroy();
+    skipText = null;
+
+    tankmanCutscene.destroy();
+    tankmanCutscene = null;
+
+    if (PlayState.instance.subtitles != null)
+    {
+      PlayState.instance.subtitles.assignedSound = null;
+      PlayState.instance.subtitles.subtitlesData = null;
+      PlayState.instance.subtitles.setText([], true);
+      cutsceneTimeDummy = null;
+    }
+
+    PlayState.instance.currentStage.getDad().visible = true;
+    PlayState.instance.currentStage.getBoyfriend().dance(true);
+
+    PlayState.instance.isInCutscene = false;
+    PlayState.instance.mayPauseGame = true;
+    PlayState.instance.startCountdown();
+  }
+
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+
+    if (cutsceneTimerManager != null)
+    {
+      cutsceneTimerManager.update(event.elapsed);
+    }
+
+    if (cutsceneTimeDummy != null)
+    {
+      cutsceneTimeDummy.time += event.elapsed * 1000;
+    }
+
+    if (FlxG.onMobile)
+    {
+      isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+    }
+
+    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
+    {
+      if (!canSkipCutscene)
+      {
+        trace('Can\'t skip cutscene yet!');
+        if (skipText != null)
+        {
+          FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+          new FlxTimer().start(0.5, _ -> {
+            canSkipCutscene = true;
+            trace('Can skip cutscene!');
+          });
+        }
+      }
+    }
+    if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped && canSkipCutscene)
+    {
+      skipCutscene();
+      trace('Skipped cutscene!');
+    }
   }
 
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  function onSongRetry(event:ScriptEvent):Void
   {
     super.onSongRetry(event);
 
@@ -70,5 +320,8 @@ class UghSong extends Song
     super.onCreate(event);
 
     hasPlayedCutscene = false;
+    canSkipCutscene = false;
+    cutsceneSkipped = false;
   }
 }
+
