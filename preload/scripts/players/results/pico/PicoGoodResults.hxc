@@ -13,6 +13,7 @@ class PicoGoodResults extends FunkinSprite
   function new(x:Float, y:Float)
   {
     super(x, y);
+
     loadTextureAtlas("resultScreen/results-pico/resultsGOOD", "shared");
     scaleFlashes();
 
