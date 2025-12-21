@@ -116,9 +116,9 @@
         "scriptClass": "PicoGreatResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [-494.5, -235.5],
+        "offsets": [160, -265],
         "looped": true,
-        "loopFrame": 32
+        "loopFrame": 34
       }
     ],
     "great": [
@@ -127,9 +127,9 @@
         "scriptClass": "PicoGreatResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [-494.5, -235.5],
+        "offsets": [160, -265],
         "looped": true,
-        "loopFrame": 32
+        "loopFrame": 34
       }
     ],
     "good": [
