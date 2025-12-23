@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="500">
+<collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="900" height="500">
     <hbox width="100%" height="100%">
-        <vbox width="50%" height="100%">
+        <vbox width="33.3%" height="100%">
             <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
                 <grid columns="2" height="100%">
                     <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
@@ -59,7 +59,7 @@
                 </grid>
             </frame>
         </vbox>
-        <vbox width="50%" height="100%">
+        <vbox width="33.3%" height="100%">
             <dropdown id="inputTimeChange" value="Time Change" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected time change.">
                 <data>
                     <item text="0 ms : BPM: 100 in 4/4" />
@@ -124,6 +124,28 @@
             <button allowFocus="false" id="createTimeChange" text="Create New Time Change" tooltip="Create a new time change at the playhead." />
             <spacer />
             <button allowFocus="false" id="removeTimeChange" text="Remove Current Time Change" tooltip="Remove the currently selected time change." />
+        </vbox>
+        <vbox width="33.3%" height="100%">
+            <dropdown id="inputLabel" value="Label" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected label.">
+                <data>
+                    <item text="0 ms : Start" />
+                </data>
+            </dropdown>
+            <frame text="Song Label Data" width="100%" id="frameLabels">
+                <grid columns="2">
+                    <label text="Name:" verticalAlign="center" />
+                    <textfield id="inputLabelName" value="Label" tooltip="The name of the label." />
+                    <label id="labelLabelTimeStamp" text="Timestamp:" verticalAlign="center" />
+                    <number-stepper id="inputLabelTimeStamp" pos="100" step="150" precision="4" horizontalAlign="right" width="150" tooltip="Adjust the timestamp of when the currently selected label will appear in the song." />
+                    <checkbox id="checkPracticeMode" text="Practice Mode" selected="false" tooltip="Whether to show the label in Practice Mode." />
+                    <label text="" verticalAlign="center" />
+                    <label text="Description:" verticalAlign="center" />
+                    <textarea id="inputLabelDesc" value="" tooltip="The description of the label." height="50" />
+                </grid>
+            </frame>
+            <button allowFocus="false" id="addLabel" text="Add Label" tooltip="Create a new label at the playhead." />
+            <button allowFocus="false" id="removeLabel" text="Remove Current Label" tooltip="Remove the currently selected label." />
+            <button allowFocus="false" id="jumpToLabel" text="Jump to Current Label" tooltip="Jump to the currently selected label." />
         </vbox>
     </hbox>
 </collapsible-dialog>
