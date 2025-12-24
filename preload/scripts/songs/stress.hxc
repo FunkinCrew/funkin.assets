@@ -55,9 +55,7 @@ class StressSong extends Song
       if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
       {
         // Destroy the tankman group if it's not valid.
-        tankmanGroup.destroy();
-        PlayState.instance.currentStage.remove(tankmanGroup);
-        tankmanGroup = null;
+        cleanupTankmanGroup();
       }
 
       if (tankmanGroup == null)
@@ -116,8 +114,10 @@ class StressSong extends Song
       trace('reset pico!');
     }
   }
-  function kill():Void
+
+  function onDestroy(event:ScriptEvent):Void
   {
+    super.onDestroy(event);
     cleanupTankmanGroup();
   }
 
@@ -125,8 +125,7 @@ class StressSong extends Song
   {
     if (tankmanGroup != null)
     {
-      PlayState.instance.currentStage.remove(tankmanGroup);
-      tankmanGroup.destroy();
+      PlayState.instance.currentStage.remove(tankmanGroup, true);
       tankmanGroup = null;
     }
   }
