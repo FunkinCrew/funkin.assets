@@ -125,5 +125,8 @@
 		.uploadBG:hover {
 		background-color: #444444;
 		}
-</style>
+		.tooltip {
+		pointer-events: none;
+		}
+	</style>
 </box>
