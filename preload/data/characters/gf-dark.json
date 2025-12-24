@@ -4,8 +4,8 @@
   "renderType": "animateatlas",
   "assetPath": "shared:characters/gf-dark",
   "startingAnimation": "danceRight",
-  "offsets": [0, -165],
-  "cameraOffsets": [0, -165],
+  "offsets": [-12, 4],
+  "cameraOffsets": [12, 8],
   "atlasSettings": {
     "useRenderTexture": true
   },

@@ -1,24 +1,15 @@
-import funkin.play.character.SparrowCharacter;
-import funkin.play.character.CharacterType;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.util.SortUtil;
 import funkin.play.PlayState;
-import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFunkinSprite;
-import funkin.modding.base.ScriptedFlxSprite;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.audio.visualize.ABotVis;
-import funkin.graphics.shaders.DropShadowShader;
 import funkin.graphics.shaders.AdjustColorShader;
-import Lambda;
 
-class OtisSpeakerCharacter extends SparrowCharacter
+class OtisSpeakerCharacter extends AnimateAtlasCharacter
 {
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];
@@ -30,11 +21,11 @@ class OtisSpeakerCharacter extends SparrowCharacter
 
   var abot:FunkinSprite;
   var abotViz:ABotVis;
-  var stereoBG:FlxSprite;
-  var eyeWhites:FlxSprite;
+  var stereoBG:FunkinSprite;
+  var eyeWhites:FunkinSprite;
   var pupil:FunkinSprite;
 
-  var muzzleFlash:FlxSprite;
+  var muzzleFlash:FunkinSprite;
 
   function new()
   {
@@ -67,7 +58,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
     vizAdjustColor.contrast = 0;
     vizAdjustColor.saturation = -10;
 
-    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+    stereoBG = new FunkinSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
@@ -103,8 +94,8 @@ class OtisSpeakerCharacter extends SparrowCharacter
 
     this.playAnimation('idle', true, true);
 
-    muzzleFlash = new FlxSprite(0, 0);
-    muzzleFlash.frames = Paths.getSparrowAtlas("erect/otis_flashes");
+    muzzleFlash = new FunkinSprite(0, 0);
+    muzzleFlash.frames = Paths.getSparrowAtlas("characters/otis/muzzle-flashes/otis_flashes", "shared");
     muzzleFlash.animation.addByPrefix('shoot1', 'shoot back0', 24, false);
     muzzleFlash.animation.addByPrefix('shoot2', 'shoot back low0', 24, false);
     muzzleFlash.animation.addByPrefix('shoot3', 'shoot forward0', 24, false);
@@ -117,7 +108,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
     initTimemap();
   }
 
-  function updateMuzzle()
+  function updateMuzzle():Void
   {
     if (muzzleFlash.animation.curAnim.curFrame > 1)
     {
@@ -188,8 +179,8 @@ class OtisSpeakerCharacter extends SparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 135;
-      abot.y = this.y + 200;
+      abot.x = this.x + 170 - (-this.globalOffsets[0] * this.scale.x);
+      abot.y = this.y + 455 - (-this.globalOffsets[1] * this.scale.y);
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);
@@ -257,19 +248,19 @@ class OtisSpeakerCharacter extends SparrowCharacter
     {
       case 0:
         this.playAnimation('shoot1', true, true);
-        muzzleFlash.setPosition(this.x + 590, this.y - 130);
+        muzzleFlash.setPosition(this.x + 950, this.y);
         muzzleFlash.animation.play('shoot1', true);
       case 1:
         this.playAnimation('shoot2', true, true);
-        muzzleFlash.setPosition(this.x + 620, this.y - 170);
+        muzzleFlash.setPosition(this.x + 950, this.y - 50);
         muzzleFlash.animation.play('shoot2', true);
       case 2:
         this.playAnimation('shoot3', true, true);
-        muzzleFlash.setPosition(this.x - 560, this.y - 190);
+        muzzleFlash.setPosition(this.x - 350, this.y - 50);
         muzzleFlash.animation.play('shoot3', true);
       case 3:
         this.playAnimation('shoot4', true, true);
-        muzzleFlash.setPosition(this.x - 520, this.y - 230);
+        muzzleFlash.setPosition(this.x - 350, this.y - 100);
         muzzleFlash.animation.play('shoot4', true);
     }
   }

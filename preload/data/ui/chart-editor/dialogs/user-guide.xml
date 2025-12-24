@@ -25,11 +25,11 @@
 					<item action="Scroll Up/Down" keybind="Mouse Wheel" />
 					<item action="Scroll Up/Down (Fast)" keybind="Shift + Mouse Wheel" />
 					<item action="Scroll Up/Down (Precise)" keybind="Ctrl + Mouse Wheel" />
-					<item action="Scroll Up" keybind="Up Arrow" />
-					<item action="Scroll Up (Fast)" keybind="Shift + Up Arrow" />
+					<item action="Scroll Up" keybind="Up Arrow/W" />
+					<item action="Scroll Up (Fast)" keybind="Shift + Up Arrow/W" />
 					<item action="Scroll Up (Precise)" keybind="Ctrl + Up Arrow" />
-					<item action="Scroll Down" keybind="Down Arrow" />
-					<item action="Scroll Down (Fast)" keybind="Shift + Down Arrow" />
+					<item action="Scroll Down" keybind="Down Arrow/S" />
+					<item action="Scroll Down (Fast)" keybind="Shift + Down Arrow/S" />
 					<item action="Scroll Down (Precise)" keybind="Ctrl + Down Arrow" />
 					<item action="Scroll, Leave Playhead Stationary" keybind="Middle Click + Arrows/Mouse Wheel" />
 					<item action="Scroll (Playhead Only)" keybind="Alt + Arrows/Mouse Wheel" />
@@ -50,12 +50,23 @@
 					<item action="Copy Selection" keybind="Ctrl + C" />
 					<item action="Cut Selection" keybind="Ctrl + X" />
 					<item action="Paste" keybind="Ctrl + V" />
+					<item action="Paste Unsnapped" keybind="Ctrl + Shift + V" />
 					<item action="Delete Selection" keybind="Delete" />
 					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
-					<item action="Select All" keybind="Ctrl + A" />
+					<item action="Flip Selected Notes" keybind="Ctrl + F" />
+					<item action="Select All Notes" keybind="Ctrl + A" />
+					<item action="Select All Events" keybind="Ctrl + Alt + A" />
+					<item action="Append All Notes to Selection" keybind="Ctrl + Shift + A" />
+					<item action="Append All Events to Selection" keybind="Ctrl + Alt + Shift + A" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />
 					<item action="Select Region" keybind="Tab" />
+					<item action="Toggle Metronome" keybind="Shift + M" />
+					<item action="Toggle Hitsounds" keybind="Shift + H" />
+					<item action="Toggle Instrumental" keybind="Shift + I" />
+					<item action="Toggle Vocals" keybind="Shift + V" />
+					<item action="Toggle Player Vocals" keybind="Shift + B" />
+					<item action="Toggle Opponent Vocals" keybind="Shift + D" />
 					<item action="Test Song" keybind="Enter" />
 					<item action="Test Song (Minimal Mode)" keybind="Shift + Enter" />
 					<item action="Switch to Easier Difficulty" keybind="Ctrl + Left Arrow" />

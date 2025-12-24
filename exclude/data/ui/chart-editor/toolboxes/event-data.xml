@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxEvents" title="Events" width="320" style="minHeight:200">
+<collapsible-dialog id="toolboxEvents" title="Events" width="360" style="minHeight:200">
 	<vbox width="100%">
 		<grid columns="2" width="100%">
 			<label text="Event Type" verticalAlign="center" />
@@ -8,7 +8,7 @@
 			</dropdown>
 		</grid>
 		<frame id="toolboxEventsDataFrame" text="Event Data" width="100%">
-			<grid id="toolboxEventsDataGrid" columns="2" width="100%" />
+			<vbox id="toolboxEventsDataBox" width="100%"/>
 		</frame>
 	</vbox>
 </collapsible-dialog>

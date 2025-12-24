@@ -6,8 +6,8 @@
     "id": "monster"
   },
   "renderType": "animateatlas",
-  "cameraOffsets": [0, -180],
-  "offsets": [0, -180],
+  "offsets": [0, 1],
+  "cameraOffsets": [0, 12],
   "animations": [
     {
       "name": "idle",

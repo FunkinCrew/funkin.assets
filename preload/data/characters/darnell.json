@@ -3,8 +3,8 @@
   "name": "Darnell",
   "assetPath": "shared:characters/darnell",
   "renderType": "animateatlas",
-  "offsets": [50, -150],
-  "cameraOffsets": [-10, -180],
+  "offsets": [18, 31],
+  "cameraOffsets": [-18, 4],
   "animations": [
     {
       "name": "idle",

@@ -7,10 +7,10 @@
     "id": "bf"
   },
   "flipX": true,
-  "offsets": [15, -120],
-  "cameraOffsets": [15, -90],
+  "offsets": [17, 3],
+  "cameraOffsets": [-17, 36],
   "death": {
-    "cameraOffsets": [-300, -450]
+    "cameraOffsets": [-62, 42]
   },
   "animations": [
     {
@@ -87,7 +87,7 @@
       "asset": "shared:characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
-      "offsets": [10, 125],
+      "offsets": [18, 15],
       "atlasSettings": {
         "uniqueInCache": true
       }
@@ -97,20 +97,20 @@
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
-      "offsets": [10, 125]
+      "offsets": [18, 15]
     },
     {
       "asset": "shared:characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
-      "offsets": [10, 125]
+      "offsets": [18, 15]
     },
     {
       "assetPath": "shared:characters/bfFakeOut",
       "name": "fakeoutDeath",
       "prefix": "fake out death BF",
       "animType": "symbol",
-      "offsets": [-3, 45]
+      "offsets": [-3, -65]
     }
   ]
 }

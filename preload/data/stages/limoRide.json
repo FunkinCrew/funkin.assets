@@ -40,7 +40,7 @@
     {
       "zIndex": 150,
       "danceEvery": 0,
-      "position": [-120, 550],
+      "position": [-120, 528],
       "scale": [1, 1],
       "name": "limo",
       "animType": "sparrow",

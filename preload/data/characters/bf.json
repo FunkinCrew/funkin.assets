@@ -4,10 +4,10 @@
   "renderType": "multianimateatlas",
   "assetPath": "shared:characters/bf",
   "flipX": true,
-  "offsets": [15, -110],
-  "cameraOffsets": [15, -110],
+  "offsets": [17, 14],
+  "cameraOffsets": [-18, 36],
   "death": {
-    "cameraOffsets": [-300, -450]
+    "cameraOffsets": [-73, 42]
   },
   "animations": [
     {
@@ -58,7 +58,7 @@
       "asset": "shared:characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
-      "offsets": [10, 125],
+      "offsets": [22, 15],
       "atlasSettings": {
         "uniqueInCache": true
       }
@@ -68,20 +68,20 @@
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
-      "offsets": [10, 125]
+      "offsets": [22, 15]
     },
     {
       "asset": "shared:characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
-      "offsets": [10, 125]
+      "offsets": [22, 15]
     },
     {
       "assetPath": "shared:characters/bfFakeOut",
       "name": "fakeoutDeath",
       "prefix": "fake out death BF",
       "animType": "symbol",
-      "offsets": [-3, 45]
+      "offsets": [-3, -65]
     },
     {
       "name": "scared",

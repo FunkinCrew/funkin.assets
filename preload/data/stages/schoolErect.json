@@ -181,7 +181,7 @@
       "cameraOffsets": [160, 0],
       "position": [306, 960]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 763] }
+    "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 823] }
   },
   "name": "School (Date) [Erect]",
   "directory": "week6"

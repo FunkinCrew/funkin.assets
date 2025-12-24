@@ -1,78 +1,92 @@
 {
   "version": "1.0.0",
   "name": "Pico (Holding Nene)",
-  "assetPath": "characters/picoAndNene",
+  "assetPath": "shared:characters/pico-holding-nene",
   "healthIcon": {
-    "id": "pico",
-    "flipX": false
+    "id": "pico"
   },
-  "offsets": [20, 2],
+  "offsets": [52, 16],
+  "cameraOffsets": [-32, 24],
   "death": {
-    "cameraOffsets": [10, -40],
-    "cameraZoom": 1.0,
-    "deathQuoteDelay": 3.0
+    "cameraOffsets": [-100, 25]
   },
   "flipX": true,
-  "renderType": "sparrow",
+  "renderType": "multianimateatlas",
   "animations": [
     {
       "name": "idle",
-      "prefix": "Pico Idle Dance",
-      "offsets": [0, 0]
+      "prefix": "idle"
     },
     {
       "name": "singRIGHT",
-      "prefix": "Pico Note Right0",
-      "offsets": [-48, -20]
+      "prefix": "right"
     },
     {
       "name": "singDOWN",
-      "prefix": "Pico Down Note0",
-      "offsets": [93, -70]
+      "prefix": "down"
     },
     {
       "name": "singUP",
-      "prefix": "pico Up note0",
-      "offsets": [56, 3]
+      "prefix": "up"
     },
     {
       "name": "singLEFT",
-      "prefix": "Pico NOTE LEFT0",
-      "offsets": [27, -16]
+      "prefix": "left"
     },
     {
       "name": "singRIGHTmiss",
-      "prefix": "note miss right pico nene0",
-      "offsets": [-45, -19]
+      "prefix": "right miss"
     },
     {
       "name": "singDOWNmiss",
-      "prefix": "note miss down pico nene0",
-      "offsets": [95, -74]
+      "prefix": "down miss"
     },
     {
       "name": "singUPmiss",
-      "prefix": "note miss up piconene0",
-      "offsets": [60, 2]
+      "prefix": "up miss"
     },
     {
       "name": "singLEFTmiss",
-      "prefix": "note miss left pico nene0",
-      "offsets": [28, -11]
+      "prefix": "left miss"
     },
     {
       "name": "knifeToss",
-      "prefix": "pico nene knife toss0",
-      "offsets": [14, 26]
+      "prefix": "nene knife"
     },
     {
       "name": "laughEnd",
-      "prefix": "pico nene laughing full0",
-      "offsets": [5, 7]
+      "prefix": "laugh start"
     },
     {
+      "name": "laughEnd-loop",
+      "prefix": "laugh loop",
+      "looped": true
+    },
+    {
+      "assetPath": "shared:characters/pico-holding-nene/picoAndNene-DEAD",
       "name": "firstDeath",
-      "prefix": ""
+      "prefix": "intro",
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "shared:characters/pico-holding-nene/picoAndNene-DEAD",
+      "name": "deathLoop",
+      "prefix": "loop",
+      "looped": true,
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "shared:characters/pico-holding-nene/picoAndNene-DEAD",
+      "name": "deathConfirm",
+      "prefix": "confirm",
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "shared:characters/pico-holding-nene/picoAndNene-DEAD",
+      "name": "deathConfirm-loop",
+      "prefix": "confirm loop",
+      "looped": true,
+      "offsets": [543, 0]
     }
   ]
 }

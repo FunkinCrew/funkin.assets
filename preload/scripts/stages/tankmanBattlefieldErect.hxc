@@ -39,15 +39,6 @@ class TankmanBattlefieldErectStage extends Stage
     character.shader = rim;
     rim.attachedSprite = character;
 
-    if (character.isAnimate)
-    {
-      character.useRenderTexture = true;
-
-      // This is to properly intitialize the shader itself
-      // If this isn't here, the character will flash piss yellow briefly before the next animation frame!!
-      rim.updateFrameInfoSimple(character.frameWidth, character.frameHeight, 0);
-    }
-
     switch (charType)
     {
       case CharacterType.BF:
@@ -94,8 +85,7 @@ class TankmanBattlefieldErectStage extends Stage
     character.animation.onFrameChange.add(function() {
       if (character_persist != null)
       {
-        var frameAngle:Float = !character_persist.isAnimate ? character_persist.frame.angle : 0;
-        rim.updateFrameInfoSimple(character_persist.frameWidth, character_persist.frameHeight, frameAngle);
+        rim.updateFrameInfo(character_persist.frame);
       }
     });
   }

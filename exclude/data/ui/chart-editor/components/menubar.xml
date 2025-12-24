@@ -60,15 +60,19 @@
     </menu>
   </menu>
   <menu text="View">
-    <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    </vbox>
     <menu text="Theme">
       <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" />
       <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
     </menu>
     <menu-separator />
-    <menu-checkbox id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
-    <menu-checkbox id="menubarItemViewSubtitles" text="Subtitles" tooltip="Show subtitles." />
-    <menu-checkbox id="menubarItemViewWaveforms" text="Waveforms" />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
+    <menu-checkbox width="100%" id="menubarItemViewSubtitles" text="Subtitles" tooltip="Show subtitles." />
+    <menu-checkbox width="100%" id="menubarItemViewWaveforms" text="Waveforms" />
+    </vbox>
     <menu-separator />
     <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
     <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
@@ -121,22 +125,26 @@
       <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
     </vbox>
     <menu-separator />
-    <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemThemeMusic" text="Play Theme Music" />
+    </vbox>
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />
     <menu-item id="menubarItemPlaytestMinimal" text="Playtest Chart (Minimal Mode)" shortcutText="Shift-Enter" />
   </menu>
   <menu text="Window">
-    <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
-    <menu-checkbox hidden="true" id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
-    <menu-checkbox hidden="true" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
-    <menu-checkbox id="menubarItemToggleToolboxOffsets" text="Offsets" />
-    <menu-checkbox id="menubarItemToggleToolboxNoteData" text="Notes" />
-    <menu-checkbox id="menubarItemToggleToolboxEventData" text="Events" />
-    <menu-checkbox id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
-    <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxOffsets" text="Offsets" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxNoteData" text="Notes" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxEventData" text="Events" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
+    </vbox>
   </menu>
   <menu text="Help">
     <menu-item id="menubarItemWelcomeDialog" text="Welcome Dialog" />

@@ -1,4 +1,4 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import flixel.FlxG;
@@ -9,7 +9,7 @@ import funkin.Conductor;
 import funkin.util.SortUtil;
 import Lambda;
 
-class PicoSpeakerCharacter extends SparrowCharacter
+class PicoSpeakerCharacter extends AnimateAtlasCharacter
 {
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];

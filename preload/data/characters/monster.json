@@ -3,8 +3,8 @@
   "name": "Monster",
   "assetPath": "shared:characters/monster",
   "renderType": "animateatlas",
-  "cameraOffsets": [0, -180],
-  "offsets": [0, -180],
+  "offsets": [0, 1],
+  "cameraOffsets": [0, 29],
   "animations": [
     {
       "name": "idle",

@@ -7,8 +7,8 @@
   "healthIcon": {
     "id": "mom"
   },
-  "offsets": [0, -210],
-  "cameraOffsets": [0, -330],
+  "offsets": [0, 0],
+  "cameraOffsets": [0, -99],
   "animations": [
     {
       "name": "idle",

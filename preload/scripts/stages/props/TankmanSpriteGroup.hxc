@@ -28,7 +28,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
 
     // Precache the Tankman sprite.
-    FunkinMemory.cacheTexture(Paths.image('tankmanKilled1', 'week7'));
+    FunkinMemory.cacheTexture(Paths.image('tankman_stress/spritemap1', 'week7'));
   }
 
   public function isValid():Bool
@@ -129,7 +129,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
       {
         var nextTime:Float = tankmanTimes.shift();
         var goingRight:Bool = tankmanDirs.shift();
-        var xPos = 500;
+        var xPos = 9999;
         var yPos:Float = isErect ? 350 : (200 + FlxG.random.int(50, 100));
         var scale:Float = isErect ? 1.10 : 1.0;
         createTankman(xPos, yPos, nextTime, goingRight, scale);

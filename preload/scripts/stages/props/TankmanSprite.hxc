@@ -23,11 +23,15 @@ class TankmanSprite extends FunkinSprite
   {
     super();
 
-    loadSparrow('tankmanKilled1');
-    animation.addByPrefix('run', 'tankman running', 24, true);
-    animation.addByPrefix('shot', 'John Shot ' + FlxG.random.int(1, 2), 24, false);
+    loadTextureAtlas('tankman_stress', 'week7',
+      {
+        useRenderTexture: true
+      });
 
-    initAnim();
+    animation.addByFrameLabel('run', 'Running', 24, true);
+    animation.addByFrameLabel('shot', 'Shot ' + FlxG.random.int(1, 2), 24, false);
+
+    initializeAnimations();
 
     setGraphicSize(Std.int(width * 0.4));
 
@@ -37,7 +41,7 @@ class TankmanSprite extends FunkinSprite
   // shamelessly stolen from pico thank u ericc
   var tankmanFlicker:FlxFlicker = null;
 
-  function deathFlicker()
+  function deathFlicker():Void
   {
     // ERIC: You have to use super instead of this or it breaks.
     // This is because typeof(this) is PolymodAbstractClass.
@@ -51,22 +55,18 @@ class TankmanSprite extends FunkinSprite
 
   var rim:DropShadowShader;
 
-  public function addRimlight()
+  public function addRimlight():Void
   {
     rim = new DropShadowShader();
-
     rim.baseBrightness = -46;
     rim.baseHue = -38;
     rim.baseContrast = -25;
     rim.baseSaturation = -20;
-
     rim.threshold = 0.4;
-
     rim.color = 0xFFDFEF3C;
+    rim.attachedSprite = this.superClass;
 
-    shader = rim;
-
-    // rim.attachedSprite = tankman;
+    this.shader = rim;
 
     animation.onFrameChange.add(function() {
       rim.updateFrameInfo(this.frame);
@@ -75,26 +75,22 @@ class TankmanSprite extends FunkinSprite
     // If goingRight is false, 0 degrees = facing right.
     // If goingRight is true, 0 degrees = facing left.
 
-    rim.angle = 135; // goingRight ? 135 : 45;
+    rim.angle = 25; // goingRight ? 135 : 45;
   }
 
-  function initAnim()
+  function initializeAnimations():Void
   {
     // Called when the sprite is created as well as when it is revived.
-
     animation.play('run');
     animation.curAnim.curFrame = FlxG.random.int(0, animation.curAnim.numFrames - 1);
-
-    offset.y = 0;
-    offset.x = 0;
   }
 
-  function revive()
+  function revive():Void
   {
     // Sprite has been revived! This allows it to be reused without reinstantiating.
     super.revive();
     visible = true;
-    initAnim();
+    initializeAnimations();
   }
 
   function update(elapsed:Float):Void
@@ -109,9 +105,6 @@ class TankmanSprite extends FunkinSprite
     if (Conductor.instance.songPosition >= strumTime && animation.curAnim.name == 'run')
     {
       animation.play('shot');
-
-      offset.y = 200;
-      offset.x = 300;
     }
 
     // Move the sprite while it is running.
@@ -129,16 +122,6 @@ class TankmanSprite extends FunkinSprite
       {
         x = (FlxG.width * 0.74 + endingOffset) - runFactor;
       }
-
-      // if (this.shader != null) {
-      // 	this.shader.angle =
-      // }
     }
-
-    // Hide this sprite if it is out of view.
-    // if (x >= FlxG.width * 1.2 || x <= FlxG.width * -0.5)
-    // 	visible = false;
-    // else
-    // 	visible = true;
   }
 }

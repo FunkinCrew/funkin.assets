@@ -299,7 +299,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
   function playBlockAnim()
   {
     this.playAnimation('block', true, false);
-    PlayState.instance.camGame.shake(0.002, 0.1);
+    PlayState.instance?.camGame?.shake(0.002, 0.1);
     moveToBack();
   }
 
@@ -366,14 +366,14 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
   function playHitHighAnim()
   {
     this.playAnimation('hitHigh', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 
   function playHitLowAnim()
   {
     this.playAnimation('hitLow', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 
@@ -394,7 +394,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
   function playSpinAnim()
   {
     this.playAnimation('hitSpin', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 }

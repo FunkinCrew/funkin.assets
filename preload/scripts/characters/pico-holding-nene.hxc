@@ -1,4 +1,4 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
@@ -16,14 +16,14 @@ import flixel.tweens.FlxTween;
 import funkin.Preferences;
 import funkin.util.Constants;
 
-class PicoHoldingNeneCharacter extends SparrowCharacter
+class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {
   function new()
   {
     super('pico-holding-nene');
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -33,6 +33,8 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
     GameOverSubState.blueBallSuffix = '-pico-and-nene';
 
     PauseSubState.musicSuffix = '-pico';
+
+    this.animation.onFinish.add(onAnimationComplete);
   }
 
   override function onSongRetry(event:ScriptEvent):Void
@@ -44,58 +46,13 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
     GameOverSubState.blueBallSuffix = '-pico-and-nene';
 
     PauseSubState.musicSuffix = '-pico';
-
-    this.visible = true;
   }
 
-  var deathSpriteRetry:FunkinSprite;
-
-  /**
-     * Initialize and cache sprites used for the death animation,
-   * for use later.
-   */
-  function createDeathSprites()
-  {
-    deathSpriteRetry = FunkinSprite.createTextureAtlas(this.x - 410, this.y - 30, "characters/picoAndNene-DEAD", "shared");
-    deathSpriteRetry.zIndex = 1000;
-  }
-
-  function addToStage(sprite:FlxSprite)
-  {
-    if (this.debug)
-    {
-      // We are in the chart editor or something.
-      // TODO: Make this work properly.
-    }
-    else if (PlayState.instance != null && PlayState.instance.currentStage != null)
-    {
-      PlayState.instance.currentStage.add(sprite);
-    }
-    else
-    {
-      trace('Could not add Pico sprite to stage.');
-    }
-  }
-
-  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
   {
     if (name == "firstDeath")
     {
       new FlxTimer().start(0.58, afterPicoDeathNeneIntro);
-
-      createDeathSprites();
-      GameOverSubState.instance.add(deathSpriteRetry);
-      this.visible = false;
-      deathSpriteRetry.anim.onFinish.add(onAnimationComplete);
-      deathSpriteRetry.anim.play("intro", true, false);
-    }
-    else if (name == "deathConfirm")
-    {
-      doDeathConfirm();
-    }
-    else
-    {
-      super.playAnimation(name, restart, ignoreOther);
     }
 
     super.playAnimation(name, restart, ignoreOther);
@@ -112,23 +69,15 @@ class PicoHoldingNeneCharacter extends SparrowCharacter
     });
   }
 
-  function onAnimationComplete(currentAnim:String):Void
+  function onAnimationComplete(animationName:String):Void
   {
-    if (currentAnim == "confirm")
+    switch (animationName)
     {
-      deathSpriteRetry.anim.play("confirm loop", true);
-      deathSpriteRetry.anim.curAnim.looped = true;
+      case "deathConfirm":
+        this.playAnimation("deathConfirm-loop", true);
+      case "laughEnd":
+        this.playAnimation("laughEnd-loop", true);
     }
-    else
-    {
-      deathSpriteRetry.anim.play("loop", true);
-      deathSpriteRetry.anim.curAnim.looped = true;
-    }
-  }
-
-  function doDeathConfirm():Void
-  {
-    deathSpriteRetry.anim.play("confirm", true);
   }
 
   function getDeathQuote():Null<String>

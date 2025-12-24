@@ -24,9 +24,13 @@ class PicoDarkCharacter extends MultiSparrowCharacter
   override function set_alpha(val:Float):Float
   {
     super.set_alpha(val);
-    if (val != 1) normalChar.alpha = 1;
-    else
-      normalChar.alpha = 0;
+
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0;
+    }
 
     return val;
   }
@@ -88,18 +92,22 @@ class PicoDarkCharacter extends MultiSparrowCharacter
   function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
-    normalChar = CharacterDataParser.fetchCharacter('pico-playable');
-    normalChar.zIndex = 199;
-    normalChar.alpha = 0;
-    normalChar.flipX = false;
 
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico';
+    if (!this.debug)
+    {
+      normalChar = CharacterDataParser.fetchCharacter('pico-playable');
+      normalChar.zIndex = 199;
+      normalChar.alpha = 0;
+      normalChar.flipX = false;
 
-    PauseSubState.musicSuffix = '-pico';
+      GameOverSubState.musicSuffix = '-pico';
+      GameOverSubState.blueBallSuffix = '-pico';
 
-    PlayState.instance.currentStage.add(normalChar);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+      PauseSubState.musicSuffix = '-pico';
+
+      PlayState.instance.currentStage.add(normalChar);
+      PlayState.instance.currentStage.refresh(); // Apply z-index.
+    }
 
     // Precache death sprites.
     for (img in ["characters/Pico_Death_Retry", "characters/NeneKnifeToss"])

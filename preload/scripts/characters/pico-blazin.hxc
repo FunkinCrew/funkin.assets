@@ -350,7 +350,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function playBlockAnim():Void
   {
     this.playAnimation('block', true, false);
-    PlayState.instance.camGame.shake(0.002, 0.1);
+    PlayState.instance?.camGame?.shake(0.002, 0.1);
     moveToBack();
   }
 
@@ -389,7 +389,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     this.playAnimation('uppercut', true, false);
     if (hit)
     {
-      PlayState.instance.camGame.shake(0.005, 0.25);
+      PlayState.instance?.camGame?.shake(0.005, 0.25);
     }
     moveToFront();
   }
@@ -397,28 +397,28 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function playUppercutHitAnim()
   {
     this.playAnimation('uppercutHit', true, false);
-    PlayState.instance.camGame.shake(0.005, 0.25);
+    PlayState.instance?.camGame?.shake(0.005, 0.25);
     moveToBack();
   }
 
   function playHitHighAnim()
   {
     this.playAnimation('hitHigh', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 
   function playHitLowAnim()
   {
     this.playAnimation('hitLow', true, false);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 
   function playHitSpinAnim()
   {
     this.playAnimation('hitSpin', true, false, true);
-    PlayState.instance.camGame.shake(0.0025, 0.15);
+    PlayState.instance?.camGame?.shake(0.0025, 0.15);
     moveToBack();
   }
 

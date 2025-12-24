@@ -36,6 +36,11 @@
       "name": "singRIGHT",
       "prefix": "spooky sing right",
       "offsets": [-130, -15]
+    },
+    {
+      "name": "cheer",
+      "prefix": "Spookiez YEAH cheer",
+      "offsets": [60, 30]
     }
   ]
 }

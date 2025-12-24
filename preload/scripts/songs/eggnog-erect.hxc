@@ -110,7 +110,7 @@ class EggnogErectSong extends Song
     PlayState.instance.currentStage.getDad().visible = false;
     var parentsShoot:ScriptedFunkinSprite = ScriptedFunkinSprite.init('DadShootsSprite', 0, 0);
 
-    parentsShoot.x = -616;
+    parentsShoot.x = -602;
     parentsShoot.y = -3.5;
     parentsShoot.zIndex = santaDead.zIndex - 1;
     parentsShoot.shader = normalSanta.shader;

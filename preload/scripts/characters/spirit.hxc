@@ -2,6 +2,7 @@ import funkin.play.character.PackerCharacter;
 import funkin.play.PlayState;
 import flixel.addons.effects.FlxTrail;
 import funkin.effects.FunkTrail;
+import flixel.FlxG;
 
 class SpiritCharacter extends PackerCharacter
 {
@@ -24,14 +25,8 @@ class SpiritCharacter extends PackerCharacter
 
   function addToStage(sprite:FlxSprite)
   {
-    if (this.debug)
-    {
-      // We are in the chart editor or something.
-      FlxG.stage.add(sprite);
-    }
-    else
-    {
-      PlayState.instance.currentStage.add(sprite);
-    }
+    if (this.debug) return;
+
+    PlayState.instance.currentStage.add(sprite);
   }
 }

@@ -7,7 +7,7 @@
   },
   "renderType": "animateatlas",
   "singTime": 999.0,
-  "offsets": [520, 240],
+  "offsets": [523, 453],
   "animations": [
     {
       "name": "idle",

@@ -4,10 +4,10 @@
   "renderType": "multianimateatlas",
   "assetPath": "shared:characters/bf-dark",
   "flipX": true,
-  "offsets": [15, -110],
-  "cameraOffsets": [15, -110],
+  "offsets": [16, 3],
+  "cameraOffsets": [-16, 36],
   "death": {
-    "cameraOffsets": [-300, -450]
+    "cameraOffsets": [-73, 42]
   },
   "healthIcon": {
     "id": "bf"
@@ -60,7 +60,7 @@
       "asset": "shared:characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
-      "offsets": [10, 125],
+      "offsets": [22, 15],
       "atlasSettings": {
         "uniqueInCache": true
       }
@@ -70,13 +70,13 @@
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
-      "offsets": [10, 125]
+      "offsets": [22, 15]
     },
     {
       "asset": "shared:characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
-      "offsets": [10, 125]
+      "offsets": [22, 15]
     },
     {
       "name": "scared",

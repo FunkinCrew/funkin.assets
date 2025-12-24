@@ -19,9 +19,13 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
   override function set_alpha(val:Float):Float
   {
     super.set_alpha(val);
-    if (val != 1) normalChar.alpha = 1;
-    else
-      normalChar.alpha = 0.0001;
+
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0.0001;
+    }
 
     return val;
   }
@@ -32,19 +36,23 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);
-      normalChar.setPosition(this.x - 23, this.y);
+      normalChar.setPosition(this.x - 45.5, this.y);
     }
   }
 
   function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
-    normalChar = CharacterDataParser.fetchCharacter('gf');
-    normalChar.zIndex = 99;
-    normalChar.alpha = 0.0001;
-    normalChar.flipX = false;
 
-    PlayState.instance.currentStage.add(normalChar);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    if (!this.debug)
+    {
+      normalChar = CharacterDataParser.fetchCharacter('gf');
+      normalChar.zIndex = 199;
+      normalChar.alpha = 0.0001;
+      normalChar.flipX = false;
+
+      PlayState.instance.currentStage.add(normalChar);
+      PlayState.instance.currentStage.refresh(); // Apply z-index.
+    }
   }
 }
