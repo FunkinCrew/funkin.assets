@@ -47,7 +47,7 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     if (!this.debug)
     {
       normalChar = CharacterDataParser.fetchCharacter('gf');
-      normalChar.zIndex = 199;
+      normalChar.zIndex = this.zIndex - 1;
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
 
