@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu>
-	<menu-item id="contextmenuFlip" text="Flip Note" />
+<menu width="220px">
+	<label id="contextmenuNoteKindLabel" styleName="menuLabel" style="padding: 2px; padding-left: 12px; padding-top: 8px;" text="Note Kind: " />
+	<label id="contextmenuNoteKind" styleName="menuLabel" style="padding: 2px; padding-left: 12px;" text="Note Kind" />
+	<grid columns="2">
+		<dropdown width="50%" id="contextmenuUnit" text="Time (MS)" value="MILLISECONDS" selectedIndex="0" >
+			<data>
+					<item id="MILLISECONDS" text="Time (MS)" />
+					<item id="STEPS" text="Time (Steps)" />
+			</data>
+		</dropdown>
+		<number-stepper width="50%" id="contextmenuPosition" pos="0"  />
+	</grid>
+	<menu-item id="contextmenuFlip" text="Flip Note" shortcutText="Ctrl+F" />
 	<menu-item id="contextmenuAddHold" text="Add Hold" />
-	<menu-item id="contextmenuDelete" text="Delete Note" />
+	<menu-item id="contextmenuDelete" text="Delete Note" shortcutText="Delete" />
 </menu>
