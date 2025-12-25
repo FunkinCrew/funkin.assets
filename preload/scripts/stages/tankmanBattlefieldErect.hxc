@@ -47,14 +47,7 @@ class TankmanBattlefieldErectStage extends Stage
       case CharacterType.GF:
         rim.angle = 90;
 
-        if (getGirlfriend().characterId == 'gf-tankmen' || getGirlfriend().characterId == 'nene-tankmen')
-        {
-          if (getGirlfriend().characterId == 'gf-tankmen') rim.loadAltMask(Paths.image('erect/masks/gfTankmen_mask'));
-          else
-            rim.loadAltMask(Paths.image('erect/masks/neneTankmen_mask'));
-          rim.maskThreshold = 0.4;
-          rim.useAltMask = true;
-        }
+        rim.maskThreshold = 0.4;
 
         getNamedProp('tankBricks').setPosition(445, 774);
 
@@ -64,7 +57,6 @@ class TankmanBattlefieldErectStage extends Stage
 
         if (getDad().characterId == 'tankman-bloody')
         {
-          rim.loadAltMask(Paths.image('erect/masks/tankmanCaptainBloody_mask'));
           rim.maskThreshold = 1;
           rim.useAltMask = false;
         }

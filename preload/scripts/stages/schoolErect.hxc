@@ -43,17 +43,7 @@ class SchoolErectStage extends Stage
         rim.angle = 90;
         character.shader = rim;
 
-        if (character.characterId == 'pico-pixel')
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/picoPixel_mask'));
-        }
-        else
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/bfPixel_mask'));
-        }
-
         rim.maskThreshold = 1;
-        rim.useAltMask = true;
 
         character.animation.onFrameChange.add(function() {
           if (getBoyfriend() != null)
@@ -69,18 +59,9 @@ class SchoolErectStage extends Stage
         rim.distance = 3;
         rim.threshold = 0.3;
 
-        if (character.characterId == 'nene-pixel')
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/nenePixel_mask'));
-          character.addSunsetShaders();
-        }
-        else
-        {
-          rim.loadAltMask(Paths.image('weeb/erect/masks/gfPixel_mask'));
-        }
+        if (character.characterId == 'nene-pixel') character.addSunsetShaders();
 
         rim.maskThreshold = 1;
-        rim.useAltMask = true;
 
         character.animation.onFrameChange.add(function() {
           if (getGirlfriend() != null)
@@ -93,9 +74,7 @@ class SchoolErectStage extends Stage
         rim.angle = 90;
         character.shader = rim;
 
-        rim.loadAltMask(Paths.image('weeb/erect/masks/senpai_mask'));
         rim.maskThreshold = 1;
-        rim.useAltMask = true;
 
         character.animation.onFrameChange.add(function() {
           if (getDad() != null)
