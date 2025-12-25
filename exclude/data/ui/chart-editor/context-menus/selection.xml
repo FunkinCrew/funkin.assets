@@ -4,6 +4,7 @@
 	<menu-item id="contextmenuCopy" text="Copy Selection" shortcutText="Ctrl+C" />
 	<menu-item id="contextmenuDelete" text="Delete Selection" shortcutText="Delete" />
 	<menu-separator />
+	<menu-item id="contextmenuSnap" text="Snap Selection" shortcutText="Shift+N" />
 	<menu-item id="contextmenuFlip" text="Flip Selected Notes" />
 	<menu-separator />
 	<menu-item id="contextmenuSelectAll" text="Select All" shortcutText="Ctrl+A" />

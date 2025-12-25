@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu>
+	<menu-item id="contextmenuSnap" text="Snap Event" shortcutText="Shift+N" />
 	<menu-item id="contextmenuEdit" text="Edit Event" />
 	<menu-item id="contextmenuDelete" text="Delete Event" />
 </menu>
