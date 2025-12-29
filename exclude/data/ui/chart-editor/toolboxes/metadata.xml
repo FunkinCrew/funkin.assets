@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="500">
     <hbox width="100%" height="100%">
-        <vbox width="50%" height="100%">
+        <vbox width="47.5%" height="100%">
             <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
                 <grid columns="2" height="100%">
                     <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
+                    <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song.\nThis is used to refer to the song in code/assets and should only contain filename-safe characters." />
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
                     <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
@@ -59,7 +59,7 @@
                 </grid>
             </frame>
         </vbox>
-        <vbox width="50%" height="100%">
+        <vbox width="52.5%" height="100%">
             <dropdown id="inputTimeChange" value="Time Change" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected time change.">
                 <data>
                     <item text="0 ms : BPM: 100 in 4/4" />
@@ -124,6 +124,14 @@
             <button allowFocus="false" id="createTimeChange" text="Create New Time Change" tooltip="Create a new time change at the playhead." />
             <spacer />
             <button allowFocus="false" id="removeTimeChange" text="Remove Current Time Change" tooltip="Remove the currently selected time change." />
+            <frame text="Variations & Song Menu Difficulties" width="100%">
+                <tree-view id="metadataToolboxTree" width="100%" height="140" />
+            </frame>
+            <grid columns="3">
+                <button allowFocus="false" id="buttonAddVariation" text="Add Variation" />
+                <button allowFocus="false" id="buttonAddDifficulty" text="Add Difficulty" />
+                <button allowFocus="false" id="buttonRemove" text="Remove" />
+            </grid>
         </vbox>
     </hbox>
 </collapsible-dialog>
