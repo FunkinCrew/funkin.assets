@@ -5,7 +5,7 @@
   "props": [
     {
       "assetPath": "storymenu/props/darnell",
-      "scale": 1.0,
+      "scale": [1.0, 1.0],
       "offsets": [120, 120],
       "animations": [
         {
@@ -17,7 +17,7 @@
     },
     {
       "assetPath": "storymenu/props/pico-player",
-      "scale": 1.0,
+      "scale": [1.0, 1.0],
       "offsets": [150, 80],
       "animations": [
         {
@@ -35,7 +35,7 @@
     },
     {
       "assetPath": "storymenu/props/nene",
-      "scale": 1.0,
+      "scale": [1.0, 1.0],
       "offsets": [200, 80],
       "animations": [
         {
