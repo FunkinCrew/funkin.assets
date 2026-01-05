@@ -5,7 +5,7 @@
   "props": [
     {
       "assetPath": "storymenu/props/mom",
-      "scale": 0.9,
+      "scale": [0.9, 0.9],
       "offsets": [120, 50],
       "animations": [
         {
@@ -17,7 +17,7 @@
     },
     {
       "assetPath": "storymenu/props/bf",
-      "scale": 1.0,
+      "scale": [1.0, 1.0],
       "offsets": [150, 80],
       "animations": [
         {
@@ -34,7 +34,7 @@
     },
     {
       "assetPath": "storymenu/props/gf",
-      "scale": 1.0,
+      "scale": [1.0, 1.0],
       "offsets": [200, 80],
       "animations": [
         {
