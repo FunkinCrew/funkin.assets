@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menubar id="menubar" width="100%" height="35" paddingLeft="256">
+  <style>
+    .menu {
+    // The width of the individual menu items
+    width: 160px;
+    }
+  </style>
+  <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
+  </menu>
+  <menu text="Edit" width="208px;">
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
+    <menu-separator />
+  </menu>
+  <menu text="Help" id="menubarMenuHelp">
+    <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
+    <menu-item id="menubarItemGoToBackupsFolder" text="Go to Backups Folder" />
+    <menu-item id="menubarItemAbout" text="About..." />
+  </menu>
+  <spacer width="100%" />
+  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+</menubar>
