@@ -1,0 +1,72 @@
+{
+  "name": "Black Impostor",
+  "characterType": "opponent",
+  "eyeColor": "red",
+  "micColor": "red",
+  "headShape": "cone",
+  "image": "BlackImposter.png",
+  "healthDrain": true,
+  "dodgePenalty": 50,
+  "notes": ["left","down","up","right"]
+}
+assets/characters/blackImpostor/blackImpostor.json
+assets/characters/blackImpostor/BlackImposter.png
+class BlackImpostorHealth {
+    public var healthDrainPerNote:Int = 1;
+    public var healthLossOnMissedDodge:Int = 50;
+    public var healthDrainEnabled:Bool = true;
+
+    public function new() {
+        // constructor
+    }
+
+    // Check if the current opponent is the black impostor
+    public function isBlackImpostor():Bool {
+        var opp = PlayState.instance.curOpponent; // reference to current opponent
+        return opp.eyeColor == "red" &&
+               opp.micColor == "red" &&
+               opp.headShape == "cone";
+    }
+
+    // Update called every frame
+    public function update(elapsed:Float):Void {
+        if (!isBlackImpostor()) {
+            healthDrainEnabled = false;
+        } else {
+            healthDrainEnabled = true;
+        }
+    }
+
+    // Called when a normal note is hit
+    public function noteHit(noteData:Int):Void {
+        if (healthDrainEnabled) {
+            PlayState.instance.health -= healthDrainPerNote;
+        }
+    }
+
+    // Called when a dodge note is missed
+    public function dodgeMissed(noteData:Int):Void {
+        if (healthDrainEnabled) {
+            PlayState.instance.health -= healthLossOnMissedDodge;
+        }
+    }
+}
+var blackImpostorScript = new BlackImpostorHealth();
+
+override public function update(elapsed:Float):Void {
+    super.update(elapsed);
+    blackImpostorScript.update(elapsed);
+}
+
+override public function noteHit(noteData:Int, noteType:String):Void {
+    super.noteHit(noteData, noteType);
+    blackImpostorScript.noteHit(noteData);
+}
+
+override public function noteMiss(noteData:Int, noteType:String):Void {
+    super.noteMiss(noteData, noteType);
+    if (noteType == "dodge") {
+        blackImpostorScript.dodgeMissed(noteData);
+    }
+}
+
