@@ -129,4 +129,14 @@ class StressSong extends Song
       tankmanGroup = null;
     }
   }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
 }
