@@ -95,7 +95,7 @@ class SserafimStage extends Stage
     perspectiveFloor.setScrollFactors(1.05, 1.05, 0.93, 0.93);
 
     perspectiveFloor.zIndex = 11;
-    PlayState.instance.currentStage.add(perspectiveFloor);
+    add(perspectiveFloor);
 
     dust1 = new FlxBackdrop(Paths.image('dust/dustMid'), 0x01);
     dust1.setPosition(-650, -200);
@@ -129,10 +129,10 @@ class SserafimStage extends Stage
     dust4.alpha = 0.9;
     dust4.velocity.x = -150;
 
-    PlayState.instance.currentStage.add(dust1);
-    PlayState.instance.currentStage.add(dust2);
-    PlayState.instance.currentStage.add(dust3);
-    PlayState.instance.currentStage.add(dust4);
+    add(dust1);
+    add(dust2);
+    add(dust3);
+    add(dust4);
 
     dust1.color = 0xff98847d;
     dust2.color = 0xff8b6c63;
@@ -143,9 +143,9 @@ class SserafimStage extends Stage
     chaewon = CharacterDataParser.fetchCharacter('sserafim-chaewon');
     eunchae = CharacterDataParser.fetchCharacter('sserafim-eunchae');
 
-    PlayState.instance.currentStage.addCharacter(yunjin, CharacterType.OTHER);
-    PlayState.instance.currentStage.addCharacter(chaewon, CharacterType.OTHER);
-    PlayState.instance.currentStage.addCharacter(eunchae, CharacterType.OTHER);
+    addCharacter(yunjin, CharacterType.OTHER);
+    addCharacter(chaewon, CharacterType.OTHER);
+    addCharacter(eunchae, CharacterType.OTHER);
 
     yunjin.zIndex = 1000;
     chaewon.zIndex = 1000;
@@ -163,7 +163,7 @@ class SserafimStage extends Stage
     setGirlsSinging(baseSinging);
     setLightState(false);
 
-    PlayState.instance.currentStage.refresh();
+    refresh();
 
     perspectiveFloor.sprite.shader = stageShader;
     yunjin.shader = characterShader;
@@ -176,7 +176,6 @@ class SserafimStage extends Stage
   function onNoteHit(event:HitNoteScriptEvent)
   {
     super.onNoteHit(event);
-    if (PlayState.instance.currentStage == null) return;
   }
 
   function hideOpponentStrumline()
@@ -234,7 +233,7 @@ class SserafimStage extends Stage
           if (sserafimGf != null)
           {
             // and show the REAL gf
-            PlayState.instance.currentStage.getGirlfriend()?.visible = true;
+            getGirlfriend()?.visible = true;
 
             sserafimGf.visible = false;
             sserafimBf.visible = false;
@@ -284,12 +283,12 @@ class SserafimStage extends Stage
 
     yunjin.visible = visibleArray[0];
 
-    PlayState.instance.currentStage.getDad()?.visible = visibleArray[1];
+    getDad()?.visible = visibleArray[1];
 
     chaewon.visible = visibleArray[2];
     eunchae.visible = visibleArray[3];
 
-    PlayState.instance.currentStage.getBoyfriend()?.visible = visibleArray[4];
+    getBoyfriend()?.visible = visibleArray[4];
 
     // gf visibility ISNT stored here, cause itd break a lot of stuff already in place and im kinda running out of time
   }
@@ -300,14 +299,14 @@ class SserafimStage extends Stage
 
     yunjin.characterType = singingArray[0] ? CharacterType.BF : CharacterType.DAD;
 
-    PlayState.instance.currentStage.getDad()?.characterType = singingArray[1] ? CharacterType.BF : CharacterType.DAD;
+    getDad()?.characterType = singingArray[1] ? CharacterType.BF : CharacterType.DAD;
 
     chaewon.characterType = singingArray[2] ? CharacterType.BF : CharacterType.DAD;
     eunchae.characterType = singingArray[3] ? CharacterType.BF : CharacterType.DAD;
 
-    PlayState.instance.currentStage.getBoyfriend()?.characterType = singingArray[4] ? CharacterType.BF : CharacterType.DAD;
+    getBoyfriend()?.characterType = singingArray[4] ? CharacterType.BF : CharacterType.DAD;
 
-    PlayState.instance.currentStage.getGirlfriend()?.characterType = singingArray[5] ? CharacterType.BF : CharacterType.DAD;
+    getGirlfriend()?.characterType = singingArray[5] ? CharacterType.BF : CharacterType.DAD;
   }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
@@ -356,7 +355,7 @@ class SserafimStage extends Stage
     stageShader.darkenAmount = 0;
 
     // Reapply the shader when the song restarts since the game over clears it!
-    PlayState.instance.currentStage.getBoyfriend().shader = characterShader;
+    getBoyfriend().shader = characterShader;
 
     // Hide the opponent health icon
     PlayState.instance.iconP2.visible = false;
@@ -611,7 +610,7 @@ class SserafimStage extends Stage
     getNamedProp('burgerCutscene').visible = inCutscene;
 
     // gf will be hidden at the start + in the cutscene so we can just do this here
-    PlayState.instance.currentStage.getGirlfriend()?.visible = false;
+    getGirlfriend()?.visible = false;
 
     if (sserafimCutscene != null) sserafimCutscene.visible = inCutscene;
   }
@@ -639,10 +638,10 @@ class SserafimStage extends Stage
     sserafimBf.zIndex = 305;
     sserafimBf.visible = false;
 
-    PlayState.instance.currentStage.add(sserafimGf);
-    PlayState.instance.currentStage.add(sserafimBf);
-    PlayState.instance.currentStage.add(sserafimCutscene);
-    PlayState.instance.currentStage.refresh();
+    add(sserafimGf);
+    add(sserafimBf);
+    add(sserafimCutscene);
+    refresh();
 
     SEEYOU1 = new FlxSprite().loadGraphic(Paths.image('end/end1'));
     SEEYOU1.scale.set(0.67, 0.67);
@@ -656,8 +655,8 @@ class SserafimStage extends Stage
     SEEYOU2.setPosition(FlxG.width - 40 - SEEYOU2.width, FlxG.height - 40 - SEEYOU2.height);
     SEEYOU2.zIndex = 10000;
 
-    PlayState.instance.currentStage.add(SEEYOU1);
-    PlayState.instance.currentStage.add(SEEYOU2);
+    add(SEEYOU1);
+    add(SEEYOU2);
 
     SEEYOU1.cameras = [PlayState.instance.camCutscene];
     SEEYOU2.cameras = [PlayState.instance.camCutscene];
@@ -665,7 +664,7 @@ class SserafimStage extends Stage
     SEEYOU1.visible = false;
     SEEYOU2.visible = false;
 
-    PlayState.instance.currentStage.refresh();
+    refresh();
   }
 
   function endStuff()

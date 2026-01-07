@@ -62,8 +62,7 @@ class LimoRideErectStage extends Stage
     mist1.alpha = 0.4;
     mist1.velocity.x = 1700;
 
-    PlayState.instance.currentStage.add(mist1);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist1);
 
     mist2 = new FlxBackdrop(Paths.image('limo/erect/mistBack'), 0x01);
     mist2.setPosition(-650, -100);
@@ -75,8 +74,8 @@ class LimoRideErectStage extends Stage
     mist2.velocity.x = 2100;
     mist1.scale.set(1.3, 1.3);
 
-    PlayState.instance.currentStage.add(mist2);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist2);
+
 
     mist3 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
     mist3.setPosition(-650, -100);
@@ -88,8 +87,7 @@ class LimoRideErectStage extends Stage
     mist3.velocity.x = 900;
     mist3.scale.set(1.5, 1.5);
 
-    PlayState.instance.currentStage.add(mist3);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist3);
 
     mist4 = new FlxBackdrop(Paths.image('limo/erect/mistBack'), 0x01);
     mist4.setPosition(-650, -380);
@@ -101,8 +99,7 @@ class LimoRideErectStage extends Stage
     mist4.velocity.x = 700;
     mist4.scale.set(1.5, 1.5);
 
-    PlayState.instance.currentStage.add(mist4);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist4);
 
     mist5 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
     mist5.setPosition(-650, -400);
@@ -114,8 +111,8 @@ class LimoRideErectStage extends Stage
     mist5.velocity.x = 100;
     mist5.scale.set(1.5, 1.5);
 
-    PlayState.instance.currentStage.add(mist5);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist5);
+    refresh(); // Apply z-index.
 
     getNamedProp('shootingStar').blend = 0;
 
