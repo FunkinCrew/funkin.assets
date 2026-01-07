@@ -7,6 +7,7 @@
     }
   </style>
   <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemOpen" text="Open" shortcutText="Ctrl + O" />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
   <menu text="Edit" width="208px;">
