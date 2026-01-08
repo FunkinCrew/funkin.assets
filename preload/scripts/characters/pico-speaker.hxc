@@ -50,6 +50,8 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
 
   function initTimemap():Void
   {
+    if (this.debug || PlayState.instance == null) return;
+
     trace('Initializing Pico timings...');
     shootTimes = [];
     // The tankmen's timings and directions are determined

@@ -25,7 +25,7 @@ class SpiritCharacter extends PackerCharacter
 
   function addToStage(sprite:FlxSprite)
   {
-    if (this.debug) return;
+    if (this.debug || PlayState.instance == null) return;
 
     PlayState.instance.currentStage.add(sprite);
   }

@@ -327,29 +327,29 @@ class NeneCharacter extends AnimateAtlasCharacter
       abot.y = this.y + 384 - (-this.globalOffsets[1] * this.scale.y);
       abot.zIndex = this.zIndex - 10;
 
-      PlayState.instance.currentStage.add(abot);
+      currentStage.add(abot);
 
       abotViz.x = abot.x + 207;
       abotViz.y = abot.y + 84;
       abotViz.zIndex = abot.zIndex - 1;
-      PlayState.instance.currentStage.add(abotViz);
+      currentStage.add(abotViz);
 
       eyeWhites.x = abot.x + 40;
       eyeWhites.y = abot.y + 250;
       eyeWhites.zIndex = abot.zIndex - 10;
-      PlayState.instance.currentStage.add(eyeWhites);
+      currentStage.add(eyeWhites);
 
       pupil.x = abot.x + 50;
       pupil.y = abot.y + 238;
       pupil.zIndex = eyeWhites.zIndex + 5;
-      PlayState.instance.currentStage.add(pupil);
+      currentStage.add(pupil);
 
       stereoBG.x = abot.x + 150;
       stereoBG.y = abot.y + 30;
       stereoBG.zIndex = abot.zIndex - 8;
-      PlayState.instance.currentStage.add(stereoBG);
+      currentStage.add(stereoBG);
 
-      PlayState.instance.currentStage.refresh();
+      currentStage.refresh();
       refershedLol = true;
     }
 
@@ -434,7 +434,7 @@ class NeneCharacter extends AnimateAtlasCharacter
 
   function shouldTransitionState():Bool
   {
-    return PlayState.instance.currentStage.getBoyfriend()?.characterId != "pico-blazin";
+    return currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function checkTrainPassing(raised:Bool = false)
@@ -457,6 +457,7 @@ class NeneCharacter extends AnimateAtlasCharacter
 
   function transitionState()
   {
+    if (PlayState.instance == null) return;
     switch (currentState)
     {
       case STATE_DEFAULT:

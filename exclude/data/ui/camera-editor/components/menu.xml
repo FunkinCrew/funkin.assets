@@ -10,6 +10,10 @@
     <menu-item id="menubarItemOpen" text="Open" shortcutText="Ctrl + O" />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
+  <menu text="View" id="menubarMenuView">
+    <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
+    <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
+  </menu>
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
     <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
