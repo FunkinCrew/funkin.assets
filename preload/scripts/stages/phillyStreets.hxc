@@ -164,8 +164,8 @@ class PhillyStreetsStage extends Stage
     scrollingSky.zIndex = 10;
     scrollingSky.scale.set(0.65, 0.65);
 
-    PlayState.instance.currentStage.add(scrollingSky);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(scrollingSky);
+    refresh(); // Apply z-index.
   }
 
   override function onDestroy(event:ScriptEvent)

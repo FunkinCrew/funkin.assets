@@ -62,18 +62,18 @@ class PhillyBlazinStage extends Stage
   {
     super.buildStage();
 
-    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
+    var skyAdditive = getNamedProp('skyAdditive');
     skyAdditive.blend = 0; // ADD
     skyAdditive.visible = false;
 
-    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+    var lightning = getNamedProp('lightning');
     lightning.visible = false;
 
-    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
+    var foregroundMultiply = getNamedProp('foregroundMultiply');
     foregroundMultiply.blend = 9; // MULTIPLY
     foregroundMultiply.visible = false;
 
-    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+    var additionalLighten = getNamedProp('additionalLighten');
     additionalLighten.blend = 0; // ADD
     additionalLighten.visible = false;
 
@@ -82,8 +82,8 @@ class PhillyBlazinStage extends Stage
     scrollingSky.scrollFactor.set(0, 0);
     scrollingSky.zIndex = 10;
 
-    PlayState.instance.currentStage.add(scrollingSky);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(scrollingSky);
+    refresh(); // Apply z-index.
 
     // scrollingSky.velocity.x = -20;
   }
@@ -107,15 +107,15 @@ class PhillyBlazinStage extends Stage
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
     // Manually focus the camera before the song starts.
-    if (!cameraInitialized && PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint != null)
+    if (!cameraInitialized && getGirlfriend().cameraFocusPoint != null)
     {
       cameraInitialized = true;
       initializeCamera();
 
-      PlayState.instance.currentStage.getBoyfriend().color = 0xFFDEDEDE;
-      PlayState.instance.currentStage.getDad().color = 0xFFDEDEDE;
-      PlayState.instance.currentStage.getGirlfriend().color = 0xFF888888;
-      PlayState.instance.currentStage.getGirlfriend().scriptGet('abot').color = 0xFF888888;
+      getBoyfriend().color = 0xFFDEDEDE;
+      getDad().color = 0xFFDEDEDE;
+      getGirlfriend().color = 0xFF888888;
+      getGirlfriend().scriptGet('abot').color = 0xFF888888;
     }
 
     if (lightningActive)
@@ -142,10 +142,10 @@ class PhillyBlazinStage extends Stage
 
   function applyLightning():Void
   {
-    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
-    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
-    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
-    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
+    var lightning = getNamedProp('lightning');
+    var skyAdditive = getNamedProp('skyAdditive');
+    var foregroundMultiply = getNamedProp('foregroundMultiply');
+    var additionalLighten = getNamedProp('additionalLighten');
 
     var LIGHTNING_FULL_DURATION = 1.5;
     var LIGHTNING_FADE_DURATION = 0.3;
@@ -178,11 +178,11 @@ class PhillyBlazinStage extends Stage
     }
 
     // Darken characters
-    var boyfriend = PlayState.instance.currentStage.getBoyfriend();
+    var boyfriend = getBoyfriend();
     FlxTween.color(boyfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
-    var dad = PlayState.instance.currentStage.getDad();
+    var dad = getDad();
     FlxTween.color(dad, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFFDEDEDE);
-    var girlfriend = PlayState.instance.currentStage.getGirlfriend();
+    var girlfriend = getGirlfriend();
     FlxTween.color(girlfriend, LIGHTNING_FADE_DURATION, 0xFF606060, 0xFF888888);
 
     // Sound
@@ -231,10 +231,10 @@ class PhillyBlazinStage extends Stage
 
   function cleanupLightning(tween:FlxTween):Void
   {
-    var skyAdditive = PlayState.instance.currentStage.getNamedProp('skyAdditive');
-    var foregroundMultiply = PlayState.instance.currentStage.getNamedProp('foregroundMultiply');
-    var additionalLighten = PlayState.instance.currentStage.getNamedProp('additionalLighten');
-    var lightning = PlayState.instance.currentStage.getNamedProp('lightning');
+    var skyAdditive = getNamedProp('skyAdditive');
+    var foregroundMultiply = getNamedProp('foregroundMultiply');
+    var additionalLighten = getNamedProp('additionalLighten');
+    var lightning = getNamedProp('lightning');
     skyAdditive.visible = false;
     foregroundMultiply.visible = false;
     additionalLighten.visible = false;
@@ -243,8 +243,8 @@ class PhillyBlazinStage extends Stage
 
   function initializeCamera():Void
   {
-    var xTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x;
-    var yTarget:Float = PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y;
+    var xTarget:Float = getGirlfriend().cameraFocusPoint.x;
+    var yTarget:Float = getGirlfriend().cameraFocusPoint.y;
     // yTarget += 200;
     xTarget += 50;
     yTarget -= 90;
