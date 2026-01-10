@@ -2,7 +2,7 @@ import flixel.addons.display.FlxRuntimeShader;
 
 class BuildingEffectShader extends FlxRuntimeShader
 {
-  var alphaShit:Float = 1.0;
+  var effectAlpha:Float = 1.0;
 
   public var effectSpeed:Float = 1.0;
 
@@ -15,13 +15,13 @@ class BuildingEffectShader extends FlxRuntimeShader
 
   function setAlpha(value:Float):Void
   {
-    this.alphaShit = value;
-    this.setFloat('alphaShit', this.alphaShit);
+    this.effectAlpha = value;
+    this.setFloat('alphaShit', this.effectAlpha);
   }
 
   function update(elapsed:Float):Void
   {
-    setAlpha(alphaShit + effectSpeed * elapsed);
+    setAlpha(effectAlpha + effectSpeed * elapsed);
   }
 
   function reset()
