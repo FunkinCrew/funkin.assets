@@ -2,6 +2,11 @@
 <vbox width="100%" height="100%">
 	<import source="components/menu.xml" />
 	<import source="components/style.xml" />
-	<box id="mainView" height="65%"/>
+	<box id="mainView" height="65%" width="100%">
+		<hbox width="100%" height="100%">
+			<spacer width="100%" />
+			<import source="components/properties.xml" />
+		</hbox>
+	</box>
 	<CameraEditorTimeline id="timeline" height="35%"/>
 </vbox>
