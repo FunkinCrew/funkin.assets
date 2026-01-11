@@ -2,7 +2,7 @@
 <collapsible-dialog id="toolboxMetadata" title="Song Metadata" width="600" height="500">
     <hbox width="100%" height="100%">
         <vbox width="50%" height="100%">
-            <frame text="Variation: Default" width="100%" height="70%" id="frameVariation">
+            <frame text="Variation: Default" width="100%" height="65%" id="frameVariation">
                 <grid columns="2" height="100%">
                     <label text="Song ID:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongId" value="bopeebo" tooltip="The unique identifier for the song. This is used to refer to the song in code/assets and should only contain filename-safe characters." />
@@ -10,8 +10,6 @@
                     <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
                     <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongArtist" value="Kawai Sprite" tooltip="The artist who composed the song." />
-                    <label text="Charter:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongCharter" value="" tooltip="The person who charted the song. That's you!" />
                     <label text="Stage:" verticalAlign="center" horizontalAlign="right" />
                     <dropdown id="inputStage" value="Main Stage" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" searchable="true" tooltip="Which stage the level takes place on.">
                         <data>
@@ -48,8 +46,10 @@
                     </button>
                 </hbox>
             </frame>
-            <frame text="Difficulty: Normal" width="100%" height="30%" id="frameDifficulty">
+            <frame text="Difficulty: Normal" width="100%" height="35%" id="frameDifficulty">
                 <grid columns="2">
+                    <label text="Charter:" verticalAlign="center" />
+                    <textfield id="inputSongCharter" value="" marginLeft="-65" tooltip="The person who charted the song. That's you!" />
                     <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                     <spacer />
                     <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" tooltip="Adjust the relative speed at which the notes move." />
