@@ -267,14 +267,14 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
   {
     if (this.debug) return;
     this.zIndex = 2000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function moveToFront()
   {
     if (this.debug) return;
     this.zIndex = 3000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function wasNoteHitPoorly(event:HitNoteScriptEvent):Bool

@@ -301,21 +301,21 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   function getDarnell()
   {
     if (this.debug) return null;
-    return PlayState.instance.currentStage.getDad();
+    return currentStage.getDad();
   }
 
   function moveToBack()
   {
     if (this.debug) return;
     this.zIndex = 2000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function moveToFront()
   {
     if (this.debug) return;
     this.zIndex = 3000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function isDarnellPreppingUppercut():Void

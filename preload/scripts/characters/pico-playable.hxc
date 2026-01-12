@@ -101,7 +101,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
     // FlxG.debugger.track(deathSpriteRetry);
 
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
-    var gf = PlayState.instance.currentStage.getGirlfriend();
+    var gf = currentStage.getGirlfriend();
     deathSpriteNene.x = gf.originalPosition.x + 120;
     deathSpriteNene.y = gf.originalPosition.y;
     deathSpriteNene.zIndex = this.zIndex - 5;
@@ -470,9 +470,9 @@ class PicoPlayerCharacter extends MultiSparrowCharacter
       // We are in the chart editor or something.
       // TODO: Make this work properly.
     }
-    else if (PlayState.instance != null && PlayState.instance.currentStage != null)
+    else if (PlayState.instance != null && currentStage != null)
     {
-      PlayState.instance.currentStage.add(sprite);
+      currentStage.add(sprite);
     }
     else
     {

@@ -67,8 +67,8 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
 
-      PlayState.instance.currentStage.add(normalChar);
-      PlayState.instance.currentStage.refresh(); // Apply z-index.
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
     }
   }
 }

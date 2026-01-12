@@ -284,29 +284,29 @@ class NenePixelCharacter extends SparrowCharacter
       abot.x = this.x + 296 - (-this.globalOffsets[0] * this.scale.x);
       abot.y = this.y + 430 - (-this.globalOffsets[1] * this.scale.y);
       abot.zIndex = this.zIndex - 10;
-      PlayState.instance.currentStage.add(abot);
+      currentStage.add(abot);
 
       abotBack.x = abot.x - 55;
       abotBack.y = abot.y + 0;
       abotBack.zIndex = abot.zIndex - 2;
-      PlayState.instance.currentStage.add(abotBack);
+      currentStage.add(abotBack);
 
       abotSpeaker.x = abot.x - 78;
       abotSpeaker.y = abot.y + 9;
       abotSpeaker.zIndex = abot.zIndex - 3;
-      PlayState.instance.currentStage.add(abotSpeaker);
+      currentStage.add(abotSpeaker);
 
       abotHead.x = abot.x - 325;
       abotHead.y = abot.y + 72;
       abotHead.zIndex = abot.zIndex - 4;
-      PlayState.instance.currentStage.add(abotHead);
+      currentStage.add(abotHead);
 
       abotViz.x = abot.x - 162;
       abotViz.y = abot.y + 16;
       abotViz.zIndex = abot.zIndex - 1;
-      PlayState.instance.currentStage.add(abotViz);
+      currentStage.add(abotViz);
 
-      PlayState.instance.currentStage.refresh();
+      currentStage.refresh();
       refershedLol = true;
     }
 
@@ -370,7 +370,7 @@ class NenePixelCharacter extends SparrowCharacter
 
   function shouldTransitionState():Bool
   {
-    return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
+    return currentStage.getBoyfriend().characterId != "pico-blazin";
   }
 
   function transitionState()

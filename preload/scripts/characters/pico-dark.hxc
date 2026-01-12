@@ -105,8 +105,8 @@ class PicoDarkCharacter extends MultiSparrowCharacter
 
       PauseSubState.musicSuffix = '-pico';
 
-      PlayState.instance.currentStage.add(normalChar);
-      PlayState.instance.currentStage.refresh(); // Apply z-index.
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
     }
 
     // Precache death sprites.
@@ -132,7 +132,7 @@ class PicoDarkCharacter extends MultiSparrowCharacter
     // FlxG.debugger.track(deathSpriteRetry);
 
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
-    var gf = PlayState.instance.currentStage.getGirlfriend();
+    var gf = currentStage.getGirlfriend();
     deathSpriteNene.x = gf.originalPosition.x + 120; // + 280;
     deathSpriteNene.y = gf.originalPosition.y; // + 70;
     deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
