@@ -157,6 +157,7 @@
     <vbox width="100%">
     <menu-checkbox width="100%" id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxSubtitles" text="Subtitles" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxOffsets" text="Offsets" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxNoteData" text="Notes" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxEventData" text="Events" />

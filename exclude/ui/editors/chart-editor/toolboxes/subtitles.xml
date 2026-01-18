@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="toolboxSubtitles" title="Subtitles" width="340" height="360">
+        <vbox width="100%" height="100%">
+            <dropdown id="inputSubtitle" value="Subtitle" width="100%" horizontalAlign="right" dropdownSize="10" dropdownWidth="300" tooltip="The currently selected subtitle.">
+                <data>
+                    <item id="0" text="0 ms --> 2000 ms : Blah Blah Blah!" />
+                </data>
+            </dropdown>
+            <frame text="Subtitle Data" width="100%" id="subtitleData">
+                <textfield id="inputSubtitleText" style="font-size: 10px" width="100%" />
+                <grid columns="2" >
+                    <spacer height="30px"/>
+                    <spacer />
+                    <label id="labelStartTimeStamp" text="Start Timestamp:" verticalAlign="center" />
+                    <number-stepper id="inputStartTimeStamp" pos="100" step="150" precision="4" horizontalAlign="right" width="160" tooltip="The starting timestamp of the subtitle." />
+                    <label id="labelEndTimeStamp" text="End Timestamp:" verticalAlign="center" />
+                    <number-stepper id="inputEndTimeStamp" pos="100" step="150" precision="4" horizontalAlign="right" width="160" tooltip="The end timestamp of the subtitle." />
+                </grid>
+            </frame>
+            <button allowFocus="false" id="createSubtitle" text="Create New Subtitle" tooltip="Create a new subtitle starting at the playhead." />
+            <spacer />
+            <button allowFocus="false" id="removeSubtitle" text="Remove Current Subtitle" tooltip="Remove the currently selected subtite." />
+            <spacer />
+            <button allowFocus="false" id="saveSubtitles" text="Save Subtitles File" tooltip="Save the subtitles SRT file for the current variation." />
+            <spacer />
+            <button allowFocus="false" id="loadSubtitles" text="Load Subtitles File" tooltip="Load a variation's subtitles data directly from a SRT file." />
+        </vbox>
+</collapsible-dialog>
