@@ -21,6 +21,10 @@
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
   </menu>
+  <menu text="Playback" id="menubarMenuPlayback">
+    <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
+    <menu-item id="menubarItemStopPlayback" text="Stop Playback" shortcutText="R" />
+  </menu>
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
     <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
