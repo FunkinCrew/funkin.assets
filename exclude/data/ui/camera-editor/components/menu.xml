@@ -23,7 +23,7 @@
   </menu>
   <menu text="Playback" id="menubarMenuPlayback">
     <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
-    <menu-item id="menubarItemStopPlayback" text="Stop Playback" shortcutText="R" />
+    <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="R" />
   </menu>
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
