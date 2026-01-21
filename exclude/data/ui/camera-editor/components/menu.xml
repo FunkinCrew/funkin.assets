@@ -7,7 +7,14 @@
     }
   </style>
   <menu text="File" id="menubarMenuFile">
-    <menu-item id="menubarItemOpen" text="Open" shortcutText="Ctrl + O" />
+    <menu-item id="menubarItemOpen" text="Open Chart" shortcutText="Ctrl + O" />
+    <menu id="menubarOpenRecent" text="Open Recent" />
+    <menu-separator />
+    <menu-item id="menubarItemSave" text="Save Chart" shortcutText="Ctrl + S" />
+    <menu-item id="menubarItemSaveAs" text="Save Chart As..." shortcutText="Ctrl + Shift + S" />
+    <menu-separator />
+    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
   <menu text="View" id="menubarMenuView">
