@@ -220,7 +220,7 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.currentStage.getBoyfriend().visible = false;
     PlayState.instance.currentStage.getDad().visible = false;
 
-    if (explode)
+    if (!explode)
     {
       cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
     }
