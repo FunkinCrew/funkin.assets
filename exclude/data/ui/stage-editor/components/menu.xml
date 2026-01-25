@@ -37,18 +37,22 @@
       <menu-option-box id="menubarItemThemeDark" text="Dark" group="menubarItemThemeGroup" tooltip="Change the Background's Color Scheme to Dark Mode." />
     </menu>
     <menu-separator />
-    <menu-checkbox id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters." />
-    <menu-checkbox id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor." />
-    <menu-checkbox id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters." />
-    <menu-checkbox id="menubarItemViewPosMarkers" text="View Position Markers" tooltip="Show Circles that show the Feet Position of Characters." />
-    <menu-checkbox id="menubarItemViewCamBounds" text="View Camera Bounds" tooltip="Show Rectangles representing the Camera View upon being focused on a Character." />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemViewChars" text="View Characters" selected="true" tooltip="Show Characters." />
+    <menu-checkbox width="100%" id="menubarItemViewNameText" text="View Name Text" selected="true" tooltip="Show the Text above Cursor with the Name of an Asset directly below Cursor." />
+    <menu-checkbox width="100%" id="menubarItemViewFloorLines" text="View Floor Lines" tooltip="Show Lines that indicate the Floor of Characters." />
+    <menu-checkbox width="100%" id="menubarItemViewPosMarkers" text="View Position Markers" tooltip="Show Circles that show the Feet Position of Characters." />
+    <menu-checkbox width="100%" id="menubarItemViewCamBounds" text="View Camera Bounds" tooltip="Show Rectangles representing the Camera View upon being focused on a Character." />
+    </vbox>
   </menu>
   <menu text="Windows" id="menubarMenuWindow">
-    <menu-checkbox id="menubarItemWindowObjectGraphic" text="Object Graphic" />
-    <menu-checkbox id="menubarItemWindowObjectAnims" text="Object Animations" />
-    <menu-checkbox id="menubarItemWindowObjectProps" text="Object Properties" />
-    <menu-checkbox id="menubarItemWindowCharacter" text="Character Properties" />
-    <menu-checkbox id="menubarItemWindowStage" text="Stage Data Settings" />
+    <vbox width="100%">
+    <menu-checkbox width="100%" id="menubarItemWindowObjectGraphic" text="Object Graphic" />
+    <menu-checkbox width="100%" id="menubarItemWindowObjectAnims" text="Object Animations" />
+    <menu-checkbox width="100%" id="menubarItemWindowObjectProps" text="Object Properties" />
+    <menu-checkbox width="100%" id="menubarItemWindowCharacter" text="Character Properties" />
+    <menu-checkbox width="100%" id="menubarItemWindowStage" text="Stage Data Settings" />
+    </vbox>
   </menu>
   <menu text="Help" id="menubarMenuHelp">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
