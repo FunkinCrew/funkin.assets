@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Christmas Mall (Nice)",
-  "cameraZoom": 0.8,
+  "cameraZoom": 0.65,
   "props": [
     {
       "name": "bgWalls",
@@ -49,7 +49,7 @@
     {
       "name": "bottomBoppers",
       "assetPath": "christmas/bottomBop",
-      "position": [-300, 120],
+      "position": [-220, 120],
       "scale": [1, 1],
       "scroll": [0.9, 0.9],
       "danceEvery": 1,
@@ -84,7 +84,7 @@
     {
       "name": "santa",
       "assetPath": "christmas/santa",
-      "position": [-840, 150],
+      "position": [-720, 150],
       "scale": [1, 1],
       "scroll": [1, 1],
       "danceEvery": 1,
@@ -104,14 +104,14 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1177.5, 871],
-      "cameraOffsets": [-300, -200]
+      "position": [1227.5, 871],
+      "cameraOffsets": [-440, -250]
     },
     "gf": { "zIndex": 100, "position": [808.5, 854], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [42, 882],
-      "cameraOffsets": [150, -100]
+      "position": [142, 882],
+      "cameraOffsets": [490, -100]
     }
   },
   "directory": "week5"

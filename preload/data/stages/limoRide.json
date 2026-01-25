@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "cameraZoom": 0.9,
+  "cameraZoom": 0.80,
   "props": [
     {
       "zIndex": 10,
       "danceEvery": 0,
-      "position": [-120, -50],
+      "position": [-200, -100],
       "scale": [1, 1],
       "name": "limoSunset",
       "animType": "sparrow",
@@ -247,7 +247,7 @@
     "bf": {
       "zIndex": 300,
       "position": [1217.5, 592],
-      "cameraOffsets": [-300, -100]
+      "cameraOffsets": [-350, -100]
     },
     "gf": {
       "zIndex": 100,
@@ -256,8 +256,8 @@
     },
     "dad": {
       "zIndex": 200,
-      "position": [329.5, 913],
-      "cameraOffsets": [150, 0]
+      "position": [329.5, 873],
+      "cameraOffsets": [350, 0]
     }
   },
   "name": "Limo Ride",

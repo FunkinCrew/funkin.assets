@@ -293,7 +293,7 @@
   "characters": {
     "bf": {
       "zIndex": 400,
-      "position": [2151, 1228],
+      "position": [2001, 1228],
       "cameraOffsets": [-350, -100]
     },
     "gf": {
@@ -303,8 +303,8 @@
     },
     "dad": {
       "zIndex": 350,
-      "position": [920, 1310],
-      "cameraOffsets": [500, -100]
+      "position": [1100, 1310],
+      "cameraOffsets": [390, -100]
     }
   },
   "name": "Philly (Streets) [Erect]",

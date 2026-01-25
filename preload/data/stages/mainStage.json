@@ -37,18 +37,18 @@
       "animations": []
     }
   ],
-  "cameraZoom": 1.1,
+  "cameraZoom": 1,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [989.5, 885],
-      "cameraOffsets": [-100, -100]
+      "position": [1089.5, 885],
+      "cameraOffsets": [-250, -100]
     },
     "dad": {
       "zIndex": 200,
       "position": [335, 885],
-      "cameraOffsets": [150, -100]
+      "cameraOffsets": [370, -100]
     },
     "gf": {
       "zIndex": 100,

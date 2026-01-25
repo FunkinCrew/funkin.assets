@@ -167,15 +167,19 @@
       ]
     }
   ],
-  "cameraZoom": 1,
+  "cameraZoom": 0.9,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "cameraOffsets": [-200, -94],
+      "cameraOffsets": [-330, -94],
       "position": [1168, 900]
     },
-    "dad": { "zIndex": 200, "cameraOffsets": [160, 0], "position": [306, 960] },
+    "dad": {
+      "zIndex": 200,
+      "cameraOffsets": [380, -25],
+      "position": [336, 990]
+    },
     "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 823] }
   },
   "name": "School (Date)",

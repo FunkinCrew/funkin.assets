@@ -72,12 +72,12 @@
     "bf": {
       "zIndex": 200,
       "position": [1340.5, 885],
-      "cameraOffsets": [-220, -100]
+      "cameraOffsets": [-370, -100]
     },
     "dad": {
       "zIndex": 200,
       "position": [230.5, 996],
-      "cameraOffsets": [250, -100]
+      "cameraOffsets": [515, -100]
     },
     "gf": { "zIndex": 100, "position": [800.5, 775], "cameraOffsets": [0, 0] }
   },

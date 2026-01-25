@@ -59,19 +59,19 @@
       "scroll": [1, 1]
     }
   ],
-  "cameraZoom": 1.0,
+  "cameraZoom": 0.9,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 200,
-      "position": [1250, 885],
-      "cameraOffsets": [-100, -100]
+      "position": [1170, 885],
+      "cameraOffsets": [-300, -100]
     },
     "gf": { "zIndex": 100, "position": [821.5, 800], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [382, 865],
-      "cameraOffsets": [150, -100]
+      "position": [312, 865],
+      "cameraOffsets": [380, -50]
     }
   },
   "name": "Spooky Mansion [Erect]",

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Christmas Mall (Naughty)",
-  "cameraZoom": 1.0,
+  "cameraZoom": 0.9,
   "props": [
     {
       "name": "solid",
@@ -39,13 +39,13 @@
     "bf": {
       "zIndex": 300,
       "position": [1297.5, 871],
-      "cameraOffsets": [-100, -100]
+      "cameraOffsets": [-300, -140]
     },
     "gf": { "zIndex": 100, "position": [808.5, 854], "cameraOffsets": [0, 0] },
     "dad": {
       "zIndex": 200,
-      "position": [290.5, 869],
-      "cameraOffsets": [150, -100]
+      "position": [290.5, 899],
+      "cameraOffsets": [400, -50]
     }
   },
   "directory": "week5"

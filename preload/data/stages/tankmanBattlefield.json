@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Tankman Battlefield",
-  "cameraZoom": 0.9,
+  "cameraZoom": 0.80,
   "props": [
     {
       "name": "tankSky",
@@ -225,13 +225,13 @@
   "characters": {
     "bf": {
       "zIndex": 102,
-      "position": [1090.5, 885],
-      "cameraOffsets": [-220, -100]
+      "position": [1150.5, 885],
+      "cameraOffsets": [-350, -150]
     },
     "dad": {
       "zIndex": 102,
-      "position": [230.5, 996],
-      "cameraOffsets": [250, -100]
+      "position": [190.5, 1000],
+      "cameraOffsets": [420, -150]
     },
     "gf": { "zIndex": 100, "position": [660.5, 730], "cameraOffsets": [0, 0] }
   },
