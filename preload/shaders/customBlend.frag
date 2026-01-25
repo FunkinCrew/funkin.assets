@@ -276,6 +276,10 @@ void main()
 {
   vec4 bg = flixel_texture2D(backgroundSwag, openfl_TextureCoordv);
   vec4 src = flixel_texture2D(sourceSwag, screenCoord);
+
+  // Un-premultiply the alpha before blending
+  src.rgb = src.a > 0.0 ? src.rgb / src.a : src.rgb;
+
   vec3 res = blend(bg.rgb, src.rgb);
   gl_FragColor = vec4(mix(bg.rgb, res.rgb, src.a), mix(bg.a, 1.0, src.a));
 }
