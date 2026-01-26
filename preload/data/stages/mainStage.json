@@ -27,8 +27,8 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-500, -300],
-      "scale": [0.9, 0.9],
+      "position": [-255, -170],
+      "scale": [0.75, 0.75],
       "animType": "sparrow",
       "name": "stageCurtains",
       "isPixel": false,
@@ -42,13 +42,13 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1089.5, 885],
-      "cameraOffsets": [-250, -100]
+      "position": [1115.5, 885],
+      "cameraOffsets": [-280, -100]
     },
     "dad": {
       "zIndex": 200,
       "position": [335, 885],
-      "cameraOffsets": [370, -100]
+      "cameraOffsets": [320, -150]
     },
     "gf": {
       "zIndex": 100,

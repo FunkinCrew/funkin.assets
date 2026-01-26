@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "cameraZoom": 0.80,
+  "cameraZoom": 0.83,
   "props": [
     {
       "zIndex": 10,
@@ -247,7 +247,7 @@
     "bf": {
       "zIndex": 300,
       "position": [1217.5, 592],
-      "cameraOffsets": [-350, -100]
+      "cameraOffsets": [-330, -100]
     },
     "gf": {
       "zIndex": 100,
@@ -257,7 +257,7 @@
     "dad": {
       "zIndex": 200,
       "position": [329.5, 873],
-      "cameraOffsets": [350, 0]
+      "cameraOffsets": [270, 0]
     }
   },
   "name": "Limo Ride",

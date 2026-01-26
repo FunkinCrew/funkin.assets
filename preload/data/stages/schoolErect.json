@@ -168,17 +168,17 @@
       ]
     }
   ],
-  "cameraZoom": 1,
+  "cameraZoom": 0.95,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "cameraOffsets": [-315, -94],
+      "cameraOffsets": [-300, -114],
       "position": [1168, 900]
     },
     "dad": {
       "zIndex": 200,
-      "cameraOffsets": [350, -40],
+      "cameraOffsets": [320, -75],
       "position": [336, 990]
     },
     "gf": { "zIndex": 100, "cameraOffsets": [40, 40], "position": [724, 823] }

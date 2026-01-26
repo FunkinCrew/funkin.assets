@@ -57,12 +57,12 @@
       "animations": []
     }
   ],
-  "cameraZoom": 1,
+  "cameraZoom": 0.9,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
-      "cameraOffsets": [-300, -50],
+      "cameraOffsets": [-300, -80],
       "position": [1168, 900]
     },
     "dad": {

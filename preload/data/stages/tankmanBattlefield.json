@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Tankman Battlefield",
-  "cameraZoom": 0.80,
+  "cameraZoom": 0.83,
   "props": [
     {
       "name": "tankSky",
@@ -123,7 +123,7 @@
       "name": "tankmanAudience0",
       "assetPath": "tank0",
       "zIndex": 1000,
-      "position": [-500, 650],
+      "position": [-425, 650],
       "scale": [1, 1],
       "scroll": [1.7, 1.5],
       "danceEvery": 1,
@@ -140,7 +140,7 @@
       "name": "tankmanAudience2",
       "assetPath": "tank2",
       "zIndex": 1002,
-      "position": [360, 980],
+      "position": [380, 980],
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
@@ -157,7 +157,7 @@
       "name": "tankmanAudience3",
       "assetPath": "tank3",
       "zIndex": 1016,
-      "position": [1050, 1240],
+      "position": [800, 1140],
       "scale": [1, 1],
       "scroll": [3.5, 2.5],
       "danceEvery": 1,
@@ -191,7 +191,7 @@
       "name": "tankmanAudience5",
       "assetPath": "tank5",
       "zIndex": 1003,
-      "position": [1550, 700],
+      "position": [1500, 700],
       "scale": [1, 1],
       "scroll": [1.5, 1.5],
       "danceEvery": 1,
@@ -208,7 +208,7 @@
       "name": "tankmanAudience1",
       "assetPath": "tank1",
       "zIndex": 1100,
-      "position": [-300, 750],
+      "position": [-200, 750],
       "scale": [1, 1],
       "scroll": [2.0, 0.2],
       "danceEvery": 1,
@@ -225,13 +225,13 @@
   "characters": {
     "bf": {
       "zIndex": 102,
-      "position": [1150.5, 885],
+      "position": [1130.5, 885],
       "cameraOffsets": [-350, -150]
     },
     "dad": {
       "zIndex": 102,
       "position": [190.5, 1000],
-      "cameraOffsets": [420, -150]
+      "cameraOffsets": [380, -150]
     },
     "gf": { "zIndex": 100, "position": [660.5, 730], "cameraOffsets": [0, 0] }
   },
