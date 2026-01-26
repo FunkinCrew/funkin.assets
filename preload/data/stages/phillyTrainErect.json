@@ -78,12 +78,12 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1100.5, 865],
-      "cameraOffsets": [-260, -110]
+      "position": [1200.5, 885],
+      "cameraOffsets": [-310, -110]
     },
     "dad": {
       "zIndex": 200,
-      "position": [370, 885],
+      "position": [400, 885],
       "cameraOffsets": [330, -100]
     },
     "gf": {
