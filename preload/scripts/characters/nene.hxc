@@ -166,6 +166,16 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
    */
   var trainPassing:Bool = false;
 
+  /**
+   * Short for PlayState.instance.currentStage.
+   */
+  var currentStage(get, never):Stage;
+
+  function get_currentStage():Stage
+  {
+    return PlayState.instance.currentStage;
+  }
+
   public function new(characterId:String)
   {
     // This tells CharacterDataParser to load Nene instead of an invalid character!
