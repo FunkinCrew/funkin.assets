@@ -55,13 +55,10 @@
       "prefix": "Cheer"
     },
     {
-      "asset": "shared:characters/bf-death",
+      "assetPath": "shared:characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
-      "offsets": [22, 15],
-      "atlasSettings": {
-        "uniqueInCache": true
-      }
+      "offsets": [22, 15]
     },
     {
       "assetPath": "shared:characters/bf-death",
@@ -71,7 +68,7 @@
       "offsets": [22, 15]
     },
     {
-      "asset": "shared:characters/bf-death",
+      "assetPath": "shared:characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [22, 15]
