@@ -1,37 +1,193 @@
+package funkin.play.character;
+
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.base.ScriptedFunkinSprite;
-import funkin.modding.base.ScriptedFlxSprite;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.audio.visualize.ABotVis;
 
-class NeneCharacter extends AnimateAtlasCharacter
+/**
+ * One of two states that the A-Bot's pupils can be in.
+ */
+enum PupilState
 {
-  function new()
+  /**
+   * The pupils are looking to the left.
+   */
+  LEFT;
+
+  /**
+   * The pupils are looking to the right.
+   */
+  RIGHT;
+}
+
+/**
+ * The various states Nene can be in, controlling her animations.
+ */
+enum NeneState
+{
+  /**
+   * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
+   * or maybe her 'combo' or 'drop' animations are active.
+   *
+   * Transitions:
+   * If player health <= VULTURE_THRESHOLD, transition to PRE_RAISE.
+   * If trainPassing is set to true, transition to HAIR_BLOWING.
+   */
+  DEFAULT;
+
+  /**
+   * Nene has recognized the player is at low health,
+   * but has to wait for the appropriate point in the animation to move on.
+   *
+   * Transitions:
+   * If player health > VULTURE_THRESHOLD, transition back to DEFAULT without changing animation.
+   * If current animation is combo or drop, transition when animation completes.
+   * If current animation is danceLeft, wait until frame 14 to transition to RAISE.
+   * If current animation is danceRight, wait until danceLeft starts.
+   * If trainPassing is set to true, transition to HAIR_BLOWING.
+   */
+  PRE_RAISE;
+
+  /**
+   * Nene is raising her knife.
+   * When moving to this state, immediately play the 'raiseKnife' animation.
+   *
+   * Transitions:
+   * Once 'raiseKnife' animation completes, transition to READY.
+   * If trainPassing is set to true, transition to HAIR_BLOWING_RAISE.
+   */
+  RAISE;
+
+  /**
+   * Nene is holding her knife ready to strike.
+   * During this state, hold the animation on the first frame, and play it at random intervals.
+   * This makes the blink look less periodic.
+   *
+   * Transitions:
+   * If the player runs out of health, move to the GameOverSubState. No transition needed.
+   * If player health > VULTURE_THRESHOLD, transition to LOWER.
+   * If trainPassing is set to true, transition to HAIR_BLOWING_RAISE.
+   */
+  READY;
+
+  /**
+   * Nene is about to lower her knife.
+   * When moving to this state, play the 'lowerKnife' animation on the next beat.
+   *
+   * Transitions:
+   * Once 'lowerKnife' animation completes, transition to DEFAULT.
+   * If trainPassing is set to true, transition to HAIR_BLOWING.
+   */
+  LOWER;
+
+  /**
+   * Nene's hair is blowing to the side.
+   * When moving to this state, immediately play the 'hairBlowNormal' animation.
+   * If still in this state when the animation completes, loop the animation.
+   *
+   * Transitions:
+   * If trainPassing is set to false, transition to HAIR_FALLING.
+   */
+  HAIR_BLOWING;
+
+  /**
+   * Nene's hair is returning to normal.
+   * When moving to this state, immediately play the 'hairFallNormal' animation.
+   *
+   * Transitions:
+   * Once 'hairFallNormal' animation completes, transition to DEFAULT.
+   */
+  HAIR_FALLING;
+
+  /**
+   * Nene's hair is blowing to the side, with her knife raised in the air.
+   * When moving to this state, immediately play the 'hairBlowKnife' animation.
+   * If still in this state when the animation completes, loop the animation.
+   *
+   * Transitions:
+   * If trainPassing is set to false, transition to HAIR_FALLING_RAISE.
+   */
+  HAIR_BLOWING_RAISE;
+
+  /**
+   * Nene's hair is returning to normal, while her knife is raised in the air.
+   * When moving to this state, immediately play the 'hairFallKnife' animation.
+   *
+   * Transitions:
+   * Once 'hairFallKnife' animation completes, transition to READY.
+   */
+  HAIR_FALLING_RAISE;
+}
+
+class NeneBaseCharacter extends AnimateAtlasCharacter
+{
+  /**
+   * Nene's animations are tracked in a simple state machine.
+   * Given the current state and an incoming event, the state changes.
+   */
+  var currentState:NeneState = NeneState.DEFAULT;
+
+  /**
+   * The current state of A-Bot's pupils, tracked in a simple state machine.
+   */
+  var pupilState:PupilState = PupilState.RIGHT;
+
+  /**
+   * At this amount of life, Nene will raise her knife.
+   */
+  final VULTURE_THRESHOLD:Float = 0.25 * 2;
+
+  /**
+   * Nene blinks every X beats, with X being randomly generated each time.
+   * This keeps the animation from looking too periodic.
+   */
+  /**
+   * The minimum amount of time Nene will blink for.
+   */
+  final MIN_BLINK_DELAY:Int = 3;
+
+  /**
+   * The maximum amount of time Nene will blink for.
+   */
+  final MAX_BLINK_DELAY:Int = 7;
+
+  /**
+   * A timer that counts down to zero.
+   * When it reaches zero, Nene will blink.
+   */
+  var blinkCountdown:Int = MIN_BLINK_DELAY;
+
+  /**
+   * When true, Nene's hair will start blowing to the side, used in Week 3.
+   * Depending on the state she's in, her hair will blow with or without her knife raised.
+   */
+  var trainPassing:Bool = false;
+
+  public function new(characterId:String)
   {
-    super('nene');
+    // This tells CharacterDataParser to load Nene instead of an invalid character!
+    if (characterId == "UNKNOWN")
+    {
+      characterId = "nene";
+    }
+
+    super(characterId);
   }
-
-  var pupilState:Int = 0;
-
-  var PUPIL_STATE_NORMAL = 0;
-  var PUPIL_STATE_LEFT = 1;
 
   var abot:FunkinSprite;
   var abotViz:ABotVis;
-  var stereoBG:FlxSprite;
-  var eyeWhites:FlxSprite;
+  var stereoBG:FunkinSprite;
+  var eyeWhites:FunkinSprite;
   var pupil:FunkinSprite;
 
-  function onCreate(event:ScriptEvent)
+  public override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
-    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+    stereoBG = new FunkinSprite(0, 0, Paths.image('characters/abot/stereoBG'));
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
@@ -58,126 +214,7 @@ class NeneCharacter extends AnimateAtlasCharacter
     abotViz.zIndex = abot.zIndex + 1;
   }
 
-  /**
-   * At this amount of life, Nene will raise her knife.
-   */
-  var VULTURE_THRESHOLD = 0.25 * 2;
-
-  /**
-   * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
-   * or maybe her 'combo' or 'drop' animations are active.
-   *
-   * Transitions:
-   * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
-   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-   */
-  var STATE_DEFAULT = 0;
-
-  /**
-   * Nene has recognized the player is at low health,
-   * but has to wait for the appropriate point in the animation to move on.
-   *
-   * Transitions:
-   * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
-   * If current animation is combo or drop, transition when animation completes.
-   * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
-   * If current animation is danceRight, wait until danceLeft starts.
-   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-   */
-  var STATE_PRE_RAISE = 1;
-
-  /**
-   * Nene is raising her knife.
-   * When moving to this state, immediately play the 'raiseKnife' animation.
-   *
-   * Transitions:
-   * Once 'raiseKnife' animation completes, transition to STATE_READY.
-   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
-   */
-  var STATE_RAISE = 2;
-
-  /**
-   * Nene is holding her knife ready to strike.
-   * During this state, hold the animation on the first frame, and play it at random intervals.
-   * This makes the blink look less periodic.
-   *
-   * Transitions:
-   * If the player runs out of health, move to the GameOverSubState. No transition needed.
-   * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
-   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING_RAISE.
-   */
-  var STATE_READY = 3;
-
-  /**
-   * Nene is about to lower her knife.
-   * When moving to this state, play the 'lowerKnife' animation on the next beat.
-   *
-   * Transitions:
-   * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
-   * If trainPassing is set to true, transition to STATE_HAIR_BLOWING.
-   */
-  var STATE_LOWER = 4;
-
-  /**
-   * Nene's hair is blowing to the side.
-   * When moving to this state, immediately play the 'hairBlowNormal' animation.
-   * If still in this state when the animation completes, loop the animation.
-   *
-   * Transitions:
-   * If trainPassing is set to false, transition to STATE_HAIR_FALLING.
-   */
-  var STATE_HAIR_BLOWING = 5;
-
-  /**
-   * Nene's hair is returning to normal.
-   * When moving to this state, immediately play the 'hairFallNormal' animation.
-   *
-   * Transitions:
-   * Once 'hairFallNormal' animation completes, transition to STATE_DEFAULT.
-   */
-  var STATE_HAIR_FALLING = 6;
-
-  /**
-   * Nene's hair is blowing to the side, with her knife raised in the air.
-   * When moving to this state, immediately play the 'hairBlowKnife' animation.
-   * If still in this state when the animation completes, loop the animation.
-   *
-   * Transitions:
-   * If trainPassing is set to false, transition to STATE_HAIR_FALLING_RAISE.
-   */
-  var STATE_HAIR_BLOWING_RAISE = 7;
-
-  /**
-   * Nene's hair is returning to normal, while her knife is raised in the air.
-   * When moving to this state, immediately play the 'hairFallKnife' animation.
-   *
-   * Transitions:
-   * Once 'hairFallKnife' animation completes, transition to STATE_READY.
-   */
-  var STATE_HAIR_FALLING_RAISE = 8;
-
-  /**
-   * Nene's animations are tracked in a simple state machine.
-   * Given the current state and an incoming event, the state changes.
-   */
-  var currentState:Int = STATE_DEFAULT;
-
-  /**
-   * Nene blinks every X beats, with X being randomly generated each time.
-   * This keeps the animation from looking too periodic.
-   */
-  var MIN_BLINK_DELAY:Int = 3;
-
-  var MAX_BLINK_DELAY:Int = 7;
-  var blinkCountdown:Int = MIN_BLINK_DELAY;
-
-  /**
-   * When true, Nene's hair will start blowing to the side, used in Week 3.
-   * Depending on the state she's in, her hair will blow with or without her knife raised.
-   */
-  var trainPassing:Bool = false;
-
-  function dance(forceRestart:Bool)
+  public override function dance(forceRestart:Bool):Void
   {
     if (abot?.anim != null)
     {
@@ -188,7 +225,7 @@ class NeneCharacter extends AnimateAtlasCharacter
     // Then, perform the appropriate animation for the current state.
     switch (currentState)
     {
-      case STATE_DEFAULT:
+      case NeneState.DEFAULT:
         if (hasDanced)
         {
           playAnimation('danceRight', forceRestart);
@@ -198,10 +235,10 @@ class NeneCharacter extends AnimateAtlasCharacter
           playAnimation('danceLeft', forceRestart);
         }
         hasDanced = !hasDanced;
-      case STATE_PRE_RAISE:
+      case NeneState.PRE_RAISE:
         playAnimation('danceLeft', false);
         hasDanced = false;
-      case STATE_READY:
+      case NeneState.READY:
         if (blinkCountdown == 0)
         {
           playAnimation('idleKnife', false);
@@ -211,7 +248,7 @@ class NeneCharacter extends AnimateAtlasCharacter
         {
           blinkCountdown--;
         }
-      case STATE_LOWER:
+      case NeneState.LOWER:
         if (getCurrentAnimation() != 'lowerKnife')
         {
           playAnimation('lowerKnife');
@@ -220,8 +257,6 @@ class NeneCharacter extends AnimateAtlasCharacter
         // In other states, don't interrupt the existing animation.
     }
   }
-
-  var refershedLol:Bool = false;
 
   /**
    * Called when the chart hits a song event.
@@ -255,7 +290,7 @@ class NeneCharacter extends AnimateAtlasCharacter
     pupil.anim.play('', true, false, 17);
   }
 
-  function moveByNoteKind(kind:String)
+  function moveByNoteKind(kind:String):Void
   {
     // Force ABot to look where the action is happening.
     switch (event.note.kind)
@@ -274,19 +309,21 @@ class NeneCharacter extends AnimateAtlasCharacter
     }
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  public override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
     moveByNoteKind(event.note.kind);
   }
 
-  function onNoteMiss(event:NoteScriptEvent)
+  public override function onNoteMiss(event:NoteScriptEvent):Void
   {
     super.onNoteMiss(event);
     moveByNoteKind(event.note.kind);
   }
 
-  function onUpdate(event:UpdateScriptEvent)
+  var hasSetupAbot:Bool = false;
+
+  public override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -302,55 +339,28 @@ class NeneCharacter extends AnimateAtlasCharacter
     {
       switch (pupilState)
       {
-        case PUPIL_STATE_NORMAL:
+        case PupilState.RIGHT:
           if (pupil.anim.curFrame >= 17)
           {
             trace('Done moving pupils left');
-            pupilState = PUPIL_STATE_LEFT;
+            pupilState = PupilState.LEFT;
             pupil.anim.pause();
           }
 
-        case PUPIL_STATE_LEFT:
+        case PupilState.LEFT:
           if (pupil.anim.curFrame >= 30)
           {
             trace('Done moving pupils right');
-            pupilState = PUPIL_STATE_NORMAL;
+            pupilState = PupilState.RIGHT;
             pupil.anim.pause();
           }
       }
     }
 
     // refreshes just for the zIndex shit!
-    if (!refershedLol)
+    if (!hasSetupAbot)
     {
-      abot.x = this.x - 95 - (-this.globalOffsets[0] * this.scale.x);
-      abot.y = this.y + 384 - (-this.globalOffsets[1] * this.scale.y);
-      abot.zIndex = this.zIndex - 10;
-
-      PlayState.instance.currentStage.add(abot);
-
-      abotViz.x = abot.x + 207;
-      abotViz.y = abot.y + 84;
-      abotViz.zIndex = abot.zIndex - 1;
-      PlayState.instance.currentStage.add(abotViz);
-
-      eyeWhites.x = abot.x + 40;
-      eyeWhites.y = abot.y + 250;
-      eyeWhites.zIndex = abot.zIndex - 10;
-      PlayState.instance.currentStage.add(eyeWhites);
-
-      pupil.x = abot.x + 50;
-      pupil.y = abot.y + 238;
-      pupil.zIndex = eyeWhites.zIndex + 5;
-      PlayState.instance.currentStage.add(pupil);
-
-      stereoBG.x = abot.x + 150;
-      stereoBG.y = abot.y + 30;
-      stereoBG.zIndex = abot.zIndex - 8;
-      PlayState.instance.currentStage.add(stereoBG);
-
-      PlayState.instance.currentStage.refresh();
-      refershedLol = true;
+      setupAbot();
     }
 
     if (shouldTransitionState())
@@ -359,7 +369,39 @@ class NeneCharacter extends AnimateAtlasCharacter
     }
   }
 
-  var currentShader = null;
+  function setupAbot():Void
+  {
+    abot.x = this.x - 95 - (-this.globalOffsets[0] * this.scale.x);
+    abot.y = this.y + 384 - (-this.globalOffsets[1] * this.scale.y);
+    abot.zIndex = this.zIndex - 10;
+
+    currentStage.add(abot);
+
+    abotViz.x = abot.x + 207;
+    abotViz.y = abot.y + 84;
+    abotViz.zIndex = abot.zIndex - 1;
+    currentStage.add(abotViz);
+
+    eyeWhites.x = abot.x + 40;
+    eyeWhites.y = abot.y + 250;
+    eyeWhites.zIndex = abot.zIndex - 10;
+    currentStage.add(eyeWhites);
+
+    pupil.x = abot.x + 50;
+    pupil.y = abot.y + 238;
+    pupil.zIndex = eyeWhites.zIndex + 5;
+    currentStage.add(pupil);
+
+    stereoBG.x = abot.x + 150;
+    stereoBG.y = abot.y + 30;
+    stereoBG.zIndex = abot.zIndex - 8;
+    currentStage.add(stereoBG);
+
+    currentStage.refresh();
+    hasSetupAbot = true;
+  }
+
+  var currentShader:FlxRuntimeShader = null;
 
   function synchronizeShader():Void
   {
@@ -380,20 +422,20 @@ class NeneCharacter extends AnimateAtlasCharacter
     trace("Synchronized shader between children!");
   }
 
-  override function onSongStart(event:ScriptEvent)
+  public override function onSongStart(event:ScriptEvent):Void
   {
     abotViz.snd = FlxG.sound.music;
     abotViz.initAnalyzer();
     abotViz.alpha = 1;
   }
 
-  override function onSongRetry(event:ScriptEvent)
+  public override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry();
     abotViz.alpha = 0;
   }
 
-  override function onSongEnd(event:ScriptEvent)
+  public override function onSongEnd(event:ScriptEvent):Void
   {
     super.onSongEnd();
     abotViz.dumpSound();
@@ -401,13 +443,13 @@ class NeneCharacter extends AnimateAtlasCharacter
 
   var animationFinished:Bool = false;
 
-  function onAnimationFinished(name:String)
+  override function onAnimationFinished(name:String)
   {
     super.onAnimationFinished(name);
 
     switch (currentState)
     {
-      case STATE_RAISE, STATE_LOWER, STATE_HAIR_BLOWING, STATE_HAIR_FALLING, STATE_HAIR_BLOWING_RAISE, STATE_HAIR_FALLING_RAISE:
+      case NeneState.RAISE, NeneState.LOWER, NeneState.HAIR_BLOWING, NeneState.HAIR_FALLING, NeneState.HAIR_BLOWING_RAISE, NeneState.HAIR_FALLING_RAISE:
         animationFinished = true;
         transitionState();
       default:
@@ -415,13 +457,13 @@ class NeneCharacter extends AnimateAtlasCharacter
     }
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
     switch (currentState)
     {
-      case STATE_PRE_RAISE:
+      case NeneState.PRE_RAISE:
         if (name == "danceLeft" && frameNumber == 13)
         {
           animationFinished = true;
@@ -434,84 +476,80 @@ class NeneCharacter extends AnimateAtlasCharacter
 
   function shouldTransitionState():Bool
   {
-    return PlayState.instance.currentStage.getBoyfriend()?.characterId != "pico-blazin";
+    return currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
-  function checkTrainPassing(raised:Bool = false)
+  function checkTrainPassing(raised:Bool = false):Void
   {
     if (!trainPassing) return;
 
     if (raised)
     {
-      currentState = STATE_HAIR_BLOWING_RAISE;
+      currentState = NeneState.HAIR_BLOWING_RAISE;
       playAnimation('hairBlowKnife');
       animationFinished = false;
     }
     else
     {
-      currentState = STATE_HAIR_BLOWING;
+      currentState = NeneState.HAIR_BLOWING;
       playAnimation('hairBlowNormal');
       animationFinished = false;
     }
   }
 
-  function transitionState()
+  function transitionState():Void
   {
+    if (PlayState.instance == null) return;
+
     switch (currentState)
     {
-      case STATE_DEFAULT:
+      case NeneState.DEFAULT:
         if (PlayState.instance.health <= VULTURE_THRESHOLD)
         {
-          // trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
-          currentState = STATE_PRE_RAISE;
+          currentState = NeneState.PRE_RAISE;
         }
         else
         {
-          currentState = STATE_DEFAULT;
+          currentState = NeneState.DEFAULT;
         }
         checkTrainPassing();
-      case STATE_PRE_RAISE:
+      case NeneState.PRE_RAISE:
         if (PlayState.instance.health > VULTURE_THRESHOLD)
         {
-          // trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
-          currentState = STATE_DEFAULT;
+          currentState = NeneState.DEFAULT;
         }
         else if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_RAISE');
-          currentState = STATE_RAISE;
+          currentState = NeneState.RAISE;
           playAnimation('raiseKnife');
           animationFinished = false;
         }
         checkTrainPassing();
-      case STATE_RAISE:
+      case NeneState.RAISE:
         if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_READY');
-          currentState = STATE_READY;
+          currentState = NeneState.READY;
           animationFinished = false;
         }
         checkTrainPassing(true);
-      case STATE_READY:
+      case NeneState.READY:
         if (PlayState.instance.health > VULTURE_THRESHOLD)
         {
-          // trace('NENE: Health went back up, transitioning to STATE_LOWER');
-          currentState = STATE_LOWER;
+          currentState = NeneState.LOWER;
           // lowerKnife will play on the next beat, so it syncs up properly
         }
         checkTrainPassing(true);
-      case STATE_LOWER:
+      case NeneState.LOWER:
         if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
-          currentState = STATE_DEFAULT;
+          currentState = NeneState.DEFAULT;
           animationFinished = false;
         }
         checkTrainPassing();
-      case STATE_HAIR_BLOWING:
+      case NeneState.HAIR_BLOWING:
         if (!trainPassing)
         {
-          currentState = STATE_HAIR_FALLING;
+          currentState = NeneState.HAIR_FALLING;
           playAnimation('hairFallNormal');
           animationFinished = false;
         }
@@ -520,16 +558,16 @@ class NeneCharacter extends AnimateAtlasCharacter
           playAnimation('hairBlowNormal');
           animationFinished = false;
         }
-      case STATE_HAIR_FALLING:
+      case NeneState.HAIR_FALLING:
         if (animationFinished)
         {
-          currentState = STATE_DEFAULT;
+          currentState = NeneState.DEFAULT;
           animationFinished = false;
         }
-      case STATE_HAIR_BLOWING_RAISE:
+      case NeneState.HAIR_BLOWING_RAISE:
         if (!trainPassing)
         {
-          currentState = STATE_HAIR_FALLING_RAISE;
+          currentState = NeneState.HAIR_FALLING_RAISE;
           playAnimation('hairFallKnife');
           animationFinished = false;
         }
@@ -538,15 +576,14 @@ class NeneCharacter extends AnimateAtlasCharacter
           playAnimation('hairBlowKnife');
           animationFinished = false;
         }
-      case STATE_HAIR_FALLING_RAISE:
+      case NeneState.HAIR_FALLING_RAISE:
         if (animationFinished)
         {
-          currentState = STATE_READY;
+          currentState = NeneState.READY;
           animationFinished = false;
         }
       default:
-        // trace('UKNOWN STATE ' + currentState);
-        currentState = STATE_DEFAULT;
+        currentState = NeneState.DEFAULT;
     }
   }
 }
