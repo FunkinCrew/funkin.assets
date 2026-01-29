@@ -3,12 +3,10 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
 import funkin.audio.FunkinSound;
@@ -88,9 +86,9 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  var picoPlayer:ScriptedFunkinSprite;
-  var picoOpponent:ScriptedFunkinSprite;
-  var bloodPool:ScriptedFunkinSprite;
+  var picoPlayer:PicoDopplegangerSprite;
+  var picoOpponent:PicoDopplegangerSprite;
+  var bloodPool:PicoBloodPool;
   var cigarette:FlxSprite;
   var skipText:FlxText;
 
@@ -139,9 +137,9 @@ class PhillyTrainErectStage extends Stage
     var cigarettePos:Array<Float> = [];
     var shooterPos:Array<Float> = [];
 
-    bloodPool = ScriptedFunkinSprite.init('PicoBloodPool', 0, 0);
-    picoPlayer = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
-    picoOpponent = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
+    bloodPool = new PicoBloodPool(0, 0);
+    picoPlayer = new PicoDopplegangerSprite(0, 0);
+    picoOpponent = new PicoDopplegangerSprite(0, 0);
     cigarette = new FlxSprite(0, 0);
 
     picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 402, PlayState.instance.currentStage.getBoyfriend().y - 144);
@@ -216,8 +214,8 @@ class PhillyTrainErectStage extends Stage
     cutsceneMusic.volume = 1;
     cutsceneMusic.play(false);
 
-    picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
-    picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
+    picoPlayer.doAnim('Player', playerShoots, explode, cutsceneTimerManager);
+    picoOpponent.doAnim('Opponent', !playerShoots, explode, cutsceneTimerManager);
 
     PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
@@ -246,7 +244,7 @@ class PhillyTrainErectStage extends Stage
     });
 
     new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
-      if (explode) bloodPool.scriptCall('doAnim');
+      if (explode) bloodPool.doAnim();
     });
 
     new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
@@ -313,8 +311,8 @@ class PhillyTrainErectStage extends Stage
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
       cutsceneTimerManager.clear();
-      picoPlayer.scriptCall('cancelSounds');
-      picoOpponent.scriptCall('cancelSounds');
+      picoPlayer.cancelSounds();
+      picoOpponent.cancelSounds();
       cutsceneMusic.stop();
 
       PlayState.instance.isInCutscene = false;
@@ -353,7 +351,7 @@ class PhillyTrainErectStage extends Stage
     super.buildStage();
 
     // NOTE: You pass the constructor variables directly, not as an array.
-    lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
+    lightShader = new BuildingEffectShader(1.0);
     trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
 
     colorShader = new AdjustColorShader();
@@ -388,7 +386,7 @@ class PhillyTrainErectStage extends Stage
     if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
     // Update beat lights
     var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
-    lightShader.scriptCall('update', [shaderInput]);
+    lightShader.update(shaderInput);
 
     var amount:Int = 1;
 
@@ -472,7 +470,7 @@ class PhillyTrainErectStage extends Stage
     if (event.beat % 4 == 0)
     {
       // Reset opacity
-      lightShader.scriptCall('reset');
+      lightShader.reset();
 
       // Switch to a different light
       curLight = FlxG.random.int(0, lightColors.length - 1);
@@ -504,7 +502,7 @@ class PhillyTrainErectStage extends Stage
       switch (getGirlfriend().characterId)
       {
         case 'nene':
-          getGirlfriend().scriptSet('trainPassing', true);
+          getGirlfriend().trainPassing = true;
         default:
           getGirlfriend().playAnimation('hairBlow');
       }
@@ -534,7 +532,7 @@ class PhillyTrainErectStage extends Stage
     switch (getGirlfriend().characterId)
     {
       case 'nene':
-        getGirlfriend().scriptSet('trainPassing', false);
+        getGirlfriend().trainPassing = false;
       default:
         getGirlfriend().playAnimation('hairFall');
     }

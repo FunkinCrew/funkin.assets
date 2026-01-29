@@ -7,7 +7,6 @@ import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
 import flixel.FlxSprite;
 import flixel.FlxG;
-import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;

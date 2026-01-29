@@ -4,9 +4,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
-import funkin.modding.base.ScriptedFlxSprite;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 
@@ -48,7 +45,7 @@ class NeneChristmasCharacter extends SparrowCharacter
       }
     });
 
-    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
+    abot = new ABotAtlasSprite(0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;

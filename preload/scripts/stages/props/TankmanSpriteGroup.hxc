@@ -4,7 +4,6 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.FunkinMemory;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.PlayState;
 import Lambda;
 
@@ -88,30 +87,29 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     // recycle() is neat; it looks for a sprite which has completed its animation and resets it,
     // rather than calling the constructor again. It only calls the constructor if it can't find one.
 
-    var tankman:ScriptedFunkinSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
+    var tankman:TankmanSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
 
     // We can directly set values which are defined by the script's superclass.
     tankman.x = initX;
     tankman.y = initY;
     tankman.scale.set(scale, scale);
     tankman.flipX = !goingRight;
-    // We need to use scriptSet for values which were defined in a script.
-    tankman.scriptSet('strumTime', strumTime);
-    tankman.scriptSet('endingOffset', FlxG.random.float(50, 200));
-    tankman.scriptSet('runSpeed', FlxG.random.float(0.6, 1));
-    tankman.scriptSet('goingRight', goingRight);
+    tankman.strumTime = strumTime;
+    tankman.endingOffset = FlxG.random.float(50, 200);
+    tankman.runSpeed = FlxG.random.float(0.6, 1);
+    tankman.goingRight = goingRight;
 
     if (isErect)
     {
-      tankman.scriptCall('addRimlight');
+      tankman.addRimlight();
     }
 
     this.add(tankman);
   }
 
-  function _initTankmanObj():ScriptedFunkinSprite
+  function _initTankmanObj():TankmanSprite
   {
-    var result:ScriptedFunkinSprite = ScriptedFunkinSprite.init('TankmanSprite');
+    var result:TankmanSprite = new TankmanSprite();
     return result;
   }
 

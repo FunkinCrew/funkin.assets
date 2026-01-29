@@ -9,7 +9,6 @@ import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.Preferences;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.GameOverSubState;
@@ -208,7 +207,7 @@ class TwoHOTSong extends Song
   }
 
   var gunCocked:Bool = false;
-  var spawnedCans:Array<ScriptedFunkinSprite> = [];
+  var spawnedCans:Array<SpraycanAtlasSprite> = [];
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
@@ -223,14 +222,14 @@ class TwoHOTSong extends Song
         // This creates the can and starts the animation.
         // We define the behavior of the can in a separate scripted class,
         // which allows the can to track and manage its own properties.
-        var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
+        var newCan:SpraycanAtlasSprite = new SpraycanAtlasSprite(0, 0);
         var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
         newCan.x = spraycanPile.x - 10;
         newCan.y = spraycanPile.y - 550;
         newCan.zIndex = spraycanPile.zIndex - 1;
 
-        newCan.scriptCall('playCanStart');
+        newCan.playCanStart();
 
         PlayState.instance.currentStage.add(newCan);
         PlayState.instance.currentStage.refresh(); // Apply z-index.
@@ -266,7 +265,7 @@ class TwoHOTSong extends Song
     for (index in 0...spawnedCans.length)
     {
       var can = spawnedCans[index];
-      var canState = can.scriptGet('currentState');
+      var canState = can.currentState;
 
       if (canState == desiredState)
       {
@@ -356,8 +355,8 @@ class TwoHOTSong extends Song
 
     if (can != null)
     {
-      can.scriptSet('currentState', STATE_SHOT);
-      can.scriptCall('playCanShot');
+      can.currentState = STATE_SHOT;
+      can.playCanShot();
 
       new FlxTimer().start(1 / 24, function(tmr) {
         darkenStageProps();
@@ -376,7 +375,7 @@ class TwoHOTSong extends Song
 
     if (can != null)
     {
-      can.scriptSet('currentState', STATE_IMPACTED);
+      can.currentState = STATE_IMPACTED;
     }
   }
 

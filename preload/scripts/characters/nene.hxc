@@ -4,7 +4,6 @@ import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.audio.visualize.ABotVis;
 
 /**
@@ -203,7 +202,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
       }
     });
 
-    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
+    abot = new ABotAtlasSprite(0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;

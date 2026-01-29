@@ -12,7 +12,6 @@ import funkin.graphics.framebuffer.BitmapDataUtil;
 import funkin.graphics.framebuffer.FixedBitmapData;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.graphics.shaders.RuntimeRainShader;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;

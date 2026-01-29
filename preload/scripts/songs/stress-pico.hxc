@@ -1,13 +1,11 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.save.Save;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.play.cutscene.VideoCutscene;
 import openfl.filters.ShaderFilter;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
@@ -53,7 +51,7 @@ class StressPicoMixSong extends Song
 
     if (!PlayState.instance.isMinimalMode)
     {
-      if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
+      if (tankmanGroup != null && !tankmanGroup.isValid())
       {
         // Destroy the tankman group if it's not valid.
         cleanupTankmanGroup();
@@ -63,13 +61,13 @@ class StressPicoMixSong extends Song
       {
         // Initialize the tankman group if it's not available.
         trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-        tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', true);
+        tankmanGroup = new TankmanSpriteGroup(true);
       }
 
       if (tankmanGroup != null)
       {
         // resets the tankmen!
-        tankmanGroup.scriptCall('reset');
+        tankmanGroup.reset();
 
         tankmanGroup.zIndex = 30;
         PlayState.instance.currentStage.add(tankmanGroup);
@@ -112,11 +110,11 @@ class StressPicoMixSong extends Song
     // resets the tankmen!
     if (tankmanGroup != null)
     {
-      tankmanGroup.scriptCall('reset');
+      tankmanGroup.reset();
     }
     if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
-      PlayState.instance.currentStage?.getGirlfriend().scriptCall('reset');
+      PlayState.instance.currentStage?.getGirlfriend().reset();
       trace('reset pico!');
     }
   }

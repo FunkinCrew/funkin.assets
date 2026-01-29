@@ -115,7 +115,7 @@ class PhillyBlazinStage extends Stage
       getBoyfriend().color = 0xFFDEDEDE;
       getDad().color = 0xFFDEDEDE;
       getGirlfriend().color = 0xFF888888;
-      getGirlfriend().scriptGet('abot').color = 0xFF888888;
+      getGirlfriend().abot.color = 0xFF888888;
     }
 
     if (lightningActive)

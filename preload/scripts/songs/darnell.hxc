@@ -7,7 +7,6 @@ import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.util.Constants;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.data.song.SongRegistry;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
@@ -150,7 +149,7 @@ class DarnellSong extends Song
     cutsceneCan.zIndex = spraycanPile.zIndex - 1;
     PlayState.instance.currentStage.refresh();
 
-    var newCan:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SpraycanAtlasSprite', 0, 0);
+    var newCan:SpraycanAtlasSprite = new SpraycanAtlasSprite(0, 0);
     var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
     newCan.x = spraycanPile.x - 10;
     newCan.y = spraycanPile.y - 550;
@@ -217,7 +216,7 @@ class DarnellSong extends Song
 
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 100, darnellPos[1], 1, FlxEase.quadInOut);
 
-      newCan.scriptCall('playCanShot');
+      newCan.playCanShot();
       newCan.visible = true;
       cutsceneCan.visible = false;
       new FlxTimer().start(1 / 24, function(tmr) {
