@@ -231,12 +231,14 @@ class BoyfriendCard extends BackingCard
   /**
    * Called when a capsule is selected.
    */
-  public function onCapsuleSelected(event:CapsuleScriptEvent):Void {
+  public function onCapsuleSelected(event:CapsuleScriptEvent):Void
+  {
     super.onCapsuleSelected(event);
 
     var curLevelId:String = event.capsule.freeplayData?.levelId;
 
-    if(curLevelId == 'sserafim' && curLevelId != prevLevelId){
+    if (curLevelId == 'sserafim' && curLevelId != prevLevelId)
+    {
       moreWays.updateText('SPECIAL');
       funnyScroll.updateText('SPECIAL SPECIAL');
       txtNuts.updateText('SPECIAL');
@@ -244,7 +246,7 @@ class BoyfriendCard extends BackingCard
       moreWays2.updateText('SPECIAL');
       funnyScroll3.updateText('SPECIAL SPECIAL');
     }
-    else if(prevLevelId == 'sserafim' && curLevelId != prevLevelId)
+    else if (prevLevelId == 'sserafim' && curLevelId != prevLevelId)
     {
       var player = PlayerRegistry.instance.fetchEntry(this.currentCharacter);
 
@@ -258,5 +260,4 @@ class BoyfriendCard extends BackingCard
 
     prevLevelId = curLevelId;
   }
-
 }

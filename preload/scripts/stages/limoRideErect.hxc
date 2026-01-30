@@ -76,7 +76,6 @@ class LimoRideErectStage extends Stage
 
     add(mist2);
 
-
     mist3 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
     mist3.setPosition(-650, -100);
     mist3.scrollFactor.set(0.8, 0.8);

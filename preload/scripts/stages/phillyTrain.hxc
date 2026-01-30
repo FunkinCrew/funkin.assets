@@ -14,13 +14,7 @@ class PhillyTrainStage extends Stage
     super('phillyTrain');
   }
 
-  var lightColors:Array<FlxColor> = [
-    0xFF31A2FD,
-    0xFF31FD8C,
-    0xFFFB33F5,
-    0xFFFBA633,
-    0xFFFD4531
-  ];
+  var lightColors:Array<FlxColor> = [0xFF31A2FD, 0xFF31FD8C, 0xFFFB33F5, 0xFFFBA633, 0xFFFD4531];
 
   var lightWindow:FlxSprite;
   var lightShader:FlxRuntimeShader;

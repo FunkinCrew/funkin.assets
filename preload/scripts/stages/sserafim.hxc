@@ -158,8 +158,7 @@ class SserafimStage extends Stage
     chaewon.setPosition(687 - chaewon.characterOrigin.x, 98 - chaewon.characterOrigin.y);
     eunchae.setPosition(770 - eunchae.characterOrigin.x, 675 - eunchae.characterOrigin.y);
 
-    if (PlayState.instance == null)
-      baseVisible = [true, true, true, true, true, true];
+    if (PlayState.instance == null) baseVisible = [true, true, true, true, true, true];
 
     setGirlsVisible(baseVisible);
     setGirlsSinging(baseSinging);
@@ -172,8 +171,7 @@ class SserafimStage extends Stage
     chaewon.shader = characterShader;
     eunchae.shader = characterShader;
 
-    if (PlayState.instance != null)
-      createCutsceneSprites();
+    if (PlayState.instance != null) createCutsceneSprites();
   }
 
   function onNoteHit(event:HitNoteScriptEvent)

@@ -36,8 +36,7 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
   {
     super.onSongEvent(scriptEvent);
 
-    if(scriptEvent.eventData.eventKind == 'sserafimBeautiful')
-      isBeautiful = scriptEvent.eventData.getBool('beautiful');
+    if (scriptEvent.eventData.eventKind == 'sserafimBeautiful') isBeautiful = scriptEvent.eventData.getBool('beautiful');
   }
 
   override function onSongRetry(event:ScriptEvent):Void
