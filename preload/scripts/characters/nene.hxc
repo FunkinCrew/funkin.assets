@@ -212,6 +212,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     abotViz.x = this.x;
     abotViz.y = this.y;
     abotViz.zIndex = abot.zIndex + 1;
+    abotViz.alpha = 0;
   }
 
   public override function dance(forceRestart:Bool):Void
@@ -432,7 +433,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   public override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry();
-    abotViz.alpha = 0;
+    abotViz.dumpSound();
   }
 
   public override function onSongEnd(event:ScriptEvent):Void

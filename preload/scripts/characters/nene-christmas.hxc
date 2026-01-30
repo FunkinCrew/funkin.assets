@@ -57,6 +57,7 @@ class NeneChristmasCharacter extends SparrowCharacter
     abotViz.x = this.x;
     abotViz.y = this.y;
     abotViz.zIndex = abot.zIndex + 1;
+    abotViz.alpha = 0;
   }
 
   /**
@@ -284,7 +285,7 @@ class NeneChristmasCharacter extends SparrowCharacter
   override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry();
-    abotViz.alpha = 0;
+    abotViz.dumpSound();
   }
 
   override function onSongEnd(event:ScriptEvent)
