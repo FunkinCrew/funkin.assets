@@ -198,7 +198,7 @@
       "zIndex": 90,
       "position": [1840, 608],
       "scale": [1, 1],
-      "animType": "sparrow",
+      "animType": "animateatlas",
       "name": "phillyTraffic",
       "isPixel": false,
       "assetPath": "phillyStreets/phillyTraffic",

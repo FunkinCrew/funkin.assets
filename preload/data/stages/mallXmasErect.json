@@ -49,6 +49,7 @@
     {
       "name": "bottomBoppers",
       "assetPath": "christmas/erect/bottomBop",
+      "animType": "animateatlas",
       "position": [-410, 100],
       "scale": [1, 1],
       "scroll": [0.9, 0.9],
@@ -58,7 +59,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "bottomBop",
+          "prefix": "idle",
           "frameRate": 24,
           "flipX": false,
           "flipY": false
@@ -92,6 +93,7 @@
     {
       "name": "santa",
       "assetPath": "christmas/santa",
+      "animType": "animateatlas",
       "position": [-840, 150],
       "scale": [1, 1],
       "scroll": [1, 1],
@@ -101,7 +103,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "santa idle in fear",
+          "prefix": "idle",
           "frameRate": 24,
           "flipX": false,
           "flipY": false
