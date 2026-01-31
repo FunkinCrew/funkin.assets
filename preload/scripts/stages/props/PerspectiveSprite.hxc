@@ -24,7 +24,7 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
 
   var debugDraw:Bool = false;
 
-  public function new(debugDraw:Bool = true):Void
+  public function new(debugDraw:Bool = false):Void
   {
     this.debugDraw = debugDraw;
     super(0, 0);
