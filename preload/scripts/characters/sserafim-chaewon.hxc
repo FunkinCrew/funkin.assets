@@ -103,11 +103,4 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
 
     trace("Synchronized shader between children!");
   }
-
-  override public function isOnScreen(camera:FlxCamera):Bool
-  {
-    // TODO: Figure out why she disappears when the camera zooms in too much!!
-    // This is such a shit fix but it works.
-    return true;
-  }
 }
