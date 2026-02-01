@@ -67,31 +67,31 @@
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "singLEFTmiss",
       "prefix": "Left Miss",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "singDOWNmiss",
       "prefix": "Down Miss",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "singUPmiss",
       "prefix": "Up Miss",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "singRIGHTmiss",
       "prefix": "Right Miss",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "shootMISS",
       "prefix": "Hit",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/death",
@@ -135,49 +135,49 @@
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "hey",
       "prefix": "Hey",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "cheer",
       "prefix": "Cheer",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "cock",
       "prefix": "Gun Reload",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "shoot",
       "prefix": "Shoot",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "intro1",
       "prefix": "Pissed Off",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "intro2",
       "prefix": "Shoot and Return",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "burpShit",
       "prefix": "*BURP* ... Shit",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "burpSmile",
       "prefix": "Burp Smile",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
@@ -189,13 +189,13 @@
         31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
         31, 31, 31, 31, 31, 31
       ],
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     },
     {
       "assetPath": "shared:characters/pico/playable-animations",
       "name": "shit",
       "prefix": "Burp Censor",
-      "offsets": [138, 167]
+      "offsets": [138, 168]
     }
   ]
 }
