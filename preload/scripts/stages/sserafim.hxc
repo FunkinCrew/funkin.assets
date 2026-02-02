@@ -68,6 +68,13 @@ class SserafimStage extends Stage
     cutsceneTimerManager = null;
   }
 
+  override public function onSongLoaded(event:SongLoadScriptEvent):Void {
+    super.onSongLoaded(event);
+
+    // PlayState.instance.comboPopUps.offsets = [510, 320]; actual values for if we ever wanna use it
+    PlayState.instance.remove(PlayState.instance.comboPopUps);
+  }
+
   function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
@@ -510,8 +517,6 @@ class SserafimStage extends Stage
     {
       this.hasHidden = true;
       hideOpponentStrumline();
-      // PlayState.instance.comboPopUps.offsets = [510, 320]; actual values for if we ever wanna use it
-      PlayState.instance.comboPopUps.offsets = [9999, -50];
     }
 
     if (perspectiveFloor != null)
