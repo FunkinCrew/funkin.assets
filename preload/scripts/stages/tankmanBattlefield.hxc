@@ -11,11 +11,6 @@ class TankmanBattlefieldStage extends Stage
     super('tankmanBattlefield');
   }
 
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
-  }
-
   var clouds:FlxTiledSprite;
 
   override function buildStage()
@@ -46,11 +41,6 @@ class TankmanBattlefieldStage extends Stage
   var tankAngle:Float = FlxG.random.int(-90, 45);
   var tankSpeed:Float = FlxG.random.float(5, 7);
   var tankX:Float = 400;
-
-  function onBeatHit(event:SongTimeScriptEvent):Void
-  {
-    super.onBeatHit(event);
-  }
 
   function moveTank(elapsed:Float):Void
   {

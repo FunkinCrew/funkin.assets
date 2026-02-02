@@ -37,11 +37,6 @@ class BlazinSong extends Song
     this.hasHidden = false;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent):Void
-  {
-    super.onNoteHit(event);
-  }
-
   public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))

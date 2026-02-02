@@ -32,11 +32,6 @@ class SchoolEvilErectStage extends Stage
     getNamedProp('backspike').shader = wiggleSpike;
   }
 
-  override function addCharacter(char:BaseCharacter, charType:CharacterType)
-  {
-    super.addCharacter(char, charType);
-  }
-
   override function onUpdate(event:UpdateScriptEvent)
   {
     super.onUpdate(event);

@@ -36,11 +36,6 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override function dance(force:Bool):Void
-  {
-    super.dance(force);
-  }
-
   function reset():Void
   {
     initTimemap();
@@ -85,7 +80,7 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     // Each Pico animation is shifted from the array when it's time to play it.
     while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition)
     {
-      var nextTime:Float = shootTimes.shift();
+      shootTimes.shift();
       var nextDir:Int = shootDirs.shift();
 
       if (nextDir == 3)

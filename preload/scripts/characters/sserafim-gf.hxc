@@ -45,9 +45,4 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
 
     isBeautiful = false;
   }
-
-  override function update(elapsed:Float):Void
-  {
-    super.update(elapsed);
-  }
 }

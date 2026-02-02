@@ -385,8 +385,6 @@ class PhillyTrainErectStage extends Stage
     var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
     lightShader.update(shaderInput);
 
-    var amount:Int = 1;
-
     // Update train
     if (trainEnabled && trainMoving)
     {
