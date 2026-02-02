@@ -29,7 +29,7 @@ class SserafimLipSyncSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas(suffix != null ? 'sserafim-lipsync-' + suffix : 'sserafim-lipsync', "sserafim");
+    loadTextureAtlas(suffix != null ? 'sserafim-lipsync-' + suffix : 'sserafim-lipsync');
     animation.addBySymbol("lipsync", this.getDefaultSymbol(), 24, false);
     animation.play("lipsync", true);
   }

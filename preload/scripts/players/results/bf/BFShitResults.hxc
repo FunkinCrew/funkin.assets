@@ -8,7 +8,7 @@ class BFShitResults extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("resultScreen/results-bf/resultsSHIT", "shared");
+    loadTextureAtlas("resultScreen/results-bf/resultsSHIT");
 
     anim.onFrameChange.add((animation:String, frame:Int) -> {
       if (!HapticUtil.hapticsAvailable) return;

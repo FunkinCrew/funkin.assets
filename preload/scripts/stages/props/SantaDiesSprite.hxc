@@ -10,7 +10,7 @@ class SantaDiesSprite extends FunkinSprite
   public function new(x:Float, y:Float)
   {
     super(x, y);
-    loadTextureAtlas("christmas/santa_speaks_assets", "week5");
+    loadTextureAtlas("christmas/santa_speaks_assets");
   }
 
   public function playCutscene():Void

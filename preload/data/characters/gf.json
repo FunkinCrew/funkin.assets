@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Girlfriend",
   "renderType": "animateatlas",
-  "assetPath": "shared:characters/gf",
+  "assetPath": "characters/gf",
   "startingAnimation": "danceRight",
   "offsets": [-12, 4],
   "cameraOffsets": [12, 8],

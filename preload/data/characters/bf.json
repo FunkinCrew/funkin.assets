@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Boyfriend",
   "renderType": "multianimateatlas",
-  "assetPath": "shared:characters/bf",
+  "assetPath": "characters/bf",
   "flipX": true,
   "offsets": [17, 14],
   "cameraOffsets": [-18, 36],
@@ -55,26 +55,26 @@
       "prefix": "Cheer"
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
       "offsets": [22, 15]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
       "offsets": [22, 15]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [22, 15]
     },
     {
-      "assetPath": "shared:characters/bfFakeOut",
+      "assetPath": "characters/bfFakeOut",
       "name": "fakeoutDeath",
       "prefix": "fake out death BF",
       "animType": "symbol",

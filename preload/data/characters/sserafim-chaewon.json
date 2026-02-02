@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Kim Chaewon",
-  "assetPath": "shared:characters/sserafim/chaewon",
+  "assetPath": "characters/sserafim/chaewon",
   "renderType": "animateatlas",
   "healthIcon": {
     "id": "bf"

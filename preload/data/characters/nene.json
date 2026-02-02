@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Nene",
-  "assetPath": "shared:characters/nene",
+  "assetPath": "characters/nene",
   "startingAnimation": "danceRight",
   "renderType": "animateatlas",
   "offsets": [4, -89],

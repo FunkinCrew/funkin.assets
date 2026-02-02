@@ -8,6 +8,6 @@ class ABotAtlasSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("characters/abot/abotSystem", "shared");
+    loadTextureAtlas("characters/abot/abotSystem");
   }
 }

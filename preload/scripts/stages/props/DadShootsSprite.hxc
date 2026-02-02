@@ -11,7 +11,7 @@ class DadShootsSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("christmas/parents_shoot_assets", "week5");
+    loadTextureAtlas("christmas/parents_shoot_assets");
   }
 
   public function playCutscene():Void

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico (Dark)",
-  "assetPath": "shared:characters/pico-dark",
+  "assetPath": "characters/pico-dark",
   "healthIcon": {
     "id": "pico",
     "flipX": false
@@ -55,20 +55,20 @@
       "prefix": "Right Miss"
     },
     {
-      "assetPath": "shared:characters/pico/death",
+      "assetPath": "characters/pico/death",
       "name": "firstDeath",
       "prefix": "Death Intro",
       "offsets": [100, 195]
     },
     {
-      "assetPath": "shared:characters/pico/death",
+      "assetPath": "characters/pico/death",
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
       "offsets": [100, 195]
     },
     {
-      "assetPath": "shared:characters/pico/death",
+      "assetPath": "characters/pico/death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [100, 195]

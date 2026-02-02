@@ -8,7 +8,7 @@ class BFBedPerfectResults extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("resultScreen/results-bf/resultsPERFECT/bed", "shared");
+    loadTextureAtlas("resultScreen/results-bf/resultsPERFECT/bed");
 
     anim.onFrameChange.add((animation:String, frame:Int) -> {
       if (!HapticUtil.hapticsAvailable) return;

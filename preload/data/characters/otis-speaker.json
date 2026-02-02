@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Otis (Speaker Shooter)",
-  "assetPath": "shared:characters/otis",
+  "assetPath": "characters/otis",
   "startingAnimation": "idle",
   "renderType": "animateatlas",
   "singTime": 4.0,

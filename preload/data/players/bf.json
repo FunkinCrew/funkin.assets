@@ -119,7 +119,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
+        "assetPath": "resultScreen/results-bf/resultsPERFECT/hearts",
         "filter": "naughty",
         "zIndex": 501,
         "delay": 4.41,
@@ -137,7 +137,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/tickleFight",
+        "assetPath": "resultScreen/results-bf/resultsPERFECT/tickleFight",
         "filter": "safe",
         "zIndex": 501,
         "delay": 4.41,
@@ -159,7 +159,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/hearts",
+        "assetPath": "resultScreen/results-bf/resultsPERFECT/hearts",
         "filter": "naughty",
         "zIndex": 501,
         "delay": 4.41,
@@ -177,7 +177,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsPERFECT/tickleFight",
+        "assetPath": "resultScreen/results-bf/resultsPERFECT/tickleFight",
         "filter": "safe",
         "zIndex": 501,
         "delay": 4.41,
@@ -190,7 +190,7 @@
     "excellent": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsEXCELLENT",
+        "assetPath": "resultScreen/results-bf/resultsEXCELLENT",
         "zIndex": 500,
         "offsets": [560.85, -410.35],
         "loopFrame": 29
@@ -199,7 +199,7 @@
     "great": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGREAT/gf",
+        "assetPath": "resultScreen/results-bf/resultsGREAT/gf",
         "scale": 0.93,
         "delay": 0.25,
         "offsets": [563.364, -123.186],
@@ -209,7 +209,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGREAT/bf",
+        "assetPath": "resultScreen/results-bf/resultsGREAT/bf",
         "scale": 0.93,
         "zIndex": 500,
         "offsets": [655.3, -247.95],
@@ -220,14 +220,14 @@
     "good": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-bf/resultsGOOD/bf",
+        "assetPath": "resultScreen/results-bf/resultsGOOD/bf",
         "zIndex": 501,
         "offsets": [645.4, -214.8],
         "loopFrame": 14
       },
       {
         "renderType": "sparrow",
-        "assetPath": "shared:resultScreen/results-bf/resultsGOOD/resultGirlfriendGOOD",
+        "assetPath": "resultScreen/results-bf/resultsGOOD/resultGirlfriendGOOD",
         "zIndex": 500,
         "delay": 0.91,
         "offsets": [629, 323],

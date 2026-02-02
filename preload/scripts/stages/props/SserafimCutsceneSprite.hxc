@@ -7,7 +7,7 @@ class SserafimCutsceneSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("cutscene/cutsceneMain", "sserafim");
+    loadTextureAtlas("cutscene/cutsceneMain");
   }
 
   public function doAnim():Void

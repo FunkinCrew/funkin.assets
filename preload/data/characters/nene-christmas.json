@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Nene (Christmas)",
-  "assetPath": "shared:characters/nene-christmas",
+  "assetPath": "characters/nene-christmas",
   "startingAnimation": "danceRight",
   "renderType": "animateatlas",
   "offsets": [-16, -89],

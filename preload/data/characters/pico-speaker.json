@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico (Speaker Shooter)",
-  "assetPath": "shared:characters/pico-speaker",
+  "assetPath": "characters/pico-speaker",
   "renderType": "animateatlas",
   "offsets": [39, 6],
   "cameraOffsets": [86, 8],

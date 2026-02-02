@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Sakura",
-  "assetPath": "shared:characters/sserafim/sakura",
+  "assetPath": "characters/sserafim/sakura",
   "renderType": "multianimateatlas",
   "healthIcon": {
     "id": "bf"
@@ -158,20 +158,20 @@
       "offsets": [0, 0]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
       "offsets": [20, -220]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
       "offsets": [20, -220]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [20, -220]

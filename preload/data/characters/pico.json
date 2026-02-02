@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Pico",
-  "assetPath": "shared:characters/pico/basic-animations",
+  "assetPath": "characters/pico/basic-animations",
   "renderType": "animateatlas",
   "flipX": true,
   "offsets": [-23, 1],

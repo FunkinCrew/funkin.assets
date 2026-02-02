@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Nene (Dark)",
-  "assetPath": "shared:characters/nene-dark",
+  "assetPath": "characters/nene-dark",
   "startingAnimation": "danceRight",
   "renderType": "animateatlas",
   "offsets": [4, -89],

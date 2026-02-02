@@ -14,7 +14,7 @@ class PicoGreatResults extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("resultScreen/results-pico/resultsGREAT", "shared");
+    loadTextureAtlas("resultScreen/results-pico/resultsGREAT");
     scaleFlashes();
 
     animation.onFrameChange.add((animation:String, frame:Int) -> {

@@ -144,7 +144,7 @@
     "loss": [
       {
         "renderType": "animateatlas",
-        "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
+        "assetPath": "resultScreen/results-pico/resultsSHIT",
         "zIndex": 500,
         "offsets": [-50, 60],
         "loopFrame": 0

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Darnell",
-  "assetPath": "shared:characters/darnell",
+  "assetPath": "characters/darnell",
   "renderType": "animateatlas",
   "offsets": [18, 31],
   "cameraOffsets": [-18, 4],

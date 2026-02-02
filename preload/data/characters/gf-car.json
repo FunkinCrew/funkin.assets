@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Car)",
-  "assetPath": "shared:characters/gfCar",
+  "assetPath": "characters/gfCar",
   "renderType": "animateatlas",
   "startingAnimation": "danceRight",
   "offsets": [0, 0],

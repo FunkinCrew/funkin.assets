@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Mommy Mearest (Car)",
-  "assetPath": "shared:characters/momCar",
+  "assetPath": "characters/momCar",
   "renderType": "animateatlas",
   "singTime": 8.0,
   "healthIcon": {

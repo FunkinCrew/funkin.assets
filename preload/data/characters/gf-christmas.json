@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (Christmas)",
-  "assetPath": "shared:characters/gf-christmas",
+  "assetPath": "characters/gf-christmas",
   "renderType": "animateatlas",
   "startingAnimation": "danceRight",
   "offsets": [-1, 5],

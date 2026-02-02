@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Monster",
-  "assetPath": "shared:characters/monster",
+  "assetPath": "characters/monster",
   "renderType": "animateatlas",
   "offsets": [0, 1],
   "cameraOffsets": [0, 29],

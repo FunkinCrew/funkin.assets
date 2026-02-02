@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Tankman (Bloody)",
   "renderType": "multianimateatlas",
-  "assetPath": "shared:characters/tankman/basic",
+  "assetPath": "characters/tankman/basic",
   "offsets": [3, -44],
   "cameraOffsets": [-3, 32],
   "healthIcon": {
@@ -30,43 +30,43 @@
       "prefix": "right"
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "idle-bloody",
       "prefix": "idle knife",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "singLEFT-bloody",
       "prefix": "left knife",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "singDOWN-bloody",
       "prefix": "down knife",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "singUP-bloody",
       "prefix": "up knife",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "singRIGHT-bloody",
       "prefix": "right knife",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "hehPrettyGood-bloody",
       "prefix": "pretty good bloody",
       "offsets": [67, 110]
     },
     {
-      "assetPath": "shared:characters/tankman/bloody",
+      "assetPath": "characters/tankman/bloody",
       "name": "redheadsAnim",
       "prefix": "redheads",
       "offsets": [67, 110]

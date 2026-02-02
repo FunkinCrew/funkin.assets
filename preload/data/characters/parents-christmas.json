@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Mommy and Daddy (Festive)",
   "renderType": "animateatlas",
-  "assetPath": "shared:characters/parents-christmas",
+  "assetPath": "characters/parents-christmas",
   "offsets": [1, 9],
   "cameraOffsets": [-1, 10],
   "animations": [

@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Girlfriend (Dark)",
   "renderType": "animateatlas",
-  "assetPath": "shared:characters/gf-dark",
+  "assetPath": "characters/gf-dark",
   "startingAnimation": "danceRight",
   "offsets": [-12, 4],
   "cameraOffsets": [12, 8],

@@ -7,7 +7,7 @@ class SserafimBfSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("cutscene/bfGetUp", "sserafim");
+    loadTextureAtlas("cutscene/bfGetUp");
   }
 
   public function resetAnim():Void

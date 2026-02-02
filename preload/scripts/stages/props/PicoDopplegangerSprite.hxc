@@ -18,7 +18,7 @@ class PicoDopplegangerSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("philly/erect/pico_doppleganger", "week3");
+    loadTextureAtlas("philly/erect/pico_doppleganger");
   }
 
   var cutsceneSounds:FunkinSound = null;

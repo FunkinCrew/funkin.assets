@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Girlfriend (SSERAFIM)",
-  "assetPath": "shared:characters/sserafim/sserafim-gf",
+  "assetPath": "characters/sserafim/sserafim-gf",
   "renderType": "animateatlas",
   "healthIcon": {
     "id": "gf"

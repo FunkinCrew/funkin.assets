@@ -190,7 +190,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared");
+    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes");
     pupil.x = this.x;
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;

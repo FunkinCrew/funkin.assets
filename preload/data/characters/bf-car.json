@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Car)",
-  "assetPath": "shared:characters/bf-car",
+  "assetPath": "characters/bf-car",
   "renderType": "multianimateatlas",
   "healthIcon": {
     "id": "bf"
@@ -84,26 +84,26 @@
       "prefix": "Hey"
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
       "offsets": [18, 15]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathLoop",
       "prefix": "Death Loop",
       "looped": true,
       "offsets": [18, 15]
     },
     {
-      "assetPath": "shared:characters/bf-death",
+      "assetPath": "characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [18, 15]
     },
     {
-      "assetPath": "shared:characters/bfFakeOut",
+      "assetPath": "characters/bfFakeOut",
       "name": "fakeoutDeath",
       "prefix": "fake out death BF",
       "animType": "symbol",

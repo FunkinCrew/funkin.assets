@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Daddy Dearest",
-  "assetPath": "shared:characters/dad",
+  "assetPath": "characters/dad",
   "renderType": "animateatlas",
   "singTime": 8.0,
   "offsets": [2, 16],

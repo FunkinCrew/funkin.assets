@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Darnell (Blazin')",
-  "assetPath": "shared:characters/darnellBlazin",
+  "assetPath": "characters/darnellBlazin",
   "healthIcon": {
     "id": "darnell"
   },
