@@ -1,20 +1,19 @@
-import flixel.FlxG;
-import funkin.play.character.MultiAnimateAtlasCharacter;
-import funkin.audio.FunkinSound;
-import funkin.play.character.SparrowCharacter;
-import funkin.play.GameOverSubState;
-import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
-import funkin.play.character.CharacterType;
-import funkin.graphics.FunkinSprite;
-import funkin.play.PauseSubState;
-import funkin.play.PlayState;
-import funkin.util.HapticUtil;
-import funkin.FunkinMemory;
+import funkin.play.character.PicoPlayerBaseCharacter;
 
-class PicoDarkCharacter extends MultiAnimateAtlasCharacter
+class PicoDarkCharacter extends PicoPlayerBaseCharacter
 {
-  function new()
+  override function get_CACHE_IMAGE_PATHS():Array<String>
+  {
+    return ["characters/NeneKnifeToss"];
+  }
+
+  override function get_CACHE_SOUND_PATHS():Array<String>
+  {
+    return [];
+  }
+
+  public function new()
   {
     super('pico-dark');
   }
@@ -25,61 +24,14 @@ class PicoDarkCharacter extends MultiAnimateAtlasCharacter
   {
     super.set_alpha(val);
 
-    if (normalChar != null)
-    {
-      if (val != 1) normalChar.alpha = 1;
-      else
-        normalChar.alpha = 0;
-    }
+    if (val != 1) normalChar.alpha = 1;
+    else
+      normalChar.alpha = 0;
 
     return val;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent):Void
-  {
-    super.onNoteHit(event);
-
-    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.BF)
-    {
-      // Override the hit note animation.
-      switch (event.note.kind)
-      {
-        case "hey":
-          holdTimer = 0;
-          this.playAnimation('hey', true, true);
-          return;
-        case "cheer":
-          holdTimer = 0;
-          this.playAnimation('cheer', true, true);
-          return;
-      }
-    }
-  }
-
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
-  {
-    if (name == "scared")
-    {
-      return;
-    }
-    else if (name == "firstDeath")
-    {
-      createDeathSprites();
-
-      GameOverSubState.instance.add(deathSpriteNene);
-      deathSpriteNene.animation.play("throw");
-    }
-
-    super.playAnimation(name, restart, ignoreOther);
-
-    if (normalChar != null)
-    {
-      normalChar.playAnimation(name, restart, ignoreOther);
-      normalChar.setPosition(this.x, this.y);
-    }
-  }
-
-  function onCreate(event:ScriptEvent):Void
+  public override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -87,70 +39,22 @@ class PicoDarkCharacter extends MultiAnimateAtlasCharacter
     {
       normalChar = CharacterDataParser.fetchCharacter('pico-playable');
       normalChar.zIndex = 199;
-      normalChar.alpha = 0;
+      normalChar.alpha = 0.0001;
       normalChar.flipX = false;
-
-      GameOverSubState.musicSuffix = '-pico';
-      GameOverSubState.blueBallSuffix = '-pico';
-
-      PauseSubState.musicSuffix = '-pico';
 
       currentStage.add(normalChar);
       currentStage.refresh(); // Apply z-index.
     }
-
-    // Precache death sprites.
-    for (img in ["characters/Pico_Death_Retry", "characters/NeneKnifeToss"])
-      FunkinMemory.cacheTexture(Paths.image(img));
   }
 
-  var deathSpriteNene:FunkinSprite;
-
-  /**
-     * Initialize and cache sprites used for the death animation,
-   * for use later.
-   */
-  function createDeathSprites():Void
+  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
   {
-    deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
-    var gf = currentStage.getGirlfriend();
-    deathSpriteNene.x = gf.originalPosition.x + 120; // + 280;
-    deathSpriteNene.y = gf.originalPosition.y; // + 70;
-    deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
-    deathSpriteNene.visible = true;
-    deathSpriteNene.animation.finishCallback = function(name:String) {
-      deathSpriteNene.visible = false;
-    }
-  }
+    super.playAnimation(name, restart, ignoreOther);
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int):Void
-  {
-    super.onAnimationFrame(name, frameNumber, frameIndex);
-
-    if (name == "firstDeath" && frameNumber == 36 - 1)
+    if (normalChar != null)
     {
-      GameOverSubState.instance.startDeathMusic(1.0, false);
-      // force the deathloop to play in here, since we are starting the music early it
-      // doesn't check this in gameover substate !
-      // also no animation suffix 🤔
-      GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
-    }
-
-    if (!HapticUtil.hapticsAvailable) return;
-
-    // Pico falls on his back.
-    if (name == 'firstDeath' && frameNumber == 20)
-    {
-      HapticUtil.vibrate(0, 0.1, 0.1, 1);
-    }
-
-    // Blood firework woohoo!!!!
-    if (name == 'deathLoop' && frameNumber % 2 == 0)
-    {
-      final randomAmplitude:Float = FlxG.random.float(0.1, 0.5);
-      final randomDuration:Float = FlxG.random.float(0.1, 0.3);
-
-      HapticUtil.vibrate(0, randomDuration, randomAmplitude);
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x, this.y);
     }
   }
 }
