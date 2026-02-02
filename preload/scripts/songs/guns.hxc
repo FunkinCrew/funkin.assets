@@ -1,6 +1,5 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
-import funkin.play.PlayState;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
 

@@ -1,6 +1,4 @@
-import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.GameOverSubState;
 import funkin.util.HapticUtil;
 
 class BFHoldingGFCharacter extends MultiSparrowCharacter

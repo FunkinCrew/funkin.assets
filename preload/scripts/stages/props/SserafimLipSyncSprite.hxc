@@ -1,9 +1,4 @@
-import flixel.math.FlxPoint;
-import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.play.PlayState;
-import flixel.util.FlxTimer;
-import funkin.audio.FunkinSound;
 import funkin.Conductor;
 
 // object used for lip sync on characters in SPAGHETTI

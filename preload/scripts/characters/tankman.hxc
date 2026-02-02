@@ -1,6 +1,4 @@
 import funkin.play.character.MultiAnimateAtlasCharacter;
-import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
 
 class TankmanCharacter extends MultiAnimateAtlasCharacter
 {

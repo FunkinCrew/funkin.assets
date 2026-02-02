@@ -8,7 +8,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import flixel.addons.display.FlxBackdrop;
-import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
 
 class PicoCard extends BackingCard

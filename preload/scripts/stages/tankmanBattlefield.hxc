@@ -1,5 +1,4 @@
 import flixel.math.FlxAngle;
-import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import flixel.addons.display.FlxTiledSprite;
 

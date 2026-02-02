@@ -1,10 +1,6 @@
-import flixel.math.FlxAngle;
-import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.character.CharacterType;
-import openfl.display.BitmapData;
-import flixel.graphics.FlxGraphic;
 
 class TankmanBattlefieldErectStage extends Stage
 {

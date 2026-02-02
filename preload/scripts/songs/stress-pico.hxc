@@ -1,12 +1,6 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-import funkin.save.Save;
 import funkin.play.cutscene.VideoCutscene;
-import openfl.filters.ShaderFilter;
-import flixel.FlxCamera;
-import flixel.math.FlxPoint;
-import funkin.audio.FunkinSound;
-import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;

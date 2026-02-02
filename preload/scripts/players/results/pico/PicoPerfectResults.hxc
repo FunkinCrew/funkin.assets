@@ -1,5 +1,4 @@
 import funkin.graphics.FunkinSprite;
-import flixel.math.FlxPoint;
 import funkin.util.HapticUtil;
 
 class PicoPerfectResults extends FunkinSprite

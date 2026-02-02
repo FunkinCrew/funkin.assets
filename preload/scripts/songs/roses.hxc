@@ -1,13 +1,11 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.save.Save;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import funkin.ui.options.PreferencesMenu;
 import funkin.util.HapticUtil;
 
 class RosesSong extends Song

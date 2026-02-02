@@ -2,7 +2,6 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
 

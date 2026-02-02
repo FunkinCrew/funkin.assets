@@ -1,5 +1,3 @@
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 import funkin.play.cutscene.dialogue.ConversationState;
 import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.audio.FunkinSound;

@@ -1,8 +1,6 @@
 import flixel.FlxSprite;
-import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
-import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;

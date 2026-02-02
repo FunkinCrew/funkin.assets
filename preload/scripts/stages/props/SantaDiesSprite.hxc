@@ -1,7 +1,4 @@
-import flixel.math.FlxPoint;
-import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.play.PlayState;
 
 // a unique object for santa getting KILLED
 class SantaDiesSprite extends FunkinSprite

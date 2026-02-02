@@ -1,14 +1,7 @@
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import flixel.FlxSprite;
-import flixel.group.FlxTypedSpriteGroup;
 import animate.internal.elements.FlxSpriteElement;
-import funkin.graphics.FunkinSprite;
-import flixel.util.FlxSort;
-import funkin.Conductor;
-import funkin.util.SortUtil;
-import Lambda;
 
 class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
 {
