@@ -38,7 +38,7 @@ class CasingSprite extends FunkinSprite
 
   function startRoll()
   {
-    this.animation.callback = null; // Save performance.
+    this.animation.onFrameChange.removeAll(); // Save performance.
 
     // Get the end position of the bullet dynamically.
     this.x = this.x + this.frame.offset.x - 1;
