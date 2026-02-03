@@ -1,20 +1,29 @@
 {
 "AN":{
-"N":"Christmas Erect Background Assets V3(1)_TA-Export",
+"N":"Christmas Erect Background Assets V3(1)",
 "STI":{
 "SI":{
-"SN":"BOPPERS_EXPORT",
+"SN":"bottomBop",
 "FF":0,
 "ST":"G",
-"TRP":{"x":1013.05,"y":650.35},
+"TRP":{"x":1012.05,"y":650.9},
 "LP":"LP",
-"MX":[1,0,0,1,-111.85,307.7]
+"MX":[1,0,0,1,1012.05,650.9]
 }},
-"SN":"BOPPERS_EXPORT",
+"SN":"bottomBop",
 "TL":{
 "L":[
 {
-"LN":"Layer 3",
+"LN":"Layer_2",
+"FR":[
+{
+"N":"idle",
+"I":0,
+"DU":14,
+"E":[]
+}
+]},{
+"LN":"Layer_1",
 "FR":[
 {
 "I":0,
@@ -24,25 +33,25 @@
 "SN":"ena happy bounce",
 "FF":0,
 "ST":"G",
-"TRP":{"x":977.25,"y":311.05},
+"TRP":{"x":-147.9,"y":-40.15},
 "LP":"LP",
-"MX":[1,0,0,1,831.1,0.55]
+"MX":[1,0,0,1,-305.3,-358.1]
 }},
 {"SI":{
 "SN":"punch punch family",
 "FF":0,
 "ST":"G",
-"TRP":{"x":1937.8,"y":343.2},
+"TRP":{"x":758.65,"y":0.15},
 "LP":"LP",
-"MX":[1,0,0,1,1525.35,22.05]
+"MX":[1,0,0,1,401.35,-320.85]
 }},
 {"SI":{
 "SN":"her bounce",
 "FF":0,
 "ST":"G",
-"TRP":{"x":148.05,"y":383.6},
+"TRP":{"x":-957.7,"y":266.75},
 "LP":"LP",
-"MX":[1,0,0,1,1.9,89.35]
+"MX":[1,0,0,1,-1122.15,-253.25]
 }}]}
 ]}
 ]}},
@@ -189,7 +198,7 @@
 "SN":"hair ena",
 "FF":0,
 "ST":"G",
-"TRP":{"x":102.8,"y":167.15},
+"TRP":{"x":102.8,"y":167.1},
 "LP":"LP",
 "MX":[1.007,0,0,1.131,44.75,146.6]
 }},
@@ -1281,7 +1290,7 @@
 ]},
 "MD":{
 "V":"BTA 1.2.0",
-"N":"Christmas Erect Background Assets V3(1)_TA-Export",
+"N":"Christmas Erect Background Assets V3(1)",
 "BGC":"#999999",
 "W":1920,
 "H":1080,

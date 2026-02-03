@@ -121,7 +121,8 @@
     },
     {
       "name": "tankmanAudience0",
-      "assetPath": "tank0",
+      "assetPath": "tank-audience",
+      "animType": "sparrow",
       "zIndex": 1000,
       "position": [-500, 650],
       "scale": [1, 1],
@@ -130,7 +131,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "fg tankhead far right instance 1",
+          "prefix": "tank0",
           "looped": false
         }
       ],
@@ -138,7 +139,8 @@
     },
     {
       "name": "tankmanAudience2",
-      "assetPath": "tank2",
+      "assetPath": "tank-audience",
+      "animType": "sparrow",
       "zIndex": 1002,
       "position": [360, 980],
       "scale": [1, 1],
@@ -147,7 +149,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "foreground man 3 instance 1",
+          "prefix": "tank2",
           "looped": false
         }
       ],
@@ -155,7 +157,7 @@
     },
     {
       "name": "tankmanAudience3",
-      "assetPath": "tank3",
+      "assetPath": "tank-audience",
       "zIndex": 1016,
       "position": [1050, 1240],
       "scale": [1, 1],
@@ -164,7 +166,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "fg tankhead 4 instance 1",
+          "prefix": "tank3",
           "looped": false
         }
       ],
@@ -172,7 +174,8 @@
     },
     {
       "name": "tankmanAudience4",
-      "assetPath": "tank4",
+      "assetPath": "tank-audience",
+      "animType": "sparrow",
       "zIndex": 1004,
       "position": [1200, 900],
       "scale": [1, 1],
@@ -181,7 +184,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "fg tankman bobbin 3 instance 1",
+          "prefix": "tank4",
           "looped": false
         }
       ],
@@ -189,7 +192,9 @@
     },
     {
       "name": "tankmanAudience5",
-      "assetPath": "tank5",
+      "assetPath": "tank-audience",
+      "animType": "sparrow",
+      "flipX": true,
       "zIndex": 1003,
       "position": [1550, 700],
       "scale": [1, 1],
@@ -198,7 +203,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "fg tankhead far right instance 1",
+          "prefix": "tank0",
           "looped": false
         }
       ],
@@ -206,7 +211,7 @@
     },
     {
       "name": "tankmanAudience1",
-      "assetPath": "tank1",
+      "assetPath": "tank-audience",
       "zIndex": 1100,
       "position": [-300, 750],
       "scale": [1, 1],
@@ -215,7 +220,7 @@
       "animations": [
         {
           "name": "idle",
-          "prefix": "fg tankhead 5 instance 1",
+          "prefix": "tank1",
           "looped": false
         }
       ],
