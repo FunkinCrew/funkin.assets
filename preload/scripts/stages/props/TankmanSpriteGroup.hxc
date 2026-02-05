@@ -9,16 +9,14 @@ import Lambda;
 
 class TankmanSpriteGroup extends FlxTypedSpriteGroup
 {
+  public static final MAX_SIZE:Int = 4;
+
   var tankmanTimes:Array<Float> = [];
   var tankmanDirs:Array<Bool> = [];
 
-  var MAX_SIZE = 4;
-
   var isErect:Bool = false;
 
-  var isEasterEgg:Bool = false;
-
-  function new(erect:Bool)
+  public function new(erect:Bool = false)
   {
     super(0, 0, 4);
     this.zIndex = 30;
@@ -35,7 +33,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     return group != null;
   }
 
-  function reset()
+  public override function reset(X:Float, Y:Float):Void
   {
     group.clear();
 
@@ -43,7 +41,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     initTimemap();
   }
 
-  function initTimemap()
+  public function initTimemap():Void
   {
     trace('Initializing Tankman timings...');
     tankmanTimes = [];
@@ -86,7 +84,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
   {
     // recycle() is neat; it looks for a sprite which has completed its animation and resets it,
     // rather than calling the constructor again. It only calls the constructor if it can't find one.
-
     var tankman:TankmanSprite = group.recycle(FlxSprite, _initTankmanObj, false, true);
 
     // We can directly set values which are defined by the script's superclass.
@@ -113,9 +110,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     return result;
   }
 
-  var timer:Float = 0;
-
-  function update(elapsed:Float)
+  public override function update(elapsed:Float):Void
   {
     super.update(elapsed);
 
@@ -139,7 +134,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     }
   }
 
-  function kill()
+  public override function kill():Void
   {
     super.kill();
     tankmanTimes = [];
