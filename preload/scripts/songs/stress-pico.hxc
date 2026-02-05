@@ -67,7 +67,7 @@ class StressPicoMixSong extends Song
       if (tankmanGroup != null)
       {
         // resets the tankmen!
-        tankmanGroup.reset();
+        tankmanGroup.reset(0, 0);
 
         tankmanGroup.zIndex = 30;
         PlayState.instance.currentStage.add(tankmanGroup);
@@ -110,7 +110,7 @@ class StressPicoMixSong extends Song
     // resets the tankmen!
     if (tankmanGroup != null)
     {
-      tankmanGroup.reset();
+      tankmanGroup.reset(0, 0);
     }
     if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
