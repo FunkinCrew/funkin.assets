@@ -390,7 +390,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   /**
    * Play the animation where Pico shoots the can successfully.
    */
-  function playFireGunAnim(hip:Bool):Void
+  function playFireGunAnim():Void
   {
     this.playAnimation('shoot', true, true);
     FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
