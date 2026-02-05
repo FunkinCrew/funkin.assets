@@ -47,14 +47,14 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
     PauseSubState.musicSuffix = '-pico';
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
       new FlxTimer().start(0.58, afterPicoDeathNeneIntro);
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   function afterPicoDeathNeneIntro():Void

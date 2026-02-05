@@ -156,7 +156,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     // Reset the volume of the vocals to ensure that the burps always play
     if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance?.vocals?.playerVolume = 1;
@@ -187,7 +187,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       }
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   var picoFlicker:FlxFlicker = null;

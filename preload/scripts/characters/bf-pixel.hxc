@@ -42,13 +42,13 @@ class BFPixelCharacter extends MultiSparrowCharacter
     PauseSubState.musicSuffix = '-pixel';
   }
 
-  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
       this.shader = null;
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 }
