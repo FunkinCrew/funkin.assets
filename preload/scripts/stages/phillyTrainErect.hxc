@@ -554,6 +554,11 @@ class PhillyTrainErectStage extends Stage
         getGirlfriend().playAnimation('hairFall');
     }
 
+    if (startedMoving)
+    {
+      getGirlfriend().playAnimation('hairFall');
+    }
+
     trainMoving = false;
     trainCars = 8;
     trainFinishing = false;
@@ -564,6 +569,16 @@ class PhillyTrainErectStage extends Stage
   {
     super.onSongRetry(event);
     trainReset();
+
+    if (getGirlfriend() != null)
+    {
+      getGirlfriend().dance(true);
+    }
+
+    if (trainSound != null)
+    {
+      trainSound.stop();
+    }
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void
