@@ -182,7 +182,7 @@ class PhillyTrainStage extends Stage
     // Force GF to reset to her idle dance immediately.
     if (getGirlfriend() != null)
     {
-      getGirlfriend().playAnimation('danceLeft', true);
+      getGirlfriend().dance(true);
     }
 
     // Stop the tain sound so it doensn't bleed into the restart.
