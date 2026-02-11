@@ -14,8 +14,8 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
   public var cartoonSnd:FunkinSound = null;
   public var playingCartoon:Bool = false;
 
-  final CARTOON_CHANNEL_FRAME:Int = 60;
   final CARTOON_LIST:Array<String> = Assets.list().filter((path) -> return path.startsWith("assets/sounds/cartoons/"));
+  var currentCartoonFrame:Int = 60;
 
   public function new(x:Float, y:Float, characterId:String)
   {
@@ -66,15 +66,15 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     {
       // trace('Finished cartoon');
 
-      this.CARTOON_CHANNEL_FRAME = FlxG.random.bool(33) ? (playableCharData.getCartoonLoopBlinkFrame()) : (playableCharData.getCartoonLoopFrame());
+      this.currentCartoonFrame = FlxG.random.bool(33) ? (playableCharData.getCartoonLoopBlinkFrame()) : (playableCharData.getCartoonLoopFrame());
 
       // Character switches channels when the video ends, or at a 10% chance each time his idle loops.
       if (FlxG.random.bool(10))
       {
-        this.CARTOON_CHANNEL_FRAME = playableCharData.getCartoonChannelChangeFrame();
+        this.currentCartoonFrame = playableCharData.getCartoonChannelChangeFrame();
       }
       var animPrefix = playableCharData.getAnimationPrefix('cartoon');
-      playFlashAnimation(animPrefix, true, false, false, this.CARTOON_CHANNEL_FRAME);
+      playFlashAnimation(animPrefix, true, false, false, this.currentCartoonFrame);
     }
     else if (name == playableCharData?.getAnimationPrefix('newUnlock'))
     {
