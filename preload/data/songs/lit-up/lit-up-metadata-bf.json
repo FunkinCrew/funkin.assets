@@ -3,30 +3,23 @@
   "songName": "Lit Up (BF Mix)",
   "artist": "Saruky",
   "charter": "fabs + Spazkid",
-  "divisions": 96,
-  "looped": false,
+  "offsets": {},
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "darnell",
       "instrumental": "bf",
-      "altInstrumentals": [],
       "opponentVocals": ["darnell"],
       "playerVocals": ["bf"]
     },
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",
-    "album": "expansion2",
     "ratings": { "easy": 4, "normal": 5, "hard": 6 },
-    "previewStart": 0,
+    "album": "expansion2",
     "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin' - v0.5.3",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 176, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 176, "bt": [4, 4, 4, 4] }]
 }

@@ -3,73 +3,21 @@
   "songName": "SPAGHETTI (feat. j-hope of BTS) (Clean ver.)",
   "artist": "LE SSERAFIM (feat. j-hope)",
   "charter": "fabs + Spazkid",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {},
-    "altVocals": {}
-  },
+  "offsets": {},
   "playData": {
-    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "sserafim-sakura",
       "girlfriend": "sserafim-gf",
       "opponent": "sserafim-kazuha",
-      "altInstrumentals": []
+      "opponentVocals": ["sserafim-kazuha"],
+      "playerVocals": ["sserafim-sakura"]
     },
     "stage": "sserafim",
     "noteStyle": "funkin",
     "ratings": { "easy": 2, "normal": 3, "hard": 5 },
-    "album": "spaghetti",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "album": "spaghetti"
   },
-  "generatedBy": "Friday Night Funkin' - v0.7.5 (spaghetti-collab:cb68f9d) PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 111.5, "n": 4, "d": 4, "bt": [4, 4, 4, 4] },
-    {
-      "t": 4342,
-      "b": 8.0689,
-      "bpm": 111.5,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    },
-    {
-      "t": 15297.13,
-      "b": 28.4272,
-      "bpm": 111.5,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    },
-    {
-      "t": 86567,
-      "b": 160.8704,
-      "bpm": 111.5,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    },
-    {
-      "t": 95030.9327,
-      "b": 176.5992,
-      "bpm": 111.5,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    },
-    {
-      "t": 133375.0001,
-      "b": 247.8553,
-      "bpm": 111.5,
-      "n": 4,
-      "d": 4,
-      "bt": [4, 4, 4, 4]
-    }
-  ]
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 111.5, "bt": [4, 4, 4, 4] }]
 }

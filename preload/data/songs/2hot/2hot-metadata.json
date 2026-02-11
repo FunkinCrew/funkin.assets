@@ -1,24 +1,24 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "2hot",
   "artist": "Kawai Sprite",
   "charter": "Jenny Crowe + Spazkid + ninjamuffin99",
+  "offsets": {},
   "playData": {
-    "stage": "phillyStreets",
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
       "girlfriend": "nene",
-      "opponent": "darnell"
+      "opponent": "darnell",
+      "opponentVocals": ["darnell"],
+      "playerVocals": ["pico-playable"]
     },
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "phillyStreets",
     "noteStyle": "funkin",
-    "album": "volume3",
     "stickerPack": "bonus-weekend1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume3"
   },
-  "songName": "2hot",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 182 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 182, "bt": [4, 4, 4, 4] }]
 }

@@ -22,22 +22,22 @@
     {
       "t": 73600,
       "e": "FocusCamera",
-      "v": { "x": -200, "duration": 2, "y": 0, "ease": "CLASSIC", "char": 0 }
+      "v": { "duration": 2, "x": -200, "y": 0, "char": 0, "ease": "CLASSIC" }
     },
     {
       "t": 73700,
       "e": "ZoomCamera",
-      "v": { "duration": 32, "ease": "expoOut", "zoom": 0.9, "mode": "stage" }
+      "v": { "ease": "expoOut", "duration": 32, "mode": "stage", "zoom": 0.9 }
     },
     {
       "t": 80000,
       "e": "FocusCamera",
-      "v": { "x": 0, "duration": 4, "y": 0, "ease": "CLASSIC", "char": 0 }
+      "v": { "duration": 4, "x": 0, "y": 0, "char": 0, "ease": "CLASSIC" }
     },
     {
       "t": 80000,
       "e": "ZoomCamera",
-      "v": { "duration": 32, "ease": "expoOut", "zoom": 1, "mode": "stage" }
+      "v": { "ease": "expoOut", "duration": 32, "mode": "stage", "zoom": 1 }
     },
     { "t": 86400, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 88000, "e": "FocusCamera", "v": { "char": 0 } },
@@ -1152,5 +1152,5 @@
       { "t": 92800, "d": 3, "l": 700 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.7.3 (master:9c1e223) PROTOTYPE"
+  "generatedBy": "Friday Night Funkin' - v0.8.1"
 }

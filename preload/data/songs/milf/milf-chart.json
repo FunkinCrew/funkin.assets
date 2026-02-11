@@ -22,13 +22,13 @@
     {
       "t": 77333,
       "e": "FocusCamera",
-      "v": { "duration": 4, "x": -40, "y": 80, "ease": "CLASSIC", "char": 2 }
+      "v": { "x": -40, "duration": 4, "y": 80, "char": 2, "ease": "CLASSIC" }
     },
     { "t": 88000, "e": "FocusCamera", "v": { "char": 1 } },
     {
       "t": 93333.3333333333,
       "e": "FocusCamera",
-      "v": { "duration": 4, "x": -40, "y": 80, "ease": "CLASSIC", "char": 2 }
+      "v": { "x": -40, "duration": 4, "y": 80, "char": 2, "ease": "CLASSIC" }
     },
     { "t": 98666, "e": "FocusCamera", "v": 1 },
     { "t": 104000, "e": "FocusCamera", "v": 0 },

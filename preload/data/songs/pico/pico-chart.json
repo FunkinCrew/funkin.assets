@@ -17,20 +17,20 @@
       "v": {
         "duration": 16,
         "ease": "quart",
+        "mode": "direct",
         "easeDir": "Out",
-        "zoom": 1,
-        "mode": "direct"
+        "zoom": 1
       }
     },
     {
       "t": 54400,
       "e": "FocusCamera",
       "v": {
-        "x": 0,
         "duration": 4,
+        "x": 0,
         "y": 100,
-        "char": 2,
         "ease": "CLASSIC",
+        "char": 2,
         "easeDir": "In"
       }
     },
@@ -40,9 +40,9 @@
       "v": {
         "duration": 16,
         "ease": "quart",
+        "zoom": 1.05,
         "mode": "direct",
-        "easeDir": "Out",
-        "zoom": 1.05
+        "easeDir": "Out"
       }
     },
     { "t": 60800, "e": "FocusCamera", "v": { "char": 0 } },
