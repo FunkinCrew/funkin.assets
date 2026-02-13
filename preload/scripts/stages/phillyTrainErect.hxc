@@ -142,8 +142,8 @@ class PhillyTrainErectStage extends Stage
     picoOpponent = new PicoDopplegangerSprite(0, 0);
     cigarette = new FlxSprite(0, 0);
 
-    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 402, PlayState.instance.currentStage.getBoyfriend().y - 144);
-    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 333, PlayState.instance.currentStage.getDad().y - 144.5);
+    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 402, PlayState.instance.currentStage.getBoyfriend().y - 147);
+    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 333, PlayState.instance.currentStage.getDad().y - 147.5);
 
     picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
