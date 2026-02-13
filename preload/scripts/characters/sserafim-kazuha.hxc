@@ -62,7 +62,7 @@ class SserafimKazuhaCharacter extends AnimateAtlasCharacter
     var element:FlxSpriteElement = new FlxSpriteElement(lipSyncSprite);
     element.active = false; // We disable the element here so we can control when it updates.
 
-   // hideDefaultMouth();
+    // hideDefaultMouth();
 
     for (frame in this.getFramesWithKeyword("mouth default"))
     {
@@ -70,9 +70,9 @@ class SserafimKazuhaCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
     {

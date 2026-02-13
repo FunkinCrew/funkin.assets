@@ -42,9 +42,9 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (name == "fakeoutDeath" && !this.debug)
     {

@@ -1,26 +1,25 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Guns",
   "artist": "Kawai Sprite",
   "charter": "MtH",
+  "offsets": {},
   "playData": {
-    "stage": "tankmanBattlefield",
     "songVariations": ["pico"],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf-tankmen",
       "opponent": "tankman",
-      "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["tankman"],
+      "playerVocals": ["bf"]
     },
-    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "tankmanBattlefield",
     "noteStyle": "funkin",
-    "album": "volume2",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "ratings": { "easy": 3, "normal": 4, "hard": 5 },
+    "album": "volume2"
   },
-  "songName": "Guns",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 185 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 185, "bt": [4, 4, 4, 4] }]
 }

@@ -75,8 +75,7 @@ class LimoRideErectStage extends Stage
     mist2.velocity.x = 2100;
     mist1.scale.set(1.3, 1.3);
 
-    PlayState.instance.currentStage.add(mist2);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(mist2);
 
     mist3 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
     mist3.setPosition(-650, -100);

@@ -84,13 +84,10 @@
       "prefix": "Hey"
     },
     {
-      "asset": "shared:characters/bf-death",
+      "assetPath": "shared:characters/bf-death",
       "name": "firstDeath",
       "prefix": "Death Intro",
-      "offsets": [18, 15],
-      "atlasSettings": {
-        "uniqueInCache": true
-      }
+      "offsets": [18, 15]
     },
     {
       "assetPath": "shared:characters/bf-death",
@@ -100,7 +97,7 @@
       "offsets": [18, 15]
     },
     {
-      "asset": "shared:characters/bf-death",
+      "assetPath": "shared:characters/bf-death",
       "name": "deathConfirm",
       "prefix": "Death Confirm",
       "offsets": [18, 15]

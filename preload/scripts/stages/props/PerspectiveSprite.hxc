@@ -14,99 +14,103 @@ import flixel.math.FlxPoint;
  */
 class PerspectiveSprite extends FlxTypedSpriteGroup
 {
-    public var sprite:FlxSkewedSprite;
+  public var sprite:FlxSkewedSprite;
 
-    public var bottomObj:FlxObject;
-    public var topObj:FlxObject;
+  public var bottomObj:FlxObject;
+  public var topObj:FlxObject;
 
-    public var bottomVis:FlxSprite;
-    public var topVis:FlxSprite;
+  public var bottomVis:FlxSprite;
+  public var topVis:FlxSprite;
 
-    var debugDraw:Bool = false;
+  var debugDraw:Bool = false;
 
-    public function new(debugDraw:Bool = true):Void
+  public function new(debugDraw:Bool = false):Void
+  {
+    this.debugDraw = debugDraw;
+    super(0, 0);
+
+    sprite = new FlxSkewedSprite();
+    sprite.matrixExposed = true;
+    sprite.antialiasing = true;
+    add(sprite);
+
+    bottomObj = new FlxObject();
+    topObj = new FlxObject();
+
+    if (debugDraw)
     {
-        this.debugDraw = debugDraw;
-        super(0, 0);
+      bottomVis = new FlxSprite().makeGraphic(10, 10, 0xFF00B3FF);
+      bottomVis.offset.x = 5;
+      bottomVis.offset.y = 5;
+      bottomVis.alpha = 0.7;
+      add(bottomVis);
 
-        sprite = new FlxSkewedSprite();
-        sprite.matrixExposed = true;
-        sprite.antialiasing = true;
-        add(sprite);
+      topVis = new FlxSprite().makeGraphic(10, 10, 0xFFF700FF);
+      topVis.offset.x = 5;
+      topVis.offset.y = 5;
+      topVis.alpha = 0.7;
+      add(topVis);
+    }
+  }
 
-        bottomObj = new FlxObject();
-        topObj = new FlxObject();
+  /**
+   * Set the positions of both objects...
+   */
+  public function setPositions(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
+  {
+    bottomObj.setPosition(bottomX, bottomY);
+    topObj.setPosition(topX, topY);
+  }
 
-        if(debugDraw){
-            bottomVis = new FlxSprite().makeGraphic(10, 10, 0xFF00B3FF);
-            bottomVis.offset.x = 5;
-            bottomVis.offset.y = 5;
-            bottomVis.alpha = 0.7;
-            add(bottomVis);
+  /**
+   * Set the scrollFactors of both objects...
+   */
+  public function setScrollFactors(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
+  {
+    bottomObj.scrollFactor.set(bottomX, bottomY);
+    topObj.scrollFactor.set(topX, topY);
+  }
 
-            topVis = new FlxSprite().makeGraphic(10, 10, 0xFFF700FF);
-            topVis.offset.x = 5;
-            topVis.offset.y = 5;
-            topVis.alpha = 0.7;
-            add(topVis);
-        }
+  /**
+   * Positions the bottom-center of the sprite on the bottom point, and correctly skews the top-center to the second point.
+   * @param targetCam	The camera to use for positioning. (Defaults to FlxG.camera)
+   */
+  public function updateSkew(?targetCam:FlxCamera):Void
+  {
+    if (targetCam == null) targetCam = FlxG.camera;
+
+    // correct for scrollfactors..
+    // var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x, bottomObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y));
+    // var correctedTop:FlxPoint = new FlxPoint(topObj.x, topObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y));
+    var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x + (targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x)),
+      bottomObj.y + (targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y)));
+    var correctedTop:FlxPoint = new FlxPoint(topObj.x + (targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x)),
+      topObj.y + (targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y)));
+    if (debugDraw)
+    {
+      bottomVis.setPosition(correctedBottom.x, correctedBottom.y);
+      topVis.setPosition(correctedTop.x, correctedTop.y);
     }
 
-    /**
-     * Set the positions of both objects...
-     */
-    public function setPositions(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
-    {
-        bottomObj.setPosition(bottomX, bottomY);
-        topObj.setPosition(topX, topY);
-    }
+    var distX = correctedTop.x - correctedBottom.x;
+    var distY = correctedTop.y - (correctedBottom.y - sprite.height);
 
-    /**
-     * Set the scrollFactors of both objects...
-     */
-    public function setScrollFactors(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
-    {
-        bottomObj.scrollFactor.set(bottomX, bottomY);
-        topObj.scrollFactor.set(topX, topY);
-    }
+    // (is there a much more elegant/better way to do this?? idk) this is pure eyeballing
+    sprite.transformMatrix.a = 1;
+    sprite.transformMatrix.b = 0;
+    sprite.transformMatrix.c = -(distX / sprite.height);
+    sprite.transformMatrix.d = 1 - (distY / sprite.height);
+    sprite.transformMatrix.tx = distX / 2;
+    sprite.transformMatrix.ty = distY / 2;
 
-    /**
-     * Positions the bottom-center of the sprite on the bottom point, and correctly skews the top-center to the second point.
-     * @param targetCam	The camera to use for positioning. (Defaults to FlxG.camera)
-     */
-    public function updateSkew(?targetCam:FlxCamera):Void
-    {
-        if(targetCam == null) targetCam = FlxG.camera;
+    // move sprite to be aligned to the bottom object
+    sprite.x = correctedBottom.x - sprite.width / 2;
+    sprite.y = correctedBottom.y - sprite.height;
+  }
 
-        // correct for scrollfactors..
-        // var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x, bottomObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y));
-        // var correctedTop:FlxPoint = new FlxPoint(topObj.x, topObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y));
-        var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x + (targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x)), bottomObj.y + (targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y)));
-        var correctedTop:FlxPoint = new FlxPoint(topObj.x + (targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x)), topObj.y + (targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y)));
-        if(debugDraw){
-            bottomVis.setPosition(correctedBottom.x, correctedBottom.y);
-            topVis.setPosition(correctedTop.x, correctedTop.y);
-        }
-
-        var distX = correctedTop.x - correctedBottom.x;
-        var distY = correctedTop.y - (correctedBottom.y - sprite.height);
-
-        // (is there a much more elegant/better way to do this?? idk) this is pure eyeballing
-        sprite.transformMatrix.a = 1;
-        sprite.transformMatrix.b = 0;
-        sprite.transformMatrix.c = -(distX / sprite.height);
-        sprite.transformMatrix.d = 1 - (distY / sprite.height);
-        sprite.transformMatrix.tx = distX/2;
-        sprite.transformMatrix.ty = distY/2;
-
-        // move sprite to be aligned to the bottom object
-        sprite.x = correctedBottom.x - sprite.width/2;
-        sprite.y = correctedBottom.y - sprite.height;
-    }
-
-    override public function isOnScreen(camera:FlxCamera):Bool
-    {
-        // Turns out skewing an image like crazy fucks up its rendering... oops!
-        return true;
-    }
+  override public function isOnScreen(camera:FlxCamera):Bool
+  {
+    // Turns out skewing an image like crazy fucks up its rendering... oops!
+    return true;
+  }
 }

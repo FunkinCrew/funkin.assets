@@ -68,9 +68,9 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
     {
@@ -102,12 +102,5 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     lipSyncSprite.shader = currentShader;
 
     trace("Synchronized shader between children!");
-  }
-
-  override public function isOnScreen(camera:FlxCamera):Bool
-  {
-    // TODO: Figure out why she disappears when the camera zooms in too much!!
-    // This is such a shit fix but it works.
-    return true;
   }
 }

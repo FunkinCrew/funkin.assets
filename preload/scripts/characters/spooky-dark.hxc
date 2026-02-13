@@ -49,9 +49,9 @@ class SpookyDarkCharacter extends SparrowCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);
@@ -70,8 +70,8 @@ class SpookyDarkCharacter extends SparrowCharacter
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
 
-      PlayState.instance.currentStage.add(normalChar);
-      PlayState.instance.currentStage.refresh(); // Apply z-index.
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
     }
   }
 }

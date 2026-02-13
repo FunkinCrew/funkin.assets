@@ -16,13 +16,6 @@
   "freeplayDJ": {
     "assetPath": "freeplay/freeplay-boyfriend",
     "scriptClass": "BoyfriendFreeplayDJ",
-    "cartoon": {
-      "soundClickFrame": 80,
-      "soundCartoonFrame": 85,
-      "loopBlinkFrame": 112,
-      "loopFrame": 166,
-      "channelChangeFrame": 60
-    },
     "fistPump": {
       "introStartFrame": 0,
       "introEndFrame": 4,
@@ -42,51 +35,52 @@
     "text1": "BOYFRIEND",
     "text2": "HOT BLOODED IN MORE WAYS THAN ONE",
     "text3": "PROTECT YO NUTS",
+    "useAnimatePosition": true,
     "animations": [
       {
         "name": "intro",
-        "prefix": "boyfriend dj intro",
-        "offsets": [3.4, -135.5]
+        "prefix": "Intro",
+        "animType": "framelabel"
       },
       {
         "name": "idle",
-        "prefix": "Boyfriend DJ",
-        "offsets": [10, 290]
+        "prefix": "Idle",
+        "animType": "framelabel"
       },
       {
         "name": "idleEasterEgg",
-        "prefix": "bf dj afk",
-        "offsets": [10, 127.2]
+        "prefix": "AFK",
+        "animType": "framelabel"
       },
       {
         "name": "confirm",
-        "prefix": "Boyfriend DJ confirm",
-        "offsets": [-40, 289.5]
+        "prefix": "Confirm",
+        "animType": "framelabel"
       },
       {
         "name": "fistPump",
-        "prefix": "Boyfriend DJ fist pump",
-        "offsets": [10, 278.3]
-      },
-      {
-        "name": "cartoon",
-        "prefix": "Boyfriend DJ watchin tv OG",
-        "offsets": [-10, -167.5]
+        "prefix": "Fist Pump",
+        "animType": "framelabel"
       },
       {
         "name": "loss",
-        "prefix": "Boyfriend DJ loss reaction 1",
-        "offsets": [10, 277.3]
+        "prefix": "Fist Pump Loss",
+        "animType": "framelabel"
       },
       {
         "name": "charSelect",
-        "prefix": "Boyfriend DJ to CS",
-        "offsets": [-51.5, 210.4]
+        "prefix": "To Character Select",
+        "animType": "framelabel"
+      },
+      {
+        "name": "cartoon",
+        "prefix": "Watching TV",
+        "animType": "framelabel"
       },
       {
         "name": "newUnlock",
-        "prefix": "Boyfriend DJ new character ",
-        "offsets": [-144.5, 69.2]
+        "prefix": "New Unlock",
+        "animType": "framelabel"
       }
     ]
   },

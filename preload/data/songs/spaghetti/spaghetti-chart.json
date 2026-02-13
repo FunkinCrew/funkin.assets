@@ -5,7 +5,7 @@
     {
       "t": 269.058295964126,
       "e": "SetCameraBop",
-      "v": { "rate": 4, "intensity": 0, "offset": 0 }
+      "v": { "rate": 4, "offset": 0, "intensity": 0 }
     },
     {
       "t": 700,
@@ -22,11 +22,11 @@
       "t": 700,
       "e": "FocusCamera",
       "v": {
-        "x": -440,
         "duration": 12,
+        "x": -440,
         "y": 150,
-        "ease": "expo",
         "char": -1,
+        "ease": "expo",
         "easeDir": "Out"
       }
     },
@@ -35,11 +35,11 @@
       "t": 2488,
       "e": "FocusCamera",
       "v": {
-        "x": -71,
         "duration": 8,
+        "x": -71,
         "y": 247,
-        "ease": "expo",
         "char": -1,
+        "ease": "expo",
         "easeDir": "Out"
       }
     },
@@ -58,7 +58,7 @@
     {
       "t": 3901.34529147982,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.2, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 1.2 }
     },
     {
       "t": 4304.69955156951,
@@ -107,11 +107,11 @@
       "t": 11165.3228699552,
       "e": "FocusCamera",
       "v": {
-        "x": -71,
         "duration": 4,
+        "x": -71,
         "y": 247,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -130,11 +130,11 @@
       "t": 11838.5560538117,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -359,
+        "duration": 4,
         "y": 154,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -153,11 +153,11 @@
       "t": 12376.6726457399,
       "e": "FocusCamera",
       "v": {
-        "x": -493,
         "duration": 4,
+        "x": -493,
         "y": 90,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -176,11 +176,11 @@
       "t": 12914.7892376682,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -627,
+        "duration": 4,
         "y": 27,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -214,11 +214,11 @@
       "t": 13721.9641255605,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 209,
+        "duration": 4,
         "y": 417,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -263,11 +263,11 @@
       "t": 17757.8250672646,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 4,
+        "x": 1555,
         "y": 660,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -285,7 +285,7 @@
     {
       "t": 20044.8250672646,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0 }
     },
     {
       "t": 20448.4125112108,
@@ -302,11 +302,11 @@
       "t": 20448.8250672646,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1585,
+        "duration": 4,
         "y": 460,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -324,7 +324,7 @@
     {
       "t": 21390.1165470852,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 0.9, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 0.9 }
     },
     {
       "t": 21524.6456950673,
@@ -356,11 +356,11 @@
       "t": 22600.8250672646,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 940,
+        "duration": 4,
         "y": 101,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -411,7 +411,7 @@
     {
       "t": 29058.2779820628,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 0, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 0 }
     },
     {
       "t": 29058.3362780269,
@@ -422,11 +422,11 @@
       "t": 29327.3362780269,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 900,
+        "duration": 4,
         "y": -30,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -466,7 +466,7 @@
     {
       "t": 29999.9820179372,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1 }
     },
     {
       "t": 30134,
@@ -487,11 +487,11 @@
       "t": 30672.8250672646,
       "e": "FocusCamera",
       "v": {
-        "x": 960,
         "duration": 4,
+        "x": 960,
         "y": 541,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -531,12 +531,12 @@
     {
       "t": 36457.3811210762,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 0, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 0 }
     },
     {
       "t": 36591.3452914798,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.2 }
+      "v": { "amount": 0.2, "duration": 0.1 }
     },
     {
       "t": 36591.8116143498,
@@ -552,7 +552,7 @@
     {
       "t": 37130.3452914798,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.3 }
+      "v": { "amount": 0.3, "duration": 0.1 }
     },
     {
       "t": 37130.8116143498,
@@ -568,7 +568,7 @@
     {
       "t": 37668.3452914798,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.4 }
+      "v": { "amount": 0.4, "duration": 0.1 }
     },
     {
       "t": 37668.8116143498,
@@ -603,20 +603,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFFFF43A1"],
-        "intensities": [0.7, 0.9],
+        "enabled": true,
         "durations": [0.5, 0.5],
-        "enabled": true
+        "intensities": [0.7, 0.9]
       }
     },
     {
       "t": 38609.8474887892,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1.2 }
     },
     {
       "t": 38744.3452914798,
       "e": "sserafimDark",
-      "v": { "amount": 0.47, "duration": 0.1 }
+      "v": { "duration": 0.1, "amount": 0.47 }
     },
     {
       "t": 38744.3766367713,
@@ -633,11 +633,11 @@
       "t": 38744.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
@@ -677,11 +677,11 @@
       "t": 42511.197264574,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -700,11 +700,11 @@
       "t": 42780.8250672646,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 4,
+        "x": 1555,
         "y": 660,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -723,11 +723,11 @@
       "t": 43049.8250672646,
       "e": "FocusCamera",
       "v": {
-        "x": 870,
         "duration": 4,
+        "x": 870,
         "y": 81,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -735,11 +735,11 @@
       "t": 43587.3766367713,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -769,11 +769,11 @@
       "t": 45471.0672197309,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1000,
+        "duration": 4,
         "y": 620,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -792,11 +792,11 @@
       "t": 46279.0089237668,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 329,
+        "duration": 4,
         "y": 417,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -815,11 +815,11 @@
       "t": 46548.0672197309,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1455,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -839,11 +839,11 @@
       "t": 46817.1255156951,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -371,
+        "duration": 4,
         "y": 147,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -855,7 +855,7 @@
     {
       "t": 47354.3452914798,
       "e": "sserafimLights",
-      "v": { "duration": 0.5, "amount": 0.7 }
+      "v": { "amount": 0.7, "duration": 0.5 }
     },
     {
       "t": 47354.3766367713,
@@ -873,20 +873,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFFFF43A1"],
-        "intensities": [0.7, 0.9],
+        "enabled": true,
         "durations": [0.5, 0.5],
-        "enabled": true
+        "intensities": [0.7, 0.9]
       }
     },
     {
       "t": 47892.3586995516,
       "e": "FocusCamera",
       "v": {
-        "x": 49,
         "duration": 16,
+        "x": 49,
         "y": 367,
-        "ease": "expo",
         "char": -1,
+        "ease": "expo",
         "easeDir": "Out"
       }
     },
@@ -905,11 +905,11 @@
       "t": 50044.8250672646,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1555,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -972,11 +972,11 @@
       "t": 52197.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "In"
       }
     },
@@ -1006,11 +1006,11 @@
       "t": 54081.0672197309,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 870,
+        "duration": 4,
         "y": 81,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -1034,11 +1034,11 @@
       "t": 54887.8743946188,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1000,
+        "duration": 4,
         "y": 620,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -1057,11 +1057,11 @@
       "t": 55157.0672197309,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -371,
+        "duration": 4,
         "y": 147,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -1070,11 +1070,11 @@
       "t": 55425.9909865471,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 229,
+        "duration": 4,
         "y": 317,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -1105,20 +1105,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFFFF0000", "0xFFFF33CC", "0xFF00CC33", "0xFF3366FF"],
-        "intensities": [0.7, 0.9, 0.7, 0.9],
+        "enabled": true,
         "durations": [0.5, 0.5, 0.5, 0.5],
-        "enabled": true
+        "intensities": [0.7, 0.9, 0.7, 0.9]
       }
     },
     {
       "t": 55829.5784304933,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.3, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1.3 }
     },
     {
       "t": 55964.3452914798,
       "e": "sserafimDark",
-      "v": { "amount": 0.6, "duration": 0.1 }
+      "v": { "duration": 0.1, "amount": 0.6 }
     },
     {
       "t": 55964.3766367713,
@@ -1135,11 +1135,11 @@
       "t": 55964.3766367713,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1180,11 +1180,11 @@
       "t": 59192.8071300448,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 4,
+        "x": 1555,
         "y": 660,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -1203,11 +1203,11 @@
       "t": 59461.8654260089,
       "e": "FocusCamera",
       "v": {
-        "x": 870,
         "duration": 4,
+        "x": 870,
         "y": 81,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -1226,11 +1226,11 @@
       "t": 59730.9237219731,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -1249,11 +1249,11 @@
       "t": 60269.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
@@ -1277,7 +1277,7 @@
     {
       "t": 62556.0358295964,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 0, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 0 }
     },
     { "t": 62690.3452914798, "e": "sserafimCover", "v": { "visible": false } },
     {
@@ -1295,11 +1295,11 @@
       "t": 63497.3766367713,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 920,
+        "duration": 4,
         "y": 400,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1318,11 +1318,11 @@
       "t": 63766.3766367713,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1220,
+        "duration": 4,
         "y": 500,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1332,11 +1332,11 @@
       "t": 64035.8564573991,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1555,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -1356,20 +1356,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF3386A7", "0xFF3386A7"],
-        "intensities": [0.3],
+        "enabled": true,
         "durations": [0.8],
-        "enabled": true
+        "intensities": [0.3]
       }
     },
     {
       "t": 64439.4439013453,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.8, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.8 }
     },
     {
       "t": 64573.3452914798,
       "e": "sserafimDark",
-      "v": { "amount": 0.83, "duration": 0.1 }
+      "v": { "duration": 0.1, "amount": 0.83 }
     },
     { "t": 64573.3452914798, "e": "sserafimCover", "v": { "visible": false } },
     { "t": 64573.3452914798, "e": "sserafimFlash", "v": { "duration": 1.6 } },
@@ -1410,15 +1410,15 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF3386A7", "0xFF7FBAC6"],
-        "enabled": true,
+        "intensities": [0.5, 0.7],
         "durations": [0.5, 0.5],
-        "intensities": [0.5, 0.7]
+        "enabled": true
       }
     },
     {
       "t": 68071.730896861,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.5, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.5 }
     },
     {
       "t": 68340.7891928251,
@@ -1469,9 +1469,9 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF8BAEB5"],
-        "enabled": true,
+        "intensities": [0.9],
         "durations": [0.5],
-        "intensities": [0.9]
+        "enabled": true
       }
     },
     {
@@ -1490,15 +1490,15 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF017690", "0xFFB65EC1"],
-        "enabled": true,
+        "intensities": [0.5, 0.7],
         "durations": [0.5, 0.5],
-        "intensities": [0.5, 0.7]
+        "enabled": true
       }
     },
     {
       "t": 73049.3093721973,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 73183.8385201794,
@@ -1514,7 +1514,7 @@
     {
       "t": 73452.8968161435,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 73721.9551121076,
@@ -1530,12 +1530,12 @@
     {
       "t": 73856.3093721973,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 74529.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 74798.1882959641,
@@ -1551,7 +1551,7 @@
     {
       "t": 74932.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 75336.3048878924,
@@ -1567,12 +1567,12 @@
     {
       "t": 75605.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 76008.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 76278.0089237668,
@@ -1588,7 +1588,7 @@
     {
       "t": 76681.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 76950.6546636771,
@@ -1604,7 +1604,7 @@
     {
       "t": 77084.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 77488.7712556054,
@@ -1620,12 +1620,12 @@
     {
       "t": 77757.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 78160.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 78565.0044394619,
@@ -1641,12 +1641,12 @@
     {
       "t": 78834.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 79237.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 79506.7084753363,
@@ -1662,7 +1662,7 @@
     {
       "t": 79910.2959192825,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
     },
     {
       "t": 80179.3542152466,
@@ -1678,7 +1678,7 @@
     {
       "t": 80313.7084753363,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
     },
     {
       "t": 80448.3452914798,
@@ -1701,9 +1701,9 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF8BAEB5"],
-        "enabled": true,
+        "intensities": [0.9],
         "durations": [0.5],
-        "intensities": [0.9]
+        "enabled": true
       }
     },
     { "t": 81255, "e": "sserafimGuitarVibration", "v": { "duration": 0.55 } },
@@ -1734,9 +1734,9 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF017690", "0xFF10CE6C", "0xFFF0B67F", "0xFFB65EC1"],
-        "enabled": true,
+        "intensities": [0.5, 0.7, 0.4, 0.7],
         "durations": [0.5, 0.5, 0.5, 0.5],
-        "intensities": [0.5, 0.7, 0.4, 0.7]
+        "enabled": true
       }
     },
     {
@@ -1754,11 +1754,11 @@
       "t": 81793.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 1255,
         "duration": 4,
+        "x": 1255,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1766,33 +1766,33 @@
       "t": 81860.9371748879,
       "e": "FocusCamera",
       "v": {
-        "x": 1500,
         "duration": 36,
+        "x": 1500,
         "y": 660,
-        "char": -1,
         "ease": "linear",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 82062.7622869955,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 82466.3497309417,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 83138.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 83542.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 83946.3721524664,
@@ -1808,17 +1808,17 @@
     {
       "t": 84215.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 84619.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 85291.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 85560.5201345291,
@@ -1834,12 +1834,12 @@
     {
       "t": 85695.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 86367.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 86502.3766367713,
@@ -1856,11 +1856,11 @@
       "t": 86502.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 4,
+        "x": 1555,
         "y": 820,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1868,28 +1868,28 @@
       "t": 86569.9371748879,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 31,
+        "x": 1555,
         "y": 620,
-        "char": -1,
         "ease": "linear",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 86771.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 87443.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 87847.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 88251.0896860987,
@@ -1905,17 +1905,17 @@
     {
       "t": 88520.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 88924.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 89596.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 89865.4394618834,
@@ -1931,12 +1931,12 @@
     {
       "t": 90000.5829147982,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 90538.0852017937,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 90672.3766367713,
@@ -1953,11 +1953,11 @@
       "t": 90672.3766367713,
       "e": "FocusCamera",
       "v": {
-        "x": 1655,
         "duration": 4,
+        "x": 1655,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -1965,18 +1965,18 @@
       "t": 90739.9371748879,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 32,
+        "x": 1555,
         "y": 660,
-        "char": -1,
         "ease": "linear",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 91075.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 91614.3183856502,
@@ -1992,12 +1992,12 @@
     {
       "t": 91748.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 92151.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 92690.5515695067,
@@ -2013,12 +2013,12 @@
     {
       "t": 92825.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 93228.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 93766.7847533632,
@@ -2034,7 +2034,7 @@
     {
       "t": 93901.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 94170.7847533632,
@@ -2050,12 +2050,12 @@
     {
       "t": 94304.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 94843.0179372197,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 94977.3766367713,
@@ -2072,11 +2072,11 @@
       "t": 94977.3766367713,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1355,
+        "duration": 4,
         "y": 660,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
@@ -2084,18 +2084,18 @@
       "t": 95044.9371748879,
       "e": "FocusCamera",
       "v": {
-        "duration": 27.5,
         "x": 1450,
+        "duration": 27.5,
         "y": 660,
-        "ease": "linear",
         "char": -1,
+        "ease": "linear",
         "easeDir": "In"
       }
     },
     {
       "t": 95380.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 95650.197273991,
@@ -2111,12 +2111,12 @@
     {
       "t": 96053.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 96456.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 96726.4304578475,
@@ -2132,7 +2132,7 @@
     {
       "t": 97130.13,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.6 }
+      "v": { "rate": 2, "intensity": 1.6, "offset": 1 }
     },
     {
       "t": 97399.3452914798,
@@ -2142,12 +2142,12 @@
     {
       "t": 97533.5425560538,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.2, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.2 }
     },
     {
       "t": 97668.134493722,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 0 }
     },
     {
       "t": 97802.4304578475,
@@ -2174,12 +2174,12 @@
     {
       "t": 98878.9057847534,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.4, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.4 }
     },
     {
       "t": 99013.3452914798,
       "e": "sserafimDark",
-      "v": { "amount": 0.76, "duration": 0.1 }
+      "v": { "duration": 0.1, "amount": 0.76 }
     },
     {
       "t": 99013.4259735426,
@@ -2200,12 +2200,12 @@
     {
       "t": 99147.3452914798,
       "e": "sserafimDark",
-      "v": { "amount": 0.5, "duration": 3.2 }
+      "v": { "duration": 3.2, "amount": 0.5 }
     },
     {
       "t": 99686.0717134529,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.5, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.5 }
     },
     {
       "t": 99820.6995515695,
@@ -2216,11 +2216,11 @@
       "t": 99820.9641255605,
       "e": "FocusCamera",
       "v": {
-        "x": 329,
         "duration": 4,
+        "x": 329,
         "y": 417,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -2238,7 +2238,7 @@
     {
       "t": 101031.372152466,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.6, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.6 }
     },
     {
       "t": 101434.95063722,
@@ -2254,7 +2254,7 @@
     {
       "t": 101973.067229148,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.7, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.7 }
     },
     {
       "t": 102107.59637713,
@@ -2281,12 +2281,12 @@
     {
       "t": 103183.838520179,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.8, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.8 }
     },
     {
       "t": 104125.533596861,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 0.9, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 0.9 }
     },
     {
       "t": 104260.95063722,
@@ -2313,7 +2313,7 @@
     {
       "t": 105336.304887892,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1, "offset": 0 }
+      "v": { "rate": 2, "offset": 0, "intensity": 1 }
     },
     {
       "t": 106143.058260538,
@@ -2351,7 +2351,7 @@
     {
       "t": 107488.771255605,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.1, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1.1 }
     },
     {
       "t": 107623.291444395,
@@ -2383,11 +2383,11 @@
       "t": 108430.825067265,
       "e": "FocusCamera",
       "v": {
-        "x": 940,
         "duration": 4,
+        "x": 940,
         "y": 101,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -2443,11 +2443,11 @@
       "t": 112331.825067265,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 960,
+        "duration": 4,
         "y": 541,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -2482,17 +2482,17 @@
     {
       "t": 114753.69955157,
       "e": "SetHealthIcon",
-      "v": { "char": 0, "id": "gf", "flipX": true }
+      "v": { "char": 0, "flipX": true, "id": "gf" }
     },
     {
       "t": 114753.825067265,
       "e": "FocusCamera",
       "v": {
-        "duration": 8,
         "x": 1060,
+        "duration": 8,
         "y": 400,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -2523,15 +2523,15 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFF3636f7"],
-        "intensities": [0.2, 0.3],
+        "enabled": true,
         "durations": [0.6, 0.5],
-        "enabled": true
+        "intensities": [0.2, 0.3]
       }
     },
     {
       "t": 116098.636726457,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 0, "intensity": 1.1 }
+      "v": { "rate": 1, "intensity": 1.1, "offset": 0 }
     },
     {
       "t": 116233.156915247,
@@ -2547,7 +2547,7 @@
     {
       "t": 116233.34529148,
       "e": "sserafimDark",
-      "v": { "amount": 0.78, "duration": 0.5 }
+      "v": { "duration": 0.5, "amount": 0.78 }
     },
     {
       "t": 116704,
@@ -2563,11 +2563,11 @@
       "t": 117309.390099103,
       "e": "FocusCamera",
       "v": {
-        "x": 100,
         "duration": 8,
+        "x": 100,
         "y": 247,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "Out"
       }
     },
@@ -2590,12 +2590,12 @@
     {
       "t": 119596.34529148,
       "e": "sserafimLights",
-      "v": { "duration": 0.5, "amount": 1 }
+      "v": { "amount": 1, "duration": 0.5 }
     },
     {
       "t": 119865.34529148,
       "e": "sserafimLights",
-      "v": { "duration": 0.5, "amount": 1 }
+      "v": { "amount": 1, "duration": 0.5 }
     },
     {
       "t": 120538.932735426,
@@ -2638,7 +2638,7 @@
     {
       "t": 123767.277982063,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 0, "intensity": 0 }
+      "v": { "rate": 1, "intensity": 0, "offset": 0 }
     },
     {
       "t": 123834.34529148,
@@ -2649,11 +2649,11 @@
       "t": 124035.336278027,
       "e": "FocusCamera",
       "v": {
-        "x": 300,
         "duration": 4,
+        "x": 300,
         "y": 200,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
@@ -2688,11 +2688,11 @@
       "t": 124305.336278027,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 400,
+        "duration": 4,
         "y": 160,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -2701,9 +2701,9 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFF3636f7"],
-        "intensities": [0.2, 0.3],
+        "enabled": true,
         "durations": [0.6, 0.5],
-        "enabled": true
+        "intensities": [0.2, 0.3]
       }
     },
     {
@@ -2721,11 +2721,11 @@
       "t": 124574.452869955,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 500,
+        "duration": 4,
         "y": 120,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -2737,7 +2737,7 @@
     {
       "t": 124708.982017937,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1 }
     },
     {
       "t": 125381.69955157,
@@ -2748,11 +2748,11 @@
       "t": 125381.825067265,
       "e": "FocusCamera",
       "v": {
-        "x": 940,
         "duration": 16,
+        "x": 940,
         "y": 101,
-        "ease": "expo",
         "char": -1,
+        "ease": "expo",
         "easeDir": "Out"
       }
     },
@@ -2792,12 +2792,12 @@
     {
       "t": 131166.381121076,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 0, "intensity": 0 }
+      "v": { "rate": 1, "intensity": 0, "offset": 0 }
     },
     {
       "t": 131300.34529148,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.84 }
+      "v": { "amount": 0.84, "duration": 0.1 }
     },
     {
       "t": 131300.81161435,
@@ -2818,7 +2818,7 @@
     {
       "t": 131838.34529148,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.88 }
+      "v": { "amount": 0.88, "duration": 0.1 }
     },
     {
       "t": 131839.81161435,
@@ -2834,7 +2834,7 @@
     {
       "t": 132376.34529148,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.92 }
+      "v": { "amount": 0.92, "duration": 0.1 }
     },
     {
       "t": 132377.81161435,
@@ -2870,20 +2870,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFFFF43A1"],
-        "enabled": true,
+        "intensities": [0.7, 0.9],
         "durations": [0.5, 0.5],
-        "intensities": [0.7, 0.9]
+        "enabled": true
       }
     },
     {
       "t": 133318.847488789,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 0, "intensity": 1.2 }
+      "v": { "rate": 1, "intensity": 1.2, "offset": 0 }
     },
     {
       "t": 133452.34529148,
       "e": "sserafimDark",
-      "v": { "duration": 0.1, "amount": 0.47 }
+      "v": { "amount": 0.47, "duration": 0.1 }
     },
     {
       "t": 133452.376636771,
@@ -2900,11 +2900,11 @@
       "t": 133452.376636771,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
@@ -2921,7 +2921,7 @@
     {
       "t": 133990.69955157,
       "e": "SetHealthIcon",
-      "v": { "char": 0, "id": "bf", "flipX": true }
+      "v": { "char": 0, "flipX": true, "id": "bf" }
     },
     {
       "t": 136142.959596413,
@@ -2949,11 +2949,11 @@
       "t": 137219.197264574,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -2972,11 +2972,11 @@
       "t": 137488.825067265,
       "e": "FocusCamera",
       "v": {
-        "x": 1555,
         "duration": 4,
+        "x": 1555,
         "y": 660,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -2995,11 +2995,11 @@
       "t": 137757.825067265,
       "e": "FocusCamera",
       "v": {
-        "x": 870,
         "duration": 4,
+        "x": 870,
         "y": 81,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3007,11 +3007,11 @@
       "t": 138295.376636771,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "In"
       }
     },
@@ -3041,11 +3041,11 @@
       "t": 140180.067219731,
       "e": "FocusCamera",
       "v": {
-        "x": 1000,
         "duration": 4,
+        "x": 1000,
         "y": 620,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3064,11 +3064,11 @@
       "t": 140988.008923767,
       "e": "FocusCamera",
       "v": {
-        "x": 329,
         "duration": 4,
+        "x": 329,
         "y": 417,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3087,11 +3087,11 @@
       "t": 141257.067219731,
       "e": "FocusCamera",
       "v": {
-        "x": 1455,
         "duration": 4,
+        "x": 1455,
         "y": 660,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3111,11 +3111,11 @@
       "t": 141526.125515695,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3127,7 +3127,7 @@
     {
       "t": 142062.34529148,
       "e": "sserafimLights",
-      "v": { "duration": 0.5, "amount": 0.7 }
+      "v": { "amount": 0.7, "duration": 0.5 }
     },
     {
       "t": 142062.376636771,
@@ -3145,20 +3145,20 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFF6D43FF", "0xFFFF43A1"],
-        "enabled": true,
+        "intensities": [0.7, 0.9],
         "durations": [0.5, 0.5],
-        "intensities": [0.7, 0.9]
+        "enabled": true
       }
     },
     {
       "t": 142600.358699552,
       "e": "FocusCamera",
       "v": {
-        "x": 49,
         "duration": 16,
+        "x": 49,
         "y": 367,
-        "ease": "expo",
         "char": -1,
+        "ease": "expo",
         "easeDir": "Out"
       }
     },
@@ -3177,11 +3177,11 @@
       "t": 144752.825067265,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1555,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "CLASSIC",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -3244,11 +3244,11 @@
       "t": 146905.376636771,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "CLASSIC",
         "char": -1,
+        "ease": "CLASSIC",
         "easeDir": "In"
       }
     },
@@ -3278,11 +3278,11 @@
       "t": 148790.067219731,
       "e": "FocusCamera",
       "v": {
-        "x": 870,
         "duration": 4,
+        "x": 870,
         "y": 81,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3294,7 +3294,7 @@
     {
       "t": 149394.600852018,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 0 }
+      "v": { "rate": 2, "intensity": 0, "offset": 1 }
     },
     {
       "t": 149596.869910314,
@@ -3311,11 +3311,11 @@
       "t": 149596.874394619,
       "e": "FocusCamera",
       "v": {
-        "x": 1000,
         "duration": 4,
+        "x": 1000,
         "y": 620,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3334,11 +3334,11 @@
       "t": 149866.067219731,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3347,11 +3347,11 @@
       "t": 150134.990986547,
       "e": "FocusCamera",
       "v": {
-        "x": 229,
         "duration": 4,
+        "x": 229,
         "y": 317,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3382,25 +3382,25 @@
       "e": "sserafimPulseLights",
       "v": {
         "colors": ["0xFFFF0000", "0xFFFF33CC", "0xFF00CC33", "0xFF3366FF"],
-        "enabled": true,
+        "intensities": [0.7, 0.9, 0.7, 0.9],
         "durations": [0.5, 0.5, 0.5, 0.5],
-        "intensities": [0.7, 0.9, 0.7, 0.9]
+        "enabled": true
       }
     },
     {
       "t": 150537.578430493,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.3, "offset": 0 }
+      "v": { "rate": 1, "offset": 0, "intensity": 1.3 }
     },
     {
       "t": 150538.098609865,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 150672.34529148,
       "e": "sserafimDark",
-      "v": { "amount": 0.6, "duration": 0.1 }
+      "v": { "duration": 0.1, "amount": 0.6 }
     },
     {
       "t": 150672.376636771,
@@ -3417,23 +3417,23 @@
       "t": 150672.376636771,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 150941.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 151345.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 151748.376636771,
@@ -3449,12 +3449,12 @@
     {
       "t": 152017.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 152421.582914798,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 152824.573946188,
@@ -3470,12 +3470,12 @@
     {
       "t": 153094.152421525,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 153497.739865471,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 153900.233139013,
@@ -3492,11 +3492,11 @@
       "t": 153900.807130045,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1555,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -3515,18 +3515,18 @@
       "t": 154169.865426009,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 870,
+        "duration": 4,
         "y": 81,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
     {
       "t": 154170.385605381,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 154438.919237668,
@@ -3543,18 +3543,18 @@
       "t": 154438.923721973,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -371,
+        "duration": 4,
         "y": 147,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
     {
       "t": 154573.973049327,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 154977.376636771,
@@ -3571,23 +3571,23 @@
       "t": 154977.376636771,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 155246.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 155650.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 156053.376636771,
@@ -3603,12 +3603,12 @@
     {
       "t": 156322.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 156726.582914798,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 157399.551524664,
@@ -3624,24 +3624,24 @@
     {
       "t": 157399.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 157400.067219731,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1000,
+        "duration": 4,
         "y": 620,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
     {
       "t": 157803.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 158207.434932735,
@@ -3658,11 +3658,11 @@
       "t": 158208.008923767,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 329,
+        "duration": 4,
         "y": 417,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -3681,11 +3681,11 @@
       "t": 158477.067219731,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 1455,
+        "duration": 4,
         "y": 660,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -3704,11 +3704,11 @@
       "t": 158746.125515695,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": -371,
+        "duration": 4,
         "y": 147,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
@@ -3727,23 +3727,23 @@
       "t": 159282.376636771,
       "e": "FocusCamera",
       "v": {
-        "x": 620,
         "duration": 4,
+        "x": 620,
         "y": 300,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "In"
       }
     },
     {
       "t": 159551.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 159955.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 160358.376636771,
@@ -3759,12 +3759,12 @@
     {
       "t": 160627.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 161031.582914798,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 161434.573946188,
@@ -3780,12 +3780,12 @@
     {
       "t": 161704.017892377,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 162107.605336323,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 162511.233139013,
@@ -3802,11 +3802,11 @@
       "t": 162511.807130045,
       "e": "FocusCamera",
       "v": {
-        "x": 1000,
         "duration": 4,
+        "x": 1000,
         "y": 620,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -3825,18 +3825,18 @@
       "t": 162780.865426009,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
     {
       "t": 162781.251076233,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 163049.919237668,
@@ -3853,18 +3853,18 @@
       "t": 163049.923721973,
       "e": "FocusCamera",
       "v": {
-        "x": 229,
         "duration": 4,
+        "x": 229,
         "y": 317,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
     {
       "t": 163183.838520179,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 163587.376636771,
@@ -3881,23 +3881,23 @@
       "t": 163587.376636771,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 620,
+        "duration": 4,
         "y": 300,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "In"
       }
     },
     {
       "t": 163856.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 164260.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 164663.376636771,
@@ -3913,12 +3913,12 @@
     {
       "t": 164932.995470852,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
+      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
     },
     {
       "t": 165336.582914798,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
+      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
     },
     {
       "t": 166008.416995516,
@@ -3934,24 +3934,24 @@
     {
       "t": 166008.762286996,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "intensity": 1.8, "offset": 1 }
+      "v": { "rate": 2, "offset": 1, "intensity": 1.8 }
     },
     {
       "t": 166008.932690583,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
         "x": 870,
+        "duration": 4,
         "y": 81,
-        "char": -1,
         "ease": "INSTANT",
+        "char": -1,
         "easeDir": "Out"
       }
     },
     {
       "t": 166412.349730942,
       "e": "SetCameraBop",
-      "v": { "rate": 1, "offset": 1, "intensity": 1.4 }
+      "v": { "rate": 1, "intensity": 1.4, "offset": 1 }
     },
     {
       "t": 166547.34529148,
@@ -3973,18 +3973,18 @@
       "t": 166815.739865471,
       "e": "FocusCamera",
       "v": {
-        "x": -371,
         "duration": 4,
+        "x": -371,
         "y": 147,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
     {
       "t": 166950.654663677,
       "e": "SetCameraBop",
-      "v": { "rate": 2, "offset": 1, "intensity": 0 }
+      "v": { "rate": 2, "intensity": 0, "offset": 1 }
     },
     {
       "t": 167084.416995516,
@@ -4001,11 +4001,11 @@
       "t": 167084.932690583,
       "e": "FocusCamera",
       "v": {
-        "x": 870,
         "duration": 4,
+        "x": 870,
         "y": 81,
-        "ease": "INSTANT",
         "char": -1,
+        "ease": "INSTANT",
         "easeDir": "Out"
       }
     },
@@ -4094,8 +4094,7 @@
         "t": 39282.4932286995,
         "d": 3,
         "l": 201.79372197314,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 39686.0896860986, "d": 2, "k": "sakura-joint" },
       { "t": 39955.1479820627, "d": 3, "k": "sakura-joint" },
@@ -4106,8 +4105,7 @@
         "t": 41434.9595964126,
         "d": 2,
         "l": 201.793721973048,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 41838.5560538116, "d": 3, "k": "sakura-joint" },
       { "t": 42107.6143497758, "d": 2, "k": "sakura-joint" },
@@ -4119,8 +4117,7 @@
         "t": 43587.4259641256,
         "d": 0,
         "l": 201.793721973048,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 43991.0224215246, "d": 1, "k": "sakura-joint" },
       { "t": 44260.0807174887, "d": 3, "k": "sakura-joint" },
@@ -4132,8 +4129,7 @@
         "t": 45739.9013452915,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 46278.0179372197, "d": 3, "k": "sakura-joint" },
       { "t": 46547.0762331838, "d": 3, "k": "sakura-joint" },
@@ -4141,15 +4137,13 @@
         "t": 46816.134529148,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 47892.3586995516,
         "d": 0,
         "l": 201.793721973056,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 48295.9551569506, "d": 1, "k": "sakura-joint" },
       { "t": 48565.0134529148, "d": 3, "k": "sakura-joint" },
@@ -4167,8 +4161,7 @@
         "t": 52197.2914349776,
         "d": 2,
         "l": 201.793721973071,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 52601.0224215246, "d": 1, "k": "sakura-joint" },
       { "t": 52870.0807174888, "d": 3, "k": "sakura-joint" },
@@ -4180,29 +4173,25 @@
         "t": 54349.7668161434,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 54887.8743946188,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 55156.932690583,
         "d": 0,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 55425.9999999999,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 55964.1165919282, "d": 3, "k": "sakura-joint" },
       { "t": 56367.7040358744, "d": 2, "k": "sakura-joint" },
@@ -4211,15 +4200,13 @@
         "t": 57040.3407623318,
         "d": 2,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 57578.4573542601,
         "d": 1,
         "l": 403.587443946188,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 58116.5829596412, "d": 3, "k": "sakura-joint" },
       { "t": 58520.1704035874, "d": 2, "k": "sakura-joint" },
@@ -4234,44 +4221,38 @@
         "t": 61345.2734977578,
         "d": 1,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 61883.3900896861,
         "d": 2,
         "l": 403.587443946188,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 62690.5739910314, "d": 3, "k": "sakura-joint" },
       {
         "t": 62959.6322869955,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 63497.7398654708,
         "d": 0,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 63766.798161435,
         "d": 0,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 64035.865470852,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 64843.0313452915, "d": 0, "k": "sakura-bf2" },
       { "t": 65515.6770852018, "d": 1, "k": "sakura-bf1" },
@@ -4287,8 +4268,7 @@
         "t": 67937.197309417,
         "d": 2,
         "l": 269.058295964133,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 68340.7847533632, "d": 0, "k": "sakura-bf1" },
       { "t": 68609.865470852, "d": 1, "k": "sakura-bf1" },
@@ -4315,8 +4295,7 @@
         "t": 74394.6188340807,
         "d": 1,
         "l": 336.300448430504,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 74798.2062780269, "d": 0, "k": "sakura-bf2" },
       { "t": 75067.2421524664, "d": 3, "k": "sakura-bf1" },
@@ -4324,8 +4303,7 @@
         "t": 75336.3004484305,
         "d": 2,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 75605.3587443946, "d": 3, "k": "sakura-bf1" },
       { "t": 76008.9686098655, "d": 1, "k": "sakura-bf2" },
@@ -4334,32 +4312,28 @@
         "t": 76547.0852017937,
         "d": 0,
         "l": 336.282611210801,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 76950.6726457399, "d": 1, "k": "sakura-bf1" },
       {
         "t": 77488.7892376682,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 77757.8475336323, "d": 3, "k": "sakura-bf2" },
       {
         "t": 77892.3766816143,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 78430.4530147982, "d": 3, "k": "sakura-bf1" },
       {
         "t": 78564.9821627803,
         "d": 0,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 79103.1390134529, "d": 1, "k": "sakura-bf2" },
       { "t": 79506.6906829597, "d": 3, "k": "sakura-bf1" },
@@ -4377,15 +4351,13 @@
         "t": 82331.802790583,
         "d": 2,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       {
         "t": 82735.3902345292,
         "d": 1,
         "l": 269.058295964126,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 83273.2152466368, "d": 3, "k": "sakura-bf2" },
       { "t": 83407.7443946188, "d": 0, "k": "sakura-bf1" },
@@ -4396,8 +4368,7 @@
         "t": 84484.2646340807,
         "d": 3,
         "l": 336.322869955157,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 84887.8699551569, "d": 1, "k": "sakura-bf2" },
       { "t": 85156.9282511211, "d": 1, "k": "sakura-bf1" },
@@ -4407,15 +4378,13 @@
         "t": 85829.596412556,
         "d": 3,
         "l": 269.058295964126,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       {
         "t": 86502.201793722,
         "d": 0,
         "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 86771.269058296, "d": 2, "k": "sakura-bf1" },
       { "t": 87040.0313901345, "d": 1, "k": "sakura-bf2" },
@@ -4427,16 +4396,14 @@
         "t": 88251.1210762332,
         "d": 2,
         "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 88520.1793721973, "d": 1, "k": "sakura-bf1" },
       {
         "t": 88789.2062780269,
         "d": 3,
         "l": 269.058295964126,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 89192.8251121076, "d": 0, "k": "sakura-bf2" },
       { "t": 89461.8834080717, "d": 1, "k": "sakura-bf2" },
@@ -4446,8 +4413,7 @@
         "t": 90134.4799206278,
         "d": 3,
         "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 90672.596512556, "d": 0, "k": "sakura-bf1" },
       { "t": 90941.6548085202, "d": 2, "k": "sakura-bf2" },
@@ -4457,8 +4423,7 @@
         "t": 91614.3497757848,
         "d": 1,
         "l": 336.273642600851,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 92017.9372197309, "d": 0, "k": "sakura-bf2" },
       { "t": 92286.9955156951, "d": 1, "k": "sakura-bf1" },
@@ -4471,8 +4436,7 @@
         "t": 93766.7669161435,
         "d": 0,
         "l": 269.058295964126,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 94170.4035874439, "d": 3, "k": "sakura-bf2" },
       { "t": 94439.4618834081, "d": 1, "k": "sakura-bf2" },
@@ -4484,8 +4448,7 @@
         "t": 95919.2555699552,
         "d": 2,
         "l": 269.058295964126,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 96322.8699551569, "d": 3, "k": "sakura-bf2" },
       { "t": 96591.9282511211, "d": 0, "k": "sakura-bf1" },
@@ -4495,8 +4458,7 @@
         "t": 97399.0761977579,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 97802.6592928251, "d": 2, "k": "sakura-bf2" },
       { "t": 98071.7488789238, "d": 0, "k": "sakura-bf2" },
@@ -4591,8 +4553,7 @@
         "t": 133990.98216278,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 134394.609865471, "d": 2, "k": "sakura-joint" },
       { "t": 134663.668161435, "d": 3, "k": "sakura-joint" },
@@ -4603,8 +4564,7 @@
         "t": 136143.448530493,
         "d": 2,
         "l": 201.793721973109,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 136547.076233184, "d": 3, "k": "sakura-joint" },
       { "t": 136816.134529148, "d": 2, "k": "sakura-joint" },
@@ -4616,8 +4576,7 @@
         "t": 138295.914898206,
         "d": 1,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 138699.502342152, "d": 0, "k": "sakura-joint" },
       { "t": 138968.600896861, "d": 3, "k": "sakura-joint" },
@@ -4629,36 +4588,31 @@
         "t": 140448.421524664,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 140986.497857848,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 141255.556153812,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 141524.65470852,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 142600.847633632,
         "d": 1,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 143004.475336323, "d": 1, "k": "sakura-joint" },
       { "t": 143273.533632287, "d": 3, "k": "sakura-joint" },
@@ -4671,8 +4625,7 @@
         "t": 145425.959741256,
         "d": 3,
         "l": 201.793721973094,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 145829.547185202, "d": 1, "k": "sakura-joint" },
       { "t": 146098.64573991, "d": 1, "k": "sakura-joint" },
@@ -4681,8 +4634,7 @@
         "t": 146905.780369058,
         "d": 2,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 147309.542600897, "d": 1, "k": "sakura-joint" },
       { "t": 147578.600896861, "d": 3, "k": "sakura-joint" },
@@ -4694,29 +4646,25 @@
         "t": 149058.286995516,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 149596.3633287,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 149865.421624664,
         "d": 0,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 150134.520179372,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 150672.6367713, "d": 1, "k": "sakura-joint" },
       { "t": 151076.224215247, "d": 2, "k": "sakura-joint" },
@@ -4725,15 +4673,13 @@
         "t": 151748.829696413,
         "d": 2,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 152286.946288341,
         "d": 1,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 152825.062880269, "d": 2, "k": "sakura-joint" },
       { "t": 153228.69058296, "d": 3, "k": "sakura-joint" },
@@ -4748,44 +4694,38 @@
         "t": 156053.762431839,
         "d": 2,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 156591.879023767,
         "d": 3,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 157399.573991031, "d": 3, "k": "sakura-joint" },
       {
         "t": 157668.152466368,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 158206.228799552,
         "d": 3,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 158475.287095516,
         "d": 0,
         "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 158744.385650224,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 159282.6367713, "d": 1, "k": "sakura-joint" },
       { "t": 159686.049427354, "d": 0, "k": "sakura-joint" },
@@ -4794,15 +4734,13 @@
         "t": 160358.695167265,
         "d": 0,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 160896.811759193,
         "d": 1,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 161434.928351121, "d": 2, "k": "sakura-joint" },
       { "t": 161838.69058296, "d": 3, "k": "sakura-joint" },
@@ -4817,23 +4755,20 @@
         "t": 164663.627902691,
         "d": 2,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       {
         "t": 165201.744494619,
         "d": 0,
         "l": 437.219730941704,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 166009.573991031, "d": 3, "k": "sakura-joint" },
       {
         "t": 166278.152466368,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 166816.748878924, "d": 3, "k": "sakura-joint" },
       { "t": 167085.807174888, "d": 3, "k": "sakura-joint" },
@@ -4841,8 +4776,738 @@
         "t": 167354.210862332,
         "d": 2,
         "l": 403.587443946188,
-        "k": "non_scoreable",
-        "p": []
+        "k": "non_scoreable"
+      }
+    ],
+    "normal": [
+      { "t": 5246.62780269058, "d": 1 },
+      { "t": 5515.6860986547, "d": 3 },
+      { "t": 5784.74439461883, "d": 2 },
+      { "t": 5919.27354260089, "d": 0 },
+      { "t": 6188.33183856502, "d": 1 },
+      { "t": 6860.97757847533, "d": 0 },
+      { "t": 6995.50672645739, "d": 2 },
+      { "t": 7130.03587443946, "d": 3 },
+      { "t": 7399.09417040358, "d": 1 },
+      { "t": 7668.15246636771, "d": 3 },
+      { "t": 7937.21076233183, "d": 1 },
+      { "t": 8071.7399103139, "d": 0 },
+      { "t": 8340.79820627802, "d": 2 },
+      { "t": 9013.44394618833, "d": 1 },
+      { "t": 9147.9730941704, "d": 0 },
+      { "t": 9282.50224215246, "d": 3 },
+      { "t": 9551.56053811663, "d": 2 },
+      { "t": 9820.61883408073, "d": 1 },
+      { "t": 10089.6771300448, "d": 3 },
+      { "t": 10224.2062780269, "d": 0 },
+      { "t": 10493.264573991, "d": 1 },
+      { "t": 11434.9686098655, "d": 1 },
+      { "t": 11569.4977578475, "d": 3 },
+      { "t": 11704.0269058296, "d": 0 },
+      { "t": 11838.5560538116, "d": 1, "l": 269.058295964126 },
+      { "t": 12376.6726457399, "d": 3, "l": 336.322869955157 },
+      { "t": 12914.7892376681, "d": 0, "l": 336.322869955157 },
+      { "t": 13721.9641255605, "d": 1 },
+      { "t": 13856.4932735426, "d": 2 },
+      { "t": 14125.5515695067, "d": 3 },
+      { "t": 14394.6098654709, "d": 0 },
+      { "t": 14529.1390134529, "d": 2 },
+      { "t": 14798.197309417, "d": 1 },
+      { "t": 15470.8430493273, "d": 3 },
+      { "t": 15605.3721973094, "d": 0 },
+      { "t": 15739.9013452914, "d": 3 },
+      { "t": 16008.9506278027, "d": 2 },
+      { "t": 16278.0179372197, "d": 0 },
+      { "t": 16547.0762331838, "d": 1 },
+      { "t": 16681.6053811659, "d": 3 },
+      { "t": 16950.6546636771, "d": 0 },
+      { "t": 17757.8385650224, "d": 2 },
+      { "t": 17892.3677130044, "d": 3 },
+      { "t": 18161.4169955157, "d": 1 },
+      { "t": 18430.4752914798, "d": 3 },
+      { "t": 18699.5335874439, "d": 2 },
+      { "t": 18834.0717488789, "d": 0, "l": 201.793721973094 },
+      { "t": 19103.130044843, "d": 3 },
+      { "t": 20044.8250672646, "d": 0 },
+      { "t": 20179.3542152466, "d": 1 },
+      { "t": 20313.8833632287, "d": 3 },
+      { "t": 20448.4215246636, "d": 0, "l": 336.322869955157 },
+      { "t": 20986.5381165919, "d": 1, "l": 336.322869955157 },
+      { "t": 21524.6547085201, "d": 3, "l": 336.322869955157 },
+      { "t": 22600.8878923766, "d": 0 },
+      { "t": 22869.9461883408, "d": 1 },
+      { "t": 23139.0044843049, "d": 3 },
+      { "t": 23408.062780269, "d": 1 },
+      { "t": 23677.1210762331, "d": 3 },
+      { "t": 23946.1793721973, "d": 1 },
+      { "t": 24215.2376681614, "d": 0, "l": 605.381165919282 },
+      { "t": 25291.4708520179, "d": 3 },
+      { "t": 25560.529147982, "d": 1 },
+      { "t": 25829.5784304933, "d": 0 },
+      { "t": 26098.6367264574, "d": 1 },
+      { "t": 26367.7040358744, "d": 3 },
+      { "t": 26636.7623318385, "d": 2 },
+      { "t": 26905.8116143498, "d": 0 },
+      { "t": 27174.8699103139, "d": 1 },
+      { "t": 27443.9372197309, "d": 3 },
+      { "t": 27712.995515695, "d": 1 },
+      { "t": 27982.0447982063, "d": 2 },
+      { "t": 28251.1121076233, "d": 1 },
+      { "t": 28520.1704035874, "d": 3, "l": 470.85201793722 },
+      { "t": 29327.3452914798, "d": 0 },
+      { "t": 29596.4035874439, "d": 0 },
+      { "t": 29865.461883408, "d": 0 },
+      { "t": 30672.6367713004, "d": 1 },
+      { "t": 31210.7443497758, "d": 0 },
+      { "t": 31479.8026457399, "d": 2 },
+      { "t": 31748.860941704, "d": 1, "l": 302.690582959645 },
+      { "t": 32286.9865470852, "d": 2 },
+      { "t": 32556.0448430493, "d": 1 },
+      { "t": 32825.1031390134, "d": 3, "l": 538.116591928247 },
+      { "t": 33901.3363228699, "d": 1 },
+      { "t": 34170.394618834, "d": 3 },
+      { "t": 34439.4529147982, "d": 0 },
+      { "t": 34708.5112107623, "d": 2 },
+      { "t": 34977.5695067264, "d": 1 },
+      { "t": 35246.6278026905, "d": 0 },
+      { "t": 35515.6860986547, "d": 3 },
+      { "t": 35784.7443946188, "d": 1 },
+      { "t": 36053.8026905829, "d": 2 },
+      { "t": 36053.8026905829, "d": 0 },
+      { "t": 36322.860986547, "d": 3 },
+      { "t": 36591.9192825112, "d": 0 },
+      { "t": 37130.0358744394, "d": 2 },
+      { "t": 37668.1524663677, "d": 1 },
+      { "t": 37668.1524663677, "d": 3 },
+      {
+        "t": 39282.4932286995,
+        "d": 3,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      { "t": 39686.0896860986, "d": 2, "k": "sakura-joint" },
+      { "t": 39955.1479820627, "d": 3, "k": "sakura-joint" },
+      { "t": 40224.2062780269, "d": 1, "k": "sakura-joint" },
+      { "t": 40358.7354260089, "d": 2, "k": "sakura-joint" },
+      { "t": 40627.7937219731, "d": 0, "k": "sakura-joint" },
+      { "t": 41434.9686098654, "d": 2, "k": "sakura-joint" },
+      { "t": 41569.4977578475, "d": 1, "k": "sakura-joint" },
+      { "t": 41838.5560538116, "d": 3, "k": "sakura-joint" },
+      { "t": 42107.6143497758, "d": 2, "k": "sakura-joint" },
+      { "t": 42376.6726457399, "d": 1, "k": "sakura-joint" },
+      { "t": 42511.2017937219, "d": 2, "k": "sakura-joint" },
+      { "t": 42780.2600896861, "d": 0, "k": "sakura-joint" },
+      { "t": 43049.3183856502, "d": 2, "k": "sakura-joint" },
+      { "t": 43049.3183856502, "d": 3, "k": "sakura-joint" },
+      { "t": 43587.4349775785, "d": 0, "k": "sakura-joint" },
+      { "t": 43721.9641255605, "d": 3, "k": "sakura-joint" },
+      { "t": 43991.0224215246, "d": 1, "k": "sakura-joint" },
+      { "t": 44260.0807174887, "d": 3, "k": "sakura-joint" },
+      { "t": 44529.1390134529, "d": 2, "k": "sakura-joint" },
+      { "t": 44663.668161435, "d": 3, "k": "sakura-joint" },
+      { "t": 44932.7264573991, "d": 0, "k": "sakura-joint" },
+      { "t": 45470.8430493273, "d": 3, "k": "sakura-joint" },
+      {
+        "t": 45739.9013452915,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 46278.0179372197, "d": 3, "k": "sakura-joint" },
+      { "t": 46547.0762331838, "d": 3, "k": "sakura-joint" },
+      {
+        "t": 46816.134529148,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 47892.3586995516,
+        "d": 0,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      { "t": 48295.9551569506, "d": 1, "k": "sakura-joint" },
+      { "t": 48565.0134529148, "d": 3, "k": "sakura-joint" },
+      { "t": 48834.0717488789, "d": 0, "k": "sakura-joint" },
+      { "t": 48968.6008968609, "d": 2, "k": "sakura-joint" },
+      { "t": 49237.6591928251, "d": 1, "k": "sakura-joint" },
+      { "t": 50044.8340807174, "d": 0, "k": "sakura-joint" },
+      { "t": 50448.4215246636, "d": 2, "k": "sakura-joint" },
+      { "t": 50717.6143497758, "d": 3, "k": "sakura-joint" },
+      { "t": 50986.6726457399, "d": 1, "k": "sakura-joint" },
+      { "t": 51121.0672645739, "d": 2, "k": "sakura-joint" },
+      { "t": 51390.1255605381, "d": 1, "k": "sakura-joint" },
+      { "t": 51659.1838565022, "d": 2, "k": "sakura-joint" },
+      { "t": 51659.3183856502, "d": 3, "k": "sakura-joint" },
+      { "t": 52197.4349775784, "d": 2, "k": "sakura-joint" },
+      { "t": 52331.9641255605, "d": 0, "k": "sakura-joint" },
+      { "t": 52601.0224215246, "d": 1, "k": "sakura-joint" },
+      { "t": 52870.0807174888, "d": 3, "k": "sakura-joint" },
+      { "t": 53139.1390134529, "d": 0, "k": "sakura-joint" },
+      { "t": 53273.6681614349, "d": 2, "k": "sakura-joint" },
+      { "t": 53542.7264573991, "d": 0, "k": "sakura-joint" },
+      { "t": 54080.8430493273, "d": 3, "k": "sakura-joint" },
+      { "t": 54215.3721973094, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 54349.7668161434,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 54887.8743946188,
+        "d": 3,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 55156.932690583,
+        "d": 0,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 55425.9999999999,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 55964.1165919282, "d": 3, "k": "sakura-joint" },
+      { "t": 56367.7040358744, "d": 2, "k": "sakura-joint" },
+      { "t": 56771.2914798206, "d": 0, "k": "sakura-joint" },
+      { "t": 57040.3497757847, "d": 2, "k": "sakura-joint" },
+      { "t": 57309.4080717488, "d": 1, "k": "sakura-joint" },
+      { "t": 57578.466367713, "d": 2, "k": "sakura-joint" },
+      { "t": 57847.5246636771, "d": 1, "k": "sakura-joint" },
+      { "t": 58116.5829596412, "d": 3, "k": "sakura-joint" },
+      { "t": 58520.1704035874, "d": 2, "k": "sakura-joint" },
+      { "t": 58923.7578475336, "d": 0, "k": "sakura-joint" },
+      { "t": 59192.8161434977, "d": 3, "k": "sakura-joint" },
+      { "t": 59461.8744394618, "d": 0, "k": "sakura-joint" },
+      { "t": 59730.932735426, "d": 2, "k": "sakura-joint" },
+      { "t": 59730.932735426, "d": 1, "k": "sakura-joint" },
+      { "t": 60269.0493273542, "d": 0, "k": "sakura-joint" },
+      { "t": 60672.6367713004, "d": 2, "k": "sakura-joint" },
+      { "t": 61076.2242152466, "d": 3, "k": "sakura-joint" },
+      { "t": 61345.2825112107, "d": 1, "k": "sakura-joint" },
+      { "t": 61614.3408071749, "d": 2, "k": "sakura-joint" },
+      { "t": 61883.399103139, "d": 1, "k": "sakura-joint" },
+      { "t": 62152.4573991031, "d": 2, "k": "sakura-joint" },
+      { "t": 62690.5739910314, "d": 3, "k": "sakura-joint" },
+      { "t": 62825.1031390134, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 62959.6322869955,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 63497.7398654708,
+        "d": 0,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 63766.798161435,
+        "d": 0,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 64035.865470852,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 64843.0313452915, "d": 0, "k": "sakura-bf2" },
+      { "t": 65515.6770852018, "d": 1, "k": "sakura-bf1" },
+      { "t": 65784.7353811659, "d": 2, "k": "sakura-bf1" },
+      { "t": 66053.79367713, "d": 0, "k": "sakura-bf1" },
+      { "t": 66188.3228251121, "d": 3, "k": "sakura-bf2" },
+      { "t": 66457.3811210762, "d": 1, "k": "sakura-bf2" },
+      { "t": 66995.4977130045, "d": 0, "k": "sakura-bf1" },
+      { "t": 67130.0268609865, "d": 2, "k": "sakura-bf1" },
+      { "t": 67399.0851569507, "d": 1, "k": "sakura-bf1" },
+      { "t": 67668.1614349776, "d": 3, "k": "sakura-bf2" },
+      { "t": 67937.2197309417, "d": 2, "k": "sakura-bf1" },
+      { "t": 68206.2556053812, "d": 0, "k": "sakura-bf1" },
+      { "t": 68340.7891928251, "d": 2, "k": "sakura-bf2" },
+      { "t": 68609.865470852, "d": 1, "k": "sakura-bf1" },
+      { "t": 69147.9640807175, "d": 0, "k": "sakura-bf2" },
+      { "t": 69417.0223766816, "d": 1, "k": "sakura-bf2" },
+      { "t": 69820.6278026906, "d": 0, "k": "sakura-bf1" },
+      { "t": 70089.6681165919, "d": 3, "k": "sakura-bf2" },
+      { "t": 70358.7443946188, "d": 1, "k": "sakura-bf1" },
+      { "t": 70493.2555605381, "d": 3, "k": "sakura-bf2" },
+      { "t": 70762.3138565022, "d": 0, "k": "sakura-bf2" },
+      { "t": 71031.3721524664, "d": 1, "k": "sakura-bf2" },
+      { "t": 71300.4484304933, "d": 0, "k": "sakura-bf1" },
+      { "t": 71434.9775784753, "d": 3, "k": "sakura-bf2" },
+      { "t": 71569.4887443946, "d": 1, "k": "sakura-bf2" },
+      { "t": 71838.5470403587, "d": 3, "k": "sakura-bf1" },
+      { "t": 71973.0761883408, "d": 1, "k": "sakura-bf2" },
+      { "t": 72242.1524663677, "d": 2, "k": "sakura-bf1" },
+      { "t": 72511.2107623318, "d": 0, "k": "sakura-bf1" },
+      { "t": 72645.7219282511, "d": 2, "k": "sakura-bf2" },
+      { "t": 72645.7219282511, "d": 3, "k": "sakura-bf2" },
+      { "t": 72914.7757847534, "d": 1, "k": "sakura-bf1" },
+      { "t": 73183.8565022421, "d": 3, "k": "sakura-bf2" },
+      { "t": 73452.9147982063, "d": 1, "k": "sakura-bf2" },
+      { "t": 73721.9730941704, "d": 0, "k": "sakura-bf2" },
+      { "t": 73991.0313901345, "d": 2, "k": "sakura-bf1" },
+      { "t": 74125.5605381166, "d": 3, "k": "sakura-bf2" },
+      {
+        "t": 74394.6188340807,
+        "d": 1,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 74663.6771300448, "d": 3, "k": "sakura-bf2" },
+      { "t": 74798.2062780269, "d": 0, "k": "sakura-bf2" },
+      { "t": 75067.2421524664, "d": 3, "k": "sakura-bf1" },
+      { "t": 75201.7937219731, "d": 0, "k": "sakura-bf2" },
+      {
+        "t": 75336.3004484305,
+        "d": 2,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 75605.3587443946, "d": 3, "k": "sakura-bf1" },
+      { "t": 75739.8878923767, "d": 0, "k": "sakura-bf1" },
+      { "t": 76008.9686098655, "d": 1, "k": "sakura-bf2" },
+      { "t": 76278.0269058296, "d": 3, "k": "sakura-bf2" },
+      {
+        "t": 76547.0852017937,
+        "d": 0,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 76816.1434977578, "d": 3, "k": "sakura-bf2" },
+      { "t": 76950.6726457399, "d": 1, "k": "sakura-bf1" },
+      {
+        "t": 77488.7892376682,
+        "d": 1,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 77757.8475336323, "d": 3, "k": "sakura-bf2" },
+      {
+        "t": 77892.3766816143,
+        "d": 1,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 78161.4349775785, "d": 0, "k": "sakura-bf1" },
+      { "t": 78430.4530147982, "d": 3, "k": "sakura-bf1" },
+      { "t": 78565.0224215247, "d": 0, "k": "sakura-bf2" },
+      { "t": 78699.5515695067, "d": 2, "k": "sakura-bf1" },
+      {
+        "t": 78834.0404587444,
+        "d": 3,
+        "l": 201.793721973094,
+        "k": "sakura-bf1"
+      },
+      { "t": 79103.1390134529, "d": 1, "k": "sakura-bf2" },
+      { "t": 79372.197309417, "d": 3, "k": "sakura-bf2" },
+      { "t": 79506.7264573991, "d": 1, "k": "sakura-bf2" },
+      { "t": 79775.7847533632, "d": 2, "k": "sakura-bf1" },
+      { "t": 80044.8430493273, "d": 3, "k": "sakura-bf2" },
+      { "t": 80179.3721973094, "d": 1, "k": "sakura-bf1" },
+      { "t": 80179.3721973094, "d": 0, "k": "sakura-bf1" },
+      { "t": 80448.4304932735, "d": 1, "k": "sakura-bf2" },
+      { "t": 80582.9596412556, "d": 3, "k": "sakura-bf2" },
+      { "t": 80852.0179372197, "d": 0, "k": "sakura-bf1" },
+      { "t": 81121.0762331838, "d": 1, "k": "sakura-bf2" },
+      { "t": 81255.6053811659, "d": 2, "k": "sakura-bf2" },
+      { "t": 81524.66367713, "d": 1, "k": "sakura-bf1" },
+      { "t": 81793.7219730942, "d": 3, "k": "sakura-bf2" },
+      { "t": 82331.8385650224, "d": 2, "k": "sakura-bf2" },
+      { "t": 82466.3677130045, "d": 3, "k": "sakura-bf2" },
+      { "t": 82735.4260089686, "d": 1, "k": "sakura-bf1" },
+      { "t": 83004.4843049327, "d": 0, "k": "sakura-bf2" },
+      { "t": 83273.2152466368, "d": 3, "k": "sakura-bf2" },
+      { "t": 83407.7443946188, "d": 1, "k": "sakura-bf1" },
+      { "t": 83407.7443946188, "d": 0, "k": "sakura-bf1" },
+      { "t": 83676.8026905829, "d": 3, "k": "sakura-bf2" },
+      { "t": 83946.1480820628, "d": 2, "k": "sakura-bf1" },
+      { "t": 84215.2063780269, "d": 3, "k": "sakura-bf2" },
+      { "t": 84484.3049327354, "d": 1, "k": "sakura-bf2" },
+      { "t": 84618.8340807175, "d": 0, "k": "sakura-bf1" },
+      { "t": 84753.3632286995, "d": 2, "k": "sakura-bf1" },
+      { "t": 84887.8699551569, "d": 1, "k": "sakura-bf2" },
+      { "t": 85156.9282511211, "d": 1, "k": "sakura-bf1" },
+      { "t": 85426.0089686099, "d": 3, "k": "sakura-bf2" },
+      { "t": 85560.5381165919, "d": 1, "k": "sakura-bf1" },
+      {
+        "t": 85829.596412556,
+        "d": 3,
+        "l": 269.058295964126,
+        "k": "sakura-bf2"
+      },
+      { "t": 86502.2421524664, "d": 0, "k": "sakura-bf1" },
+      { "t": 86636.7713004484, "d": 2, "k": "sakura-bf2" },
+      { "t": 86771.3004484305, "d": 0, "k": "sakura-bf2" },
+      { "t": 86905.798206278, "d": 3, "k": "sakura-bf2" },
+      { "t": 87040.0313901345, "d": 1, "k": "sakura-bf2" },
+      { "t": 87309.4170403587, "d": 3, "k": "sakura-bf2" },
+      { "t": 87578.4753363229, "d": 0, "k": "sakura-bf1" },
+      { "t": 87713.0044843049, "d": 2, "k": "sakura-bf2" },
+      { "t": 87713.0044843049, "d": 3, "k": "sakura-bf2" },
+      { "t": 87982.062780269, "d": 1, "k": "sakura-bf1" },
+      { "t": 88116.5919282511, "d": 3, "k": "sakura-bf2" },
+      {
+        "t": 88251.1210762332,
+        "d": 2,
+        "l": 201.793721973094,
+        "k": "sakura-bf1"
+      },
+      { "t": 88520.1793721973, "d": 1, "k": "sakura-bf1" },
+      { "t": 88789.2062780269, "d": 2, "k": "sakura-bf1" },
+      { "t": 89058.2467367713, "d": 3, "k": "sakura-bf2" },
+      { "t": 89192.8251121076, "d": 0, "k": "sakura-bf2" },
+      { "t": 89461.8834080717, "d": 1, "k": "sakura-bf2" },
+      { "t": 89730.9417040359, "d": 2, "k": "sakura-bf1" },
+      { "t": 89865.4708520179, "d": 1, "k": "sakura-bf1" },
+      {
+        "t": 90134.4799206278,
+        "d": 3,
+        "l": 201.793721973094,
+        "k": "sakura-bf1"
+      },
+      { "t": 90672.596512556, "d": 0, "k": "sakura-bf1" },
+      { "t": 90941.6548085202, "d": 2, "k": "sakura-bf2" },
+      { "t": 91210.7623318386, "d": 1, "k": "sakura-bf1" },
+      { "t": 91345.2914798206, "d": 2, "k": "sakura-bf1" },
+      {
+        "t": 91614.3497757848,
+        "d": 1,
+        "l": 201.793721973094,
+        "k": "sakura-bf2"
+      },
+      { "t": 91883.4080717489, "d": 3, "k": "sakura-bf1" },
+      { "t": 92017.9372197309, "d": 0, "k": "sakura-bf2" },
+      { "t": 92286.9955156951, "d": 1, "k": "sakura-bf1" },
+      { "t": 92421.4754363229, "d": 3, "k": "sakura-bf1" },
+      { "t": 92690.5829596413, "d": 1, "k": "sakura-bf2" },
+      { "t": 92959.6412556054, "d": 3, "k": "sakura-bf1" },
+      { "t": 93094.1704035874, "d": 1, "k": "sakura-bf1" },
+      { "t": 93363.1794721973, "d": 0, "k": "sakura-bf1" },
+      { "t": 93497.7578475336, "d": 2, "k": "sakura-bf1" },
+      { "t": 93766.8161434978, "d": 0, "k": "sakura-bf2" },
+      { "t": 94035.8744394619, "d": 1, "k": "sakura-bf1" },
+      { "t": 94170.4035874439, "d": 3, "k": "sakura-bf2" },
+      { "t": 94439.4618834081, "d": 1, "k": "sakura-bf2" },
+      { "t": 94977.5784753363, "d": 0, "k": "sakura-bf1" },
+      { "t": 95246.6367713004, "d": 3, "k": "sakura-bf2" },
+      { "t": 95515.668126009, "d": 0, "k": "sakura-bf1" },
+      { "t": 95650.2242152466, "d": 1, "k": "sakura-bf2" },
+      { "t": 95919.2825112108, "d": 2, "k": "sakura-bf1" },
+      { "t": 96188.3408071749, "d": 0, "k": "sakura-bf1" },
+      { "t": 96322.8699551569, "d": 3, "k": "sakura-bf2" },
+      { "t": 96457.399103139, "d": 1, "k": "sakura-bf2" },
+      { "t": 96591.9282511211, "d": 0, "k": "sakura-bf1" },
+      { "t": 96726.4573991031, "d": 1, "k": "sakura-bf1" },
+      { "t": 96995.5156950673, "d": 3, "k": "sakura-bf2" },
+      { "t": 97264.5739910314, "d": 1, "k": "sakura-bf1" },
+      { "t": 97399.0761977579, "d": 0, "k": "sakura-bf2" },
+      { "t": 97533.600996861, "d": 3, "k": "sakura-bf1" },
+      { "t": 97802.6592928251, "d": 2, "k": "sakura-bf2" },
+      { "t": 97802.6905829596, "d": 3, "k": "sakura-bf2" },
+      { "t": 98071.7488789238, "d": 0, "k": "sakura-bf2" },
+      { "t": 98340.8071748879, "d": 3, "k": "sakura-bf1" },
+      { "t": 98475.3363228699, "d": 2, "k": "sakura-bf1" },
+      { "t": 98475.3363228699, "d": 0, "k": "sakura-bf1" },
+      { "t": 98609.865470852, "d": 1, "k": "sakura-bf2" },
+      { "t": 99013.4216246637, "d": 3, "k": "sakura-bf1" },
+      { "t": 99820.6188340807, "d": 3 },
+      { "t": 99955.1479820627, "d": 1 },
+      { "t": 100224.206278027, "d": 3 },
+      { "t": 100493.264573991, "d": 2 },
+      { "t": 100627.793721973, "d": 0 },
+      { "t": 100896.852017937, "d": 1 },
+      { "t": 101434.968609865, "d": 1 },
+      { "t": 101704.026905829, "d": 0 },
+      { "t": 101838.556053812, "d": 2 },
+      { "t": 102107.59637713, "d": 1 },
+      { "t": 102107.614349776, "d": 3 },
+      { "t": 102376.67264574, "d": 2 },
+      { "t": 102645.730941704, "d": 0 },
+      { "t": 102780.260089686, "d": 1 },
+      { "t": 102914.789237668, "d": 3 },
+      { "t": 103049.31838565, "d": 1 },
+      { "t": 103721.96412556, "d": 3 },
+      { "t": 103856.493273542, "d": 1 },
+      { "t": 103991.022421525, "d": 0 },
+      { "t": 104260.080717489, "d": 2 },
+      { "t": 104529.139013453, "d": 1 },
+      { "t": 104798.197309417, "d": 3 },
+      { "t": 104932.726457399, "d": 1 },
+      { "t": 105201.784753363, "d": 0 },
+      { "t": 106143.488789237, "d": 1 },
+      { "t": 106278.01793722, "d": 3 },
+      { "t": 106547.076233184, "d": 1, "l": 269.058295964126 },
+      { "t": 107085.192825112, "d": 2, "l": 336.322869955157 },
+      { "t": 107623.30941704, "d": 0, "l": 336.322869955157 },
+      { "t": 108430.484304933, "d": 3 },
+      { "t": 108565.013452915, "d": 0 },
+      { "t": 108834.071748879, "d": 1 },
+      { "t": 109103.130044843, "d": 0 },
+      { "t": 109237.659192825, "d": 2 },
+      { "t": 109506.717488789, "d": 0 },
+      { "t": 110313.892376681, "d": 1 },
+      { "t": 110448.421524663, "d": 3 },
+      { "t": 110717.479820628, "d": 1 },
+      { "t": 110986.538116592, "d": 3 },
+      { "t": 111255.596412556, "d": 0 },
+      { "t": 111390.125560538, "d": 2 },
+      { "t": 111390.125560538, "d": 3 },
+      { "t": 111659.183856502, "d": 1 },
+      { "t": 112331.829596412, "d": 0 },
+      { "t": 112466.358744394, "d": 1 },
+      { "t": 112600.887892376, "d": 3 },
+      { "t": 112869.946188341, "d": 1 },
+      { "t": 113139.004484305, "d": 3 },
+      { "t": 113408.062780269, "d": 1 },
+      { "t": 113542.591928251, "d": 0, "l": 201.793721973094 },
+      { "t": 113811.650224215, "d": 3 },
+      { "t": 114753.35426009, "d": 1 },
+      { "t": 114887.883408072, "d": 3 },
+      { "t": 115022.412556054, "d": 2 },
+      { "t": 115156.941704036, "d": 0, "l": 336.322869955203 },
+      { "t": 115695.058295964, "d": 1, "l": 336.322869955157 },
+      { "t": 116233.174887892, "d": 2, "l": 336.322869955157 },
+      { "t": 117309.408071749, "d": 1 },
+      { "t": 117578.466367713, "d": 2 },
+      { "t": 117847.524663677, "d": 3 },
+      { "t": 118116.582959641, "d": 0 },
+      { "t": 118385.641255605, "d": 1 },
+      { "t": 118386.121076233, "d": 2 },
+      { "t": 118654.699551569, "d": 0 },
+      { "t": 118923.757847533, "d": 1, "l": 672.645739910314 },
+      { "t": 119999.99103139, "d": 0 },
+      { "t": 120269.049327354, "d": 2 },
+      { "t": 120538.107623318, "d": 1 },
+      { "t": 120538.587443946, "d": 0 },
+      { "t": 120807.165919282, "d": 3 },
+      { "t": 121076.224215246, "d": 2 },
+      { "t": 121345.282511211, "d": 1 },
+      { "t": 121614.340807175, "d": 3 },
+      { "t": 121883.399103139, "d": 0 },
+      { "t": 122152.457399103, "d": 1 },
+      { "t": 122421.515695067, "d": 3 },
+      { "t": 122691.053811659, "d": 2 },
+      { "t": 122691.053811659, "d": 0 },
+      { "t": 122960.112107623, "d": 1 },
+      { "t": 123229.170403587, "d": 3, "l": 470.85201793722 },
+      { "t": 124035.865470852, "d": 2 },
+      { "t": 124304.923766816, "d": 2 },
+      { "t": 124573.98206278, "d": 2 },
+      { "t": 125381.156950673, "d": 2 },
+      { "t": 125919.273542601, "d": 3 },
+      { "t": 126188.331838565, "d": 1 },
+      { "t": 126457.390134529, "d": 0 },
+      { "t": 126726.448430493, "d": 1 },
+      { "t": 126995.506726457, "d": 3 },
+      { "t": 126995.986547085, "d": 2 },
+      { "t": 127265.044843049, "d": 1 },
+      { "t": 127533.623318386, "d": 0, "l": 538.116591928251 },
+      { "t": 128609.856502242, "d": 1 },
+      { "t": 128879.394618834, "d": 3 },
+      { "t": 129148.452914798, "d": 0 },
+      { "t": 129417.031390134, "d": 3 },
+      { "t": 129686.089686099, "d": 1 },
+      { "t": 129955.147982063, "d": 0 },
+      { "t": 130224.206278027, "d": 3 },
+      { "t": 130493.264573991, "d": 0 },
+      { "t": 130762.322869955, "d": 1 },
+      { "t": 131031.381165919, "d": 3 },
+      { "t": 131300.439461883, "d": 0 },
+      { "t": 131838.556053812, "d": 3 },
+      { "t": 132376.67264574, "d": 2 },
+      { "t": 132377.152466368, "d": 1 },
+      { "t": 133991.022421525, "d": 3, "k": "sakura-joint" },
+      { "t": 134125.551569507, "d": 1, "k": "sakura-joint" },
+      { "t": 134125.551569507, "d": 0, "k": "sakura-joint" },
+      { "t": 134394.609865471, "d": 2, "k": "sakura-joint" },
+      { "t": 134663.668161435, "d": 3, "k": "sakura-joint" },
+      { "t": 134932.726457399, "d": 1, "k": "sakura-joint" },
+      { "t": 135067.255605381, "d": 2, "k": "sakura-joint" },
+      { "t": 135067.255605381, "d": 3, "k": "sakura-joint" },
+      { "t": 135336.313901345, "d": 0, "k": "sakura-joint" },
+      { "t": 136143.488789238, "d": 2, "k": "sakura-joint" },
+      { "t": 136278.01793722, "d": 1, "k": "sakura-joint" },
+      { "t": 136547.076233184, "d": 3, "k": "sakura-joint" },
+      { "t": 136816.134529148, "d": 2, "k": "sakura-joint" },
+      { "t": 137085.192825112, "d": 1, "k": "sakura-joint" },
+      { "t": 137219.721973094, "d": 2, "k": "sakura-joint" },
+      { "t": 137488.780269058, "d": 0, "k": "sakura-joint" },
+      { "t": 137757.838565022, "d": 2, "k": "sakura-joint" },
+      { "t": 137757.838565022, "d": 3, "k": "sakura-joint" },
+      { "t": 138295.955156951, "d": 1, "k": "sakura-joint" },
+      { "t": 138295.955156951, "d": 0, "k": "sakura-joint" },
+      { "t": 138430.484304933, "d": 3, "k": "sakura-joint" },
+      { "t": 138699.542600897, "d": 1, "k": "sakura-joint" },
+      { "t": 138968.600896861, "d": 3, "k": "sakura-joint" },
+      { "t": 139237.659192825, "d": 2, "k": "sakura-joint" },
+      { "t": 139372.188340807, "d": 3, "k": "sakura-joint" },
+      { "t": 139641.246636771, "d": 0, "k": "sakura-joint" },
+      { "t": 140179.363228699, "d": 3, "k": "sakura-joint" },
+      { "t": 140313.892376681, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 140448.421524664,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 140986.497857848,
+        "d": 3,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 141255.556153812,
+        "d": 3,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 141524.65470852,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 142600.887892376, "d": 1, "k": "sakura-joint" },
+      { "t": 142600.887892377, "d": 0, "k": "sakura-joint" },
+      { "t": 142735.417040359, "d": 3, "k": "sakura-joint" },
+      { "t": 143004.475336323, "d": 1, "k": "sakura-joint" },
+      { "t": 143273.533632287, "d": 3, "k": "sakura-joint" },
+      { "t": 143542.591928251, "d": 0, "k": "sakura-joint" },
+      { "t": 143677.121076233, "d": 2, "k": "sakura-joint" },
+      { "t": 143946.179372197, "d": 1, "k": "sakura-joint" },
+      { "t": 144753.35426009, "d": 1, "k": "sakura-joint" },
+      { "t": 145156.941704036, "d": 2, "k": "sakura-joint" },
+      { "t": 145426.134529148, "d": 3, "k": "sakura-joint" },
+      { "t": 145695.192825112, "d": 1, "k": "sakura-joint" },
+      { "t": 145829.587443946, "d": 0, "k": "sakura-joint" },
+      { "t": 146098.64573991, "d": 1, "k": "sakura-joint" },
+      { "t": 146367.704035874, "d": 2, "k": "sakura-joint" },
+      { "t": 146367.838565022, "d": 3, "k": "sakura-joint" },
+      { "t": 146905.95515695, "d": 2, "k": "sakura-joint" },
+      { "t": 147040.484304933, "d": 0, "k": "sakura-joint" },
+      { "t": 147309.542600897, "d": 1, "k": "sakura-joint" },
+      { "t": 147578.600896861, "d": 3, "k": "sakura-joint" },
+      { "t": 147847.659192825, "d": 0, "k": "sakura-joint" },
+      { "t": 147982.188340807, "d": 3, "k": "sakura-joint" },
+      { "t": 147982.188340807, "d": 2, "k": "sakura-joint" },
+      { "t": 148251.246636771, "d": 0, "k": "sakura-joint" },
+      { "t": 148789.363228699, "d": 3, "k": "sakura-joint" },
+      { "t": 148923.892376681, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 149058.286995516,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 149596.538116592, "d": 3, "k": "sakura-joint" },
+      { "t": 149731.067264574, "d": 0, "k": "sakura-joint" },
+      { "t": 149865.596412556, "d": 3, "k": "sakura-joint" },
+      { "t": 150000.125560538, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 150134.520179372,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 150672.6367713, "d": 1, "k": "sakura-joint" },
+      { "t": 151076.183956502, "d": 0, "k": "sakura-joint" },
+      { "t": 151076.224215247, "d": 2, "k": "sakura-joint" },
+      { "t": 151479.771400448, "d": 1, "k": "sakura-joint" },
+      { "t": 151748.869955157, "d": 2, "k": "sakura-joint" },
+      { "t": 152017.928251121, "d": 0, "k": "sakura-joint" },
+      { "t": 152286.986547085, "d": 1, "k": "sakura-joint" },
+      { "t": 152556.004584305, "d": 0, "k": "sakura-joint" },
+      { "t": 152825.062880269, "d": 2, "k": "sakura-joint" },
+      { "t": 153228.69058296, "d": 3, "k": "sakura-joint" },
+      { "t": 153632.278026906, "d": 2, "k": "sakura-joint" },
+      { "t": 153901.33632287, "d": 1, "k": "sakura-joint" },
+      { "t": 154170.394618834, "d": 3, "k": "sakura-joint" },
+      { "t": 154439.452914798, "d": 2, "k": "sakura-joint" },
+      { "t": 154439.452914798, "d": 1, "k": "sakura-joint" },
+      { "t": 154977.6367713, "d": 1, "k": "sakura-joint" },
+      { "t": 155381.116691928, "d": 2, "k": "sakura-joint" },
+      { "t": 155784.704135874, "d": 1, "k": "sakura-joint" },
+      { "t": 156053.869955157, "d": 2, "k": "sakura-joint" },
+      { "t": 156322.928251121, "d": 3, "k": "sakura-joint" },
+      { "t": 156591.986547085, "d": 2, "k": "sakura-joint" },
+      { "t": 156860.937319731, "d": 3, "k": "sakura-joint" },
+      { "t": 157399.573991031, "d": 3, "k": "sakura-joint" },
+      { "t": 157534.103139013, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 157668.152466368,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 158206.228799552,
+        "d": 3,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 158475.287095516,
+        "d": 0,
+        "l": 168.161434977578,
+        "k": "sakura-joint"
+      },
+      {
+        "t": 158744.385650224,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 159282.6367713, "d": 1, "k": "sakura-joint" },
+      { "t": 159686.049427354, "d": 0, "k": "sakura-joint" },
+      { "t": 159686.224215247, "d": 2, "k": "sakura-joint" },
+      { "t": 160089.811659193, "d": 1, "k": "sakura-joint" },
+      { "t": 160358.869955157, "d": 2, "k": "sakura-joint" },
+      { "t": 160627.753463229, "d": 0, "k": "sakura-joint" },
+      { "t": 160896.811759193, "d": 1, "k": "sakura-joint" },
+      { "t": 161165.870055157, "d": 0, "k": "sakura-joint" },
+      { "t": 161434.928351121, "d": 2, "k": "sakura-joint" },
+      { "t": 161838.69058296, "d": 3, "k": "sakura-joint" },
+      { "t": 162242.103239013, "d": 2, "k": "sakura-joint" },
+      { "t": 162511.161534978, "d": 3, "k": "sakura-joint" },
+      { "t": 162780.394618834, "d": 0, "k": "sakura-joint" },
+      { "t": 163049.278126906, "d": 1, "k": "sakura-joint" },
+      { "t": 163049.452914798, "d": 2, "k": "sakura-joint" },
+      { "t": 163587.6367713, "d": 1, "k": "sakura-joint" },
+      { "t": 163991.224215247, "d": 0, "k": "sakura-joint" },
+      { "t": 163991.224215247, "d": 2, "k": "sakura-joint" },
+      { "t": 164394.811659193, "d": 1, "k": "sakura-joint" },
+      { "t": 164663.869955157, "d": 2, "k": "sakura-joint" },
+      { "t": 164932.928251121, "d": 3, "k": "sakura-joint" },
+      { "t": 165201.986547085, "d": 2, "k": "sakura-joint" },
+      { "t": 165470.802790583, "d": 3, "k": "sakura-joint" },
+      { "t": 166009.573991031, "d": 3, "k": "sakura-joint" },
+      { "t": 166144.103139013, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 166278.152466368,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "sakura-joint"
+      },
+      { "t": 166816.748878924, "d": 3, "k": "sakura-joint" },
+      { "t": 166951.278026906, "d": 0, "k": "sakura-joint" },
+      { "t": 167085.807174888, "d": 3, "k": "sakura-joint" },
+      { "t": 167220.33632287, "d": 0, "k": "sakura-joint" },
+      {
+        "t": 167354.210862332,
+        "d": 2,
+        "l": 336.322869955157,
+        "k": "non_scoreable"
       }
     ],
     "hard": [
@@ -4994,8 +5659,7 @@
         "t": 45739.9103139014,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 46278.0269058296, "d": 3, "k": "sakura-joint" },
       { "t": 46412.5560538117, "d": 0, "k": "sakura-joint" },
@@ -5005,8 +5669,7 @@
         "t": 46816.1434977579,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 47892.3766816143, "d": 1, "k": "sakura-joint" },
       { "t": 47892.3766816144, "d": 0, "k": "sakura-joint" },
@@ -5042,8 +5705,7 @@
         "t": 54349.7757847533,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 54888.0269058296, "d": 3, "k": "sakura-joint" },
       { "t": 55022.5560538117, "d": 0, "k": "sakura-joint" },
@@ -5053,8 +5715,7 @@
         "t": 55426.0089686098,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 55964.1255605381, "d": 3, "k": "sakura-joint" },
       { "t": 56367.7130044843, "d": 2, "k": "sakura-joint" },
@@ -5093,8 +5754,7 @@
         "t": 62959.6412556054,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 63497.7578475336, "d": 3, "k": "sakura-joint" },
       { "t": 63632.2869955157, "d": 0, "k": "sakura-joint" },
@@ -5104,8 +5764,7 @@
         "t": 64035.8744394619,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 64843.0313452915, "d": 0, "k": "sakura-bf2" },
       { "t": 65515.6770852018, "d": 1, "k": "sakura-bf1" },
@@ -5157,8 +5816,7 @@
         "t": 74394.6188340807,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 74663.6771300448, "d": 3, "k": "sakura-bf2" },
       { "t": 74798.2062780269, "d": 1, "k": "sakura-bf1" },
@@ -5169,8 +5827,7 @@
         "t": 75336.3228699552,
         "d": 3,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 75605.3811659193, "d": 0, "k": "sakura-bf2" },
       { "t": 75739.9103139013, "d": 2, "k": "sakura-bf1" },
@@ -5183,8 +5840,7 @@
         "t": 76547.0852017937,
         "d": 0,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 76816.1434977578, "d": 3, "k": "sakura-bf2" },
       { "t": 76950.6726457399, "d": 1, "k": "sakura-bf1" },
@@ -5193,16 +5849,14 @@
         "t": 77488.7892376682,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 77757.8475336323, "d": 3, "k": "sakura-bf2" },
       {
         "t": 77892.3766816143,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 78161.4349775785, "d": 0, "k": "sakura-bf1" },
       { "t": 78295.9641255605, "d": 2, "k": "sakura-bf2" },
@@ -5253,13 +5907,13 @@
         "t": 85829.596412556,
         "d": 3,
         "l": 269.058295964126,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 86502.2421524664, "d": 0, "k": "sakura-bf1" },
       { "t": 86636.7713004484, "d": 2, "k": "sakura-bf2" },
       { "t": 86636.7713004484, "d": 3, "k": "sakura-bf2" },
       { "t": 86771.3004484305, "d": 0, "k": "sakura-bf2" },
+      { "t": 86905.798206278, "d": 3, "k": "sakura-bf2" },
       { "t": 87040.0313901345, "d": 1, "k": "sakura-bf2" },
       { "t": 87309.4170403587, "d": 3, "k": "sakura-bf2" },
       { "t": 87578.4753363229, "d": 0, "k": "sakura-bf1" },
@@ -5271,8 +5925,7 @@
         "t": 88251.1210762332,
         "d": 2,
         "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
+        "k": "sakura-bf1"
       },
       { "t": 88520.1793721973, "d": 1, "k": "sakura-bf1" },
       { "t": 88654.7085201794, "d": 3, "k": "sakura-bf1" },
@@ -5289,8 +5942,7 @@
         "t": 90134.5291479821,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 90672.6457399103, "d": 3, "k": "sakura-bf2" },
       { "t": 90807.1748878924, "d": 2, "k": "sakura-bf1" },
@@ -5303,8 +5955,7 @@
         "t": 91614.3497757848,
         "d": 1,
         "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
+        "k": "sakura-bf2"
       },
       { "t": 91883.4080717489, "d": 3, "k": "sakura-bf1" },
       { "t": 92017.9372197309, "d": 1, "k": "sakura-bf2" },
@@ -5508,8 +6159,7 @@
         "t": 140448.430493274,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 140986.547085202, "d": 3, "k": "sakura-joint" },
       { "t": 141121.076233184, "d": 0, "k": "sakura-joint" },
@@ -5519,8 +6169,7 @@
         "t": 141524.66367713,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 142600.896860986, "d": 1, "k": "sakura-joint" },
       { "t": 142600.896860987, "d": 0, "k": "sakura-joint" },
@@ -5556,8 +6205,7 @@
         "t": 149058.295964126,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 149596.547085202, "d": 3, "k": "sakura-joint" },
       { "t": 149731.076233184, "d": 0, "k": "sakura-joint" },
@@ -5567,8 +6215,7 @@
         "t": 150134.529147982,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 150672.64573991, "d": 3, "k": "sakura-joint" },
       { "t": 150672.64573991, "d": 1, "k": "sakura-joint" },
@@ -5616,8 +6263,7 @@
         "t": 157668.161434978,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 158206.757847534, "d": 3, "k": "sakura-joint" },
       { "t": 158341.286995516, "d": 0, "k": "sakura-joint" },
@@ -5627,8 +6273,7 @@
         "t": 158744.394618834,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 159282.64573991, "d": 3, "k": "sakura-joint" },
       { "t": 159282.64573991, "d": 1, "k": "sakura-joint" },
@@ -5676,8 +6321,7 @@
         "t": 166278.161434978,
         "d": 2,
         "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
+        "k": "sakura-joint"
       },
       { "t": 166816.757847534, "d": 3, "k": "sakura-joint" },
       { "t": 166951.286995516, "d": 0, "k": "sakura-joint" },
@@ -5687,774 +6331,9 @@
         "t": 167354.394618834,
         "d": 2,
         "l": 336.322869955157,
-        "k": "non_scoreable",
-        "p": []
-      }
-    ],
-    "normal": [
-      { "t": 5246.62780269058, "d": 1 },
-      { "t": 5515.6860986547, "d": 3 },
-      { "t": 5784.74439461883, "d": 2 },
-      { "t": 5919.27354260089, "d": 0 },
-      { "t": 6188.33183856502, "d": 1 },
-      { "t": 6860.97757847533, "d": 0 },
-      { "t": 6995.50672645739, "d": 2 },
-      { "t": 7130.03587443946, "d": 3 },
-      { "t": 7399.09417040358, "d": 1 },
-      { "t": 7668.15246636771, "d": 3 },
-      { "t": 7937.21076233183, "d": 1 },
-      { "t": 8071.7399103139, "d": 0 },
-      { "t": 8340.79820627802, "d": 2 },
-      { "t": 9013.44394618833, "d": 1 },
-      { "t": 9147.9730941704, "d": 0 },
-      { "t": 9282.50224215246, "d": 3 },
-      { "t": 9551.56053811663, "d": 2 },
-      { "t": 9820.61883408073, "d": 1 },
-      { "t": 10089.6771300448, "d": 3 },
-      { "t": 10224.2062780269, "d": 0 },
-      { "t": 10493.264573991, "d": 1 },
-      { "t": 11434.9686098655, "d": 1 },
-      { "t": 11569.4977578475, "d": 3 },
-      { "t": 11704.0269058296, "d": 0 },
-      { "t": 11838.5560538116, "d": 1, "l": 269.058295964126 },
-      { "t": 12376.6726457399, "d": 3, "l": 336.322869955157 },
-      { "t": 12914.7892376681, "d": 0, "l": 336.322869955157 },
-      { "t": 13721.9641255605, "d": 1 },
-      { "t": 13856.4932735426, "d": 2 },
-      { "t": 14125.5515695067, "d": 3 },
-      { "t": 14394.6098654709, "d": 0 },
-      { "t": 14529.1390134529, "d": 2 },
-      { "t": 14798.197309417, "d": 1 },
-      { "t": 15470.8430493273, "d": 3 },
-      { "t": 15605.3721973094, "d": 0 },
-      { "t": 15739.9013452914, "d": 3 },
-      { "t": 16008.9506278027, "d": 2 },
-      { "t": 16278.0179372197, "d": 0 },
-      { "t": 16547.0762331838, "d": 1 },
-      { "t": 16681.6053811659, "d": 3 },
-      { "t": 16950.6546636771, "d": 0 },
-      { "t": 17757.8385650224, "d": 2 },
-      { "t": 17892.3677130044, "d": 3 },
-      { "t": 18161.4169955157, "d": 1 },
-      { "t": 18430.4752914798, "d": 3 },
-      { "t": 18699.5335874439, "d": 2 },
-      { "t": 18834.0717488789, "d": 0, "l": 201.793721973094 },
-      { "t": 19103.130044843, "d": 3 },
-      { "t": 20044.8250672646, "d": 0 },
-      { "t": 20179.3542152466, "d": 1 },
-      { "t": 20313.8833632287, "d": 3 },
-      { "t": 20448.4215246636, "d": 0, "l": 336.322869955157 },
-      { "t": 20986.5381165919, "d": 1, "l": 336.322869955157 },
-      { "t": 21524.6547085201, "d": 3, "l": 336.322869955157 },
-      { "t": 22600.8878923766, "d": 0 },
-      { "t": 22869.9461883408, "d": 1 },
-      { "t": 23139.0044843049, "d": 3 },
-      { "t": 23408.062780269, "d": 1 },
-      { "t": 23677.1210762331, "d": 3 },
-      { "t": 23946.1793721973, "d": 1 },
-      { "t": 24215.2376681614, "d": 0, "l": 605.381165919282 },
-      { "t": 25291.4708520179, "d": 3 },
-      { "t": 25560.529147982, "d": 1 },
-      { "t": 25829.5784304933, "d": 0 },
-      { "t": 26098.6367264574, "d": 1 },
-      { "t": 26367.7040358744, "d": 3 },
-      { "t": 26636.7623318385, "d": 2 },
-      { "t": 26905.8116143498, "d": 0 },
-      { "t": 27174.8699103139, "d": 1 },
-      { "t": 27443.9372197309, "d": 3 },
-      { "t": 27712.995515695, "d": 1 },
-      { "t": 27982.0447982063, "d": 2 },
-      { "t": 28251.1121076233, "d": 1 },
-      { "t": 28520.1704035874, "d": 3, "l": 470.85201793722 },
-      { "t": 29327.3452914798, "d": 0 },
-      { "t": 29596.4035874439, "d": 0 },
-      { "t": 29865.461883408, "d": 0 },
-      { "t": 30672.6367713004, "d": 1 },
-      { "t": 31210.7443497758, "d": 0 },
-      { "t": 31479.8026457399, "d": 2 },
-      { "t": 31748.860941704, "d": 1, "l": 302.690582959645 },
-      { "t": 32286.9865470852, "d": 2 },
-      { "t": 32556.0448430493, "d": 1 },
-      { "t": 32825.1031390134, "d": 3, "l": 538.116591928247 },
-      { "t": 33901.3363228699, "d": 1 },
-      { "t": 34170.394618834, "d": 3 },
-      { "t": 34439.4529147982, "d": 0 },
-      { "t": 34708.5112107623, "d": 2 },
-      { "t": 34977.5695067264, "d": 1 },
-      { "t": 35246.6278026905, "d": 0 },
-      { "t": 35515.6860986547, "d": 3 },
-      { "t": 35784.7443946188, "d": 1 },
-      { "t": 36053.8026905829, "d": 2 },
-      { "t": 36053.8026905829, "d": 0 },
-      { "t": 36322.860986547, "d": 3 },
-      { "t": 36591.9192825112, "d": 0 },
-      { "t": 37130.0358744394, "d": 2 },
-      { "t": 37668.1524663677, "d": 1 },
-      { "t": 37668.1524663677, "d": 3 },
-      {
-        "t": 39282.4932286995,
-        "d": 3,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 39686.0896860986, "d": 2, "k": "sakura-joint" },
-      { "t": 39955.1479820627, "d": 3, "k": "sakura-joint" },
-      { "t": 40224.2062780269, "d": 1, "k": "sakura-joint" },
-      { "t": 40358.7354260089, "d": 2, "k": "sakura-joint" },
-      { "t": 40627.7937219731, "d": 0, "k": "sakura-joint" },
-      { "t": 41434.9686098654, "d": 2, "k": "sakura-joint" },
-      { "t": 41569.4977578475, "d": 1, "k": "sakura-joint" },
-      { "t": 41838.5560538116, "d": 3, "k": "sakura-joint" },
-      { "t": 42107.6143497758, "d": 2, "k": "sakura-joint" },
-      { "t": 42376.6726457399, "d": 1, "k": "sakura-joint" },
-      { "t": 42511.2017937219, "d": 2, "k": "sakura-joint" },
-      { "t": 42780.2600896861, "d": 0, "k": "sakura-joint" },
-      { "t": 43049.3183856502, "d": 2, "k": "sakura-joint" },
-      { "t": 43049.3183856502, "d": 3, "k": "sakura-joint" },
-      { "t": 43587.4349775785, "d": 0, "k": "sakura-joint" },
-      { "t": 43721.9641255605, "d": 3, "k": "sakura-joint" },
-      { "t": 43991.0224215246, "d": 1, "k": "sakura-joint" },
-      { "t": 44260.0807174887, "d": 3, "k": "sakura-joint" },
-      { "t": 44529.1390134529, "d": 2, "k": "sakura-joint" },
-      { "t": 44663.668161435, "d": 3, "k": "sakura-joint" },
-      { "t": 44932.7264573991, "d": 0, "k": "sakura-joint" },
-      { "t": 45470.8430493273, "d": 3, "k": "sakura-joint" },
-      {
-        "t": 45739.9013452915,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 46278.0179372197, "d": 3, "k": "sakura-joint" },
-      { "t": 46547.0762331838, "d": 3, "k": "sakura-joint" },
-      {
-        "t": 46816.134529148,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 47892.3586995516,
-        "d": 0,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 48295.9551569506, "d": 1, "k": "sakura-joint" },
-      { "t": 48565.0134529148, "d": 3, "k": "sakura-joint" },
-      { "t": 48834.0717488789, "d": 0, "k": "sakura-joint" },
-      { "t": 48968.6008968609, "d": 2, "k": "sakura-joint" },
-      { "t": 49237.6591928251, "d": 1, "k": "sakura-joint" },
-      { "t": 50044.8340807174, "d": 0, "k": "sakura-joint" },
-      { "t": 50448.4215246636, "d": 2, "k": "sakura-joint" },
-      { "t": 50717.6143497758, "d": 3, "k": "sakura-joint" },
-      { "t": 50986.6726457399, "d": 1, "k": "sakura-joint" },
-      { "t": 51121.0672645739, "d": 2, "k": "sakura-joint" },
-      { "t": 51390.1255605381, "d": 1, "k": "sakura-joint" },
-      { "t": 51659.1838565022, "d": 2, "k": "sakura-joint" },
-      { "t": 51659.3183856502, "d": 3, "k": "sakura-joint" },
-      { "t": 52197.4349775784, "d": 2, "k": "sakura-joint" },
-      { "t": 52331.9641255605, "d": 0, "k": "sakura-joint" },
-      { "t": 52601.0224215246, "d": 1, "k": "sakura-joint" },
-      { "t": 52870.0807174888, "d": 3, "k": "sakura-joint" },
-      { "t": 53139.1390134529, "d": 0, "k": "sakura-joint" },
-      { "t": 53273.6681614349, "d": 2, "k": "sakura-joint" },
-      { "t": 53542.7264573991, "d": 0, "k": "sakura-joint" },
-      { "t": 54080.8430493273, "d": 3, "k": "sakura-joint" },
-      { "t": 54215.3721973094, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 54349.7668161434,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 54887.8743946188,
-        "d": 3,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 55156.932690583,
-        "d": 0,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 55425.9999999999,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 55964.1165919282, "d": 3, "k": "sakura-joint" },
-      { "t": 56367.7040358744, "d": 2, "k": "sakura-joint" },
-      { "t": 56771.2914798206, "d": 0, "k": "sakura-joint" },
-      { "t": 57040.3497757847, "d": 2, "k": "sakura-joint" },
-      { "t": 57309.4080717488, "d": 1, "k": "sakura-joint" },
-      { "t": 57578.466367713, "d": 2, "k": "sakura-joint" },
-      { "t": 57847.5246636771, "d": 1, "k": "sakura-joint" },
-      { "t": 58116.5829596412, "d": 3, "k": "sakura-joint" },
-      { "t": 58520.1704035874, "d": 2, "k": "sakura-joint" },
-      { "t": 58923.7578475336, "d": 0, "k": "sakura-joint" },
-      { "t": 59192.8161434977, "d": 3, "k": "sakura-joint" },
-      { "t": 59461.8744394618, "d": 0, "k": "sakura-joint" },
-      { "t": 59730.932735426, "d": 2, "k": "sakura-joint" },
-      { "t": 59730.932735426, "d": 1, "k": "sakura-joint" },
-      { "t": 60269.0493273542, "d": 0, "k": "sakura-joint" },
-      { "t": 60672.6367713004, "d": 2, "k": "sakura-joint" },
-      { "t": 61076.2242152466, "d": 3, "k": "sakura-joint" },
-      { "t": 61345.2825112107, "d": 1, "k": "sakura-joint" },
-      { "t": 61614.3408071749, "d": 2, "k": "sakura-joint" },
-      { "t": 61883.399103139, "d": 1, "k": "sakura-joint" },
-      { "t": 62152.4573991031, "d": 2, "k": "sakura-joint" },
-      { "t": 62690.5739910314, "d": 3, "k": "sakura-joint" },
-      { "t": 62825.1031390134, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 62959.6322869955,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 63497.7398654708,
-        "d": 0,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 63766.798161435,
-        "d": 0,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 64035.865470852,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 64843.0313452915, "d": 0, "k": "sakura-bf2" },
-      { "t": 65515.6770852018, "d": 1, "k": "sakura-bf1" },
-      { "t": 65784.7353811659, "d": 2, "k": "sakura-bf1" },
-      { "t": 66053.79367713, "d": 0, "k": "sakura-bf1" },
-      { "t": 66188.3228251121, "d": 3, "k": "sakura-bf2" },
-      { "t": 66457.3811210762, "d": 1, "k": "sakura-bf2" },
-      { "t": 66995.4977130045, "d": 0, "k": "sakura-bf1" },
-      { "t": 67130.0268609865, "d": 2, "k": "sakura-bf1" },
-      { "t": 67399.0851569507, "d": 1, "k": "sakura-bf1" },
-      { "t": 67668.1614349776, "d": 3, "k": "sakura-bf2" },
-      { "t": 67937.2197309417, "d": 2, "k": "sakura-bf1" },
-      { "t": 68206.2556053812, "d": 0, "k": "sakura-bf1" },
-      { "t": 68340.7891928251, "d": 2, "k": "sakura-bf2" },
-      { "t": 68609.865470852, "d": 1, "k": "sakura-bf1" },
-      { "t": 69147.9640807175, "d": 0, "k": "sakura-bf2" },
-      { "t": 69417.0223766816, "d": 1, "k": "sakura-bf2" },
-      { "t": 69820.6278026906, "d": 0, "k": "sakura-bf1" },
-      { "t": 70089.6681165919, "d": 3, "k": "sakura-bf2" },
-      { "t": 70358.7443946188, "d": 1, "k": "sakura-bf1" },
-      { "t": 70493.2555605381, "d": 3, "k": "sakura-bf2" },
-      { "t": 70762.3138565022, "d": 0, "k": "sakura-bf2" },
-      { "t": 71031.3721524664, "d": 1, "k": "sakura-bf2" },
-      { "t": 71300.4484304933, "d": 0, "k": "sakura-bf1" },
-      { "t": 71434.9775784753, "d": 3, "k": "sakura-bf2" },
-      { "t": 71569.4887443946, "d": 1, "k": "sakura-bf2" },
-      { "t": 71838.5470403587, "d": 3, "k": "sakura-bf1" },
-      { "t": 71973.0761883408, "d": 1, "k": "sakura-bf2" },
-      { "t": 72242.1524663677, "d": 2, "k": "sakura-bf1" },
-      { "t": 72511.2107623318, "d": 0, "k": "sakura-bf1" },
-      { "t": 72645.7219282511, "d": 2, "k": "sakura-bf2" },
-      { "t": 72645.7219282511, "d": 3, "k": "sakura-bf2" },
-      { "t": 72914.7757847534, "d": 1, "k": "sakura-bf1" },
-      { "t": 73183.8565022421, "d": 3, "k": "sakura-bf2" },
-      { "t": 73452.9147982063, "d": 1, "k": "sakura-bf2" },
-      { "t": 73721.9730941704, "d": 0, "k": "sakura-bf2" },
-      { "t": 73991.0313901345, "d": 2, "k": "sakura-bf1" },
-      { "t": 74125.5605381166, "d": 3, "k": "sakura-bf2" },
-      {
-        "t": 74394.6188340807,
-        "d": 1,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 74663.6771300448, "d": 3, "k": "sakura-bf2" },
-      { "t": 74798.2062780269, "d": 0, "k": "sakura-bf2" },
-      { "t": 75067.2421524664, "d": 3, "k": "sakura-bf1" },
-      { "t": 75201.7937219731, "d": 0, "k": "sakura-bf2" },
-      {
-        "t": 75336.3004484305,
-        "d": 2,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 75605.3587443946, "d": 3, "k": "sakura-bf1" },
-      { "t": 75739.8878923767, "d": 0, "k": "sakura-bf1" },
-      { "t": 76008.9686098655, "d": 1, "k": "sakura-bf2" },
-      { "t": 76278.0269058296, "d": 3, "k": "sakura-bf2" },
-      {
-        "t": 76547.0852017937,
-        "d": 0,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 76816.1434977578, "d": 3, "k": "sakura-bf2" },
-      { "t": 76950.6726457399, "d": 1, "k": "sakura-bf1" },
-      {
-        "t": 77488.7892376682,
-        "d": 1,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 77757.8475336323, "d": 3, "k": "sakura-bf2" },
-      {
-        "t": 77892.3766816143,
-        "d": 1,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 78161.4349775785, "d": 0, "k": "sakura-bf1" },
-      { "t": 78430.4530147982, "d": 3, "k": "sakura-bf1" },
-      { "t": 78565.0224215247, "d": 0, "k": "sakura-bf2" },
-      { "t": 78699.5515695067, "d": 2, "k": "sakura-bf1" },
-      {
-        "t": 78834.0404587444,
-        "d": 3,
-        "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
-      },
-      { "t": 79103.1390134529, "d": 1, "k": "sakura-bf2" },
-      { "t": 79372.197309417, "d": 3, "k": "sakura-bf2" },
-      { "t": 79506.7264573991, "d": 1, "k": "sakura-bf2" },
-      { "t": 79775.7847533632, "d": 2, "k": "sakura-bf1" },
-      { "t": 80044.8430493273, "d": 3, "k": "sakura-bf2" },
-      { "t": 80179.3721973094, "d": 1, "k": "sakura-bf1" },
-      { "t": 80179.3721973094, "d": 0, "k": "sakura-bf1" },
-      { "t": 80448.4304932735, "d": 1, "k": "sakura-bf2" },
-      { "t": 80582.9596412556, "d": 3, "k": "sakura-bf2" },
-      { "t": 80852.0179372197, "d": 0, "k": "sakura-bf1" },
-      { "t": 81121.0762331838, "d": 1, "k": "sakura-bf2" },
-      { "t": 81255.6053811659, "d": 2, "k": "sakura-bf2" },
-      { "t": 81524.66367713, "d": 1, "k": "sakura-bf1" },
-      { "t": 81793.7219730942, "d": 3, "k": "sakura-bf2" },
-      { "t": 82331.8385650224, "d": 2, "k": "sakura-bf2" },
-      { "t": 82466.3677130045, "d": 3, "k": "sakura-bf2" },
-      { "t": 82735.4260089686, "d": 1, "k": "sakura-bf1" },
-      { "t": 83004.4843049327, "d": 0, "k": "sakura-bf2" },
-      { "t": 83273.2152466368, "d": 3, "k": "sakura-bf2" },
-      { "t": 83407.7443946188, "d": 1, "k": "sakura-bf1" },
-      { "t": 83407.7443946188, "d": 0, "k": "sakura-bf1" },
-      { "t": 83676.8026905829, "d": 3, "k": "sakura-bf2" },
-      { "t": 83946.1480820628, "d": 2, "k": "sakura-bf1" },
-      { "t": 84215.2063780269, "d": 3, "k": "sakura-bf2" },
-      { "t": 84484.3049327354, "d": 1, "k": "sakura-bf2" },
-      { "t": 84618.8340807175, "d": 0, "k": "sakura-bf1" },
-      { "t": 84753.3632286995, "d": 2, "k": "sakura-bf1" },
-      { "t": 84887.8699551569, "d": 1, "k": "sakura-bf2" },
-      { "t": 85156.9282511211, "d": 1, "k": "sakura-bf1" },
-      { "t": 85426.0089686099, "d": 3, "k": "sakura-bf2" },
-      { "t": 85560.5381165919, "d": 1, "k": "sakura-bf1" },
-      {
-        "t": 85829.596412556,
-        "d": 3,
-        "l": 269.058295964126,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 86502.2421524664, "d": 0, "k": "sakura-bf1" },
-      { "t": 86636.7713004484, "d": 2, "k": "sakura-bf2" },
-      { "t": 86771.3004484305, "d": 0, "k": "sakura-bf2" },
-      { "t": 87040.0313901345, "d": 1, "k": "sakura-bf2" },
-      { "t": 87309.4170403587, "d": 3, "k": "sakura-bf2" },
-      { "t": 87578.4753363229, "d": 0, "k": "sakura-bf1" },
-      { "t": 87713.0044843049, "d": 2, "k": "sakura-bf2" },
-      { "t": 87713.0044843049, "d": 3, "k": "sakura-bf2" },
-      { "t": 87982.062780269, "d": 1, "k": "sakura-bf1" },
-      { "t": 88116.5919282511, "d": 3, "k": "sakura-bf2" },
-      {
-        "t": 88251.1210762332,
-        "d": 2,
-        "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
-      },
-      { "t": 88520.1793721973, "d": 1, "k": "sakura-bf1" },
-      { "t": 88789.2062780269, "d": 2, "k": "sakura-bf1" },
-      { "t": 89058.2467367713, "d": 3, "k": "sakura-bf2" },
-      { "t": 89192.8251121076, "d": 0, "k": "sakura-bf2" },
-      { "t": 89461.8834080717, "d": 1, "k": "sakura-bf2" },
-      { "t": 89730.9417040359, "d": 2, "k": "sakura-bf1" },
-      { "t": 89865.4708520179, "d": 1, "k": "sakura-bf1" },
-      {
-        "t": 90134.4799206278,
-        "d": 3,
-        "l": 201.793721973094,
-        "k": "sakura-bf1",
-        "p": []
-      },
-      { "t": 90672.596512556, "d": 0, "k": "sakura-bf1" },
-      { "t": 90941.6548085202, "d": 2, "k": "sakura-bf2" },
-      { "t": 91210.7623318386, "d": 1, "k": "sakura-bf1" },
-      { "t": 91345.2914798206, "d": 2, "k": "sakura-bf1" },
-      {
-        "t": 91614.3497757848,
-        "d": 1,
-        "l": 201.793721973094,
-        "k": "sakura-bf2",
-        "p": []
-      },
-      { "t": 91883.4080717489, "d": 3, "k": "sakura-bf1" },
-      { "t": 92017.9372197309, "d": 0, "k": "sakura-bf2" },
-      { "t": 92286.9955156951, "d": 1, "k": "sakura-bf1" },
-      { "t": 92421.4754363229, "d": 3, "k": "sakura-bf1" },
-      { "t": 92690.5829596413, "d": 1, "k": "sakura-bf2" },
-      { "t": 92959.6412556054, "d": 3, "k": "sakura-bf1" },
-      { "t": 93094.1704035874, "d": 1, "k": "sakura-bf1" },
-      { "t": 93363.1794721973, "d": 0, "k": "sakura-bf1" },
-      { "t": 93497.7578475336, "d": 2, "k": "sakura-bf1" },
-      { "t": 93766.8161434978, "d": 0, "k": "sakura-bf2" },
-      { "t": 94035.8744394619, "d": 1, "k": "sakura-bf1" },
-      { "t": 94170.4035874439, "d": 3, "k": "sakura-bf2" },
-      { "t": 94439.4618834081, "d": 1, "k": "sakura-bf2" },
-      { "t": 94977.5784753363, "d": 0, "k": "sakura-bf1" },
-      { "t": 95246.6367713004, "d": 3, "k": "sakura-bf2" },
-      { "t": 95515.668126009, "d": 0, "k": "sakura-bf1" },
-      { "t": 95650.2242152466, "d": 1, "k": "sakura-bf2" },
-      { "t": 95919.2825112108, "d": 2, "k": "sakura-bf1" },
-      { "t": 96188.3408071749, "d": 0, "k": "sakura-bf1" },
-      { "t": 96322.8699551569, "d": 3, "k": "sakura-bf2" },
-      { "t": 96457.399103139, "d": 1, "k": "sakura-bf2" },
-      { "t": 96591.9282511211, "d": 0, "k": "sakura-bf1" },
-      { "t": 96726.4573991031, "d": 1, "k": "sakura-bf1" },
-      { "t": 96995.5156950673, "d": 3, "k": "sakura-bf2" },
-      { "t": 97264.5739910314, "d": 1, "k": "sakura-bf1" },
-      { "t": 97399.0761977579, "d": 0, "k": "sakura-bf2" },
-      { "t": 97533.600996861, "d": 3, "k": "sakura-bf1" },
-      { "t": 97802.6592928251, "d": 2, "k": "sakura-bf2" },
-      { "t": 97802.6905829596, "d": 3, "k": "sakura-bf2" },
-      { "t": 98071.7488789238, "d": 0, "k": "sakura-bf2" },
-      { "t": 98340.8071748879, "d": 3, "k": "sakura-bf1" },
-      { "t": 98475.3363228699, "d": 2, "k": "sakura-bf1" },
-      { "t": 98475.3363228699, "d": 0, "k": "sakura-bf1" },
-      { "t": 98609.865470852, "d": 1, "k": "sakura-bf2" },
-      { "t": 99013.4216246637, "d": 3, "k": "sakura-bf1" },
-      { "t": 99820.6188340807, "d": 3 },
-      { "t": 99955.1479820627, "d": 1 },
-      { "t": 100224.206278027, "d": 3 },
-      { "t": 100493.264573991, "d": 2 },
-      { "t": 100627.793721973, "d": 0 },
-      { "t": 100896.852017937, "d": 1 },
-      { "t": 101434.968609865, "d": 1 },
-      { "t": 101704.026905829, "d": 0 },
-      { "t": 101838.556053812, "d": 2 },
-      { "t": 102107.59637713, "d": 1 },
-      { "t": 102107.614349776, "d": 3 },
-      { "t": 102376.67264574, "d": 2 },
-      { "t": 102645.730941704, "d": 0 },
-      { "t": 102780.260089686, "d": 1 },
-      { "t": 102914.789237668, "d": 3 },
-      { "t": 103049.31838565, "d": 1 },
-      { "t": 103721.96412556, "d": 3 },
-      { "t": 103856.493273542, "d": 1 },
-      { "t": 103991.022421525, "d": 0 },
-      { "t": 104260.080717489, "d": 2 },
-      { "t": 104529.139013453, "d": 1 },
-      { "t": 104798.197309417, "d": 3 },
-      { "t": 104932.726457399, "d": 1 },
-      { "t": 105201.784753363, "d": 0 },
-      { "t": 106143.488789237, "d": 1 },
-      { "t": 106278.01793722, "d": 3 },
-      { "t": 106547.076233184, "d": 1, "l": 269.058295964126 },
-      { "t": 107085.192825112, "d": 2, "l": 336.322869955157 },
-      { "t": 107623.30941704, "d": 0, "l": 336.322869955157 },
-      { "t": 108430.484304933, "d": 3 },
-      { "t": 108565.013452915, "d": 0 },
-      { "t": 108834.071748879, "d": 1 },
-      { "t": 109103.130044843, "d": 0 },
-      { "t": 109237.659192825, "d": 2 },
-      { "t": 109506.717488789, "d": 0 },
-      { "t": 110313.892376681, "d": 1 },
-      { "t": 110448.421524663, "d": 3 },
-      { "t": 110717.479820628, "d": 1 },
-      { "t": 110986.538116592, "d": 3 },
-      { "t": 111255.596412556, "d": 0 },
-      { "t": 111390.125560538, "d": 2 },
-      { "t": 111390.125560538, "d": 3 },
-      { "t": 111659.183856502, "d": 1 },
-      { "t": 112331.829596412, "d": 0 },
-      { "t": 112466.358744394, "d": 1 },
-      { "t": 112600.887892376, "d": 3 },
-      { "t": 112869.946188341, "d": 1 },
-      { "t": 113139.004484305, "d": 3 },
-      { "t": 113408.062780269, "d": 1 },
-      { "t": 113542.591928251, "d": 0, "l": 201.793721973094 },
-      { "t": 113811.650224215, "d": 3 },
-      { "t": 114753.35426009, "d": 1 },
-      { "t": 114887.883408072, "d": 3 },
-      { "t": 115022.412556054, "d": 2 },
-      { "t": 115156.941704036, "d": 0, "l": 336.322869955203 },
-      { "t": 115695.058295964, "d": 1, "l": 336.322869955157 },
-      { "t": 116233.174887892, "d": 2, "l": 336.322869955157 },
-      { "t": 117309.408071749, "d": 1 },
-      { "t": 117578.466367713, "d": 2 },
-      { "t": 117847.524663677, "d": 3 },
-      { "t": 118116.582959641, "d": 0 },
-      { "t": 118385.641255605, "d": 1 },
-      { "t": 118386.121076233, "d": 2 },
-      { "t": 118654.699551569, "d": 0 },
-      { "t": 118923.757847533, "d": 1, "l": 672.645739910314 },
-      { "t": 119999.99103139, "d": 0 },
-      { "t": 120269.049327354, "d": 2 },
-      { "t": 120538.107623318, "d": 1 },
-      { "t": 120538.587443946, "d": 0 },
-      { "t": 120807.165919282, "d": 3 },
-      { "t": 121076.224215246, "d": 2 },
-      { "t": 121345.282511211, "d": 1 },
-      { "t": 121614.340807175, "d": 3 },
-      { "t": 121883.399103139, "d": 0 },
-      { "t": 122152.457399103, "d": 1 },
-      { "t": 122421.515695067, "d": 3 },
-      { "t": 122691.053811659, "d": 2 },
-      { "t": 122691.053811659, "d": 0 },
-      { "t": 122960.112107623, "d": 1 },
-      { "t": 123229.170403587, "d": 3, "l": 470.85201793722 },
-      { "t": 124035.865470852, "d": 2 },
-      { "t": 124304.923766816, "d": 2 },
-      { "t": 124573.98206278, "d": 2 },
-      { "t": 125381.156950673, "d": 2 },
-      { "t": 125919.273542601, "d": 3 },
-      { "t": 126188.331838565, "d": 1 },
-      { "t": 126457.390134529, "d": 0 },
-      { "t": 126726.448430493, "d": 1 },
-      { "t": 126995.506726457, "d": 3 },
-      { "t": 126995.986547085, "d": 2 },
-      { "t": 127265.044843049, "d": 1 },
-      { "t": 127533.623318386, "d": 0, "l": 538.116591928251 },
-      { "t": 128609.856502242, "d": 1 },
-      { "t": 128879.394618834, "d": 3 },
-      { "t": 129148.452914798, "d": 0 },
-      { "t": 129417.031390134, "d": 3 },
-      { "t": 129686.089686099, "d": 1 },
-      { "t": 129955.147982063, "d": 0 },
-      { "t": 130224.206278027, "d": 3 },
-      { "t": 130493.264573991, "d": 0 },
-      { "t": 130762.322869955, "d": 1 },
-      { "t": 131031.381165919, "d": 3 },
-      { "t": 131300.439461883, "d": 0 },
-      { "t": 131838.556053812, "d": 3 },
-      { "t": 132376.67264574, "d": 2 },
-      { "t": 132377.152466368, "d": 1 },
-      { "t": 133991.022421525, "d": 3, "k": "sakura-joint" },
-      { "t": 134125.551569507, "d": 1, "k": "sakura-joint" },
-      { "t": 134125.551569507, "d": 0, "k": "sakura-joint" },
-      { "t": 134394.609865471, "d": 2, "k": "sakura-joint" },
-      { "t": 134663.668161435, "d": 3, "k": "sakura-joint" },
-      { "t": 134932.726457399, "d": 1, "k": "sakura-joint" },
-      { "t": 135067.255605381, "d": 2, "k": "sakura-joint" },
-      { "t": 135067.255605381, "d": 3, "k": "sakura-joint" },
-      { "t": 135336.313901345, "d": 0, "k": "sakura-joint" },
-      { "t": 136143.488789238, "d": 2, "k": "sakura-joint" },
-      { "t": 136278.01793722, "d": 1, "k": "sakura-joint" },
-      { "t": 136547.076233184, "d": 3, "k": "sakura-joint" },
-      { "t": 136816.134529148, "d": 2, "k": "sakura-joint" },
-      { "t": 137085.192825112, "d": 1, "k": "sakura-joint" },
-      { "t": 137219.721973094, "d": 2, "k": "sakura-joint" },
-      { "t": 137488.780269058, "d": 0, "k": "sakura-joint" },
-      { "t": 137757.838565022, "d": 2, "k": "sakura-joint" },
-      { "t": 137757.838565022, "d": 3, "k": "sakura-joint" },
-      { "t": 138295.955156951, "d": 1, "k": "sakura-joint" },
-      { "t": 138295.955156951, "d": 0, "k": "sakura-joint" },
-      { "t": 138430.484304933, "d": 3, "k": "sakura-joint" },
-      { "t": 138699.542600897, "d": 1, "k": "sakura-joint" },
-      { "t": 138968.600896861, "d": 3, "k": "sakura-joint" },
-      { "t": 139237.659192825, "d": 2, "k": "sakura-joint" },
-      { "t": 139372.188340807, "d": 3, "k": "sakura-joint" },
-      { "t": 139641.246636771, "d": 0, "k": "sakura-joint" },
-      { "t": 140179.363228699, "d": 3, "k": "sakura-joint" },
-      { "t": 140313.892376681, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 140448.421524664,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 140986.497857848,
-        "d": 3,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 141255.556153812,
-        "d": 3,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 141524.65470852,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 142600.887892376, "d": 1, "k": "sakura-joint" },
-      { "t": 142600.887892377, "d": 0, "k": "sakura-joint" },
-      { "t": 142735.417040359, "d": 3, "k": "sakura-joint" },
-      { "t": 143004.475336323, "d": 1, "k": "sakura-joint" },
-      { "t": 143273.533632287, "d": 3, "k": "sakura-joint" },
-      { "t": 143542.591928251, "d": 0, "k": "sakura-joint" },
-      { "t": 143677.121076233, "d": 2, "k": "sakura-joint" },
-      { "t": 143946.179372197, "d": 1, "k": "sakura-joint" },
-      { "t": 144753.35426009, "d": 1, "k": "sakura-joint" },
-      { "t": 145156.941704036, "d": 2, "k": "sakura-joint" },
-      { "t": 145426.134529148, "d": 3, "k": "sakura-joint" },
-      { "t": 145695.192825112, "d": 1, "k": "sakura-joint" },
-      { "t": 145829.587443946, "d": 0, "k": "sakura-joint" },
-      { "t": 146098.64573991, "d": 1, "k": "sakura-joint" },
-      { "t": 146367.704035874, "d": 2, "k": "sakura-joint" },
-      { "t": 146367.838565022, "d": 3, "k": "sakura-joint" },
-      { "t": 146905.95515695, "d": 2, "k": "sakura-joint" },
-      { "t": 147040.484304933, "d": 0, "k": "sakura-joint" },
-      { "t": 147309.542600897, "d": 1, "k": "sakura-joint" },
-      { "t": 147578.600896861, "d": 3, "k": "sakura-joint" },
-      { "t": 147847.659192825, "d": 0, "k": "sakura-joint" },
-      { "t": 147982.188340807, "d": 3, "k": "sakura-joint" },
-      { "t": 147982.188340807, "d": 2, "k": "sakura-joint" },
-      { "t": 148251.246636771, "d": 0, "k": "sakura-joint" },
-      { "t": 148789.363228699, "d": 3, "k": "sakura-joint" },
-      { "t": 148923.892376681, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 149058.286995516,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 149596.538116592, "d": 3, "k": "sakura-joint" },
-      { "t": 149731.067264574, "d": 0, "k": "sakura-joint" },
-      { "t": 149865.596412556, "d": 3, "k": "sakura-joint" },
-      { "t": 150000.125560538, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 150134.520179372,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 150672.6367713, "d": 1, "k": "sakura-joint" },
-      { "t": 151076.183956502, "d": 0, "k": "sakura-joint" },
-      { "t": 151076.224215247, "d": 2, "k": "sakura-joint" },
-      { "t": 151479.771400448, "d": 1, "k": "sakura-joint" },
-      { "t": 151748.869955157, "d": 2, "k": "sakura-joint" },
-      { "t": 152017.928251121, "d": 0, "k": "sakura-joint" },
-      { "t": 152286.986547085, "d": 1, "k": "sakura-joint" },
-      { "t": 152556.004584305, "d": 0, "k": "sakura-joint" },
-      { "t": 152825.062880269, "d": 2, "k": "sakura-joint" },
-      { "t": 153228.69058296, "d": 3, "k": "sakura-joint" },
-      { "t": 153632.278026906, "d": 2, "k": "sakura-joint" },
-      { "t": 153901.33632287, "d": 1, "k": "sakura-joint" },
-      { "t": 154170.394618834, "d": 3, "k": "sakura-joint" },
-      { "t": 154439.452914798, "d": 2, "k": "sakura-joint" },
-      { "t": 154439.452914798, "d": 1, "k": "sakura-joint" },
-      { "t": 154977.6367713, "d": 1, "k": "sakura-joint" },
-      { "t": 155381.116691928, "d": 2, "k": "sakura-joint" },
-      { "t": 155784.704135874, "d": 1, "k": "sakura-joint" },
-      { "t": 156053.869955157, "d": 2, "k": "sakura-joint" },
-      { "t": 156322.928251121, "d": 3, "k": "sakura-joint" },
-      { "t": 156591.986547085, "d": 2, "k": "sakura-joint" },
-      { "t": 156860.937319731, "d": 3, "k": "sakura-joint" },
-      { "t": 157399.573991031, "d": 3, "k": "sakura-joint" },
-      { "t": 157534.103139013, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 157668.152466368,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 158206.228799552,
-        "d": 3,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 158475.287095516,
-        "d": 0,
-        "l": 168.161434977578,
-        "k": "sakura-joint",
-        "p": []
-      },
-      {
-        "t": 158744.385650224,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 159282.6367713, "d": 1, "k": "sakura-joint" },
-      { "t": 159686.049427354, "d": 0, "k": "sakura-joint" },
-      { "t": 159686.224215247, "d": 2, "k": "sakura-joint" },
-      { "t": 160089.811659193, "d": 1, "k": "sakura-joint" },
-      { "t": 160358.869955157, "d": 2, "k": "sakura-joint" },
-      { "t": 160627.753463229, "d": 0, "k": "sakura-joint" },
-      { "t": 160896.811759193, "d": 1, "k": "sakura-joint" },
-      { "t": 161165.870055157, "d": 0, "k": "sakura-joint" },
-      { "t": 161434.928351121, "d": 2, "k": "sakura-joint" },
-      { "t": 161838.69058296, "d": 3, "k": "sakura-joint" },
-      { "t": 162242.103239013, "d": 2, "k": "sakura-joint" },
-      { "t": 162511.161534978, "d": 3, "k": "sakura-joint" },
-      { "t": 162780.394618834, "d": 0, "k": "sakura-joint" },
-      { "t": 163049.278126906, "d": 1, "k": "sakura-joint" },
-      { "t": 163049.452914798, "d": 2, "k": "sakura-joint" },
-      { "t": 163587.6367713, "d": 1, "k": "sakura-joint" },
-      { "t": 163991.224215247, "d": 0, "k": "sakura-joint" },
-      { "t": 163991.224215247, "d": 2, "k": "sakura-joint" },
-      { "t": 164394.811659193, "d": 1, "k": "sakura-joint" },
-      { "t": 164663.869955157, "d": 2, "k": "sakura-joint" },
-      { "t": 164932.928251121, "d": 3, "k": "sakura-joint" },
-      { "t": 165201.986547085, "d": 2, "k": "sakura-joint" },
-      { "t": 165470.802790583, "d": 3, "k": "sakura-joint" },
-      { "t": 166009.573991031, "d": 3, "k": "sakura-joint" },
-      { "t": 166144.103139013, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 166278.152466368,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "sakura-joint",
-        "p": []
-      },
-      { "t": 166816.748878924, "d": 3, "k": "sakura-joint" },
-      { "t": 166951.278026906, "d": 0, "k": "sakura-joint" },
-      { "t": 167085.807174888, "d": 3, "k": "sakura-joint" },
-      { "t": 167220.33632287, "d": 0, "k": "sakura-joint" },
-      {
-        "t": 167354.210862332,
-        "d": 2,
-        "l": 336.322869955157,
-        "k": "non_scoreable",
-        "p": []
+        "k": "non_scoreable"
       }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.8.0 (kade-github/spahgettiii-fix-endd:e82d45c) PROTOTYPE"
+  "generatedBy": "Friday Night Funkin' - v0.8.1"
 }

@@ -24,7 +24,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 
   var isBloody:Bool = false;
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (isBloody)
     {
@@ -32,7 +32,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     }
     else
     {
-      super.playAnimation(name, restart, ignoreOther);
+      super.playAnimation(name, restart, ignoreOther, reversed);
     }
 
     if (name == 'redheadsAnim') isBloody = true;

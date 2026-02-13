@@ -9,13 +9,13 @@
     {
       "t": 15583.3333333333,
       "e": "PlayAnimation",
-      "v": { "force": true, "anim": "cheer", "target": "dad" }
+      "v": { "target": "dad", "anim": "cheer", "force": true }
     },
     { "t": 16000, "e": "FocusCamera", "v": 0 },
     {
       "t": 18783.3333333333,
       "e": "PlayAnimation",
-      "v": { "force": true, "anim": "cheer", "target": "boyfriend" }
+      "v": { "target": "boyfriend", "anim": "cheer", "force": true }
     },
     { "t": 19200, "e": "FocusCamera", "v": 1 },
     { "t": 25600, "e": "FocusCamera", "v": 0 },
@@ -25,13 +25,13 @@
     {
       "t": 41183.3333333333,
       "e": "PlayAnimation",
-      "v": { "target": "dad", "anim": "cheer", "force": true }
+      "v": { "force": true, "anim": "cheer", "target": "dad" }
     },
     { "t": 41600, "e": "FocusCamera", "v": 0 },
     {
       "t": 44383.3333333333,
       "e": "PlayAnimation",
-      "v": { "target": "boyfriend", "anim": "cheer", "force": true }
+      "v": { "force": true, "anim": "cheer", "target": "boyfriend" }
     },
     { "t": 44800, "e": "FocusCamera", "v": 1 },
     { "t": 51200, "e": "FocusCamera", "v": 0 },
@@ -1076,5 +1076,5 @@
       { "t": 95600, "d": 1 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.7.5"
+  "generatedBy": "Friday Night Funkin' - v0.8.1"
 }

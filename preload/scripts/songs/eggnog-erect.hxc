@@ -7,7 +7,6 @@ import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
@@ -99,7 +98,7 @@ class EggnogErectSong extends Song
     var normalSanta = PlayState.instance.currentStage.getNamedProp('santa');
     normalSanta.visible = false;
 
-    var santaDead:ScriptedFunkinSprite = ScriptedFunkinSprite.init('SantaDiesSprite', 0, 0);
+    var santaDead:SantaDiesSprite = new SantaDiesSprite(0, 0);
     santaDead.x = -1300;
     santaDead.y = 100;
     santaDead.zIndex = normalSanta.zIndex - 1;
@@ -108,10 +107,10 @@ class EggnogErectSong extends Song
     PlayState.instance.currentStage.add(santaDead);
     PlayState.instance.currentStage.refresh(); // Apply z-index.
 
-    santaDead.scriptCall('playCutscene');
+    santaDead.playCutscene();
 
     PlayState.instance.currentStage.getDad().visible = false;
-    var parentsShoot:ScriptedFunkinSprite = ScriptedFunkinSprite.init('DadShootsSprite', 0, 0);
+    var parentsShoot:DadShootsSprite = new DadShootsSprite(0, 0);
 
     parentsShoot.x = -602;
     parentsShoot.y = -3.5;
@@ -121,7 +120,7 @@ class EggnogErectSong extends Song
     PlayState.instance.currentStage.add(parentsShoot);
     PlayState.instance.currentStage.refresh(); // Apply z-index.
 
-    parentsShoot.scriptCall('playCutscene');
+    parentsShoot.playCutscene();
 
     // FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, 1);
 

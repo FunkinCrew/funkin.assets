@@ -35,41 +35,42 @@
     "charSelect": {
       "transitionDelay": 0.45
     },
+    "useAnimatePosition": true,
     "animations": [
       {
         "name": "intro",
-        "prefix": "pico dj intro",
-        "offsets": [-54.5, -156]
+        "prefix": "Intro",
+        "animType": "framelabel"
       },
       {
         "name": "idle",
-        "prefix": "Pico DJ",
-        "offsets": [10, 273]
+        "prefix": "Idle",
+        "animType": "framelabel"
       },
       {
         "name": "idleEasterEgg",
-        "prefix": "Pico DJ afk",
-        "offsets": [-119.5, 134.5]
+        "prefix": "AFK",
+        "animType": "framelabel"
       },
       {
         "name": "confirm",
-        "prefix": "Pico DJ confirm",
-        "offsets": [-54.5, 284]
+        "prefix": "Confirm",
+        "animType": "framelabel"
       },
       {
         "name": "fistPump",
-        "prefix": "pico cheer",
-        "offsets": [-14.3, 61.5]
+        "prefix": "Fist Pump",
+        "animType": "framelabel"
       },
       {
         "name": "loss",
-        "prefix": "Pico DJ loss",
-        "offsets": [-8, 224]
+        "prefix": "Fist Pump Loss",
+        "animType": "framelabel"
       },
       {
         "name": "charSelect",
-        "prefix": "Pico DJ to CS",
-        "offsets": [-62, -12]
+        "prefix": "To Character Select",
+        "animType": "framelabel"
       }
     ]
   },
@@ -116,9 +117,9 @@
         "scriptClass": "PicoGreatResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [-494.5, -235.5],
+        "offsets": [160, -265],
         "looped": true,
-        "loopFrame": 32
+        "loopFrame": 34
       }
     ],
     "great": [
@@ -127,9 +128,9 @@
         "scriptClass": "PicoGreatResults",
         "zIndex": 500,
         "scale": 1.25,
-        "offsets": [-494.5, -235.5],
+        "offsets": [160, -265],
         "looped": true,
-        "loopFrame": 32
+        "loopFrame": 34
       }
     ],
     "good": [

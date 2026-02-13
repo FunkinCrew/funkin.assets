@@ -24,7 +24,7 @@ class PicoPixelCharacter extends SparrowCharacter
   function createDeathSprites()
   {
     deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/nenePixel/nenePixelKnifeToss");
-    var gf = PlayState.instance.currentStage.getGirlfriend();
+    var gf = currentStage.getGirlfriend();
     deathSpriteNene.x = gf.originalPosition.x + 280 - (-gf.globalOffsets[0] * 6);
     deathSpriteNene.y = gf.originalPosition.y + 170 - (-gf.globalOffsets[1] * 6);
     deathSpriteNene.animation.addByPrefix('throw', "knifetosscolor0", 24, false);
@@ -49,7 +49,7 @@ class PicoPixelCharacter extends SparrowCharacter
     FunkinMemory.cacheTexture(Paths.image("characters/nenePixel/nenePixelKnifeToss"));
   }
 
-  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
@@ -60,7 +60,7 @@ class PicoPixelCharacter extends SparrowCharacter
       deathSpriteNene.animation.play("throw");
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

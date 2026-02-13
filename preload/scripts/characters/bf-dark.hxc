@@ -11,7 +11,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     super('bf-dark');
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
@@ -46,9 +46,10 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     return val;
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
+
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);
@@ -56,7 +57,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  function onCreate(event:ScriptEvent):Void
+  public override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -67,8 +68,8 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
 
-      PlayState.instance.currentStage.add(normalChar);
-      PlayState.instance.currentStage.refresh(); // Apply z-index.
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
     }
   }
 }

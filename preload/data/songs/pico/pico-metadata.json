@@ -1,23 +1,25 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Pico",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "offsets": {},
   "playData": {
-    "album": "volume1",
-    "stage": "phillyTrain",
+    "songVariations": ["erect", "pico"],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "pico",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["pico"],
+      "playerVocals": ["bf"]
     },
-    "songVariations": ["erect", "pico"],
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "phillyTrain",
+    "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-    "noteStyle": "funkin"
+    "album": "volume1"
   },
-  "songName": "Pico",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 150 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 150, "bt": [4, 4, 4, 4] }]
 }

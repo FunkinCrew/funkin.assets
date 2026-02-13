@@ -3,7 +3,6 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -28,6 +27,11 @@ class MallXmasErectStage extends Stage
     colorShader.saturation = 20;
 
     getNamedProp('santa').shader = colorShader;
+
+    var colorShaderBoppers:AdjustColorShader = new AdjustColorShader();
+    colorShaderBoppers.hue = 15;
+    colorShaderBoppers.brightness = 20;
+    getNamedProp('bottomBoppers').shader = colorShaderBoppers;
   }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType):Void

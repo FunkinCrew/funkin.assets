@@ -20,7 +20,7 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
 
   var isBeautiful:Bool = false;
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (isBeautiful)
     {
@@ -28,7 +28,7 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
     }
     else
     {
-      super.playAnimation(name, restart, ignoreOther);
+      super.playAnimation(name, restart, ignoreOther, reversed);
     }
   }
 
@@ -36,8 +36,7 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
   {
     super.onSongEvent(scriptEvent);
 
-    if(scriptEvent.eventData.eventKind == 'sserafimBeautiful')
-      isBeautiful = scriptEvent.eventData.getBool('beautiful');
+    if (scriptEvent.eventData.eventKind == 'sserafimBeautiful') isBeautiful = scriptEvent.eventData.getBool('beautiful');
   }
 
   override function onSongRetry(event:ScriptEvent):Void

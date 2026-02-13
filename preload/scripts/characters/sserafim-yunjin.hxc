@@ -8,7 +8,6 @@ import animate.internal.elements.FlxSpriteElement;
 import funkin.graphics.FunkinSprite;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.util.SortUtil;
 import Lambda;
 
@@ -68,9 +67,9 @@ class SserafimYunjinCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
     {
@@ -91,7 +90,6 @@ class SserafimYunjinCharacter extends AnimateAtlasCharacter
     synchronizeShader();
   }
 
-
   var currentShader = null;
 
   function synchronizeShader():Void
@@ -105,4 +103,3 @@ class SserafimYunjinCharacter extends AnimateAtlasCharacter
     trace("Synchronized shader between children!");
   }
 }
-

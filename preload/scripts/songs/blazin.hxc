@@ -84,8 +84,7 @@ class BlazinSong extends Song
   {
     // This is a song gimmick we are never making middlescroll an option.
 
-    if (Preferences.controlsScheme == "Arrows"
-      && !ControlsHandler.usingExternalInputDevice) return;
+    if (Preferences.controlsScheme == "Arrows" && !ControlsHandler.usingExternalInputDevice) return;
 
     var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
     if (playerStrumline != null)

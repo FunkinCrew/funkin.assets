@@ -18,7 +18,8 @@ class SpookyMansionStage extends Stage
     super.onCreate(event);
 
     // Precache the thunder sounds.
-    for (snd in ["thunder_1", "thunder_2"]) FunkinMemory.cacheSound(Paths.sound(snd));
+    for (snd in ["thunder_1", "thunder_2"])
+      FunkinMemory.cacheSound(Paths.sound(snd));
   }
 
   var lightningStrikeBeat:Int = 0;

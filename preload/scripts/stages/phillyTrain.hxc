@@ -3,7 +3,6 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
@@ -15,13 +14,7 @@ class PhillyTrainStage extends Stage
     super('phillyTrain');
   }
 
-  var lightColors:Array<FlxColor> = [
-    0xFF31A2FD,
-    0xFF31FD8C,
-    0xFFFB33F5,
-    0xFFFBA633,
-    0xFFFD4531
-  ];
+  var lightColors:Array<FlxColor> = [0xFF31A2FD, 0xFF31FD8C, 0xFFFB33F5, 0xFFFBA633, 0xFFFD4531];
 
   var lightWindow:FlxSprite;
   var lightShader:FlxRuntimeShader;
@@ -35,7 +28,7 @@ class PhillyTrainStage extends Stage
     trainEnabled = true;
 
     // NOTE: You pass the constructor variables directly, not as an array.
-    lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
+    lightShader = new BuildingEffectShader(1.0);
     trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
     PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
@@ -61,7 +54,7 @@ class PhillyTrainStage extends Stage
     super.onUpdate(event);
     // Update beat lights
     var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
-    lightShader.scriptCall('update', [shaderInput]);
+    lightShader.update(shaderInput);
 
     // Update train
     if (trainEnabled && trainMoving)
@@ -96,7 +89,7 @@ class PhillyTrainStage extends Stage
     if (event.beat % 4 == 0)
     {
       // Reset opacity
-      lightShader.scriptCall('reset');
+      lightShader.reset();
 
       // Switch to a different light
       curLight = FlxG.random.int(0, lightColors.length - 1);
