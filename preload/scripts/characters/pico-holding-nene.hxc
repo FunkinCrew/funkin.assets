@@ -60,7 +60,8 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
   function afterPicoDeathNeneIntro():Void
   {
     // Delay the death quote because the first death animation is so fast.
-    new FlxTimer().start(1.5, function(_) {
+    new FlxTimer().start(1.5, function(_)
+    {
       // Prevent playing the death quote twice or if skipping the death animation.
       if (GameOverSubState.instance.hasPlayedDeathQuote) return;
 

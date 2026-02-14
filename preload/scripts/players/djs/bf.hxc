@@ -23,7 +23,8 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     super(x, y, characterId);
     this.cartoonSnd?.destroy();
 
-    animation.onFrameChange.add((name, number) -> {
+    animation.onFrameChange.add((name, number) ->
+    {
       if (name == playableCharData.getAnimationPrefix('cartoon'))
       {
         if (number == getCartoonFrame('REMOTE_CLICK')) FunkinSound.playOnce(Paths.sound('remote_click'));
@@ -97,14 +98,16 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     if (cartoonSnd == null)
     {
       // tv is OFF, but getting turned on
-      FunkinSound.playOnce(Paths.sound('tv_on'), 1.0, () -> {
+      FunkinSound.playOnce(Paths.sound('tv_on'), 1.0, () ->
+      {
         loadCartoon();
       });
     }
     else
     {
       // plays it smidge after the click
-      FunkinSound.playOnce(Paths.sound('channel_switch'), 1.0, () -> {
+      FunkinSound.playOnce(Paths.sound('channel_switch'), 1.0, () ->
+      {
         loadCartoon();
       });
     }
@@ -128,7 +131,8 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
       cartoonSnd = null;
     }
 
-    cartoonSnd = FunkinSound.load(Paths.sound(getRandomFlashToon()), 1.0, false, true, true, () -> {
+    cartoonSnd = FunkinSound.load(Paths.sound(getRandomFlashToon()), 1.0, false, true, true, () ->
+    {
       var animationPrefix:String = playableCharData.getAnimationPrefix('cartoon');
       if (animationPrefix != null) playFlashAnimation(animationPrefix, true, false, false, getCartoonFrame('CHANGE_CHANNEL'));
     });

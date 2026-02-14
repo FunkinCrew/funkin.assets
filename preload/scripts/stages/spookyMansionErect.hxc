@@ -82,7 +82,8 @@ class SpookyMansionErectStage extends Stage
     getDad().alpha = 0;
     getGirlfriend().alpha = 0;
 
-    new FlxTimer().start(0.06, function(_) {
+    new FlxTimer().start(0.06, function(_)
+    {
       getNamedProp('bgLight').alpha = 0;
       getNamedProp('stairsLight').alpha = 0;
       getBoyfriend().alpha = 1;
@@ -90,7 +91,8 @@ class SpookyMansionErectStage extends Stage
       getGirlfriend().alpha = 1;
     });
 
-    new FlxTimer().start(0.12, function(_) {
+    new FlxTimer().start(0.12, function(_)
+    {
       getNamedProp('bgLight').alpha = 1;
       getNamedProp('stairsLight').alpha = 1;
       getBoyfriend().alpha = 0;

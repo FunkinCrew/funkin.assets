@@ -10,7 +10,8 @@ class PicoPerfectResults extends FunkinSprite
 
     loadTextureAtlas("resultScreen/results-pico/resultsPERFECT", "shared");
 
-    anim.onFrameChange.add((animation:String, frame:Int) -> {
+    anim.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (!HapticUtil.hapticsAvailable) return;
 
       // Pico drop-kicking Nene.

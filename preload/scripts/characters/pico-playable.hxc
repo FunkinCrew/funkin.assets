@@ -23,11 +23,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
   function get_CACHE_IMAGE_PATHS():Array<String>
   {
-    return [
-      "characters/NeneKnifeToss",
-      "weekend1:characters/pico/explosion-death/spritemap1",
-      "weekend1:PicoBullet"
-    ];
+    return ["characters/NeneKnifeToss", "weekend1:characters/pico/explosion-death/spritemap1", "weekend1:PicoBullet"];
   }
 
   public var CACHE_SOUND_PATHS(get, never):Array<String>;
@@ -103,7 +99,8 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     deathSpriteNene.y = gf.originalPosition.y;
     deathSpriteNene.zIndex = this.zIndex - 5;
     deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
-    deathSpriteNene.animation.onFinish.add(function(name:String) {
+    deathSpriteNene.animation.onFinish.add(function(name:String)
+    {
       deathSpriteNene.kill();
     });
   }
@@ -200,8 +197,10 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     {
       // ERIC: You have to use super instead of this or it breaks.
       // This is because typeof(this) is PolymodAbstractClass.
-      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
-        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
+      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_)
+      {
+        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_)
+        {
           picoFlicker = null;
         });
       });
@@ -257,7 +256,8 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     HapticUtil.vibrate(0, 0.5);
 
     // Death by Darnell's can.
-    FlxTimer.wait(1.85, function() {
+    FlxTimer.wait(1.85, function()
+    {
       // Pico falls on his knees.
       HapticUtil.vibrate(0, 0.1, 0.1, 1);
     });

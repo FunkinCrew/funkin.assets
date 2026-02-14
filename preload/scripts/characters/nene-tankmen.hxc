@@ -46,7 +46,8 @@ class NeneTankmenCharacter extends NeneBaseCharacter
     comboHeart.zIndex = this.zIndex + 1;
     comboHeart.visible = false;
 
-    comboHeart.animation.onFinish.add((name:String) -> {
+    comboHeart.animation.onFinish.add((name:String) ->
+    {
       comboHeart.visible = false;
     });
   }

@@ -26,45 +26,38 @@ class BoyfriendCard extends BackingCard
   {
     super.applyExitMovers(exitMovers, exitMoversCharSel);
     if (exitMovers == null || exitMoversCharSel == null) return;
-    exitMovers.set([moreWays],
-      {
-        x: FlxG.width * 2,
-        speed: 0.4,
-      });
-    exitMovers.set([funnyScroll],
-      {
-        x: -funnyScroll.width * 2,
-        y: funnyScroll.y,
-        speed: 0.4,
-        wait: 0
-      });
-    exitMovers.set([txtNuts],
-      {
-        x: FlxG.width * 2,
-        speed: 0.4,
-      });
-    exitMovers.set([funnyScroll2],
-      {
-        x: -funnyScroll2.width * 2,
-        speed: 0.5,
-      });
-    exitMovers.set([moreWays2],
-      {
-        x: FlxG.width * 2,
-        speed: 0.4
-      });
-    exitMovers.set([funnyScroll3],
-      {
-        x: -funnyScroll3.width * 2,
-        speed: 0.3
-      });
+    exitMovers.set([moreWays], {
+      x: FlxG.width * 2,
+      speed: 0.4,
+    });
+    exitMovers.set([funnyScroll], {
+      x: -funnyScroll.width * 2,
+      y: funnyScroll.y,
+      speed: 0.4,
+      wait: 0
+    });
+    exitMovers.set([txtNuts], {
+      x: FlxG.width * 2,
+      speed: 0.4,
+    });
+    exitMovers.set([funnyScroll2], {
+      x: -funnyScroll2.width * 2,
+      speed: 0.5,
+    });
+    exitMovers.set([moreWays2], {
+      x: FlxG.width * 2,
+      speed: 0.4
+    });
+    exitMovers.set([funnyScroll3], {
+      x: -funnyScroll3.width * 2,
+      speed: 0.3
+    });
 
-    exitMoversCharSel.set([moreWays, funnyScroll, txtNuts, funnyScroll2, moreWays2, funnyScroll3],
-      {
-        y: -60,
-        speed: 0.8,
-        wait: 0.1
-      });
+    exitMoversCharSel.set([moreWays, funnyScroll, txtNuts, funnyScroll2, moreWays2, funnyScroll3], {
+      y: -60,
+      speed: 0.8,
+      wait: 0.1
+    });
   }
 
   public override function enterCharSel():Void

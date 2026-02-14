@@ -61,7 +61,8 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
     // i had to sort the whole pico chart by hand im gonna go insane
-    animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int {
+    animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
+    {
       return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
     });
 

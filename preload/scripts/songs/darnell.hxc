@@ -109,18 +109,11 @@ class DarnellSong extends Song
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
-    var picoPos:Array<Float> = [
-      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-    ];
-    var nenePos:Array<Float> = [
-      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y
-    ];
-    var darnellPos:Array<Float> = [
-      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-    ];
+    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+    var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
+    var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
     var cutsceneDelay:Float = 2;
 
@@ -161,40 +154,47 @@ class DarnellSong extends Song
     PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true);
 
     // camera sets up, pico does his animation showing him pissed
-    new FlxTimer().start(0.1, function(tmr) {
+    new FlxTimer().start(0.1, function(tmr)
+    {
       PlayState.instance.tweenCameraToPosition(picoPos[0] + 250, picoPos[1], 0);
 
       PlayState.instance.tweenCameraZoom(1.3, 0, true, FlxEase.quadInOut);
     });
 
-    new FlxTimer().start(0.7, function(tmr) {
+    new FlxTimer().start(0.7, function(tmr)
+    {
       cutsceneMusic.play(false);
-      FlxTween.tween(bgSprite, {alpha: 0}, 2, {startDelay: 0.3}, function() {
+      FlxTween.tween(bgSprite, {alpha: 0}, 2, {startDelay: 0.3}, function()
+      {
         bgSprite.visible = false;
       });
     });
 
     // move camera out to show everything
-    new FlxTimer().start(cutsceneDelay, function(tmr) {
+    new FlxTimer().start(cutsceneDelay, function(tmr)
+    {
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 100, darnellPos[1], 2.5, FlxEase.quadInOut);
       PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
     });
 
     // darnell lights up a can
-    new FlxTimer().start(cutsceneDelay + 3, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 3, function(tmr)
+    {
       PlayState.instance.currentStage.getDad().playAnimation('lightCan', true);
       FunkinSound.playOnce(Paths.sound('Darnell_Lighter'), 1.0);
     });
 
     // pico cocks his gun, camera shifts to his side to show this
-    new FlxTimer().start(cutsceneDelay + 4, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 4, function(tmr)
+    {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('cock', true);
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 180, darnellPos[1], 0.4, FlxEase.backOut);
       FunkinSound.playOnce(Paths.sound('Gun_Prep'), 1.0);
     });
 
     // darnell kicks the can up
-    new FlxTimer().start(cutsceneDelay + 4.4, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 4.4, function(tmr)
+    {
       PlayState.instance.currentStage.getDad().playAnimation('kickCan', true);
       FunkinSound.playOnce(Paths.sound('Kick_Can_UP'), 1.0);
       cutsceneCan.animation.play('up');
@@ -202,14 +202,16 @@ class DarnellSong extends Song
     });
 
     // darnell knees the can forward
-    new FlxTimer().start(cutsceneDelay + 4.9, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 4.9, function(tmr)
+    {
       PlayState.instance.currentStage.getDad().playAnimation('kneeCan', true);
       FunkinSound.playOnce(Paths.sound('Kick_Can_FORWARD'), 1.0);
       cutsceneCan.animation.play('forward');
     });
 
     // pico shoots the can, it explodes
-    new FlxTimer().start(cutsceneDelay + 5.1, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 5.1, function(tmr)
+    {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('intro2', true, true);
 
       FunkinSound.playOnce(Paths.soundRandom('shot', 1, 4));
@@ -219,25 +221,29 @@ class DarnellSong extends Song
       newCan.playCanShot();
       newCan.visible = true;
       cutsceneCan.visible = false;
-      new FlxTimer().start(1 / 24, function(tmr) {
+      new FlxTimer().start(1 / 24, function(tmr)
+      {
         darkenStageProps();
       });
     });
 
     // darnell laughs
-    new FlxTimer().start(cutsceneDelay + 5.9, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 5.9, function(tmr)
+    {
       PlayState.instance.currentStage.getDad().playAnimation('laughCutscene', true);
       FunkinSound.playOnce(Paths.sound('cutscene/darnell_laugh'), 0.6);
     });
 
     // nene spits and laughs
-    new FlxTimer().start(cutsceneDelay + 6.2, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 6.2, function(tmr)
+    {
       PlayState.instance.currentStage.getGirlfriend().playAnimation('laughCutscene', true);
       FunkinSound.playOnce(Paths.sound('cutscene/nene_laugh'), 0.6);
     });
 
     // camera returns to normal, cutscene flags set and countdown starts.
-    new FlxTimer().start(cutsceneDelay + 8, function(tmr) {
+    new FlxTimer().start(cutsceneDelay + 8, function(tmr)
+    {
       PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 180, darnellPos[1], 2, FlxEase.sineInOut);
       PlayState.instance.isInCutscene = false;
@@ -294,7 +300,8 @@ class DarnellSong extends Song
 
       // If not excluded, darken.
       stageProp.color = 0xFF111111;
-      new FlxTimer().start(1 / 24, (tmr) -> {
+      new FlxTimer().start(1 / 24, (tmr) ->
+      {
         stageProp.color = 0xFF222222;
         FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
       });

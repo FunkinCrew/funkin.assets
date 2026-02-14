@@ -193,21 +193,18 @@ class PhillyStreetsStage extends Stage
     var offset:Array<Float> = [306.6, 168.3];
     var startdelay:Float = FlxG.random.float(0.2, 1.2);
 
-    var path:Array<FlxPoint> = [
-      FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15),
-      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
-      FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
-    ];
+    var path:Array<FlxPoint> = [FlxPoint.get(1950 - offset[0] - 80,
+      980 - offset[1] + 15), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50), FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)];
 
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay});
-    FlxTween.quadPath(sprite, path, duration, true,
+    FlxTween.quadPath(sprite, path, duration, true, {
+      ease: FlxEase.sineIn,
+      startDelay: startdelay,
+      onComplete: function(_)
       {
-        ease: FlxEase.sineIn,
-        startDelay: startdelay,
-        onComplete: function(_) {
-          carInterruptable = true;
-        }
-      });
+        carInterruptable = true;
+      }
+    });
   }
 
   /**
@@ -241,25 +238,22 @@ class PhillyStreetsStage extends Stage
     var offset:Array<Float> = [306.6, 168.3];
     sprite.offset.set(extraOffset[0], extraOffset[1]);
 
-    var path:Array<FlxPoint> = [
-      FlxPoint.get(1500 - offset[0] - 20, 1049 - offset[1] - 20),
-      FlxPoint.get(1770 - offset[0] - 80, 994 - offset[1] + 10),
-      FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15)
-    ];
+    var path:Array<FlxPoint> = [FlxPoint.get(1500 - offset[0] - 20,
+      1049 - offset[1] - 20), FlxPoint.get(1770 - offset[0] - 80, 994 - offset[1] + 10), FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15)];
     // debug shit!!! keeping it here just in case
     // for(point in path){
     // 	var debug:FlxSprite = new FlxSprite(point.x - 5, point.y - 5).makeGraphic(10, 10, 0xFFFF0000);
     // 	add(debug);
     // }
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut});
-    FlxTween.quadPath(sprite, path, duration, true,
+    FlxTween.quadPath(sprite, path, duration, true, {
+      ease: FlxEase.cubeOut,
+      onComplete: function(_)
       {
-        ease: FlxEase.cubeOut,
-        onComplete: function(_) {
-          carWaiting = true;
-          if (lightsStop == false) finishCarLights(getNamedProp('phillyCars'));
-        }
-      });
+        carWaiting = true;
+        if (lightsStop == false) finishCarLights(getNamedProp('phillyCars'));
+      }
+    });
   }
 
   /**
@@ -298,20 +292,17 @@ class PhillyStreetsStage extends Stage
     // start/end rotation
     var rotations:Array<Int> = [-8, 18];
     // the path to move the car on
-    var path:Array<FlxPoint> = [
-      FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
-      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
-      FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
-    ];
+    var path:Array<FlxPoint> = [FlxPoint.get(1570 - offset[0],
+      1049 - offset[1] - 30), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50), FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)];
 
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
-    FlxTween.quadPath(sprite, path, duration, true,
+    FlxTween.quadPath(sprite, path, duration, true, {
+      ease: null,
+      onComplete: function(_)
       {
-        ease: null,
-        onComplete: function(_) {
-          carInterruptable = true;
-        }
-      });
+        carInterruptable = true;
+      }
+    });
   }
 
   function driveCarBack(sprite:FlxSprite):Void
@@ -346,21 +337,17 @@ class PhillyStreetsStage extends Stage
     // start/end rotation
     var rotations:Array<Int> = [18, -8];
     // the path to move the car on
-    var path:Array<FlxPoint> = [
-      FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 60),
-      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30),
-      FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)
-
-    ];
+    var path:Array<FlxPoint> = [FlxPoint.get(3102 - offset[0],
+      1127 - offset[1] + 60), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30), FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)];
 
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
-    FlxTween.quadPath(sprite, path, duration, true,
+    FlxTween.quadPath(sprite, path, duration, true, {
+      ease: null,
+      onComplete: function(_)
       {
-        ease: null,
-        onComplete: function(_) {
-          car2Interruptable = true;
-        }
-      });
+        car2Interruptable = true;
+      }
+    });
   }
 
   /**

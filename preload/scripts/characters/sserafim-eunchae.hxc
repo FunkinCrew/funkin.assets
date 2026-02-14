@@ -19,33 +19,22 @@ class SserafimEunchaeCharacter extends AnimateAtlasCharacter
    * A map of animation names to lip sync data.
    * This is so it gets offset properly!
    */
-  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = [
-    'idle' =>
-    {
-      offset: [43, 6],
-      angle: -168
-    },
-    'singUP' =>
-    {
-      offset: [45, 10],
-      angle: -166
-    },
-    'singRIGHT' =>
-    {
-      offset: [42, 5],
-      angle: -166
-    },
-    'singDOWN' =>
-    {
-      offset: [41, 3],
-      angle: -168
-    },
-    'singLEFT' =>
-    {
-      offset: [43, 6],
-      angle: -169
-    }
-  ];
+  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = ['idle' => {
+    offset: [43, 6],
+    angle: -168
+  }, 'singUP' => {
+    offset: [45, 10],
+    angle: -166
+  }, 'singRIGHT' => {
+    offset: [42, 5],
+    angle: -166
+  }, 'singDOWN' => {
+    offset: [41, 3],
+    angle: -168
+  }, 'singLEFT' => {
+    offset: [43, 6],
+    angle: -169
+  }];
 
   function new()
   {
@@ -108,8 +97,10 @@ class SserafimEunchaeCharacter extends AnimateAtlasCharacter
     var symbolItem:SymbolItem = this.library.getSymbol('mouth default');
     var layer:Layer = symbolItem.timeline.getLayer(0);
 
-    layer.forEachFrame((frame) -> {
-      frame.forEachElement((element) -> {
+    layer.forEachFrame((frame) ->
+    {
+      frame.forEachElement((element) ->
+      {
         element.visible = false;
       });
     });

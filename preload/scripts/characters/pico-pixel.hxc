@@ -31,7 +31,8 @@ class PicoPixelCharacter extends SparrowCharacter
     deathSpriteNene.scale.set(6, 6);
     deathSpriteNene.antialiasing = false;
     deathSpriteNene.visible = true;
-    deathSpriteNene.animation.finishCallback = function(name:String) {
+    deathSpriteNene.animation.finishCallback = function(name:String)
+    {
       deathSpriteNene.visible = false;
     }
   }

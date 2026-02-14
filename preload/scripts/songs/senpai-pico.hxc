@@ -17,10 +17,9 @@ class SenpaiPicoMixSong extends Song
 
   public function new()
   {
-    super('senpai',
-      {
-        variation: 'pico'
-      });
+    super('senpai', {
+      variation: 'pico'
+    });
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
@@ -60,24 +59,26 @@ class SenpaiPicoMixSong extends Song
 
     black.alpha = 1.0;
 
-    var tweenFunction = function(x) {
+    var tweenFunction = function(x)
+    {
       var xSnapped = Math.floor(x * 8) / 8;
       // black.alpha = 1.0 - xSnapped;
     };
 
-    new FlxTimer().start(0.25, _ -> {
+    new FlxTimer().start(0.25, _ ->
+    {
       PlayState.instance.remove(black);
       RetroCameraFade.fadeBlack(PlayState.instance.camGame, 12, 2);
     });
 
-    FlxTween.num(0.0, 1.0, 2.0,
+    FlxTween.num(0.0, 1.0, 2.0, {
+      ease: FlxEase.linear,
+      startDelay: 0.25,
+      onComplete: function(input)
       {
-        ease: FlxEase.linear,
-        startDelay: 0.25,
-        onComplete: function(input) {
-          startDialogue();
-        }
-      }, tweenFunction);
+        startDialogue();
+      }
+    }, tweenFunction);
   }
 
   function startDialogue()

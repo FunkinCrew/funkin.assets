@@ -17,10 +17,9 @@ class RosesPicoMixSong extends Song
 
   public function new()
   {
-    super('roses',
-      {
-        variation: 'pico'
-      });
+    super('roses', {
+      variation: 'pico'
+    });
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void

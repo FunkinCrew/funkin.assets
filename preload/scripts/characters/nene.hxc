@@ -195,7 +195,8 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
 
-    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int)
+    {
       if (frameNumber == 16)
       {
         pupil.anim.pause();

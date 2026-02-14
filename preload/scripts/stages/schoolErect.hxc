@@ -55,7 +55,8 @@ class SchoolErectStage extends Stage
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 
-        character.animation.onFrameChange.add(function() {
+        character.animation.onFrameChange.add(function()
+        {
           if (getBoyfriend() != null)
           {
             rim.updateFrameInfo(getBoyfriend().frame);
@@ -82,7 +83,8 @@ class SchoolErectStage extends Stage
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 
-        character.animation.onFrameChange.add(function() {
+        character.animation.onFrameChange.add(function()
+        {
           if (getGirlfriend() != null)
           {
             rim.updateFrameInfo(getGirlfriend().frame);
@@ -97,7 +99,8 @@ class SchoolErectStage extends Stage
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 
-        character.animation.onFrameChange.add(function() {
+        character.animation.onFrameChange.add(function()
+        {
           if (getDad() != null)
           {
             rim.updateFrameInfo(getDad().frame);

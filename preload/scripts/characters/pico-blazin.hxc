@@ -138,11 +138,13 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
       if (HapticUtil.hapticsAvailable)
       {
-        new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+        new FlxTimer().start(0.5, function(tmr:FlxTimer)
+        {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
 
-          new FlxTimer().start(0.6, function(tmr:FlxTimer) {
+          new FlxTimer().start(0.6, function(tmr:FlxTimer)
+          {
             // Pico falls "asleep". :)
             HapticUtil.vibrate(0, 0.1, 0.1, 1);
           });

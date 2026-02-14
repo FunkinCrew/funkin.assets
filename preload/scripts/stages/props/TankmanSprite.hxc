@@ -41,8 +41,10 @@ class TankmanSprite extends FunkinSprite
   {
     // ERIC: You have to use super instead of this or it breaks.
     // This is because typeof(this) is PolymodAbstractClass.
-    tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 10, true, true, function(_) {
-      tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 20, false, true, function(_) {
+    tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 10, true, true, function(_)
+    {
+      tankmanFlicker = FlxFlicker.flicker(super, 0.3, 1 / 20, false, true, function(_)
+      {
         tankmanFlicker = null;
         kill();
       });
@@ -69,7 +71,8 @@ class TankmanSprite extends FunkinSprite
 
     // rim.attachedSprite = tankman;
 
-    animation.onFrameChange.add(function() {
+    animation.onFrameChange.add(function()
+    {
       rim.updateFrameInfo(this.frame);
     });
 

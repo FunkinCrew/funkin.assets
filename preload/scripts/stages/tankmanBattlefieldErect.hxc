@@ -79,7 +79,8 @@ class TankmanBattlefieldErectStage extends Stage
     // TODO: This is here because of a Polymod bug!!
     var character_persist:BaseCharacter = character;
 
-    character.animation.onFrameChange.add(function() {
+    character.animation.onFrameChange.add(function()
+    {
       if (character_persist != null)
       {
         rim.updateFrameInfo(character_persist.frame);

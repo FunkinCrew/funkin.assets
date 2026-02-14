@@ -58,7 +58,8 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 
     // We don't want people to miss this.
     GameOverSubState.instance.mustNotExit = true;
-    this.animation.onFinish.addOnce(() -> {
+    this.animation.onFinish.addOnce(() ->
+    {
       GameOverSubState.instance.mustNotExit = false;
       this.playAnimation('firstDeath', true);
       // Play the "blue balled" sound. May play a variant if one has been assigned.

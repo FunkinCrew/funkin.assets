@@ -7,10 +7,9 @@ class SserafimGfSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("cutscene/gfGetUp", "sserafim",
-      {
-        cacheOnLoad: true
-      });
+    loadTextureAtlas("cutscene/gfGetUp", "sserafim", {
+      cacheOnLoad: true
+    });
   }
 
   public function resetAnim():Void

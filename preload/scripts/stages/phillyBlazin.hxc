@@ -152,10 +152,9 @@ class PhillyBlazinStage extends Stage
 
     skyAdditive.visible = true;
     skyAdditive.alpha = 0.7;
-    FlxTween.tween(skyAdditive, {alpha: 0.0}, LIGHTNING_FULL_DURATION,
-      {
-        onComplete: cleanupLightning, // Make sure to call this only once!
-      });
+    FlxTween.tween(skyAdditive, {alpha: 0.0}, LIGHTNING_FULL_DURATION, {
+      onComplete: cleanupLightning, // Make sure to call this only once!
+    });
 
     foregroundMultiply.visible = true;
     foregroundMultiply.alpha = 0.64;

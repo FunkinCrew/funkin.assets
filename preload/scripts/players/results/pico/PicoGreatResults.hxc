@@ -17,7 +17,8 @@ class PicoGreatResults extends FunkinSprite
     loadTextureAtlas("resultScreen/results-pico/resultsGREAT", "shared");
     scaleFlashes();
 
-    animation.onFrameChange.add((animation:String, frame:Int) -> {
+    animation.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (!HapticUtil.hapticsAvailable) return;
 
       // Pico shoots.

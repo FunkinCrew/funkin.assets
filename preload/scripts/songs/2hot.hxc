@@ -26,13 +26,12 @@ class TwoHOTSong extends Song
   var hasPlayedCutscene:Bool = false;
   var cutsceneConductor:Null<Conductor>;
 
-  var canVibrationPreset:VibrationPreset =
-    {
-      period: 0.1,
-      duration: 0.1,
-      amplitude: 1,
-      sharpness: 1
-    };
+  var canVibrationPreset:VibrationPreset = {
+    period: 0.1,
+    duration: 0.1,
+    amplitude: 1,
+    sharpness: 1
+  };
 
   function new()
   {
@@ -106,12 +105,14 @@ class TwoHOTSong extends Song
     PlayState.instance.currentStage.getGirlfriend().hasDanced = false;
     PlayState.instance.currentStage.getGirlfriend().dance(true);
 
-    new FlxTimer().start(1, function(tmr) {
+    new FlxTimer().start(1, function(tmr)
+    {
       PlayState.instance.tweenCameraToPosition(1539, 833.5, 2, FlxEase.quadInOut);
       PlayState.instance.tweenCameraZoom(0.69, 2, true, FlxEase.quadInOut);
     });
 
-    new FlxTimer().start(2, function(tmr) {
+    new FlxTimer().start(2, function(tmr)
+    {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
       if (FlxG.onMobile)
       {
@@ -121,11 +122,13 @@ class TwoHOTSong extends Song
       FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
     });
 
-    new FlxTimer().start(2.5, function(tmr) {
+    new FlxTimer().start(2.5, function(tmr)
+    {
       PlayState.instance.currentStage.getDad().playAnimation('pissed', true, true);
     });
 
-    new FlxTimer().start(6, function(tmr) {
+    new FlxTimer().start(6, function(tmr)
+    {
       // video would play around here
       // PlayState.instance.endSong(true);
 
@@ -147,7 +150,8 @@ class TwoHOTSong extends Song
   function startCutscene()
   {
     VideoCutscene.onVideoStarted.add(endCutscene);
-    VideoCutscene.onVideoEnded.addOnce(function() {
+    VideoCutscene.onVideoEnded.addOnce(function()
+    {
       if (FlxG.onMobile)
       {
         PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - Math.max(40, FullScreenScaleMode.gameNotchSize.x);
@@ -157,7 +161,8 @@ class TwoHOTSong extends Song
 
     cutsceneConductor = new Conductor();
     cutsceneConductor.forceBPM(86.5);
-    cutsceneConductor.onBeatHit.add(() -> {
+    cutsceneConductor.onBeatHit.add(() ->
+    {
       if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished())
       {
         PlayState.instance.currentStage.getGirlfriend().dance(true);
@@ -238,7 +243,8 @@ class TwoHOTSong extends Song
         // Do nothing, but place this such that the animation plays at the right time.
       case "weekend-1-cockgun": // lol
         gunCocked = true;
-        new FlxTimer().start(1.0, function() {
+        new FlxTimer().start(1.0, function()
+        {
           gunCocked = false;
         });
       case "weekend-1-firegun":
@@ -312,7 +318,8 @@ class TwoHOTSong extends Song
 
       // If not excluded, darken.
       stageProp.color = 0xFF111111;
-      new FlxTimer().start(1 / 24, (tmr) -> {
+      new FlxTimer().start(1 / 24, (tmr) ->
+      {
         stageProp.color = 0xFF222222;
         FlxTween.color(stageProp, 1.4, 0xFF222222, 0xFFFFFFFF);
       });
@@ -343,7 +350,8 @@ class TwoHOTSong extends Song
 
       // If not excluded, blacken.
       stageProp.color = 0xFF000000;
-      new FlxTimer().start(1.0, (tmr) -> {
+      new FlxTimer().start(1.0, (tmr) ->
+      {
         stageProp.color = 0xFFFFFFFF;
       });
     }
@@ -358,7 +366,8 @@ class TwoHOTSong extends Song
       can.currentState = STATE_SHOT;
       can.playCanShot();
 
-      new FlxTimer().start(1 / 24, function(tmr) {
+      new FlxTimer().start(1 / 24, function(tmr)
+      {
         darkenStageProps();
 
         if (HapticUtil.hapticsAvailable)
@@ -388,7 +397,8 @@ class TwoHOTSong extends Song
     impactParticle.y = PlayState.instance.currentStage.getBoyfriend().y - 200;
     PlayState.instance.currentStage.add(impactParticle);
 
-    impactParticle.animation.finishCallback = function() {
+    impactParticle.animation.finishCallback = function()
+    {
       impactParticle.kill();
     };
   }
@@ -445,7 +455,8 @@ class TwoHOTSong extends Song
       // Can hits pico.
       HapticUtil.vibrateByPreset(canVibrationPreset);
 
-      new FlxTimer().start(0.45, function(tmr) {
+      new FlxTimer().start(0.45, function(tmr)
+      {
         // Can explodes.
         HapticUtil.vibrateByPreset(canVibrationPreset);
       });

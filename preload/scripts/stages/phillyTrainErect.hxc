@@ -157,14 +157,8 @@ class PhillyTrainErectStage extends Stage
       bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 460);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 10, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      shooterPos = [
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-      ];
-      cigarettePos = [
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-      ];
+      shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+      cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
     }
     else
     {
@@ -175,14 +169,8 @@ class PhillyTrainErectStage extends Stage
       bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 460);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 350, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      cigarettePos = [
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-      ];
-      shooterPos = [
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-      ];
+      cigarettePos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+      shooterPos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
     }
     var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0]) / 2, (shooterPos[1] + cigarettePos[1]) / 2];
 
@@ -220,34 +208,39 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
 
-    new FlxTimer(cutsceneTimerManager).start(4, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(4, _ ->
+    {
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(6.3, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(6.3, _ ->
+    {
       PlayState.instance.cameraFollowPoint.setPosition(shooterPos[0], shooterPos[1]);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(8.75, _ ->
+    {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5,
+      FlxTween.tween(skipText, {alpha: 0}, 0.5, {
+        ease: FlxEase.quadIn,
+        onComplete: _ ->
         {
-          ease: FlxEase.quadIn,
-          onComplete: _ -> {
-            skipText.visible = false;
-          }
-        });
+          skipText.visible = false;
+        }
+      });
       // cutting off skipping here. really dont think its needed after this point and it saves problems from happening
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
       if (explode) PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(11.2, _ ->
+    {
       if (explode) bloodPool.doAnim();
     });
 
-    new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(11.5, _ ->
+    {
       if (!explode)
       {
         cigarette.visible = true;
@@ -255,7 +248,8 @@ class PhillyTrainErectStage extends Stage
       }
     });
 
-    new FlxTimer(cutsceneTimerManager).start(13, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(13, _ ->
+    {
       if (explode)
       {
         if (playerShoots)
@@ -272,11 +266,13 @@ class PhillyTrainErectStage extends Stage
           PlayState.instance.disableKeys = true;
           PlayState.instance.currentStage.getDad().visible = true;
 
-          new FlxTimer().start(1, function(tmr) {
+          new FlxTimer().start(1, function(tmr)
+          {
             PlayState.instance.camCutscene.fade(0xFF000000, 1, false, null, true);
           });
 
-          new FlxTimer().start(2, function(tmr) {
+          new FlxTimer().start(2, function(tmr)
+          {
             PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
             PlayState.instance.endSong(true);
           });
@@ -306,7 +302,8 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
     cutsceneMusic.fadeOut(0.5, 0);
 
-    new FlxTimer().start(0.5, _ -> {
+    new FlxTimer().start(0.5, _ ->
+    {
       PlayState.instance.justUnpaused = true;
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
@@ -415,7 +412,8 @@ class PhillyTrainErectStage extends Stage
         if (skipText != null)
         {
           FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-          new FlxTimer().start(0.5, _ -> {
+          new FlxTimer().start(0.5, _ ->
+          {
             canSkipCutscene = true;
             trace('can skip!');
           });

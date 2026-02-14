@@ -19,33 +19,22 @@ class SserafimYunjinCharacter extends AnimateAtlasCharacter
    * A map of animation names to lip sync data.
    * This is so it gets offset properly!
    */
-  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = [
-    'idle' =>
-    {
-      offset: [8, 6],
-      angle: 23
-    },
-    'singUP' =>
-    {
-      offset: [6, 8],
-      angle: 22
-    },
-    'singRIGHT' =>
-    {
-      offset: [6, 8],
-      angle: 23
-    },
-    'singDOWN' =>
-    {
-      offset: [8, 6],
-      angle: 23
-    },
-    'singLEFT' =>
-    {
-      offset: [6, 8],
-      angle: 23
-    }
-  ];
+  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = ['idle' => {
+    offset: [8, 6],
+    angle: 23
+  }, 'singUP' => {
+    offset: [6, 8],
+    angle: 22
+  }, 'singRIGHT' => {
+    offset: [6, 8],
+    angle: 23
+  }, 'singDOWN' => {
+    offset: [8, 6],
+    angle: 23
+  }, 'singLEFT' => {
+    offset: [6, 8],
+    angle: 23
+  }];
 
   function new()
   {

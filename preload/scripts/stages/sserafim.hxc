@@ -242,13 +242,15 @@ class SserafimStage extends Stage
 
           yunjin.animation.onFrameChange.removeAll();
 
-          yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int) {
+          yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int)
+          {
             // at this point in the animation, the door is no longer part of her animation...
             // show a static one!
             if (frameNumber == 23) getNamedProp('truckDoor').visible = true;
           });
 
-          yunjin.animation.onFinish.addOnce(function(animName:String) {
+          yunjin.animation.onFinish.addOnce(function(animName:String)
+          {
             yunjin.animation.onFrameChange.removeAll();
           });
 
@@ -424,18 +426,19 @@ class SserafimStage extends Stage
     characterShader.truckLightStrength = amount;
     stageShader.truckLightStrength = amount;
 
-    FlxTween.tween(getNamedProp('truckLight1'), {alpha: 0}, duration,
+    FlxTween.tween(getNamedProp('truckLight1'), {alpha: 0}, duration, {
+      ease: FlxEase.cubeInOut,
+      onUpdate: function(tween:FlxTween)
       {
-        ease: FlxEase.cubeInOut,
-        onUpdate: function(tween:FlxTween) {
-          characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-          stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-        },
-        onComplete: function(tween:FlxTween) {
-          characterShader.truckLightStrength = 0;
-          stageShader.truckLightStrength = 0;
-        }
-      });
+        characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+        stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+      },
+      onComplete: function(tween:FlxTween)
+      {
+        characterShader.truckLightStrength = 0;
+        stageShader.truckLightStrength = 0;
+      }
+    });
     FlxTween.tween(getNamedProp('truckLight2'), {alpha: 0}, duration, {ease: FlxEase.cubeInOut});
   }
 
@@ -470,18 +473,19 @@ class SserafimStage extends Stage
     characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
     stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
 
-    FlxTween.tween(getNamedProp('backLightColor'), {alpha: 0}, duration,
+    FlxTween.tween(getNamedProp('backLightColor'), {alpha: 0}, duration, {
+      ease: FlxEase.cubeInOut,
+      onUpdate: function(tween:FlxTween)
       {
-        ease: FlxEase.cubeInOut,
-        onUpdate: function(tween:FlxTween) {
-          characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-          stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-        },
-        onComplete: function(tween:FlxTween) {
-          characterShader.pulseLightStrength = 0;
-          stageShader.pulseLightStrength = 0;
-        }
-      });
+        characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+        stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+      },
+      onComplete: function(tween:FlxTween)
+      {
+        characterShader.pulseLightStrength = 0;
+        stageShader.pulseLightStrength = 0;
+      }
+    });
     FlxTween.tween(getNamedProp('backLightWhite'), {alpha: 0}, duration, {ease: FlxEase.cubeInOut});
   }
 
@@ -527,7 +531,8 @@ class SserafimStage extends Stage
         if (skipText != null)
         {
           FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-          new FlxTimer().start(0.5, _ -> {
+          new FlxTimer().start(0.5, _ ->
+          {
             canSkipCutscene = true;
             trace('can skip!');
           });
@@ -673,7 +678,8 @@ class SserafimStage extends Stage
   {
     FunkinSound.playOnce(Paths.sound('cutscene/end1'), 1.0);
 
-    new FlxTimer().start(0.05, function(tmr) {
+    new FlxTimer().start(0.05, function(tmr)
+    {
       HapticUtil.vibrate(0, 0.2, 0.4, 0);
 
       SEEYOU1.visible = true;
@@ -684,7 +690,8 @@ class SserafimStage extends Stage
       PlayState.instance.mayPauseGame = false;
     });
 
-    new FlxTimer().start(4, function(tmr) {
+    new FlxTimer().start(4, function(tmr)
+    {
       SEEYOU1.visible = false;
       SEEYOU2.visible = true;
       FunkinSound.playOnce(Paths.sound('cutscene/end2'), 1.0);
@@ -692,12 +699,14 @@ class SserafimStage extends Stage
       HapticUtil.vibrate(0, 0.4, 0.5, 0);
     });
 
-    new FlxTimer().start(8, function(tmr) {
+    new FlxTimer().start(8, function(tmr)
+    {
       SEEYOU1.visible = false;
       SEEYOU2.visible = false;
     });
 
-    new FlxTimer().start(9, function(tmr) {
+    new FlxTimer().start(9, function(tmr)
+    {
       PlayState.instance.endSong(true);
     });
   }
@@ -749,7 +758,8 @@ class SserafimStage extends Stage
 
     PlayState.instance.camGame.fade(0xFF000000, 3, true, null, true);
 
-    new FlxTimer(cutsceneTimerManager).start(20 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(20 / 24, function(tmr)
+    {
       cutsceneSounds = FunkinSound.load(Paths.sound('cutscene/startCutscene'), 1.0, false, true, true);
     });
 
@@ -757,84 +767,87 @@ class SserafimStage extends Stage
     PlayState.instance.tweenCameraToPosition(660, 300, 3, FlxEase.circOut);
 
     // gf taps herself
-    new FlxTimer(cutsceneTimerManager).start(245 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(245 / 24, function(tmr)
+    {
       HapticUtil.vibrate(0, 0.1, 0.2, 0);
 
       setDarkenAmt(0.2, 0.01);
     });
-    new FlxTimer(cutsceneTimerManager).start(251 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(251 / 24, function(tmr)
+    {
       setDarkenAmt(0, 0.8);
     });
 
     // gf taps bf
-    new FlxTimer(cutsceneTimerManager).start(406 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(406 / 24, function(tmr)
+    {
       HapticUtil.vibrate(0, 0.1, 0.2, 0);
 
       setDarkenAmt(0.2, 0.01);
     });
-    new FlxTimer(cutsceneTimerManager).start(411 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(411 / 24, function(tmr)
+    {
       setDarkenAmt(0, 0.8);
     });
 
     // truck starts getting closer
-    new FlxTimer(cutsceneTimerManager).start(499 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(499 / 24, function(tmr)
+    {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5,
+      FlxTween.tween(skipText, {alpha: 0}, 0.5, {
+        ease: FlxEase.quadIn,
+        onComplete: _ ->
         {
-          ease: FlxEase.quadIn,
-          onComplete: _ -> {
-            skipText.visible = false;
-          }
-        });
+          skipText.visible = false;
+        }
+      });
       // cutting off skipping here. really dont think its needed after this point and it saves problems from happening
 
       FlxTween.cancelTweensOf(stageShader);
       FlxTween.cancelTweensOf(characterShader);
 
-      FlxTween.tween(stageShader,
-        {
-          baseBrightness: 55,
-          baseHue: 0,
-          baseContrast: -30,
-          baseSaturation: 0
-        }, 49 / 24, {ease: FlxEase.sineOut});
-      FlxTween.tween(characterShader,
-        {
-          baseBrightness: 55,
-          baseHue: 0,
-          baseContrast: -30,
-          baseSaturation: 0
-        }, 49 / 24, {ease: FlxEase.sineOut});
+      FlxTween.tween(stageShader, {
+        baseBrightness: 55,
+        baseHue: 0,
+        baseContrast: -30,
+        baseSaturation: 0
+      }, 49 / 24, {ease: FlxEase.sineOut});
+      FlxTween.tween(characterShader, {
+        baseBrightness: 55,
+        baseHue: 0,
+        baseContrast: -30,
+        baseSaturation: 0
+      }, 49 / 24, {ease: FlxEase.sineOut});
       HapticUtil.vibrate(10 / 24, 50 / 24, 0.1, 0.1);
     });
 
     // truck gets really close
-    new FlxTimer(cutsceneTimerManager).start(548 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(548 / 24, function(tmr)
+    {
       FlxTween.cancelTweensOf(stageShader);
       FlxTween.cancelTweensOf(characterShader);
 
-      FlxTween.tween(stageShader,
-        {
-          baseBrightness: 66,
-          baseHue: 10,
-          baseContrast: -17,
-          baseSaturation: 0
-        }, 15 / 24, {ease: FlxEase.expoIn});
-      FlxTween.tween(characterShader,
-        {
-          baseBrightness: 66,
-          baseHue: 10,
-          baseContrast: -17,
-          baseSaturation: 0
-        }, 15 / 24, {ease: FlxEase.expoIn});
+      FlxTween.tween(stageShader, {
+        baseBrightness: 66,
+        baseHue: 10,
+        baseContrast: -17,
+        baseSaturation: 0
+      }, 15 / 24, {ease: FlxEase.expoIn});
+      FlxTween.tween(characterShader, {
+        baseBrightness: 66,
+        baseHue: 10,
+        baseContrast: -17,
+        baseSaturation: 0
+      }, 15 / 24, {ease: FlxEase.expoIn});
       HapticUtil.vibrate(2 / 24, 20 / 24, 0.4, 0.4);
     });
 
     var offsetLol:Float = 562;
 
     // car crash + flash
-    new FlxTimer(cutsceneTimerManager).start(563 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(563 / 24, function(tmr)
+    {
       FlxTween.cancelTweensOf(stageShader);
       FlxTween.cancelTweensOf(characterShader);
 
@@ -845,13 +858,15 @@ class SserafimStage extends Stage
 
       setCutsceneVisibility(false);
 
-      new FlxTimer().start(5 / 24, function(tmr) {
+      new FlxTimer().start(5 / 24, function(tmr)
+      {
         HapticUtil.vibrate(0, 10 / 24, 1, 1);
       });
     });
 
     // fade out from black and add dust
-    new FlxTimer(cutsceneTimerManager).start(650 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(650 / 24, function(tmr)
+    {
       PlayState.instance.tweenCameraZoom(0.7, 0, true);
       PlayState.instance.tweenCameraZoom(0.55, 3, true, FlxEase.circOut);
       PlayState.instance.tweenCameraToPosition(1070, 470, 0);
@@ -865,13 +880,15 @@ class SserafimStage extends Stage
       sserafimBf.resetAnim();
     });
 
-    new FlxTimer(cutsceneTimerManager).start(710 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(710 / 24, function(tmr)
+    {
       sserafimGf.doAnim();
       sserafimBf.doAnim();
     });
 
     // actually start song
-    new FlxTimer(cutsceneTimerManager).start(730 / 24, function(tmr) {
+    new FlxTimer(cutsceneTimerManager).start(730 / 24, function(tmr)
+    {
       PlayState.instance.isInCutscene = false;
       PlayState.instance.startCountdown();
 
@@ -889,7 +906,8 @@ class SserafimStage extends Stage
 
     if (cutsceneSounds != null) cutsceneSounds.fadeOut(0.5, 0);
 
-    new FlxTimer().start(0.5, _ -> {
+    new FlxTimer().start(0.5, _ ->
+    {
       PlayState.instance.justUnpaused = true;
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
@@ -923,18 +941,7 @@ class SserafimStage extends Stage
 
     getNamedProp('truckDoor').visible = false;
 
-    for (thing in [
-      stageShader,
-      characterShader,
-      dust1,
-      dust1.velocity,
-      dust2,
-      dust2.velocity,
-      dust3,
-      dust3.velocity,
-      dust4,
-      dust4.velocity
-    ])
+    for (thing in [stageShader, characterShader, dust1, dust1.velocity, dust2, dust2.velocity, dust3, dust3.velocity, dust4, dust4.velocity])
     {
       FlxTween.cancelTweensOf(thing);
     }
@@ -960,20 +967,18 @@ class SserafimStage extends Stage
 
   function startClear()
   {
-    FlxTween.tween(stageShader,
-      {
-        baseBrightness: 0,
-        baseHue: 0,
-        baseContrast: 0,
-        baseSaturation: 0
-      }, 6.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(characterShader,
-      {
-        baseBrightness: 0,
-        baseHue: 0,
-        baseContrast: 0,
-        baseSaturation: 0
-      }, 6.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(stageShader, {
+      baseBrightness: 0,
+      baseHue: 0,
+      baseContrast: 0,
+      baseSaturation: 0
+    }, 6.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(characterShader, {
+      baseBrightness: 0,
+      baseHue: 0,
+      baseContrast: 0,
+      baseSaturation: 0
+    }, 6.0 * 4, {ease: FlxEase.sineOut});
 
     FlxTween.tween(dust1, {alpha: 0, y: dust1.y + 100}, 5.0 * 4, {ease: FlxEase.sineOut});
     FlxTween.tween(dust2, {alpha: 0, y: dust2.y + 200}, 4.0 * 4, {ease: FlxEase.sineOut});

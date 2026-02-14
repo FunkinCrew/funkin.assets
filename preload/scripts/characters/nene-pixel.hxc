@@ -63,7 +63,8 @@ class NenePixelCharacter extends SparrowCharacter
     abotBack.x = this.x;
     abotBack.y = this.y;
 
-    abotHead.animation.finishCallback = function(name:String):Void {
+    abotHead.animation.finishCallback = function(name:String):Void
+    {
       if (name == 'toleft')
       {
         pupilState = PUPIL_STATE_LEFT;
@@ -169,7 +170,8 @@ class NenePixelCharacter extends SparrowCharacter
     abotSpeakerShader.threshold = 1;
 
     abotSpeakerShader.attachedSprite = abotSpeaker;
-    abotSpeaker.animation.onFrameChange.add(function() {
+    abotSpeaker.animation.onFrameChange.add(function()
+    {
       abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
     });
 
