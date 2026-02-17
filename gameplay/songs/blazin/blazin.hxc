@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.play.cutscene.VideoCutscene;
@@ -7,7 +6,6 @@ import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.save.Save;
 import funkin.mobile.input.ControlsHandler;
-import funkin.Preferences;
 
 /**
  * Apply middlescroll to the song.

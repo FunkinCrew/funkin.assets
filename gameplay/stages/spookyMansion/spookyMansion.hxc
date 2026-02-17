@@ -1,8 +1,6 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.util.Constants;
 import funkin.util.HapticUtil;
 import funkin.FunkinMemory;
 

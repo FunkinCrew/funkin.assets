@@ -1,10 +1,7 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
-import funkin.Preferences;
-import funkin.util.Constants;
 import funkin.util.HapticUtil;
 import funkin.FunkinMemory;
 

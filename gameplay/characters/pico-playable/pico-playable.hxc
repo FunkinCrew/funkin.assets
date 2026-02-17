@@ -1,7 +1,6 @@
 package funkin.play.character;
 
 import flixel.effects.FlxFlicker;
-import flixel.FlxG;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -12,9 +11,7 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
-import funkin.util.Constants;
 import funkin.util.HapticUtil;
-import funkin.Preferences;
 import funkin.FunkinMemory;
 
 class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter

@@ -4,9 +4,7 @@ import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
-import funkin.Preferences;
 
 class PicoDopplegangerSprite extends FunkinSprite
 {

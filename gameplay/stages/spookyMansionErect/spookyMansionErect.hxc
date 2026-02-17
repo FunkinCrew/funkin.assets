@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -6,12 +5,10 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.util.FlxTweenUtil;
 import funkin.util.HapticUtil;
-import funkin.util.Constants;
 import flixel.util.FlxTimer;
 import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.FunkinMemory;
 

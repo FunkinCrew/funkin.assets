@@ -4,17 +4,14 @@ import funkin.save.Save;
 import funkin.play.cutscene.VideoCutscene;
 import openfl.filters.ShaderFilter;
 import flixel.FlxCamera;
-import flixel.FlxG;
 import flixel.math.FlxPoint;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
-import funkin.util.Constants;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
-import funkin.Preferences;
 
 class StressPicoMixSong extends Song
 {
