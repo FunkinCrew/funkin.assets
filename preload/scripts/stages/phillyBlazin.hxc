@@ -1,5 +1,4 @@
 import funkin.graphics.shaders.GaussianBlurShader;
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;

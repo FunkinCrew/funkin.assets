@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
@@ -6,7 +5,6 @@ import funkin.Conductor;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import flixel.FlxG;
 
 class MallXmasErectStage extends Stage
 {

@@ -6,14 +6,11 @@ import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
 import flixel.FlxSprite;
-import flixel.FlxG;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
-import funkin.Preferences;
-import funkin.util.Constants;
 
 class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {

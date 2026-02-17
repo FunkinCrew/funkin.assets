@@ -1,5 +1,4 @@
 import flixel.addons.display.FlxBackdrop;
-import flixel.FlxG;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.tweens.misc.ColorTween;
@@ -15,7 +14,6 @@ import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
 import funkin.ui.FullScreenScaleMode;
 import funkin.play.character.CharacterType;
-import funkin.play.character.CharacterType;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
@@ -23,7 +21,6 @@ import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
-import funkin.util.Constants;
 import funkin.util.TouchUtil;
 
 class SserafimStage extends Stage

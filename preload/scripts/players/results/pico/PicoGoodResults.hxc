@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.util.HapticUtil;
 

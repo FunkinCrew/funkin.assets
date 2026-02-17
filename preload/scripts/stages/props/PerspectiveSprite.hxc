@@ -1,6 +1,5 @@
 import flixel.addons.effects.FlxSkewedSprite;
 import flixel.FlxCamera;
-import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;

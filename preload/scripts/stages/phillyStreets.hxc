@@ -1,11 +1,9 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import funkin.audio.FunkinSound;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.graphics.framebuffer.BitmapDataUtil;

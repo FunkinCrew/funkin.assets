@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
@@ -16,7 +15,6 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import funkin.Preferences;
 import funkin.util.TouchUtil;
 import funkin.util.HapticUtil;
 import funkin.ui.FullScreenScaleMode;

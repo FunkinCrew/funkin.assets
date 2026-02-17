@@ -2,7 +2,6 @@ package funkin.play.character;
 
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
-import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 
