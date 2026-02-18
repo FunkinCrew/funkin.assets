@@ -1,0 +1,160 @@
+{
+  "version": "1.0.0",
+  "name": "Pico",
+  "ownedChars": [
+    "pico",
+    "pico-playable",
+    "pico-pixel",
+    "pico-blazin",
+    "pico-christmas",
+    "pico-dark",
+    "pico-holding-nene"
+  ],
+  "showUnownedChars": false,
+  "unlocked": true,
+  "freeplayStyle": "pico",
+  "stickerPack": "standard-pico",
+  "freeplayDJ": {
+    "assetPath": "ui/freeplay/dj/pico/freeplay-pico",
+    "text1": "PICO",
+    "text2": "GOD DAMN HE DOWN ON THE NUT",
+    "text3": "ZEBOIM DAMN IMA NUT",
+    "fistPump": {
+      "introStartFrame": 0,
+      "introEndFrame": 3,
+
+      "loopStartFrame": 4,
+      "loopEndFrame": -1,
+
+      "introBadStartFrame": 0,
+      "introBadEndFrame": 0,
+
+      "loopBadStartFrame": 0,
+      "loopBadEndFrame": -1
+    },
+    "charSelect": {
+      "transitionDelay": 0.45
+    },
+    "useAnimatePosition": true,
+    "animations": [
+      {
+        "name": "intro",
+        "prefix": "Intro",
+        "animType": "framelabel"
+      },
+      {
+        "name": "idle",
+        "prefix": "Idle",
+        "animType": "framelabel"
+      },
+      {
+        "name": "idleEasterEgg",
+        "prefix": "AFK",
+        "animType": "framelabel"
+      },
+      {
+        "name": "confirm",
+        "prefix": "Confirm",
+        "animType": "framelabel"
+      },
+      {
+        "name": "fistPump",
+        "prefix": "Fist Pump",
+        "animType": "framelabel"
+      },
+      {
+        "name": "loss",
+        "prefix": "Fist Pump Loss",
+        "animType": "framelabel"
+      },
+      {
+        "name": "charSelect",
+        "prefix": "To Character Select",
+        "animType": "framelabel"
+      }
+    ]
+  },
+  "charSelect": {
+    "position": 3,
+    "assetPath": "ui/character-select/characters/pico",
+    "gf": {
+      "assetPath": "ui/character-select/characters/nene",
+      "animInfoPath": "ui/character-select/characters/nene",
+      "visualizer": true
+    }
+  },
+  "results": {
+    "music": {
+      "PERFECT_GOLD": "gameplay/playable-characters/pico/results/music/results-perfect/results-perfect",
+      "PERFECT": "gameplay/playable-characters/pico/results/music/results-perfect/results-perfect",
+      "EXCELLENT": "gameplay/playable-characters/pico/results/music/results-excellent/results-excellent",
+      "GREAT": "gameplay/playable-characters/pico/results/music/results-normal/results-normal",
+      "GOOD": "gameplay/playable-characters/pico/results/music/results-normal/results-normal",
+      "SHIT": "gameplay/playable-characters/pico/results/music/results-shit/results-shit"
+    },
+    "perfectGold": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-perfect",
+        "scriptClass": "PicoPerfectResults",
+        "zIndex": 500,
+        "scale": 0.88,
+        "offsets": [-169.5, -219],
+        "loopFrame": 91
+      }
+    ],
+    "perfect": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-perfect",
+        "scriptClass": "PicoPerfectResults",
+        "zIndex": 500,
+        "scale": 0.88,
+        "offsets": [-169.5, -219],
+        "loopFrame": 91
+      }
+    ],
+    "excellent": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-great",
+        "scriptClass": "PicoGreatResults",
+        "zIndex": 500,
+        "scale": 1.25,
+        "offsets": [160, -265],
+        "looped": true,
+        "loopFrame": 34
+      }
+    ],
+    "great": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-great",
+        "scriptClass": "PicoGreatResults",
+        "zIndex": 500,
+        "scale": 1.25,
+        "offsets": [160, -265],
+        "looped": true,
+        "loopFrame": 34
+      }
+    ],
+    "good": [
+      {
+        "renderType": "animateatlas",
+        "scriptClass": "PicoGoodResults",
+        "zIndex": 500,
+        "scale": 1.25,
+        "offsets": [-200, -120]
+      }
+    ],
+    "loss": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-shit",
+        "zIndex": 500,
+        "offsets": [-50, 60],
+        "loopFrame": 0
+      }
+    ]
+  }
+}

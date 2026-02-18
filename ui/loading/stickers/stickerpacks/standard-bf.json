@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend",
+  "artist": "PhantomArcade3K",
+  "stickers": [
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-3",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-dad-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-dad-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-dad-3",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-pico-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-pico-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-pico-3",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-mom-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-mom-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-mom-3",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-monster-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-monster-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-monster-3",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-gf-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-gf-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-gf-3"
+  ]
+}

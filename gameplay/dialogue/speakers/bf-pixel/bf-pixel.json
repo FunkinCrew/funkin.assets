@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend (Pixel)",
+  "assetPath": "gameplay/dialogue/speakers/bf-pixel/portrait-boyfriend",
+  "flipX": false,
+  "isPixel": true,
+  "scale": 5.4,
+  "offsets": [191, -88],
+  "animations": [
+    {
+      "name": "talkEnter",
+      "prefix": "portraitEnter0",
+      "frameRate": 12
+    },
+    {
+      "name": "talk",
+      "prefix": "portraitTalk0"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+import funkin.data.character.CharacterDataParser;
+import funkin.play.character.PicoPlayerBaseCharacter;
+
+class PicoDarkCharacter extends PicoPlayerBaseCharacter
+{
+  override function get_CACHE_IMAGE_PATHS():Array<String>
+  {
+    return ["gameplay/characters/nene/nene-knifetoss"];
+  }
+
+  override function get_CACHE_SOUND_PATHS():Array<String>
+  {
+    return [];
+  }
+
+  public function new()
+  {
+    super('pico-dark');
+  }
+
+  var normalChar:BaseCharacter;
+
+  override function set_alpha(val:Float):Float
+  {
+    super.set_alpha(val);
+
+    if (val != 1) normalChar.alpha = 1;
+    else
+      normalChar.alpha = 0;
+
+    return val;
+  }
+
+  public override function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    if (!this.debug)
+    {
+      normalChar = CharacterDataParser.fetchCharacter('pico-playable');
+      normalChar.zIndex = 199;
+      normalChar.alpha = 0.0001;
+      normalChar.flipX = false;
+
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
+    }
+  }
+
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  {
+    super.playAnimation(name, restart, ignoreOther, reversed);
+
+    if (normalChar != null)
+    {
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x, this.y);
+    }
+  }
+}

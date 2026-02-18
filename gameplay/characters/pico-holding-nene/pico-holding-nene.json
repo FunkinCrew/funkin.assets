@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "name": "Pico (Holding Nene)",
+  "assetPath": "gameplay/characters/pico-holding-nene/pico-holding-nene",
+  "healthIcon": {
+    "id": "pico"
+  },
+  "offsets": [52, 16],
+  "cameraOffsets": [-32, 24],
+  "death": {
+    "cameraOffsets": [-100, 25]
+  },
+  "flipX": true,
+  "renderType": "multianimateatlas",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle"
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "right"
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "down"
+    },
+    {
+      "name": "singUP",
+      "prefix": "up"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left"
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "right miss"
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "down miss"
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "up miss"
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "left miss"
+    },
+    {
+      "name": "knifeToss",
+      "prefix": "nene knife"
+    },
+    {
+      "name": "laughEnd",
+      "prefix": "laugh start"
+    },
+    {
+      "name": "laughEnd-loop",
+      "prefix": "laugh loop",
+      "looped": true
+    },
+    {
+      "assetPath": "gameplay/characters/pico-holding-nene/pico-holding-nene-dead",
+      "name": "firstDeath",
+      "prefix": "intro",
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "gameplay/characters/pico-holding-nene/pico-holding-nene-dead",
+      "name": "deathLoop",
+      "prefix": "loop",
+      "looped": true,
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "gameplay/characters/pico-holding-nene/pico-holding-nene-dead",
+      "name": "deathConfirm",
+      "prefix": "confirm",
+      "offsets": [543, 0]
+    },
+    {
+      "assetPath": "gameplay/characters/pico-holding-nene/pico-holding-nene-dead",
+      "name": "deathConfirm-loop",
+      "prefix": "confirm loop",
+      "looped": true,
+      "offsets": [543, 0]
+    }
+  ]
+}

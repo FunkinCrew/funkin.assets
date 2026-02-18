@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "Spaghetti",
+  "artists": ["LE SSERAFIM"],
+  "albumArtAsset": "ui/freeplay/albums/spaghetti",
+  "albumTitleAsset": "ui/freeplay/albums/spaghetti-text",
+  "albumTitleOffsets": [-35, 0]
+}

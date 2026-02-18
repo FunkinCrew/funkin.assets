@@ -1,0 +1,69 @@
+import funkin.play.character.AnimateAtlasCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import flixel.FlxG;
+import funkin.FunkinMemory;
+
+class DarnellCharacter extends AnimateAtlasCharacter
+{
+  function new()
+  {
+    super('darnell');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the sounds used in 2hot.
+    for (snd in ['Darnell_Lighter', 'Kick_Can_UP', 'Kick_Can_FORWARD'])
+    {
+      FunkinMemory.cacheSound(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
+    }
+  }
+
+  function onNoteHit(event:HitNoteScriptEvent)
+  {
+    // Override the hit note animation.
+    switch (event.note.kind)
+    {
+      case "weekend-1-lightcan":
+        holdTimer = 0;
+        playLightCanAnim();
+      case "weekend-1-kickcan":
+        holdTimer = 0;
+        playKickCanAnim();
+      case "weekend-1-kneecan":
+        holdTimer = 0;
+        playKneeCanAnim();
+      default:
+        super.onNoteHit(event);
+    }
+  }
+
+  /**
+   * Play the animation where Darnell kneels down to light the can.
+   */
+  function playLightCanAnim()
+  {
+    this.playAnimation('lightCan', true, true);
+  }
+
+  /**
+   * Play the animation where Darnell kicks the can into the air.
+   */
+  function playKickCanAnim()
+  {
+    this.playAnimation('kickCan', true, false);
+  }
+
+  /**
+   * Play the animation where Darnell knees the can in Pico's direction.
+   */
+  function playKneeCanAnim()
+  {
+    this.playAnimation('kneeCan', true, true);
+  }
+}

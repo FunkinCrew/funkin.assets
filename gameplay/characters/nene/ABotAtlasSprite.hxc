@@ -1,0 +1,13 @@
+import funkin.graphics.FunkinSprite;
+import flixel.math.FlxPoint;
+import funkin.Conductor;
+
+class ABotAtlasSprite extends FunkinSprite
+{
+  function new(x:Float, y:Float)
+  {
+    super(x, y);
+
+    loadTextureAtlas("gameplay/characters/nene/abot-system");
+  }
+}

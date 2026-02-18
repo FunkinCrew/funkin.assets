@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "Default",
+  "artist": "PhantomArcade3K",
+  "stickers": [
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-1",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-2",
+    "ui/loading/stickers/graphics/stickers-set-1/sticker-bf-3"
+  ]
+}

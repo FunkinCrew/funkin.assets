@@ -1,0 +1,79 @@
+import funkin.play.character.MultiAnimateAtlasCharacter;
+import funkin.audio.FunkinSound;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+import flixel.FlxG;
+import funkin.FunkinMemory;
+
+class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
+{
+  var picoEndingSound:FunkinSound;
+
+  function new()
+  {
+    super('tankman-bloody');
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the ending cutscene sound.
+    FunkinMemory.cacheSound(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
+  }
+
+  var isBloody:Bool = false;
+
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  {
+    if (isBloody)
+    {
+      super.playAnimation(name + '-bloody', restart, ignoreOther);
+    }
+    else
+    {
+      super.playAnimation(name, restart, ignoreOther, reversed);
+    }
+
+    if (name == 'redheadsAnim') isBloody = true;
+
+    if (name == 'stressPicoEnding')
+    {
+      picoEndingSound = FunkinSound.load(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'), 1.0, false, true, true);
+    }
+  }
+
+  override function onSongRetry(event:ScriptEvent):Void
+  {
+    super.onSongRetry(event);
+
+    isBloody = false;
+  }
+
+  function onNoteHit(event:HitNoteScriptEvent)
+  {
+    super.onNoteHit(event);
+
+    if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD)
+    {
+      // Override the hit note animation.
+      switch (event.note.kind)
+      {
+        case "ugh":
+          holdTimer = 0;
+          this.playAnimation('ugh', true, true);
+          return;
+        case "hehPrettyGood":
+          holdTimer = 0;
+          this.playAnimation('hehPrettyGood', true, true);
+          return;
+      }
+    }
+  }
+
+  override function destroy():Void
+  {
+    if (picoEndingSound != null) picoEndingSound.destroy();
+    super.destroy();
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "name": "Senpai",
+  "assetPath": "gameplay/dialogue/speakers/senpai/portrait-senpai",
+  "flipX": false,
+  "isPixel": true,
+  "scale": 5.4,
+  "offsets": [-488, -210],
+  "animations": [
+    {
+      "name": "talkEnter",
+      "prefix": "portraitEnter0",
+      "frameRate": 12
+    },
+    {
+      "name": "talk",
+      "prefix": "portraitTalk0"
+    }
+  ]
+}

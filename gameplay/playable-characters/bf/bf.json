@@ -1,0 +1,245 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend",
+  "ownedChars": [
+    "bf",
+    "bf-car",
+    "bf-pixel",
+    "bf-christmas",
+    "bf-holding-gf",
+    "bf-dark"
+  ],
+  "showUnownedChars": true,
+  "unlocked": true,
+  "freeplayStyle": "bf",
+  "stickerPack": "standard-bf",
+  "freeplayDJ": {
+    "assetPath": "ui/freeplay/dj/bf/freeplay-boyfriend",
+    "scriptClass": "BoyfriendFreeplayDJ",
+    "fistPump": {
+      "introStartFrame": 0,
+      "introEndFrame": 4,
+
+      "loopStartFrame": 4,
+      "loopEndFrame": -1,
+
+      "introBadStartFrame": 0,
+      "introBadEndFrame": 4,
+
+      "loopBadStartFrame": 4,
+      "loopBadEndFrame": -1
+    },
+    "charSelect": {
+      "transitionDelay": 0.45
+    },
+    "text1": "BOYFRIEND",
+    "text2": "HOT BLOODED IN MORE WAYS THAN ONE",
+    "text3": "PROTECT YO NUTS",
+    "useAnimatePosition": true,
+    "animations": [
+      {
+        "name": "intro",
+        "prefix": "Intro",
+        "animType": "framelabel"
+      },
+      {
+        "name": "idle",
+        "prefix": "Idle",
+        "animType": "framelabel"
+      },
+      {
+        "name": "idleEasterEgg",
+        "prefix": "AFK",
+        "animType": "framelabel"
+      },
+      {
+        "name": "confirm",
+        "prefix": "Confirm",
+        "animType": "framelabel"
+      },
+      {
+        "name": "fistPump",
+        "prefix": "Fist Pump",
+        "animType": "framelabel"
+      },
+      {
+        "name": "loss",
+        "prefix": "Fist Pump Loss",
+        "animType": "framelabel"
+      },
+      {
+        "name": "charSelect",
+        "prefix": "To Character Select",
+        "animType": "framelabel"
+      },
+      {
+        "name": "cartoon",
+        "prefix": "Watching TV",
+        "animType": "framelabel"
+      },
+      {
+        "name": "newUnlock",
+        "prefix": "New Unlock",
+        "animType": "framelabel"
+      }
+    ]
+  },
+  "charSelect": {
+    "position": 4,
+    "assetPath": "ui/character-select/characters/bf",
+    "gf": {
+      "assetPath": "ui/character-select/characters/gf",
+      "animInfoPath": "ui/character-select/characters/gf",
+      "visualizer": false
+    }
+  },
+  "results": {
+    "music": {
+      "PERFECT_GOLD": "gameplay/playable-characters/bf/results/music/results-perfect/results-perfect",
+      "PERFECT": "gameplay/playable-characters/bf/results/music/results-perfect/results-perfect",
+      "EXCELLENT": "gameplay/playable-characters/bf/results/music/results-excellent/results-excellent",
+      "GREAT": "gameplay/playable-characters/bf/results/music/results-normal/results-normal",
+      "GOOD": "gameplay/playable-characters/bf/results/music/results-normal/results-normal",
+      "SHIT": "gameplay/playable-characters/bf/results/music/results-shit/results-shit"
+    },
+    "perfectGold": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/bed",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO",
+        "filter": "naughty",
+        "zIndex": 500,
+        "offsets": [403, -305],
+        "loopFrameLabel": "LOOP START"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/hearts",
+        "filter": "naughty",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [630, 300],
+        "loopFrame": 43
+      },
+      {
+        "renderType": "animateatlas",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO 2",
+        "filter": "safe",
+        "zIndex": 500,
+        "offsets": [403, -305],
+        "loopFrameLabel": "LOOP 2"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickleFight",
+        "filter": "safe",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [413, 314],
+        "scale": 0.6,
+        "sound": "gameplay/playable-characters/bf/results/sounds/results-perfect/tickle-fight",
+        "loopFrameLabel": "LOOP"
+      }
+    ],
+    "perfect": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/bed",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO",
+        "filter": "naughty",
+        "zIndex": 500,
+        "offsets": [403, -305],
+        "loopFrameLabel": "LOOP START"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/hearts",
+        "filter": "naughty",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [630, 300],
+        "loopFrame": 43
+      },
+      {
+        "renderType": "animateatlas",
+        "scriptClass": "BFBedPerfectResults",
+        "startFrameLabel": "INTRO 2",
+        "filter": "safe",
+        "zIndex": 500,
+        "offsets": [403, -305],
+        "loopFrameLabel": "LOOP 2"
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickleFight",
+        "filter": "safe",
+        "zIndex": 501,
+        "delay": 4.41,
+        "offsets": [413, 314],
+        "scale": 0.6,
+        "sound": "gameplay/playable-characters/bf/results/sounds/results-perfect/tickle-fight",
+        "loopFrameLabel": "LOOP"
+      }
+    ],
+    "excellent": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-excellent",
+        "zIndex": 500,
+        "offsets": [560.85, -410.35],
+        "loopFrame": 29
+      }
+    ],
+    "great": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-great/gf",
+        "scale": 0.93,
+        "delay": 0.25,
+        "offsets": [563.364, -123.186],
+        "zIndex": 499,
+
+        "loopFrame": 9
+      },
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-great/bf",
+        "scale": 0.93,
+        "zIndex": 500,
+        "offsets": [655.3, -247.95],
+
+        "loopFrame": 15
+      }
+    ],
+    "good": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-good/bf",
+        "zIndex": 501,
+        "offsets": [645.4, -214.8],
+        "loopFrame": 14
+      },
+      {
+        "renderType": "sparrow",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-good/gf",
+        "zIndex": 500,
+        "delay": 0.91,
+        "offsets": [629, 323],
+        "loopFrame": 9
+      }
+    ],
+    "loss": [
+      {
+        "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-shit",
+        "scriptClass": "BFShitResults",
+        "zIndex": 500,
+        "offsets": [570.5, -390.5],
+        "loopFrameLabel": "Loop Start"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "Volume 2",
+  "artists": ["Kawai Sprite", "Bassetfilms"],
+  "albumArtAsset": "ui/freeplay/albums/volume2",
+  "albumTitleAsset": "ui/freeplay/albums/volume2-text",
+  "albumTitleOffsets": [8, -7]
+}

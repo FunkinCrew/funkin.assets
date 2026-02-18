@@ -1,0 +1,21 @@
+import flixel.math.FlxPoint;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import flixel.FlxG;
+
+// a unique object for santa getting KILLED
+class SantaDiesSprite extends FunkinSprite
+{
+  public function new(x:Float, y:Float)
+  {
+    super(x, y);
+    loadTextureAtlas("gameplay/stages/mallXmasErect/cutscene/santa-speaks");
+  }
+
+  public function playCutscene():Void
+  {
+    // this.visible = true;
+    this.anim.play("santa whole scene");
+  }
+}

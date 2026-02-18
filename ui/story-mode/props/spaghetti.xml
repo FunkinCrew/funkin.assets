@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="spaghetti.png" width="4371" height="245">
+	<SubTexture name="SPL_00000" x="4081" y="1" width="289" height="243" frameX="-2" frameY="-14" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00001" x="4081" y="1" width="289" height="243" frameX="-2" frameY="-14" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00002" x="3499" y="1" width="288" height="240" frameX="-3" frameY="-15" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00003" x="3499" y="1" width="288" height="240" frameX="-3" frameY="-15" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00004" x="1" y="1" width="288" height="225" frameX="-3" frameY="-15" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00005" x="1" y="1" width="288" height="225" frameX="-3" frameY="-15" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00006" x="292" y="1" width="289" height="226" frameX="-2" frameY="-14" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00007" x="292" y="1" width="289" height="226" frameX="-2" frameY="-14" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00008" x="584" y="1" width="288" height="228" frameX="-3" frameY="-12" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00009" x="584" y="1" width="288" height="228" frameX="-3" frameY="-12" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00010" x="875" y="1" width="288" height="231" frameX="-3" frameY="-9" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00011" x="875" y="1" width="288" height="231" frameX="-3" frameY="-9" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00012" x="1457" y="1" width="288" height="235" frameX="-3" frameY="-5" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00013" x="1457" y="1" width="288" height="235" frameX="-3" frameY="-5" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00014" x="2042" y="1" width="288" height="236" frameX="-3" frameY="-4" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00015" x="2042" y="1" width="288" height="236" frameX="-3" frameY="-4" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00016" x="2916" y="1" width="288" height="237" frameX="-3" frameY="-3" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00017" x="2916" y="1" width="288" height="237" frameX="-3" frameY="-3" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00018" x="3207" y="1" width="289" height="237" frameX="-2" frameY="-3" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00019" x="3207" y="1" width="289" height="237" frameX="-2" frameY="-3" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00020" x="2333" y="1" width="289" height="236" frameX="-2" frameY="-4" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00021" x="2333" y="1" width="289" height="236" frameX="-2" frameY="-4" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00022" x="1748" y="1" width="291" height="235" frameX="-2" frameY="-5" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00023" x="1748" y="1" width="291" height="235" frameX="-2" frameY="-5" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00024" x="1166" y="1" width="288" height="231" frameX="-3" frameY="-9" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00025" x="1166" y="1" width="288" height="231" frameX="-3" frameY="-9" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00026" x="2625" y="1" width="288" height="236" frameX="-3" frameY="-12" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00027" x="2625" y="1" width="288" height="236" frameX="-3" frameY="-12" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00028" x="3790" y="1" width="288" height="242" frameX="-3" frameY="-13" frameWidth="300" frameHeight="260"/>
+	<SubTexture name="SPL_00029" x="3790" y="1" width="288" height="242" frameX="-3" frameY="-13" frameWidth="300" frameHeight="260"/>
+</TextureAtlas>

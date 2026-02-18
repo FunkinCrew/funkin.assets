@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend",
+  "renderType": "multianimateatlas",
+  "assetPath": "gameplay/characters/bf/boyfriend",
+  "flipX": true,
+  "offsets": [17, 14],
+  "cameraOffsets": [-18, 36],
+  "death": {
+    "cameraOffsets": [-73, 42]
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Idle"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Left"
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Down"
+    },
+    {
+      "name": "singUP",
+      "prefix": "Up"
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Right"
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "Left Miss"
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "Down Miss"
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "Up Miss"
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "Right Miss"
+    },
+    {
+      "name": "hey",
+      "prefix": "Hey"
+    },
+    {
+      "name": "cheer",
+      "prefix": "Cheer"
+    },
+    {
+      "assetPath": "gameplay/characters/bf/bf-dead",
+      "name": "firstDeath",
+      "prefix": "Death Intro",
+      "offsets": [22, 15]
+    },
+    {
+      "assetPath": "gameplay/characters/bf/bf-dead",
+      "name": "deathLoop",
+      "prefix": "Death Loop",
+      "looped": true,
+      "offsets": [22, 15]
+    },
+    {
+      "assetPath": "gameplay/characters/bf/bf-dead",
+      "name": "deathConfirm",
+      "prefix": "Death Confirm",
+      "offsets": [22, 15]
+    },
+    {
+      "assetPath": "gameplay/characters/bf/bf-fakeout",
+      "name": "fakeoutDeath",
+      "prefix": "fake out death BF",
+      "animType": "symbol",
+      "offsets": [-3, -65]
+    },
+    {
+      "name": "scared",
+      "prefix": "Scared"
+    }
+  ]
+}

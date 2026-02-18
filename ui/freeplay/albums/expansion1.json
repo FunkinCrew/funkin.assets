@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "OST Expansion Vol. 1",
+  "artists": ["Kawai Sprite", "Saruky", "nuphory"],
+  "albumArtAsset": "ui/freeplay/albums/expansion1",
+  "albumTitleAsset": "ui/freeplay/albums/expansion1-text",
+  "albumTitleOffsets": [-22, -3]
+}

@@ -1,0 +1,88 @@
+import flixel.math.FlxPoint;
+import flixel.FlxSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import flixel.util.FlxTimer;
+import flixel.util.FlxTimerManager;
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.Preferences;
+
+class PicoDopplegangerSprite extends FunkinSprite
+{
+  public var isPlayer:Bool = false;
+
+  var suffix:String = '';
+
+  public function new(x:Float, y:Float)
+  {
+    super(x, y);
+
+    loadTextureAtlas("gameplay/stages/phillyTrainErect/pico-doppelganger");
+  }
+
+  var cutsceneSounds:FunkinSound = null;
+
+  public function cancelSounds()
+  {
+    if (cutsceneSounds != null) cutsceneSounds.destroy();
+  }
+
+  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager)
+  {
+    suffix = _suffix;
+
+    trace('Doppelganger: doAnim(' + suffix + ', ' + shoot + ', ' + explode + ')');
+
+    new FlxTimer(timerManager).start(0.3, _ ->
+    {
+      cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-gasp'), 1.0, false, true, true);
+    });
+
+    if (shoot == true)
+    {
+      animation.play("shoot" + suffix, true);
+
+      new FlxTimer(timerManager).start(6.29, _ ->
+      {
+        cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-shoot'), 1.0, false, true, true);
+      });
+      new FlxTimer(timerManager).start(10.33, _ ->
+      {
+        cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-spin'), 1.0, false, true, true);
+      });
+    }
+    else
+    {
+      if (explode == true)
+      {
+        animation.play("explode" + suffix, true);
+        animation.onFinish.add(startLoop);
+
+        new FlxTimer(timerManager).start(3.7, _ ->
+        {
+          cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-cigarette-2'), 1.0, false, true, true);
+        });
+        new FlxTimer(timerManager).start(8.75, _ ->
+        {
+          cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-explode'), 1.0, false, true, true);
+        });
+      }
+      else
+      {
+        animation.play("cigarette" + suffix, true);
+
+        new FlxTimer(timerManager).start(3.7, _ ->
+        {
+          cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-cigarette-1'), 1.0, false, true, true);
+        });
+      }
+    }
+  }
+
+  function startLoop()
+  {
+    animation.play("loop", true);
+    animation.curAnim.looped = true;
+  }
+}

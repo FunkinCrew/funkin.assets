@@ -1,0 +1,82 @@
+{
+  "version": "1.0.0",
+  "name": "Tankman (Bloody)",
+  "renderType": "multianimateatlas",
+  "assetPath": "gameplay/characters/tankman/tankman-basic-animations",
+  "offsets": [3, -44],
+  "cameraOffsets": [-3, 32],
+  "healthIcon": {
+    "id": "tankman"
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left"
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "down"
+    },
+    {
+      "name": "singUP",
+      "prefix": "up"
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "right"
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "idle-bloody",
+      "prefix": "idle knife",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "singLEFT-bloody",
+      "prefix": "left knife",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "singDOWN-bloody",
+      "prefix": "down knife",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "singUP-bloody",
+      "prefix": "up knife",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "singRIGHT-bloody",
+      "prefix": "right knife",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "hehPrettyGood-bloody",
+      "prefix": "pretty good bloody",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/characters/tankman-bloody/tankman-bloody",
+      "name": "redheadsAnim",
+      "prefix": "redheads",
+      "offsets": [67, 110]
+    },
+    {
+      "assetPath": "gameplay/songs/stress/pico/tankman-ending",
+      "name": "stressPicoEnding",
+      "prefix": "tankman stress ending",
+      "animType": "symbol",
+      "offsets": [-87, 18]
+    }
+  ]
+}

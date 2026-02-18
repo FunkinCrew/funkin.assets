@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "Volume 3",
+  "artists": ["Kawai Sprite", "Saruky", "Kohta Takahashi", "Saster", "MtH"],
+  "albumArtAsset": "ui/freeplay/albums/volume3",
+  "albumTitleAsset": "ui/freeplay/albums/volume3-text",
+  "albumTitleOffsets": [8, -7]
+}

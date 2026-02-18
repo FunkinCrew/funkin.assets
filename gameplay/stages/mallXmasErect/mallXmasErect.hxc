@@ -1,0 +1,61 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.addons.display.FlxRuntimeShader;
+import flixel.sound.FlxSound;
+import funkin.Conductor;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import flixel.FlxG;
+
+class MallXmasErectStage extends Stage
+{
+  function new()
+  {
+    super('mallXmasErect');
+  }
+
+  var colorShader:AdjustColorShader;
+
+  function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results = super.queryAssets(type);
+
+    // These files get used by the script, but the loading screen has no way of knowing we need them.
+    // So we have to declare them here.
+    switch (type)
+    {
+      case "SHADER":
+        results.push(Paths.frag('ui/shaders/adjust-color'));
+      default:
+        // nothing
+    }
+
+    return results;
+  }
+
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    // Create a single color shader and reuse it.
+    colorShader = new AdjustColorShader();
+    colorShader.hue = 5;
+    colorShader.saturation = 20;
+
+    getNamedProp('santa').shader = colorShader;
+
+    var colorShaderBoppers:AdjustColorShader = new AdjustColorShader();
+    colorShaderBoppers.hue = 15;
+    colorShaderBoppers.brightness = 20;
+    getNamedProp('bottomBoppers').shader = colorShaderBoppers;
+  }
+
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  {
+    // Apply the shader automatically to each character as it gets added.
+    super.addCharacter(character, charType);
+    trace('Applied stage shader to ' + character.characterName);
+    character.shader = colorShader;
+  }
+}

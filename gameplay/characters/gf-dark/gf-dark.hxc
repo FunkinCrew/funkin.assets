@@ -1,0 +1,71 @@
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.play.character.AnimateAtlasCharacter;
+import funkin.play.GameOverSubState;
+import funkin.play.character.BaseCharacter;
+import funkin.data.character.CharacterDataParser;
+import funkin.play.character.CharacterType;
+import funkin.play.PlayState;
+
+class GirlfriendDarkCharacter extends AnimateAtlasCharacter
+{
+  function new()
+  {
+    super('gf-dark');
+  }
+
+  /**
+   * If your character uses additional assets not specified in the JSON,
+   * make sure to specify them like this, or they won't get cached in the loading screen.
+   */
+  function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results = super.queryAssets(type);
+
+    results = results.concat(CharacterDataParser.queryAssets("gf", type));
+
+    return results;
+  }
+
+  var normalChar:BaseCharacter;
+
+  override function set_alpha(val:Float):Float
+  {
+    super.set_alpha(val);
+
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0.0001;
+    }
+
+    return val;
+  }
+
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  {
+    super.playAnimation(name, restart, ignoreOther, reversed);
+    if (normalChar != null)
+    {
+      normalChar.playAnimation(name, restart, ignoreOther);
+      normalChar.setPosition(this.x - 45.5, this.y);
+    }
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    if (!this.debug)
+    {
+      normalChar = CharacterDataParser.fetchCharacter('gf');
+      normalChar.zIndex = this.zIndex - 1;
+      normalChar.alpha = 0.0001;
+      normalChar.flipX = false;
+
+      currentStage.add(normalChar);
+      currentStage.refresh(); // Apply z-index.
+    }
+  }
+}

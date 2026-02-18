@@ -1,0 +1,114 @@
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.play.character.MultiAnimateAtlasCharacter;
+import funkin.play.GameOverSubState;
+import funkin.play.PlayState;
+import funkin.Preferences;
+import funkin.util.Constants;
+import funkin.util.HapticUtil;
+import funkin.FunkinMemory;
+
+class BoyfriendCharacter extends MultiAnimateAtlasCharacter
+{
+  function new()
+  {
+    super('bf');
+  }
+
+  function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results = super.queryAssets(type);
+
+    switch (type)
+    {
+      case "IMAGE":
+        results.push(Paths.animateAtlas("gameplay/characters/bf/bf-fakeout").image());
+      case "JSON":
+        results = results.concat(Paths.animateAtlas("gameplay/characters/bf/bf-fakeout").json());
+      case "SOUND":
+        results.push(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
+    }
+
+    return results;
+  }
+
+  function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    // Precache the sound for the fakeout death.
+    FunkinMemory.cacheSound(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
+  }
+
+  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  {
+    super.onAnimationFrame(name, frameNumber, frameIndex);
+
+    if (!HapticUtil.hapticsAvailable) return;
+
+    // BF's mic drops.
+    if (name == 'firstDeath' && frameNumber == 27)
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+
+    // BF's balls pulsating.
+    if (name == 'deathLoop' && (frameNumber == 0 || frameNumber == 18))
+    {
+      HapticUtil.vibrate(0, 0.1, 0.1, 1);
+    }
+  }
+
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  {
+    super.playAnimation(name, restart, ignoreOther, reversed);
+
+    if (name == "fakeoutDeath" && !this.debug)
+    {
+      doFakeoutDeath();
+    }
+  }
+
+  function doFakeoutDeath():Void
+  {
+    FunkinSound.playOnce(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"), 1.0);
+
+    // We don't want people to miss this.
+    GameOverSubState.instance.mustNotExit = true;
+    this.animation.onFinish.addOnce(() ->
+    {
+      GameOverSubState.instance.mustNotExit = false;
+      this.playAnimation('firstDeath', true, true);
+      // Play the "blue balled" sound. May play a variant if one has been assigned.
+      GameOverSubState.instance.playBlueBalledSFX();
+    });
+  }
+
+  override function getDeathQuote():Null<String>
+  {
+    switch (PlayState.instance?.currentStage?.getDad()?.characterId)
+    {
+      case "tankman":
+        var randomCensor:Array<Int> = [];
+
+        if (!Preferences.naughtyness)
+        {
+          // 1 - cock
+          // 3 - shitty
+          // 8 - shit
+          // 13 - fuck
+          // 17 - shit, asshole
+          // 21 - fucking
+          randomCensor = [1, 3, 8, 13, 17, 21];
+        }
+        else if (Constants.CENSOR_EXPLETIVES)
+        {
+          randomCensor = [13, 21];
+        }
+
+        return Paths.sound('gameplay/characters/bf-holding-gf/sounds/jeff-gameover-' + FlxG.random.int(1, 25, randomCensor));
+      default:
+        return null;
+    }
+  }
+}
