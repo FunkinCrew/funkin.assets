@@ -18,6 +18,9 @@
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
   </menu>
   <menu text="View" id="menubarMenuView">
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemAbsoluteView" text="Absolute View" />
+    </vbox>
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
   </menu>
