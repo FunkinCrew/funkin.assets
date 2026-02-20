@@ -103,7 +103,7 @@ class SpookyMansionErectStage extends Stage
     {
       getNamedProp('bgLight').alpha = 0;
       getNamedProp('stairsLight').alpha = 0;
-      getBoyfriend().alpha = 1;
+      getBoyfriend()?.alpha ??= 1;
       getDad().alpha = 1;
       getGirlfriend().alpha = 1;
     });
@@ -112,12 +112,12 @@ class SpookyMansionErectStage extends Stage
     {
       getNamedProp('bgLight').alpha = 1;
       getNamedProp('stairsLight').alpha = 1;
-      getBoyfriend().alpha = 0;
+      getBoyfriend()?.alpha ??= 0;
       getDad().alpha = 0;
       getGirlfriend().alpha = 0;
       FlxTween.tween(getNamedProp('bgLight'), {alpha: 0}, 1.5);
       FlxTween.tween(getNamedProp('stairsLight'), {alpha: 0}, 1.5);
-      FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
+      if (getBoyfriend() != null) FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
       FlxTween.tween(getDad(), {alpha: 1}, 1.5);
       FlxTween.tween(getGirlfriend(), {alpha: 1}, 1.5);
     });
@@ -125,7 +125,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeBeat = beat;
     lightningStrikeOffset = FlxG.random.int(8, 24);
 
-    if (getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer')
+    if (getBoyfriend() != null && getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer')
     {
       getBoyfriend().playAnimation('scared', true, true);
     }
@@ -218,5 +218,13 @@ class SpookyMansionErectStage extends Stage
     // Reset lightning variables at the start of every song
     lightningStrikeBeat = 0;
     lightningStrikeOffset = 8;
+  }
+
+  function onGameOver(event:ScriptEvent)
+  {
+    super.onGameOver(event);
+
+    // Make sure the player character is visible when dying on the same frame as the lightning strikes.
+    getBoyfriend().alpha = 1;
   }
 }
