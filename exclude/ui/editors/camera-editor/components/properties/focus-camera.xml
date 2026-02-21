@@ -2,12 +2,12 @@
 <vbox width="100%" height="100%" id="propertiesContainer">
   <hbox width="100%">
     <label text="Target" verticalAlign="center" horizontalAlign="right" width="100%" />
-    <dropdown text="Target" width="160" id="focusCameraTarget">
+    <dropdown text="Target" width="160" id="focusCameraTarget" value="0">
       <data>
-        <item value="-1" text="Position" />
-        <item value="0" text="Player" />
-        <item value="1" text="Opponent" />
-        <item value="2" text="Girlfriend" />
+        <item id="-1" text="Position" />
+        <item id="0" text="Player" />
+        <item id="1" text="Opponent" />
+        <item id="2" text="Girlfriend" />
       </data>
     </dropdown>
   </hbox>
@@ -28,28 +28,28 @@
       <vbox width="100" height="100%">
         <dropdown text="Ease" id="focusCameraEase" value="classic">
           <data>
-            <item value="linear" text="Linear" />
-            <item value="instant" text="Instant (Ignores duration)" />
-            <item value="classic" text="Classic (Ignores duration)" />
-            <item value="sine" text="Sine" />
-            <item value="quad" text="Quad" />
-            <item value="cube" text="Cube" />
-            <item value="quart" text="Quart" />
-            <item value="quint" text="Quint" />
-            <item value="expo" text="Expo" />
-            <item value="smoothStep" text="Smooth Step" />
-            <item value="smootherStep" text="Smoother Step" />
-            <item value="elastic" text="Elastic" />
-            <item value="back" text="Back" />
-            <item value="bounce" text="Bounce" />
-            <item value="circ" text="Circ " />
+            <item id="linear" text="Linear" />
+            <item id="instant" text="Instant (Ignores duration)" />
+            <item id="classic" text="Classic (Ignores duration)" />
+            <item id="sine" text="Sine" />
+            <item id="quad" text="Quad" />
+            <item id="cube" text="Cube" />
+            <item id="quart" text="Quart" />
+            <item id="quint" text="Quint" />
+            <item id="expo" text="Expo" />
+            <item id="smoothStep" text="Smooth Step" />
+            <item id="smootherStep" text="Smoother Step" />
+            <item id="elastic" text="Elastic" />
+            <item id="back" text="Back" />
+            <item id="bounce" text="Bounce" />
+            <item id="circ" text="Circ " />
           </data>
         </dropdown>
         <dropdown text="Ease Dir" id="focusCameraEaseDir" value="elastic">
           <data>
-            <item value="In" text="In" />
-            <item value="In" text="Out" />
-            <item value="In" text="In/Out" />
+            <item id="In" text="In" />
+            <item id="Out" text="Out" />
+            <item id="InOut" text="In/Out" />
           </data>
         </dropdown>
       </vbox>
