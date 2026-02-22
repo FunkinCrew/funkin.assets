@@ -113,6 +113,18 @@ class StressPicoMixSong extends Song
       PlayState.instance.currentStage?.getGirlfriend().reset();
       trace('reset pico!');
     }
+
+    // Resets Tankman and Pico if they were in the middle of the "redheads" sequence.
+    if (PlayState.instance.currentStage?.getDad().getCurrentAnimation() == 'redheadsAnim')
+    {
+      PlayState.instance.currentStage?.getDad().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getDad().dance(true);
+    }
+    if (PlayState.instance.currentStage?.getBoyfriend().getCurrentAnimation() == 'knifeToss')
+    {
+      PlayState.instance.currentStage?.getBoyfriend().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getBoyfriend().dance(true);
+    }
   }
 
   /**
