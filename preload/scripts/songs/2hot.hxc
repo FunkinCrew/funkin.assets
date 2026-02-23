@@ -303,7 +303,7 @@ class TwoHOTSong extends Song
       }
 
       // Select cans.
-      if (spawnedCans.contains(stageProp))
+      if (spawnedCans.indexOf(stageProp) != -1)
       {
         // Exclude.
         continue;
@@ -342,7 +342,7 @@ class TwoHOTSong extends Song
       }
 
       // Select cans.
-      if (spawnedCans.contains(stageProp))
+      if (spawnedCans.indexOf(stageProp) != -1)
       {
         // Exclude.
         continue;
