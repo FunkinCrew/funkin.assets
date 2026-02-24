@@ -24,9 +24,12 @@ class PicoDarkCharacter extends PicoPlayerBaseCharacter
   {
     super.set_alpha(val);
 
-    if (val != 1) normalChar.alpha = 1;
-    else
-      normalChar.alpha = 0;
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0.0001;
+    }
 
     return val;
   }
