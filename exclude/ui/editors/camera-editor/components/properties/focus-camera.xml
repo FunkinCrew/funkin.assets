@@ -2,7 +2,7 @@
 <vbox width="100%" height="100%" id="propertiesContainer">
   <hbox width="100%">
     <label text="Target" verticalAlign="center" horizontalAlign="right" width="100%" />
-    <dropdown text="Target" width="160" id="focusCameraTarget" value="0">
+    <dropdown text="Target" width="160" id="focusCameraTarget">
       <data>
         <item id="-1" text="Position" />
         <item id="0" text="Player" />
@@ -25,12 +25,12 @@
   </hbox>
   <frame text="Ease" collapsible="true" width="100%" height="180">
     <hbox width="100%" height="100%">
-      <vbox width="100" height="100%">
-        <dropdown text="Ease" id="focusCameraEase" value="classic">
+      <vbox width="100%" height="100%">
+        <dropdown text="Ease" id="focusCameraEase" width="140">
           <data>
             <item id="linear" text="Linear" />
-            <item id="instant" text="Instant (Ignores duration)" />
-            <item id="classic" text="Classic (Ignores duration)" />
+            <item id="INSTANT" text="Instant (Ignores duration)" />
+            <item id="CLASSIC" text="Classic (Ignores duration)" />
             <item id="sine" text="Sine" />
             <item id="quad" text="Quad" />
             <item id="cube" text="Cube" />
@@ -45,7 +45,7 @@
             <item id="circ" text="Circ " />
           </data>
         </dropdown>
-        <dropdown text="Ease Dir" id="focusCameraEaseDir" value="elastic">
+        <dropdown text="Ease Dir" id="focusCameraEaseDir" width="80">
           <data>
             <item id="In" text="In" />
             <item id="Out" text="Out" />

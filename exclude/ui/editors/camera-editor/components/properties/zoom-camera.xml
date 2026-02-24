@@ -22,10 +22,10 @@
   <frame text="Ease" collapsible="true" width="100%" height="180">
     <hbox width="100%" height="100%">
       <vbox width="100" height="100%">
-        <dropdown text="Ease" id="zoomCameraEase" value="linear">
+        <dropdown text="Ease" id="zoomCameraEase" width="140">
           <data>
             <item value="linear" text="Linear" />
-            <item value="instant" text="Instant (Ignores duration)" />
+            <item value="INSTANT" text="Instant (Ignores duration)" />
             <item value="sine" text="Sine" />
             <item value="quad" text="Quad" />
             <item value="cube" text="Cube" />
@@ -40,7 +40,7 @@
             <item value="circ" text="Circ " />
           </data>
         </dropdown>
-        <dropdown text="Ease Dir" id="zoomCameraEaseDir">
+        <dropdown text="Ease Dir" id="zoomCameraEaseDir" width="80">
           <data>
             <item value="In" text="In" />
             <item value="In" text="Out" />
