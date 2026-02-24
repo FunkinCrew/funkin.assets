@@ -54,6 +54,9 @@
 					<item action="Delete Selection" keybind="Delete" />
 					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Flip Selected Notes" keybind="Ctrl + F" />
+					<item action="Mirror Notes along the X axis" keybind="Ctrl + Shift + M" />
+					<item action="Mirror Notes along the Y axis" keybind="Ctrl + Alt + M" />
+					<item action="Mirror Notes along the X and Y axes" keybind="Ctrl + Shift + Alt + M" />
 					<item action="Select All Notes" keybind="Ctrl + A" />
 					<item action="Select All Events" keybind="Ctrl + Alt + A" />
 					<item action="Append All Notes to Selection" keybind="Ctrl + Shift + A" />
