@@ -1,0 +1,11 @@
+import funkin.play.notes.notekind.NoteKind;
+
+class UghNoteKind extends NoteKind
+{
+  public function new()
+  {
+    super('ugh', 'Tankman Ugh (Week 7)');
+
+    // NOTE: Implemented in tankman.hxc
+  }
+}

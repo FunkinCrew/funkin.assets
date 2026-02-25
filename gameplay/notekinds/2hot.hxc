@@ -1,0 +1,31 @@
+import funkin.play.notes.notekind.NoteKind;
+
+class Weekend1LightCanNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-lightcan", "Darnell Light Can (2hot)");
+  }
+}
+
+class Weekend1KneeCanNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-kneecan", "Darnell Knee Can (2hot)");
+  }
+}
+
+class Weekend1KickCanNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-kickcan", "Darnell Kick Can (2hot)");
+  }
+}
+
+class Weekend1CockGunNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-cockgun", "Pico Cock Gun (2hot)");
+  }
+}
+
+class Weekend1FireGunNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-firegun", "Pico Fire Gun (2hot)");
+  }
+}
