@@ -1,0 +1,11 @@
+import funkin.play.notes.notekind.NoteKind;
+
+class MomSingsNoteKind extends NoteKind
+{
+  public function new()
+  {
+    super('mom', 'Mom Sings (Week 5)');
+
+    // NOTE: Implemented in parents-christmas.hxc
+  }
+}
