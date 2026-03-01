@@ -22,12 +22,14 @@ class SpookyMansionStage extends Stage
 
   var lightningStrikeBeat:Int = 0;
   var lightningStrikeOffset:Int = 8;
+  var lightningSound:FlxSound;
+  var gameOver:Bool = false;
 
   function doLightningStrike(playSound:Bool, beat:Int):Void
   {
-    if (playSound)
+    if (playSound && !gameOver)
     {
-      FunkinSound.playOnce(Paths.soundRandom('thunder_', 1, 2), 1.0);
+      lightningSound = FunkinSound.playOnce(Paths.soundRandom('thunder_', 1, 2), 1.0);
     }
 
     getNamedProp('halloweenBG').animation.play('lightning');
@@ -111,14 +113,25 @@ class SpookyMansionStage extends Stage
       }
     }
   }
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    gameOver = true;
+    // Stop lightning sfx if it's playing so it doesn't continue over the game over screen
+    if (lightningSound != null && lightningSound.active)
+    {
+      lightningSound.stop();
+    }
+  }
 
   function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
-
+    gameOver = false;
     // Properly reset lightning when restarting the song.
     lightningStrikeBeat = 0;
     lightningStrikeOffset = 8;
+    lightningSound = null;
   }
 
   function onCountdownStart(event:CountdownScriptEvent):Void

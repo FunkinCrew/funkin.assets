@@ -60,12 +60,14 @@ class LimoRideStage extends Stage
     // otherwise boppers will not work.
     super.onBeatHit(event);
 
-    if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
+    if (FlxG.random.bool(10) && fastCarCanDrive && !gameOver) fastCarDrive();
   }
 
   var carSequence:Sequence;
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
+  var carSound:FlxSound;
+  var gameOver:Bool = false;
 
   override function onUpdate(event:UpdateScriptEvent)
   {
@@ -97,7 +99,7 @@ class LimoRideStage extends Stage
 
   function fastCarDrive():Void
   {
-    FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
+    carSound = FunkinSound.playOnce(Paths.soundRandom('carPass', 0, 1), 0.7);
 
     var fastCar = getNamedProp('fastCar');
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
@@ -129,6 +131,19 @@ class LimoRideStage extends Stage
   {
     super.onSongRetry(event);
     resetFastCar();
+    carSound = null;
+    gameOver = false;
+  }
+
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    gameOver = true;
+    // Stop car sfx if it's playing so it doesn't continue over the game over screen
+    if (carSound != null && carSound.active)
+    {
+      carSound.stop();
+    }
   }
 
   override function onPause(event:PauseScriptEvent)
