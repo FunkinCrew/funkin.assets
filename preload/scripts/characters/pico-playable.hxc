@@ -303,7 +303,18 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
     if (name == "firstDeath" && frameNumber == 36 - 1)
     {
-      GameOverSubState.instance.startDeathMusic(1.0, false);
+      if (getDeathQuote() != null)
+      {
+        if (!GameOverSubState.instance.hasPlayedDeathQuote)
+        {
+          GameOverSubState.instance.hasPlayedDeathQuote = true;
+          GameOverSubState.instance.playDeathQuote();
+        }
+      }
+      else
+      {
+        GameOverSubState.instance.startDeathMusic(1.0, false);
+      }
       // force the deathloop to play in here, since we are starting the music early it
       // doesn't check this in gameover substate !
       // also no animation suffix 🤔
