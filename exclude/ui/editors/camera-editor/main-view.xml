@@ -9,5 +9,5 @@
 		<import source="components/properties.xml" width="320"/>
 	</hbox>
 
-	<CameraEditorTimeline id="timeline" height="35%"/>
+	<EventTimeline id="timeline" height="35%"/>
 </vbox>
