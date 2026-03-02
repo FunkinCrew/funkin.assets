@@ -1,4 +1,4 @@
-import flixel.util.FlxTimer;
+import funkin.util.Sequence;
 import funkin.util.HapticUtil;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;
@@ -9,6 +9,8 @@ import StringTools;
 
 class PicoBlazinCharacter extends AnimateAtlasCharacter
 {
+  var deathSequence:Sequence;
+
   function new()
   {
     super('pico-blazin');
@@ -137,23 +139,31 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     {
       // TODO: ACTUALLY play one of the three death animations here.
 
-      // Make sure the death music plays with PERFECT timing.
-      new FlxTimer().start(1.25, _ -> afterPicoDeathGutPunchIntro());
+      var deathSequenceEvents:Array<SequenceEvent> = [
+        {
+          time: 1.25,
+          callback: afterPicoDeathGutPunchIntro
+        }
+      ];
 
       if (HapticUtil.hapticsAvailable)
       {
-        new FlxTimer().start(0.5, function(tmr:FlxTimer)
-        {
-          // Pico falls on his knees.
-          HapticUtil.vibrate(0, 0.1, 0.1, 1);
+        deathSequenceEvents.push({
+          time: 0.5,
+          callback: () -> {
+            // Pico falls on his knees.
+            HapticUtil.vibrate(0, 0.1, 0.1, 1);
+        });
 
-          new FlxTimer().start(0.6, function(tmr:FlxTimer)
-          {
+        deathSequenceEvents.push({
+          time: 1.1,
+          callback: () -> {
             // Pico falls "asleep". :)
             HapticUtil.vibrate(0, 0.1, 0.1, 1);
-          });
         });
       }
+
+      deathSequence = new Sequence(deathSequenceEvents);
     }
     else
     {
@@ -302,6 +312,9 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     GameOverSubState.blueBallSuffix = '-pico-gutpunch';
 
     PauseSubState.musicSuffix = '-pico';
+
+    deathSequence?.destroy();
+    deathSequence = null;
   }
 
   function getDarnell()
