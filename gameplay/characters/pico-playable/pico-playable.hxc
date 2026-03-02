@@ -3,7 +3,7 @@ package funkin.play.character;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
+import funkin.util.Sequence;
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.FunkinCamera;
@@ -283,15 +283,24 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     HapticUtil.vibrate(0, 0.5);
 
     // Death by Darnell's can.
-    FlxTimer.wait(1.85, function()
-    {
-      // Pico falls on his knees.
-      HapticUtil.vibrate(0, 0.1, 0.1, 1);
-    });
+    var deathSequenceEvents:Array<SequenceEvent> = [
+      {
+        time: 1.85,
+        callback: () -> {
+          // Pico falls on his knees.
+          HapticUtil.vibrate(0, 0.1, 0.1, 1);
+        }
+      },
+      {
+        time: 3,
+        callback: afterPicoDeathExplosionIntro
+      }
+    ];
 
-    FlxTimer.wait(3.0, afterPicoDeathExplosionIntro);
+    deathSequence = new Sequence(deathSequenceEvents);
   }
 
+  var deathSequence:Sequence;
   var singed:FunkinSound;
 
   function afterPicoDeathExplosionIntro():Void
@@ -310,6 +319,9 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       singed.stop();
       singed = null;
     }
+
+    deathSequence?.destroy();
+    deathSequence = null;
   }
 
   override public function onSongRetry(event:ScriptEvent):Void

@@ -60,7 +60,7 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
     new FlxTimer().start(1.5, function(_)
     {
       // Prevent playing the death quote twice or if skipping the death animation.
-      if (GameOverSubState.instance.hasPlayedDeathQuote) return;
+      if (GameOverSubState.instance?.hasPlayedDeathQuote ?? true) return;
 
       GameOverSubState.instance.playDeathQuote();
     });
