@@ -17,8 +17,7 @@
     "stage": "tankmanBattlefieldErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 3, "normal": 4, "hard": 5 },
-    "album": "volume4",
-    "previewEnd": 0
+    "album": "volume4"
   },
   "generatedBy": "Friday Night Funkin' - v0.8.1",
   "timeChanges": [{ "t": 0, "b": 0, "bpm": 185, "bt": [4, 4, 4, 4] }]

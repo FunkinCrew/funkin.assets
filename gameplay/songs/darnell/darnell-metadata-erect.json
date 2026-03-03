@@ -18,8 +18,7 @@
     "noteStyle": "funkin",
     "stickerPack": "bonus-weekend1",
     "ratings": { "erect": 8, "nightmare": 9 },
-    "album": "expansion2",
-    "previewEnd": 0
+    "album": "expansion2"
   },
   "generatedBy": "Friday Night Funkin' - v0.8.1",
   "timeChanges": [{ "t": 0, "b": 0, "bpm": 155, "bt": [4, 4, 4, 4] }]

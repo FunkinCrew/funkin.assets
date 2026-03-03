@@ -17,8 +17,7 @@
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",
     "ratings": { "easy": 4, "normal": 5, "hard": 6 },
-    "album": "expansion2",
-    "previewEnd": 0
+    "album": "expansion2"
   },
   "generatedBy": "Friday Night Funkin' - v0.8.1",
   "timeChanges": [{ "t": 0, "b": 0, "bpm": 176, "bt": [4, 4, 4, 4] }]
