@@ -28,6 +28,9 @@ class SenpaiPicoMixSong extends Song
     // Skip the cutscene if we're playtesting in the Chart Editor.
     if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
 
+    // Skip the cutscene if we've disabled cutscenes in freeplay from the options menu.
+    if (!Preferences.freeplayCutscenes && !hasPlayedCutscene) hasPlayedCutscene = true;
+
     if (!hasPlayedCutscene)
     {
       trace('Pausing countdown to play cutscene.');

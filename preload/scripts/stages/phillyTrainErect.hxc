@@ -65,7 +65,7 @@ class PhillyTrainErectStage extends Stage
 
     if (!hasPlayedInGameCutscene
       && PlayState.instance.currentStage.getBoyfriend()?.characterId == 'pico-playable'
-      && !PlayState.instance.isChartingMode)
+      && !PlayState.instance.isChartingMode && Preferences.freeplayCutscenes)
     {
       trace('Pausing countdown to play in game cutscene');
 
