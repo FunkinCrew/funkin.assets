@@ -152,7 +152,8 @@ class PhillyTrainStage extends Stage
 
   function trainReset():Void
   {
-    getGirlfriend().playAnimation('hairFall');
+    if (startedMoving) getGirlfriend().playAnimation('hairFall');
+
     getNamedProp('train').x = FlxG.width + 200;
 
     trainMoving = false;
@@ -168,6 +169,14 @@ class PhillyTrainStage extends Stage
   {
     super.onSongRetry(event);
     trainReset();
+
+    if (trainSound != null) trainSound.stop();
+
+    if (getGirlfriend() != null)
+    {
+      getGirlfriend().dance(true);
+      getGirlfriend().animation.finish();
+    }
   }
 
   function kill()
