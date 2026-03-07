@@ -2,8 +2,6 @@ import funkin.play.song.Song;
 import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
-import funkin.util.Constants;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.play.cutscene.VideoCutscene;
 
 class StressSong extends Song
@@ -52,25 +50,23 @@ class StressSong extends Song
 
     if (!PlayState.instance.isMinimalMode)
     {
-      if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
+      if (tankmanGroup != null && !tankmanGroup.isValid())
       {
         // Destroy the tankman group if it's not valid.
-        tankmanGroup.destroy();
-        PlayState.instance.currentStage.remove(tankmanGroup);
-        tankmanGroup = null;
+        cleanupTankmanGroup();
       }
 
       if (tankmanGroup == null)
       {
         // Initialize the tankman group if it's not available.
         trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-        tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup');
+        tankmanGroup = new TankmanSpriteGroup();
       }
 
       if (tankmanGroup != null)
       {
         // resets the tankmen!
-        tankmanGroup.scriptCall('reset');
+        tankmanGroup.reset(0, 0);
 
         tankmanGroup.zIndex = 30;
         PlayState.instance.currentStage.add(tankmanGroup);
@@ -108,16 +104,18 @@ class StressSong extends Song
     // resets the tankmen!
     if (tankmanGroup != null)
     {
-      tankmanGroup.scriptCall('reset');
+      tankmanGroup.reset(0, 0);
     }
     if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
-      PlayState.instance.currentStage?.getGirlfriend().scriptCall('reset');
+      PlayState.instance.currentStage?.getGirlfriend().reset();
       trace('reset pico!');
     }
   }
-  function kill():Void
+
+  function onDestroy(event:ScriptEvent):Void
   {
+    super.onDestroy(event);
     cleanupTankmanGroup();
   }
 
@@ -125,9 +123,18 @@ class StressSong extends Song
   {
     if (tankmanGroup != null)
     {
-      PlayState.instance.currentStage.remove(tankmanGroup);
-      tankmanGroup.destroy();
+      PlayState.instance.currentStage.remove(tankmanGroup, true);
       tankmanGroup = null;
     }
+  }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
   }
 }

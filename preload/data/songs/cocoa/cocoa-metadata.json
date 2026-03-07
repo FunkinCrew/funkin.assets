@@ -1,25 +1,25 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Cocoa",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "offsets": {},
   "playData": {
     "songVariations": ["erect", "pico"],
-    "stage": "mallXmas",
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
       "opponent": "parents-christmas",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["parents-christmas"],
+      "playerVocals": ["bf-christmas"]
     },
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "mallXmas",
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-    "album": "volume1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "album": "volume1"
   },
-  "songName": "Cocoa",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 100 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 100, "bt": [4, 4, 4, 4] }]
 }

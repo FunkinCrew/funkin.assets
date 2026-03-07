@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -6,12 +5,10 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.util.FlxTweenUtil;
 import funkin.util.HapticUtil;
-import funkin.util.Constants;
 import flixel.util.FlxTimer;
 import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.FunkinMemory;
 
@@ -44,7 +41,8 @@ class SpookyMansionErectStage extends Stage
     rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 
     // Precache the thunder sounds.
-    for (snd in ["thunder_1", "thunder_2"]) FunkinMemory.cacheSound(Paths.sound(snd));
+    for (snd in ["thunder_1", "thunder_2"])
+      FunkinMemory.cacheSound(Paths.sound(snd));
   }
 
   function onBranchFrame(name, frameNum, frameIndex)
@@ -81,23 +79,25 @@ class SpookyMansionErectStage extends Stage
     getDad().alpha = 0;
     getGirlfriend().alpha = 0;
 
-    new FlxTimer().start(0.06, function(_) {
+    new FlxTimer().start(0.06, function(_)
+    {
       getNamedProp('bgLight').alpha = 0;
       getNamedProp('stairsLight').alpha = 0;
-      getBoyfriend().alpha = 1;
+      getBoyfriend()?.alpha ??= 1;
       getDad().alpha = 1;
       getGirlfriend().alpha = 1;
     });
 
-    new FlxTimer().start(0.12, function(_) {
+    new FlxTimer().start(0.12, function(_)
+    {
       getNamedProp('bgLight').alpha = 1;
       getNamedProp('stairsLight').alpha = 1;
-      getBoyfriend().alpha = 0;
+      getBoyfriend()?.alpha ??= 0;
       getDad().alpha = 0;
       getGirlfriend().alpha = 0;
       FlxTween.tween(getNamedProp('bgLight'), {alpha: 0}, 1.5);
       FlxTween.tween(getNamedProp('stairsLight'), {alpha: 0}, 1.5);
-      FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
+      if (getBoyfriend() != null) FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
       FlxTween.tween(getDad(), {alpha: 1}, 1.5);
       FlxTween.tween(getGirlfriend(), {alpha: 1}, 1.5);
     });
@@ -105,7 +105,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeBeat = beat;
     lightningStrikeOffset = FlxG.random.int(8, 24);
 
-    if (getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer')
+    if (getBoyfriend() != null && getBoyfriend().hasAnimation('scared') && getBoyfriend().animation.name != 'cheer')
     {
       getBoyfriend().playAnimation('scared', true, true);
     }
@@ -189,5 +189,22 @@ class SpookyMansionErectStage extends Stage
     // Properly reset lightning when restarting the song.
     lightningStrikeBeat = 0;
     lightningStrikeOffset = 8;
+  }
+
+  function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+
+    // Reset lightning variables at the start of every song
+    lightningStrikeBeat = 0;
+    lightningStrikeOffset = 8;
+  }
+
+  function onGameOver(event:ScriptEvent)
+  {
+    super.onGameOver(event);
+
+    // Make sure the player character is visible when dying on the same frame as the lightning strikes.
+    getBoyfriend().alpha = 1;
   }
 }

@@ -1,0 +1,11 @@
+import funkin.play.notes.notekind.NoteKind;
+
+class CensorNoteKind extends NoteKind
+{
+  public function new()
+  {
+    super('censor', '[UH-OH!] Censor Bar');
+
+    // NOTE: Implemented in pico-playable.hxc
+  }
+}

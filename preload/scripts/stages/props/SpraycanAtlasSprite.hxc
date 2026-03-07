@@ -15,11 +15,15 @@ class SpraycanAtlasSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("spraycanAtlas", "weekend1");
+    loadTextureAtlas("spraycanAtlas", "weekend1", {
+      swfMode: true
+    });
+
     animation.onFinish.add(finishCanAnimation);
+    animation.onFrameChange.add(onCanFrame);
   }
 
-  public function finishCanAnimation(name:String)
+  public function finishCanAnimation(name:String):void
   {
     switch (name)
     {
@@ -33,14 +37,31 @@ class SpraycanAtlasSprite extends FunkinSprite
     }
   }
 
+  public function onCanFrame(name:String, frameNumber:Int, frameIndex:Int):Void
+  {
+    if (frameNumber == 3 && name == "Can Shot")
+    {
+      var explode:FunkinSprite = FunkinSprite.createSparrow(this.x + 150, this.y - 250, "SpraypaintExplosion");
+      explode.animation.addByPrefix("idle", "Explosion 1 movie0", 24, false);
+      PlayState.instance.currentStage.add(explode);
+
+      explode.animation.play("idle");
+      explode.animation.onFinish.add(() ->
+      {
+        explode.kill();
+      });
+    }
+  }
+
   public function playHitExplosion():Void
   {
-    var explodeEZ:FunkinSprite = FunkinSprite.createSparrow(this.x + 1050, this.y + 150, "spraypaintExplosionEZ");
+    var explodeEZ:FunkinSprite = FunkinSprite.createSparrow(this.x + 750, this.y - 100, "spraypaintExplosionEZ");
     explodeEZ.animation.addByPrefix("idle", "explosion round 1 short0", 24, false);
     explodeEZ.animation.play("idle");
 
     PlayState.instance.currentStage.add(explodeEZ);
-    explodeEZ.animation.finishCallback = () -> {
+    explodeEZ.animation.finishCallback = () ->
+    {
       explodeEZ.kill();
     };
   }

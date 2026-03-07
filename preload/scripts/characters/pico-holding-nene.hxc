@@ -6,15 +6,11 @@ import flixel.util.FlxTimer;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
 import flixel.FlxSprite;
-import flixel.FlxG;
-import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
-import funkin.Preferences;
-import funkin.util.Constants;
 
 class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {
@@ -48,20 +44,21 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
     PauseSubState.musicSuffix = '-pico';
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
       new FlxTimer().start(0.58, afterPicoDeathNeneIntro);
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   function afterPicoDeathNeneIntro():Void
   {
     // Delay the death quote because the first death animation is so fast.
-    new FlxTimer().start(1.5, function(_) {
+    new FlxTimer().start(1.5, function(_)
+    {
       // Prevent playing the death quote twice or if skipping the death animation.
       if (GameOverSubState.instance.hasPlayedDeathQuote) return;
 

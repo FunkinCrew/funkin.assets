@@ -1,22 +1,17 @@
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.save.Save;
-import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.play.cutscene.VideoCutscene;
 import openfl.filters.ShaderFilter;
 import flixel.FlxCamera;
-import flixel.FlxG;
 import flixel.math.FlxPoint;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
-import funkin.util.Constants;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
-import funkin.Preferences;
 
 class StressPicoMixSong extends Song
 {
@@ -25,10 +20,9 @@ class StressPicoMixSong extends Song
 
   public function new()
   {
-    super('stress',
-      {
-        variation: 'pico'
-      });
+    super('stress', {
+      variation: 'pico'
+    });
 
     hasPlayedCutscene = false;
   }
@@ -53,25 +47,23 @@ class StressPicoMixSong extends Song
 
     if (!PlayState.instance.isMinimalMode)
     {
-      if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid'))
+      if (tankmanGroup != null && !tankmanGroup.isValid())
       {
         // Destroy the tankman group if it's not valid.
-        tankmanGroup.destroy();
-        PlayState.instance.currentStage.remove(tankmanGroup);
-        tankmanGroup = null;
+        cleanupTankmanGroup();
       }
 
       if (tankmanGroup == null)
       {
         // Initialize the tankman group if it's not available.
         trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-        tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', true);
+        tankmanGroup = new TankmanSpriteGroup(true);
       }
 
       if (tankmanGroup != null)
       {
         // resets the tankmen!
-        tankmanGroup.scriptCall('reset');
+        tankmanGroup.reset(0, 0);
 
         tankmanGroup.zIndex = 30;
         PlayState.instance.currentStage.add(tankmanGroup);
@@ -114,12 +106,24 @@ class StressPicoMixSong extends Song
     // resets the tankmen!
     if (tankmanGroup != null)
     {
-      tankmanGroup.scriptCall('reset');
+      tankmanGroup.reset(0, 0);
     }
     if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
-      PlayState.instance.currentStage?.getGirlfriend().scriptCall('reset');
+      PlayState.instance.currentStage?.getGirlfriend().reset();
       trace('reset pico!');
+    }
+
+    // Resets Tankman and Pico if they were in the middle of the "redheads" sequence.
+    if (PlayState.instance.currentStage?.getDad().getCurrentAnimation() == 'redheadsAnim')
+    {
+      PlayState.instance.currentStage?.getDad().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getDad().dance(true);
+    }
+    if (PlayState.instance.currentStage?.getBoyfriend().getCurrentAnimation() == 'knifeToss')
+    {
+      PlayState.instance.currentStage?.getBoyfriend().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getBoyfriend().dance(true);
     }
   }
 
@@ -184,18 +188,11 @@ class StressPicoMixSong extends Song
 
   function startEndCutscene()
   {
-    var picoPos:Array<Float> = [
-      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-    ];
-    var otisPos:Array<Float> = [
-      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y
-    ];
-    var tankmanPos:Array<Float> = [
-      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-    ];
+    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+    var otisPos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
+    var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
     cutsceneTimerManager = new FlxTimerManager();
 
@@ -215,22 +212,26 @@ class StressPicoMixSong extends Song
       PlayState.instance.subtitles.assignSubtitles('songs/stress/subtitles/end-cutscene-pico', PlayState.instance.currentStage.getDad().picoEndingSound);
     }
 
-    new FlxTimer(cutsceneTimerManager).start(176 / 24, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(176 / 24, _ ->
+    {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('laughEnd', true);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(270 / 24, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(270 / 24, _ ->
+    {
       PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 370, 2, FlxEase.quadInOut);
       FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(320 / 24, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(320 / 24, _ ->
+    {
       PlayState.instance.endSong(true);
     });
   }
 
-  function kill():Void
+  function onDestroy(event:ScriptEvent):Void
   {
+    super.onDestroy(event);
     cleanupTankmanGroup();
   }
 
@@ -238,8 +239,7 @@ class StressPicoMixSong extends Song
   {
     if (tankmanGroup != null)
     {
-      PlayState.instance.currentStage.remove(tankmanGroup);
-      tankmanGroup.destroy();
+      PlayState.instance.currentStage.remove(tankmanGroup, true);
       tankmanGroup = null;
     }
   }

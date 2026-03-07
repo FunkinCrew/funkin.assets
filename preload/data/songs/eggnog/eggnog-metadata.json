@@ -1,26 +1,25 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Eggnog",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
+  "offsets": {},
   "playData": {
-    "stage": "mallXmas",
+    "songVariations": ["erect", "pico"],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-christmas",
       "girlfriend": "gf-christmas",
       "opponent": "parents-christmas",
-      "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["parents-christmas"],
+      "playerVocals": ["bf-christmas"]
     },
-    "songVariations": ["erect", "pico"],
-    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "mallXmas",
     "noteStyle": "funkin",
-    "album": "volume1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
+    "album": "volume1"
   },
-  "songName": "Eggnog",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 150 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 150, "bt": [4, 4, 4, 4] }]
 }

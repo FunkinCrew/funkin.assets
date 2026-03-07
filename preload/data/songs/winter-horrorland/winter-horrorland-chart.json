@@ -5,7 +5,7 @@
     {
       "t": 3018.8679245283,
       "e": "FocusCamera",
-      "v": { "x": 0, "duration": 4, "y": 0, "char": 2, "ease": "CLASSIC" }
+      "v": { "duration": 4, "x": 0, "y": 0, "ease": "CLASSIC", "char": 2 }
     },
     { "t": 9433, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 15094, "e": "FocusCamera", "v": { "char": 0 } },
@@ -1285,5 +1285,5 @@
       { "t": 129811, "d": 2 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 (chart-editor-port-legacy:76a614e) PROTOTYPE"
+  "generatedBy": "Friday Night Funkin' - v0.8.1"
 }

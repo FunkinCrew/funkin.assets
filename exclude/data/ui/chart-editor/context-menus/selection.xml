@@ -5,6 +5,14 @@
 	<menu-item id="contextmenuDelete" text="Delete Selection" shortcutText="Delete" />
 	<menu-separator />
 	<menu-item id="contextmenuFlip" text="Flip Selected Notes" />
+	<menu text="Mirror Notes">
+      <menu-item id="contextmenuMirrorX" text="X Axis" shortcutText="Ctrl+Shift+M" />
+      <menu-item id="contextmenuMirrorY" text="Y Axis" shortcutText="Ctrl+Alt+M" />
+			<menu-item id="contextmenuMirrorXY" text="XY Axis" shortcutText="Ctrl+Shift+Alt+M" />
+			<vbox width="100%">
+          <menu-checkbox width="100%" id="contextmenuMirrorFlipWithinStrumline" text="Flip Within Strumline" selected="true" />
+      </vbox>
+  </menu>
 	<menu-separator />
 	<menu-item id="contextmenuSelectAll" text="Select All" shortcutText="Ctrl+A" />
 	<menu-item id="contextmenuSelectInverse" text="Select Inverse" shortcutText="Ctrl+I" />

@@ -1,0 +1,157 @@
+import funkin.play.notes.notekind.NoteKind;
+
+class BlazinPunchHighNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchhigh", "Punch High (Blazin')");
+  }
+}
+
+class BlazinPunchHighDodgedNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchhighdodged", "Punch High (Dodge) (Blazin')");
+  }
+}
+
+class BlazinPunchHighBlockedNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchhighblocked", "Punch High (Block) (Blazin')");
+  }
+}
+
+class BlazinPunchHighSpinNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchhighspin", "Punch High (Spin) (Blazin')");
+  }
+}
+
+class BlazinPunchLowNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchlow", "Punch Low (Blazin')");
+  }
+}
+
+class BlazinPunchLowDodgedNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchlowdodged", "Punch Low (Dodge) (Blazin')");
+  }
+}
+
+class BlazinPunchLowBlockedNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchlowblocked", "Punch Low (Block) (Blazin')");
+  }
+}
+
+class BlazinPunchLowSpinNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-punchlowspin", "Punch High (Spin) (Blazin')");
+  }
+}
+
+class BlazinPicoUppercutPrepNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-picouppercutprep", "Pico Uppercut (Prep) (Blazin')");
+  }
+}
+
+class BlazinPicoUppercutNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-picouppercut", "Pico Uppercut (Blazin')");
+  }
+}
+
+class BlazinBlockHighNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-blockhigh", "Block High (Blazin')");
+  }
+}
+
+class BlazinBlockLowNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-blocklow", "Block Low (Blazin')");
+  }
+}
+
+class BlazinBlockSpinNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-blockspin", "Block High (Spin) (Blazin')");
+  }
+}
+
+class BlazinDodgeHighNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-dodgehigh", "Dodge High (Blazin')");
+  }
+}
+
+class BlazinDodgeLowNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-dodgelow", "Dodge Low (Blazin')");
+  }
+}
+
+class BlazinDodgeSpinNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-dodgespin", "Dodge High (Spin) (Blazin')");
+  }
+}
+
+class BlazinHitHighNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-hithigh", "Hit High (Blazin')");
+  }
+}
+
+class BlazinHitLowNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-hitlow", "Hit Low (Blazin')");
+  }
+}
+
+class BlazinHitSpinNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-hitspin", "Hit High (Spin) (Blazin')");
+  }
+}
+
+class BlazinDarnellUppercutPrepNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-darnelluppercutprep", "Darnell Uppercut (Prep) (Blazin')");
+  }
+}
+
+class BlazinDarnellUppercutNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-darnelluppercut", "Darnell Uppercut (Blazin')");
+  }
+}
+
+class BlazinIdleNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-idle", "Idle (Blazin')");
+  }
+}
+
+class BlazinFakeoutNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-fakeout", "Fakeout (Blazin')");
+  }
+}
+
+class BlazinTauntNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-taunt", "Taunt (If Fakeout) (Blazin')");
+  }
+}
+
+class BlazinTauntForceNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-tauntforce", "Taunt (Forced) (Blazin')");
+  }
+}
+
+class BlazinReverseFakeoutNoteKind extends NoteKind {
+  public function new() {
+    super("weekend-1-reversefakeout", "Fakeout (Reverse) (Blazin')");
+  }
+}

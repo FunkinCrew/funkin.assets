@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.math.FlxAngle;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
@@ -29,8 +28,8 @@ class TankmanBattlefieldStage extends Stage
 
     clouds.velocity.x = 8;
 
-    PlayState.instance.currentStage.add(clouds);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    add(clouds);
+    refresh(); // Apply z-index.
 
     tankAngle = FlxG.random.int(-90, 45);
     tankSpeed = FlxG.random.float(5, 7);

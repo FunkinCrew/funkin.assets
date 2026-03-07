@@ -4,13 +4,21 @@ import funkin.util.HapticUtil;
 
 class PicoGreatResults extends FunkinSprite
 {
+  /**
+   * The offset for the white and black flashes.
+   * This is to make sure they look right!!
+   */
+  final FLASH_POSITION_OFFSET:Float = 500;
+
   function new(x:Float, y:Float)
   {
     super(x, y);
 
     loadTextureAtlas("resultScreen/results-pico/resultsGREAT", "shared");
+    scaleFlashes();
 
-    anim.onFrameChange.add((animation:String, frame:Int) -> {
+    animation.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (!HapticUtil.hapticsAvailable) return;
 
       // Pico shoots.
@@ -19,5 +27,18 @@ class PicoGreatResults extends FunkinSprite
       // The targets explode.
       if (frame == 50) HapticUtil.vibrate(0.1, 0.1, 1);
     });
+  }
+
+  /**
+   * Scales the white/black flash symbols to normal size.
+   * They're tiny in the FLA for optimization purposes!
+   */
+  function scaleFlashes():Void
+  {
+    var whiteElement:Element = getFirstElement("white");
+    var blackElement:Element = getFirstElement("black");
+
+    scaleElement(whiteElement, 10, FLASH_POSITION_OFFSET);
+    scaleElement(blackElement, 15, FLASH_POSITION_OFFSET);
   }
 }

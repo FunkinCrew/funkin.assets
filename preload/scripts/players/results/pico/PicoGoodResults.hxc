@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.util.HapticUtil;
 
@@ -13,10 +12,12 @@ class PicoGoodResults extends FunkinSprite
   function new(x:Float, y:Float)
   {
     super(x, y);
+
     loadTextureAtlas("resultScreen/results-pico/resultsGOOD", "shared");
     scaleFlashes();
 
-    animation.onFrameChange.add((animation:String, frame:Int) -> {
+    animation.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (animation == "pico good placeholder" && this.visible)
       {
         overrideAnimation();
@@ -24,14 +25,16 @@ class PicoGoodResults extends FunkinSprite
       }
     });
 
-    animation.onFrameLabel.add((label:String) -> {
+    animation.onFrameLabel.add((label:String) ->
+    {
       if (label == "flash frame" && HapticUtil.hapticsAvailable)
       {
         HapticUtil.vibrate(0, 0.01, 1);
       }
     });
 
-    animation.onFinish.add((name:String) -> {
+    animation.onFinish.add((name:String) ->
+    {
       if (name == "pico good placeholder") return;
 
       trace('Looping Pico shooting animation...');

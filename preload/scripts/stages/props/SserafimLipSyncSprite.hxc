@@ -3,10 +3,8 @@ import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 import flixel.util.FlxTimer;
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.Preferences;
 
 // object used for lip sync on characters in SPAGHETTI
 class SserafimLipSyncSprite extends FunkinSprite

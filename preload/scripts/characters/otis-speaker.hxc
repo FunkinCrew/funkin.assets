@@ -1,11 +1,8 @@
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
-import flixel.FlxG;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.play.PlayState;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
 
@@ -67,14 +64,15 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
 
-    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int)
+    {
       if (frameNumber == 16)
       {
         pupil.anim.pause();
       }
     });
 
-    abot = ScriptedFunkinSprite.init('ABotAtlasSprite', 0, 0);
+    abot = new ABotAtlasSprite(0, 0);
     abot.x = this.x;
     abot.y = this.y;
     abot.zIndex = this.zIndex - 1;
@@ -101,7 +99,8 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     muzzleFlash.animation.addByPrefix('shoot3', 'shoot forward0', 24, false);
     muzzleFlash.animation.addByPrefix('shoot4', 'shoot forward low0', 24, false);
 
-    muzzleFlash.animation.onFrameChange.add(function() {
+    muzzleFlash.animation.onFrameChange.add(function()
+    {
       updateMuzzle();
     });
 
@@ -158,7 +157,8 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
     // i had to sort the whole pico chart by hand im gonna go insane
-    animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int {
+    animNotes.sort(function(a:SongNoteData, b:SongNoteData):Int
+    {
       return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
     });
 

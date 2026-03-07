@@ -1,7 +1,6 @@
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import animate.internal.elements.FlxSpriteElement;
@@ -19,33 +18,22 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
    * A map of animation names to lip sync data.
    * This is so it gets offset properly!
    */
-  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = [
-    'idle' =>
-    {
-      offset: [41, 3],
-      angle: -166
-    },
-    'singUP' =>
-    {
-      offset: [38, 0],
-      angle: -168
-    },
-    'singRIGHT' =>
-    {
-      offset: [39, 1],
-      angle: -165
-    },
-    'singDOWN' =>
-    {
-      offset: [41, 3],
-      angle: -167
-    },
-    'singLEFT' =>
-    {
-      offset: [40, 2],
-      angle: -165
-    }
-  ];
+  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = ['idle' => {
+    offset: [41, 3],
+    angle: -166
+  }, 'singUP' => {
+    offset: [38, 0],
+    angle: -168
+  }, 'singRIGHT' => {
+    offset: [39, 1],
+    angle: -165
+  }, 'singDOWN' => {
+    offset: [41, 3],
+    angle: -167
+  }, 'singLEFT' => {
+    offset: [40, 2],
+    angle: -165
+  }];
 
   function new()
   {
@@ -68,9 +56,9 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
     {
@@ -102,12 +90,5 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     lipSyncSprite.shader = currentShader;
 
     trace("Synchronized shader between children!");
-  }
-
-  override public function isOnScreen(camera:FlxCamera):Bool
-  {
-    // TODO: Figure out why she disappears when the camera zooms in too much!!
-    // This is such a shit fix but it works.
-    return true;
   }
 }

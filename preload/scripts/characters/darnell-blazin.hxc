@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.play.PlayState;
 import funkin.play.character.AnimateAtlasCharacter;
 import StringTools;
@@ -213,7 +212,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
       case "weekend-1-taunt":
         playPissedConditionalAnim();
       case "weekend-1-tauntforce":
-        playPissed();
+        playPissedAnim();
       case "weekend-1-reversefakeout":
         playFakeoutAnim(); // TODO: Which anim?
 
@@ -267,14 +266,14 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
   {
     if (this.debug) return;
     this.zIndex = 2000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function moveToFront()
   {
     if (this.debug) return;
     this.zIndex = 3000;
-    PlayState.instance.currentStage.refresh();
+    currentStage.refresh();
   }
 
   function wasNoteHitPoorly(event:HitNoteScriptEvent):Bool

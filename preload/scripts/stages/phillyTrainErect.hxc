@@ -1,14 +1,11 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
 import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.base.ScriptedFunkinSprite;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
 import funkin.audio.FunkinSound;
@@ -18,7 +15,6 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import funkin.Preferences;
 import funkin.util.TouchUtil;
 import funkin.util.HapticUtil;
 import funkin.ui.FullScreenScaleMode;
@@ -88,9 +84,9 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  var picoPlayer:ScriptedFunkinSprite;
-  var picoOpponent:ScriptedFunkinSprite;
-  var bloodPool:ScriptedFunkinSprite;
+  var picoPlayer:PicoDopplegangerSprite;
+  var picoOpponent:PicoDopplegangerSprite;
+  var bloodPool:PicoBloodPool;
   var cigarette:FlxSprite;
   var skipText:FlxText;
 
@@ -101,11 +97,12 @@ class PhillyTrainErectStage extends Stage
 
   var cutsceneTimerManager:FlxTimerManager;
 
-  function doppleGangerCutscene()
+  function doppleGangerCutscene():Void
   {
     // Disable player input during cutscene, so you can't get a gameover during cutscene
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
+
     skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
       'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
     if (FlxG.onMobile)
@@ -132,35 +129,19 @@ class PhillyTrainErectStage extends Stage
     cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
     // 50/50 chance for who shoots
-    if (FlxG.random.bool(50))
-    {
-      playerShoots = true;
-    }
-    else
-    {
-      playerShoots = false;
-    }
-    if (FlxG.random.bool(8))
-    {
-      // trace('Doppelganger will explode!');
-      explode = true;
-    }
-    else
-    {
-      // trace('Doppelganger will smoke!');
-      explode = false;
-    }
+    playerShoots = FlxG.random.bool(50);
+    explode = FlxG.random.bool(8);
 
     var cigarettePos:Array<Float> = [];
     var shooterPos:Array<Float> = [];
 
-    bloodPool = ScriptedFunkinSprite.init('PicoBloodPool', 0, 0);
-    picoPlayer = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
-    picoOpponent = ScriptedFunkinSprite.init('PicoDopplegangerSprite', 0, 0);
+    bloodPool = new PicoBloodPool(0, 0);
+    picoPlayer = new PicoDopplegangerSprite(0, 0);
+    picoOpponent = new PicoDopplegangerSprite(0, 0);
     cigarette = new FlxSprite(0, 0);
 
-    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 537, PlayState.instance.currentStage.getBoyfriend().y - 209);
-    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 502, PlayState.instance.currentStage.getDad().y - 209);
+    picoPlayer.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 402, PlayState.instance.currentStage.getBoyfriend().y - 144);
+    picoOpponent.setPosition(PlayState.instance.currentStage.getDad().x - 333, PlayState.instance.currentStage.getDad().y - 144.5);
 
     picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
@@ -168,38 +149,26 @@ class PhillyTrainErectStage extends Stage
     {
       picoOpponent.zIndex = picoPlayer.zIndex - 1;
       bloodPool.zIndex = picoOpponent.zIndex - 1;
-      cigarette.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 2;
+      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
       cigarette.flipX = true;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 200, PlayState.instance.currentStage.getDad().y + 400);
-      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
+      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 460);
+      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 10, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      shooterPos = [
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-      ];
-      cigarettePos = [
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-      ];
+      shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+      cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
     }
     else
     {
       picoOpponent.zIndex = picoPlayer.zIndex + 1;
       bloodPool.zIndex = picoPlayer.zIndex - 1;
-      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
+      cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 1;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 500, PlayState.instance.currentStage.getBoyfriend().y + 400);
-      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
+      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 460);
+      cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 350, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      cigarettePos = [
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
-      ];
-      shooterPos = [
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
-        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
-      ];
+      cigarettePos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+      shooterPos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
     }
     var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0]) / 2, (shooterPos[1] + cigarettePos[1]) / 2];
 
@@ -220,7 +189,7 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.currentStage.getBoyfriend().visible = false;
     PlayState.instance.currentStage.getDad().visible = false;
 
-    if (explode)
+    if (!explode)
     {
       cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
     }
@@ -231,40 +200,45 @@ class PhillyTrainErectStage extends Stage
     cutsceneMusic.volume = 1;
     cutsceneMusic.play(false);
 
-    picoPlayer.scriptCall('doAnim', ['Player', playerShoots, explode, cutsceneTimerManager]);
-    picoOpponent.scriptCall('doAnim', ['Opponent', !playerShoots, explode, cutsceneTimerManager]);
+    picoPlayer.doAnim('Player', playerShoots, explode, cutsceneTimerManager);
+    picoOpponent.doAnim('Opponent', !playerShoots, explode, cutsceneTimerManager);
 
     PlayState.instance.resetCamera(false, true);
     PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
 
-    new FlxTimer(cutsceneTimerManager).start(4, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(4, _ ->
+    {
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(6.3, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(6.3, _ ->
+    {
       PlayState.instance.cameraFollowPoint.setPosition(shooterPos[0], shooterPos[1]);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(8.75, _ ->
+    {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5,
+      FlxTween.tween(skipText, {alpha: 0}, 0.5, {
+        ease: FlxEase.quadIn,
+        onComplete: _ ->
         {
-          ease: FlxEase.quadIn,
-          onComplete: _ -> {
-            skipText.visible = false;
-          }
-        });
+          skipText.visible = false;
+        }
+      });
       // cutting off skipping here. really dont think its needed after this point and it saves problems from happening
       PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
       if (explode) PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
     });
 
-    new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
-      if (explode) bloodPool.scriptCall('doAnim');
+    new FlxTimer(cutsceneTimerManager).start(11.2, _ ->
+    {
+      if (explode) bloodPool.doAnim();
     });
 
-    new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(11.5, _ ->
+    {
       if (!explode)
       {
         cigarette.visible = true;
@@ -272,7 +246,8 @@ class PhillyTrainErectStage extends Stage
       }
     });
 
-    new FlxTimer(cutsceneTimerManager).start(13, _ -> {
+    new FlxTimer(cutsceneTimerManager).start(13, _ ->
+    {
       if (explode)
       {
         if (playerShoots)
@@ -289,11 +264,13 @@ class PhillyTrainErectStage extends Stage
           PlayState.instance.disableKeys = true;
           PlayState.instance.currentStage.getDad().visible = true;
 
-          new FlxTimer().start(1, function(tmr) {
+          new FlxTimer().start(1, function(tmr)
+          {
             PlayState.instance.camCutscene.fade(0xFF000000, 1, false, null, true);
           });
 
-          new FlxTimer().start(2, function(tmr) {
+          new FlxTimer().start(2, function(tmr)
+          {
             PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
             PlayState.instance.endSong(true);
           });
@@ -323,13 +300,14 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
     cutsceneMusic.fadeOut(0.5, 0);
 
-    new FlxTimer().start(0.5, _ -> {
+    new FlxTimer().start(0.5, _ ->
+    {
       PlayState.instance.justUnpaused = true;
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
       cutsceneTimerManager.clear();
-      picoPlayer.scriptCall('cancelSounds');
-      picoOpponent.scriptCall('cancelSounds');
+      picoPlayer.cancelSounds();
+      picoOpponent.cancelSounds();
       cutsceneMusic.stop();
 
       PlayState.instance.isInCutscene = false;
@@ -368,7 +346,7 @@ class PhillyTrainErectStage extends Stage
     super.buildStage();
 
     // NOTE: You pass the constructor variables directly, not as an array.
-    lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
+    lightShader = new BuildingEffectShader(1.0);
     trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
 
     colorShader = new AdjustColorShader();
@@ -403,7 +381,7 @@ class PhillyTrainErectStage extends Stage
     if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
     // Update beat lights
     var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
-    lightShader.scriptCall('update', [shaderInput]);
+    lightShader.update(shaderInput);
 
     var amount:Int = 1;
 
@@ -432,7 +410,8 @@ class PhillyTrainErectStage extends Stage
         if (skipText != null)
         {
           FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-          new FlxTimer().start(0.5, _ -> {
+          new FlxTimer().start(0.5, _ ->
+          {
             canSkipCutscene = true;
             trace('can skip!');
           });
@@ -487,7 +466,7 @@ class PhillyTrainErectStage extends Stage
     if (event.beat % 4 == 0)
     {
       // Reset opacity
-      lightShader.scriptCall('reset');
+      lightShader.reset();
 
       // Switch to a different light
       curLight = FlxG.random.int(0, lightColors.length - 1);
@@ -519,7 +498,7 @@ class PhillyTrainErectStage extends Stage
       switch (getGirlfriend().characterId)
       {
         case 'nene':
-          getGirlfriend().scriptSet('trainPassing', true);
+          getGirlfriend().trainPassing = true;
         default:
           getGirlfriend().playAnimation('hairBlow');
       }
@@ -549,7 +528,7 @@ class PhillyTrainErectStage extends Stage
     switch (getGirlfriend().characterId)
     {
       case 'nene':
-        getGirlfriend().scriptSet('trainPassing', false);
+        getGirlfriend().trainPassing = false;
       default:
         getGirlfriend().playAnimation('hairFall');
     }
