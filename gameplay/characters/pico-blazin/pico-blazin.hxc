@@ -133,7 +133,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
       // TODO: ACTUALLY play one of the three death animations here.
 
       // Make sure the death music plays with PERFECT timing.
-      new FlxTimer().start(1.25, afterPicoDeathGutPunchIntro);
+      new FlxTimer().start(1.25, _ -> afterPicoDeathGutPunchIntro());
 
       if (HapticUtil.hapticsAvailable)
       {
