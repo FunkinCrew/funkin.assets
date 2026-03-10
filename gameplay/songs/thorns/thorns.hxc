@@ -6,7 +6,7 @@ import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import flixel.util.FlxTimer;
 import funkin.effects.RetroCameraFade;
-import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.ConversationRegistry;
 
 class ThornsSong extends Song
 {

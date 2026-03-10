@@ -8,7 +8,7 @@ import funkin.audio.FunkinSound;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
-import funkin.data.dialogue.conversation.ConversationRegistry;
+import funkin.data.dialogue.ConversationRegistry;
 import funkin.util.HapticUtil;
 
 class RosesSong extends Song
