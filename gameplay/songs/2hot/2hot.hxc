@@ -1,5 +1,4 @@
 import flixel.FlxSprite;
-import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -18,7 +17,6 @@ import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
 import funkin.FunkinMemory;
 
-// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 class TwoHOTSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
