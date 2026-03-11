@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu width="220px">
-	<label id="contextmenuNoteKindLabel" styleName="menuLabel" style="padding: 2px; padding-left: 12px; padding-top: 8px;" text="Note Kind: " />
-	<label id="contextmenuNoteKind" styleName="menuLabel" style="padding: 2px; padding-left: 12px;" text="Note Kind" />
+	<hbox>
+		<label id="contextmenuNoteKindLabel" styleName="menuLabel" style="padding: 2px; padding-left: 12px; padding-top: 8px; padding-bottom: 8px;" text="Note Kind: " />
+		<label id="contextmenuNoteKind" styleName="menuLabel" style="padding: 2px; padding-top: 8px; padding-bottom: 8px;" text="Default" />
+	</hbox>
 	<grid columns="2">
 		<dropdown width="50%" id="contextmenuUnit" text="Time (MS)" value="MILLISECONDS" selectedIndex="0" >
 			<data>
