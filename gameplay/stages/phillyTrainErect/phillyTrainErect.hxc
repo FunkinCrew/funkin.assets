@@ -131,7 +131,7 @@ class PhillyTrainErectStage extends Stage
     skipText.x -= 136;
     #end
 
-    skipText.setFormat(Paths.font('ui/fonts/vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+    skipText.setFormat(Paths.font('ui/fonts/VCR OSD Mono'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
     skipText.borderSize = 2;
     skipText.alpha = 0;
