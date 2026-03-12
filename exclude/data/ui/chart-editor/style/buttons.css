@@ -1,0 +1,5 @@
+.button, .menu, .menuitem, .menuLabel, .menuitem-checkbox {
+  font-size: 12px;
+  font-family: 'Inconsolata';
+  font-bold: true;
+}
