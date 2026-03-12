@@ -1,0 +1,26 @@
+.playbar {
+background-color: $solid-background-color;
+padding: 8px;
+}
+.playbarDuration {
+font-size: 24px;
+font-bold: true;
+}
+.playbarDifficulty {
+font-size: 18px;
+font-bold: true;
+}
+.playbarStatus {
+font-size: 18px;
+font-bold: true;
+pointer-events: true;
+}
+.playbarStatus:hover {
+background-color: #CCCCCC;
+}
+.playbarButton {
+font-size: 16px;
+font-family: 'Inconsolata';
+font-bold: true;
+width: 56px;
+}

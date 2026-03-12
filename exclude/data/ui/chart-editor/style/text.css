@@ -1,0 +1,21 @@
+body, .label, .link {
+  font-size: 14px;
+  font-family: 'Inconsolata';
+  font-bold: true;
+}
+
+.menuHeader {
+  font-size: 16px;
+  font-family: 'Inconsolata';
+  font-bold: true;
+}
+.textfield {
+  font-size: 10px;
+  font-bold: true;
+}
+
+.offset-ticks-label {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+}

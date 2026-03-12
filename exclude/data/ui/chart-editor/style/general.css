@@ -1,0 +1,14 @@
+.disable-validation.invalid-value {
+  border: $normal-border-size solid $normal-border-color;
+  background-color: $tertiary-background-color;
+}
+
+.absolute {
+  clip: false;
+}
+.upload-bg {
+  background-color: #666666;
+}
+.upload-bg-hover {
+  background-color: #444444;
+}
