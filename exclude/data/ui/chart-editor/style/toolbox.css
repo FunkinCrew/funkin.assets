@@ -1,0 +1,6 @@
+#toolboxTools .dialog-title, #toolboxSong .dialog-title, #toolboxNotes .dialog-title, #toolboxEvents .dialog-title {
+	padding: 4px;
+}
+#toolboxSong .dialog-content {
+	padding: 0px;
+}
