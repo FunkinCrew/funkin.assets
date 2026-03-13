@@ -65,6 +65,14 @@ class SserafimStage extends Stage
     cutsceneTimerManager = null;
   }
 
+  override public function onSongLoaded(event:SongLoadScriptEvent):Void
+  {
+    super.onSongLoaded(event);
+
+    // PlayState.instance.comboPopUps.offsets = [510, 320]; actual values for if we ever wanna use it
+    PlayState.instance.remove(PlayState.instance.comboPopUps);
+  }
+
   function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
@@ -507,8 +515,6 @@ class SserafimStage extends Stage
     {
       this.hasHidden = true;
       hideOpponentStrumline();
-      // PlayState.instance.comboPopUps.offsets = [510, 320]; actual values for if we ever wanna use it
-      PlayState.instance.comboPopUps.offsets = [9999, -50];
     }
 
     if (perspectiveFloor != null)
@@ -516,10 +522,9 @@ class SserafimStage extends Stage
       perspectiveFloor.updateSkew(PlayState.instance.camGame);
     }
 
-    if (FlxG.onMobile)
-    {
-      isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
-    }
+    #if mobile
+    isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+    #end
 
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
@@ -734,11 +739,12 @@ class SserafimStage extends Stage
 
     skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
       'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    if (FlxG.onMobile)
-    {
-      skipText.text = 'Skip [Pause Button]';
-      skipText.x -= 136;
-    }
+
+    #if mobile
+    skipText.text = 'Skip [Pause Button]';
+    skipText.x -= 136;
+    #end
+
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
     skipText.borderSize = 2;

@@ -105,11 +105,12 @@ class PhillyTrainErectStage extends Stage
 
     skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
       'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    if (FlxG.onMobile)
-    {
-      skipText.text = 'Skip [Pause Button]';
-      skipText.x -= 136;
-    }
+
+    #if mobile
+    skipText.text = 'Skip [Pause Button]';
+    skipText.x -= 136;
+    #end
+
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
     skipText.borderSize = 2;
@@ -397,10 +398,9 @@ class PhillyTrainErectStage extends Stage
       }
     }
 
-    if (FlxG.onMobile)
-    {
-      isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
-    }
+    #if mobile
+    isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+    #end
 
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
@@ -533,6 +533,8 @@ class PhillyTrainErectStage extends Stage
         getGirlfriend().playAnimation('hairFall');
     }
 
+    if (startedMoving) getGirlfriend().playAnimation('hairFall');
+
     trainMoving = false;
     trainCars = 8;
     trainFinishing = false;
@@ -544,6 +546,14 @@ class PhillyTrainErectStage extends Stage
     super.onSongRetry(event);
     trainReset();
     trainEnabled = true;
+
+    if (trainSound != null) trainSound.stop();
+
+    if (getGirlfriend() != null)
+    {
+      getGirlfriend().dance(true);
+      getGirlfriend().animation.finish();
+    }
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void

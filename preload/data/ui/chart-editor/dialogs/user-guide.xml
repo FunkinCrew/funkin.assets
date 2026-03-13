@@ -54,16 +54,19 @@
 					<item action="Delete Selection" keybind="Delete" />
 					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Flip Selected Notes" keybind="Ctrl + F" />
-					<item action="Mirror Notes along the X axis" keybind="Ctrl + Shift + M" />
-					<item action="Mirror Notes along the Y axis" keybind="Ctrl + Alt + M" />
-					<item action="Mirror Notes along the X and Y axes" keybind="Ctrl + Shift + Alt + M" />
+					<item action="Mirror Notes Along X Axis" keybind="Ctrl + Shift + M" />
+					<item action="Mirror Notes Along Y Axis" keybind="Ctrl + Alt + M" />
+					<item action="Mirror Notes Along Both Axes" keybind="Ctrl + Shift + Alt + M" />
 					<item action="Select All Notes" keybind="Ctrl + A" />
 					<item action="Select All Events" keybind="Ctrl + Alt + A" />
 					<item action="Append All Notes to Selection" keybind="Ctrl + Shift + A" />
 					<item action="Append All Events to Selection" keybind="Ctrl + Alt + Shift + A" />
+					<item action="Select All Notes Before Playhead" keybind="Shift + Home" />
+					<item action="Deselect All Notes Before Playhead" keybind="Ctrl + Shift + Home" />
+					<item action="Select All Notes After Playhead" keybind="Shift + End" />
+					<item action="Deselect All Notes After Playhead" keybind="Ctrl + Shift + End" />
 					<item action="Select None" keybind="Ctrl + D" />
 					<item action="Select Inverse" keybind="Ctrl + I" />
-					<item action="Select Region" keybind="Tab" />
 					<item action="Toggle Metronome" keybind="Shift + M" />
 					<item action="Toggle Hitsounds" keybind="Shift + H" />
 					<item action="Toggle Instrumental" keybind="Shift + I" />

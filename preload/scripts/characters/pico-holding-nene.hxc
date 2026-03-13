@@ -48,7 +48,7 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
   {
     if (name == "firstDeath")
     {
-      new FlxTimer().start(0.58, afterPicoDeathNeneIntro);
+      new FlxTimer().start(0.58, _ -> afterPicoDeathNeneIntro());
     }
 
     super.playAnimation(name, restart, ignoreOther, reversed);

@@ -1,6 +1,6 @@
 import funkin.data.character.CharacterDataParser;
 import funkin.graphics.shaders.TextureSwap;
-import funkin.util.FlxColorUtil;
+import flixel.util.FlxColor;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.character.NeneBaseCharacter;
 
@@ -28,7 +28,7 @@ class NeneDarkCharacter extends NeneBaseCharacter
         normalChar.alpha = 0.0001;
     }
 
-    eyeWhites.color = FlxColorUtil.interpolate(0xFFFFFFFF, 0xFF6F96CE, val);
+    eyeWhites.color = FlxColor.interpolate(0xFFFFFFFF, 0xFF6F96CE, val);
 
     return val;
   }

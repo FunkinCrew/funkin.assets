@@ -1,8 +1,4 @@
 import funkin.graphics.FunkinSprite;
-import funkin.Conductor;
-import funkin.util.BezierUtil;
-// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
-import flixel.math.FlxBasePoint;
 
 /**
  * A sprite which represents a bullet flying through the air after Pico reloads.

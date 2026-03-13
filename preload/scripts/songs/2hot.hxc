@@ -1,5 +1,4 @@
 import flixel.FlxSprite;
-import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -18,7 +17,6 @@ import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
 import funkin.FunkinMemory;
 
-// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 class TwoHOTSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
@@ -112,11 +110,10 @@ class TwoHOTSong extends Song
     new FlxTimer().start(2, function(tmr)
     {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
-      if (FlxG.onMobile)
-      {
-        FlxTween.tween(PlayState.instance.pauseButton,
-          {x: (FlxG.width - PlayState.instance.pauseButton.width) - (40 + (FullScreenScaleMode.gameCutoutSize.x / 2))}, 3.0, {ease: FlxEase.quintOut});
-      }
+      #if mobile
+      FlxTween.tween(PlayState.instance.pauseButton,
+        {x: (FlxG.width - PlayState.instance.pauseButton.width) - (40 + (FullScreenScaleMode.gameCutoutSize.x / 2))}, 3.0, {ease: FlxEase.quintOut});
+      #end
       FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
     });
 
@@ -150,10 +147,10 @@ class TwoHOTSong extends Song
     VideoCutscene.onVideoStarted.add(endCutscene);
     VideoCutscene.onVideoEnded.addOnce(function()
     {
-      if (FlxG.onMobile)
-      {
-        PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - Math.max(40, FullScreenScaleMode.gameNotchSize.x);
-      }
+      #if mobile
+      PlayState.instance.pauseButton.x = (FlxG.width - PlayState.instance.pauseButton.width) - Math.max(40, FullScreenScaleMode.gameNotchSize.x);
+      #end
+
       FullScreenScaleMode.removeCutouts();
     });
 
