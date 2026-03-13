@@ -7,6 +7,7 @@ import funkin.Paths;
 import funkin.audio.FunkinSound;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
 import funkin.util.HapticUtil;
 
 class WinterHorrorlandSong extends Song
@@ -26,6 +27,8 @@ class WinterHorrorlandSong extends Song
   override public function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
+
+    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
