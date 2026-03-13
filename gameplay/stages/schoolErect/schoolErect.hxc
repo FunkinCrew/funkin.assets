@@ -110,4 +110,16 @@ class SchoolErectStage extends Stage
       default:
     }
   }
+  
+  function onSongEnd(event:ScriptEvent):Void
+  {
+    super.onSongEnd(event);
+    if (event.eventcanceled)
+    {
+      // onSongEnd event was cancelled by the gameplay module.
+      return;
+    }
+    // Move the camera transition less to stop the tree cut offs from showing
+    FlxG.camera.targetOffset.y += 125;
+  }
 }
