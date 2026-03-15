@@ -44,8 +44,9 @@
     },
     "noteSplash": {
       "assetPath": "shared:noteSplashes",
+      "scale": 0.7,
       "alpha": 0.8,
-      "offsets": [25, -5],
+      "offsets": [0, -42],
       "data": {
         "enabled": true,
         "leftSplashes": [
