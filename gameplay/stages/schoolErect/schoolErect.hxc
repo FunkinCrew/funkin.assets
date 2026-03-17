@@ -110,7 +110,7 @@ class SchoolErectStage extends Stage
       default:
     }
   }
-  
+
   function onSongEnd(event:ScriptEvent):Void
   {
     super.onSongEnd(event);
@@ -120,6 +120,6 @@ class SchoolErectStage extends Stage
       return;
     }
     // Move the camera transition less to stop the tree cut offs from showing
-    FlxG.camera.targetOffset.y += 125;
+    FlxG.camera.targetOffset.y += 170;
   }
 }
