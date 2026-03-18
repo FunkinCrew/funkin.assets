@@ -53,6 +53,9 @@
     <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
     <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="R" />
   </menu>
+  <menu text="Generate" id="menubarMenuGenerate">
+    <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
+  </menu>
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
     <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />

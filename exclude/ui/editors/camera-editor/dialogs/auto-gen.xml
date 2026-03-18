@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="300" title="Auto Generate">
+	<vbox width="100%">
+    <hbox width="100%">
+      <label text="Placement Mode" verticalAlign="center" horizontalAlign="right" width="100%" />
+      <dropdown width="160" id="autoGenPlacementMode" disabled="true">
+        <data>
+          <item id="vanilla" text="Vanilla" tooltip="Shift camera focus when a character starts singing, after they haven't sung for a bit." />
+        </data>
+      </dropdown>
+    </hbox>
+
+  	<hbox width="100%" horizontalAlign="right">
+			<button text="Cancel" id="dialogCancel" />
+			<spacer width="100%" />
+			<button text="Generate" id="dialogGenerate" />
+		</hbox>
+	</vbox>
+</dialog>
