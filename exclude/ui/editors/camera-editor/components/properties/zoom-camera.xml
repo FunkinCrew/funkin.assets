@@ -2,7 +2,7 @@
 <vbox width="100%" height="100%" id="propertiesContainer">
   <hbox width="100%">
     <label text="Zoom" verticalAlign="center" horizontalAlign="right" width="100%" />
-    <number-stepper pos="1.0" step="0.1" width="160" min="0.1" id="zoomCameraZoomLevel" />
+    <number-stepper pos="1.0" step="0.1" width="160" min="0.1" max="10.0" id="zoomCameraZoomLevel" />
   </hbox>
   <hbox width="100%">
     <label text="Mode" verticalAlign="center" horizontalAlign="right" width="100%" />
