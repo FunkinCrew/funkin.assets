@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vbox width="100%" height="100%">
 	<import source="components/menu.xml" />
-	<import source="components/style.xml" />
 
 	<splitter direction="vertical" width="100%" height="100%">
 		<hbox height="65%" width="1280">
