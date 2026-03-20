@@ -40,7 +40,7 @@ class NeneDarkCharacter extends NeneBaseCharacter
     stereoBG.color = 0xFF616785;
 
     abotTextureSwap = new TextureSwap();
-    abotTextureSwap.loadSwapImage(Assets.getPath(Paths.image('characters/abot/dark/abotSystem/spritemap1')));
+    abotTextureSwap.loadSwapImage(Paths.image('characters/abot/dark/abotSystem/spritemap1'));
     abot.shader = abotTextureSwap;
 
     vizAdjustColor = new AdjustColorShader();
