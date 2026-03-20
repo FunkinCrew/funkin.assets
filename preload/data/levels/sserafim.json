@@ -1,6 +1,9 @@
 {
   "version": "1.0.0",
   "name": "LE SSERAFIM",
+  "capsule": {
+    "name": "SP. COLLAB 1"
+  },
   "titleAsset": "storymenu/titles/sserafim",
   "props": [
     {

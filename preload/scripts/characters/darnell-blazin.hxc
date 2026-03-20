@@ -17,6 +17,12 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
     this.playAnimation('idle', true, false);
   }
 
+  function resetCharacter(resetCamera:Bool = true):Void
+  {
+    super.resetCharacter(resetCamera);
+    this.danceEvery = 0;
+  }
+  
   var cantUppercut = false;
 
   function onNoteHit(event:HitNoteScriptEvent)
