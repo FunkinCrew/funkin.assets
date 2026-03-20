@@ -21,7 +21,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   function get_CACHE_IMAGE_PATHS():Array<String>
   {
     return
-      ["gameplay/characters/nene-knifetoss", "gameplay/characters/pico-playable/pico-death-explosion/spritemap1", "gameplay/characters/pico-playable/pico-casing"];
+      ["gameplay/characters/nene/nene-knifetoss", "gameplay/characters/pico-playable/pico-death-explosion/spritemap1", "gameplay/characters/pico-playable/pico-casing"];
   }
 
   public var CACHE_SOUND_PATHS(get, never):Array<String>;
