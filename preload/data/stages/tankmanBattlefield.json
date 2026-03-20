@@ -233,7 +233,7 @@
       "position": [230.5, 996],
       "cameraOffsets": [250, -100]
     },
-    "gf": { "zIndex": 100, "position": [660.5, 730], "cameraOffsets": [0, 0] }
+    "gf": { "zIndex": 100, "position": [610, 761], "cameraOffsets": [50.5, -31] }
   },
   "directory": "week7"
 }

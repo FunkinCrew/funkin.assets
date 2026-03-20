@@ -4,7 +4,7 @@
   "renderType": "animateatlas",
   "assetPath": "shared:characters/gf",
   "startingAnimation": "danceRight",
-  "offsets": [-12, 4],
+  "offsets": [20, -10],
   "cameraOffsets": [12, 8],
   "animations": [
     {

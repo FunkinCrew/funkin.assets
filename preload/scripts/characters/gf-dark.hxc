@@ -35,7 +35,7 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);
-      normalChar.setPosition(this.x - 45.5, this.y);
+      normalChar.setPosition(this.x - 34, this.y);
     }
   }
 

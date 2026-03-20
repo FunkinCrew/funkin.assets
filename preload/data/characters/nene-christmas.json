@@ -4,7 +4,7 @@
   "assetPath": "shared:characters/nene-christmas",
   "startingAnimation": "danceRight",
   "renderType": "animateatlas",
-  "offsets": [-16, -89],
+  "offsets": [4, -84],
   "cameraOffsets": [-24, 34],
   "animations": [
     {

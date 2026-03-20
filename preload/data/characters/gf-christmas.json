@@ -4,7 +4,7 @@
   "assetPath": "shared:characters/gf-christmas",
   "renderType": "animateatlas",
   "startingAnimation": "danceRight",
-  "offsets": [-1, 5],
+  "offsets": [19, 23],
   "cameraOffsets": [1, 8],
   "animations": [
     {
