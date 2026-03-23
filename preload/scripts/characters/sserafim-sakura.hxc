@@ -98,7 +98,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
       case "sakura-joint": // joint animations, sakura and bf sing
         this.playSingAnimation(event.note.noteData.getDirection(), true, 'joint');
         return;
-      case "sakura-bf1" || "sakura-bf2": // bf animations, only bf sings
+      case "sakura-bf1" | "sakura-bf2": // bf animations, only bf sings
         this.playSingAnimation(event.note.noteData.getDirection(), true, 'bf2');
         return;
     }
