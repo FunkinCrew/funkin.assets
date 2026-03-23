@@ -4,9 +4,9 @@
 	<import source="components/style.xml" />
 
 	<hbox height="65%" width="1280">
-		<!-- Note: 'mainView' in the future is meant to be the "canvas" sorta view -->
-		<box id="mainView" width="960" />
-		<import source="components/properties.xml" width="320"/>
+		<!-- Note: CameraViewport is more or less just an empty box, but serves us to help us handle inputs -->
+		<CameraViewport id="mainView" width="960" height="100%" />
+		<import source="components/properties.xml" width="320" />
 	</hbox>
 
 	<EventTimeline id="timeline" height="35%"/>
