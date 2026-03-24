@@ -1,6 +1,7 @@
 package funkin.play.character;
 
 import flixel.effects.FlxFlicker;
+import funkin.play.character.CharacterType;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -47,12 +48,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   {
     super.onCreate(event);
 
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico';
-    GameOverSubState.animationSuffix = '';
-
-    PauseSubState.musicSuffix = '-pico';
-
     for (img in CACHE_IMAGE_PATHS)
     {
       var lib:String = Paths.getLibrary(img);
@@ -74,6 +69,20 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       {
         FunkinMemory.cacheSound(Paths.sound(snd, "weekend1"));
       }
+    }
+  }
+
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    if (characterType == CharacterType.BF)
+    {
+      GameOverSubState.musicSuffix = '-pico';
+      GameOverSubState.blueBallSuffix = '-pico';
+      GameOverSubState.animationSuffix = '';
+
+      PauseSubState.musicSuffix = '-pico';
     }
   }
 
@@ -290,11 +299,14 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     clearCasings();
 
     // Reset to standard death animation.
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico';
-    GameOverSubState.animationSuffix = '';
+    if (characterType == CharacterType.BF)
+    {
+      GameOverSubState.musicSuffix = '-pico';
+      GameOverSubState.blueBallSuffix = '-pico';
+      GameOverSubState.animationSuffix = '';
 
-    PauseSubState.musicSuffix = '-pico';
+      PauseSubState.musicSuffix = '-pico';
+    }
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

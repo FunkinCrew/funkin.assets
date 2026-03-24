@@ -1,3 +1,4 @@
+import funkin.play.character.CharacterType;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
@@ -40,13 +41,21 @@ class PicoPixelCharacter extends SparrowCharacter
   {
     super.onCreate(event);
 
-    GameOverSubState.musicSuffix = '-pixel-pico';
-    GameOverSubState.blueBallSuffix = '-pixel-pico';
-
-    PauseSubState.musicSuffix = '-pixel';
-
     // Precache death sprites.
     FunkinMemory.cacheTexture(Paths.image("characters/nenePixel/nenePixelKnifeToss"));
+  }
+
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    if (characterType == CharacterType.BF)
+    {
+      GameOverSubState.musicSuffix = '-pixel-pico';
+      GameOverSubState.blueBallSuffix = '-pixel-pico';
+
+      PauseSubState.musicSuffix = '-pixel';
+    }
   }
 
   function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
