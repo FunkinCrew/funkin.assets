@@ -201,8 +201,7 @@ class PhillyStreetsErectStage extends Stage
     scrollingSky.zIndex = 10;
     scrollingSky.scale.set(0.65, 0.65);
 
-    PlayState.instance.currentStage.add(scrollingSky);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(scrollingSky);
 
     colorShader = new AdjustColorShader();
     colorShader.hue = -5;
@@ -219,8 +218,7 @@ class PhillyStreetsErectStage extends Stage
     mist0.alpha = 0.6;
     mist0.velocity.x = 172;
 
-    PlayState.instance.currentStage.add(mist0);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist0);
 
     mist1 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist1.setPosition(-650, -100);
@@ -231,8 +229,7 @@ class PhillyStreetsErectStage extends Stage
     mist1.alpha = 0.6;
     mist1.velocity.x = 150;
 
-    PlayState.instance.currentStage.add(mist1);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist1);
 
     mist2 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist2.setPosition(-650, -100);
@@ -243,8 +240,7 @@ class PhillyStreetsErectStage extends Stage
     mist2.alpha = 0.8;
     mist2.velocity.x = -80;
 
-    PlayState.instance.currentStage.add(mist2);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist2);
 
     mist3 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist3.setPosition(-650, -100);
@@ -256,8 +252,7 @@ class PhillyStreetsErectStage extends Stage
     mist3.velocity.x = -50;
     mist3.scale.set(0.8, 0.8);
 
-    PlayState.instance.currentStage.add(mist3);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist3);
 
     mist4 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist4.setPosition(-650, -100);
@@ -269,8 +264,7 @@ class PhillyStreetsErectStage extends Stage
     mist4.velocity.x = 40;
     mist4.scale.set(0.7, 0.7);
 
-    PlayState.instance.currentStage.add(mist4);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist4);
 
     mist5 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist5.setPosition(-650, -100);
@@ -282,8 +276,8 @@ class PhillyStreetsErectStage extends Stage
     mist5.velocity.x = 20;
     mist5.scale.set(1.1, 1.1);
 
-    PlayState.instance.currentStage.add(mist5);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    this.add(mist5);
+    this.refresh(); // Apply z-index.
   }
 
   override function onDestroy(event:ScriptEvent)
