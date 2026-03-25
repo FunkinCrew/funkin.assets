@@ -335,28 +335,6 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     eyeWhites.visible = this.visible;
     stereoBG.visible = this.visible;
 
-    if (pupil?.anim?.isPlaying)
-    {
-      switch (pupilState)
-      {
-        case PupilState.RIGHT:
-          if (pupil.anim.curFrame >= 17)
-          {
-            trace('Done moving pupils left');
-            pupilState = PupilState.LEFT;
-            pupil.anim.pause();
-          }
-
-        case PupilState.LEFT:
-          if (pupil.anim.curFrame >= 30)
-          {
-            trace('Done moving pupils right');
-            pupilState = PupilState.RIGHT;
-            pupil.anim.pause();
-          }
-      }
-    }
-
     // refreshes just for the zIndex shit!
     if (!hasSetupAbot)
     {
@@ -399,6 +377,12 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
 
     currentStage.refresh();
     hasSetupAbot = true;
+
+    pupil.anim.onFrameChange.add((name, frame, index) ->
+    {
+      if (frame == 0) pupilState = PupilState.RIGHT;
+      if (frame == 17) pupilState = PupilState.LEFT;
+    });
   }
 
   var currentShader:FlxRuntimeShader = null;
@@ -433,6 +417,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   {
     super.onSongRetry();
     abotViz.dumpSound();
+    if (pupilState == Std.string(PupilState.RIGHT)) movePupilsRight();
   }
 
   public override function onSongEnd(event:ScriptEvent):Void
