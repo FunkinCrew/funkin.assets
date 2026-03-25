@@ -8,6 +8,7 @@ class ABotAtlasSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/characters/nene/abot-system");
+    loadTextureAtlas('gameplay/characters/nene/abot-system');
+    animation.addBySymbol('idle', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 }

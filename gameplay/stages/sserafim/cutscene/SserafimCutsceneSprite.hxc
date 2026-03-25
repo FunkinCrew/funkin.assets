@@ -7,11 +7,12 @@ class SserafimCutsceneSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/stages/sserafim/cutscene/cutscene-main");
+    loadTextureAtlas('gameplay/stages/sserafim/cutscene/cutscene-main');
+    animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 
   public function doAnim():Void
   {
-    this.animation.play("", true);
+    this.animation.play('wholeTimeline', true);
   }
 }

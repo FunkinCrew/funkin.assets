@@ -9,12 +9,13 @@ class SantaDiesSprite extends FunkinSprite
   public function new(x:Float, y:Float)
   {
     super(x, y);
-    loadTextureAtlas("gameplay/stages/mallXmasErect/cutscene/santa-speaks");
+    loadTextureAtlas('gameplay/stages/mallXmasErect/cutscene/santa-speaks');
+    animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 
   public function playCutscene():Void
   {
     // this.visible = true;
-    this.anim.play("santa whole scene");
+    this.animation.play('wholeTimeline');
   }
 }

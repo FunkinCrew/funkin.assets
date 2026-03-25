@@ -52,7 +52,14 @@ class BoyfriendCard extends BackingCard
       speed: 0.3
     });
 
-    exitMoversCharSel.set([moreWays, funnyScroll, txtNuts, funnyScroll2, moreWays2, funnyScroll3], {
+    exitMoversCharSel.set([
+      moreWays,
+      funnyScroll,
+      txtNuts,
+      funnyScroll2,
+      moreWays2,
+      funnyScroll3
+    ], {
       y: -60,
       speed: 0.8,
       wait: 0.1
@@ -71,7 +78,7 @@ class BoyfriendCard extends BackingCard
 
   public override function new()
   {
-    super("bf");
+    super('bf');
 
     var player = PlayerRegistry.instance.fetchEntry(this.currentCharacter);
     funnyScroll = new BGScrollingText(0, 220, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
@@ -164,7 +171,9 @@ class BoyfriendCard extends BackingCard
   public override function beatHit():Void
   {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
-    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
+    beatFreq = beatFreqList[
+      Math.floor(Conductor.instance.bpm / 140)
+    ];
 
     if (Conductor.instance.currentBeat % beatFreq != 0) return;
     FlxTween.cancelTweensOf(glow);

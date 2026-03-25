@@ -12,12 +12,15 @@ class PicoGoodResults extends FunkinSprite
   function new(x:Float, y:Float)
   {
     super(x, y);
-    loadTextureAtlas("gameplay/playable-characters/pico/results/graphics/results-good");
+
+    loadTextureAtlas('gameplay/playable-characters/pico/results/graphics/results-good');
+    loadAnimations();
+
     scaleFlashes();
 
     animation.onFrameChange.add((animation:String, frame:Int) ->
     {
-      if (animation == "pico good placeholder" && this.visible)
+      if (animation == 'wholeTimeline' && this.visible)
       {
         overrideAnimation();
         return;
@@ -26,7 +29,7 @@ class PicoGoodResults extends FunkinSprite
 
     animation.onFrameLabel.add((label:String) ->
     {
-      if (label == "flash frame" && HapticUtil.hapticsAvailable)
+      if (label == 'flash frame' && HapticUtil.hapticsAvailable)
       {
         HapticUtil.vibrate(0, 0.01, 1);
       }
@@ -34,11 +37,10 @@ class PicoGoodResults extends FunkinSprite
 
     animation.onFinish.add((name:String) ->
     {
-      if (name == "pico good placeholder") return;
+      if (name == 'wholeTimeline') return;
 
       trace('Looping Pico shooting animation...');
-      animation.play("loop", true);
-      animation.curAnim.looped = true;
+      animation.play('resultsLoop', true);
     });
   }
 
@@ -54,17 +56,17 @@ class PicoGoodResults extends FunkinSprite
     if (FlxG.random.bool(5))
     {
       trace('Playing special Fatass animation...');
-      animation.play("intro fat gf", true, false, 0);
+      animation.play('intro-gf', true, false, 0);
     }
     else if (FlxG.random.bool(20))
     {
       trace('Playing special Cass animation...');
-      animation.play("intro cass", true, false, 0);
+      animation.play('intro-cass', true, false, 0);
     }
     else
     {
       trace('Playing Pico shooting animation...');
-      animation.play("intro", true, false, 0);
+      animation.play('intro', true, false, 0);
     }
   }
 
@@ -74,10 +76,18 @@ class PicoGoodResults extends FunkinSprite
    */
   function scaleFlashes():Void
   {
-    var whiteElement:Element = getFirstElement("white small");
-    var blackElement:Element = getFirstElement("blacksmall");
+    var whiteElement:Element = getFirstElement('white small');
+    var blackElement:Element = getFirstElement('blacksmall');
 
     scaleElement(whiteElement, 10, FLASH_POSITION_OFFSET);
     scaleElement(blackElement, 15, FLASH_POSITION_OFFSET);
+  }
+
+  function loadAnimations():Void
+  {
+    animation.addByFrameLabel('intro', 'intro', 24, false);
+    animation.addByFrameLabel('intro-gf', 'intro fat gf', 24, false);
+    animation.addByFrameLabel('intro-cass', 'intro cass', 24, false);
+    animation.addByFrameLabel('resultsLoop', 'loop', 24);
   }
 }

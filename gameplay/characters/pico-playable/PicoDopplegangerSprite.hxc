@@ -10,23 +10,34 @@ class PicoDopplegangerSprite extends FunkinSprite
 {
   public var isPlayer:Bool = false;
 
+  var cutsceneSounds:FunkinSound = null;
   var suffix:String = '';
 
   public function new(x:Float, y:Float)
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/stages/phillyTrainErect/pico-doppelganger");
+    loadTextureAtlas('gameplay/stages/phillyTrainErect/pico-doppelganger');
+    loadAnimations();
   }
 
-  var cutsceneSounds:FunkinSound = null;
+  function loadAnimations():Void
+  {
+    animation.addByFrameLabel('shootPlayer', 'shootPlayer', 24, false);
+    animation.addByFrameLabel('shootOpponent', 'shootOpponent', 24, false);
+    animation.addByFrameLabel('cigarettePlayer', 'cigarettePlayer', 24, false);
+    animation.addByFrameLabel('cigaretteOpponent', 'cigaretteOpponent', 24, false);
+    animation.addByFrameLabel('explodePlayer', 'explodePlayer', 24, false);
+    animation.addByFrameLabel('explodeOpponent', 'explodeOpponent', 24, false);
+    animation.addByFrameLabel('loop', 'loop', 24, false);
+  }
 
-  public function cancelSounds()
+  public function cancelSounds():Void
   {
     if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
-  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager)
+  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager):Void
   {
     suffix = _suffix;
 
@@ -37,9 +48,9 @@ class PicoDopplegangerSprite extends FunkinSprite
       cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-gasp'), 1.0, false, true, true);
     });
 
-    if (shoot == true)
+    if (shoot)
     {
-      animation.play("shoot" + suffix, true);
+      animation.play('shoot' + suffix, true);
 
       new FlxTimer(timerManager).start(6.29, _ ->
       {
@@ -52,9 +63,9 @@ class PicoDopplegangerSprite extends FunkinSprite
     }
     else
     {
-      if (explode == true)
+      if (explode)
       {
-        animation.play("explode" + suffix, true);
+        animation.play('explode' + suffix, true);
         animation.onFinish.add(startLoop);
 
         new FlxTimer(timerManager).start(3.7, _ ->
@@ -68,7 +79,7 @@ class PicoDopplegangerSprite extends FunkinSprite
       }
       else
       {
-        animation.play("cigarette" + suffix, true);
+        animation.play('cigarette' + suffix, true);
 
         new FlxTimer(timerManager).start(3.7, _ ->
         {
@@ -78,9 +89,9 @@ class PicoDopplegangerSprite extends FunkinSprite
     }
   }
 
-  function startLoop()
+  function startLoop():Void
   {
-    animation.play("loop", true);
+    animation.play('loop', true);
     animation.curAnim.looped = true;
   }
 }

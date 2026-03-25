@@ -7,18 +7,25 @@ class SserafimGfSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/stages/sserafim/cutscene/gf-get-up", {
+    loadTextureAtlas('gameplay/stages/sserafim/cutscene/gf-get-up', {
       cacheOnLoad: true
     });
+    loadAnimations();
+  }
+
+  function loadAnimations():Void
+  {
+    animation.addByFrameLabel('static', 'static', 24, false);
+    animation.addByFrameLabel('getup', 'getup', 24, false);
   }
 
   public function resetAnim():Void
   {
-    this.animation.play("static", true);
+    this.animation.play('static', true);
   }
 
   public function doAnim():Void
   {
-    this.animation.play("getup", true);
+    this.animation.play('getup', true);
   }
 }

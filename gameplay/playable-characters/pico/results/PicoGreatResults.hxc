@@ -14,7 +14,7 @@ class PicoGreatResults extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/playable-characters/pico/results/graphics/results-great");
+    loadTextureAtlas('gameplay/playable-characters/pico/results/graphics/results-great');
     scaleFlashes();
 
     animation.onFrameChange.add((animation:String, frame:Int) ->
@@ -35,8 +35,8 @@ class PicoGreatResults extends FunkinSprite
    */
   function scaleFlashes():Void
   {
-    var whiteElement:Element = getFirstElement("white");
-    var blackElement:Element = getFirstElement("black");
+    var whiteElement:Element = getFirstElement('white');
+    var blackElement:Element = getFirstElement('black');
 
     scaleElement(whiteElement, 10, FLASH_POSITION_OFFSET);
     scaleElement(blackElement, 15, FLASH_POSITION_OFFSET);

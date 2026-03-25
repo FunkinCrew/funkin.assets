@@ -8,30 +8,37 @@ class SpraycanAtlasSprite extends FunkinSprite
   public var STATE_ARCING:Int = 2; // In the air.
   public var STATE_SHOT:Int = 3; // Hit by the player.
   public var STATE_IMPACTED:Int = 4; // Impacted the player.
-
   public var currentState:Int = 2;
 
   public function new(x:Float, y:Float)
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/songs/2hot/spraycan", {
+    loadTextureAtlas('gameplay/songs/2hot/spraycan', {
       swfMode: true
     });
+    loadAnimations();
 
     animation.onFinish.add(finishCanAnimation);
     animation.onFrameChange.add(onCanFrame);
+  }
+
+  function loadAnimations():Void
+  {
+    animation.addByFrameLabel('can-start', 'Can Start', 24, false);
+    animation.addByFrameLabel('can-shot', 'Can Shot', 24, false);
+    animation.addByFrameLabel('can-hit', 'Hit Pico', 24, false);
   }
 
   public function finishCanAnimation(name:String):Void
   {
     switch (name)
     {
-      case 'Can Start':
+      case 'can-start':
         playHitPico();
-      case 'Can Shot':
+      case 'can-shot':
         this.kill();
-      case 'Hit Pico':
+      case 'can-hit':
         playHitExplosion();
         this.kill();
     }
@@ -39,13 +46,13 @@ class SpraycanAtlasSprite extends FunkinSprite
 
   public function onCanFrame(name:String, frameNumber:Int, frameIndex:Int):Void
   {
-    if (frameNumber == 3 && name == "Can Shot")
+    if (frameNumber == 3 && name == 'can-shot')
     {
-      var explode:FunkinSprite = FunkinSprite.createSparrow(this.x + 150, this.y - 250, "gameplay/songs/2hot/graphics/spraycan-explosion");
-      explode.animation.addByPrefix("idle", "Explosion 1 movie0", 24, false);
+      var explode:FunkinSprite = FunkinSprite.createSparrow(this.x + 150, this.y - 250, 'gameplay/songs/2hot/graphics/spraycan-explosion');
+      explode.animation.addByPrefix('idle', 'Explosion 1 movie0', 24, false);
       PlayState.instance.currentStage.add(explode);
 
-      explode.animation.play("idle");
+      explode.animation.play('idle');
       explode.animation.onFinish.add(() ->
       {
         explode.kill();
@@ -55,9 +62,9 @@ class SpraycanAtlasSprite extends FunkinSprite
 
   public function playHitExplosion():Void
   {
-    var explodeEZ:FunkinSprite = FunkinSprite.createSparrow(this.x + 750, this.y - 100, "gameplay/songs/2hot/graphics/spraycan-explosion-ez");
-    explodeEZ.animation.addByPrefix("idle", "explosion round 1 short0", 24, false);
-    explodeEZ.animation.play("idle");
+    var explodeEZ:FunkinSprite = FunkinSprite.createSparrow(this.x + 750, this.y - 100, 'gameplay/songs/2hot/graphics/spraycan-explosion-ez');
+    explodeEZ.animation.addByPrefix('idle', 'explosion round 1 short0', 24, false);
+    explodeEZ.animation.play('idle');
 
     PlayState.instance.currentStage.add(explodeEZ);
     explodeEZ.animation.finishCallback = () ->
@@ -68,16 +75,16 @@ class SpraycanAtlasSprite extends FunkinSprite
 
   public function playCanStart():Void
   {
-    this.animation.play('Can Start');
+    this.animation.play('can-start');
   }
 
   public function playCanShot():Void
   {
-    this.animation.play('Can Shot');
+    this.animation.play('can-shot');
   }
 
   public function playHitPico():Void
   {
-    this.animation.play('Hit Pico');
+    this.animation.play('can-hit');
   }
 }

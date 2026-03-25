@@ -10,11 +10,12 @@ class DadShootsSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/stages/mallXmasErect/cutscene/parents-shoot");
+    loadTextureAtlas('gameplay/stages/mallXmasErect/cutscene/parents-shoot');
+    animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 
   public function playCutscene():Void
   {
-    this.animation.play("parents whole scene");
+    this.animation.play('wholeTimeline');
   }
 }

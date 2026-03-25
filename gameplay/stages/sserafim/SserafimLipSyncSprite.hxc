@@ -27,9 +27,9 @@ class SserafimLipSyncSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas(suffix != null ? 'gameplay/stages/sserafim/sserafim-lipsync-' + suffix : 'gameplay/stages/sserafim/sserafim-lipsync', "sserafim");
-    animation.addBySymbol("lipsync", this.getDefaultSymbol(), 24, false);
-    animation.play("lipsync", true);
+    loadTextureAtlas(suffix != null ? 'gameplay/stages/sserafim/sserafim-lipsync-' + suffix : 'gameplay/stages/sserafim/sserafim-lipsync', 'sserafim');
+    animation.addBySymbol('lipsync', this.getDefaultSymbol(), 24, false);
+    animation.play('lipsync', true);
   }
 
   override function update(elapsed:Float):Void

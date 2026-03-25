@@ -10,18 +10,14 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
 {
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];
-
   var pupilState:Int = 0;
-
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
-
   var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FunkinSprite;
   var eyeWhites:FunkinSprite;
   var pupil:FunkinSprite;
-
   var muzzleFlash:FlxSprite;
 
   function queryAssets(type:AssetType):Array<AssetPath>
@@ -91,11 +87,50 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
 
-    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int)
+    pupil.animation.addBySymbolIndices('lookLeft', pupil.getDefaultSymbol(), [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ], pupil.library.frameRate, false);
+
+    pupil.animation.addBySymbolIndices('lookRight', pupil.getDefaultSymbol(), [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ], pupil.library.frameRate, false);
+
+    pupil.animation.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int)
     {
       if (frameNumber == 16)
       {
-        pupil.anim.pause();
+        pupil.animation.pause();
       }
     });
 
@@ -150,10 +185,11 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   override function dance(force:Bool):Void
   {
     super.dance(force);
-    if (abot?.anim != null)
+
+    if (abot?.animation != null)
     {
       // we start on frame 1, since from Flash the symbol has a non-bumpin frame on frame 0
-      abot.anim.play("", true, false, 1);
+      abot.animation.play("idle", true, false, 1);
     }
   }
 
@@ -318,12 +354,12 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   function movePupilsLeft():Void
   {
     trace('Move pupils left');
-    pupil.anim.play('', true, false, 0);
+    pupil.animation.play('lookLeft', true, false, 0);
   }
 
   function movePupilsRight():Void
   {
     trace('Move pupils right');
-    pupil.anim.play('', true, false, 17);
+    pupil.animation.play('lookRight', true, false, 17);
   }
 }

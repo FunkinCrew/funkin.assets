@@ -10,7 +10,7 @@ class BFShitResults extends FunkinSprite
 
     loadTextureAtlas("gameplay/playable-characters/bf/results/graphics/results-shit");
 
-    anim.onFrameChange.add((animation:String, frame:Int) ->
+    animation.onFrameChange.add((animation:String, frame:Int) ->
     {
       if (!HapticUtil.hapticsAvailable) return;
 

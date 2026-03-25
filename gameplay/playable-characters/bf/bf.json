@@ -201,7 +201,6 @@
         "delay": 0.25,
         "offsets": [563.364, -123.186],
         "zIndex": 499,
-
         "loopFrame": 9
       },
       {
@@ -210,7 +209,6 @@
         "scale": 0.93,
         "zIndex": 500,
         "offsets": [655.3, -247.95],
-
         "loopFrame": 15
       }
     ],

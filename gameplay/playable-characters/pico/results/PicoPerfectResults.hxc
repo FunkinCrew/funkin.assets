@@ -10,7 +10,7 @@ class PicoPerfectResults extends FunkinSprite
 
     loadTextureAtlas("gameplay/playable-characters/pico/results/graphics/results-perfect");
 
-    anim.onFrameChange.add((animation:String, frame:Int) ->
+    animation.onFrameChange.add((animation:String, frame:Int) ->
     {
       if (!HapticUtil.hapticsAvailable) return;
 

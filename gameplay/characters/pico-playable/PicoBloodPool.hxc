@@ -8,7 +8,8 @@ class PicoBloodPool extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas("gameplay/stages/phillyTrainErect/blood-pool");
+    loadTextureAtlas('gameplay/stages/phillyTrainErect/blood-pool');
+    this.animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
 
     animation.onFinish.addOnce((_) ->
     {
@@ -20,7 +21,7 @@ class PicoBloodPool extends FunkinSprite
 
   public function doAnim():Void
   {
-    animation.play("", true);
+    animation.play('wholeTimeline', true);
     this.visible = true;
   }
 
