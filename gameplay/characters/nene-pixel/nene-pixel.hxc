@@ -254,8 +254,6 @@ class NenePixelCharacter extends SparrowCharacter
     }
   }
 
-  var refershedLol:Bool = false;
-
   /**
    * Called when the chart hits a song event.
    */
@@ -302,42 +300,48 @@ class NenePixelCharacter extends SparrowCharacter
     abotViz.visible = this.visible;
     abotSpeaker.visible = this.visible;
 
-    // refreshes just for the zIndex shit!
-    if (!refershedLol)
-    {
-      abot.x = this.x + 296 - (-this.globalOffsets[0] * this.scale.x);
-      abot.y = this.y + 430 - (-this.globalOffsets[1] * this.scale.y);
-      abot.zIndex = this.zIndex - 10;
-      currentStage.add(abot);
-
-      abotBack.x = abot.x - 55;
-      abotBack.y = abot.y + 0;
-      abotBack.zIndex = abot.zIndex - 2;
-      currentStage.add(abotBack);
-
-      abotSpeaker.x = abot.x - 78;
-      abotSpeaker.y = abot.y + 9;
-      abotSpeaker.zIndex = abot.zIndex - 3;
-      currentStage.add(abotSpeaker);
-
-      abotHead.x = abot.x - 325;
-      abotHead.y = abot.y + 72;
-      abotHead.zIndex = abot.zIndex - 4;
-      currentStage.add(abotHead);
-
-      abotViz.x = abot.x - 162;
-      abotViz.y = abot.y + 16;
-      abotViz.zIndex = abot.zIndex - 1;
-      currentStage.add(abotViz);
-
-      currentStage.refresh();
-      refershedLol = true;
-    }
-
     if (shouldTransitionState())
     {
       transitionState();
     }
+  }
+
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    setupAbot();
+  }
+
+  function setupAbot():Void
+  {
+    abot.x = this.x + 296 - (-this.globalOffsets[0] * this.scale.x);
+    abot.y = this.y + 430 - (-this.globalOffsets[1] * this.scale.y);
+    abot.zIndex = this.zIndex - 10;
+
+    currentStage.add(abot);
+
+    abotBack.x = abot.x - 55;
+    abotBack.y = abot.y + 0;
+    abotBack.zIndex = abot.zIndex - 2;
+    currentStage.add(abotBack);
+
+    abotSpeaker.x = abot.x - 78;
+    abotSpeaker.y = abot.y + 9;
+    abotSpeaker.zIndex = abot.zIndex - 3;
+    currentStage.add(abotSpeaker);
+
+    abotHead.x = abot.x - 325;
+    abotHead.y = abot.y + 72;
+    abotHead.zIndex = abot.zIndex - 4;
+    currentStage.add(abotHead);
+
+    abotViz.x = abot.x - 162;
+    abotViz.y = abot.y + 16;
+    abotViz.zIndex = abot.zIndex - 1;
+    currentStage.add(abotViz);
+
+    currentStage.refresh();
   }
 
   override function onSongStart(event:ScriptEvent)
@@ -402,7 +406,7 @@ class NenePixelCharacter extends SparrowCharacter
     switch (currentState)
     {
       case STATE_DEFAULT:
-        if (PlayState.instance.health <= VULTURE_THRESHOLD)
+        if (PlayState.instance?.health <= VULTURE_THRESHOLD)
         {
           trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
           currentState = STATE_PRE_RAISE;
@@ -412,7 +416,7 @@ class NenePixelCharacter extends SparrowCharacter
           currentState = STATE_DEFAULT;
         }
       case STATE_PRE_RAISE:
-        if (PlayState.instance.health > VULTURE_THRESHOLD)
+        if (PlayState.instance?.health > VULTURE_THRESHOLD)
         {
           // trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
           currentState = STATE_DEFAULT;
@@ -432,7 +436,7 @@ class NenePixelCharacter extends SparrowCharacter
           animationFinished = false;
         }
       case STATE_READY:
-        if (PlayState.instance.health > VULTURE_THRESHOLD)
+        if (PlayState.instance?.health > VULTURE_THRESHOLD)
         {
           // trace('NENE: Health went back up, transitioning to STATE_LOWER');
           currentState = STATE_LOWER;

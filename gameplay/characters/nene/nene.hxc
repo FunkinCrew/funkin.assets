@@ -344,8 +344,6 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     moveByNoteKind(event.note.kind);
   }
 
-  var hasSetupAbot:Bool = false;
-
   public override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
@@ -380,16 +378,17 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
       }
     }
 
-    // refreshes just for the zIndex shit!
-    if (!hasSetupAbot)
-    {
-      setupAbot();
-    }
-
     if (shouldTransitionState())
     {
       transitionState();
     }
+  }
+
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    setupAbot();
   }
 
   function setupAbot():Void
