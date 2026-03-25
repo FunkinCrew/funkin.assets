@@ -185,18 +185,6 @@ class SserafimStage extends Stage
     if (PlayState.instance.currentStage == null) return;
   }
 
-  function hideOpponentStrumline()
-  {
-    var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
-    if (opponentStrumline != null)
-    {
-      for (arrow in opponentStrumline.members)
-      {
-        arrow.visible = false;
-      }
-    }
-  }
-
   /**
    * Called when the chart hits a song event.
    */
@@ -514,7 +502,7 @@ class SserafimStage extends Stage
     if (!this.hasHidden)
     {
       this.hasHidden = true;
-      hideOpponentStrumline();
+      PlayState.instance.opponentStrumline.visible = false;
     }
 
     if (perspectiveFloor != null)
