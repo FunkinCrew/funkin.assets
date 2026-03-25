@@ -21,7 +21,14 @@
   </menu>
   <menu text="View" id="menubarMenuView">
     <vbox width="100%">
-      <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" />
+      <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
+       <image resource="assets/ui/editors/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
+       </menu-checkbox>
+    </vbox>
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
+       <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
+       </menu-checkbox>
     </vbox>
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
