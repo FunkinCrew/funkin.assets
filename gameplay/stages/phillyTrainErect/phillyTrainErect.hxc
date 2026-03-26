@@ -175,7 +175,7 @@ class PhillyTrainErectStage extends Stage
       cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
       cigarette.flipX = true;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 460);
+      bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 500);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 10, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
       shooterPos = [
@@ -193,7 +193,7 @@ class PhillyTrainErectStage extends Stage
       bloodPool.zIndex = picoPlayer.zIndex - 1;
       cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 1;
 
-      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 460);
+      bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 500);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 350, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
       cigarettePos = [
