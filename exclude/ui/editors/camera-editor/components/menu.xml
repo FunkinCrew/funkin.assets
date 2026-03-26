@@ -30,6 +30,16 @@
        <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
        </menu-checkbox>
     </vbox>
+    <menu-separator />
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemPassepartout" text="Passepartout" >
+       <image resource="assets/ui/editors/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
+       </menu-checkbox>
+       <vbox width="100%" style="padding: 5px;">
+        <slider id="menubarSliderPassepartoutTransparency" width="100%" pos="50" />
+      </vbox>
+    </vbox>
+    <menu-separator />
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
   </menu>
