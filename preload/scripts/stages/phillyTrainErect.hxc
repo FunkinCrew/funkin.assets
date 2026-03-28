@@ -541,6 +541,13 @@ class PhillyTrainErectStage extends Stage
     startedMoving = false;
   }
 
+  override function onSongStart(event:ScriptEvent)
+  {
+    super.onSongStart(event);
+
+    if (explode && playerShoots) PlayState.instance.vocals.opponentVolume = 0;
+  }
+
   override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
