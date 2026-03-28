@@ -18,6 +18,7 @@
 				<link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />
 				<link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" />
 				<link id="splashImportChartStepMania" width="100%" text="StepMania" />
+				<link id="splashImportChartQuaver" width="100%" text="Quaver" />
 			</card>
 		</vbox>
 		<card id="splashSectionRight" width="25%" height="100%" text="Create From Song">
