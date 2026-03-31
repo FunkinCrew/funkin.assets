@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <panel id="propertiesPanel" width="320" height="100%" text="Camera Focus">
   <header>
-    <button text="Action" />
+    <button text="Hide" id="propertiesPanelActionHide" />
   </header>
 </panel>
