@@ -39,7 +39,7 @@
             <item id="circ" text="Circ " />
           </data>
         </dropdown>
-        <dropdown text="Ease Dir" id="zoomCameraEaseDir" width="80">
+        <dropdown text="Ease Dir" id="zoomCameraEaseDir" width="80" hidden="true">
           <data>
             <item id="In" text="In" />
             <item id="Out" text="Out" />
