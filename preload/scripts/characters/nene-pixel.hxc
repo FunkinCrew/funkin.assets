@@ -369,7 +369,7 @@ class NenePixelCharacter extends SparrowCharacter
 
   function shouldTransitionState():Bool
   {
-    return currentStage.getBoyfriend().characterId != "pico-blazin";
+    return currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function transitionState()

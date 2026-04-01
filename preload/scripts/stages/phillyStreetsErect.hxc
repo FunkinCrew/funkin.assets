@@ -130,17 +130,20 @@ class PhillyStreetsErectStage extends Stage
     rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 
     FlxG.console.registerObject("rainShader", rainShader);
-    switch (PlayState.instance.currentSong.id)
+    if (PlayState.instance != null)
     {
-      case "darnell":
-        rainShaderStartIntensity = 0;
-        rainShaderEndIntensity = 0.01;
-      case "lit-up":
-        rainShaderStartIntensity = 0.01;
-        rainShaderEndIntensity = 0.02;
-      case "2hot":
-        rainShaderStartIntensity = 0.02;
-        rainShaderEndIntensity = 0.04;
+      switch (PlayState.instance.currentSong.id)
+      {
+        case "darnell":
+          rainShaderStartIntensity = 0;
+          rainShaderEndIntensity = 0.01;
+        case "lit-up":
+          rainShaderStartIntensity = 0.01;
+          rainShaderEndIntensity = 0.02;
+        case "2hot":
+          rainShaderStartIntensity = 0.02;
+          rainShaderEndIntensity = 0.04;
+      }
     }
 
     rainShader.intensity = rainShaderStartIntensity;
