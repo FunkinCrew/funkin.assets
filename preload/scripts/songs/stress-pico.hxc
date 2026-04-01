@@ -94,6 +94,33 @@ class StressPicoMixSong extends Song
     VideoCutscene.play(Paths.videos(videoPath));
   }
 
+/**
+ * Pause the tankman flicker when the game is paused
+ */
+  function onPause(event:ScriptEvent):Void
+  {
+    super.onPause(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.pause();
+      });
+    }
+  }
+
+  function onResume(event:ScriptEvent):Void
+  {
+    super.onResume(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.resume();
+      });
+    }
+  }
+
   /**
    * Don't replay the cutscene between restarts.
    */
