@@ -228,6 +228,33 @@ class StressPicoMixSong extends Song
       PlayState.instance.endSong(true);
     });
   }
+    
+  /**
+   * Pause the tankman flicker when the game is paused
+   */
+  function onPause(event:ScriptEvent):Void
+  {
+    super.onPause(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.pause();
+      });
+    }
+  }
+
+  function onResume(event:ScriptEvent):Void
+  {
+    super.onResume(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.resume();
+      });
+    }
+  }
 
   function onDestroy(event:ScriptEvent):Void
   {
