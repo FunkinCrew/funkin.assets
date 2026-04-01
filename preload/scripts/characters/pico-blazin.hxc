@@ -35,7 +35,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     super.resetCharacter(resetCamera);
     this.danceEvery = 0;
   }
-  
+
   var cantUppercut = false;
 
   function onNoteHit(event:HitNoteScriptEvent)
