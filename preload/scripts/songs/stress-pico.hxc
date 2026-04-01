@@ -1,0 +1,246 @@
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.save.Save;
+import funkin.play.cutscene.VideoCutscene;
+import openfl.filters.ShaderFilter;
+import flixel.FlxCamera;
+import flixel.math.FlxPoint;
+import funkin.audio.FunkinSound;
+import funkin.play.stage.Stage;
+import funkin.graphics.FunkinSprite;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.util.FlxTimerManager;
+
+class StressPicoMixSong extends Song
+{
+  var hasPlayedCutscene:Bool;
+  var tankmanGroup:TankmanSpriteGroup = null;
+
+  public function new()
+  {
+    super('stress', {
+      variation: 'pico'
+    });
+
+    hasPlayedCutscene = false;
+  }
+
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+
+    // Skip the cutscene if we're playtesting in the Chart Editor.
+    if (PlayState.instance.isChartingMode && !hasPlayedCutscene) hasPlayedCutscene = true;
+
+    if (!hasPlayedCutscene)
+    {
+      trace('Pausing countdown to play a video cutscene (`stress`)');
+
+      hasPlayedCutscene = true;
+
+      event.cancel(); // CANCEL THE COUNTDOWN!
+
+      startVideo();
+    }
+
+    if (!PlayState.instance.isMinimalMode)
+    {
+      if (tankmanGroup != null && !tankmanGroup.isValid())
+      {
+        // Destroy the tankman group if it's not valid.
+        cleanupTankmanGroup();
+      }
+
+      if (tankmanGroup == null)
+      {
+        // Initialize the tankman group if it's not available.
+        trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
+        tankmanGroup = new TankmanSpriteGroup(true);
+      }
+
+      if (tankmanGroup != null)
+      {
+        // resets the tankmen!
+        tankmanGroup.reset(0, 0);
+
+        tankmanGroup.zIndex = 30;
+        PlayState.instance.currentStage.add(tankmanGroup);
+        PlayState.instance.currentStage.refresh();
+      }
+      else
+      {
+        trace('Failed to initialize tankman group!');
+      }
+    }
+  }
+
+  function onSongStart(event:ScriptEvent):Void
+  {
+    super.onSongStart(event);
+  }
+
+  function startVideo()
+  {
+    var videoPath = 'stressPicoCutscene';
+
+    if (Constants.CENSOR_EXPLETIVES)
+    {
+      videoPath += '-censored';
+    }
+    videoPath += '.mkv'; // Use MKV for subtitles.
+
+    VideoCutscene.play(Paths.videos(videoPath));
+  }
+
+  /**
+   * Don't replay the cutscene between restarts.
+   */
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+
+    hasPlayedCutscene = true;
+
+    // resets the tankmen!
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.reset(0, 0);
+    }
+    if (PlayState.instance.currentStage?.getGirlfriend() != null)
+    {
+      PlayState.instance.currentStage?.getGirlfriend().reset();
+      trace('reset pico!');
+    }
+
+    // Resets Tankman and Pico if they were in the middle of the "redheads" sequence.
+    if (PlayState.instance.currentStage?.getDad().getCurrentAnimation() == 'redheadsAnim')
+    {
+      PlayState.instance.currentStage?.getDad().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getDad().dance(true);
+    }
+    if (PlayState.instance.currentStage?.getBoyfriend().getCurrentAnimation() == 'knifeToss')
+    {
+      PlayState.instance.currentStage?.getBoyfriend().canPlayOtherAnims = true;
+      PlayState.instance.currentStage?.getBoyfriend().dance(true);
+    }
+  }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
+
+  var hasPlayedEndCutscene:Bool = false;
+
+  function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+
+    if (PlayState.instance.isInCutscene)
+    {
+      if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
+    }
+  }
+
+  var bgSprite:FunkinSprite;
+
+  public override function onSongEnd(event:CountdownScriptEvent):Void
+  {
+    super.onSongEnd(event);
+
+    // Skip the cutscene if in minimal mode.
+    if (PlayState.instance.isMinimalMode) hasPlayedEndCutscene = true;
+
+    if (!hasPlayedEndCutscene)
+    {
+      hasPlayedEndCutscene = true;
+
+      event.cancel();
+
+      // trace('Adding black background behind cutscene over UI');
+      bgSprite = new FunkinSprite(0, 0);
+      bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
+      bgSprite.cameras = [PlayState.instance.camCutscene]; // Show over the HUD but below the video.
+      // this
+      bgSprite.zIndex = -10000;
+      PlayState.instance.add(bgSprite);
+      PlayState.instance.refresh();
+      bgSprite.alpha = 0;
+
+      startEndCutscene();
+    }
+    else
+    {
+      // Make sure the cutscene can play again next time!
+      hasPlayedEndCutscene = false;
+      // DO NOT CANCEL THE EVENT!
+    }
+  }
+
+  var cutsceneTimerManager:FlxTimerManager;
+
+  function startEndCutscene()
+  {
+    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
+    var otisPos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
+      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
+    var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+
+    cutsceneTimerManager = new FlxTimerManager();
+
+    // Disable player input during cutscene, so you can't get a gameover during cutscene
+    PlayState.instance.isInCutscene = true;
+    PlayState.instance.camHUD.visible = false;
+
+    PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 70, 2.8, FlxEase.expoOut);
+    PlayState.instance.tweenCameraZoom(0.65, 2, true, FlxEase.expoOut);
+
+    PlayState.instance.currentStage.getDad().playAnimation('stressPicoEnding', true);
+
+    if (Preferences.subtitles)
+    {
+      PlayState.instance.subtitles.offsets = [0, 42];
+      PlayState.instance.subtitles.alignment = 'bottom';
+      PlayState.instance.subtitles.assignSubtitles('songs/stress/subtitles/end-cutscene-pico', PlayState.instance.currentStage.getDad().picoEndingSound);
+    }
+
+    new FlxTimer(cutsceneTimerManager).start(176 / 24, _ ->
+    {
+      PlayState.instance.currentStage.getBoyfriend().playAnimation('laughEnd', true);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(270 / 24, _ ->
+    {
+      PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 370, 2, FlxEase.quadInOut);
+      FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
+    });
+
+    new FlxTimer(cutsceneTimerManager).start(320 / 24, _ ->
+    {
+      PlayState.instance.endSong(true);
+    });
+  }
+
+  function onDestroy(event:ScriptEvent):Void
+  {
+    super.onDestroy(event);
+    cleanupTankmanGroup();
+  }
+
+  function cleanupTankmanGroup():Void
+  {
+    if (tankmanGroup != null)
+    {
+      PlayState.instance.currentStage.remove(tankmanGroup, true);
+      tankmanGroup = null;
+    }
+  }
+}
