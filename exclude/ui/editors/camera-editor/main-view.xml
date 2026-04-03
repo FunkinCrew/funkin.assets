@@ -3,11 +3,13 @@
 	<import source="components/menu.xml" />
 	<import source="components/style.xml" />
 
-	<hbox height="65%" width="1280">
-		<!-- Note: CameraViewport is more or less just an empty box, but serves us to help us handle inputs -->
-		<CameraViewport id="mainView" width="960" height="100%" />
-		<import source="components/properties.xml" width="320" />
-	</hbox>
+	<splitter direction="vertical" width="100%" height="100%">
+		<hbox height="65%" width="1280">
+			<!-- Note: CameraViewport is more or less just an empty box, but serves us to help us handle inputs -->
+			<CameraViewport id="mainView" width="960" height="100%" />
+			<import source="components/properties.xml" width="320" />
+		</hbox>
 
-	<EventTimeline id="timeline" height="35%"/>
+		<EventTimeline id="timeline" height="35%" />
+	</splitter>
 </vbox>
