@@ -5,6 +5,11 @@
     // The width of the individual menu items
     width: 160px;
     }
+    #menubarOpenRecent {
+      width: auto;
+      initial-width: none;
+      min-width: 160px;
+    }
   </style>
   <menu text="File" id="menubarMenuFile">
     <menu-item id="menubarItemOpen" text="Open Chart" shortcutText="Ctrl + O" />
