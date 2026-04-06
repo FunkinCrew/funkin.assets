@@ -8,8 +8,8 @@
     <label text="Mode" verticalAlign="center" horizontalAlign="right" width="100%" />
     <dropdown text="Mode" width="160" id="zoomCameraMode">
       <data>
-        <item value="0" text="Absolute" />
-        <item value="1" text="Stage Zoom" />
+        <item value="0" text="Stage Zoom" />
+        <item value="1" text="Absolute" />
       </data>
     </dropdown>
   </hbox>
