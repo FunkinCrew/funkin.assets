@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menubar id="menubar" width="100%" height="35" paddingLeft="256">
+  <style>
+    .menu {
+    // The width of the individual menu items
+    width: 160px;
+    }
+    #menubarOpenRecent {
+      width: auto;
+      initial-width: none;
+      min-width: 160px;
+      max-width: 800px;
+    }
+  </style>
+  <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemOpen" text="Open Chart" shortcutText="Ctrl + O" />
+    <menu id="menubarOpenRecent" text="Open Recent" />
+    <menu-separator />
+    <menu-item id="menubarItemSave" text="Save Chart" shortcutText="Ctrl + S" />
+    <menu-item id="menubarItemSaveAs" text="Save Chart As..." shortcutText="Ctrl + Shift + S" />
+    <menu-separator />
+    <menu id="menubarLoadVariation" text="Load Variation" />
+    <menu-separator />
+    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-separator />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
+  </menu>
+  <menu text="View" id="menubarMenuView">
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
+       <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
+       </menu-checkbox>
+    </vbox>
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
+       <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
+       </menu-checkbox>
+    </vbox>
+    <menu-separator />
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemPassepartout" text="Passepartout" >
+       <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
+       </menu-checkbox>
+       <vbox width="100%" style="padding: 5px;">
+        <slider id="menubarSliderPassepartoutTransparency" width="100%" pos="50" />
+      </vbox>
+    </vbox>
+    <menu-separator />
+    <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
+    <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
+  </menu>
+  <menu text="Playback" id="menubarMenuPlayback">
+    <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
+    <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="R" />
+  </menu>
+  <menu text="Edit" width="208px;">
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
+    <menu-separator />
+  </menu>
+  <menu text="Help" id="menubarMenuHelp">
+    <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
+    <menu-item id="menubarItemGoToBackupsFolder" text="Go to Backups Folder" />
+    <menu-item id="menubarItemAbout" text="About..." />
+  </menu>
+  <spacer width="100%" />
+  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+</menubar>
