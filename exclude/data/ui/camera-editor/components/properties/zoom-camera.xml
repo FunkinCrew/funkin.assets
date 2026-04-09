@@ -24,7 +24,6 @@
           <data>
             <item id="linear" text="Linear" />
             <item id="INSTANT" text="Instant (Ignores duration)" />
-            <item id="CLASSIC" text="Classic (Ignores duration)" />
             <item id="sine" text="Sine" />
             <item id="quad" text="Quad" />
             <item id="cube" text="Cube" />
