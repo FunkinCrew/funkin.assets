@@ -84,12 +84,12 @@
   },
   "results": {
     "music": {
-      "PERFECT_GOLD": "resultsPERFECT-pico",
-      "PERFECT": "resultsPERFECT-pico",
-      "EXCELLENT": "resultsEXCELLENT-pico",
-      "GREAT": "resultsNORMAL-pico",
-      "GOOD": "resultsNORMAL-pico",
-      "SHIT": "resultsSHIT-pico"
+      "PERFECT_GOLD": "results/pico/resultsPERFECT-pico/resultsPERFECT-pico",
+      "PERFECT": "results/pico/resultsPERFECT-pico/resultsPERFECT-pico",
+      "EXCELLENT": "results/pico/resultsEXCELLENT-pico/resultsEXCELLENT-pico",
+      "GREAT": "results/pico/resultsNORMAL-pico/resultsNORMAL-pico",
+      "GOOD": "results/pico/resultsNORMAL-pico/resultsNORMAL-pico",
+      "SHIT": "results/pico/resultsSHIT-pico/resultsSHIT-pico"
     },
     "perfectGold": [
       {

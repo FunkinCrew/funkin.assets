@@ -94,12 +94,12 @@
   },
   "results": {
     "music": {
-      "PERFECT_GOLD": "resultsPERFECT",
-      "PERFECT": "resultsPERFECT",
-      "EXCELLENT": "resultsEXCELLENT",
-      "GREAT": "resultsNORMAL",
-      "GOOD": "resultsNORMAL",
-      "SHIT": "resultsSHIT"
+      "PERFECT_GOLD": "results/bf/resultsPERFECT/resultsPERFECT",
+      "PERFECT": "results/bf/resultsPERFECT/resultsPERFECT",
+      "EXCELLENT": "results/bf/resultsEXCELLENT/resultsEXCELLENT",
+      "GREAT": "results/bf/resultsNORMAL/resultsNORMAL",
+      "GOOD": "results/bf/resultsNORMAL/resultsNORMAL",
+      "SHIT": "results/bf/resultsSHIT/resultsSHIT"
     },
     "perfectGold": [
       {
