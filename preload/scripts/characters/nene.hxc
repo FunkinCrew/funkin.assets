@@ -266,8 +266,8 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     super.onSongEvent(scriptEvent);
     if (scriptEvent.eventData.eventKind == "FocusCamera")
     {
-      var eventProps = scriptEvent.eventData.value;
-      switch (eventProps.char)
+      var value = scriptEvent.eventData.getInt("char");
+      switch (value)
       {
         case 0:
           movePupilsRight();
