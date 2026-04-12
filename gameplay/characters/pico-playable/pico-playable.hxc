@@ -6,6 +6,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
+import funkin.graphics.FunkinCamera;
 import flixel.graphics.FlxGraphic;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
@@ -20,15 +21,26 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
   function get_CACHE_IMAGE_PATHS():Array<String>
   {
-    return
-      ["gameplay/characters/nene/nene-knifetoss", "gameplay/characters/pico-playable/pico-death-explosion/spritemap1", "gameplay/characters/pico-playable/pico-casing"];
+    return [
+      "gameplay/characters/nene/nene-knifetoss",
+      "gameplay/characters/pico-playable/pico-death-explosion/spritemap1",
+      "gameplay/characters/pico-playable/pico-casing"
+    ];
   }
 
   public var CACHE_SOUND_PATHS(get, never):Array<String>;
 
   function get_CACHE_SOUND_PATHS():Array<String>
   {
-    return ["singed_loop", "Gun_Prep", "Pico_Bonk", "shot1", "shot2", "shot3", "shot4"];
+    return [
+      "singed_loop",
+      "Gun_Prep",
+      "Pico_Bonk",
+      "shot1",
+      "shot2",
+      "shot3",
+      "shot4"
+    ];
   }
 
   public function new(characterId:String)
@@ -296,6 +308,18 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     GameOverSubState.animationSuffix = '';
 
     PauseSubState.musicSuffix = '-pico';
+  }
+
+  override function checkRenderTexture():Bool
+  {
+    // Pico's `shootMISS` animation uses an overlay blend, which renders as a shader on some devices
+    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
+    if (!FunkinCamera.hasKhronosExtension && animation.curAnim.name == 'shootMISS')
+    {
+      return true;
+    }
+
+    return super.checkRenderTexture();
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

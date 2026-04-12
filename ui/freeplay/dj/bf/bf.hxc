@@ -1,4 +1,5 @@
 import funkin.audio.FunkinSound;
+import funkin.graphics.FunkinCamera;
 import funkin.ui.freeplay.dj.AnimateAtlasFreeplayDJ;
 import funkin.ui.freeplay.dj.FreeplayDJAnimation;
 import funkin.ui.freeplay.dj.FreeplayDJState;
@@ -46,6 +47,18 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
         if (number == getCartoonFrame('TV_SOUND')) _runTVLogic();
       }
     });
+  }
+
+  override function checkRenderTexture():Bool
+  {
+    // Dad's hands in the idle easter egg animation use DARKEN, which renders as a shader on some devices
+    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
+    if (!FunkinCamera.hasKhronosExtension && animation.curAnim.name == FreeplayDJAnimation.IDLEEASTEREGG)
+    {
+      return true;
+    }
+
+    return super.checkRenderTexture();
   }
 
   override function update(elapsed:Float):Void
