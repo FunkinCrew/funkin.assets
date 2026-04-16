@@ -95,6 +95,7 @@ class SserafimStage extends Stage
 
     perspectiveFloor = new PerspectiveSprite();
     perspectiveFloor.sprite.loadGraphic(Paths.image('floor'));
+    perspectiveFloor.sprite.vcamPoint = vcamPoint;
     perspectiveFloor.setPositions(760, 1375, 790, 625);
     perspectiveFloor.setScrollFactors(1.05, 1.05, 0.93, 0.93);
 
@@ -187,6 +188,7 @@ class SserafimStage extends Stage
 
   function hideOpponentStrumline()
   {
+    if (PlayState.instance == null) return;
     var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
     if (opponentStrumline != null)
     {
@@ -519,8 +521,11 @@ class SserafimStage extends Stage
 
     if (perspectiveFloor != null)
     {
-      perspectiveFloor.updateSkew(PlayState.instance.camGame);
+      if (PlayState.instance == null) perspectiveFloor.updateSkew(null, vcamPoint);
+      else perspectiveFloor.updateSkew(PlayState.instance.camGame, vcamPoint);
     }
+
+    if (PlayState.instance == null) return;
 
     #if mobile
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
