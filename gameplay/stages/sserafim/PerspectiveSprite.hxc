@@ -74,11 +74,12 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
    * Positions the bottom-center of the sprite on the bottom point, and correctly skews the top-center to the second point.
    * @param targetCam	The camera to use for positioning. (Defaults to FlxG.camera)
    */
-  public function updateSkew(?targetCam:FlxCamera, ?vcamPoint:FlxPoint):Void
+  public function updateSkew(targetCam:FlxCamera, vcamPoint:FlxPoint):Void
   {
+    sprite.vcamPoint = vcamPoint;
     if (targetCam == null) targetCam = FlxG.camera;
     var scroll = new FlxPoint(targetCam.scroll.x, targetCam.scroll.y);
-    if (vcamPoint != null) scroll = FlxPoint.copyFrom(vcamPoint);
+    if (vcamPoint != null) scroll = new FlxPoint(vcamPoint.x, vcamPoint.y);
 
     // correct for scrollfactors..
     // var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x, bottomObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y));
