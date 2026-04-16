@@ -144,6 +144,8 @@ class SserafimStage extends Stage
     dust3.color = 0xff6e645c;
     dust4.color = 0xff886a60;
 
+    hideDust(true);
+
     yunjin = CharacterDataParser.fetchCharacter('sserafim-yunjin');
     chaewon = CharacterDataParser.fetchCharacter('sserafim-chaewon');
     eunchae = CharacterDataParser.fetchCharacter('sserafim-eunchae');
@@ -511,7 +513,6 @@ class SserafimStage extends Stage
   function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
-    if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
 
     if (!this.hasHidden)
     {
@@ -526,6 +527,8 @@ class SserafimStage extends Stage
     }
 
     if (PlayState.instance == null) return;
+
+    if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
 
     #if mobile
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
