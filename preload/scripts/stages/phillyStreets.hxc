@@ -15,7 +15,7 @@ import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
-import flixel.addons.display.FlxTiledSprite;
+import funkin.graphics.FunkinTiledSprite;
 import StringTools;
 
 class PhillyStreetsStage extends Stage
@@ -39,7 +39,7 @@ class PhillyStreetsStage extends Stage
   var carInterruptable:Bool = true; // if the car can be reset
   var car2Interruptable:Bool = true;
 
-  var scrollingSky:FlxTiledSprite;
+  var scrollingSky:FunkinTiledSprite;
 
   function new()
   {
@@ -158,11 +158,13 @@ class PhillyStreetsStage extends Stage
   {
     super.buildStage();
 
-    scrollingSky = new FlxTiledSprite(Paths.image('phillyStreets/phillySkybox'), 2922, 718, true, false);
+    scrollingSky = new FunkinTiledSprite(Paths.image('phillyStreets/phillySkybox'), 2922, 718, true, false);
     scrollingSky.setPosition(-650, -375);
     scrollingSky.scrollFactor.set(0.1, 0.1);
     scrollingSky.zIndex = 10;
     scrollingSky.scale.set(0.65, 0.65);
+
+    scrollingSky.vcamPoint = vcamPoint;
 
     add(scrollingSky);
     refresh(); // Apply z-index.
