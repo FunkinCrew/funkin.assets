@@ -15,7 +15,7 @@ import funkin.play.stage.Stage;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
-import flixel.addons.display.FlxTiledSprite;
+import funkin.graphics.FunkinTiledSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.graphics.shaders.AdjustColorShader;
 import StringTools;
@@ -43,7 +43,7 @@ class PhillyStreetsErectStage extends Stage
 
   var paperInterruptable:Bool = true;
 
-  var scrollingSky:FlxTiledSprite;
+  var scrollingSky:FunkinTiledSprite;
 
   var colorShader:AdjustColorShader;
 
@@ -195,7 +195,7 @@ class PhillyStreetsErectStage extends Stage
   {
     super.buildStage();
 
-    scrollingSky = new FlxTiledSprite(Paths.image('gameplay/stages/phillyStreetsErect/philly-skybox'), 2922, 718, true, false);
+    scrollingSky = new FunkinTiledSprite(Paths.image('gameplay/stages/phillyStreetsErect/philly-skybox'), 2922, 718, true, false);
     scrollingSky.setPosition(-650, -375);
     scrollingSky.scrollFactor.set(0.1, 0.1);
     scrollingSky.zIndex = 10;
