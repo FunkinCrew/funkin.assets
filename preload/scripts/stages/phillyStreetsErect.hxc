@@ -178,6 +178,8 @@ class PhillyStreetsErectStage extends Stage
     scrollingSky.zIndex = 10;
     scrollingSky.scale.set(0.65, 0.65);
 
+    scrollingSky.vcamPoint = vcamPoint;
+
     this.add(scrollingSky);
 
     colorShader = new AdjustColorShader();
