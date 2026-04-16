@@ -1,7 +1,7 @@
 import flixel.math.FlxAngle;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import flixel.addons.display.FlxTiledSprite;
+import funkin.graphics.FunkinTiledSprite;
 
 class TankmanBattlefieldStage extends Stage
 {
@@ -32,18 +32,20 @@ class TankmanBattlefieldStage extends Stage
     super.onCreate(event);
   }
 
-  var clouds:FlxTiledSprite;
+  var clouds:FunkinTiledSprite;
 
   override function buildStage()
   {
     super.buildStage();
 
-    clouds = new FlxTiledSprite(Paths.image('gameplay/stages/tankmanBattlefield/tank-clouds'), 3200, 235, true, false);
+    clouds = new FunkinTiledSprite(Paths.image('gameplay/stages/tankmanBattlefield/tank-clouds'), 3200, 235, true, false);
     clouds.setPosition(-1100, 20);
     clouds.scrollFactor.set(0.25, 0.25);
     clouds.zIndex = 12;
 
     clouds.velocity.x = 8;
+
+    clouds.vcamPoint = vcamPoint;
 
     add(clouds);
     refresh(); // Apply z-index.
