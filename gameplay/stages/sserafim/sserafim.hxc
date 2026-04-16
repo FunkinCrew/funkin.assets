@@ -145,7 +145,7 @@ class SserafimStage extends Stage
     dust3.color = 0xff6e645c;
     dust4.color = 0xff886a60;
 
-    hideDust(true);
+    hideDust(false);
 
     yunjin = CharacterDataParser.fetchCharacter('sserafim-yunjin');
     chaewon = CharacterDataParser.fetchCharacter('sserafim-chaewon');
