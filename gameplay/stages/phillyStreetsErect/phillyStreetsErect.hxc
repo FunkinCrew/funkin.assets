@@ -16,7 +16,7 @@ import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
 import funkin.graphics.FunkinTiledSprite;
-import flixel.addons.display.FlxBackdrop;
+import funkin.graphics.FunkinBackdrop;
 import funkin.graphics.shaders.AdjustColorShader;
 import StringTools;
 
@@ -184,12 +184,12 @@ class PhillyStreetsErectStage extends Stage
     resetStageValues();
   }
 
-  var mist0:FlxBackdrop;
-  var mist1:FlxBackdrop;
-  var mist2:FlxBackdrop;
-  var mist3:FlxBackdrop;
-  var mist4:FlxBackdrop;
-  var mist5:FlxBackdrop;
+  var mist0:FunkinBackdrop;
+  var mist1:FunkinBackdrop;
+  var mist2:FunkinBackdrop;
+  var mist3:FunkinBackdrop;
+  var mist4:FunkinBackdrop;
+  var mist5:FunkinBackdrop;
 
   override function buildStage()
   {
@@ -211,7 +211,7 @@ class PhillyStreetsErectStage extends Stage
     colorShader.contrast = -25;
     colorShader.brightness = -20;
 
-    mist0 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
+    mist0 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist0.setPosition(-650, -100);
     mist0.scrollFactor.set(1.2, 1.2);
     mist0.zIndex = 1000;
@@ -222,7 +222,7 @@ class PhillyStreetsErectStage extends Stage
 
     this.add(mist0);
 
-    mist1 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
+    mist1 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist1.setPosition(-650, -100);
     mist1.scrollFactor.set(1.1, 1.1);
     mist1.zIndex = 1000;
@@ -233,7 +233,7 @@ class PhillyStreetsErectStage extends Stage
 
     this.add(mist1);
 
-    mist2 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
+    mist2 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist2.setPosition(-650, -100);
     mist2.scrollFactor.set(1.2, 1.2);
     mist2.zIndex = 1001;
@@ -244,7 +244,7 @@ class PhillyStreetsErectStage extends Stage
 
     this.add(mist2);
 
-    mist3 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
+    mist3 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist3.setPosition(-650, -100);
     mist3.scrollFactor.set(0.95, 0.95);
     mist3.zIndex = 99;
@@ -256,7 +256,7 @@ class PhillyStreetsErectStage extends Stage
 
     this.add(mist3);
 
-    mist4 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
+    mist4 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist4.setPosition(-650, -100);
     mist4.scrollFactor.set(0.8, 0.8);
     mist4.zIndex = 88;
@@ -268,7 +268,7 @@ class PhillyStreetsErectStage extends Stage
 
     this.add(mist4);
 
-    mist5 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
+    mist5 = new FunkinBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-middle'), 0x01);
     mist5.setPosition(-650, -100);
     mist5.scrollFactor.set(0.5, 0.5);
     mist5.zIndex = 39;
@@ -279,6 +279,14 @@ class PhillyStreetsErectStage extends Stage
     mist5.scale.set(1.1, 1.1);
 
     this.add(mist5);
+
+    mist0.vcamPoint = vcamPoint;
+    mist1.vcamPoint = vcamPoint;
+    mist2.vcamPoint = vcamPoint;
+    mist3.vcamPoint = vcamPoint;
+    mist4.vcamPoint = vcamPoint;
+    mist5.vcamPoint = vcamPoint;
+
     this.refresh(); // Apply z-index.
   }
 
