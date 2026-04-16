@@ -168,6 +168,11 @@ class SserafimStage extends Stage
     eunchae.setPosition(770 - eunchae.characterOrigin.x, 675 - eunchae.characterOrigin.y);
 
     if (PlayState.instance == null) baseVisible = [true, true, true, true, true, true];
+    else
+    {
+      baseVisible = [true, false, false, false, false, false];
+      baseSinging = [false, false, false, false, false, false];
+    }
 
     setGirlsVisible(baseVisible);
     setGirlsSinging(baseSinging);
