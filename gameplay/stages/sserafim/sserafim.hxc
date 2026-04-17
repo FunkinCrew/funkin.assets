@@ -167,14 +167,6 @@ class SserafimStage extends Stage
     chaewon.setPosition(687 - chaewon.characterOrigin.x, 98 - chaewon.characterOrigin.y);
     eunchae.setPosition(770 - eunchae.characterOrigin.x, 675 - eunchae.characterOrigin.y);
 
-    if (PlayState.instance == null) baseVisible = [true, true, true, true, true, true];
-    else
-    {
-      baseVisible = [true, false, false, false, false, false];
-      baseSinging = [false, false, false, false, false, false];
-    }
-
-    setGirlsVisible(baseVisible);
     setGirlsSinging(baseSinging);
     setLightState(false);
 
@@ -228,60 +220,63 @@ class SserafimStage extends Stage
       case 'sserafimCover':
         setCoverVisible(scriptEvent.eventData.getBool('visible'));
       case 'sserafimFlash':
-        flashScreen(scriptEvent.eventData.getFloat('duration'));
+        if (PlayState.instance != null) flashScreen(scriptEvent.eventData.getFloat('duration'));
       case 'sserafimPulseLights':
         setLightState(scriptEvent.eventData.getBool('enabled'), scriptEvent.eventData.getArray('colors'), scriptEvent.eventData.getArray('durations'),
           scriptEvent.eventData.getArray('intensities'));
       case 'sserafimKick':
-        if (scriptEvent.eventData.getBool('final'))
+        if (PlayState.instance != null)
         {
-          // play second kick anim + reset her idle back to normal
-          yunjin.playAnimation('kick2', true, false);
-          FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-2'), 1.0);
-          yunjin.danceEvery = 1;
-
-          HapticUtil.vibrate(0, 0.2, 0.8, 0);
-
-          // Show the opponent health icon at this point
-          PlayState.instance.iconP2.visible = true;
-
-          // hide the cutscene characters if theyre present!
-          if (sserafimGf != null)
+          if (scriptEvent.eventData.getBool('final'))
           {
-            // and show the REAL gf
-            getGirlfriend()?.visible = true;
+            // play second kick anim + reset her idle back to normal
+            yunjin.playAnimation('kick2', true, false);
+            FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-2'), 1.0);
+            yunjin.danceEvery = 1;
 
-            sserafimGf.visible = false;
-            sserafimBf.visible = false;
-          }
+            HapticUtil.vibrate(0, 0.2, 0.8, 0);
 
-          yunjin.animation.onFrameChange.removeAll();
+            // Show the opponent health icon at this point
+            PlayState.instance.iconP2.visible = true;
 
-          yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int)
-          {
-            // at this point in the animation, the door is no longer part of her animation...
-            // show a static one!
-            if (frameNumber == 23) getNamedProp('truckDoor').visible = true;
-          });
+            // hide the cutscene characters if theyre present!
+            if (sserafimGf != null)
+            {
+              // and show the REAL gf
+              getGirlfriend()?.visible = true;
 
-          yunjin.animation.onFinish.addOnce(function(animName:String)
-          {
+              sserafimGf.visible = false;
+              sserafimBf.visible = false;
+            }
+
             yunjin.animation.onFrameChange.removeAll();
-          });
 
-          // start the dust clearing
-          startClear();
-        }
-        else
-        {
-          // play first kick anim
-          yunjin.playAnimation('kick1', true, false);
-          FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-1'), 1.0);
+            yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int)
+            {
+              // at this point in the animation, the door is no longer part of her animation...
+              // show a static one!
+              if (frameNumber == 23) getNamedProp('truckDoor').visible = true;
+            });
 
-          HapticUtil.vibrate(0, 0.2, 0.4, 0);
+            yunjin.animation.onFinish.addOnce(function(animName:String)
+            {
+              yunjin.animation.onFrameChange.removeAll();
+            });
+
+            // start the dust clearing
+            if (PlayState.instance != null) startClear();
+          }
+          else
+          {
+            // play first kick anim
+            yunjin.playAnimation('kick1', true, false);
+            FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-1'), 1.0);
+
+            HapticUtil.vibrate(0, 0.2, 0.4, 0);
+          }
         }
       case 'sserafimEnd':
-        endStuff();
+        if (PlayState.instance != null) endStuff();
     }
   }
 
