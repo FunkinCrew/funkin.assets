@@ -17,8 +17,8 @@
       "v": {
         "duration": 16,
         "ease": "quart",
-        "mode": "direct",
         "easeDir": "Out",
+        "mode": "direct",
         "zoom": 1
       }
     },
@@ -26,12 +26,12 @@
       "t": 54400,
       "e": "FocusCamera",
       "v": {
-        "duration": 4,
-        "x": 0,
-        "y": 100,
-        "ease": "CLASSIC",
         "char": 2,
-        "easeDir": "In"
+        "duration": 4,
+        "ease": "CLASSIC",
+        "easeDir": "In",
+        "x": 0,
+        "y": 100
       }
     },
     {
@@ -40,9 +40,9 @@
       "v": {
         "duration": 16,
         "ease": "quart",
-        "zoom": 1.1,
+        "easeDir": "Out",
         "mode": "direct",
-        "easeDir": "Out"
+        "zoom": 1.1
       }
     },
     { "t": 60800, "e": "FocusCamera", "v": { "char": 0 } },
@@ -817,5 +817,5 @@
       { "t": 79600, "d": 1, "l": 225 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.8.1"
+  "generatedBy": "Friday Night Funkin' - v0.8.5"
 }

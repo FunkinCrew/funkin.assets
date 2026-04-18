@@ -5,7 +5,7 @@
     {
       "t": 3018.8679245283,
       "e": "FocusCamera",
-      "v": { "duration": 4, "x": 0, "y": 0, "ease": "CLASSIC", "char": 2 }
+      "v": { "char": 2, "duration": 4, "ease": "CLASSIC", "x": 0, "y": 0 }
     },
     { "t": 9433, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 15094, "e": "FocusCamera", "v": { "char": 0 } },
@@ -1285,5 +1285,5 @@
       { "t": 129811, "d": 2 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.8.1"
+  "generatedBy": "Friday Night Funkin' - v0.8.5"
 }
