@@ -13,7 +13,7 @@
     {
       "t": 13714.2857142857,
       "e": "PlayAnimation",
-      "v": { "target": "gf", "force": true, "anim": "cheer" }
+      "v": { "anim": "cheer", "force": true, "target": "gf" }
     },
     { "t": 13885.7142857143, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 19371.4285714286, "e": "FocusCamera", "v": { "char": 0 } },
@@ -46,7 +46,7 @@
     {
       "t": 57600,
       "e": "ZoomCamera",
-      "v": { "ease": "expoOut", "duration": 12, "mode": "stage", "zoom": 1.05 }
+      "v": { "duration": 12, "ease": "expoOut", "mode": "stage", "zoom": 1.05 }
     },
     { "t": 57600, "e": "FocusCamera", "v": { "char": 1 } },
     { "t": 63085, "e": "FocusCamera", "v": { "char": 0 } },
@@ -56,7 +56,7 @@
     {
       "t": 79542.8571428571,
       "e": "ZoomCamera",
-      "v": { "ease": "expoOut", "duration": 24, "mode": "stage", "zoom": 1 }
+      "v": { "duration": 24, "ease": "expoOut", "mode": "stage", "zoom": 1 }
     },
     {
       "t": 79542.8571428571,
@@ -1074,5 +1074,5 @@
       { "t": 90514.2857142857, "d": 1 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.8.1"
+  "generatedBy": "Friday Night Funkin' - v0.8.5"
 }

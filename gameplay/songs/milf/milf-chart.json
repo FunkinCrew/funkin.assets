@@ -13,22 +13,22 @@
     { "t": 40000, "e": "FocusCamera", "v": 0 },
     { "t": 45333, "e": "FocusCamera", "v": 1 },
     { "t": 50666, "e": "FocusCamera", "v": 0 },
-    { "t": 56000, "e": "SetCameraBop", "v": { "rate": 1, "intensity": 2.5 } },
+    { "t": 56000, "e": "SetCameraBop", "v": { "intensity": 2.5, "rate": 1 } },
     { "t": 56000, "e": "FocusCamera", "v": 1 },
     { "t": 61333, "e": "FocusCamera", "v": 0 },
     { "t": 66666, "e": "FocusCamera", "v": 1 },
-    { "t": 66666, "e": "SetCameraBop", "v": { "rate": 4, "intensity": 1 } },
+    { "t": 66666, "e": "SetCameraBop", "v": { "intensity": 1, "rate": 4 } },
     { "t": 72000, "e": "FocusCamera", "v": 0 },
     {
       "t": 77333,
       "e": "FocusCamera",
-      "v": { "x": -40, "duration": 4, "y": 80, "char": 2, "ease": "CLASSIC" }
+      "v": { "char": 2, "duration": 4, "ease": "CLASSIC", "x": -40, "y": 80 }
     },
     { "t": 88000, "e": "FocusCamera", "v": { "char": 1 } },
     {
       "t": 93333.3333333333,
       "e": "FocusCamera",
-      "v": { "x": -40, "duration": 4, "y": 80, "char": 2, "ease": "CLASSIC" }
+      "v": { "char": 2, "duration": 4, "ease": "CLASSIC", "x": -40, "y": 80 }
     },
     { "t": 98666, "e": "FocusCamera", "v": 1 },
     { "t": 104000, "e": "FocusCamera", "v": 0 },
@@ -1632,5 +1632,5 @@
       { "t": 120000, "d": 2, "l": 833 }
     ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.8.1"
+  "generatedBy": "Friday Night Funkin' - v0.8.5"
 }
