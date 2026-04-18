@@ -51,7 +51,7 @@
   </menu>
   <menu text="Playback" id="menubarMenuPlayback">
     <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
-    <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="R" />
+    <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="Home" />
   </menu>
   <menu text="Generate" id="menubarMenuGenerate">
     <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
