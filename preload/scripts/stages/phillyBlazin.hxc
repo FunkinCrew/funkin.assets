@@ -106,7 +106,7 @@ class PhillyBlazinStage extends Stage
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
     // Manually focus the camera before the song starts.
-    if (!cameraInitialized && getGirlfriend().cameraFocusPoint != null)
+    if (!cameraInitialized && getGirlfriend().cameraFocusPoint != null && PlayState.instance != null)
     {
       cameraInitialized = true;
       initializeCamera();
