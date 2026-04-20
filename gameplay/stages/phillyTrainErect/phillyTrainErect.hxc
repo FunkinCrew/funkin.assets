@@ -418,6 +418,8 @@ class PhillyTrainErectStage extends Stage
       }
     }
 
+    if (PlayState.instance == null) return;
+
     #if mobile
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     #end
