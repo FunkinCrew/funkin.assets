@@ -10,7 +10,7 @@
         </hbox>
         <hbox>
             <button allowFocus="false" id="difficultyToolboxMoveDifficulty" text="Move Difficulty" tooltip="Rename the selected difficulty, or move it to a different variation." />
-            <button allowFocus="false" id="difficultyToolboxCloneDifficulty" text="Clone Difficulty" tooltip="Make a new difficulty with all the nodes and events of the current difficulty." />
+            <button allowFocus="false" id="difficultyToolboxCloneDifficulty" text="Clone Difficulty" tooltip="Make a new difficulty with all notes and events of the current difficulty." />
         </hbox>
         <hbox>
             <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" tooltip="Delete the selected difficulty." />
