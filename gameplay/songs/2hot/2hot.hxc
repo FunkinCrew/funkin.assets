@@ -16,6 +16,7 @@ import funkin.play.stage.StageProp;
 import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
 import funkin.FunkinMemory;
+import funkin.assets.Paths as NewPaths;
 
 class TwoHOTSong extends Song
 {
@@ -207,7 +208,7 @@ class TwoHOTSong extends Song
 
   function startVideo()
   {
-    VideoCutscene.play(Paths.videos('gameplay/songs/2hot/cutscene'), CutsceneType.ENDING);
+    VideoCutscene.play(NewPaths.video('gameplay/songs/2hot/cutscene'), CutsceneType.ENDING);
   }
 
   function removeCans()

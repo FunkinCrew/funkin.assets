@@ -15,6 +15,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
+import funkin.assets.Paths as NewPaths;
 
 class DarnellSong extends Song
 {
@@ -347,7 +348,7 @@ class DarnellSong extends Song
       videoPath += '-censored';
     }
 
-    VideoCutscene.play(Paths.videos(videoPath));
+    VideoCutscene.play(NewPaths.video(videoPath));
   }
 
   /**

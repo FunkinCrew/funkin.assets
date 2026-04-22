@@ -3,6 +3,7 @@ import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.cutscene.VideoCutscene;
+import funkin.assets.Paths as NewPaths;
 
 class StressSong extends Song
 {
@@ -106,7 +107,7 @@ class StressSong extends Song
     }
     videoPath += '.mkv'; // Use MKV for subtitles.
 
-    VideoCutscene.play(Paths.videos(videoPath));
+    VideoCutscene.play(NewPaths.video(videoPath));
   }
 
   /**

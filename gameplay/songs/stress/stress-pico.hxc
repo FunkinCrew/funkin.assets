@@ -12,6 +12,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
+import funkin.assets.Paths as NewPaths;
 
 class StressPicoMixSong extends Song
 {
@@ -114,7 +115,7 @@ class StressPicoMixSong extends Song
     }
     videoPath += '.mkv'; // Use MKV for subtitles.
 
-    VideoCutscene.play(Paths.videos(videoPath));
+    VideoCutscene.play(NewPaths.video(videoPath));
   }
 
   /**
