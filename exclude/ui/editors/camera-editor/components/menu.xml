@@ -28,20 +28,23 @@
   <menu text="View" id="menubarMenuView">
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
-       <image resource="assets/ui/editors/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
-       </menu-checkbox>
+        <image resource="assets/ui/editors/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
+      </menu-checkbox>
     </vbox>
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
-       <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
-       </menu-checkbox>
+        <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
+      </menu-checkbox>
+    </vbox>
+    <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
     </vbox>
     <menu-separator />
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemPassepartout" text="Passepartout" >
-       <image resource="assets/ui/editors/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
-       </menu-checkbox>
-       <vbox width="100%" style="padding: 5px;">
+        <image resource="assets/ui/editors/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
+      </menu-checkbox>
+      <vbox width="100%" style="padding: 5px;">
         <slider id="menubarSliderPassepartoutTransparency" width="100%" pos="50" />
       </vbox>
     </vbox>
