@@ -90,7 +90,7 @@ class LimoRideStage extends Stage
     fastCar.active = true;
 
     fastCar.x = -12600;
-    fastCar.y = FlxG.random.int(140, 250);
+    fastCar.y = FlxG.random.int(350, 380);
     fastCar.velocity.x = 0;
     fastCarCanDrive = true;
   }
