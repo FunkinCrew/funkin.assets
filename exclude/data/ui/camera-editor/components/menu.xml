@@ -58,6 +58,7 @@
   </menu>
   <menu text="Generate" id="menubarMenuGenerate">
     <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
+    <menu-item id="menubarItemAutoSortByType" text="Sort Events to Layers by Type" />
   </menu>
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
