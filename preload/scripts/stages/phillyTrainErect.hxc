@@ -52,7 +52,6 @@ class PhillyTrainErectStage extends Stage
   {
     super.onCreate(event);
 
-    trainEnabled = true;
     hasPlayedInGameCutscene = false;
     cutsceneSkipped = false;
     canSkipCutscene = false;
@@ -360,6 +359,9 @@ class PhillyTrainErectStage extends Stage
   function buildStage()
   {
     super.buildStage();
+
+    trainEnabled = true;
+    if (PlayState.instance == null) trainEnabled = false;
 
     // NOTE: You pass the constructor variables directly, not as an array.
     lightShader = new BuildingEffectShader(1.0);

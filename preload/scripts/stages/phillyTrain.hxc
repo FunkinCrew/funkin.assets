@@ -26,6 +26,8 @@ class PhillyTrainStage extends Stage
     super.buildStage();
     trainEnabled = true;
 
+    if (PlayState.instance == null) trainEnabled = false;
+
     // NOTE: You pass the constructor variables directly, not as an array.
     lightShader = new BuildingEffectShader(1.0);
     trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
