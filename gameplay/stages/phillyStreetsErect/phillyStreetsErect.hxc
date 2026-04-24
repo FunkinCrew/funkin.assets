@@ -41,6 +41,8 @@ class PhillyStreetsErectStage extends Stage
   var carInterruptable:Bool = true; // if the car can be reset
   var car2Interruptable:Bool = true;
 
+  var carsEnabled:Bool = true; // if the cars should be active at all.
+
   var paperInterruptable:Bool = true;
 
   var scrollingSky:FunkinTiledSprite;
@@ -194,6 +196,9 @@ class PhillyStreetsErectStage extends Stage
   override function buildStage()
   {
     super.buildStage();
+
+    carsEnabled = true;
+    if (PlayState.instance == null) carsEnabled = false;
 
     scrollingSky = new FunkinTiledSprite(Paths.image('gameplay/stages/phillyStreetsErect/philly-skybox'), 2922, 718, true, false);
     scrollingSky.setPosition(-650, -375);
@@ -532,7 +537,7 @@ class PhillyStreetsErectStage extends Stage
     super.onBeatHit(event);
 
     // Try driving a car when its possible
-    if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && carInterruptable == true)
+    if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && carInterruptable == true && carsEnabled)
     {
       if (lightsStop == false)
       {
@@ -562,7 +567,7 @@ class PhillyStreetsErectStage extends Stage
     if (FlxG.random.bool(10)
       && event.beat != (lastChange + changeInterval)
       && car2Interruptable == true
-      && lightsStop == false) driveCarBack(getNamedProp('phillyCars2'));
+      && lightsStop == false && carsEnabled) driveCarBack(getNamedProp('phillyCars2'));
 
     // After the interval has been hit, change the light state.
     if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);
