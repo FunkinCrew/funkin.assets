@@ -12,15 +12,17 @@
 				</header>
 				<data>
 					<item action="Show User Guide" keybind="F1" />
-          <item action="Pan Stage Preview" keybind="Alt and Drag/Middle Click and Drag" />
-          <item action="Zoom In/Out Stage Preview" keybind="Mouse Wheel" />
-          <item action="Zoom In/Out Timeline" keybind="Shift + Mouse Wheel" />
-          <item action="Scroll Timeline Up/Down" keybind="Ctrl + Mouse Wheel"/>
-    			<item action="Temporarily Toggle Timeline Event Snapping" keybind="Shift" />
-          <item action="Timeline Add Event Menu" keybind="Shift + A/Right Click" />
-          <item action="Play/Pause" keybind="Space" />
+					<item action="Pan Stage Preview" keybind="Alt and Drag/Middle Click and Drag" />
+					<item action="Zoom In/Out Stage Preview" keybind="Mouse Wheel" />
+					<item action="Zoom In/Out Timeline" keybind="Shift + Mouse Wheel" />
+					<item action="Scroll Timeline Up/Down" keybind="Ctrl + Mouse Wheel"/>
+					<item action="Temporarily Toggle Timeline Event Snapping" keybind="Shift" />
+					<item action="Timeline Add Event Menu" keybind="Shift + A/Right Click" />
+					<item action="Add Focus Camera Event (Opponent)" keybind=","/>
+					<item action="Add Focus Camera Event (Player)" keybind="."/>
+					<item action="Play/Pause" keybind="Space" />
 					<item action="Jump to Start" keybind="Home" />
-          <item action="Scrub Position in Timeline" keybind="Left Click and Drag" />
+					<item action="Scrub Position in Timeline" keybind="Left Click and Drag" />
 					<item action="Undo" keybind="Ctrl + Z" />
 					<item action="Redo" keybind="Ctrl + Y" />
 					<item action="Copy Selection" keybind="Ctrl + C" />
