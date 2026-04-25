@@ -7,6 +7,9 @@ import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.util.SortUtil;
 import Lambda;
+#if FEATURE_CAMERA_EDITOR
+import funkin.ui.debug.cameraeditor.CameraEditorState;
+#end
 
 class PicoSpeakerCharacter extends AnimateAtlasCharacter
 {
@@ -51,17 +54,25 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     shootTimes = [];
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
-    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
-    if (animChart == null)
+    var animNotes:Array<SongNoteData> = [];
+    #if FEATURE_CAMERA_EDITOR
+    if (Std.isOfType(FlxG.state, CameraEditorState))
+    {
+      animNotes = FlxG.state.currentSongChartData?.notes?.get('picospeaker')?.copy();
+    }
+    else
+    #end
+    {
+      animNotes = PlayState.instance.currentSong.getDifficulty('picospeaker')?.notes;
+    }
+
+    if (animNotes == null)
     {
       trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this song.');
       return;
     }
-    else
-    {
-      trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
-    }
-    var animNotes:Array<SongNoteData> = animChart.notes;
+
+    trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
     // i had to sort the whole pico chart by hand im gonna go insane
