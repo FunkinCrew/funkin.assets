@@ -12,6 +12,7 @@ import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
 import funkin.util.MathUtil;
 import funkin.util.HapticUtil;
+import funkin.ui.debug.cameraeditor.CameraEditorState;
 
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
@@ -89,10 +90,8 @@ class PhillyBlazinStage extends Stage
 
   var cameraInitialized:Bool = false;
   var cameraDarkened:Bool = false;
-
   var lightningTimer:Float = 3.0;
   var lightningActive:Bool = true;
-
   var rainTimeScale:Float = 1.0;
 
   override function onUpdate(event:ScriptEvent)
@@ -106,15 +105,15 @@ class PhillyBlazinStage extends Stage
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
     // Manually focus the camera before the song starts.
-    if (!cameraInitialized && getGirlfriend().cameraFocusPoint != null && PlayState.instance != null)
+    if (!cameraInitialized && getGirlfriend()?.cameraFocusPoint != null)
     {
       cameraInitialized = true;
       initializeCamera();
 
-      getBoyfriend().color = 0xFFDEDEDE;
-      getDad().color = 0xFFDEDEDE;
-      getGirlfriend().color = 0xFF888888;
-      getGirlfriend().abot.color = 0xFF888888;
+      getBoyfriend()?.color = 0xFFDEDEDE;
+      getDad()?.color = 0xFFDEDEDE;
+      getGirlfriend()?.color = 0xFF888888;
+      getGirlfriend()?.abot?.color = 0xFF888888;
     }
 
     if (lightningActive)
@@ -241,16 +240,23 @@ class PhillyBlazinStage extends Stage
 
   function initializeCamera():Void
   {
-    var xTarget:Float = getGirlfriend().cameraFocusPoint.x;
-    var yTarget:Float = getGirlfriend().cameraFocusPoint.y;
-    // yTarget += 200;
-    xTarget += 50;
-    yTarget -= 90;
-    PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
-    PlayState.instance.resetCamera();
+    var xTarget:Float = getGirlfriend().cameraFocusPoint.x + 50;
+    var yTarget:Float = getGirlfriend().cameraFocusPoint.y - 90;
 
-    PlayState.instance.comboPopUps.offsets = [480, -50];
+    if (PlayState.instance != null)
+    {
+      PlayState.instance.cameraFollowPoint.setPosition(xTarget, yTarget);
+      PlayState.instance.resetCamera();
 
-    PlayState.instance.camGame.fade(0xFF000000, 1.5, true, null, true);
+      PlayState.instance.comboPopUps.offsets = [480, -50];
+
+      PlayState.instance.camGame.fade(0xFF000000, 1.5, true, null, true);
+    }
+    else if (CameraEditorState.instance != null)
+    {
+      // If `PlayState.instance` is null, then we must be in the Camera Editor!
+      CameraEditorState.instance.cameraRect.setFocusPoint(xTarget, yTarget, true);
+      getDad().cameraFocusPoint.set(xTarget, yTarget);
+    }
   }
 }
