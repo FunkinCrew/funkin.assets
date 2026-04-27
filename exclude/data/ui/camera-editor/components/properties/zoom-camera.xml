@@ -19,38 +19,6 @@
     <number-stepper pos="1.25" step="0.1" min="0.1" width="160" id="zoomCameraDuration"/>
   </hbox>
   <frame text="Ease" collapsible="true" width="100%" height="180">
-    <hbox width="100%" height="100%">
-      <vbox width="100%" height="100%">
-        <dropdown text="Ease" id="zoomCameraEase" width="140">
-          <data>
-            <item id="linear" text="Linear" />
-            <item id="INSTANT" text="Instant (Ignores duration)" />
-            <item id="sine" text="Sine" />
-            <item id="quad" text="Quad" />
-            <item id="cube" text="Cube" />
-            <item id="quart" text="Quart" />
-            <item id="quint" text="Quint" />
-            <item id="expo" text="Expo" />
-            <item id="smoothStep" text="Smooth Step" />
-            <item id="smootherStep" text="Smoother Step" />
-            <item id="elastic" text="Elastic" />
-            <item id="back" text="Back" />
-            <item id="bounce" text="Bounce" />
-            <item id="circ" text="Circ " />
-          </data>
-        </dropdown>
-        <dropdown text="Ease Dir" id="zoomCameraEaseDir" width="80" hidden="true">
-          <data>
-            <item id="In" text="In" />
-            <item id="Out" text="Out" />
-            <item id="InOut" text="In/Out" />
-          </data>
-        </dropdown>
-      </vbox>
-      <hbox width="100%" height="100%" id="zoomCameraEaseBox">
-        <image width="100" height="100" style="border:1px solid $normal-border-color" id="zoomCameraEaseGraph" />
-        <image width="16" height="100" style="border:1px solid $normal-border-color" id="zoomCameraEaseDot" />
-      </hbox>
-    </hbox>
+    <EaseGraphPreview width="100%" height="100%" id="zoomCameraEasePreview" />
   </frame>
 </vbox>
