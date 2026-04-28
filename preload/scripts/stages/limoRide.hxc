@@ -28,6 +28,10 @@ class LimoRideStage extends Stage
   {
     super.buildStage();
 
+    carsEnabled = true;
+
+    if (PlayState.instance == null) carsEnabled = false;
+
     // Apply sky shader.
     var skyOverlay:OverlayBlend = new OverlayBlend();
     var sunOverlay:FlxSprite = new FlxSprite().loadGraphic(Paths.image('limo/limoOverlay'));
@@ -60,7 +64,7 @@ class LimoRideStage extends Stage
     // otherwise boppers will not work.
     super.onBeatHit(event);
 
-    if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
+    if (FlxG.random.bool(10) && fastCarCanDrive && carsEnabled) fastCarDrive();
   }
 
   var carSequence:Sequence;
