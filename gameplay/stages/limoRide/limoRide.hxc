@@ -15,6 +15,8 @@ class LimoRideStage extends Stage
     super('limoRide');
   }
 
+  var carsEnabled:Bool = true;
+
   /**
    * If your stage uses additional assets not specified in the JSON,
    * make sure to specify them like this, or they won't get cached in the loading screen.
@@ -47,6 +49,10 @@ class LimoRideStage extends Stage
   override function buildStage()
   {
     super.buildStage();
+
+    carsEnabled = true;
+
+    if (PlayState.instance == null) carsEnabled = false;
 
     // Apply sky shader.
     var skyOverlay:OverlayBlend = new OverlayBlend();
@@ -82,7 +88,7 @@ class LimoRideStage extends Stage
     // otherwise boppers will not work.
     super.onBeatHit(event);
 
-    if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
+    if (FlxG.random.bool(10) && fastCarCanDrive && carsEnabled) fastCarDrive();
   }
 
   var carSequence:Sequence;

@@ -16,6 +16,8 @@ class LimoRideErectStage extends Stage
     super('limoRideErect');
   }
 
+  var carsEnabled:Bool = true;
+
   var colorShader:AdjustColorShader;
   var mist1:FlxBackdrop;
   var mist2:FlxBackdrop;
@@ -60,6 +62,9 @@ class LimoRideErectStage extends Stage
   override function buildStage()
   {
     super.buildStage();
+    carsEnabled = true;
+
+    if (PlayState.instance == null) carsEnabled = false;
 
     // Apply sky shader.
     var skyOverlay:OverlayBlend = new OverlayBlend();
@@ -193,7 +198,7 @@ class LimoRideErectStage extends Stage
     // otherwise boppers will not work.
     super.onBeatHit(event);
 
-    if (FlxG.random.bool(10) && fastCarCanDrive) fastCarDrive();
+    if (FlxG.random.bool(10) && fastCarCanDrive && carsEnabled) fastCarDrive();
 
     if (FlxG.random.bool(10) && event.beat > (shootingStarBeat + shootingStarOffset))
     {
