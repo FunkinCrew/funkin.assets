@@ -27,6 +27,12 @@
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
 
+  <menu text="Edit" width="208px;">
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
+    <menu-separator />
+  </menu>
+
   <menu text="View" id="menubarMenuView">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
         <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
@@ -57,11 +63,7 @@
     <menu-item id="menubarItemAutoSortByType" text="Sort Events to Layers by Type" />
   </menu>
 
-  <menu text="Edit" width="208px;">
-    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
-    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
-    <menu-separator />
-  </menu>
+
 
   <menu text="Help" id="menubarMenuHelp">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
