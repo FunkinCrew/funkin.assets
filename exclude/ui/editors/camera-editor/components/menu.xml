@@ -71,5 +71,5 @@
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
-  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+  <menu-item id="menubarItemChartEditor" text="Chart Editor" />
 </menubar>
