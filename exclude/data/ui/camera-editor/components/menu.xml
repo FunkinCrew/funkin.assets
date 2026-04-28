@@ -33,7 +33,7 @@
     <menu-separator />
   </menu>
 
-  <menu text="View" id="menubarMenuView">
+  <menu text="View">
     <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
       <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
     </menu-checkbox>
@@ -53,17 +53,17 @@
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
   </menu>
 
-  <menu text="Playback" id="menubarMenuPlayback">
+  <menu text="Playback">
     <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
     <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="Home" />
   </menu>
 
-  <menu text="Generate" id="menubarMenuGenerate">
+  <menu text="Generate">
     <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
     <menu-item id="menubarItemAutoSortByType" text="Sort Events to Layers by Type" />
   </menu>
 
-  <menu text="Help" id="menubarMenuHelp">
+  <menu text="Help">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
     <menu-item id="menubarItemGoToBackupsFolder" text="Go to Backups Folder" />
     <menu-item id="menubarItemAbout" text="About..." />
