@@ -12,6 +12,7 @@
       max-width: 800px;
     }
   </style>
+
   <menu text="File" id="menubarMenuFile">
     <menu-item id="menubarItemOpen" text="Open Chart" shortcutText="Ctrl+O" />
     <menu id="menubarOpenRecent" text="Open Recent" />
@@ -25,51 +26,49 @@
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
+
   <menu text="View" id="menubarMenuView">
-    <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
         <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
       </menu-checkbox>
-    </vbox>
-    <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
         <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
       </menu-checkbox>
-    </vbox>
-    <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
-    </vbox>
     <menu-separator />
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemPassepartout" text="Passepartout" >
         <image resource="shared:assets/shared/images/ui/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
       </menu-checkbox>
-      <vbox width="100%" style="padding: 5px;">
-        <slider id="menubarSliderPassepartoutTransparency" width="100%" pos="50" />
-      </vbox>
+      <slider id="menubarSliderPassepartoutTransparency" width="100%" pos="50" />
     </vbox>
     <menu-separator />
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
   </menu>
+
   <menu text="Playback" id="menubarMenuPlayback">
     <menu-item id="menubarItemPlayPause" text="Toggle Playback" shortcutText="Space" />
     <menu-item id="menubarItemResetPlayback" text="Reset Playback" shortcutText="Home" />
   </menu>
+
   <menu text="Generate" id="menubarMenuGenerate">
     <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
     <menu-item id="menubarItemAutoSortByType" text="Sort Events to Layers by Type" />
   </menu>
+
   <menu text="Edit" width="208px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
     <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
     <menu-separator />
   </menu>
+
   <menu text="Help" id="menubarMenuHelp">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
     <menu-item id="menubarItemGoToBackupsFolder" text="Go to Backups Folder" />
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
+
   <spacer width="100%" />
   <menu-item id="menubarItemChartEditor" text="Go to Chart Editor" />
 </menubar>
