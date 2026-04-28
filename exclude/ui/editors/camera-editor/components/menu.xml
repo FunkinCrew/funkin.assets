@@ -34,15 +34,15 @@
   </menu>
 
   <menu text="View" id="menubarMenuView">
-      <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View" >
-        <image resource="assets/ui/editors/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
-      </menu-checkbox>
-      <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
-        <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
-      </menu-checkbox>
-      <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
+    <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
+      <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
+    </menu-checkbox>
+    <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
     <menu-separator />
     <vbox width="100%">
+      <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View">
+        <image resource="assets/ui/editors/camera-editor/menu-bar/relative_view.png" width="16" height="16" />
+      </menu-checkbox>
       <menu-checkbox width="100%" id="menubarItemPassepartout" text="Passepartout" >
         <image resource="assets/ui/editors/camera-editor/menu-bar/passepartout.png" width="16" height="16" />
       </menu-checkbox>
@@ -62,8 +62,6 @@
     <menu-item id="menubarItemAutoGen" text="Auto Generate Events" />
     <menu-item id="menubarItemAutoSortByType" text="Sort Events to Layers by Type" />
   </menu>
-
-
 
   <menu text="Help" id="menubarMenuHelp">
     <menu-item id="menubarItemUserGuide" text="User Guide" shortcutText="F1" />
