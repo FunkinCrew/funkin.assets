@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menubar id="menubar" width="100%" height="35" paddingLeft="256">
+<menubar id="menubar" width="100%" paddingLeft="256">
   <style>
     .menu {
     // The width of the individual menu items
@@ -23,20 +23,20 @@
     <menu-separator />
     <menu-item id="menubarItemClearAssets" text="Clear Assets" style="color: indianred" />
     <menu-separator />
-    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl + Q" />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
   <menu text="Edit" id="menubarMenuEdit">
-    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl + Z" />
-    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl + Y" />
+    <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
+    <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
     <menu-separator />
-    <menu-item id="menubarItemCopy" text="Copy Object" shortcutText="Ctrl + C" />
-    <menu-item id="menubarItemCut" text="Cut Object" shortcutText="Ctrl + X" />
-    <menu-item id="menubarItemPaste" text="Paste Object" shortcutText="Ctrl + V" />
-    <menu-item id="menubarItemDelete" text="Delete Object" shortcutText="Ctrl + Del" style="color: indianred" />
+    <menu-item id="menubarItemCopy" text="Copy Object" shortcutText="Ctrl+C" />
+    <menu-item id="menubarItemCut" text="Cut Object" shortcutText="Ctrl+X" />
+    <menu-item id="menubarItemPaste" text="Paste Object" shortcutText="Ctrl+V" />
+    <menu-item id="menubarItemDelete" text="Delete Object" shortcutText="Ctrl+Del" style="color: indianred" />
     <menu-separator />
     <menu-item id="menubarItemNewObj" text="New Object" />
-    <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl + F" />
-    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl + D" />
+    <menu-item id="menubarItemFindObj" text="Find Object" shortcutText="Ctrl+F" />
+    <menu-item id="menubarItemSelectNone" text="Select None" shortcutText="Ctrl+D" />
   </menu>
   <menu text="View" id="menubarMenuView">
     <menu text="Theme">
