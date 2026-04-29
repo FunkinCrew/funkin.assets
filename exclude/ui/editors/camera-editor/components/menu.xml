@@ -71,5 +71,5 @@
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
-  <menu-item id="menubarItemChartEditor" text="Chart Editor" />
+  <menu-item id="menubarItemChartEditor" text="Go to Chart Editor" />
 </menubar>
