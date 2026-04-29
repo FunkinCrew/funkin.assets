@@ -167,5 +167,5 @@
     <menu-item id="menubarItemAbout" text="About..." />
   </menu>
   <spacer width="100%" />
-  <menu-item id="menubarItemCameraEditor" text="Camera Editor" />
+  <menu-item id="menubarItemCameraEditor" text="Go to Camera Editor" />
 </menubar>
