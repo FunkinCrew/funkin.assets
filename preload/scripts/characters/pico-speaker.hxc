@@ -43,15 +43,17 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     super.dance(force);
   }
 
-  function reset():Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
-    initTimemap();
+    super.onSongRetry(event);
+    initTimemap(event.startTimestamp);
   }
 
-  function initTimemap():Void
+  function initTimemap(startTimestamp:Float = 0):Void
   {
     trace('Initializing Pico timings...');
-    shootTimes = [];
+    shootTimes.resize(0);
+    shootDirs.resize(0);
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
     var animNotes:Array<SongNoteData> = [];
@@ -83,6 +85,7 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
 
     for (note in animNotes)
     {
+      if (note.time < startTimestamp) continue;
       shootTimes.push(note.time);
       shootDirs.push(note.data);
     }

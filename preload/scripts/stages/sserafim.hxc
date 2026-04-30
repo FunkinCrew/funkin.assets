@@ -242,7 +242,7 @@ class SserafimStage extends Stage
           HapticUtil.vibrate(0, 0.2, 0.8, 0);
 
           // Show the opponent health icon at this point
-          PlayState.instance.iconP2.visible = true;
+          if (PlayState.instance?.iconP2 != null) PlayState.instance.iconP2.visible = true;
 
           // hide the cutscene characters if theyre present!
           if (sserafimGf != null)
@@ -375,7 +375,7 @@ class SserafimStage extends Stage
     getBoyfriend().shader = characterShader;
 
     // Hide the opponent health icon
-    PlayState.instance.iconP2.visible = false;
+    if (PlayState.instance?.iconP2 != null) PlayState.instance.iconP2.visible = false;
 
     if (sserafimCutscene != null) playCutsceneFromRestart();
 

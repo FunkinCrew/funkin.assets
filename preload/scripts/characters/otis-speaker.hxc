@@ -135,15 +135,11 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
 
   var refershedLol:Bool = false;
 
-  function reset():Void
-  {
-    initTimemap();
-  }
-
-  function initTimemap():Void
+  function initTimemap(startTimestamp:Float = 0):Void
   {
     trace('Initializing Otis timings...');
-    shootTimes = [];
+    shootTimes.resize(0);
+    shootDirs.resize(0);
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
     var animNotes:Array<SongNoteData> = [];
@@ -175,6 +171,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
 
     for (note in animNotes)
     {
+      if (note.time < startTimestamp) continue;
       shootTimes.push(note.time);
       shootDirs.push(note.data);
     }
@@ -247,6 +244,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   {
     super.onSongRetry();
     abotViz.alpha = 0;
+    initTimemap(event.startTimestamp);
   }
 
   override function onSongEnd(event:ScriptEvent)

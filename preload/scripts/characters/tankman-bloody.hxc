@@ -2,11 +2,15 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.audio.FunkinSound;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.Conductor;
 import funkin.FunkinMemory;
 
 class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 {
   var picoEndingSound:FunkinSound;
+
+  var isBloody(get, never):Bool;
+  var bloodyTimestamp:Float = -1;
 
   function new()
   {
@@ -16,12 +20,11 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
   function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
+    bloodyTimestamp = -1;
 
     // Precache the ending cutscene sound.
     FunkinMemory.cacheSound(Paths.sound('erect/endCutscene', 'week7'));
   }
-
-  var isBloody:Bool = false;
 
   override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
@@ -34,7 +37,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
       super.playAnimation(name, restart, ignoreOther, reversed);
     }
 
-    if (name == 'redheadsAnim') isBloody = true;
+    if (name == 'redheadsAnim') bloodyTimestamp = Conductor.instance.songPosition;
 
     if (name == 'stressPicoEnding')
     {
@@ -46,7 +49,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
   {
     super.onSongRetry(event);
 
-    isBloody = false;
+    if (event.startTimestamp < bloodyTimestamp) bloodyTimestamp = -1;
   }
 
   function onNoteHit(event:HitNoteScriptEvent)
@@ -74,5 +77,10 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
   {
     if (picoEndingSound != null) picoEndingSound.destroy();
     super.destroy();
+  }
+
+  function get_isBloody()
+  {
+    return bloodyTimestamp >= 0;
   }
 }
