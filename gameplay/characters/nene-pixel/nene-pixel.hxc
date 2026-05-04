@@ -40,10 +40,8 @@ class NenePixelCharacter extends SparrowCharacter
   }
 
   var pupilState:Int = 0;
-
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
-
   var abotSpeaker:FunkinSprite;
   var abot:FunkinSprite;
   var abotViz:ABotVis;
@@ -190,7 +188,6 @@ class NenePixelCharacter extends SparrowCharacter
     abotSpeakerShader.angle = 90;
     abotSpeakerShader.color = 0xFF52351d;
     abotSpeakerShader.distance = 5;
-    abotSpeakerShader.antialiasAmt = 0;
     abotSpeakerShader.threshold = 1;
 
     abotSpeakerShader.attachedSprite = abotSpeaker;
@@ -203,7 +200,7 @@ class NenePixelCharacter extends SparrowCharacter
     abotSpeakerShader.maskThreshold = 0;
     abotSpeakerShader.useAltMask = true;
 
-    var noRimShader = new AdjustColorShader();
+    var noRimShader:AdjustColorShader = new AdjustColorShader();
     noRimShader.hue = -10;
     noRimShader.saturation = -23;
     noRimShader.brightness = -66;

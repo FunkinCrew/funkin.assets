@@ -46,14 +46,22 @@ class MallXmasErectStage extends Stage
     var colorShaderBoppers:AdjustColorShader = new AdjustColorShader();
     colorShaderBoppers.hue = 15;
     colorShaderBoppers.brightness = 20;
-    getNamedProp('bottomBoppers').shader = colorShaderBoppers;
+    var bottomBoppers:FunkinSprite = getNamedProp('bottomBoppers');
+
+    bottomBoppers.shader = colorShaderBoppers;
+    bottomBoppers.useRenderTexture = true;
   }
 
   override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
+
     trace('Applied stage shader to ' + character.characterName);
     character.shader = colorShader;
+
+    // Enable render texture for Animate Atlas characters
+    // This is so it doesn't run the shader on each individual limb!
+    character.useRenderTexture = true;
   }
 }
