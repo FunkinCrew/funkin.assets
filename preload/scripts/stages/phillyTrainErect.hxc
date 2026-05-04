@@ -27,19 +27,22 @@ class PhillyTrainErectStage extends Stage
     hasPlayedInGameCutscene = false;
   }
 
-  var lightColors:Array<FlxColor> = [0xFFB66F43, 0xFF329A6D, 0xFF932C28, 0xFF2663AC, 0xFF502D64];
-
+  var lightColors:Array<FlxColor> = [
+    0xFFB66F43,
+    0xFF329A6D,
+    0xFF932C28,
+    0xFF2663AC,
+    0xFF502D64
+  ];
   var lightWindow:FlxSprite;
   var lightShader:FlxRuntimeShader;
   var trainSound:FunkinSound;
   var colorShader:AdjustColorShader;
   var cutsceneMusic:FunkinSound;
-
   var hasPlayedInGameCutscene:Bool = false;
   var cutsceneSkipped:Bool = false;
   var canSkipCutscene:Bool = false;
   var trainEnabled:Bool = true;
-
   var isMobilePauseButtonPressed:Bool = false;
 
   /**
@@ -89,12 +92,9 @@ class PhillyTrainErectStage extends Stage
   var bloodPool:PicoBloodPool;
   var cigarette:FlxSprite;
   var skipText:FlxText;
-
   var playerShoots:Bool;
   var explode:Bool;
-
   var cutsceneConductor:Conductor;
-
   var cutsceneTimerManager:FlxTimerManager;
 
   function doppleGangerCutscene():Void
@@ -156,8 +156,14 @@ class PhillyTrainErectStage extends Stage
       bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 30, PlayState.instance.currentStage.getDad().y + 460);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 10, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-      cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+      shooterPos = [
+        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+      ];
+      cigarettePos = [
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+      ];
     }
     else
     {
@@ -168,10 +174,19 @@ class PhillyTrainErectStage extends Stage
       bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x + 640, PlayState.instance.currentStage.getBoyfriend().y + 460);
       cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 350, PlayState.instance.currentStage.getBoyfriend().y + 260);
 
-      cigarettePos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-      shooterPos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+      cigarettePos = [
+        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+      ];
+      shooterPos = [
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+        PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+      ];
     }
-    var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0]) / 2, (shooterPos[1] + cigarettePos[1]) / 2];
+    var midPoint:Array<Float> = [
+      (shooterPos[0] + cigarettePos[0]) / 2,
+      (shooterPos[1] + cigarettePos[1]) / 2
+    ];
 
     cigarette.frames = Paths.getSparrowAtlas('philly/erect/cigarette');
     cigarette.animation.addByPrefix('cigarette spit', 'cigarette spit', 24, false);
@@ -355,6 +370,7 @@ class PhillyTrainErectStage extends Stage
     colorShader.saturation = -16;
     colorShader.contrast = 0;
     colorShader.brightness = -5;
+
     getNamedProp('train').shader = colorShader;
 
     FlxG.sound.list.add(trainSound);
@@ -446,6 +462,10 @@ class PhillyTrainErectStage extends Stage
     shader.brightness = -5;
 
     character.shader = shader;
+
+    // Enable render texture for Animate Atlas characters
+    // This is so it doesn't run the shader on each individual limb!
+    character.useRenderTexture = true;
   }
 
   function onBeatHit(event:SongTimeScriptEvent):Void

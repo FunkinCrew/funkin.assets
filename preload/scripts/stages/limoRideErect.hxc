@@ -22,7 +22,6 @@ class LimoRideErectStage extends Stage
   var mist3:FlxBackdrop;
   var mist4:FlxBackdrop;
   var mist5:FlxBackdrop;
-
   var shootingStarBeat:Int = 0;
   var shootingStarOffset:Int = 2;
 
@@ -124,7 +123,6 @@ class LimoRideErectStage extends Stage
   }
 
   var _timer:Float = 0;
-
   var carSequence:Sequence;
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
@@ -264,8 +262,13 @@ class LimoRideErectStage extends Stage
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
+
     trace('Applied stage shader to ' + character.characterName);
     character.shader = colorShader;
+
+    // Enable render texture for Animate Atlas characters
+    // This is so it doesn't run the shader on each individual limb!
+    character.useRenderTexture = true;
   }
 
   override function onPause(event:PauseScriptEvent)
