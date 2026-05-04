@@ -24,9 +24,9 @@ class StressSong extends Song
     switch (type)
     {
       case "VIDEO":
-        if (Constants.CENSOR_EXPLETIVES) results = results.concat([Paths.video('gameplay/songs/stress/story/cutscene-censored')]);
+        if (Constants.CENSOR_EXPLETIVES) results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene-censored')]);
         else
-          results = results.concat([Paths.video('gameplay/songs/stress/story/cutscene')]);
+          results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene')]);
       default:
         // nothing
     }
@@ -105,9 +105,9 @@ class StressSong extends Song
     {
       videoPath += '-censored';
     }
-    videoPath += '.mkv'; // Use MKV for subtitles.
 
-    VideoCutscene.play(NewPaths.video(videoPath));
+    // Use MKV for subtitles.
+    VideoCutscene.play(NewPaths.video(videoPath, 'mkv'));
   }
 
   /**

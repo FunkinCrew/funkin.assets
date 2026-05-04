@@ -23,7 +23,7 @@ class GunsSong extends Song
     switch (type)
     {
       case "VIDEO":
-        results = results.concat([Paths.video('gameplay/songs/guns/cutscene')]);
+        results = results.concat([NewPaths.video('gameplay/songs/guns/cutscene', 'mkv')]);
       default:
         // nothing
     }

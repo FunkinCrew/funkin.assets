@@ -41,9 +41,9 @@ class StressPicoMixSong extends Song
       case "SOUND":
         results.push(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
       case "VIDEO":
-        if (Constants.CENSOR_EXPLETIVES) results = results.concat([Paths.video('gameplay/songs/stress/pico/cutscene-censored')]);
+        if (Constants.CENSOR_EXPLETIVES) results = results.concat([NewPaths.video('gameplay/songs/stress/pico/cutscene-censored', 'mkv')]);
         else
-          results = results.concat([Paths.video('gameplay/songs/stress/pico/cutscene')]);
+          results = results.concat([NewPaths.video('gameplay/songs/stress/pico/cutscene', 'mkv')]);
       default:
         // nothing
     }
@@ -113,9 +113,9 @@ class StressPicoMixSong extends Song
     {
       videoPath += '-censored';
     }
-    videoPath += '.mkv'; // Use MKV for subtitles.
 
-    VideoCutscene.play(NewPaths.video(videoPath));
+    // Use MKV for subtitles.
+    VideoCutscene.play(NewPaths.video(videoPath, 'mkv'));
   }
 
   /**
