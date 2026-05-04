@@ -11,6 +11,7 @@
 	</grid>
 	<menu-item id="contextmenuOffsetMove" text="Offset Selection" />
 	<menu-separator />
+	<menu-item id="contextmenuEdit" text="Edit Notes" />
 	<menu-item id="contextmenuCut" text="Cut Selection" shortcutText="Ctrl+X" />
 	<menu-item id="contextmenuCopy" text="Copy Selection" shortcutText="Ctrl+C" />
 	<menu-item id="contextmenuDelete" text="Delete Selection" shortcutText="Delete" />
