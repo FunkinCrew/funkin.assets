@@ -34,6 +34,7 @@
   </menu>
 
   <menu text="View">
+    <menu-checkbox width="100%" id="menubarItemFitCameraToViewport" text="Fit Camera to Viewport" />
     <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
       <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
     </menu-checkbox>
