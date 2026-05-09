@@ -38,6 +38,8 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   
   var cantUppercut = false;
 
+  var picoDeathTimer:FlxTimer = null;
+
   function onNoteHit(event:HitNoteScriptEvent)
   {
     holdTimer = 0;
@@ -134,12 +136,18 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
+    if (picoDeathTimer != null)
+    {
+      picoDeathTimer.cancel();
+      picoDeathTimer = null;
+    }
+
     if (name == "firstDeath")
     {
       // TODO: ACTUALLY play one of the three death animations here.
 
       // Make sure the death music plays with PERFECT timing.
-      new FlxTimer().start(1.25, _ -> afterPicoDeathGutPunchIntro());
+      picoDeathTimer = new FlxTimer().start(1.25, _ -> afterPicoDeathGutPunchIntro());
 
       if (HapticUtil.hapticsAvailable)
       {
@@ -155,10 +163,6 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
           });
         });
       }
-    }
-    else
-    {
-      super.playAnimation(name, restart, ignoreOther, reversed);
     }
 
     super.playAnimation(name, restart, ignoreOther, reversed);
@@ -296,6 +300,11 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
   override function onSongRetry()
   {
     super.onSongRetry();
+    if (picoDeathTimer != null)
+    {
+      picoDeathTimer.cancel();
+      picoDeathTimer = null;
+    }
     cantUppercut = false;
     playIdleAnim();
 
