@@ -171,9 +171,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
       deathSequence = new Sequence(deathSequenceEvents);
     }
-    else
+    else if (name == "deathConfirm")
     {
-      super.playAnimation(name, restart, ignoreOther, reversed);
+      deathSequence?.destroy();
+      deathSequence = null;
     }
 
     super.playAnimation(name, restart, ignoreOther, reversed);
