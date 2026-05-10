@@ -570,6 +570,12 @@ class PhillyTrainErectStage extends Stage
     if (explode && playerShoots) PlayState.instance.vocals.opponentVolume = 0;
   }
 
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    getBoyfriend().shader = null;
+  }
+
   override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
