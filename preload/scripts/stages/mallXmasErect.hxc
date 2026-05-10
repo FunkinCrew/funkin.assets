@@ -32,6 +32,12 @@ class MallXmasErectStage extends Stage
     getNamedProp('bottomBoppers').shader = colorShaderBoppers;
   }
 
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    getBoyfriend().shader = null;
+  }
+
   override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
   {
     // Apply the shader automatically to each character as it gets added.
