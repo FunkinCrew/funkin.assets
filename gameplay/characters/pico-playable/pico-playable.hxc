@@ -13,7 +13,7 @@ import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 {

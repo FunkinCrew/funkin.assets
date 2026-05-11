@@ -2,7 +2,7 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 import funkin.play.PlayState;
 import Lambda;
 

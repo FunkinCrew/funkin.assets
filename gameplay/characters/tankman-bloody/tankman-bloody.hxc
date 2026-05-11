@@ -2,7 +2,7 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.audio.FunkinSound;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 {

@@ -2,7 +2,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class SpookyMansionStage extends Stage
 {

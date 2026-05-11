@@ -3,7 +3,7 @@ import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class DarnellCharacter extends AnimateAtlasCharacter
 {

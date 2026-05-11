@@ -5,7 +5,7 @@ import funkin.play.PauseSubState;
 import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class PicoPixelCharacter extends SparrowCharacter
 {

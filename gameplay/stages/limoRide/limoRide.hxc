@@ -6,7 +6,7 @@ import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 
 class LimoRideStage extends Stage
 {

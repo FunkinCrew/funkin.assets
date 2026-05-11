@@ -15,7 +15,7 @@ import funkin.play.song.Song;
 import funkin.play.stage.StageProp;
 import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 import funkin.assets.Paths as NewPaths;
 
 class TwoHOTSong extends Song

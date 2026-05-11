@@ -9,7 +9,7 @@ import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.RuntimeRainShader;
-import funkin.FunkinMemory;
+import funkin.memory.FunkinMemory;
 import funkin.util.FlxTweenUtil;
 import funkin.util.Sequence;
 
