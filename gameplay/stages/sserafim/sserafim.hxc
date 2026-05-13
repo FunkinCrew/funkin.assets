@@ -20,6 +20,9 @@ import funkin.audio.FunkinSound;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.stage.Stage;
+import funkin.tweens.FunkinTween;
+import funkin.tweens.FunkinVarTween;
+import funkin.Conductor;
 import funkin.util.HapticUtil;
 import funkin.util.TouchUtil;
 
@@ -45,6 +48,9 @@ class SserafimStage extends Stage
 
   var SEEYOU1:FlxSprite;
   var SEEYOU2:FlxSprite;
+
+  // Tracked FunkinTweens so we can cancel them on event reset without relying on FlxTween.cancelTweensOf.
+  var _activeFunkinTweens:Array<FunkinVarTween> = [];
 
   function new()
   {
@@ -101,7 +107,6 @@ class SserafimStage extends Stage
 
     perspectiveFloor.zIndex = 11;
     add(perspectiveFloor);
-
 
     dust1 = new FlxBackdrop(Paths.image('gameplay/stages/sserafim/dust/dust-mid'), 0x01);
     dust1.setPosition(-650, -200);
@@ -196,6 +201,70 @@ class SserafimStage extends Stage
         arrow.visible = false;
       }
     }
+  }
+
+  /**
+   * Creates a FunkinVarTween and registers it so cancelAllEventTweens() can find it.
+   */
+  function createEventTween(object:Dynamic, values:Dynamic, ?options:FunkinTweenOptions):FunkinVarTween
+  {
+    var tween = FunkinTween.createTween(object, values, options);
+    _activeFunkinTweens.push(tween);
+    return tween;
+  }
+
+  /**
+   * Cancels all tracked FunkinTweens and immediately applies the target values so
+   * there is no one-frame flicker between cancel and the next tween starting.
+   */
+  function cancelAllEventTweens():Void
+  {
+    for (tween in _activeFunkinTweens)
+    {
+      if (tween != null && tween.active) tween.cancel();
+    }
+    _activeFunkinTweens = [];
+  }
+
+  // Reset events (like shown characters, singing, lights, dark, flash, etc)
+  public override function onEventReset():Void
+  {
+    super.onEventReset();
+
+    // Cancel FunkinTweens first so they don't write stale values after the reset.
+    cancelAllEventTweens();
+
+    if (PlayState.instance == null) {
+      getBoyfriend()?.visible = true;
+      getGirlfriend()?.visible = true;
+    }
+
+    setCoverVisible(false);
+    setGirlsVisible(baseVisible);
+    setGirlsSinging(baseSinging);
+    setLightState(false);
+
+    // Also cancel any legacy FlxTweens still on the shaders (e.g. from introCutscene).
+    FlxTween.cancelTweensOf(characterShader);
+    FlxTween.cancelTweensOf(stageShader);
+
+    // Set shader values directly — no tween, no flicker.
+    characterShader.darkenAmount = 0;
+    stageShader.darkenAmount = 0;
+
+    getBoyfriend().shader = characterShader;
+
+    getNamedProp('solidCover').alpha = 0.0;
+    getNamedProp('truckLight1').alpha = 0.0;
+    getNamedProp('truckLight2').alpha = 0.0;
+    getNamedProp('backLightColor').alpha = 0.0;
+    getNamedProp('backLightWhite').alpha = 0.0;
+
+    // Reset shader light strengths to match the zeroed props.
+    characterShader.truckLightStrength = 0;
+    stageShader.truckLightStrength = 0;
+    characterShader.pulseLightStrength = 0;
+    stageShader.pulseLightStrength = 0;
   }
 
   /**
@@ -302,8 +371,6 @@ class SserafimStage extends Stage
     eunchae.visible = visibleArray[3];
 
     getBoyfriend()?.visible = visibleArray[4];
-
-    // gf visibility ISNT stored here, cause itd break a lot of stuff already in place and im kinda running out of time
   }
 
   function setGirlsSinging(singingArray:Array<Bool>)
@@ -361,6 +428,7 @@ class SserafimStage extends Stage
 
     resetClear();
 
+    cancelAllEventTweens();
     FlxTween.cancelTweensOf(characterShader);
     FlxTween.cancelTweensOf(stageShader);
 
@@ -380,6 +448,11 @@ class SserafimStage extends Stage
     getNamedProp('truckLight2').alpha = 0.0;
     getNamedProp('backLightColor').alpha = 0.0;
     getNamedProp('backLightWhite').alpha = 0.0;
+
+    characterShader.truckLightStrength = 0;
+    stageShader.truckLightStrength = 0;
+    characterShader.pulseLightStrength = 0;
+    stageShader.pulseLightStrength = 0;
   }
 
   var hasHidden = false;
@@ -393,19 +466,15 @@ class SserafimStage extends Stage
     {
       case 'truckLight1':
         prop.shader = null;
-
         prop.blend = 12;
       case 'truckLight2':
         prop.shader = null;
-
       case 'backLightColor':
         prop.shader = null;
-
         prop.blend = 12;
         prop.color = 0xFFCC3300;
       case 'backLightWhite':
         prop.shader = null;
-
         prop.blend = 0;
       case 'truckTest':
         prop.shader = null;
@@ -416,11 +485,23 @@ class SserafimStage extends Stage
 
   function setDarkenAmt(darkAmt:Float, duration:Float)
   {
-    FlxTween.cancelTweensOf(characterShader);
-    FlxTween.cancelTweensOf(stageShader);
+    // Cancel previous darken tweens before starting new ones to prevent overlap.
+    cancelAllEventTweens();
 
-    FlxTween.tween(characterShader, {darkenAmount: darkAmt}, duration, {ease: FlxEase.sineInOut});
-    FlxTween.tween(stageShader, {darkenAmount: darkAmt}, duration, {ease: FlxEase.sineInOut});
+    createEventTween(characterShader, {darkenAmount: darkAmt},
+      {
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.sineInOut
+      });
+    createEventTween(stageShader, {darkenAmount: darkAmt},
+      {
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.sineInOut
+      });
   }
 
   function flashTruckLights(amount:Float, duration:Float):Void
@@ -436,20 +517,32 @@ class SserafimStage extends Stage
     characterShader.truckLightStrength = amount;
     stageShader.truckLightStrength = amount;
 
-    FlxTween.tween(getNamedProp('truckLight1'), {alpha: 0}, duration, {
-      ease: FlxEase.cubeInOut,
-      onUpdate: function(tween:FlxTween)
+    // truckLightStrength mirrors truckLight1 alpha so we tween both together.
+    // onUpdate keeps the shader in sync with the tweened alpha each frame.
+    createEventTween(getNamedProp('truckLight1'), {alpha: 0},
       {
-        characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-        stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-      },
-      onComplete: function(tween:FlxTween)
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.cubeInOut,
+        onUpdate: function(_)
+        {
+          characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+          stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+        },
+        onComplete: function(_)
+        {
+          characterShader.truckLightStrength = 0;
+          stageShader.truckLightStrength = 0;
+        }
+      });
+    createEventTween(getNamedProp('truckLight2'), {alpha: 0},
       {
-        characterShader.truckLightStrength = 0;
-        stageShader.truckLightStrength = 0;
-      }
-    });
-    FlxTween.tween(getNamedProp('truckLight2'), {alpha: 0}, duration, {ease: FlxEase.cubeInOut});
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.cubeInOut
+      });
   }
 
   var lightsColors:Array<FlxColor> = [];
@@ -483,20 +576,30 @@ class SserafimStage extends Stage
     characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
     stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
 
-    FlxTween.tween(getNamedProp('backLightColor'), {alpha: 0}, duration, {
-      ease: FlxEase.cubeInOut,
-      onUpdate: function(tween:FlxTween)
+    createEventTween(getNamedProp('backLightColor'), {alpha: 0},
       {
-        characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-        stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-      },
-      onComplete: function(tween:FlxTween)
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.cubeInOut,
+        onUpdate: function(_)
+        {
+          characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+          stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+        },
+        onComplete: function(_)
+        {
+          characterShader.pulseLightStrength = 0;
+          stageShader.pulseLightStrength = 0;
+        }
+      });
+    createEventTween(getNamedProp('backLightWhite'), {alpha: 0},
       {
-        characterShader.pulseLightStrength = 0;
-        stageShader.pulseLightStrength = 0;
-      }
-    });
-    FlxTween.tween(getNamedProp('backLightWhite'), {alpha: 0}, duration, {ease: FlxEase.cubeInOut});
+        conductor: Conductor.instance,
+        lengthMs: duration * 1000,
+        shouldUseConductorSync: true,
+        ease: FlxEase.cubeInOut
+      });
   }
 
   function onBeatHit(event:SongTimeScriptEvent)
@@ -555,9 +658,6 @@ class SserafimStage extends Stage
       skipCutscene();
       trace('skipped');
     }
-
-    // i cant bear the weight of deleting you debugShitLol you can stay here just so i can remember how useful you were
-    // debugShitLol();
   }
 
   // ----------------- CUTSCENE LOGIC -----------------
@@ -979,18 +1079,10 @@ class SserafimStage extends Stage
 
   function startClear()
   {
-    FlxTween.tween(stageShader, {
-      baseBrightness: 0,
-      baseHue: 0,
-      baseContrast: 0,
-      baseSaturation: 0
-    }, 6.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(characterShader, {
-      baseBrightness: 0,
-      baseHue: 0,
-      baseContrast: 0,
-      baseSaturation: 0
-    }, 6.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(stageShader, {baseBrightness: 0, baseHue: 0, baseContrast: 0, baseSaturation: 0},
+      6.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(characterShader, {baseBrightness: 0, baseHue: 0, baseContrast: 0, baseSaturation: 0},
+      6.0 * 4, {ease: FlxEase.sineOut});
 
     FlxTween.tween(dust1, {alpha: 0, y: dust1.y + 100}, 5.0 * 4, {ease: FlxEase.sineOut});
     FlxTween.tween(dust2, {alpha: 0, y: dust2.y + 200}, 4.0 * 4, {ease: FlxEase.sineOut});
