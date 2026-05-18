@@ -5,6 +5,7 @@ import funkin.Conductor;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.play.character.CharacterType;
 
 class MallXmasErectStage extends Stage
 {
@@ -63,5 +64,13 @@ class MallXmasErectStage extends Stage
     // Enable render texture for Animate Atlas characters
     // This is so it doesn't run the shader on each individual limb!
     character.useRenderTexture = true;
+
+    // TODO: GF Christmas flickers w/ RTT on Web, disable it for now until we have an ACTUAL fix!!
+    #if web
+    if (charType == CharacterType.GF)
+    {
+      character.useRenderTexture = false;
+    }
+    #end
   }
 }
