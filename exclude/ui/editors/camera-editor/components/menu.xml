@@ -39,7 +39,7 @@
       <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
     </menu-checkbox>
     <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
-    <menu-checkbox width="100%" id="menubarItemDoSongEvents" text="Play Song Events" />
+    <menu-checkbox width="100%" id="menubarItemDoSongEvents" text="Play Song Events" selected="true" />
     <menu-separator />
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View">
