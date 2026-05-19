@@ -14,6 +14,8 @@
   </style>
 
   <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemNewChart" text="New Chart" shortcutText="Ctrl+N" />
+    <menu-separator />
     <menu-item id="menubarItemOpen" text="Open Chart" shortcutText="Ctrl+O" />
     <menu id="menubarOpenRecent" text="Open Recent" />
     <menu-separator />
