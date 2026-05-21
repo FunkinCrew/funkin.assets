@@ -17,6 +17,7 @@ import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
 import flixel.addons.display.FlxTiledSprite;
 import StringTools;
+import funkin.Preferences;
 
 class PhillyStreetsStage extends Stage
 {
@@ -147,7 +148,7 @@ class PhillyStreetsStage extends Stage
     // rainShader.lightMap = frameBufferMan.getFrameBuffer("lightmap");
 
     rainShaderFilter = new ShaderFilter(rainShader);
-    FlxG.camera.filters = [rainShaderFilter];
+    if(Preferences.shaders) FlxG.camera.filters = [rainShaderFilter];
     // FlxG.camera.setFilters([new openfl.filters.BlurFilter(16,16)]);
 
     resetCar(true, true);
@@ -373,19 +374,22 @@ class PhillyStreetsStage extends Stage
   {
     super.onUpdate(event);
 
-    if (FlxG.sound.music != null)
+    if(Preferences.shaders)
     {
-      var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity,
-        rainShaderEndIntensity);
-      rainShader.intensity = remappedIntensityValue;
-      rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-      rainShader.update(event.elapsed);
-    }
-    else
-    {
-      rainShader.intensity = rainShaderStartIntensity;
-      rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-      rainShader.update(event.elapsed);
+      if (FlxG.sound.music != null)
+      {
+        var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity, 
+          rainShaderEndIntensity);
+        rainShader.intensity = remappedIntensityValue;
+        rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+        rainShader.update(event.elapsed);
+      }
+      else
+      {
+        rainShader.intensity = rainShaderStartIntensity;
+        rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+        rainShader.update(event.elapsed);
+      }
     }
 
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
@@ -510,7 +514,7 @@ class PhillyStreetsStage extends Stage
 
     resetCar(true, true);
     resetStageValues();
-    FlxG.camera.filters = [rainShaderFilter];
+    if(Preferences.shaders) FlxG.camera.filters = [rainShaderFilter];
   }
 
   override function addProp(prop:StageProp, ?name:String = null)
@@ -524,9 +528,13 @@ class PhillyStreetsStage extends Stage
     }
     else if (name == "puddle")
     {
-      rainShader.puddleY = prop.y + 80;
-      rainShader.puddleScaleY = 0.3;
-      // frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
+      if(Preferences.shaders)
+      {
+        rainShader.puddleY = prop.y + 80;
+        rainShader.puddleScaleY = 0.3;
+        // frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
+      }
+      
     }
     else
     {
