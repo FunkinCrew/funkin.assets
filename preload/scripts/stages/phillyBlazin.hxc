@@ -12,6 +12,7 @@ import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
 import funkin.util.MathUtil;
 import funkin.util.HapticUtil;
+import funkin.Preferences;
 
 /**
  * This stage includes a partial version of the Philly Streets stage with shaders applied.
@@ -39,7 +40,7 @@ class PhillyBlazinStage extends Stage
     rainShader.intensity = 0.5;
 
     rainShaderFilter = new ShaderFilter(rainShader);
-    FlxG.camera.filters = [rainShaderFilter];
+    if(Preferences.shaders) FlxG.camera.filters = [rainShaderFilter];
   }
 
   override function onGameOver(event:ScriptEvent):Void
