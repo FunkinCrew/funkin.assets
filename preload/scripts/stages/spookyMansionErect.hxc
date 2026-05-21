@@ -12,6 +12,7 @@ import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.FunkinMemory;
 import funkin.util.FlxTweenUtil;
 import funkin.util.Sequence;
+import funkin.Preferences;
 
 class SpookyMansionErectStage extends Stage
 {
@@ -35,14 +36,17 @@ class SpookyMansionErectStage extends Stage
 
     trace('Applying rain shader...');
 
-    // adjust this value so that the rain looks nice
-    rainShader.scale = FlxG.height / 200 * 2;
-    rainShader.intensity = 0.4;
-    rainShader.spriteMode = true;
+    if(Preferences.shaders)
+    {
+      // adjust this value so that the rain looks nice
+      rainShader.scale = FlxG.height / 200 * 2;
+      rainShader.intensity = 0.4;
+      rainShader.spriteMode = true;
 
-    rainShaderTarget = getNamedProp('bgTrees');
-    rainShaderTarget.shader = rainShader;
-    rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
+      rainShaderTarget = getNamedProp('bgTrees');
+      rainShaderTarget.shader = rainShader;
+      rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
+    }
 
     // Precache the thunder sounds.
     for (snd in ["thunder_1", "thunder_2"])
@@ -94,7 +98,7 @@ class SpookyMansionErectStage extends Stage
   override function onUpdate(event:UpdateScriptEvent)
   {
     super.onUpdate(event);
-    rainShader.update(event.elapsed);
+    if(Preferences.shaders) rainShader.update(event.elapsed);
   }
 
   function doLightningStrike(playSound:Bool, beat:Int):Void
