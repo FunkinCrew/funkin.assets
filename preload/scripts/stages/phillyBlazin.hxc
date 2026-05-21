@@ -54,7 +54,7 @@ class PhillyBlazinStage extends Stage
   {
     super.onSongRetry(event);
     // Make it so the rain shader doesn't show over the game over screen
-    FlxG.camera.filters = [rainShaderFilter];
+    if(Preferences.shaders) FlxG.camera.filters = [rainShaderFilter];
     lightningActive = true;
   }
 
@@ -100,9 +100,13 @@ class PhillyBlazinStage extends Stage
   {
     super.onUpdate(event);
 
-    rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-    rainShader.update(event.elapsed * rainTimeScale);
-    rainTimeScale = MathUtil.smoothLerpPrecision(rainTimeScale, 0.02, event.elapsed, 1.535);
+    // Prevent unnecessary shader update if shaders are disabled.
+    if(Preferences.shaders)
+    {
+      rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+      rainShader.update(event.elapsed * rainTimeScale);
+      rainTimeScale = MathUtil.smoothLerpPrecision(rainTimeScale, 0.02, event.elapsed, 1.535);
+    }
 
     if (scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
