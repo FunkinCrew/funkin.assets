@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vbox width="100%" height="100%" id="propertiesContainer">
   <LabeledRow text="Target">
-    <textfield width="160" id="playAnimationTarget" />
+    <dropdown width="220" id="playAnimationTarget"
+              searchable="true" searchPrompt="Search target"
+              dropdownSize="10" dropdownWidth="220">
+      <data />
+    </dropdown>
   </LabeledRow>
   <LabeledRow text="Animation">
-    <textfield width="160" id="playAnimationAnim" />
+    <dropdown width="220" id="playAnimationAnim"
+              searchable="true" searchPrompt="Search animation"
+              dropdownSize="10" dropdownWidth="220">
+      <data />
+    </dropdown>
   </LabeledRow>
   <LabeledRow text="Force">
     <checkbox id="playAnimationForce" />
