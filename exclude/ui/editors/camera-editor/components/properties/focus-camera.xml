@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vbox width="100%" height="100%" id="propertiesContainer">
-  <hbox width="100%">
-    <label text="Target" verticalAlign="center" horizontalAlign="right" width="100%" />
+  <LabeledRow text="Target">
     <dropdown text="Target" width="160" id="focusCameraTarget">
       <data>
         <item id="-1" text="Position" />
@@ -10,20 +9,15 @@
         <item id="2" text="Girlfriend" />
       </data>
     </dropdown>
-  </hbox>
-  <hbox width="100%">
-    <label text="X Position" verticalAlign="center" horizontalAlign="right" width="100%" />
+  </LabeledRow>
+  <LabeledRow text="X Position">
     <number-stepper pos="0.0" step="10.0" width="160" id="focusCameraXPos" />
-  </hbox>
-    <hbox width="100%">
-    <label text="Y Position" verticalAlign="center" horizontalAlign="right" width="100%" />
+  </LabeledRow>
+  <LabeledRow text="Y Position">
     <number-stepper pos="0.0" step="10.0" width="160" id="focusCameraYPos" />
-  </hbox>
-  <hbox width="100%">
-    <label text="Duration" verticalAlign="center" horizontalAlign="right" width="100%" />
+  </LabeledRow>
+  <LabeledRow text="Duration">
     <number-stepper pos="1.25" step="0.1" min="0.1" width="160" id="focusCameraDuration" />
-  </hbox>
-  <frame text="Ease" collapsible="true" width="100%" height="180">
-    <EaseGraphPreview width="100%" height="100%" id="focusCameraEasePreview" />
-  </frame>
+  </LabeledRow>
+  <EasePropertyFrame id="focusCameraEaseFrame" />
 </vbox>
