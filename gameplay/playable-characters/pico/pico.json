@@ -79,9 +79,10 @@
     "position": 3,
     "assetPath": "ui/character-select/characters/pico",
     "gf": {
-      "assetPath": "ui/character-select/characters/nene",
-      "animInfoPath": "ui/character-select/characters/nene",
-      "visualizer": true
+      "characterData": {
+        "assetPath": "ui/character-select/characters/nene",
+        "scriptClass": "funkin.ui.charSelect.characters.NeneCharacterSelect"
+      }
     }
   },
   "results": {
