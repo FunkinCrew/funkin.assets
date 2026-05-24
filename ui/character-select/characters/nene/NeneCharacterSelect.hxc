@@ -21,13 +21,16 @@ class NeneCharacterSelect extends CharSelectCharacter
   {
     super.onCreate(event);
 
-    @:privateAccess
-    this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._channel.__audioSource, 7, 0.1);
-    #if sys
-    // On native it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
-    // So we want to manually change it!
-    this.analyzerVis.fftN = 512;
-    #end
+    if (FlxG.sound.music != null)
+    {
+      @:privateAccess
+      this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._channel.__audioSource, 7, 0.1);
+      #if sys
+      // On native it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
+      // So we want to manually change it!
+      this.analyzerVis.fftN = 512;
+      #end
+    }
   }
 
   override public function draw():Void
