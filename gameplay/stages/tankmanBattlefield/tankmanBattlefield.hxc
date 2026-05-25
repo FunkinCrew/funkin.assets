@@ -62,11 +62,10 @@ class TankmanBattlefieldStage extends Stage
 
   static inline var ONSCREEN_MIN:Float = 40.0;
   static inline var ONSCREEN_MAX:Float = 130.0;
-
   static inline var OFFSCREEN_MARGIN:Float = 20.0;
 
-  var _tweenTarget:{ angle:Float } = { angle: 0.0 };
-
+  var _tweenTarget:
+    {angle:Float} = {angle: 0.0};
   var _exitTween:FunkinVarTween = null;
 
   function getTankAngle():Float
@@ -78,7 +77,6 @@ class TankmanBattlefieldStage extends Stage
 
   function applyTankPosition(tankAngle:Float):Void
   {
-    trace('Applying tank angle: ' + tankAngle);
     var daAngleOffset:Float = 1;
     var tankRolling = getNamedProp('tankRolling');
     if (tankRolling == null) return;
@@ -108,9 +106,7 @@ class TankmanBattlefieldStage extends Stage
     var distToMin:Float = Math.abs(currentAngle - ONSCREEN_MIN);
     var distToMax:Float = Math.abs(currentAngle - ONSCREEN_MAX);
 
-    var targetAngle:Float = (distToMin <= distToMax)
-      ? ONSCREEN_MIN - OFFSCREEN_MARGIN
-      : ONSCREEN_MAX + OFFSCREEN_MARGIN;
+    var targetAngle:Float = (distToMin <= distToMax) ? ONSCREEN_MIN - OFFSCREEN_MARGIN : ONSCREEN_MAX + OFFSCREEN_MARGIN;
 
     var angularDistance:Float = Math.abs(targetAngle - currentAngle);
 
@@ -118,17 +114,15 @@ class TankmanBattlefieldStage extends Stage
 
     _tweenTarget.angle = currentAngle;
 
-    _exitTween = FunkinTween.createTween(_tweenTarget, { angle: targetAngle },
+    _exitTween = FunkinTween.createTween(_tweenTarget, {angle: targetAngle}, {
+      shouldUseConductorSync: false,
+      ease: FlxEase.quadIn,
+      onComplete: function(_)
       {
-        shouldUseConductorSync: false,
-        ease: FlxEase.quadIn,
-        onComplete: function(_)
-        {
-          tankStartMs = 0;
-          _exitTween = null;
-        }
+        tankStartMs = 0;
+        _exitTween = null;
       }
-    );
+    });
 
     trace(_exitTween.active);
   }
@@ -137,8 +131,7 @@ class TankmanBattlefieldStage extends Stage
   {
     super.onUpdate(event);
 
-    if (_exitTween != null && _exitTween.active)
-      applyTankPosition(_tweenTarget.angle);
+    if (_exitTween != null && _exitTween.active) applyTankPosition(_tweenTarget.angle);
     else
       applyTankPosition(getTankAngle());
   }
