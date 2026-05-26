@@ -30,8 +30,17 @@ class PicoBloodPool extends FunkinSprite
 
     if (extendBloodPool)
     {
-      var extendFactor:Float = 0.02 * elapsed;
-      this.scale.set(this.scale.x + extendFactor, this.scale.y + extendFactor);
+      var maxScale:Float = 7;
+
+      if (this.scale.x < maxScale)
+      {
+        var extendFactor:Float = 0.02 * elapsed;
+        this.scale.set(this.scale.x + extendFactor, this.scale.y + extendFactor);
+      }
+      else 
+      {
+        extendBloodPool = false; 
+      }
     }
   }
 }
