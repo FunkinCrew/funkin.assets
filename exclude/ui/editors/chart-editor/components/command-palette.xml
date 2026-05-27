@@ -7,7 +7,8 @@
 
     <textfield id="commandPaletteInput" width="100%" height="32" styleName="command-palette-input" />
 
-    <listview id="commandPaletteList" width="100%" height="192" styleName="command-palette-list">
+    <listview id="commandPaletteList" width="100%" height="192" styleName="command-palette-list"
+      selectionMode="one-item">
       <item-renderer width="100%" allowHover="true">
         <hbox width="100%">
           <label id="title" horizontalAlign="left" styleName="command-palette-list-title"/>

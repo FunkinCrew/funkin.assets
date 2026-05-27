@@ -10,14 +10,17 @@
 }
 
 .command-palette-input {
+  font-family: 'Inconsolata';
 	font-size: 12px;
 }
 
 .command-palette-list-title {
+  font-family: 'Inconsolata';
 	font-size: 12px;
 }
 
 .command-palette-list-subtitle {
+  font-family: 'Inconsolata';
 	font-size: 12px;
 	color: #666666;
 }
