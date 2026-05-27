@@ -74,9 +74,9 @@
     </menu>
   </menu>
   <menu text="View">
-    <vbox width="100%">
+    <menu-item id="menubarItemCommandPalette" shortcutText="Ctrl+Shift+P" />
+    <menu-separator />
     <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
-    </vbox>
     <menu text="Theme">
       <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" />
       <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
