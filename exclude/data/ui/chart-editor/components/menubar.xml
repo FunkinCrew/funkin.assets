@@ -46,6 +46,8 @@
         </vbox>
     </menu>
     <menu-separator />
+    <menu-item id="menubarItemAutoPlaceCameraEvents" text="Auto-Place Camera Events" tooltip="Scan the chart and place FocusCamera events at each singing-character switch." />
+    <menu-separator />
     <menu-item id="menubarItemSelectAllNotes" text="Select All Notes" shortcutText="Ctrl+A" />
     <menu-item id="menubarItemSelectAllEvents" text="Select All Events" shortcutText="Ctrl+Alt+A" />
     <menu-item id="menubarItemSelectInverse" text="Invert Selection" shortcutText="Ctrl+I" />
