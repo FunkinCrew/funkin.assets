@@ -11,6 +11,7 @@ class NeneCharacterSelect extends CharSelectCharacter
 
   var analyzerVis:Null<SpectralAnalyzer>;
   var analyzerCache:Array<Bar> = [];
+  var _initializedVisualizer:Bool = false;
 
   public function new(playerId:String, x:Float, y:Float, isGF:Bool = false, data:Null<PlayerCharSelectCharacterData>, visualizer:Bool = false)
   {
@@ -21,8 +22,10 @@ class NeneCharacterSelect extends CharSelectCharacter
   {
     super.onCreate(event);
 
-    if (FlxG.sound.music != null)
+    if (!_initializedVisualizer && FlxG.sound.music != null)
     {
+      _initializedVisualizer = true;
+
       @:privateAccess
       this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._channel.__audioSource, 7, 0.1);
       #if sys
