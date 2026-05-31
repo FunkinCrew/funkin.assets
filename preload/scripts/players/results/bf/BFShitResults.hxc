@@ -10,7 +10,8 @@ class BFShitResults extends FunkinSprite
 
     loadTextureAtlas("resultScreen/results-bf/resultsSHIT", "shared");
 
-    anim.onFrameChange.add((animation:String, frame:Int) -> {
+    anim.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (!HapticUtil.hapticsAvailable) return;
 
       // BF falling and GF slams on BF with her ass.

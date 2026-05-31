@@ -1,38 +1,28 @@
 {
   "version": "2.2.4",
-  "timeFormat": "ms",
+  "songName": "Roses",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH + Spazkid",
   "offsets": {
-    "instrumental": 0.0,
-    "altInstrumentals": {
-      "pico": -4000.0
-    },
-    "altVocals": {
-      "pico": {
-        "senpai-angry": 4000.0,
-        "bf-pixel": 4000.0
-      }
-    }
+    "altInstrumentals": { "pico": -4000.0 },
+    "altVocals": { "pico": { "senpai-angry": 4000.0, "bf-pixel": 4000.0 } }
   },
   "playData": {
-    "stage": "school",
+    "songVariations": ["erect", "pico"],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
       "opponent": "senpai-angry",
-      "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["senpai-angry"],
+      "playerVocals": ["bf-pixel"]
     },
-    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
-    "songVariations": ["erect", "pico"],
-    "difficulties": ["easy", "normal", "hard"],
+    "stage": "school",
     "noteStyle": "pixel",
-    "album": "volume2",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "ratings": { "easy": 2, "normal": 3, "hard": 4 },
+    "album": "volume2"
   },
-  "songName": "Roses",
-  "timeChanges": [{ "d": 4, "n": 4, "t": -1, "bt": [4, 4, 4, 4], "bpm": 120 }],
-  "generatedBy": "Chart Editor Import (FNF Legacy)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 120, "bt": [4, 4, 4, 4] }]
 }

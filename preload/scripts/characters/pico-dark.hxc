@@ -24,9 +24,12 @@ class PicoDarkCharacter extends PicoPlayerBaseCharacter
   {
     super.set_alpha(val);
 
-    if (val != 1) normalChar.alpha = 1;
-    else
-      normalChar.alpha = 0;
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0.0001;
+    }
 
     return val;
   }
@@ -47,9 +50,9 @@ class PicoDarkCharacter extends PicoPlayerBaseCharacter
     }
   }
 
-  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (normalChar != null)
     {

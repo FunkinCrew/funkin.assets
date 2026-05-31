@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxRuntimeShader;
 import funkin.audio.FunkinSound;
@@ -30,7 +29,6 @@ class PhillyTrainStage extends Stage
     // NOTE: You pass the constructor variables directly, not as an array.
     lightShader = new BuildingEffectShader(1.0);
     trainSound = FunkinSound.load(Paths.sound('train_passes'), 1.0, false, false, false);
-    PlayState.instance.add(trainSound); // Sounds need to be added to the scene for update() to work
 
     lightWindow = getNamedProp('lights');
     lightWindow.shader = lightShader;
@@ -153,7 +151,8 @@ class PhillyTrainStage extends Stage
 
   function trainReset():Void
   {
-    getGirlfriend().playAnimation('hairFall');
+    if (startedMoving) getGirlfriend().playAnimation('hairFall');
+
     getNamedProp('train').x = FlxG.width + 200;
 
     trainMoving = false;
@@ -169,6 +168,14 @@ class PhillyTrainStage extends Stage
   {
     super.onSongRetry(event);
     trainReset();
+
+    if (trainSound != null) trainSound.stop();
+
+    if (getGirlfriend() != null)
+    {
+      getGirlfriend().dance(true);
+      getGirlfriend().animation.finish();
+    }
   }
 
   function kill()

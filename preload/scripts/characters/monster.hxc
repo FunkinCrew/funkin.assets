@@ -12,8 +12,10 @@ class MonsterCharacter extends AnimateAtlasCharacter
   override function getAtlasSettings():AtlasSpriteSettings
   {
     return {
-      onSymbolCreate: (symbol) -> {
-        symbol.timeline.forEachLayer((layer) -> {
+      onSymbolCreate: (symbol) ->
+      {
+        symbol.timeline.forEachLayer((layer) ->
+        {
           if (layer.name.startsWith("HAT"))
           {
             layer.visible = false;

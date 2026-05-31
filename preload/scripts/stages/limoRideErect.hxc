@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
@@ -23,7 +22,6 @@ class LimoRideErectStage extends Stage
   var mist3:FlxBackdrop;
   var mist4:FlxBackdrop;
   var mist5:FlxBackdrop;
-
   var shootingStarBeat:Int = 0;
   var shootingStarOffset:Int = 2;
 
@@ -118,17 +116,13 @@ class LimoRideErectStage extends Stage
 
     getNamedProp('shootingStar').blend = 0;
 
-    carSequenceData = [
-      {time: 1, callback: () -> doCarHaptics = true},
-      {time: 1.4, callback: () -> doCarHaptics = false},
-      {time: 2, callback: () -> resetFastCar()}
-    ];
+    carSequenceData = [{time: 1, callback: () -> doCarHaptics = true}, {time: 1.4, callback: () -> doCarHaptics = false}, {time: 2, callback: () ->
+      resetFastCar()}];
 
     resetFastCar();
   }
 
   var _timer:Float = 0;
-
   var carSequence:Sequence;
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
@@ -188,7 +182,7 @@ class LimoRideErectStage extends Stage
     fastCar.active = true;
 
     fastCar.x = -12600;
-    fastCar.y = FlxG.random.int(140, 250);
+    fastCar.y = FlxG.random.int(350, 380);
     fastCar.velocity.x = 0;
     fastCarCanDrive = true;
   }
@@ -268,8 +262,13 @@ class LimoRideErectStage extends Stage
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
+
     trace('Applied stage shader to ' + character.characterName);
     character.shader = colorShader;
+
+    // Enable render texture for Animate Atlas characters
+    // This is so it doesn't run the shader on each individual limb!
+    character.useRenderTexture = true;
   }
 
   override function onPause(event:PauseScriptEvent)

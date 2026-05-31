@@ -1,6 +1,5 @@
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.graphics.FunkinSprite;
@@ -16,10 +15,8 @@ class NenePixelCharacter extends SparrowCharacter
   }
 
   var pupilState:Int = 0;
-
   var PUPIL_STATE_NORMAL = 0;
   var PUPIL_STATE_LEFT = 1;
-
   var abotSpeaker:FunkinSprite;
   var abot:FunkinSprite;
   var abotViz:ABotVis;
@@ -63,7 +60,8 @@ class NenePixelCharacter extends SparrowCharacter
     abotBack.x = this.x;
     abotBack.y = this.y;
 
-    abotHead.animation.finishCallback = function(name:String):Void {
+    abotHead.animation.finishCallback = function(name:String):Void
+    {
       if (name == 'toleft')
       {
         pupilState = PUPIL_STATE_LEFT;
@@ -165,11 +163,11 @@ class NenePixelCharacter extends SparrowCharacter
     abotSpeakerShader.angle = 90;
     abotSpeakerShader.color = 0xFF52351d;
     abotSpeakerShader.distance = 5;
-    abotSpeakerShader.antialiasAmt = 0;
     abotSpeakerShader.threshold = 1;
 
     abotSpeakerShader.attachedSprite = abotSpeaker;
-    abotSpeaker.animation.onFrameChange.add(function() {
+    abotSpeaker.animation.onFrameChange.add(function()
+    {
       abotSpeakerShader.updateFrameInfo(abotSpeaker.frame);
     });
 
@@ -177,7 +175,7 @@ class NenePixelCharacter extends SparrowCharacter
     abotSpeakerShader.maskThreshold = 0;
     abotSpeakerShader.useAltMask = true;
 
-    var noRimShader = new AdjustColorShader();
+    var noRimShader:AdjustColorShader = new AdjustColorShader();
     noRimShader.hue = -10;
     noRimShader.saturation = -23;
     noRimShader.brightness = -66;
@@ -239,7 +237,7 @@ class NenePixelCharacter extends SparrowCharacter
     if (scriptEvent.eventData.eventKind == "FocusCamera")
     {
       var eventProps = scriptEvent.eventData.value;
-      switch (Std.parseInt(eventProps.char))
+      switch (eventProps.char)
       {
         case 0:
           movePupilsRight();
@@ -368,7 +366,7 @@ class NenePixelCharacter extends SparrowCharacter
 
   function shouldTransitionState():Bool
   {
-    return currentStage.getBoyfriend().characterId != "pico-blazin";
+    return currentStage.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function transitionState()

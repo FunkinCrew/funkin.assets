@@ -1,10 +1,7 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
-import funkin.Preferences;
-import funkin.util.Constants;
 import funkin.util.HapticUtil;
 import funkin.FunkinMemory;
 
@@ -42,9 +39,9 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (name == "fakeoutDeath" && !this.debug)
     {
@@ -58,7 +55,8 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 
     // We don't want people to miss this.
     GameOverSubState.instance.mustNotExit = true;
-    this.animation.onFinish.addOnce(() -> {
+    this.animation.onFinish.addOnce(() ->
+    {
       GameOverSubState.instance.mustNotExit = false;
       this.playAnimation('firstDeath', true);
       // Play the "blue balled" sound. May play a variant if one has been assigned.

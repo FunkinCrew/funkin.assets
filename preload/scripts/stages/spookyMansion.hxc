@@ -1,8 +1,6 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.util.Constants;
 import funkin.util.HapticUtil;
 import funkin.FunkinMemory;
 
@@ -77,7 +75,7 @@ class SpookyMansionStage extends Stage
 
     // Play lightning on sync at the start of this specific song.
     // TODO: Rework this after chart format redesign.
-    if (PlayState.instance.currentSong != null)
+    if (PlayState.instance != null && PlayState.instance.currentSong != null)
     {
       if (event.beat == 4 && PlayState.instance.currentSong.id == "spookeez")
       {

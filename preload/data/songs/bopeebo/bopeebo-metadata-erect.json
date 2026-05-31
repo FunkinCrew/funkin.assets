@@ -3,24 +3,22 @@
   "songName": "Bopeebo Erect",
   "artist": "Kawai Sprite (feat. Saruky)",
   "charter": "Jenny Crowe + fabs + Spazkid",
+  "offsets": {},
   "playData": {
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
-      "instrumental": "erect"
+      "instrumental": "erect",
+      "opponentVocals": ["dad"],
+      "playerVocals": ["bf"]
     },
     "stage": "mainStageErect",
     "noteStyle": "funkin",
     "ratings": { "erect": 7, "nightmare": 8 },
-    "album": "volume3",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "album": "volume3"
   },
-  "generatedBy": "Friday Night Funkin' - v0.3.0 PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    { "t": 0, "b": 0, "bpm": 123, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }
-  ]
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 123, "bt": [4, 4, 4, 4] }]
 }

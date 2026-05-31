@@ -3,32 +3,36 @@
   "songName": "Monster",
   "artist": "Bassetfilms",
   "charter": "ChaoticGamerCG + MtH + Spazkid",
+  "offsets": {},
   "playData": {
     "difficulties": ["easy", "normal", "hard"],
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "monster",
+      "opponentVocals": ["monster"],
+      "playerVocals": ["bf"]
+    },
     "stage": "spookyMansion",
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 2 },
-    "album": "volume2",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "album": "volume2"
   },
-  "generatedBy": "Chart Editor Import (FNF Legacy)",
-  "timeFormat": "ms",
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
   "timeChanges": [
-    { "t": 0, "bpm": 95 },
-    { "t": 41770, "bpm": 95 },
-    { "t": 44180, "bpm": 105 },
-    { "t": 80710, "bpm": 105 },
-    { "t": 81860, "bpm": 110 },
-    { "t": 81861, "bpm": 95 },
-    { "t": 117230, "bpm": 132 },
-    { "t": 131770, "bpm": 132 },
-    { "t": 133310, "bpm": 107 },
-    { "t": 133311, "bpm": 132 },
-    { "t": 133770, "bpm": 120 },
-    { "t": 42975, "bpm": 100 },
-    { "t": 81285, "bpm": 107.5 },
-    { "t": 132540, "bpm": 119.5 }
+    { "t": 0, "b": 0, "bpm": 95, "bt": [4, 4, 4, 4] },
+    { "t": 41770, "b": 66.1358, "bpm": 95, "bt": [4, 4, 4, 4] },
+    { "t": 42975, "b": 68.0437, "bpm": 100, "bt": [4, 4, 4, 4] },
+    { "t": 44180, "b": 70.052, "bpm": 105, "bt": [4, 4, 4, 4] },
+    { "t": 80710, "b": 133.9795, "bpm": 105, "bt": [4, 4, 4, 4] },
+    { "t": 81285, "b": 134.9858, "bpm": 107.5, "bt": [4, 4, 4, 4] },
+    { "t": 81860, "b": 136.016, "bpm": 110, "bt": [4, 4, 4, 4] },
+    { "t": 81861, "b": 136.0178, "bpm": 95, "bt": [4, 4, 4, 4] },
+    { "t": 117230, "b": 192.0187, "bpm": 132, "bt": [4, 4, 4, 4] },
+    { "t": 131770, "b": 224.0067, "bpm": 132, "bt": [4, 4, 4, 4] },
+    { "t": 132540, "b": 225.7007, "bpm": 119.5, "bt": [4, 4, 4, 4] },
+    { "t": 133310, "b": 227.2343, "bpm": 107, "bt": [4, 4, 4, 4] },
+    { "t": 133311, "b": 227.2361, "bpm": 132, "bt": [4, 4, 4, 4] },
+    { "t": 133770, "b": 228.2459, "bpm": 120, "bt": [4, 4, 4, 4] }
   ]
 }

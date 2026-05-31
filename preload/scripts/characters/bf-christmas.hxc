@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.character.CharacterType;

@@ -2,7 +2,6 @@ import funkin.play.song.Song;
 import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
-import funkin.util.Constants;
 import funkin.play.cutscene.VideoCutscene;
 
 class StressSong extends Song
@@ -67,7 +66,7 @@ class StressSong extends Song
       if (tankmanGroup != null)
       {
         // resets the tankmen!
-        tankmanGroup.reset();
+        tankmanGroup.reset(0, 0);
 
         tankmanGroup.zIndex = 30;
         PlayState.instance.currentStage.add(tankmanGroup);
@@ -105,12 +104,39 @@ class StressSong extends Song
     // resets the tankmen!
     if (tankmanGroup != null)
     {
-      tankmanGroup.reset();
+      tankmanGroup.reset(0, 0);
     }
     if (PlayState.instance.currentStage?.getGirlfriend() != null)
     {
       PlayState.instance.currentStage?.getGirlfriend().reset();
       trace('reset pico!');
+    }
+  }
+  
+  /**
+   * Pause the tankman flicker when the game is paused
+   */
+  function onPause(event:ScriptEvent):Void
+  {
+    super.onPause(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.pause();
+      });
+    }
+  }
+
+  function onResume(event:ScriptEvent):Void
+  {
+    super.onResume(event);
+    if (tankmanGroup != null)
+    {
+      tankmanGroup.forEach(function(tankman)
+      {
+        tankman.tankmanFlicker?.resume();
+      });
     }
   }
 

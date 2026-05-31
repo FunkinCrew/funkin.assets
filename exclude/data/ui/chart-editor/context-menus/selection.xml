@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu>
+<menu width="240px">
+	<grid columns="2">
+		<dropdown width="50%" id="contextmenuUnit" text="Offset (MS)" value="MILLISECONDS" selectedIndex="0" >
+			<data>
+					<item id="MILLISECONDS" text="Offset (MS)" />
+					<item id="STEPS" text="Offset (Steps)" />
+			</data>
+		</dropdown>
+		<number-stepper width="50%" id="contextmenuOffset" pos="0"  />
+	</grid>
+	<menu-item id="contextmenuOffsetMove" text="Offset Selection" />
+	<menu-separator />
+	<menu-item id="contextmenuEdit" text="Edit Notes" />
 	<menu-item id="contextmenuCut" text="Cut Selection" shortcutText="Ctrl+X" />
 	<menu-item id="contextmenuCopy" text="Copy Selection" shortcutText="Ctrl+C" />
 	<menu-item id="contextmenuDelete" text="Delete Selection" shortcutText="Delete" />
 	<menu-separator />
-	<menu-item id="contextmenuFlip" text="Flip Selected Notes" />
+	<menu-item id="contextmenuFlip" text="Flip Selected Notes" shortcutText="Ctrl+F" />
 	<menu text="Mirror Notes">
       <menu-item id="contextmenuMirrorX" text="X Axis" shortcutText="Ctrl+Shift+M" />
       <menu-item id="contextmenuMirrorY" text="Y Axis" shortcutText="Ctrl+Alt+M" />

@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
@@ -30,9 +29,9 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     return val;
   }
 
-  override function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
     if (normalChar != null)
     {
       normalChar.playAnimation(name, restart, ignoreOther);

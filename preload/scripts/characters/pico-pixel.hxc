@@ -5,7 +5,6 @@ import funkin.play.PauseSubState;
 import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import flixel.FlxG;
 import funkin.FunkinMemory;
 
 class PicoPixelCharacter extends SparrowCharacter
@@ -31,7 +30,8 @@ class PicoPixelCharacter extends SparrowCharacter
     deathSpriteNene.scale.set(6, 6);
     deathSpriteNene.antialiasing = false;
     deathSpriteNene.visible = true;
-    deathSpriteNene.animation.finishCallback = function(name:String) {
+    deathSpriteNene.animation.finishCallback = function(name:String)
+    {
       deathSpriteNene.visible = false;
     }
   }
@@ -49,7 +49,7 @@ class PicoPixelCharacter extends SparrowCharacter
     FunkinMemory.cacheTexture(Paths.image("characters/nenePixel/nenePixelKnifeToss"));
   }
 
-  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
@@ -60,20 +60,25 @@ class PicoPixelCharacter extends SparrowCharacter
       deathSpriteNene.animation.play("throw");
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
-    if (name == "firstDeath" && frameNumber == 36 - 1)
+    if (name == "firstDeath")
     {
-      GameOverSubState.instance.startDeathMusic(1.0, false);
-      // force the deathloop to play in here, since we are starting the music early it
-      // doesn't check this in gameover substate !
-      // also no animation suffix 🤔
-      GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
+      if (frameNumber == 36 - 1)
+      {
+        GameOverSubState.instance.startDeathMusic(1.0, false);
+      }
+      else if (frameNumber == this.animation.curAnim.numFrames - 1)
+      {
+        // force the deathloop to play before the anim fully ends
+        // this stops the GameOverSubState from running the original code while still keeping the original look
+        GameOverSubState.instance.boyfriend.playAnimation('deathLoop');  
+      }
     }
 
     if (!HapticUtil.hapticsAvailable) return;

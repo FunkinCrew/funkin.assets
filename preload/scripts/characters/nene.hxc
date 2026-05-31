@@ -2,7 +2,6 @@ package funkin.play.character;
 
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
-import flixel.FlxG;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 
@@ -195,7 +194,8 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
 
-    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
+    pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int)
+    {
       if (frameNumber == 16)
       {
         pupil.anim.pause();
@@ -266,8 +266,8 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     super.onSongEvent(scriptEvent);
     if (scriptEvent.eventData.eventKind == "FocusCamera")
     {
-      var eventProps = scriptEvent.eventData.value;
-      switch (Std.parseInt(eventProps.char))
+      var value = scriptEvent.eventData.getInt("char");
+      switch (value)
       {
         case 0:
           movePupilsRight();

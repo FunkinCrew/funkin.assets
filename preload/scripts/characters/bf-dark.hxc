@@ -46,9 +46,9 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     return val;
   }
 
-  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (normalChar != null)
     {

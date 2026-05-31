@@ -10,7 +10,8 @@ class BFBedPerfectResults extends FunkinSprite
 
     loadTextureAtlas("resultScreen/results-bf/resultsPERFECT/bed", "shared");
 
-    anim.onFrameChange.add((animation:String, frame:Int) -> {
+    anim.onFrameChange.add((animation:String, frame:Int) ->
+    {
       if (!HapticUtil.hapticsAvailable) return;
 
       // Feel the bed fun :freaky:

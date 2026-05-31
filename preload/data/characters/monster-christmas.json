@@ -11,79 +11,48 @@
   "animations": [
     {
       "name": "idle",
-      "prefix": "monster idle",
-      "animType": "symbol"
+      "prefix": "Idle"
     },
     {
       "name": "idle-hold",
-      "prefix": "monster idle",
-      "frameIndices": [11, 12, 13, 14],
-      "looped": true,
-      "animType": "symbol"
+      "prefix": "Idle Hold",
+      "looped": true
     },
     {
       "name": "singLEFT",
-      "prefix": "Monster Right note",
-      "offsets": [-36, 20],
-      "animType": "symbol"
+      "prefix": "Left"
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "Monster Right note",
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-36, 20],
-      "looped": true,
-      "animType": "symbol"
+      "prefix": "Left Hold",
+      "looped": true
     },
     {
       "name": "singDOWN",
-      "prefix": "monster down",
-      "offsets": [-50, -116],
-      "animType": "symbol"
+      "prefix": "Down"
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "monster down",
-      "offsets": [-50, -116],
-      "frameIndices": [
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-        22, 23, 24, 25, 26, 27, 28, 29
-      ],
-      "looped": true,
-      "animType": "symbol"
+      "prefix": "Down Hold",
+      "looped": true
     },
     {
       "name": "singUP",
-      "prefix": "monster up note",
-      "offsets": [-21, 32],
-      "animType": "symbol"
+      "prefix": "Up"
     },
     {
       "name": "singUP-hold",
-      "prefix": "monster up note",
-      "frameIndices": [
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-        22, 23
-      ],
-      "offsets": [-21, 32],
-      "looped": true,
-      "animType": "symbol"
+      "prefix": "Up Hold",
+      "looped": true
     },
     {
       "name": "singRIGHT",
-      "prefix": "Monster left note",
-      "offsets": [-32, -28],
-      "animType": "symbol"
+      "prefix": "Right"
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "Monster left note",
-      "frameIndices": [
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-      ],
-      "offsets": [-32, -28],
-      "looped": true,
-      "animType": "symbol"
+      "prefix": "Right Hold",
+      "looped": true
     }
   ]
 }

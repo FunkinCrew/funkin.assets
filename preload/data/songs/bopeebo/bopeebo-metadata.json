@@ -3,27 +3,23 @@
   "songName": "Bopeebo",
   "artist": "Kawai Sprite",
   "charter": "ninjamuffin99 + MtH",
-  "timeFormat": "ms",
-  "offsets": {
-    "instrumental": 0
-  },
-  "timeChanges": [{ "t": 0, "bpm": 100, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "offsets": {},
   "playData": {
     "songVariations": ["erect", "pico"],
     "difficulties": ["easy", "normal", "hard"],
-    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "dad",
-      "instrumental": "",
-      "altInstrumentals": ["pico"]
+      "altInstrumentals": ["pico"],
+      "opponentVocals": ["dad"],
+      "playerVocals": ["bf"]
     },
     "stage": "mainStage",
     "noteStyle": "funkin",
-    "album": "volume1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "ratings": { "easy": 1, "normal": 1, "hard": 2 },
+    "album": "volume1"
   },
-  "generatedBy": "EliteMasterEric (by hand)"
+  "generatedBy": "Friday Night Funkin' - v0.8.1",
+  "timeChanges": [{ "t": 0, "b": 0, "bpm": 100, "bt": [4, 4, 4, 4] }]
 }

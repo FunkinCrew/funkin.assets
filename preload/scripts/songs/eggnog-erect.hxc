@@ -1,6 +1,4 @@
-import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -18,9 +16,7 @@ import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
 import funkin.util.TouchUtil;
 import funkin.ui.FullScreenScaleMode;
-import funkin.Preferences;
 
-// We have to use FlxBasePoint in scripts because FlxPoint is inlined and not available in scripts
 class EggnogErectSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
@@ -35,10 +31,9 @@ class EggnogErectSong extends Song
 
   function new()
   {
-    super('eggnog',
-      {
-        variation: 'erect'
-      });
+    super('eggnog', {
+      variation: 'erect'
+    });
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
@@ -82,11 +77,12 @@ class EggnogErectSong extends Song
   {
     skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
       'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    if (FlxG.onMobile)
-    {
-      skipText.text = 'Skip [Pause Button]';
-      skipText.x -= 136;
-    }
+
+    #if mobile
+    skipText.text = 'Skip [Pause Button]';
+    skipText.x -= 136;
+    #end
+
     skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
     skipText.scrollFactor.set();
     skipText.borderSize = 2;
@@ -143,31 +139,37 @@ class EggnogErectSong extends Song
     shootSound = FunkinSound.load(Paths.sound('santa_shot_n_falls'), 1);
     shootSound.volume = 1;
 
-    new FlxTimer().start(2.8, function(tmr) {
+    new FlxTimer().start(2.8, function(tmr)
+    {
       PlayState.instance.tweenCameraToPosition(santaDead.x + 1050, santaDead.y + 300, 9, FlxEase.quartInOut);
       PlayState.instance.tweenCameraZoom(0.79, 9, true, FlxEase.quadInOut);
     });
 
-    new FlxTimer().start(11.3, function(tmr) {
+    new FlxTimer().start(11.3, function(tmr)
+    {
       // PlayState.instance.tweenCameraZoom(0.73, 0.8, true, FlxEase.backOut);
       // PlayState.instance.tweenCameraToPosition(santaDead.x + 220, santaDead.y, 0.8, FlxEase.expoOut);
       // PlayState.instance.camGame.shake(0.007, 0.4);
     });
 
-    new FlxTimer().start(11.375, function(tmr) {
+    new FlxTimer().start(11.375, function(tmr)
+    {
       if (!cutsceneSkipped) shootSound.play(false);
     });
 
-    new FlxTimer().start(12.83, function(tmr) {
+    new FlxTimer().start(12.83, function(tmr)
+    {
       PlayState.instance.camGame.shake(0.005, 0.2);
       PlayState.instance.tweenCameraToPosition(santaDead.x + 1060, santaDead.y + 380, 5, FlxEase.expoOut);
     });
 
-    new FlxTimer().start(15, function(tmr) {
+    new FlxTimer().start(15, function(tmr)
+    {
       PlayState.instance.camHUD.fade(0xFF000000, 1, false, null, true);
     });
 
-    new FlxTimer().start(16, function(tmr) {
+    new FlxTimer().start(16, function(tmr)
+    {
       if (!cutsceneSkipped)
       {
         PlayState.instance.camHUD.fade(0xFF000000, 0.5, true, null, true);
@@ -180,10 +182,9 @@ class EggnogErectSong extends Song
   {
     super.onUpdate(event);
 
-    if (FlxG.onMobile)
-    {
-      isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
-    }
+    #if mobile
+    isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+    #end
 
     if (PlayState.instance.isInCutscene)
     {
@@ -193,7 +194,8 @@ class EggnogErectSong extends Song
         {
           trace('cant skip yet!');
           FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
-          new FlxTimer().start(0.5, _ -> {
+          new FlxTimer().start(0.5, _ ->
+          {
             canSkipCutscene = true;
             trace('can skip!');
           });
@@ -208,7 +210,8 @@ class EggnogErectSong extends Song
       cutsceneSkipped = true;
       santaSound.stop();
       shootSound.stop();
-      new FlxTimer().start(0.5, function(tmr) {
+      new FlxTimer().start(0.5, function(tmr)
+      {
         PlayState.instance.endSong(true);
       });
     }

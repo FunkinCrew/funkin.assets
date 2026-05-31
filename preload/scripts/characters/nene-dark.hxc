@@ -1,6 +1,6 @@
 import funkin.data.character.CharacterDataParser;
 import funkin.graphics.shaders.TextureSwap;
-import funkin.util.FlxColorUtil;
+import flixel.util.FlxColor;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.character.NeneBaseCharacter;
 
@@ -21,11 +21,14 @@ class NeneDarkCharacter extends NeneBaseCharacter
 
     abotTextureSwap.amount = val;
 
-    if (val != 1) normalChar.alpha = 1;
-    else
-      normalChar.alpha = 0;
+    if (normalChar != null)
+    {
+      if (val != 1) normalChar.alpha = 1;
+      else
+        normalChar.alpha = 0.0001;
+    }
 
-    eyeWhites.color = FlxColorUtil.interpolate(0xFFFFFFFF, 0xFF6F96CE, val);
+    eyeWhites.color = FlxColor.interpolate(0xFFFFFFFF, 0xFF6F96CE, val);
 
     return val;
   }
@@ -56,9 +59,9 @@ class NeneDarkCharacter extends NeneBaseCharacter
     normalChar.alpha = 0;
   }
 
-  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (normalChar != null)
     {

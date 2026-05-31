@@ -11,8 +11,6 @@ class TankmanCharacter extends MultiAnimateAtlasCharacter
 
   function onNoteHit(event:HitNoteScriptEvent)
   {
-    super.onNoteHit(event);
-
     // Override the hit note animation.
     switch (event.note.kind)
     {
@@ -25,5 +23,7 @@ class TankmanCharacter extends MultiAnimateAtlasCharacter
         this.playAnimation('hehPrettyGood', true, true);
         return;
     }
+
+    super.onNoteHit(event);
   }
 }

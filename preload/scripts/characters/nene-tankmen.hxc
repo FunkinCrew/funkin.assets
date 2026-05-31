@@ -46,14 +46,15 @@ class NeneTankmenCharacter extends NeneBaseCharacter
     comboHeart.zIndex = this.zIndex + 1;
     comboHeart.visible = false;
 
-    comboHeart.animation.onFinish.add((name:String) -> {
+    comboHeart.animation.onFinish.add((name:String) ->
+    {
       comboHeart.visible = false;
     });
   }
 
-  public override function playAnimation(name:String, restart:Bool, ignoreOther:Bool):Void
+  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
 
     if (name == "combo50" && comboHeart != null)
     {

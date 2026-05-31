@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog id="addVariationDialog" width="300" height="430" title="Add Variation">
-	<vbox width="100%" height="100%">
-		<form id="variationForm" width="100%" height="100%">
-			<vbox width="100%" height="100%">
-				<grid columns="2" width="100%" height="100%">
+<dialog id="addVariationDialog" width="300" title="Add Variation">
+	<vbox width="100%">
+		<form id="variationForm" width="100%">
+			<vbox width="100%">
+				<grid columns="2" width="100%">
 					<label text="Variation Name:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="dialogVariationName" placeholder="Variation name..." width="100%" validator="required" />
 					<label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
@@ -13,7 +13,7 @@
 					<label text="Charter:" verticalAlign="center" horizontalAlign="right" />
 					<textfield id="dialogSongCharter" placeholder="Song charter..." width="100%" validator="required" />
 					<label text="Stage:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogStage" text="Stage..." horizontalAlign="right" width="100%">
+					<dropdown id="dialogStage" text="Stage..." horizontalAlign="right" width="100%" dropdownWidth="200" searchable="true">
 						<validator type="required" />
 						<data>
 							<item id="mainStage" text="Main Stage" />
@@ -30,15 +30,38 @@
 						</data>
 					</dropdown>
 					<label text="Note Style:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogNoteStyle" value="normal" horizontalAlign="right" width="100%">
+					<dropdown id="dialogNoteStyle" value="normal" horizontalAlign="right" width="100%" dropdownWidth="200">
 						<validator type="required" />
 						<data>
 							<item id="Normal" text="Normal" />
 							<item id="Pixel" text="Pixel" />
 						</data>
 					</dropdown>
+                    <label text="Album:" verticalAlign="center" horizontalAlign="right" />
+                    <dropdown id="dialogAlbum" value="volume1" horizontalAlign="right" width="100%" dropdownWidth="200">
+                        <validator type="required" />
+                        <data>
+                            <item id="volume1" text="Volume 1" />
+                            <item id="volume2" text="Volume 2" />
+                            <item id="volume3" text="Volume 3" />
+                            <item id="volume4" text="Volume 4" />
+                            <item id="expansion1" text="OST Expansion Vol. 1" />
+                            <item id="expansion2" text="OST Expansion Vol. 2" />
+                        </data>
+                    </dropdown>
+                    <label text="Sticker Pack:" verticalAlign="center" horizontalAlign="right" />
+                    <dropdown id="dialogStickerPack" value="default" horizontalAlign="right" width="100%" dropdownWidth="200">
+                        <validator type="required" />
+                        <data>
+                            <item id="default" text="Default" />
+                            <item id="bonus-tutorial" text="Boyfriend - Tutorial" />
+                            <item id="standard-bf" text="Boyfriend" />
+                            <item id="standard-pico" text="Pico" />
+                            <item id="bonus-weekend1" text="Pico - Weekend 1" />
+                        </data>
+                    </dropdown>
 					<label text="Player Character:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogCharacterPlayer" value="bf" horizontalAlign="right" width="100%">
+					<dropdown id="dialogCharacterPlayer" value="bf" horizontalAlign="right" width="100%" dropdownWidth="200" searchable="true">
 						<validator type="required" />
 						<data>
 							<item id="bf" text="Boyfriend" />
@@ -46,7 +69,7 @@
 						</data>
 					</dropdown>
 					<label text="Opponent Character:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogCharacterOpponent" value="dad" horizontalAlign="right" width="100%">
+					<dropdown id="dialogCharacterOpponent" value="dad" horizontalAlign="right" width="100%" dropdownWidth="200" searchable="true">
 						<validator type="required" />
 						<data>
 							<item id="dad" text="Daddy Dearest" />
@@ -54,7 +77,7 @@
 						</data>
 					</dropdown>
 					<label text="Girlfriend Character:" verticalAlign="center" horizontalAlign="right" />
-					<dropdown id="dialogCharacterGirlfriend" value="none" horizontalAlign="right" width="100%">
+					<dropdown id="dialogCharacterGirlfriend" value="none" horizontalAlign="right" width="100%" dropdownWidth="200" searchable="true">
 						<data>
 							<item id="none" text="" />
 							<item id="gf" text="Girlfriend" />

@@ -4,68 +4,52 @@
   "assetPath": "shared:characters/dad",
   "renderType": "animateatlas",
   "singTime": 8.0,
-  "offsets": [2, 16],
-  "cameraOffsets": [-2, 19],
+  "offsets": [13, 3],
+  "cameraOffsets": [11, 6],
   "animations": [
     {
       "name": "idle",
-      "prefix": "Dad idle dance",
-      "offsets": [0, 0]
+      "prefix": "Idle"
     },
     {
       "name": "idle-hold",
-      "prefix": "Dad idle dance",
-      "looped": true,
-      "frameIndices": [11, 12, 13],
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "dad sing note right",
-      "offsets": [21, 3]
-    },
-    {
-      "name": "singLEFT-hold",
-      "prefix": "dad sing note right",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [21, 3]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "Dad Sing Note DOWN",
-      "offsets": [-37, -5]
-    },
-    {
-      "name": "singDOWN-hold",
-      "prefix": "Dad Sing Note DOWN",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-37, -5]
+      "prefix": "Idle",
+      "frameIndices": [11, 12, 0, 1],
+      "looped": true
     },
     {
       "name": "singUP",
-      "prefix": "Dad Sing note UP",
-      "offsets": [-5, 29]
+      "prefix": "Up"
     },
     {
       "name": "singUP-hold",
-      "prefix": "singUP",
-      "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-5, 29]
+      "prefix": "Up",
+      "frameIndices": [3, 4, 5],
+      "looped": true
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Down"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Left"
+    },
+    {
+      "name": "singLEFT-hold",
+      "prefix": "Left",
+      "frameIndices": [3, 4, 5],
+      "looped": true
     },
     {
       "name": "singRIGHT",
-      "prefix": "Dad Sing Note LEFT",
-      "offsets": [-44, 12]
+      "prefix": "Right"
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "Dad Sing Note LEFT",
+      "prefix": "Right",
       "looped": true,
-      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [-44, 12]
+      "frameIndices": [3, 4, 5]
     }
   ]
 }

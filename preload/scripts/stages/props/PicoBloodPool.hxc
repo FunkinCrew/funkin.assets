@@ -10,7 +10,8 @@ class PicoBloodPool extends FunkinSprite
 
     loadTextureAtlas("philly/erect/bloodPool", "week3");
 
-    animation.onFinish.addOnce((_) -> {
+    animation.onFinish.addOnce((_) ->
+    {
       extendBloodPool = true;
     });
 

@@ -1,4 +1,3 @@
-import flixel.FlxG;
 import flixel.util.FlxTimer;
 import funkin.util.HapticUtil;
 import funkin.play.PlayState;
@@ -31,6 +30,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     PauseSubState.musicSuffix = '-pico';
   }
 
+  function resetCharacter(resetCamera:Bool = true):Void
+  {
+    super.resetCharacter(resetCamera);
+    this.danceEvery = 0;
+  }
+  
   var cantUppercut = false;
 
   function onNoteHit(event:HitNoteScriptEvent)
@@ -127,22 +132,24 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     }
   }
 
-  function playAnimation(name:String, restart:Bool, ignoreOther:Bool)
+  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
       // TODO: ACTUALLY play one of the three death animations here.
 
       // Make sure the death music plays with PERFECT timing.
-      new FlxTimer().start(1.25, afterPicoDeathGutPunchIntro);
+      new FlxTimer().start(1.25, _ -> afterPicoDeathGutPunchIntro());
 
       if (HapticUtil.hapticsAvailable)
       {
-        new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+        new FlxTimer().start(0.5, function(tmr:FlxTimer)
+        {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
 
-          new FlxTimer().start(0.6, function(tmr:FlxTimer) {
+          new FlxTimer().start(0.6, function(tmr:FlxTimer)
+          {
             // Pico falls "asleep". :)
             HapticUtil.vibrate(0, 0.1, 0.1, 1);
           });
@@ -151,10 +158,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     }
     else
     {
-      super.playAnimation(name, restart, ignoreOther);
+      super.playAnimation(name, restart, ignoreOther, reversed);
     }
 
-    super.playAnimation(name, restart, ignoreOther);
+    super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
   function afterPicoDeathGutPunchIntro():Void
