@@ -89,7 +89,6 @@
     "assetPath": "ui/character-select/characters/bf",
     "gf": {
       "assetPath": "ui/character-select/characters/gf",
-      "animInfoPath": "ui/character-select/characters/gf",
       "visualizer": false
     }
   },
