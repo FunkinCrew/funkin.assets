@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel width="300" height="160" text="Comment" id="commentPanel">
+  <header id="commentPanelHeader" styleName="comment-panel-header">
+    <hbox>
+      <spacer width="100%" />
+      <button text="C" tooltip="Set Comment Color" id="commentButtonColor" />
+      <button text="X" tooltip="Delete Comment" id="commentButtonDelete" />
+    </hbox>
+  </header>
+  <box width="100%" height="100%">
+    <textfield text="Placeholder Comment Text" verticalAlign="top" horizontalAlign="left" id="commentCardTextField" width="100%" height="100%" />
+  </box>
+</panel>
