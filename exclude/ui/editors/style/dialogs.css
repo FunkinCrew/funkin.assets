@@ -34,3 +34,7 @@
 	resource: "assets/ui/editors/chart-editor/maximize.png";
 	background-color: $selection-background-color;
 }
+
+.comment-panel-header {
+  background-color: "#FFFFFF";
+}
