@@ -38,3 +38,10 @@
 .comment-panel-header {
   background-color: "#FFFFFF";
 }
+
+.color-picker-palette-item {
+  pointer-events: true;
+  width: 24px;
+  height: 24px;
+  background-color: "#FFFFFF";
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog width="260" title="Color Picker">
+	<vbox width="100%">
+    <color-picker id="colorPicker" width="240" />
+    <hbox width="100%" horizontalAlign="center">
+      <spacer width="100%"/>
+      <box id="colorPalette1" styleName="color-picker-palette-item" />
+      <box id="colorPalette2" styleName="color-picker-palette-item" />
+      <box id="colorPalette3" styleName="color-picker-palette-item" />
+      <box id="colorPalette4" styleName="color-picker-palette-item" />
+      <box id="colorPalette5" styleName="color-picker-palette-item" />
+      <box id="colorPalette6" styleName="color-picker-palette-item" />
+      <box id="colorPalette7" styleName="color-picker-palette-item" />
+      <box id="colorPalette8" styleName="color-picker-palette-item" />
+      <spacer width="100%"/>
+    </hbox>
+    <hbox width="100%">
+      <spacer width="100%"/>
+      <button text="Cancel" id="buttonCancel" />
+      <button text="Apply" id="buttonApply" />
+    </hbox>
+	</vbox>
+</dialog>
