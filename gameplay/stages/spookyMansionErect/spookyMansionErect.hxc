@@ -1,16 +1,15 @@
-import funkin.audio.FunkinSound;
-import funkin.play.PlayState;
-import funkin.play.stage.Stage;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import funkin.assets.Assets;
+import funkin.audio.FunkinSound;
+import funkin.data.character.CharacterDataParser;
+import funkin.graphics.shaders.RuntimeRainShader;
+import funkin.play.PlayState;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterType;
+import funkin.play.stage.Stage;
 import funkin.util.FlxTweenUtil;
 import funkin.util.HapticUtil;
-import funkin.play.character.BaseCharacter;
-import funkin.data.character.CharacterDataParser;
-import funkin.play.character.CharacterType;
-import funkin.graphics.shaders.RuntimeRainShader;
-import funkin.memory.FunkinMemory;
-import funkin.util.FlxTweenUtil;
 import funkin.util.Sequence;
 
 class SpookyMansionErectStage extends Stage
@@ -63,7 +62,7 @@ class SpookyMansionErectStage extends Stage
     rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 
     // Precache the thunder sounds.
-    for (snd in ['thunder-1', 'thunder-2']) FunkinMemory.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
+    for (snd in ['thunder-1', 'thunder-2']) Assets.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
 
     lightningSequenceData = [
       {

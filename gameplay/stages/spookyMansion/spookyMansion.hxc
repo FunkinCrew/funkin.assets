@@ -2,7 +2,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
-import funkin.memory.FunkinMemory;
+import funkin.assets.Assets;
 
 class SpookyMansionStage extends Stage
 {
@@ -16,7 +16,7 @@ class SpookyMansionStage extends Stage
     super.onCreate(event);
 
     // Precache the thunder sounds.
-    for (snd in ['thunder-1', 'thunder-2']) FunkinMemory.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
+    for (snd in ['thunder-1', 'thunder-2']) Assets.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
   }
 
   var lightningStrikeBeat:Int = 0;

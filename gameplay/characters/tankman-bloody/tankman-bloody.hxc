@@ -2,7 +2,7 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.audio.FunkinSound;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
-import funkin.memory.FunkinMemory;
+import funkin.assets.Assets;
 
 class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 {
@@ -18,7 +18,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     super.onCreate(event);
 
     // Precache the ending cutscene sound.
-    FunkinMemory.cacheSound(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
+    Assets.cacheSound(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
   }
 
   var isBloody:Bool = false;

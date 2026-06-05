@@ -3,7 +3,7 @@ import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.memory.FunkinMemory;
+import funkin.assets.Assets;
 
 class DarnellCharacter extends AnimateAtlasCharacter
 {
@@ -19,7 +19,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
     // Precache the sounds used in 2hot.
     for (snd in ['darnell-lighter', 'kick-can-up', 'kick-can-forward'])
     {
-      FunkinMemory.cacheSound(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
+      Assets.cacheSound(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
     }
   }
 

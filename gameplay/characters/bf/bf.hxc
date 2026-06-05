@@ -3,7 +3,7 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
-import funkin.memory.FunkinMemory;
+import funkin.assets.Assets;
 
 class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 {
@@ -34,7 +34,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     super.onCreate(event);
 
     // Precache the sound for the fakeout death.
-    FunkinMemory.cacheSound(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
+    Assets.cacheSound(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
   }
 
   function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

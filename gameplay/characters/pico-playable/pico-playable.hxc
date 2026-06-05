@@ -13,7 +13,7 @@ import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
-import funkin.memory.FunkinMemory;
+import funkin.assets.Assets;
 
 class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 {
@@ -85,7 +85,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     {
       for (snd in CACHE_SOUND_PATHS)
       {
-        FunkinMemory.cacheSound(Paths.sound(snd, "weekend1"));
+        Assets.cacheSound(Paths.sound(snd, "weekend1"));
       }
     }
   }
