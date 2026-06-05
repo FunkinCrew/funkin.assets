@@ -75,7 +75,11 @@ class WinterHorrorlandSong extends Song
         trace('SFX done...');
         PlayState.instance.camHUD.visible = true;
         PlayState.instance.camHUD.alpha = 0.0; // Use alpha rather than visible to let us fade it in.
-        FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION, {ease: FlxEase.quadInOut});
+        FlxTween.tween(PlayState.instance.camHUD, {
+          alpha: 1.0
+        }, TWEEN_DURATION, {
+          ease: FlxEase.quadInOut
+        });
 
         // Start the countdown.
         trace('Zoom out done...');

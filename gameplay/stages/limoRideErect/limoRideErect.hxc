@@ -149,8 +149,14 @@ class LimoRideErectStage extends Stage
     getNamedProp('shootingStar').blend = 0;
 
     carSequenceData = [
-      {time: 1, callback: () -> doCarHaptics = true},
-      {time: 1.4, callback: () -> doCarHaptics = false},
+      {
+        time: 1,
+        callback: () -> doCarHaptics = true
+      },
+      {
+        time: 1.4,
+        callback: () -> doCarHaptics = false
+      },
       {
         time: 2,
         callback: () -> resetFastCar()

@@ -42,10 +42,8 @@ class SpookyMansionErectStage extends Stage
 
   var rainShaderTarget:FlxSprite;
   var rainShader:RuntimeRainShader = new RuntimeRainShader();
-
   var lightningStrikeBeat:Int = 0;
   var lightningStrikeOffset:Int = 8;
-
   var lightningSequence:Sequence;
   var lightningSequenceData:Array<SequenceData>;
 
@@ -65,8 +63,7 @@ class SpookyMansionErectStage extends Stage
     rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 
     // Precache the thunder sounds.
-    for (snd in ['thunder-1', 'thunder-2'])
-      FunkinMemory.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
+    for (snd in ['thunder-1', 'thunder-2']) FunkinMemory.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
 
     lightningSequenceData = [
       {
@@ -89,11 +86,21 @@ class SpookyMansionErectStage extends Stage
           getBoyfriend()?.alpha = 0;
           getDad()?.alpha = 0;
           getGirlfriend()?.alpha = 0;
-          FlxTween.tween(getNamedProp('bgLight'), {alpha: 0}, 1.5);
-          FlxTween.tween(getNamedProp('stairsLight'), {alpha: 0}, 1.5);
-          if (getBoyfriend() != null) FlxTween.tween(getBoyfriend(), {alpha: 1}, 1.5);
-          if (getDad() != null) FlxTween.tween(getDad(), {alpha: 1}, 1.5);
-          if (getGirlfriend() != null) FlxTween.tween(getGirlfriend(), {alpha: 1}, 1.5);
+          FlxTween.tween(getNamedProp('bgLight'), {
+            alpha: 0
+          }, 1.5);
+          FlxTween.tween(getNamedProp('stairsLight'), {
+            alpha: 0
+          }, 1.5);
+          if (getBoyfriend() != null) FlxTween.tween(getBoyfriend(), {
+            alpha: 1
+          }, 1.5);
+          if (getDad() != null) FlxTween.tween(getDad(), {
+            alpha: 1
+          }, 1.5);
+          if (getGirlfriend() != null) FlxTween.tween(getGirlfriend(), {
+            alpha: 1
+          }, 1.5);
         }
       }
     ];
@@ -267,7 +274,7 @@ class SpookyMansionErectStage extends Stage
     getNamedProp('stairsLight').alpha = 0;
     if (getBoyfriend() != null) FlxTween.cancelTweensOf(getBoyfriend(), ['alpha']);
     if (getDad() != null) FlxTween.cancelTweensOf(getDad(), ['alpha']);
-    if (getGirlfriend() != null)  FlxTween.cancelTweensOf(getGirlfriend(), ['alpha']);
+    if (getGirlfriend() != null) FlxTween.cancelTweensOf(getGirlfriend(), ['alpha']);
     getBoyfriend()?.alpha = 1;
     getDad()?.alpha = 1;
     getGirlfriend()?.alpha = 1;

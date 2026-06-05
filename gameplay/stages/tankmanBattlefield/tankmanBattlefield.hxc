@@ -65,7 +65,9 @@ class TankmanBattlefieldStage extends Stage
   static inline var OFFSCREEN_MARGIN:Float = 20.0;
 
   var _tweenTarget:
-    {angle:Float} = {angle: 0.0};
+    {angle:Float} = {
+      angle: 0.0
+    };
   var _exitTween:FunkinVarTween = null;
 
   function getTankAngle():Float
@@ -114,7 +116,9 @@ class TankmanBattlefieldStage extends Stage
 
     _tweenTarget.angle = currentAngle;
 
-    _exitTween = FunkinTween.createTween(_tweenTarget, {angle: targetAngle}, {
+    _exitTween = FunkinTween.createTween(_tweenTarget, {
+      angle: targetAngle
+    }, {
       shouldUseConductorSync: false,
       ease: FlxEase.quadIn,
       onComplete: function(_)

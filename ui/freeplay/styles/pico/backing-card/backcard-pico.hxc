@@ -29,10 +29,26 @@ class PicoCard extends BackingCard
 
   public override function enterCharSel():Void
   {
-    FlxTween.tween(scrollBack.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(scrollLower.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(scrollTop.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(scrollMiddle.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(scrollBack.velocity, {
+      x: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(scrollLower.velocity, {
+      x: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(scrollTop.velocity, {
+      x: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(scrollMiddle.velocity, {
+      x: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
   }
 
   public override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
@@ -73,7 +89,11 @@ class PicoCard extends BackingCard
 
   public override function onCreate(event:ScriptEvent):Void
   {
-    FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
+    FlxTween.tween(pinkBack, {
+      x: 0
+    }, 0.6, {
+      ease: FlxEase.quartOut
+    });
     add(pinkBack);
 
     confirmTextGlow.blend = 0;
@@ -121,13 +141,17 @@ class PicoCard extends BackingCard
     add(scrollMiddle);
     scrollMiddle.velocity.x = 220;
 
-    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300,
-      330).loadGraphic(Paths.image('ui/freeplay/styles/pico/backing-card/glow'));
+    glowDark = new FlxSprite(
+      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300,
+      330
+    ).loadGraphic(Paths.image('ui/freeplay/styles/pico/backing-card/glow'));
     glowDark.blend = 9;
     add(glowDark);
 
-    glow = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300,
-      330).loadGraphic(Paths.image('ui/freeplay/styles/pico/backing-card/glow'));
+    glow = new FlxSprite(
+      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300,
+      330
+    ).loadGraphic(Paths.image('ui/freeplay/styles/pico/backing-card/glow'));
     glow.blend = 0;
     add(glow);
 
@@ -139,8 +163,11 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = FunkinSprite.createTextureAtlas((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120, 55,
-      'ui/freeplay/styles/pico/backing-card/pico-confirm');
+    confirmAtlas = FunkinSprite.createTextureAtlas(
+      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120,
+      55,
+      'ui/freeplay/styles/pico/backing-card/pico-confirm'
+    );
     confirmAtlas.animation.addBySymbol('wholeTimeline', confirmAtlas.getDefaultSymbol(), confirmAtlas.library.frameRate, false);
     confirmAtlas.visible = false;
     add(confirmAtlas);
@@ -241,18 +268,24 @@ class PicoCard extends BackingCard
   public override function beatHit():Void
   {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
-    beatFreq = beatFreqList[
-      Math.floor(Conductor.instance.bpm / 140)
-    ];
+    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
 
     if (Conductor.instance.currentBeat % beatFreq != 0) return;
     FlxTween.cancelTweensOf(glow);
     FlxTween.cancelTweensOf(glowDark);
 
     glow.alpha = 1;
-    FlxTween.tween(glow, {alpha: 0}, 16 / 24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glow, {
+      alpha: 0
+    }, 16 / 24, {
+      ease: FlxEase.quartOut
+    });
     glowDark.alpha = 0;
-    FlxTween.tween(glowDark, {alpha: 1}, 18 / 24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glowDark, {
+      alpha: 1
+    }, 18 / 24, {
+      ease: FlxEase.quartOut
+    });
   }
 
   public override function introDone():Void
@@ -268,13 +301,24 @@ class PicoCard extends BackingCard
     glow.visible = true;
 
     cardGlow.visible = true;
-    FlxTween.tween(cardGlow, {alpha: 0}, 0.45, {ease: FlxEase.sineOut});
-    FlxTween.tween(cardGlow.scale, {x: 1.2, y: 1.2}, 0.45, {ease: FlxEase.sineOut});
+    FlxTween.tween(cardGlow, {
+      alpha: 0
+    }, 0.45, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(cardGlow.scale, {
+      x: 1.2,
+      y: 1.2
+    }, 0.45, {
+      ease: FlxEase.sineOut
+    });
   }
 
   public override function disappear():Void
   {
-    FlxTween.color(pinkBack, 0.25, 0xFF98A2F3, 0xFFFFD0D5, {ease: FlxEase.quadOut});
+    FlxTween.color(pinkBack, 0.25, 0xFF98A2F3, 0xFFFFD0D5, {
+      ease: FlxEase.quadOut
+    });
 
     blueBar.visible = false;
     scrollBack.visible = false;
@@ -287,8 +331,17 @@ class PicoCard extends BackingCard
     cardGlow.visible = true;
     cardGlow.alpha = 1;
     cardGlow.scale.set(1, 1);
-    FlxTween.tween(cardGlow, {alpha: 0}, 0.25, {ease: FlxEase.sineOut});
-    FlxTween.tween(cardGlow.scale, {x: 1.2, y: 1.2}, 0.25, {ease: FlxEase.sineOut});
+    FlxTween.tween(cardGlow, {
+      alpha: 0
+    }, 0.25, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(cardGlow.scale, {
+      x: 1.2,
+      y: 1.2
+    }, 0.25, {
+      ease: FlxEase.sineOut
+    });
   }
 
   override public function update(elapsed:Float):Void

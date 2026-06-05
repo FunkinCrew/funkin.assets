@@ -130,7 +130,7 @@ class StressSong extends Song
       trace('reset pico!');
     }
   }
-  
+
   /**
    * Pause the tankman flicker when the game is paused
    */

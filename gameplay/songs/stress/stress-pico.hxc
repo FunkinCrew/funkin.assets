@@ -212,11 +212,18 @@ class StressPicoMixSong extends Song
 
   function startEndCutscene()
   {
-    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-    var otisPos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
-    var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+    var picoPos:Array<Float> = [
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+    ];
+    var otisPos:Array<Float> = [
+      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y
+    ];
+    var tankmanPos:Array<Float> = [
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+    ];
 
     cutsceneTimerManager = new FlxTimerManager();
 
@@ -233,8 +240,10 @@ class StressPicoMixSong extends Song
     {
       PlayState.instance.subtitles.offsets = [0, 42];
       PlayState.instance.subtitles.alignment = 'bottom';
-      PlayState.instance.subtitles.assignSubtitles('gameplay/songs/stress/subtitles/end-cutscene-pico',
-        PlayState.instance.currentStage.getDad().picoEndingSound);
+      PlayState.instance.subtitles.assignSubtitles(
+        'gameplay/songs/stress/subtitles/end-cutscene-pico',
+        PlayState.instance.currentStage.getDad().picoEndingSound
+      );
     }
 
     new FlxTimer(cutsceneTimerManager).start(176 / 24, _ ->
@@ -245,7 +254,9 @@ class StressPicoMixSong extends Song
     new FlxTimer(cutsceneTimerManager).start(270 / 24, _ ->
     {
       PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 370, 2, FlxEase.quadInOut);
-      FlxTween.tween(bgSprite, {alpha: 1}, 2, null);
+      FlxTween.tween(bgSprite, {
+        alpha: 1
+      }, 2, null);
     });
 
     new FlxTimer(cutsceneTimerManager).start(320 / 24, _ ->
@@ -253,7 +264,7 @@ class StressPicoMixSong extends Song
       PlayState.instance.endSong(true);
     });
   }
-    
+
   /**
    * Pause the tankman flicker when the game is paused
    */

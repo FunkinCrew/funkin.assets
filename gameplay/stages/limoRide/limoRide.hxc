@@ -42,8 +42,7 @@ class LimoRideStage extends Stage
     super.onCreate(event);
 
     // Precache the car passing sfx.
-    for (snd in ['car-pass-1', 'car-pass-2'])
-      FunkinMemory.cacheSound(Paths.sound('gameplay/stages/limoRide/sounds/$snd'));
+    for (snd in ['car-pass-1', 'car-pass-2']) FunkinMemory.cacheSound(Paths.sound('gameplay/stages/limoRide/sounds/$snd'));
   }
 
   override function buildStage()
@@ -74,10 +73,20 @@ class LimoRideStage extends Stage
     // I don't know what it's for, but it's not used in the game.
     // If you want to re-add it, go find it in version control.
 
-    carSequenceData = [{time: 1, callback: () -> doCarHaptics = true}, {time: 1.4, callback: () -> doCarHaptics = false}, {
-      time: 2,
-      callback: () -> resetFastCar()
-    }];
+    carSequenceData = [
+      {
+        time: 1,
+        callback: () -> doCarHaptics = true
+      },
+      {
+        time: 1.4,
+        callback: () -> doCarHaptics = false
+      },
+      {
+        time: 2,
+        callback: () -> resetFastCar()
+      }
+    ];
 
     resetFastCar();
   }

@@ -413,8 +413,13 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     picoFade.zIndex = this.zIndex - 3;
     picoFade.updateHitbox();
 
-    FlxTween.tween(picoFade.scale, {x: 1.3, y: 1.3}, 0.4);
-    FlxTween.tween(picoFade, {alpha: 0}, 0.4);
+    FlxTween.tween(picoFade.scale, {
+      x: 1.3,
+      y: 1.3
+    }, 0.4);
+    FlxTween.tween(picoFade, {
+      alpha: 0
+    }, 0.4);
     addToStage(picoFade);
 
     FunkinSound.playOnce(Paths.sound('gameplay/characters/pico-playable/sounds/gun-prep'), 1.0);

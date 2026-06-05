@@ -320,7 +320,10 @@ class PhillyStreetsErectStage extends Stage
       FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
     ];
 
-    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay});
+    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {
+      ease: FlxEase.sineIn,
+      startDelay: startdelay
+    });
     FlxTween.quadPath(sprite, path, duration, true, {
       ease: FlxEase.sineIn,
       startDelay: startdelay,
@@ -372,7 +375,9 @@ class PhillyStreetsErectStage extends Stage
     // 	var debug:FlxSprite = new FlxSprite(point.x - 5, point.y - 5).makeGraphic(10, 10, 0xFFFF0000);
     // 	add(debug);
     // }
-    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut});
+    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {
+      ease: FlxEase.cubeOut
+    });
     FlxTween.quadPath(sprite, path, duration, true, {
       ease: FlxEase.cubeOut,
       onComplete: function(_)
@@ -520,8 +525,13 @@ class PhillyStreetsErectStage extends Stage
 
     if (FlxG.sound.music != null)
     {
-      var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity,
-        rainShaderEndIntensity);
+      var remappedIntensityValue:Float = FlxMath.remapToRange(
+        Conductor.instance.songPosition,
+        0,
+        FlxG.sound.music.length,
+        rainShaderStartIntensity,
+        rainShaderEndIntensity
+      );
       rainShader.intensity = remappedIntensityValue;
       rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
       rainShader.update(event.elapsed);
@@ -568,11 +578,13 @@ class PhillyStreetsErectStage extends Stage
     // }
 
     // try driving one on the right too. in this case theres no red light logic, it just can only spawn on green lights
-    if (FlxG.random.bool(10)
+    if (
+      FlxG.random.bool(10)
       && event.beat != (lastChange + changeInterval)
       && car2Interruptable == true
       && lightsStop == false
-      && carsEnabled) driveCarBack(getNamedProp('phillyCars2'));
+      && carsEnabled
+    ) driveCarBack(getNamedProp('phillyCars2'));
 
     // After the interval has been hit, change the light state.
     if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);

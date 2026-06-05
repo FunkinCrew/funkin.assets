@@ -94,7 +94,7 @@ class PicoPixelCharacter extends SparrowCharacter
       {
         // force the deathloop to play before the anim fully ends
         // this stops the GameOverSubState from running the original code while still keeping the original look
-        GameOverSubState.instance.boyfriend.playAnimation('deathLoop');  
+        GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
       }
     }
 

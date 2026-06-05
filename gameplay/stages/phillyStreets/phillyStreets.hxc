@@ -23,24 +23,19 @@ class PhillyStreetsStage extends Stage
   var rainShader:RuntimeRainShader = new RuntimeRainShader();
   var rainShaderFilter:ShaderFilter;
   var blurFilter:BlurFilter = new BlurFilter(6, 6);
-
   // as song goes on, these are used to make the rain more intense throught the song
   // these values are also used for the rain sound effect volume intensity!
   var rainShaderStartIntensity:Float;
   var rainShaderEndIntensity:Float;
-
   // var rainSndAmbience:FunkinSound;
   // var carSndAmbience:FunkinSound;
   var lightsStop:Bool = false; // state of the traffic lights
   var lastChange:Int = 0;
   var changeInterval:Int = 8; // make sure it doesnt change until AT LEAST this many beats
-
   var carWaiting:Bool = false; // if the car is waiting at the lights and is ready to go on green
   var carInterruptable:Bool = true; // if the car can be reset
   var car2Interruptable:Bool = true;
-
   var carsEnabled:Bool = true;
-
   var scrollingSky:FunkinTiledSprite;
 
   function new()
@@ -219,10 +214,16 @@ class PhillyStreetsStage extends Stage
     var offset:Array<Float> = [306.6, 168.3];
     var startdelay:Float = FlxG.random.float(0.2, 1.2);
 
-    var path:Array<FlxPoint> = [FlxPoint.get(1950 - offset[0] - 80,
-      980 - offset[1] + 15), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50), FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)];
+    var path:Array<FlxPoint> = [
+      FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15),
+      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
+      FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
+    ];
 
-    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay});
+    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {
+      ease: FlxEase.sineIn,
+      startDelay: startdelay
+    });
     FlxTween.quadPath(sprite, path, duration, true, {
       ease: FlxEase.sineIn,
       startDelay: startdelay,
@@ -264,14 +265,19 @@ class PhillyStreetsStage extends Stage
     var offset:Array<Float> = [306.6, 168.3];
     sprite.offset.set(extraOffset[0], extraOffset[1]);
 
-    var path:Array<FlxPoint> = [FlxPoint.get(1500 - offset[0] - 20,
-      1049 - offset[1] - 20), FlxPoint.get(1770 - offset[0] - 80, 994 - offset[1] + 10), FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15)];
+    var path:Array<FlxPoint> = [
+      FlxPoint.get(1500 - offset[0] - 20, 1049 - offset[1] - 20),
+      FlxPoint.get(1770 - offset[0] - 80, 994 - offset[1] + 10),
+      FlxPoint.get(1950 - offset[0] - 80, 980 - offset[1] + 15)
+    ];
     // debug shit!!! keeping it here just in case
     // for(point in path){
     // 	var debug:FlxSprite = new FlxSprite(point.x - 5, point.y - 5).makeGraphic(10, 10, 0xFFFF0000);
     // 	add(debug);
     // }
-    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut});
+    FlxTween.angle(sprite, rotations[0], rotations[1], duration, {
+      ease: FlxEase.cubeOut
+    });
     FlxTween.quadPath(sprite, path, duration, true, {
       ease: FlxEase.cubeOut,
       onComplete: function(_)
@@ -318,8 +324,11 @@ class PhillyStreetsStage extends Stage
     // start/end rotation
     var rotations:Array<Int> = [-8, 18];
     // the path to move the car on
-    var path:Array<FlxPoint> = [FlxPoint.get(1570 - offset[0],
-      1049 - offset[1] - 30), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50), FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)];
+    var path:Array<FlxPoint> = [
+      FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
+      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
+      FlxPoint.get(3102 - offset[0], 1187 - offset[1] + 40)
+    ];
 
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
     FlxTween.quadPath(sprite, path, duration, true, {
@@ -363,8 +372,11 @@ class PhillyStreetsStage extends Stage
     // start/end rotation
     var rotations:Array<Int> = [18, -8];
     // the path to move the car on
-    var path:Array<FlxPoint> = [FlxPoint.get(3102 - offset[0],
-      1127 - offset[1] + 60), FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30), FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)];
+    var path:Array<FlxPoint> = [
+      FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 60),
+      FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30),
+      FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)
+    ];
 
     FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
     FlxTween.quadPath(sprite, path, duration, true, {
@@ -400,8 +412,13 @@ class PhillyStreetsStage extends Stage
 
     if (FlxG.sound.music != null)
     {
-      var remappedIntensityValue:Float = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity,
-        rainShaderEndIntensity);
+      var remappedIntensityValue:Float = FlxMath.remapToRange(
+        Conductor.instance.songPosition,
+        0,
+        FlxG.sound.music.length,
+        rainShaderStartIntensity,
+        rainShaderEndIntensity
+      );
       rainShader.intensity = remappedIntensityValue;
       rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
       rainShader.update(event.elapsed);
@@ -438,10 +455,13 @@ class PhillyStreetsStage extends Stage
     }
 
     // try driving one on the right too. in this case theres no red light logic, it just can only spawn on green lights
-    if (FlxG.random.bool(10)
+    if (
+      FlxG.random.bool(10)
       && event.beat != (lastChange + changeInterval)
       && car2Interruptable == true
-      && lightsStop == false && carsEnabled) driveCarBack(getNamedProp('phillyCars2'));
+      && lightsStop == false
+      && carsEnabled
+    ) driveCarBack(getNamedProp('phillyCars2'));
 
     // After the interval has been hit, change the light state.
     if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);

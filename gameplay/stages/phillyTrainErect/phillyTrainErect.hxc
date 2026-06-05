@@ -85,9 +85,7 @@ class PhillyTrainErectStage extends Stage
   {
     super.onCountdownStart(event);
 
-    if (!hasPlayedInGameCutscene
-      && PlayState.instance.currentStage.getBoyfriend()?.characterId == 'pico-playable'
-      && !PlayState.instance.isChartingMode)
+    if (!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend()?.characterId == 'pico-playable' && !PlayState.instance.isChartingMode)
     {
       trace('Pausing countdown to play in game cutscene');
 
@@ -122,8 +120,13 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
-    skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
-      'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+    skipText = new FlxText(
+      936 * FullScreenScaleMode.wideScale.x,
+      618 * FullScreenScaleMode.wideScale.y,
+      0,
+      'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]',
+      20
+    );
 
     #if mobile
     skipText.text = 'Skip [Pause Button]';
@@ -255,7 +258,9 @@ class PhillyTrainErectStage extends Stage
     {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5, {
+      FlxTween.tween(skipText, {
+        alpha: 0
+      }, 0.5, {
         ease: FlxEase.quadIn,
         onComplete: _ ->
         {
@@ -449,7 +454,11 @@ class PhillyTrainErectStage extends Stage
         trace('cant skip yet!');
         if (skipText != null)
         {
-          FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+          FlxTween.tween(skipText, {
+            alpha: 1
+          }, 0.5, {
+            ease: FlxEase.quadOut
+          });
           new FlxTimer().start(0.5, _ ->
           {
             canSkipCutscene = true;

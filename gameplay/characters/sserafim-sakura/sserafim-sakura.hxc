@@ -18,34 +18,44 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
    * A map of animation names to lip sync data.
    * This is so it gets offset properly!
    */
-  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = ['idle' => {
-    offset: [7, 2],
-    angle: -14
-  }, 'singUP' => {
-    offset: [8, 1],
-    angle: -15
-  }, 'singRIGHT' => {
-    offset: [7, 2],
-    angle: -15
-  }, 'singDOWN' => {
-    offset: [6, 3],
-    angle: -15
-  }, 'singLEFT' => {
-    offset: [7, 2],
-    angle: -14
-  }, 'singUP-joint' => {
-    offset: [10, -1],
-    angle: -14
-  }, 'singRIGHT-joint' => {
-    offset: [6, 3],
-    angle: -15
-  }, 'singDOWN-joint' => {
-    offset: [5, 5],
-    angle: -15
-  }, 'singLEFT-joint' => {
-    offset: [7, 2],
-    angle: -16
-  }];
+  final LIP_SYNC_OFFSETS:Map<String, LipSyncData> = [
+    'idle' => {
+      offset: [7, 2],
+      angle: -14
+    },
+    'singUP' => {
+      offset: [8, 1],
+      angle: -15
+    },
+    'singRIGHT' => {
+      offset: [7, 2],
+      angle: -15
+    },
+    'singDOWN' => {
+      offset: [6, 3],
+      angle: -15
+    },
+    'singLEFT' => {
+      offset: [7, 2],
+      angle: -14
+    },
+    'singUP-joint' => {
+      offset: [10, -1],
+      angle: -14
+    },
+    'singRIGHT-joint' => {
+      offset: [6, 3],
+      angle: -15
+    },
+    'singDOWN-joint' => {
+      offset: [5, 5],
+      angle: -15
+    },
+    'singLEFT-joint' => {
+      offset: [7, 2],
+      angle: -16
+    }
+  ];
 
   function new()
   {

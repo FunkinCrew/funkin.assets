@@ -22,7 +22,6 @@ class TwoHOTSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
   var cutsceneConductor:Null<Conductor>;
-
   var canVibrationPreset:VibrationPreset = {
     period: 0.1,
     duration: 0.1,
@@ -123,6 +122,7 @@ class TwoHOTSong extends Song
   }
 
   // the Other stuff
+
   function endCutscene()
   {
     VideoCutscene.onVideoStarted.removeAll();
@@ -142,8 +142,11 @@ class TwoHOTSong extends Song
     {
       PlayState.instance.currentStage.getBoyfriend().playAnimation('intro1', true, true);
       #if mobile
-      FlxTween.tween(PlayState.instance.pauseButton,
-        {x: (FlxG.width - PlayState.instance.pauseButton.width) - (40 + (FullScreenScaleMode.gameCutoutSize.x / 2))}, 3.0, {ease: FlxEase.quintOut});
+      FlxTween.tween(PlayState.instance.pauseButton, {
+        x: (FlxG.width - PlayState.instance.pauseButton.width) - (40 + (FullScreenScaleMode.gameCutoutSize.x / 2))
+      }, 3.0, {
+        ease: FlxEase.quintOut
+      });
       #end
       FullScreenScaleMode.addCutouts(3.0, FlxEase.quintOut);
     });

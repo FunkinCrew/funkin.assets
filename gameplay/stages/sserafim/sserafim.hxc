@@ -28,27 +28,35 @@ import funkin.util.TouchUtil;
 
 class SserafimStage extends Stage
 {
-  var baseVisible:Array<Bool> = [true, false, false, false, false, false];
-  var baseSinging:Array<Bool> = [false, false, false, false, false, false];
-
+  var baseVisible:Array<Bool> = [
+    true,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+  var baseSinging:Array<Bool> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
   // CHARACTERS
   var yunjin:BaseCharacter;
   var chaewon:BaseCharacter;
   var eunchae:BaseCharacter;
-
   // VFX/SHADERS
   var characterShader:SserafimShader;
   var stageShader:SserafimShader;
-
   // SPRITES
   var perspectiveFloor:PerspectiveSprite = null;
-
   // CUTSCENE SHIT
   var hasPlayedCutscene:Bool;
-
   var SEEYOU1:FlxSprite;
   var SEEYOU2:FlxSprite;
-
   // Tracked FunkinTweens so we can cancel them on event reset without relying on FlxTween.cancelTweensOf.
   var _activeFunkinTweens:Array<FunkinVarTween> = [];
 
@@ -227,6 +235,7 @@ class SserafimStage extends Stage
   }
 
   // Reset events (like shown characters, singing, lights, dark, flash, etc)
+
   public override function onEventReset():Void
   {
     super.onEventReset();
@@ -234,7 +243,8 @@ class SserafimStage extends Stage
     // Cancel FunkinTweens first so they don't write stale values after the reset.
     cancelAllEventTweens();
 
-    if (PlayState.instance == null) {
+    if (PlayState.instance == null)
+    {
       getBoyfriend()?.visible = true;
       getGirlfriend()?.visible = true;
     }
@@ -291,8 +301,12 @@ class SserafimStage extends Stage
       case 'sserafimFlash':
         if (PlayState.instance != null) flashScreen(scriptEvent.eventData.getFloat('duration'));
       case 'sserafimPulseLights':
-        setLightState(scriptEvent.eventData.getBool('enabled'), scriptEvent.eventData.getArray('colors'), scriptEvent.eventData.getArray('durations'),
-          scriptEvent.eventData.getArray('intensities'));
+        setLightState(
+          scriptEvent.eventData.getBool('enabled'),
+          scriptEvent.eventData.getArray('colors'),
+          scriptEvent.eventData.getArray('durations'),
+          scriptEvent.eventData.getArray('intensities')
+        );
       case 'sserafimKick':
         if (PlayState.instance != null)
         {
@@ -488,20 +502,22 @@ class SserafimStage extends Stage
     // Cancel previous darken tweens before starting new ones to prevent overlap.
     cancelAllEventTweens();
 
-    createEventTween(characterShader, {darkenAmount: darkAmt},
-      {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.sineInOut
-      });
-    createEventTween(stageShader, {darkenAmount: darkAmt},
-      {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.sineInOut
-      });
+    createEventTween(characterShader, {
+      darkenAmount: darkAmt
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.sineInOut
+    });
+    createEventTween(stageShader, {
+      darkenAmount: darkAmt
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.sineInOut
+    });
   }
 
   function flashTruckLights(amount:Float, duration:Float):Void
@@ -519,30 +535,32 @@ class SserafimStage extends Stage
 
     // truckLightStrength mirrors truckLight1 alpha so we tween both together.
     // onUpdate keeps the shader in sync with the tweened alpha each frame.
-    createEventTween(getNamedProp('truckLight1'), {alpha: 0},
+    createEventTween(getNamedProp('truckLight1'), {
+      alpha: 0
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.cubeInOut,
+      onUpdate: function(_)
       {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.cubeInOut,
-        onUpdate: function(_)
-        {
-          characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-          stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
-        },
-        onComplete: function(_)
-        {
-          characterShader.truckLightStrength = 0;
-          stageShader.truckLightStrength = 0;
-        }
-      });
-    createEventTween(getNamedProp('truckLight2'), {alpha: 0},
+        characterShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+        stageShader.truckLightStrength = getNamedProp('truckLight1').alpha;
+      },
+      onComplete: function(_)
       {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.cubeInOut
-      });
+        characterShader.truckLightStrength = 0;
+        stageShader.truckLightStrength = 0;
+      }
+    });
+    createEventTween(getNamedProp('truckLight2'), {
+      alpha: 0
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.cubeInOut
+    });
   }
 
   var lightsColors:Array<FlxColor> = [];
@@ -576,30 +594,32 @@ class SserafimStage extends Stage
     characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
     stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
 
-    createEventTween(getNamedProp('backLightColor'), {alpha: 0},
+    createEventTween(getNamedProp('backLightColor'), {
+      alpha: 0
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.cubeInOut,
+      onUpdate: function(_)
       {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.cubeInOut,
-        onUpdate: function(_)
-        {
-          characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-          stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
-        },
-        onComplete: function(_)
-        {
-          characterShader.pulseLightStrength = 0;
-          stageShader.pulseLightStrength = 0;
-        }
-      });
-    createEventTween(getNamedProp('backLightWhite'), {alpha: 0},
+        characterShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+        stageShader.pulseLightStrength = getNamedProp('backLightColor').alpha;
+      },
+      onComplete: function(_)
       {
-        conductor: Conductor.instance,
-        lengthMs: duration * 1000,
-        shouldUseConductorSync: true,
-        ease: FlxEase.cubeInOut
-      });
+        characterShader.pulseLightStrength = 0;
+        stageShader.pulseLightStrength = 0;
+      }
+    });
+    createEventTween(getNamedProp('backLightWhite'), {
+      alpha: 0
+    }, {
+      conductor: Conductor.instance,
+      lengthMs: duration * 1000,
+      shouldUseConductorSync: true,
+      ease: FlxEase.cubeInOut
+    });
   }
 
   function onBeatHit(event:SongTimeScriptEvent)
@@ -607,8 +627,11 @@ class SserafimStage extends Stage
     super.onBeatHit(event);
 
     // flash lights behind truck
-    if (lightsEnabled) flashBackLight(lightsIntensities[event.beat % lightsIntensities.length], lightsDurations[event.beat % lightsDurations.length],
-      lightsColors[event.beat % lightsColors.length]);
+    if (lightsEnabled) flashBackLight(
+      lightsIntensities[event.beat % lightsIntensities.length],
+      lightsDurations[event.beat % lightsDurations.length],
+      lightsColors[event.beat % lightsColors.length]
+    );
   }
 
   var isMobilePauseButtonPressed:Bool = false;
@@ -626,7 +649,8 @@ class SserafimStage extends Stage
     if (perspectiveFloor != null)
     {
       if (PlayState.instance == null) perspectiveFloor.updateSkew(null, vcamPoint);
-      else perspectiveFloor.updateSkew(PlayState.instance.camGame, vcamPoint);
+      else
+        perspectiveFloor.updateSkew(PlayState.instance.camGame, vcamPoint);
     }
 
     if (PlayState.instance == null) return;
@@ -644,7 +668,11 @@ class SserafimStage extends Stage
         trace('cant skip yet!');
         if (skipText != null)
         {
-          FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+          FlxTween.tween(skipText, {
+            alpha: 1
+          }, 0.5, {
+            ease: FlxEase.quadOut
+          });
           new FlxTimer().start(0.5, _ ->
           {
             canSkipCutscene = true;
@@ -664,9 +692,7 @@ class SserafimStage extends Stage
   var sserafimCutscene:SserafimCutsceneSprite;
   var sserafimBf:SserafimBfSprite;
   var sserafimGf:SserafimGfSprite;
-
   var cutsceneSounds:Null<FunkinSound> = null;
-
   var skipText:FlxText;
   var cutsceneSkipped:Bool = false;
   var canSkipCutscene:Bool = false;
@@ -704,11 +730,18 @@ class SserafimStage extends Stage
   }
 
   // helper function cause i really dont wanna have to manually do this twice
+
   function setCutsceneVisibility(inCutscene:Bool):Void
   {
     if (inCutscene)
     {
-      setGirlsVisible([!inCutscene, !inCutscene, !inCutscene, !inCutscene, !inCutscene]);
+      setGirlsVisible([
+        !inCutscene,
+        !inCutscene,
+        !inCutscene,
+        !inCutscene,
+        !inCutscene
+      ]);
     }
     else
     {
@@ -845,8 +878,13 @@ class SserafimStage extends Stage
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
-    skipText = new FlxText(936 * FullScreenScaleMode.wideScale.x, 618 * FullScreenScaleMode.wideScale.y, 0,
-      'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+    skipText = new FlxText(
+      936 * FullScreenScaleMode.wideScale.x,
+      618 * FullScreenScaleMode.wideScale.y,
+      0,
+      'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]',
+      20
+    );
 
     #if mobile
     skipText.text = 'Skip [Pause Button]';
@@ -907,7 +945,9 @@ class SserafimStage extends Stage
     {
       cutsceneSkipped = true;
       canSkipCutscene = false;
-      FlxTween.tween(skipText, {alpha: 0}, 0.5, {
+      FlxTween.tween(skipText, {
+        alpha: 0
+      }, 0.5, {
         ease: FlxEase.quadIn,
         onComplete: _ ->
         {
@@ -924,13 +964,17 @@ class SserafimStage extends Stage
         baseHue: 0,
         baseContrast: -30,
         baseSaturation: 0
-      }, 49 / 24, {ease: FlxEase.sineOut});
+      }, 49 / 24, {
+        ease: FlxEase.sineOut
+      });
       FlxTween.tween(characterShader, {
         baseBrightness: 55,
         baseHue: 0,
         baseContrast: -30,
         baseSaturation: 0
-      }, 49 / 24, {ease: FlxEase.sineOut});
+      }, 49 / 24, {
+        ease: FlxEase.sineOut
+      });
       HapticUtil.vibrate(10 / 24, 50 / 24, 0.1, 0.1);
     });
 
@@ -945,13 +989,17 @@ class SserafimStage extends Stage
         baseHue: 10,
         baseContrast: -17,
         baseSaturation: 0
-      }, 15 / 24, {ease: FlxEase.expoIn});
+      }, 15 / 24, {
+        ease: FlxEase.expoIn
+      });
       FlxTween.tween(characterShader, {
         baseBrightness: 66,
         baseHue: 10,
         baseContrast: -17,
         baseSaturation: 0
-      }, 15 / 24, {ease: FlxEase.expoIn});
+      }, 15 / 24, {
+        ease: FlxEase.expoIn
+      });
       HapticUtil.vibrate(2 / 24, 20 / 24, 0.4, 0.4);
     });
 
@@ -984,7 +1032,11 @@ class SserafimStage extends Stage
       PlayState.instance.tweenCameraToPosition(1070, 470, 0);
 
       resetClear();
-      FlxTween.tween(getNamedProp('solidCover'), {alpha: 0}, 3, {ease: FlxEase.sineOut});
+      FlxTween.tween(getNamedProp('solidCover'), {
+        alpha: 0
+      }, 3, {
+        ease: FlxEase.sineOut
+      });
 
       sserafimGf.visible = true;
       sserafimBf.visible = true;
@@ -1053,7 +1105,18 @@ class SserafimStage extends Stage
 
     getNamedProp('truckDoor').visible = false;
 
-    for (thing in [stageShader, characterShader, dust1, dust1.velocity, dust2, dust2.velocity, dust3, dust3.velocity, dust4, dust4.velocity])
+    for (thing in [
+      stageShader,
+      characterShader,
+      dust1,
+      dust1.velocity,
+      dust2,
+      dust2.velocity,
+      dust3,
+      dust3.velocity,
+      dust4,
+      dust4.velocity
+    ])
     {
       FlxTween.cancelTweensOf(thing);
     }
@@ -1079,19 +1142,67 @@ class SserafimStage extends Stage
 
   function startClear()
   {
-    FlxTween.tween(stageShader, {baseBrightness: 0, baseHue: 0, baseContrast: 0, baseSaturation: 0},
-      6.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(characterShader, {baseBrightness: 0, baseHue: 0, baseContrast: 0, baseSaturation: 0},
-      6.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(stageShader, {
+      baseBrightness: 0,
+      baseHue: 0,
+      baseContrast: 0,
+      baseSaturation: 0
+    }, 6.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(characterShader, {
+      baseBrightness: 0,
+      baseHue: 0,
+      baseContrast: 0,
+      baseSaturation: 0
+    }, 6.0 * 4, {
+      ease: FlxEase.sineOut
+    });
 
-    FlxTween.tween(dust1, {alpha: 0, y: dust1.y + 100}, 5.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust2, {alpha: 0, y: dust2.y + 200}, 4.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust3, {alpha: 0, y: dust3.y + 150}, 6.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust4, {alpha: 0, y: dust4.y + 100}, 4.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(dust1, {
+      alpha: 0,
+      y: dust1.y + 100
+    }, 5.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust2, {
+      alpha: 0,
+      y: dust2.y + 200
+    }, 4.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust3, {
+      alpha: 0,
+      y: dust3.y + 150
+    }, 6.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust4, {
+      alpha: 0,
+      y: dust4.y + 100
+    }, 4.0 * 4, {
+      ease: FlxEase.sineOut
+    });
 
-    FlxTween.tween(dust1.velocity, {x: 0}, 5.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust2.velocity, {x: 0}, 4.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust3.velocity, {x: 0}, 6.0 * 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(dust4.velocity, {x: 0}, 4.0 * 4, {ease: FlxEase.sineOut});
+    FlxTween.tween(dust1.velocity, {
+      x: 0
+    }, 5.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust2.velocity, {
+      x: 0
+    }, 4.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust3.velocity, {
+      x: 0
+    }, 6.0 * 4, {
+      ease: FlxEase.sineOut
+    });
+    FlxTween.tween(dust4.velocity, {
+      x: 0
+    }, 4.0 * 4, {
+      ease: FlxEase.sineOut
+    });
   }
 }

@@ -12,7 +12,6 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
 
   var tankmanTimes:Array<Float> = [];
   var tankmanDirs:Array<Bool> = [];
-
   var isErect:Bool = false;
 
   public function new(erect:Bool = false)

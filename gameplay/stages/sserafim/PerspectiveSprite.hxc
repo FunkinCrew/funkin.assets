@@ -14,10 +14,8 @@ import flixel.math.FlxPoint;
 class PerspectiveSprite extends FlxTypedSpriteGroup
 {
   public var sprite:FunkinSkewedSprite;
-
   public var bottomObj:FlxObject;
   public var topObj:FlxObject;
-
   public var bottomVis:FlxSprite;
   public var topVis:FlxSprite;
 
@@ -84,10 +82,14 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
     // correct for scrollfactors..
     // var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x, bottomObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y));
     // var correctedTop:FlxPoint = new FlxPoint(topObj.x, topObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y));
-    var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x + (scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x)),
-      bottomObj.y + (scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y)));
-    var correctedTop:FlxPoint = new FlxPoint(topObj.x + (scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x)),
-      topObj.y + (scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y)));
+    var correctedBottom:FlxPoint = new FlxPoint(
+      bottomObj.x + (scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x)),
+      bottomObj.y + (scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y))
+    );
+    var correctedTop:FlxPoint = new FlxPoint(
+      topObj.x + (scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x)),
+      topObj.y + (scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y))
+    );
     if (debugDraw)
     {
       bottomVis.setPosition(correctedBottom.x, correctedBottom.y);

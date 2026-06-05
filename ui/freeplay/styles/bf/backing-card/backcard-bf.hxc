@@ -68,12 +68,36 @@ class BoyfriendCard extends BackingCard
 
   public override function enterCharSel():Void
   {
-    FlxTween.tween(funnyScroll, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(funnyScroll2, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(moreWays, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(moreWays2, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(txtNuts, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
-    FlxTween.tween(funnyScroll3, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(funnyScroll, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(funnyScroll2, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(moreWays, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(moreWays2, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(txtNuts, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
+    FlxTween.tween(funnyScroll3, {
+      speed: 0
+    }, 0.8, {
+      ease: FlxEase.sineIn
+    });
   }
 
   public override function new()
@@ -91,7 +115,11 @@ class BoyfriendCard extends BackingCard
 
   public override function onCreate(event:ScriptEvent):Void
   {
-    FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
+    FlxTween.tween(pinkBack, {
+      x: 0
+    }, 0.6, {
+      ease: FlxEase.quartOut
+    });
     add(pinkBack);
 
     add(orangeBackShit);
@@ -150,8 +178,10 @@ class BoyfriendCard extends BackingCard
     funnyScroll3.speed = -3.8;
     add(funnyScroll3);
 
-    glowDark = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI)
-      + -300, 330).loadGraphic(Paths.image('ui/freeplay/interface/beat-glow'));
+    glowDark = new FlxSprite(
+      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + -300,
+      330
+    ).loadGraphic(Paths.image('ui/freeplay/interface/beat-glow'));
     glowDark.blend = 9;
     add(glowDark);
 
@@ -171,18 +201,24 @@ class BoyfriendCard extends BackingCard
   public override function beatHit():Void
   {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
-    beatFreq = beatFreqList[
-      Math.floor(Conductor.instance.bpm / 140)
-    ];
+    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
 
     if (Conductor.instance.currentBeat % beatFreq != 0) return;
     FlxTween.cancelTweensOf(glow);
     FlxTween.cancelTweensOf(glowDark);
 
     glow.alpha = 0.8;
-    FlxTween.tween(glow, {alpha: 0}, 16 / 24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glow, {
+      alpha: 0
+    }, 16 / 24, {
+      ease: FlxEase.quartOut
+    });
     glowDark.alpha = 0;
-    FlxTween.tween(glowDark, {alpha: 0.6}, 18 / 24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glowDark, {
+      alpha: 0.6
+    }, 18 / 24, {
+      ease: FlxEase.quartOut
+    });
   }
 
   public override function introDone():Void

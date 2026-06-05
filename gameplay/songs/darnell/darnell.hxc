@@ -141,11 +141,18 @@ class DarnellSong extends Song
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
-    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-    var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
-    var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+    var picoPos:Array<Float> = [
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+    ];
+    var nenePos:Array<Float> = [
+      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y
+    ];
+    var darnellPos:Array<Float> = [
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+      PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+    ];
 
     var cutsceneDelay:Float = 2;
 
@@ -154,7 +161,9 @@ class DarnellSong extends Song
 
     cutsceneConductor = new Conductor();
 
-    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData(Paths.json('gameplay/songs/darnell/cutscene/darnell-can-cutscene/darnell-can-cutscene'));
+    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData(
+      Paths.json('gameplay/songs/darnell/cutscene/darnell-can-cutscene/darnell-can-cutscene')
+    );
     if (songMusicData != null)
     {
       cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
@@ -196,7 +205,11 @@ class DarnellSong extends Song
     new FlxTimer().start(0.7, function(tmr)
     {
       cutsceneMusic.play(false);
-      FlxTween.tween(bgSprite, {alpha: 0}, 2, {startDelay: 0.3}, function()
+      FlxTween.tween(bgSprite, {
+        alpha: 0
+      }, 2, {
+        startDelay: 0.3
+      }, function()
       {
         bgSprite.visible = false;
       });
@@ -291,8 +304,7 @@ class DarnellSong extends Song
   function onCutsceneBeatHit()
   {
     // Play idle if Darnell isn't busy.
-    if (PlayState.instance.currentStage.getDad().isAnimationFinished()
-      && PlayState.instance.currentStage.getDad().getCurrentAnimation() != 'lightCan')
+    if (PlayState.instance.currentStage.getDad().isAnimationFinished() && PlayState.instance.currentStage.getDad().getCurrentAnimation() != 'lightCan')
     {
       PlayState.instance.currentStage.getDad().dance(true);
     }

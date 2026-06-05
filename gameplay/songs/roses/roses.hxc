@@ -129,8 +129,16 @@ class RosesSong extends Song
       red.cameras = [PlayState.instance.camCutscene];
 
       red.alpha = 0.0;
-      FlxTween.tween(PlayState.instance.camHUD, {alpha: 0.0}, 1.5, {ease: FlxEase.linear});
-      FlxTween.tween(red, {alpha: 1.0}, 2.0, {ease: FlxEase.linear});
+      FlxTween.tween(PlayState.instance.camHUD, {
+        alpha: 0.0
+      }, 1.5, {
+        ease: FlxEase.linear
+      });
+      FlxTween.tween(red, {
+        alpha: 1.0
+      }, 2.0, {
+        ease: FlxEase.linear
+      });
       PlayState.instance.add(red);
     }
   }
