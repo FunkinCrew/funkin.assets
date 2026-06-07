@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="250" title="Texture Atlas Settings" closable="false">
+  <grid width="100%" columns="2">
+    <label text="SWF Mode?" verticalAlign="center" horizontalAlign="center" tooltip="Whether to make this atlas behave as if it was exported as an .swf file.\nNotably, this allows Movie Clip symbols to play."/>
+    <checkbox id="taSwfMode" text="Enabled"/>
+    <label text="Cache on Load?" verticalAlign="center" horizontalAlign="center" tooltip="Whether to cache filters and masks on load instead of on runtime."/>
+    <checkbox id="taCacheOnLoad" text="Enabled"/>
+    <label text="Filter Quality" verticalAlign="center" horizontalAlign="center" tooltip="The quality of the filters."/>
+    <dropdown id="taFilterQuality" text="Select Item" selectedIndex="1" width="100%">
+      <data>
+        <item text="High" />
+        <item text="Medium" />
+        <item text="Low" />
+        <item text="Rudimentary" />
+      </data>
+    </dropdown>
+    <label text="Apply Stage Matrix?" verticalAlign="center" horizontalAlign="center" tooltip="Whether to apply the matrix from the Animate Stage to the texture atlas."/>
+    <checkbox id="taApplyStageMatrix" text="Enabled"/>
+    <label text="Use Render Texture?" verticalAlign="center" horizontalAlign="center" tooltip="Whether to render the texture atlas as one sprite instead of as individual parts.\nSlightly decreases performance but makes effects like the Rimlight Shader render properly."/>
+    <checkbox id="taUseRenderTexture" text="Enabled"/>
+  </grid>
+</dialog>
