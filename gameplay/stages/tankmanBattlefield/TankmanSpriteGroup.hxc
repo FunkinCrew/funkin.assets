@@ -2,8 +2,8 @@ import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
-import funkin.memory.FunkinMemory;
 import funkin.play.PlayState;
+import funkin.assets.Assets;
 import Lambda;
 
 class TankmanSpriteGroup extends FlxTypedSpriteGroup
@@ -23,7 +23,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
 
     // Precache the Tankman sprite.
-    FunkinMemory.cacheTexture(Paths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
+    Assets.cacheFlxGraphic(Paths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
   }
 
   public function isValid():Bool

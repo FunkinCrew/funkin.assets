@@ -77,7 +77,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
         continue;
       }
 
-      FunkinMemory.cacheTexture(Paths.image(file, lib == 'preload' ? null : lib));
+      Assets.cacheFlxGraphic(Paths.image(file, lib == 'preload' ? null : lib));
     }
 
     // We don't need these sounds outside of Weekend 1.

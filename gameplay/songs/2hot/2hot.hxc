@@ -17,6 +17,7 @@ import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
 import funkin.memory.FunkinMemory;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets;
 
 class TwoHOTSong extends Song
 {
@@ -503,9 +504,9 @@ class TwoHOTSong extends Song
     cutsceneConductor = null;
 
     // Precache the assets for the song.
-    FunkinMemory.cacheTexture(Paths.image("gameplay/songs/2hot/graphics/can-impact"));
-    FunkinMemory.cacheTexture(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion"));
-    FunkinMemory.cacheTexture(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion-ez"));
-    FunkinMemory.cacheTexture(Paths.image("gameplay/songs/2hot/spraycan/spritemap1"));
+    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/can-impact"));
+    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion"));
+    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion-ez"));
+    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/spraycan/spritemap1"));
   }
 }
