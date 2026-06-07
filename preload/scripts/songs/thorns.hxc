@@ -92,7 +92,7 @@ class ThornsSong extends Song
           trace('Senpai death SFX done.');
           // Called when the sound completes. Clean up the cutscene here.
           // Hard cut to the cutscene.
-          PlayState.instance.remove(red);
+          PlayState.instance.remove(red, true);
 
           RetroCameraFade.fadeBlack(PlayState.instance.camCutscene, 6, 1.4);
           RetroCameraFade.fadeBlack(PlayState.instance.camGame, 6, 1.4);
@@ -110,7 +110,7 @@ class ThornsSong extends Song
           new FlxTimer().start(1.4, function(timer:FlxTimer)
           {
             red.color = 0xFFFFFFFF;
-            PlayState.instance.remove(senpaiCrazy);
+            PlayState.instance.remove(senpaiCrazy, true);
 
             PlayState.instance.camCutscene.filters = [];
             RetroCameraFade.fadeToBlack(PlayState.instance.camCutscene, 8, 0.8);
