@@ -33,7 +33,8 @@
         }
       ],
       "atlasSettings": {
-        "applyStageMatrix": true
+        "applyStageMatrix": true,
+        "postStageMatrixApply": true
       },
       "startingAnimation": "idle"
     },
@@ -55,7 +56,8 @@
       ],
       "startingAnimation": "idle",
       "atlasSettings": {
-        "applyStageMatrix": true
+        "applyStageMatrix": true,
+        "postStageMatrixApply": true
       }
     },
     {
