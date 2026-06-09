@@ -9,6 +9,13 @@ body, .label, .link {
   font-family: 'Inconsolata';
   font-bold: true;
 }
+
+.menuitem, .menu .label, .menu .dropdown {
+  font-size: 12px;
+  font-family: 'Inconsolata';
+  font-bold: true;
+}
+
 .textfield {
   font-size: 10px;
   font-bold: true;
