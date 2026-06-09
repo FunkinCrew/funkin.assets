@@ -20,6 +20,9 @@
     <menu-separator />
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
+    <menu text="Export Chart As...">
+      <menu-item id="menubarItemExportChartAsFolder" text="Folder" />
+    </menu>
     <menu-separator />
     <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
