@@ -3,41 +3,46 @@ import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('bf');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  override public function queryAssets(type:AssetType):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = super.queryAssets(type);
 
     switch (type)
     {
-      case "IMAGE":
-        results.push(Paths.animateAtlas("gameplay/characters/bf/bf-fakeout").image());
-      case "JSON":
-        results = results.concat(Paths.animateAtlas("gameplay/characters/bf/bf-fakeout").json());
-      case "SOUND":
-        results.push(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
+      case 'IMAGE':
+        results.push(NewPaths.animateAtlas('gameplay/characters/bf/bf-fakeout').image());
+      case 'JSON':
+        results = results.concat(NewPaths.animateAtlas('gameplay/characters/bf/bf-fakeout').json());
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout'));
     }
 
     return results;
   }
 
-  function onCreate(event:ScriptEvent)
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     // Precache the sound for the fakeout death.
-    Assets.cacheSound(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"));
+    NewAssets.cacheSound(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout'));
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
@@ -56,11 +61,11 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
-    if (name == "fakeoutDeath" && !this.debug)
+    if (name == 'fakeoutDeath' && !this.debug)
     {
       doFakeoutDeath();
     }
@@ -68,7 +73,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 
   function doFakeoutDeath():Void
   {
-    FunkinSound.playOnce(Paths.sound("gameplay/playable-characters/bf/game-over/loss-sfx-fakeout"), 1.0);
+    FunkinSound.playOnce(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout').toFlxSoundAsset(), 1.0);
 
     // We don't want people to miss this.
     GameOverSubState.instance.mustNotExit = true;
@@ -76,16 +81,16 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     {
       GameOverSubState.instance.mustNotExit = false;
       this.playAnimation('firstDeath', true, true);
-      // Play the "blue balled" sound. May play a variant if one has been assigned.
+      // Play the 'blue balled' sound. May play a variant if one has been assigned.
       GameOverSubState.instance.playBlueBalledSFX();
     });
   }
 
-  override function getDeathQuote():Null<String>
+  override public function getDeathQuote():Null<String>
   {
     switch (PlayState.instance?.currentStage?.getDad()?.characterId)
     {
-      case "tankman":
+      case 'tankman':
         var randomCensor:Array<Int> = [];
 
         if (!Preferences.naughtyness)
@@ -110,7 +115,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
           randomCensor = [13, 21];
         }
 
-        return Paths.sound('gameplay/characters/bf-holding-gf/sounds/jeff-gameover-' + FlxG.random.int(1, 25, randomCensor));
+        return NewPaths.sound('gameplay/characters/bf-holding-gf/sounds/jeff-gameover-' + FlxG.random.int(1, 25, randomCensor)).toFlxSoundAsset();
       default:
         return null;
     }

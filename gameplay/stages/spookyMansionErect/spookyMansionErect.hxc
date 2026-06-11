@@ -1,6 +1,5 @@
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import funkin.assets.Assets;
 import funkin.audio.FunkinSound;
 import funkin.data.character.CharacterDataParser;
 import funkin.graphics.shaders.RuntimeRainShader;
@@ -11,27 +10,27 @@ import funkin.play.stage.Stage;
 import funkin.util.FlxTweenUtil;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class SpookyMansionErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('spookyMansionErect');
   }
 
-  /**
-   * If your stage uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function queryAssets(type:AssetType):Array<AssetPath>
+  override public function queryAssets(type:AssetType):Array<AssetPath>
   {
-    trace('Querying assets for Spooky Mansion Erect...');
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = super.queryAssets(type);
 
     switch (type)
     {
-      case "SHADER":
+      case 'SHADER':
         results.push(Paths.frag('ui/shaders/rain'));
       default:
         // nothing
@@ -47,11 +46,9 @@ class SpookyMansionErectStage extends Stage
   var lightningSequence:Sequence;
   var lightningSequenceData:Array<SequenceData>;
 
-  override function onCreate(event:ScriptEvent):Void
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
-
-    trace('Applying rain shader...');
 
     // adjust this value so that the rain looks nice
     rainShader.scale = FlxG.height / 200 * 2;
@@ -63,7 +60,7 @@ class SpookyMansionErectStage extends Stage
     rainShaderTarget.animation.onFrameChange.add(onBranchFrame);
 
     // Precache the thunder sounds.
-    for (snd in ['thunder-1', 'thunder-2']) Assets.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
+    for (snd in ['thunder-1', 'thunder-2']) NewAssets.cacheSound(NewPaths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
 
     lightningSequenceData = [
       {
@@ -106,21 +103,23 @@ class SpookyMansionErectStage extends Stage
     ];
   }
 
-  function onBranchFrame(name, frameNum, frameIndex)
+  public function onBranchFrame(name:String, frameNum:Int, frameIndex:Int):Void
   {
     rainShader.updateFrameInfo(rainShaderTarget.frame);
   }
 
-  override function buildStage()
+  override function buildStage():Void
   {
     super.buildStage();
+
     getNamedProp('bgLight').alpha = 0.0001;
     getNamedProp('stairsLight').alpha = 0.0001;
   }
 
-  override function onUpdate(event:UpdateScriptEvent)
+  override public function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
+
     rainShader.update(event.elapsed);
   }
 
@@ -130,10 +129,9 @@ class SpookyMansionErectStage extends Stage
 
     if (playSound)
     {
-      FunkinSound.playOnce(Paths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2).toString(), 1.0);
+      FunkinSound.playOnce(NewPaths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2).toFlxSoundAsset(), 1.0);
     }
 
-    // getNamedProp('halloweenBG').animation.play('lightning');
     getNamedProp('bgLight').alpha = 1;
     getNamedProp('stairsLight').alpha = 1;
     getBoyfriend().alpha = 0;
@@ -160,26 +158,14 @@ class SpookyMansionErectStage extends Stage
 
   var doPostShockHaptics:Bool = false;
 
-  function triggerLightningHaptics()
+  function triggerLightningHaptics():Void
   {
     HapticUtil.vibrate(0, 0.05, 1);
 
     doPostShockHaptics = true;
   }
 
-  /**
-   * If your stage uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function fetchAssetPaths():Array<String>
-  {
-    var results:Array<String> = super.fetchAssetPaths();
-    results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-1'));
-    results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-2'));
-    return results;
-  }
-
-  function onBeatHit(event:SongTimeScriptEvent)
+  override public function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
 
@@ -187,7 +173,7 @@ class SpookyMansionErectStage extends Stage
     // TODO: Rework this after chart format redesign.
     if (PlayState.instance != null && PlayState.instance.currentSong != null)
     {
-      if (event.beat == 4 && PlayState.instance.currentSong.id == "spookeez")
+      if (event.beat == 4 && PlayState.instance.currentSong.id == 'spookeez')
       {
         doLightningStrike(false, event.beat);
       }
@@ -203,7 +189,7 @@ class SpookyMansionErectStage extends Stage
   var postShockCounter:Int = 0;
   var counterTargetNum:Int = 10;
 
-  function onStepHit(event:SongTimeScriptEvent)
+  override public function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
 
@@ -222,29 +208,35 @@ class SpookyMansionErectStage extends Stage
     }
   }
 
-  override function onPause(event:PauseScriptEvent)
+  override public function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
+
     if (lightningSequence != null) lightningSequence.running = false;
+
     FlxTweenUtil.pauseTweensOf(getNamedProp('bgLight'), ['alpha']);
     FlxTweenUtil.pauseTweensOf(getNamedProp('stairsLight'), ['alpha']);
+
     if (getBoyfriend() != null) FlxTweenUtil.pauseTweensOf(getBoyfriend(), ['alpha']);
     if (getDad() != null) FlxTweenUtil.pauseTweensOf(getDad(), ['alpha']);
     if (getGirlfriend() != null) FlxTweenUtil.pauseTweensOf(getGirlfriend(), ['alpha']);
   }
 
-  override function onResume(event:ScriptEvent)
+  override public function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
+
     if (lightningSequence != null) lightningSequence.running = true;
+
     FlxTweenUtil.resumeTweensOf(getNamedProp('bgLight'), ['alpha']);
     FlxTweenUtil.resumeTweensOf(getNamedProp('stairsLight'), ['alpha']);
+
     if (getBoyfriend() != null) FlxTweenUtil.resumeTweensOf(getBoyfriend(), ['alpha']);
     if (getDad() != null) FlxTweenUtil.resumeTweensOf(getDad(), ['alpha']);
     if (getGirlfriend() != null) FlxTweenUtil.resumeTweensOf(getGirlfriend(), ['alpha']);
   }
 
-  function onSongRetry(event:ScriptEvent)
+  override public function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
@@ -253,7 +245,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  function onCountdownStart(event:CountdownScriptEvent):Void
+  override public function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -262,7 +254,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  function onGameOver(event:ScriptEvent)
+  override public function onGameOver(event:ScriptEvent):Void
   {
     super.onGameOver(event);
 
@@ -272,9 +264,11 @@ class SpookyMansionErectStage extends Stage
     // Make sure all alpha values get reset when dying.
     getNamedProp('bgLight').alpha = 0;
     getNamedProp('stairsLight').alpha = 0;
+
     if (getBoyfriend() != null) FlxTween.cancelTweensOf(getBoyfriend(), ['alpha']);
     if (getDad() != null) FlxTween.cancelTweensOf(getDad(), ['alpha']);
     if (getGirlfriend() != null) FlxTween.cancelTweensOf(getGirlfriend(), ['alpha']);
+
     getBoyfriend()?.alpha = 1;
     getDad()?.alpha = 1;
     getGirlfriend()?.alpha = 1;

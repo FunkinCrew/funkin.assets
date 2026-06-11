@@ -2,7 +2,12 @@ import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class SpookyMansionStage extends Stage
 {
@@ -11,12 +16,26 @@ class SpookyMansionStage extends Stage
     super('spookyMansion');
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override public function queryAssets(type:String):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = super.queryAssets(type);
+
+    switch (type)
+    {
+      case 'SOUND':
+        results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-1'));
+        results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-2'));
+    }
+
+    return results;
+  }
+
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     // Precache the thunder sounds.
-    for (snd in ['thunder-1', 'thunder-2']) Assets.cacheSound(Paths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
+    for (snd in ['thunder-1', 'thunder-2']) NewAssets.cacheSound(NewPaths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
   }
 
   var lightningStrikeBeat:Int = 0;
@@ -26,7 +45,7 @@ class SpookyMansionStage extends Stage
   {
     if (playSound)
     {
-      FunkinSound.playOnce(Paths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2), 1.0);
+      FunkinSound.playOnce(NewPaths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2).toFlxSoundAsset(), 1.0);
     }
 
     getNamedProp('halloweenBG').animation.play('lightning');
@@ -49,31 +68,14 @@ class SpookyMansionStage extends Stage
 
   var doPostShockHaptics:Bool = false;
 
-  function triggerLightningHaptics()
+  function triggerLightningHaptics():Void
   {
     HapticUtil.vibrate(0, 0.05, 1);
 
     doPostShockHaptics = true;
   }
 
-  /**
-   * If your stage uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  public override function queryAssets(type:String):Array<AssetPath>
-  {
-    trace('Querying assets for Spooky Mansion (BASE)...');
-    var results:Array<AssetPath> = super.queryAssets(type);
-    switch (type)
-    {
-      case "SOUND":
-        results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-1'));
-        results.push(Paths.sound('gameplay/stages/spookyMansion/sounds/thunder-2'));
-    }
-    return results;
-  }
-
-  function onBeatHit(event:SongTimeScriptEvent)
+  override public function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
 
@@ -81,7 +83,7 @@ class SpookyMansionStage extends Stage
     // TODO: Rework this after chart format redesign.
     if (PlayState.instance != null && PlayState.instance.currentSong != null)
     {
-      if (event.beat == 4 && PlayState.instance.currentSong.id == "spookeez")
+      if (event.beat == 4 && PlayState.instance.currentSong.id == 'spookeez')
       {
         doLightningStrike(false, event.beat);
       }
@@ -97,7 +99,7 @@ class SpookyMansionStage extends Stage
   var postShockCounter:Int = 0;
   var counterTargetNum:Int = 10;
 
-  function onStepHit(event:SongTimeScriptEvent)
+  override public function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
 
@@ -116,7 +118,7 @@ class SpookyMansionStage extends Stage
     }
   }
 
-  function onSongRetry(event:ScriptEvent)
+  override public function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
@@ -125,7 +127,7 @@ class SpookyMansionStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  function onCountdownStart(event:CountdownScriptEvent):Void
+  override public function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 

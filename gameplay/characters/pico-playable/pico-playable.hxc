@@ -13,7 +13,12 @@ import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 {
@@ -22,9 +27,9 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   function get_CACHE_IMAGE_PATHS():Array<String>
   {
     return [
-      "gameplay/characters/nene/nene-knifetoss",
-      "gameplay/characters/pico-playable/pico-death-explosion/spritemap1",
-      "gameplay/characters/pico-playable/pico-casing"
+      'gameplay/characters/nene/nene-knifetoss',
+      'gameplay/characters/pico-playable/pico-death-explosion/spritemap1',
+      'gameplay/characters/pico-playable/pico-casing'
     ];
   }
 
@@ -33,30 +38,51 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   function get_CACHE_SOUND_PATHS():Array<String>
   {
     return [
-      "singed_loop",
-      "Gun_Prep",
-      "Pico_Bonk",
-      "shot1",
-      "shot2",
-      "shot3",
-      "shot4"
+      'singed_loop',
+      'Gun_Prep',
+      'Pico_Bonk',
+      'shot1',
+      'shot2',
+      'shot3',
+      'shot4'
     ];
+  }
+
+  override public function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = super.queryAssets(type);
+
+    switch (type)
+    {
+      case 'IMAGE':
+        for (img in CACHE_IMAGE_PATHS)
+        {
+          results.push(NewPaths.image(img));
+        }
+      case 'SOUND':
+        for (snd in CACHE_SOUND_PATHS)
+        {
+          results.push(NewPaths.sound(snd));
+        }
+    }
+
+    return results;
   }
 
   public function new(characterId:String)
   {
     // This tells CharacterDataParser to load Pico (Playable) instead of an invalid character!
-    if (characterId == "UNKNOWN")
+    if (characterId == 'UNKNOWN')
     {
-      characterId = "pico-playable";
+      characterId = 'pico-playable';
     }
 
     super(characterId);
 
-    ignoreExclusionPref.push("shoot");
+    ignoreExclusionPref.push('shoot');
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -68,24 +94,15 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
     for (img in CACHE_IMAGE_PATHS)
     {
-      var lib:String = Paths.getLibrary(img);
-      var file:String = Paths.stripLibrary(img);
-
-      // We don't need these graphics outside of Weekend 1.
-      if (lib == "weekend1" && Paths.currentLevel != "weekend1")
-      {
-        continue;
-      }
-
-      Assets.cacheFlxGraphic(Paths.image(file, lib == 'preload' ? null : lib));
+      NewAssets.cacheFlxGraphic(NewPaths.image(img));
     }
 
     // We don't need these sounds outside of Weekend 1.
-    if (Paths.currentLevel == "weekend1")
+    if (Paths.currentLevel == 'weekend1')
     {
       for (snd in CACHE_SOUND_PATHS)
       {
-        Assets.cacheSound(Paths.sound(snd, "weekend1"));
+        NewAssets.cacheSound(NewPaths.sound(snd, 'weekend1'));
       }
     }
   }
@@ -104,18 +121,18 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       deathSpriteNene.revive();
     }
 
-    deathSpriteNene = FunkinSprite.createSparrow(0, 0, "gameplay/characters/nene/nene-knifetoss");
+    deathSpriteNene = FunkinSprite.createSparrow(0, 0, 'gameplay/characters/nene/nene-knifetoss');
     deathSpriteNene.x = gf.originalPosition.x + 120;
     deathSpriteNene.y = gf.originalPosition.y;
     deathSpriteNene.zIndex = this.zIndex - 5;
-    deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
+    deathSpriteNene.animation.addByPrefix('throw', 'knife toss0', 24, false);
     deathSpriteNene.animation.onFinish.add(function(name:String)
     {
       deathSpriteNene.kill();
     });
   }
 
-  public override function onNoteHit(event:HitNoteScriptEvent):Void
+  override public function onNoteHit(event:HitNoteScriptEvent):Void
   {
     if (event.eventCanceled)
     {
@@ -126,22 +143,22 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     // Override the hit note animation.
     switch (event.note.kind)
     {
-      case "hey":
+      case 'hey':
         holdTimer = 0;
         this.playAnimation('hey', true, true);
         return;
-      case "cheer":
+      case 'cheer':
         holdTimer = 0;
         this.playAnimation('cheer', true, true);
         return;
-      case "censor":
+      case 'censor':
         holdTimer = 0;
         this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
         return;
-      case "weekend-1-cockgun": // HE'S PULLING HIS COCK OUT
+      case 'weekend-1-cockgun': // HE'S PULLING HIS COCK OUT
         holdTimer = 0;
         playCockGunAnim();
-      case "weekend-1-firegun":
+      case 'weekend-1-firegun':
         holdTimer = 0;
         playFireGunAnim();
       default:
@@ -149,26 +166,26 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function onNoteMiss(event:NoteScriptEvent):Void
+  override public function onNoteMiss(event:NoteScriptEvent):Void
   {
     // Override the miss note animation.
     switch (event.note.kind)
     {
-      case "weekend-1-cockgun":
+      case 'weekend-1-cockgun':
         // playCockMissAnim();
-      case "weekend-1-firegun":
+      case 'weekend-1-firegun':
         playCanExplodeAnim();
       default:
         super.onNoteMiss(event);
     }
   }
 
-  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     // Reset the volume of the vocals to ensure that the burps always play
-    if (name == "burpShit" || name == "burpSmile" || name == "burpSmileLong") PlayState.instance?.vocals?.playerVolume = 1;
+    if (name == 'burpShit' || name == 'burpSmile' || name == 'burpSmileLong') PlayState.instance?.vocals?.playerVolume = 1;
 
-    if (name == "firstDeath")
+    if (name == 'firstDeath')
     {
       if (GameOverSubState.blueBallSuffix == '-pico-explode')
       {
@@ -182,10 +199,10 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
         createDeathSprites();
 
         GameOverSubState.instance.add(deathSpriteNene);
-        deathSpriteNene.animation.play("throw");
+        deathSpriteNene.animation.play('throw');
       }
     }
-    else if (name == "deathConfirm")
+    else if (name == 'deathConfirm')
     {
       if (GameOverSubState.blueBallSuffix == '-pico-explode')
       {
@@ -217,7 +234,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function onPause(event:PauseScriptEvent):Void
+  override public function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
@@ -228,7 +245,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function onResume(event:ScriptEvent):Void
+  override public function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 
@@ -238,7 +255,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function getDeathCameraOffsets():Array<Float>
+  override public function getDeathCameraOffsets():Array<Float>
   {
     var result = super.getDeathCameraOffsets();
 
@@ -282,7 +299,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     // Start the (standard) death music, 3.5 seconds after the explosion starts,
     // not when the explosion sound finishes or when the loop starts.
     GameOverSubState.instance.startDeathMusic(1.0, false);
-    singed = FunkinSound.load(Paths.sound('gameplay/characters/pico-playable/sounds/singed-loop'), true, false, true);
+    singed = FunkinSound.load(NewPaths.sound('gameplay/characters/pico-playable/sounds/singed-loop').toFlxSoundAsset(), true, false, true);
     // singed.fadeIn(0.5, 0.3, 1.0);
   }
 
@@ -295,7 +312,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function onSongRetry(event:ScriptEvent):Void
+  override public function onSongRetry(event:ScriptEvent):Void
   {
     super.onSongRetry(event);
 
@@ -326,7 +343,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
-    if (name == "firstDeath" && frameNumber == 36 - 1)
+    if (name == 'firstDeath' && frameNumber == 36 - 1)
     {
       if (getDeathQuote() != null)
       {
@@ -346,7 +363,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
     }
 
-    if (name == "cock" && frameNumber == 3)
+    if (name == 'cock' && frameNumber == 3)
     {
       createCasing();
     }
@@ -382,7 +399,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       addToStage(casingGroup);
     }
 
-    var casing = new CasingSprite(0, 0);
+    var casing:CasingSprite = new CasingSprite(0, 0);
     if (casing != null) casingGroup.add(casing);
   }
 
@@ -405,6 +422,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   {
     this.playAnimation('cock', true, true);
 
+    // TODO: Rework this to use render texture.
     var currentFrameGraphic:FlxGraphic = FlxGraphic.fromBitmapData(this.updateFramePixels(), true, null, false);
 
     picoFade = new FunkinSprite(this.x - 100, this.y - 200);
@@ -420,9 +438,10 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     FlxTween.tween(picoFade, {
       alpha: 0
     }, 0.4);
+
     addToStage(picoFade);
 
-    FunkinSound.playOnce(Paths.sound('gameplay/characters/pico-playable/sounds/gun-prep'), 1.0);
+    FunkinSound.playOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/gun-prep').toFlxSoundAsset(), 1.0);
   }
 
   /**
@@ -431,7 +450,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   function playFireGunAnim():Void
   {
     this.playAnimation('shoot', true, true);
-    FunkinSound.playOnce(Paths.soundRandom('gameplay/characters/pico-playable/sounds/shot-', 1, 4));
+    FunkinSound.playOnce(NewPaths.soundRandom('gameplay/characters/pico-playable/sounds/shot-', 1, 4).toFlxSoundAsset());
   }
 
   /**
@@ -441,7 +460,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   {
     this.playAnimation('shootMISS', true, true);
     // Donk.
-    FunkinSound.playOnce(Paths.sound('gameplay/characters/pico-playable/sounds/bonk'), 1.0);
+    FunkinSound.playOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/bonk').toFlxSoundAsset(), 1.0);
   }
 
   function addToStage(sprite:FunkinSprite):Void
@@ -461,11 +480,11 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function getDeathQuote():Null<String>
+  override public function getDeathQuote():Null<String>
   {
     switch (PlayState.instance?.currentStage?.getDad()?.characterId)
     {
-      case "tankman":
+      case 'tankman':
         var randomCensor:Array<Int> = [];
 
         if (!Preferences.naughtyness)
@@ -481,7 +500,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
           randomCensor = [4, 8];
         }
 
-        return Paths.sound('gameplay/characters/pico-holding-nene/sounds/jeff-gameover-' + FlxG.random.int(1, 10, randomCensor));
+        return NewPaths.sound('gameplay/characters/pico-holding-nene/sounds/jeff-gameover-' + FlxG.random.int(1, 10, randomCensor)).toFlxSoundAsset();
       default:
         return null;
     }

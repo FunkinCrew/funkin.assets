@@ -3,8 +3,12 @@ import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 import funkin.play.PlayState;
-import funkin.assets.Assets;
-import Lambda;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class TankmanSpriteGroup extends FlxTypedSpriteGroup
 {
@@ -20,10 +24,11 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     this.zIndex = 30;
 
     this.isErect = (erect != null) ? erect : false;
+
     trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
 
     // Precache the Tankman sprite.
-    Assets.cacheFlxGraphic(Paths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
   }
 
   public function isValid():Bool
@@ -31,7 +36,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     return group != null;
   }
 
-  public override function reset(X:Float, Y:Float):Void
+  override public function reset(X:Float, Y:Float):Void
   {
     group.clear();
 
@@ -42,9 +47,11 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
   public function initTimemap():Void
   {
     trace('Initializing Tankman timings...');
+
     tankmanTimes = [];
+
     // The tankmen's timings and directions are determined
-    // by the chart, specifically the internal "picospeaker" difficulty.
+    // by the chart, specifically the internal 'picospeaker' difficulty.
     var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
     if (animChart == null)
     {
@@ -55,6 +62,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     {
       trace('Found picospeaker chart for TankmanSpriteGroup.');
     }
+
     var animNotes:Array<SongNoteData> = animChart.notes;
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
@@ -79,7 +87,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
   /**
    * Creates a Tankman sprite and adds it to the group.
    */
-  function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
+  public function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
   {
     // recycle() is neat; it looks for a sprite which has completed its animation and resets it,
     // rather than calling the constructor again. It only calls the constructor if it can't find one.
@@ -109,7 +117,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     return result;
   }
 
-  public override function update(elapsed:Float):Void
+  override public function update(elapsed:Float):Void
   {
     super.update(elapsed);
 
@@ -121,7 +129,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
       {
         var nextTime:Float = tankmanTimes.shift();
         var goingRight:Bool = tankmanDirs.shift();
-        var xPos = 9999;
+        var xPos:Float = 9999;
         var yPos:Float = isErect ? 350 : (200 + FlxG.random.int(50, 100));
         var scale:Float = isErect ? 1.10 : 1.0;
         createTankman(xPos, yPos, nextTime, goingRight, scale);
@@ -133,7 +141,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     }
   }
 
-  public override function kill():Void
+  override public function kill():Void
   {
     super.kill();
     tankmanTimes = [];

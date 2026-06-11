@@ -3,38 +3,59 @@ import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class DarnellCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('darnell');
   }
 
-  function onCreate(event:ScriptEvent)
+  override public function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = super.queryAssets(type);
+
+    switch (type)
+    {
+      case 'SOUND':
+        for (snd in ['darnell-lighter', 'kick-can-up', 'kick-can-forward'])
+        {
+          results.push(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
+        }
+    }
+
+    return results;
+  }
+
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     // Precache the sounds used in 2hot.
     for (snd in ['darnell-lighter', 'kick-can-up', 'kick-can-forward'])
     {
-      Assets.cacheSound(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
+      NewAssets.cacheSound(NewPaths.sound('gameplay/songs/2hot/sounds/$snd'));
     }
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override public function onNoteHit(event:HitNoteScriptEvent):Void
   {
     // Override the hit note animation.
     switch (event.note.kind)
     {
-      case "weekend-1-lightcan":
+      case 'weekend-1-lightcan':
         holdTimer = 0;
         playLightCanAnim();
-      case "weekend-1-kickcan":
+      case 'weekend-1-kickcan':
         holdTimer = 0;
         playKickCanAnim();
-      case "weekend-1-kneecan":
+      case 'weekend-1-kneecan':
         holdTimer = 0;
         playKneeCanAnim();
       default:
@@ -45,7 +66,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
   /**
    * Play the animation where Darnell kneels down to light the can.
    */
-  function playLightCanAnim()
+  function playLightCanAnim():Void
   {
     this.playAnimation('lightCan', true, true);
   }
@@ -53,7 +74,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
   /**
    * Play the animation where Darnell kicks the can into the air.
    */
-  function playKickCanAnim()
+  function playKickCanAnim():Void
   {
     this.playAnimation('kickCan', true, false);
   }
@@ -61,7 +82,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
   /**
    * Play the animation where Darnell knees the can in Pico's direction.
    */
-  function playKneeCanAnim()
+  function playKneeCanAnim():Void
   {
     this.playAnimation('kneeCan', true, true);
   }

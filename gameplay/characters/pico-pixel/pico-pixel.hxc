@@ -5,7 +5,12 @@ import funkin.play.PauseSubState;
 import funkin.util.HapticUtil;
 import flixel.FlxSprite;
 import funkin.graphics.FunkinSprite;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class PicoPixelCharacter extends SparrowCharacter
 {
@@ -14,18 +19,16 @@ class PicoPixelCharacter extends SparrowCharacter
     super('pico-pixel');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  override public function queryAssets(type:AssetType):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = super.queryAssets(type);
 
     switch (type)
     {
-      case "IMAGE":
-        results.push(Paths.spritesheet("characters/nene-pixel/nene-pixel-knifetoss").image());
-        break;
-      case "XML":
-        results.push(Paths.spritesheet("characters/nene-pixel/nene-pixel-knifetoss").xml());
-        break;
+      case 'IMAGE':
+        results.push(Paths.spritesheet('characters/nene-pixel/nene-pixel-knifetoss').image());
+      case 'XML':
+        results.push(Paths.spritesheet('characters/nene-pixel/nene-pixel-knifetoss').xml());
     }
 
     return results;
@@ -34,26 +37,31 @@ class PicoPixelCharacter extends SparrowCharacter
   var deathSpriteNene:FunkinSprite;
 
   /**
-     * Initialize and cache sprites used for the death animation,
+   * Initialize and cache sprites used for the death animation,
    * for use later.
    */
-  function createDeathSprites()
+  function createDeathSprites():Void
   {
-    deathSpriteNene = FunkinSprite.createSparrow(0, 0, "gameplay/characters/nene-pixel/nene-pixel-knifetoss");
-    var gf = currentStage.getGirlfriend();
+    var gf:BaseCharacter = currentStage.getGirlfriend();
+
+    if (deathSpriteNene != null && !deathSpriteNene.alive)
+    {
+      deathSpriteNene.revive();
+    }
+
+    deathSpriteNene = FunkinSprite.createSparrow(0, 0, 'gameplay/characters/nene-pixel/nene-pixel-knifetoss');
     deathSpriteNene.x = gf.originalPosition.x + 280 - (-gf.globalOffsets[0] * 6);
     deathSpriteNene.y = gf.originalPosition.y + 170 - (-gf.globalOffsets[1] * 6);
-    deathSpriteNene.animation.addByPrefix('throw', "knifetosscolor0", 24, false);
+    deathSpriteNene.animation.addByPrefix('throw', 'knifetosscolor0', 24, false);
     deathSpriteNene.scale.set(6, 6);
     deathSpriteNene.antialiasing = false;
-    deathSpriteNene.visible = true;
-    deathSpriteNene.animation.finishCallback = function(name:String)
+    deathSpriteNene.animation.onFinish.addOnce((_) ->
     {
-      deathSpriteNene.visible = false;
-    }
+      deathSpriteNene.kill();
+    });
   }
 
-  function onCreate(event:ScriptEvent)
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -63,28 +71,28 @@ class PicoPixelCharacter extends SparrowCharacter
     PauseSubState.musicSuffix = '-pixel';
 
     // Precache death sprites.
-    Assets.cacheFlxGraphic(Paths.image("gameplay/characters/nene-pixel/nene-pixel-knifetoss"));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/characters/nene-pixel/nene-pixel-knifetoss'));
   }
 
-  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
-    if (name == "firstDeath")
+    if (name == 'firstDeath')
     {
       this.shader = null;
       createDeathSprites();
 
       GameOverSubState.instance.add(deathSpriteNene);
-      deathSpriteNene.animation.play("throw");
+      deathSpriteNene.animation.play('throw');
     }
 
     super.playAnimation(name, restart, ignoreOther, reversed);
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
-    if (name == "firstDeath")
+    if (name == 'firstDeath')
     {
       if (frameNumber == 36 - 1)
       {

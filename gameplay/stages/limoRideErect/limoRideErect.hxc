@@ -7,11 +7,16 @@ import funkin.graphics.shaders.AdjustColorShader;
 import flixel.addons.display.FlxBackdrop;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
-import funkin.assets.Assets;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class LimoRideErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('limoRideErect');
   }
@@ -26,30 +31,26 @@ class LimoRideErectStage extends Stage
   var shootingStarBeat:Int = 0;
   var shootingStarOffset:Int = 2;
 
-  /**
-   * If your stage uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function queryAssets(type:AssetType):Array<AssetPath>
+  override public function queryAssets(type:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = super.queryAssets(type);
 
     // These files get used by the script, but the loading screen has no way of knowing we need them.
     // So we have to declare them here.
     switch (type)
     {
-      case "IMAGE":
-        results.push(Paths.image('gameplay/stages/limoRide/limo-overlay'));
-        results.push(Paths.image('gameplay/stages/limoRideErect/mist-front'));
-        results.push(Paths.image('gameplay/stages/limoRideErect/mist-back'));
-        results.push(Paths.spritesheet('gameplay/stages/limoRide/limo-drive').image());
-      case "SOUND":
-        results.push(Paths.sound('gameplay/stages/limoRide/sounds/car-pass-1'));
-        results.push(Paths.sound('gameplay/stages/limoRide/sounds/car-pass-2'));
-      case "XML":
-        results.push(Paths.spritesheet('gameplay/stages/limoRide/limo-drive').xml());
-      case "SHADER":
-        results.push(Paths.frag('ui/shaders/adjust-color'));
+      case 'IMAGE':
+        results.push(NewPaths.image('gameplay/stages/limoRide/limo-overlay'));
+        results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-front'));
+        results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-back'));
+        results.push(NewPaths.spritesheet('gameplay/stages/limoRide/limo-drive').image());
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/stages/limoRide/sounds/car-pass-1'));
+        results.push(NewPaths.sound('gameplay/stages/limoRide/sounds/car-pass-2'));
+      case 'XML':
+        results.push(NewPaths.spritesheet('gameplay/stages/limoRide/limo-drive').xml());
+      case 'SHADER':
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
       default:
         // nothing
     }
@@ -57,12 +58,11 @@ class LimoRideErectStage extends Stage
     return results;
   }
 
-  override function buildStage()
+  override function buildStage():Void
   {
     super.buildStage();
-    carsEnabled = true;
 
-    if (PlayState.instance == null) carsEnabled = false;
+    carsEnabled = PlayState.instance != null;
 
     // Apply sky shader.
     var skyOverlay:OverlayBlend = new OverlayBlend();
@@ -171,7 +171,7 @@ class LimoRideErectStage extends Stage
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
-  override function onUpdate(event:UpdateScriptEvent):Void
+  override public function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -199,7 +199,7 @@ class LimoRideErectStage extends Stage
     shootingStarOffset = FlxG.random.int(4, 8);
   }
 
-  override function onBeatHit(event:SongTimeScriptEvent)
+  override public function onBeatHit(event:SongTimeScriptEvent):Void
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
@@ -233,7 +233,7 @@ class LimoRideErectStage extends Stage
 
   function fastCarDrive():Void
   {
-    FunkinSound.playOnce(Paths.soundRandom('gameplay/stages/limoRide/sounds/car-pass-', 1, 2), 0.7);
+    FunkinSound.playOnce(NewPaths.soundRandom('gameplay/stages/limoRide/sounds/car-pass-', 1, 2).toFlxSoundAsset(), 0.7);
 
     var fastCar = getNamedProp('fastCar');
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
@@ -243,28 +243,14 @@ class LimoRideErectStage extends Stage
   }
 
   /**
-   * If your stage uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function fetchAssetPaths():Array<String>
-  {
-    var results:Array<String> = super.fetchAssetPaths();
-
-    // This graphic is applied by shader to the background, so it's not included in the default stage function.
-    results.push(Paths.image('gameplay/stages/limoRide/limo-overlay'));
-    results.push(Paths.sound('gameplay/stages/limoRide/sounds/car-pass-1'));
-    results.push(Paths.sound('gameplay/stages/limoRide/sounds/car-pass-2'));
-
-    return results;
-  }
-
-  /**
    * Make sure the fast car is reset when the song restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override public function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
+
     resetFastCar();
+
     shootingStarBeat = 0;
     shootingStarOffset = 2;
   }
@@ -272,13 +258,14 @@ class LimoRideErectStage extends Stage
   /**
    * Make sure the fast car is reset when the song restarts.
    */
-  function onCountdownStart(event:ScriptEvent)
+  override public function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
+
     resetFastCar();
   }
 
-  override function onCreate(event:ScriptEvent)
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -295,13 +282,13 @@ class LimoRideErectStage extends Stage
     colorShader.brightness = -30;
 
     // Precache the car passing sfx.
-    for (snd in ['car-pass-1', 'car-pass-2']) Assets.cacheSound(Paths.sound('gameplay/stages/limoRide/sounds/$snd'));
+    for (snd in ['car-pass-1', 'car-pass-2']) NewAssets.cacheSound(NewPaths.sound('gameplay/stages/limoRide/sounds/$snd'));
   }
 
   /**
    * Apply the shader to the character as it is added.
    */
-  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  override public function addCharacter(character:BaseCharacter, charType:CharacterType):Void
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
@@ -314,14 +301,14 @@ class LimoRideErectStage extends Stage
     character.useRenderTexture = true;
   }
 
-  override function onPause(event:PauseScriptEvent)
+  override public function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
     if (carSequence != null) carSequence.running = false;
   }
 
-  override function onResume(event:ScriptEvent)
+  override public function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 

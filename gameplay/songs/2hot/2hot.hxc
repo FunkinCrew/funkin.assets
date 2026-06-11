@@ -16,8 +16,12 @@ import funkin.play.stage.StageProp;
 import funkin.save.Save;
 import funkin.ui.FullScreenScaleMode;
 import funkin.memory.FunkinMemory;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
-import funkin.assets.Assets;
 
 class TwoHOTSong extends Song
 {
@@ -30,49 +34,53 @@ class TwoHOTSong extends Song
     sharpness: 1
   };
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  /**
+   * Health lost when hit by can.
+   */
+  final HEALTH_LOSS:Float = 0.25 * 2;
+
+  final STATE_ARCING:Int = 2; // In the air.
+  final STATE_SHOT:Int = 3; // Hit by the player.
+  final STATE_IMPACTED:Int = 4; // Impacted the player.
+
+  override public function queryAssets(type:AssetType):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = super.queryAssets(type);
 
     switch (type)
     {
-      case "SOUND":
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/bonk'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/gun-prep'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/shot-1'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/shot-2'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/shot-3'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/sounds/shot-4'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/darnell-lighter'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/kick-can-forward'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/kick-can-up'));
-      case "JSON":
-        results.push(Paths.animateAtlas('gameplay/songs/2hot/spraycan').json());
-      case "IMAGE":
-        results.push(Paths.animateAtlas('gameplay/songs/2hot/spraycan').image());
-        results.push(Paths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').image());
-        results.push(Paths.spritesheet('gameplay/characters/pico-playable/pico-casing').image());
-      case "XML":
-        results.push(Paths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').xml());
-        results.push(Paths.spritesheet('gameplay/characters/pico-playable/pico-casing').xml());
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/bonk'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/gun-prep'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/shot-1'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/shot-2'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/shot-3'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/sounds/shot-4'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/darnell-lighter'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-forward'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-up'));
+      case 'JSON':
+        results.push(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').json());
+      case 'IMAGE':
+        results.push(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').image());
+        results.push(NewPaths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').image());
+        results.push(NewPaths.spritesheet('gameplay/characters/pico-playable/pico-casing').image());
+      case 'XML':
+        results.push(NewPaths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').xml());
+        results.push(NewPaths.spritesheet('gameplay/characters/pico-playable/pico-casing').xml());
     }
 
     return results;
   }
 
-  function new()
+  public function new()
   {
     super('2hot');
 
     hasPlayedCutscene = false;
   }
 
-  /**
-   * Health lost when hit by can.
-   */
-  var HEALTH_LOSS = 0.25 * 2;
-
-  public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
+  override public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool, showHidden:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
     {
@@ -83,12 +91,7 @@ class TwoHOTSong extends Song
     return [];
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
-  {
-    super.onCountdownStart(event);
-  }
-
-  function onSongRetry(event:ScriptEvent)
+  override public function onSongRetry(event:ScriptEvent):Void
   {
     super.onSongRetry(event);
 
@@ -96,9 +99,10 @@ class TwoHOTSong extends Song
     gunCocked = false;
   }
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void
+  override public function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
+
     if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
@@ -122,9 +126,7 @@ class TwoHOTSong extends Song
     }
   }
 
-  // the Other stuff
-
-  function endCutscene()
+  function endCutscene():Void
   {
     VideoCutscene.onVideoStarted.removeAll();
     VideoCutscene.hideVideo();
@@ -159,13 +161,8 @@ class TwoHOTSong extends Song
 
     new FlxTimer().start(6, function(tmr)
     {
-      // video would play around here
-      // PlayState.instance.endSong(true);
-
       trace('Pausing ending to play a video cutscene (`2hot`)');
 
-      // Add a black background behind the cutscene to fix a transition bug!
-      trace('Adding black background behind cutscene over UI');
       var bgSprite = new FunkinSprite(-100, -100);
       bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
       bgSprite.cameras = [PlayState.instance.camHUD]; // Show over the HUD.
@@ -177,7 +174,7 @@ class TwoHOTSong extends Song
     });
   }
 
-  function startCutscene()
+  function startCutscene():Void
   {
     VideoCutscene.onVideoStarted.add(endCutscene);
     VideoCutscene.onVideoEnded.addOnce(function()
@@ -210,12 +207,12 @@ class TwoHOTSong extends Song
     startVideo();
   }
 
-  function startVideo()
+  function startVideo():Void
   {
     VideoCutscene.play(NewPaths.video('gameplay/songs/2hot/cutscene'), CutsceneType.ENDING);
   }
 
-  function removeCans()
+  function removeCans():Void
   {
     for (can in spawnedCans)
     {
@@ -224,7 +221,7 @@ class TwoHOTSong extends Song
     spawnedCans = [];
   }
 
-  function onStateChangeEnd(event:StateChangeScriptEvent)
+  override public function onStateChangeEnd(event:StateChangeScriptEvent):Void
   {
     super.onStateChangeEnd(event);
 
@@ -232,33 +229,36 @@ class TwoHOTSong extends Song
     {
       return;
     }
+
     hardClear();
   }
 
-  function hardClear()
+  function hardClear():Void
   {
     removeCans();
+
     gunCocked = false;
   }
 
   var gunCocked:Bool = false;
   var spawnedCans:Array<SpraycanAtlasSprite> = [];
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override public function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
+
     if (PlayState.instance.currentStage == null) return;
 
     switch (event.note.kind)
     {
-      case "weekend-1-lightcan":
+      case 'weekend-1-lightcan':
         // Do nothing, but place this such that the animation plays at the right time.
-      case "weekend-1-kickcan":
+      case 'weekend-1-kickcan':
         // This creates the can and starts the animation.
         // We define the behavior of the can in a separate scripted class,
         // which allows the can to track and manage its own properties.
         var newCan:SpraycanAtlasSprite = new SpraycanAtlasSprite(0, 0);
-        var spraycanPile = PlayState.instance.currentStage.getNamedProp('spraycanPile');
+        var spraycanPile:FunkinSprite = PlayState.instance.currentStage.getNamedProp('spraycanPile');
 
         newCan.x = spraycanPile.x - 10;
         newCan.y = spraycanPile.y - 550;
@@ -269,15 +269,15 @@ class TwoHOTSong extends Song
         PlayState.instance.currentStage.add(newCan);
         PlayState.instance.currentStage.refresh(); // Apply z-index.
         spawnedCans.push(newCan);
-      case "weekend-1-kneecan":
+      case 'weekend-1-kneecan':
         // Do nothing, but place this such that the animation plays at the right time.
-      case "weekend-1-cockgun": // lol
+      case 'weekend-1-cockgun': // lol
         gunCocked = true;
         new FlxTimer().start(1.0, function()
         {
           gunCocked = false;
         });
-      case "weekend-1-firegun":
+      case 'weekend-1-firegun':
         if (gunCocked)
         {
           trace('Firing gun!');
@@ -292,11 +292,7 @@ class TwoHOTSong extends Song
     }
   }
 
-  public var STATE_ARCING:Int = 2; // In the air.
-  public var STATE_SHOT:Int = 3; // Hit by the player.
-  public var STATE_IMPACTED:Int = 4; // Impacted the player.
-
-  function getNextCanWithState(desiredState:Int)
+  function getNextCanWithState(desiredState:Int):Void
   {
     for (index in 0...spawnedCans.length)
     {
@@ -309,15 +305,16 @@ class TwoHOTSong extends Song
         return can;
       }
     }
+
     return null;
   }
 
-  function onUpdate(event:UpdateScriptEvent)
+  override public function onUpdate(event:UpdateScriptEvent):Void
   {
     cutsceneConductor?.update(cutsceneConductor.songPosition + event.elapsed * 1000);
   }
 
-  function darkenStageProps()
+  function darkenStageProps():Void
   {
     // Darken the background, then fade it back.
     for (stageProp in PlayState.instance.currentStage.members)
@@ -325,7 +322,7 @@ class TwoHOTSong extends Song
       // Determine if the stage prop is something that should be excluded from darkening.
       if (Std.isOfType(stageProp, StageProp))
       {
-        if (stageProp.name == "bf" || stageProp.name == "dad" || stageProp.name == "gf") // This refers to the player.
+        if (stageProp.name == 'bf' || stageProp.name == 'dad' || stageProp.name == 'gf') // This refers to the player.
         {
           // Exclude.
           continue;
@@ -348,6 +345,7 @@ class TwoHOTSong extends Song
 
       // If not excluded, darken.
       stageProp.color = 0xFF111111;
+
       new FlxTimer().start(1 / 24, (tmr) ->
       {
         stageProp.color = 0xFF222222;
@@ -356,7 +354,7 @@ class TwoHOTSong extends Song
     }
   }
 
-  function blackenStageProps()
+  function blackenStageProps():Void
   {
     // Blacken the background (also Darnell and Nene) entirely, then restore it once the gameOverSubState is up.
     for (stageProp in PlayState.instance.currentStage.members)
@@ -364,7 +362,7 @@ class TwoHOTSong extends Song
       // Determine if the stage prop is something that should be excluded from blackening.
       if (Std.isOfType(stageProp, StageProp))
       {
-        if (stageProp.name == "bf") // This refers to the player.
+        if (stageProp.name == 'bf') // This refers to the player.
         {
           // Exclude.
           continue;
@@ -380,6 +378,7 @@ class TwoHOTSong extends Song
 
       // If not excluded, blacken.
       stageProp.color = 0xFF000000;
+
       new FlxTimer().start(1.0, (tmr) ->
       {
         stageProp.color = 0xFFFFFFFF;
@@ -387,7 +386,7 @@ class TwoHOTSong extends Song
     }
   }
 
-  function shootNextCan()
+  function shootNextCan():Void
   {
     var can = getNextCanWithState(STATE_ARCING);
 
@@ -408,7 +407,7 @@ class TwoHOTSong extends Song
     }
   }
 
-  function missNextCan()
+  function missNextCan():Void
   {
     var can = getNextCanWithState(STATE_ARCING);
 
@@ -418,9 +417,9 @@ class TwoHOTSong extends Song
     }
   }
 
-  function spawnImpactParticle()
+  function spawnImpactParticle():Void
   {
-    var impactParticle = FunkinSprite.createSparrow(0, 0, "gameplay/songs/2hot/graphics/can-impact");
+    var impactParticle:FunkinSprite = FunkinSprite.createSparrow(0, 0, 'gameplay/songs/2hot/graphics/can-impact');
     impactParticle.animation.addByPrefix('idle', 'CanImpactParticle0', 24, false);
     impactParticle.animation.play('idle');
     impactParticle.x = PlayState.instance.currentStage.getBoyfriend().x + 400;
@@ -433,7 +432,7 @@ class TwoHOTSong extends Song
     };
   }
 
-  function onNoteMiss(event:NoteScriptEvent)
+  override public function onNoteMiss(event:NoteScriptEvent):Void
   {
     super.onNoteMiss(event);
 
@@ -441,19 +440,19 @@ class TwoHOTSong extends Song
 
     switch (event.note.kind)
     {
-      case "weekend-1-cockgun":
+      case 'weekend-1-cockgun':
         event.healthChange = 0.0; // We cause health loss later.
-      case "weekend-1-firegun":
+      case 'weekend-1-firegun':
         gunCocked = false;
         event.healthChange = 0.0; // We cause health loss elsewhere.
         missNextCan();
         takeCanDamage();
-      case "weekend-1-firegun-hip":
+      case 'weekend-1-firegun-hip':
         gunCocked = false;
         event.healthChange = 0.0; // We cause health loss elsewhere.
         missNextCan();
         takeCanDamage();
-      case "weekend-1-firegun-far":
+      case 'weekend-1-firegun-far':
         gunCocked = false;
         event.healthChange = 0.0; // We cause health loss elsewhere.
         missNextCan();
@@ -466,8 +465,6 @@ class TwoHOTSong extends Song
     trace('Taking damage from can exploding!');
 
     PlayState.instance.health -= HEALTH_LOSS;
-    // TODO: This is jank as hell! Add some better way to prevent onNoteMiss's normal health loss.
-    // PlayState.instance.health += 0.0775;
 
     if (PlayState.instance.health <= 0)
     {
@@ -496,7 +493,7 @@ class TwoHOTSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -504,9 +501,9 @@ class TwoHOTSong extends Song
     cutsceneConductor = null;
 
     // Precache the assets for the song.
-    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/can-impact"));
-    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion"));
-    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/graphics/spraycan-explosion-ez"));
-    Assets.cacheFlxGraphic(Paths.image("gameplay/songs/2hot/spraycan/spritemap1"));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/can-impact'));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
+    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
   }
 }
