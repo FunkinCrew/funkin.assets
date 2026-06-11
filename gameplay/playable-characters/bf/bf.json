@@ -15,7 +15,7 @@
   "stickerPack": "standard-bf",
   "freeplayDJ": {
     "assetPath": "ui/freeplay/dj/bf/freeplay-boyfriend",
-    "scriptClass": "BoyfriendFreeplayDJ",
+    "scriptClass": "funkin.ui.freeplay.dj.BoyfriendFreeplayDJ",
     "fistPump": {
       "introStartFrame": 0,
       "introEndFrame": 4,

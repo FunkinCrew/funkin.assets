@@ -16,6 +16,7 @@
   "stickerPack": "standard-pico",
   "freeplayDJ": {
     "assetPath": "ui/freeplay/dj/pico/freeplay-pico",
+    "scriptClass": "funkin.ui.freeplay.dj.PicoFreeplayDJ",
     "text1": "PICO",
     "text2": "GOD DAMN HE DOWN ON THE NUT",
     "text3": "ZEBOIM DAMN IMA NUT",

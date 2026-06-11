@@ -1,0 +1,25 @@
+package funkin.ui.freeplay.dj;
+
+import funkin.graphics.FunkinCamera;
+import funkin.ui.freeplay.dj.AnimateAtlasFreeplayDJ;
+import funkin.ui.freeplay.dj.FreeplayDJAnimation;
+
+class PicoFreeplayDJ extends AnimateAtlasFreeplayDJ
+{
+  public function new(x:Float, y:Float, characterId:String)
+  {
+    super(x, y, characterId);
+  }
+
+  override function checkRenderTexture():Bool
+  {
+    // Pico uses OVERLAY in his new rank animation, which renders as a shader on some devices
+    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
+    if (!FunkinCamera.hasKhronosExtension && getCurrentAnimation() == FreeplayDJAnimation.FISTPUMP)
+    {
+      return true;
+    }
+
+    return super.checkRenderTexture();
+  }
+}
