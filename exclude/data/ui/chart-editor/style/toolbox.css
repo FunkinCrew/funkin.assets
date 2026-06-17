@@ -4,3 +4,20 @@
 #toolboxSong .dialog-content {
 	padding: 0px;
 }
+
+.command-palette {
+	border-radius: 16px;
+}
+
+.command-palette-input {
+	font-size: 12px;
+}
+
+.command-palette-list-title {
+	font-size: 12px;
+}
+
+.command-palette-list-subtitle {
+	font-size: 12px;
+	color: #666666;
+}
