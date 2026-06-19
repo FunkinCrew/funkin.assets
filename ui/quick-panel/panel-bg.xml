@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="panel-bg.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="thingidle instance 10000" x="0" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10001" x="0" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10002" x="0" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10003" x="0" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10004" x="472" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10005" x="472" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10006" x="472" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10007" x="472" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10008" x="944" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10009" x="944" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10010" x="944" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10011" x="944" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10012" x="1416" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10013" x="1416" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10014" x="1416" y="0" width="467" height="721"/>
+	<SubTexture name="thingidle instance 10015" x="1416" y="0" width="467" height="721"/>
+</TextureAtlas>
