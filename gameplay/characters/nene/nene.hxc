@@ -537,7 +537,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
 
   function shouldTransitionState():Bool
   {
-    return currentStage.getBoyfriend()?.characterId != "pico-blazin";
+    return currentStage?.getBoyfriend()?.characterId != "pico-blazin";
   }
 
   function checkTrainPassing(raised:Bool = false):Void
