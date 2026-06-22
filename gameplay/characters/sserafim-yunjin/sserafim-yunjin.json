@@ -9,6 +9,9 @@
   "flipX": false,
   "offsets": [2, 347],
   "cameraOffsets": [2, 347],
+  "atlasSettings": {
+    "cacheOnLoad": true
+  },
   "animations": [
     {
       "name": "doorclosed",
