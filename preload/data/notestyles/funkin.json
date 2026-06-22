@@ -68,6 +68,8 @@
     },
     "holdNoteCover": {
       "assetPath": "",
+      "offsets": [6, 62],
+      "scale": 0.7,
       "offsets": [0, 0],
       "data": {
         "enabled": true,
