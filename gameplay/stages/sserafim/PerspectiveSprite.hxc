@@ -1,7 +1,7 @@
 import funkin.graphics.FunkinSkewedSprite;
+import funkin.graphics.FunkinSprite;
 import flixel.FlxCamera;
 import flixel.FlxObject;
-import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.math.FlxPoint;
 
@@ -36,13 +36,13 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
 
     if (debugDraw)
     {
-      bottomVis = new FlxSprite().makeGraphic(10, 10, 0xFF00B3FF);
+      bottomVis = new FunkinSprite().makeSolidColor(10, 10, 0xFF00B3FF);
       bottomVis.offset.x = 5;
       bottomVis.offset.y = 5;
       bottomVis.alpha = 0.7;
       add(bottomVis);
 
-      topVis = new FlxSprite().makeGraphic(10, 10, 0xFFF700FF);
+      topVis = new FunkinSprite().makeSolidColor(10, 10, 0xFFF700FF);
       topVis.offset.x = 5;
       topVis.offset.y = 5;
       topVis.alpha = 0.7;
@@ -74,30 +74,37 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
    */
   public function updateSkew(targetCam:FlxCamera, vcamPoint:FlxPoint):Void
   {
-    sprite.vcamPoint = vcamPoint;
     if (targetCam == null) targetCam = FlxG.camera;
-    var scroll = new FlxPoint(targetCam.scroll.x, targetCam.scroll.y);
-    if (vcamPoint != null) scroll = new FlxPoint(vcamPoint.x, vcamPoint.y);
 
-    // correct for scrollfactors..
-    // var correctedBottom:FlxPoint = new FlxPoint(bottomObj.x, bottomObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y));
-    // var correctedTop:FlxPoint = new FlxPoint(topObj.x, topObj.y).add(targetCam.scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x), targetCam.scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y));
-    var correctedBottom:FlxPoint = new FlxPoint(
+    var scroll:FlxPoint;
+
+    if (vcamPoint != null)
+    {
+      scroll = FlxPoint.get(vcamPoint.x, vcamPoint.y);
+    }
+    else
+    {
+      scroll = FlxPoint.get(targetCam.scroll.x, targetCam.scroll.y);
+    }
+
+    var correctedBottom:FlxPoint = FlxPoint.get(
       bottomObj.x + (scroll.x * (sprite.scrollFactor.x - bottomObj.scrollFactor.x)),
       bottomObj.y + (scroll.y * (sprite.scrollFactor.y - bottomObj.scrollFactor.y))
     );
-    var correctedTop:FlxPoint = new FlxPoint(
+
+    var correctedTop:FlxPoint = FlxPoint.get(
       topObj.x + (scroll.x * (sprite.scrollFactor.x - topObj.scrollFactor.x)),
       topObj.y + (scroll.y * (sprite.scrollFactor.y - topObj.scrollFactor.y))
     );
+
     if (debugDraw)
     {
       bottomVis.setPosition(correctedBottom.x, correctedBottom.y);
       topVis.setPosition(correctedTop.x, correctedTop.y);
     }
 
-    var distX = correctedTop.x - correctedBottom.x;
-    var distY = correctedTop.y - (correctedBottom.y - sprite.height);
+    var distX:Float = correctedTop.x - correctedBottom.x;
+    var distY:Float = correctedTop.y - (correctedBottom.y - sprite.height);
 
     // (is there a much more elegant/better way to do this?? idk) this is pure eyeballing
     sprite.transformMatrix.a = 1;
@@ -110,6 +117,10 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
     // move sprite to be aligned to the bottom object
     sprite.x = correctedBottom.x - sprite.width / 2;
     sprite.y = correctedBottom.y - sprite.height;
+
+    scroll.put();
+    correctedBottom.put();
+    correctedTop.put();
   }
 
   override public function isOnScreen(camera:FlxCamera):Bool
