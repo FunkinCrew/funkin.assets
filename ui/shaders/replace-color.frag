@@ -12,10 +12,10 @@ void main()
 	{
 		vec3 c = color.rgb / color.a;
 
-		if (distance(c, uTargetColor) <= uThreshold)
-		{
-			color.rgb = uReplaceColor * color.a;
-		}
+		float dist = distance(c, uTargetColor);
+		float blend = 1.0 - smoothstep(uThreshold * 0.5, uThreshold, dist);
+
+		color.rgb = mix(c, uReplaceColor, blend) * color.a;
 	}
 
 	gl_FragColor = color;
