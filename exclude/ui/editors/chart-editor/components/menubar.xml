@@ -77,7 +77,7 @@
     </menu>
   </menu>
   <menu text="View">
-    <menu-item id="menubarItemCommandPalette" text="Open Command Palette" shortcutText="Ctrl+Shift+P" />
+    <menu-item id="menubarItemCommandPalette" text="Open Command Palette" shortcutText="Ctrl+P" />
     <menu-separator />
     <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
     <menu text="Theme">

@@ -15,13 +15,13 @@
 					<item action="Show User Guide" keybind="F1" />
 					<item action="Place Note/Event" keybind="Left Click on Grid" />
 					<item action="Place Hold Note" keybind="Left Click and Drag on Grid" />
-					<item action="Select Note/Event" keybind="Left Click on Note" />
-					<item action="Select Multiple Notes/Events" keybind="Ctrl + Left Click" />
+					<item action="Select Note/Event" keybind="Left Click" />
+					<item action="Add Note/Event to Selection" keybind="Ctrl + Left Click" />
+					<item action="Select Box" keybind="Shift + Left Click and Drag" />
 					<item action="Remove Note/Event" keybind="Right Click on Note" />
 					<item action="Show Note Options" keybind="Shift + Right Click on Note" />
 					<item action="Place Focus Camera - Player Event at Playhead" keybind="Dot (.)"/>
 					<item action="Place Focus Camera - Opponent Event at Playhead" keybind="Comma (,)"/>
-					<item action="Select Box" keybind="Left Click and Drag" />
 					<item action="Scroll Up/Down" keybind="Mouse Wheel" />
 					<item action="Scroll Up/Down (Fast)" keybind="Shift + Mouse Wheel" />
 					<item action="Scroll Up/Down (Precise)" keybind="Ctrl + Mouse Wheel" />
@@ -33,6 +33,12 @@
 					<item action="Scroll Down (Precise)" keybind="Ctrl + Down Arrow" />
 					<item action="Scroll, Leave Playhead Stationary" keybind="Middle Click + Arrows/Mouse Wheel" />
 					<item action="Scroll (Playhead Only)" keybind="Alt + Arrows/Mouse Wheel" />
+					<item action="Open Command Palette" keybind="Ctrl + P" />
+					<item action="Open Command Palette (Show and Run Commands)" keybind="Ctrl + Shift + P" />
+					<item action="Open Command Palette (Go to Measure)" keybind="Ctrl + G" />
+					<item action="Open Command Palette (Search for Comment)" keybind="Ctrl + B" />
+					<item action="Open Command Palette (Open Toolbox)" keybind="Ctrl + W" />
+					<item action="Place New Comment at Playhead" keybind="B" />
 					<item action="Jump to Start" keybind="Home" />
 					<item action="Jump Back" keybind="Page Up" />
 					<item action="Jump Forward" keybind="Page Down" />
