@@ -1,10 +1,5 @@
 #pragma header
-
-
-
-
 // TODO: shouldn't this be isolated?
-
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex
 //               noise functions.
@@ -16,7 +11,6 @@
 //               https://github.com/ashima/webgl-noise
 //               https://github.com/stegu/webgl-noise
 //
-
 vec3 mod289(vec3 x) {
 	return x - floor(x * (1.0 / 289.0)) * 289.0;
 }
@@ -83,7 +77,7 @@ float snoise(vec3 v) {
 	//vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
 	vec4 s0 = floor(b0)*2.0 + 1.0;
 	vec4 s1 = floor(b1)*2.0 + 1.0;
-	vec4 sh = -step(h, vec4(0.0));
+	vec4 sh = -step(h, vec4(0.0, 0.0, 0.0, 0.0));
 
 	vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
 	vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
@@ -109,22 +103,6 @@ float snoise(vec3 v) {
 
 
 
-
-
-
-
-
-
-
-struct Light {
-	vec2 position;
-	vec3 color;
-	float radius;
-};
-
-// prevent auto field generation
-#define UNIFORM uniform
-
 uniform float uScale;
 uniform float uIntensity;
 uniform float uTime;
@@ -139,11 +117,8 @@ uniform bool uSpriteMode;
 
 uniform vec3 uRainColor;
 
-const int MAX_LIGHTS = 8;
-UNIFORM Light lights[MAX_LIGHTS];
-
 float rand(vec2 a) {
-	return fract(sin(dot(mod(a, vec2(1000.0)).xy, vec2(12.9898, 78.233))) * 43758.5453);
+	return fract(sin(dot(vec2(mod(a.x, 1000.0), a.y), vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 float ease(float t) {
@@ -161,7 +136,7 @@ float rainDist(vec2 p, float scale, float intensity) {
 	p.y *= 0.03;
 	float ix = floor(p.x);
 	// shift Y
-	p.y += mod(ix, 2.0) * 0.5 + (rand(vec2(ix)) - 0.5) * 0.3;
+	p.y += mod(ix, 2.0) * 0.5 + (rand(vec2(ix, ix)) - 0.5) * 0.3;
 	float iy = floor(p.y);
 	vec2 index = vec2(ix, iy);
 	// mod
@@ -178,13 +153,13 @@ float rainDist(vec2 p, float scale, float intensity) {
 
 float rippleHeight(vec2 p, vec2 pos, float age, float size, float modSize, float thickness) {
 	float strength = 1.0 - exp(-(1.0 - age) * 1.0);
-	float h = max(0.0, 1.0 - abs(length(mod(p - pos + modSize * 0.5, vec2(modSize)) - modSize * 0.5) - size * age) / thickness);
+	float h = max(0.0, 1.0 - abs(length(mod(p - pos + modSize * 0.5, vec2(modSize, modSize)) - modSize * 0.5) - size * age) / thickness);
 	h = h * h * (3.0 - 2.0 * h); // smoothstep
 	return h * strength;
 }
 
 vec2 puddleDisplace(vec2 p, float intensity) {
-	vec2 res = vec2(0);
+	vec2 res = vec2(0.0, 0.0);
 
 	const int numRipples = 30;
 	const float rippleLife = 0.8;
@@ -211,20 +186,20 @@ vec2 puddleDisplace(vec2 p, float intensity) {
 	return res;
 }
 
-vec3 lightUp(vec2 p) {
-	vec3 res = vec3(0);
-	for (int i = 0; i < MAX_LIGHTS; i++) {
-		if (i >= numLights) {
-			break;
-		}
-		vec2 lp = lights[i].position;
-		vec3 lc = lights[i].color;
-		float lr = lights[i].radius;
-		float w = max(0.0, 1.0 - length(lp - p) / lr);
-		res += ease(w) * lc;
-	}
-	return res;
-}
+// vec3 lightUp(vec2 p) {
+// 	vec3 res = vec3(0);
+// 	for (int i = 0; i < MAX_LIGHTS; i++) {
+// 		if (i >= numLights) {
+// 			break;
+// 		}
+// 		vec2 lp = lights[i].position;
+// 		vec3 lc = lights[i].color;
+// 		float lr = lights[i].radius;
+// 		float w = max(0.0, 1.0 - length(lp - p) / lr);
+// 		res += ease(w) * lc;
+// 	}
+// 	return res;
+// }
 
 vec2 worldToBackground(vec2 worldCoord) {
 	// this should work as long as the background sprite is placed at the origin without scaling
@@ -238,7 +213,7 @@ void main() {
 	vec2 origWpos = wpos;
 	float intensity = uIntensity;
 
-	vec3 add = vec3(0);
+	vec3 add = vec3(0.0, 0.0, 0.0);
 	float rainSum = 0.0;
 
 	const int numLayers = 4;

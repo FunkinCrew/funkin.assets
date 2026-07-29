@@ -98,7 +98,7 @@ vec3 setSat(vec3 c, float s)
   }
   else
   {
-      c = vec3(0.0);
+      c = vec3(0.0, 0.0, 0.0);
   }
 
   return c;
@@ -128,7 +128,7 @@ vec3 hardlight(vec3 bg, vec3 src)
 {
   vec3 c1 = bg * src * 2.0;
   vec3 c2 = screen(bg, 2.0 * src - 1.0);
-  return mix(c2, c1, vec3(lessThanEqual(src, vec3(0.5))));
+  return mix(c2, c1, vec3(lessThanEqual(src, vec3(0.5, 0.5, 0.5))));
 }
 
 vec3 difference(vec3 bg, vec3 src)
@@ -138,39 +138,39 @@ vec3 difference(vec3 bg, vec3 src)
 
 vec3 invert(vec3 bg)
 {
-  return vec3(1.0) - bg;
+  return vec3(1.0, 1.0, 1.0) - bg;
 }
 
 vec3 colordodge(vec3 bg, vec3 src)
 {
-  if (bg == vec3(0.0))
+  if (all(equal(bg, vec3(0.0, 0.0, 0.0))))
   {
-    return vec3(0.0);
+    return bg;
   }
-  else if (src == vec3(1.0))
+  else if (all(equal(src, vec3(1.0, 1.0, 1.0))))
   {
-    return vec3(1.0);
+    return src;
   }
   else
   {
-    vec3 res = bg / (vec3(1.0) - src);
-    return min(vec3(1.0), res);
+    vec3 res = bg / (vec3(1.0, 1.0, 1.0) - src);
+    return min(vec3(1.0, 1.0, 1.0), res);
   }
 }
 
 vec3 colorburn(vec3 bg, vec3 src)
 {
-  if (bg == vec3(1.0))
+  if (all(equal(bg, vec3(1.0, 1.0, 1.0))))
   {
-    return vec3(1.0);
+    return bg;
   }
-  else if (src == vec3(0.0))
+  else if (all(equal(src, vec3(0.0, 0.0, 0.0))))
   {
-    return vec3(0.0);
+    return src;
   }
   else
   {
-    return 1.0 - min(vec3(1.0), (vec3(1.0) - bg) / src);
+    return 1.0 - min(vec3(1.0, 1.0, 1.0), (vec3(1.0, 1.0, 1.0) - bg) / src);
   }
 }
 
@@ -188,22 +188,25 @@ vec3 softlight(vec3 bg, vec3 src)
 
 vec3 exclusion(vec3 bg, vec3 src)
 {
-  return bg + src - vec3(2.0) * bg * src;
+  return bg + src - vec3(2.0, 2.0, 2.0) * bg * src;
 }
 
 vec3 hue(vec3 bg, vec3 src)
 {
-  return setLum(setSat(src, sat(bg)), vec3(lum(bg)));
+  float lumBg = lum(bg);
+  return setLum(setSat(src, sat(bg)), vec3(lumBg, lumBg, lumBg));
 }
 
 vec3 saturation(vec3 bg, vec3 src)
 {
-  return setLum(setSat(bg, sat(src)), vec3(lum(bg)));
+  float lumBg = lum(bg);
+  return setLum(setSat(bg, sat(src)), vec3(lumBg, lumBg, lumBg));
 }
 
 vec3 color(vec3 bg, vec3 src)
 {
-  return setLum(src, vec3(lum(bg)));
+  float lumBg = lum(bg);
+  return setLum(src, vec3(lumBg, lumBg, lumBg));
 }
 
 vec3 blend(vec3 bg, vec3 src)
@@ -268,7 +271,7 @@ vec3 blend(vec3 bg, vec3 src)
   }
   else
   {
-    return vec3(1, 0, 1);
+    return vec3(1.0, 0.0, 1.0);
   }
 }
 
