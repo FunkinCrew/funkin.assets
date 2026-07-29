@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mod-menu-gfwire.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<!-- Sparrow-EX v0.0.1 -->
+	<SubTexture name="idle0000" x="258" y="3" width="115" height="311" frameX="-136" frameY="-1" frameWidth="252" frameHeight="823" rotated="false"/>
+	<SubTexture name="shock0000" x="258" y="317" width="115" height="208" frameX="-136" frameY="-1" frameWidth="252" frameHeight="823" rotated="false"/>
+	<SubTexture name="idle empty chair0000" x="3" y="3" width="252" height="823" frameX="0" frameY="0" frameWidth="252" frameHeight="823" rotated="false"/>
+</TextureAtlas>

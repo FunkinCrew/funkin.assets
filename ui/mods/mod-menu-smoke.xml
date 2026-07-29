@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="mod-menu-smoke.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="retry_smoke0000" x="687" y="1805" width="731" height="896" frameX="-74" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0001" x="687" y="1805" width="731" height="896" frameX="-74" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0002" x="0" y="0" width="714" height="906" frameX="-99" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0003" x="0" y="0" width="714" height="906" frameX="-99" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0004" x="1463" y="0" width="638" height="899" frameX="-130" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0005" x="1463" y="0" width="638" height="899" frameX="-130" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0006" x="734" y="906" width="602" height="898" frameX="-145" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0007" x="734" y="906" width="602" height="898" frameX="-145" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0008" x="1336" y="906" width="594" height="898" frameX="-133" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0009" x="1336" y="906" width="594" height="898" frameX="-133" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0010" x="1418" y="1805" width="717" height="895" frameX="-65" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0011" x="1418" y="1805" width="717" height="895" frameX="-65" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0012" x="2135" y="1805" width="680" height="894" frameX="-34" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0013" x="2135" y="1805" width="680" height="894" frameX="-34" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0014" x="2815" y="1805" width="669" height="894" frameX="-37" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0015" x="2815" y="1805" width="669" height="894" frameX="-37" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0016" x="1930" y="906" width="671" height="898" frameX="-22" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0017" x="1930" y="906" width="671" height="898" frameX="-22" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0018" x="2101" y="0" width="708" height="899" frameX="-6" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0019" x="2101" y="0" width="708" height="899" frameX="-6" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0020" x="714" y="0" width="749" height="902" frameX="0" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0021" x="714" y="0" width="749" height="902" frameX="0" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0022" x="2601" y="906" width="739" height="898" frameX="-26" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0023" x="2601" y="906" width="739" height="898" frameX="-26" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0024" x="0" y="906" width="734" height="899" frameX="-51" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0025" x="0" y="906" width="734" height="899" frameX="-51" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0026" x="0" y="1805" width="687" height="897" frameX="-81" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+	<SubTexture name="retry_smoke0027" x="0" y="1805" width="687" height="897" frameX="-81" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
+</TextureAtlas>
