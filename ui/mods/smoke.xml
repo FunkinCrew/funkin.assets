@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TextureAtlas imagePath="mod-menu-smoke.png">
+<TextureAtlas imagePath="smoke.png">
 	<!-- Created with Adobe Animate version 22.0.5.191 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="retry_smoke0000" x="687" y="1805" width="731" height="896" frameX="-74" frameY="0" frameWidth="813" frameHeight="906" rotated="false"/>
