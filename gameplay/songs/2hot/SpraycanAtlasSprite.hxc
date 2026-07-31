@@ -10,11 +10,13 @@ class SpraycanAtlasSprite extends FunkinSprite
   public var STATE_IMPACTED:Int = 4; // Impacted the player.
   public var currentState:Int = 2;
 
-  public function new(x:Float, y:Float)
+  public function new(x:Float, y:Float, ?atlasPath:String)
   {
     super(x, y);
 
-    loadTextureAtlas('gameplay/songs/2hot/spraycan', {
+    atlasPath ??= 'gameplay/songs/2hot/spraycan';
+
+    loadTextureAtlas(atlasPath, {
       swfMode: true
     });
     loadAnimations();
@@ -76,6 +78,7 @@ class SpraycanAtlasSprite extends FunkinSprite
   public function playCanStart():Void
   {
     this.animation.play('can-start');
+    trace('playCanStart(): ${getCurrentAnimation()}');
   }
 
   public function playCanShot():Void
