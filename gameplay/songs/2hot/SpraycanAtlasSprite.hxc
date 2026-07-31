@@ -1,5 +1,6 @@
-import flixel.math.FlxPoint;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxFramesCollection;
+import flixel.math.FlxPoint;
 import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 
@@ -9,6 +10,16 @@ class SpraycanAtlasSprite extends FunkinSprite
   public var STATE_SHOT:Int = 3; // Hit by the player.
   public var STATE_IMPACTED:Int = 4; // Impacted the player.
   public var currentState:Int = 2;
+
+  override function set_frames(frames:FlxFramesCollection):FlxFramesCollection
+  {
+    super.set_frames(frames);
+
+    // BACKWARDS COMPATIBILITY: Reload the animations if a mod changes the texture atlas.
+    loadAnimations();
+
+    return frames;
+  }
 
   public function new(x:Float, y:Float, ?atlasPath:String)
   {
