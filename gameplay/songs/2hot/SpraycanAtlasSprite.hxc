@@ -15,8 +15,11 @@ class SpraycanAtlasSprite extends FunkinSprite
   {
     super.set_frames(frames);
 
-    // BACKWARDS COMPATIBILITY: Reload the animations if a mod changes the texture atlas.
-    loadAnimations();
+    if (frames != null)
+    {
+      // BACKWARDS COMPATIBILITY: Reload the animations if a mod changes the texture atlas.
+      loadAnimations();
+    }
 
     return frames;
   }
