@@ -83,7 +83,7 @@ class StressSong extends Song
   {
     var videoPath = 'stressCutscene';
 
-    if (Constants.CENSOR_EXPLETIVES)
+    if (!Preferences.naughtyness || Constants.CENSOR_EXPLETIVES)
     {
       videoPath += '-censored';
     }
