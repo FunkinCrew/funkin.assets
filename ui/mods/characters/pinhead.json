@@ -1,4 +1,7 @@
 {
   "offsets": [22, -53],
-  "useSmallWire": true
+  "useSmallWire": true,
+  "startingFrame": {
+    "gf": 561
+  }
 }
