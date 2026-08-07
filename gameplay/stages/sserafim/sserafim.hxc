@@ -497,7 +497,7 @@ class SserafimStage extends Stage
     }
   }
 
-  function setDarkenAmt(darkAmt:Float, duration:Float)
+  function setDarkenAmt(darkAmt:Float, duration:Float, followConductor:Bool = true)
   {
     // Cancel previous darken tweens before starting new ones to prevent overlap.
     cancelAllEventTweens();
@@ -507,7 +507,7 @@ class SserafimStage extends Stage
     }, {
       conductor: Conductor.instance,
       lengthMs: duration * 1000,
-      shouldUseConductorSync: true,
+      shouldUseConductorSync: followConductor,
       ease: FlxEase.sineInOut
     });
     createEventTween(stageShader, {
@@ -515,7 +515,7 @@ class SserafimStage extends Stage
     }, {
       conductor: Conductor.instance,
       lengthMs: duration * 1000,
-      shouldUseConductorSync: true,
+      shouldUseConductorSync: followConductor,
       ease: FlxEase.sineInOut
     });
   }
@@ -921,11 +921,11 @@ class SserafimStage extends Stage
     {
       HapticUtil.vibrate(0, 0.1, 0.2, 0);
 
-      setDarkenAmt(0.2, 0.01);
+      setDarkenAmt(0.2, 0.01, false);
     });
     new FlxTimer(cutsceneTimerManager).start(251 / 24, function(tmr)
     {
-      setDarkenAmt(0, 0.8);
+      setDarkenAmt(0, 0.8, false);
     });
 
     // gf taps bf
@@ -933,11 +933,11 @@ class SserafimStage extends Stage
     {
       HapticUtil.vibrate(0, 0.1, 0.2, 0);
 
-      setDarkenAmt(0.2, 0.01);
+      setDarkenAmt(0.2, 0.01, false);
     });
     new FlxTimer(cutsceneTimerManager).start(411 / 24, function(tmr)
     {
-      setDarkenAmt(0, 0.8);
+      setDarkenAmt(0, 0.8, false);
     });
 
     // truck starts getting closer
