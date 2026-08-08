@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "bgAsset": "ui/freeplay/styles/bf/background-dad",
+  "bgAsset": "ui/freeplay/backgrounds/bf/week1",
   "selectorAsset": "ui/freeplay/interface/difficulty-selector",
   "numbersAsset": "ui/freeplay/styles/bf/digital-numbers",
   "capsuleAsset": "ui/freeplay/interface/freeplay-capsule/capsule/capsule-bf",
