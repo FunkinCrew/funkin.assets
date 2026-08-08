@@ -47,11 +47,11 @@ class SchoolErectStage extends Stage
 
         if (character.characterId == 'pico-pixel')
         {
-          rim.loadAltMask(Paths.image('gameplay/stages/schoolErect/masks/pico-pixel-mask'));
+          rim.loadAltMask(Paths.image('gameplay/characters/pico-pixel/pico-pixel-mask'));
         }
         else
         {
-          rim.loadAltMask(Paths.image('gameplay/stages/schoolErect/masks/bf-pixel-mask'));
+          rim.loadAltMask(Paths.image('gameplay/characters/bf-pixel/bf-pixel-mask'));
         }
 
         rim.maskThreshold = 1;
@@ -74,12 +74,12 @@ class SchoolErectStage extends Stage
 
         if (character.characterId == 'nene-pixel')
         {
-          rim.loadAltMask(Paths.image('gameplay/stages/schoolErect/masks/nene-pixel-mask'));
+          rim.loadAltMask(Paths.image('gameplay/characters/nene-pixel/nene-pixel-mask'));
           character.addSunsetShaders();
         }
         else
         {
-          rim.loadAltMask(Paths.image('gameplay/stages/schoolErect/masks/gf-pixel-mask'));
+          rim.loadAltMask(Paths.image('gameplay/characters/gf-pixel/gf-pixel-mask'));
         }
 
         rim.maskThreshold = 1;
@@ -97,7 +97,7 @@ class SchoolErectStage extends Stage
         rim.angle = 90;
         character.shader = rim;
 
-        rim.loadAltMask(Paths.image('gameplay/stages/schoolErect/masks/senpai-mask'));
+        rim.loadAltMask(Paths.image('gameplay/characters/senpai/senpai-mask'));
         rim.maskThreshold = 1;
         rim.useAltMask = true;
 

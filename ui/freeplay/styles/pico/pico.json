@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "bgAsset": "ui/freeplay/styles/pico/background-dad",
+  "bgAsset": "ui/freeplay/backgrounds/pico/week1",
   "selectorAsset": "ui/freeplay/styles/pico/difficulty-selector",
   "numbersAsset": "ui/freeplay/styles/pico/digital-numbers",
   "capsuleAsset": "ui/freeplay/interface/freeplay-capsule/capsule/capsule-pico",
