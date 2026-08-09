@@ -908,7 +908,7 @@ class SserafimStage extends Stage
 
     PlayState.instance.camGame.fade(0xFF000000, 3, true, null, true);
 
-    new FlxTimer(cutsceneTimerManager).start(20 / 24, function(tmr)
+    new FlxTimer(cutsceneTimerManager).start(14.5 / 24, function(tmr)
     {
       cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/sserafim/sounds/cutscene/start-cutscene'), 1.0, false, true, true);
     });
