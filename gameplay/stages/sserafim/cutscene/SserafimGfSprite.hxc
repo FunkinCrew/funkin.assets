@@ -7,7 +7,7 @@ class SserafimGfSprite extends FunkinSprite
   {
     super(x, y);
 
-    loadTextureAtlas('gameplay/stages/sserafim/cutscene/gf-get-up', {
+    loadTextureAtlas('gameplay/stages/sserafim/cutscene/gf-get-up', null, {
       cacheOnLoad: true
     });
     loadAnimations();

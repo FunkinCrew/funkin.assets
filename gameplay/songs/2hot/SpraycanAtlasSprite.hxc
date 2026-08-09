@@ -30,7 +30,7 @@ class SpraycanAtlasSprite extends FunkinSprite
 
     atlasPath ??= 'gameplay/songs/2hot/spraycan';
 
-    loadTextureAtlas(atlasPath, {
+    loadTextureAtlas(atlasPath, null, {
       swfMode: true
     });
     loadAnimations();
