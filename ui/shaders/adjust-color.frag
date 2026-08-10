@@ -21,7 +21,7 @@ vec3 applyHSBCEffect(vec3 color)
 
 void main()
 {
-	vec4 color4 = texture2D(bitmap, openfl_TextureCoordv);
+	vec4 color4 = flixel_texture2D(bitmap, openfl_TextureCoordv);
 	vec3 color3 = color4.a > 0.0 ? color4.rgb / color4.a : color4.rgb;
 
 	color3 = applyHSBCEffect(color3);
