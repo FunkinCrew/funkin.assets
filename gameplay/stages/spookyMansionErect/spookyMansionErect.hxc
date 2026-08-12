@@ -44,7 +44,6 @@ class SpookyMansionErectStage extends Stage
   var lightningStrikeBeat:Int = 0;
   var lightningStrikeOffset:Int = 8;
   var lightningSequence:Sequence;
-  var lightningSequenceData:Array<SequenceData>;
 
   override public function onCreate(event:ScriptEvent):Void
   {
@@ -62,7 +61,7 @@ class SpookyMansionErectStage extends Stage
     // Precache the thunder sounds.
     for (snd in ['thunder-1', 'thunder-2']) NewAssets.cacheSound(NewPaths.sound('gameplay/stages/spookyMansion/sounds/$snd'));
 
-    lightningSequenceData = [
+    lightningSequence = new Sequence([
       {
         time: 0.06,
         callback: () ->
@@ -100,7 +99,7 @@ class SpookyMansionErectStage extends Stage
           }, 1.5);
         }
       }
-    ];
+    ], 1, false, false);
   }
 
   public function onBranchFrame(name:String, frameNum:Int, frameIndex:Int):Void
@@ -138,7 +137,7 @@ class SpookyMansionErectStage extends Stage
     getDad().alpha = 0;
     getGirlfriend().alpha = 0;
 
-    lightningSequence = new Sequence(lightningSequenceData);
+    lightningSequence.start();
 
     lightningStrikeBeat = beat;
     lightningStrikeOffset = FlxG.random.int(8, 24);
@@ -259,7 +258,7 @@ class SpookyMansionErectStage extends Stage
     super.onGameOver(event);
 
     // Stop the lightning sequence from continuing.
-    if (lightningSequence != null) lightningSequence.destroy();
+    if (lightningSequence != null) lightningSequence.stop();
 
     // Make sure all alpha values get reset when dying.
     getNamedProp('bgLight').alpha = 0;
