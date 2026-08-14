@@ -38,6 +38,7 @@ class SchoolErectStage extends Stage
     rim.color = 0xFF52351d;
     rim.attachedSprite = character;
     rim.distance = 5;
+    rim.normalizedSize = 96;
 
     switch (charType)
     {
