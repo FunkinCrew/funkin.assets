@@ -163,6 +163,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     muzzleFlash.animation.addByPrefix('shoot2', 'shoot back low0', 24, false);
     muzzleFlash.animation.addByPrefix('shoot3', 'shoot forward0', 24, false);
     muzzleFlash.animation.addByPrefix('shoot4', 'shoot forward low0', 24, false);
+    muzzleFlash.visible = false;
 
     muzzleFlash.animation.onFrameChange.add(function()
     {
