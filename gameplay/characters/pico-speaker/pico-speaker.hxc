@@ -1,3 +1,4 @@
+import funkin.play.character.GirlfriendCharacter;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
@@ -11,7 +12,7 @@ import Lambda;
 import funkin.ui.debug.cameraeditor.CameraEditorState;
 #end
 
-class PicoSpeakerCharacter extends AnimateAtlasCharacter
+class PicoSpeakerCharacter extends GirlfriendCharacter
 {
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];
@@ -30,7 +31,7 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
   {
     super.onCreate(event);
 
-    this.playAnimation('idle', true, true);
+    playAnimation('idle', true, true);
 
     if (!this.debug)
     {
@@ -119,13 +120,13 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     switch (direction)
     {
       case 0:
-        this.playAnimation('shoot1', true, true);
+        playAnimation('shoot1', true, true);
       case 1:
-        this.playAnimation('shoot2', true, true);
+        playAnimation('shoot2', true, true);
       case 2:
-        this.playAnimation('shoot3', true, true);
+        playAnimation('shoot3', true, true);
       case 3:
-        this.playAnimation('shoot4', true, true);
+        playAnimation('shoot4', true, true);
     }
   }
 }

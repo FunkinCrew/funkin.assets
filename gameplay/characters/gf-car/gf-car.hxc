@@ -1,0 +1,9 @@
+import funkin.play.character.GirlfriendCharacter;
+
+class GirlfriendCarCharacter extends GirlfriendCharacter
+{
+  public function new()
+  {
+    super('gf-car');
+  }
+}
