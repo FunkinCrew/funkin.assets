@@ -60,7 +60,7 @@ class BlazinPunchLowSpinNoteKind extends NoteKind
 {
   public function new()
   {
-    super("weekend-1-punchlowspin", "Punch High (Spin) (Blazin')");
+    super("weekend-1-punchlowspin", "Punch Low (Spin) (Blazin')");
   }
 }
 
