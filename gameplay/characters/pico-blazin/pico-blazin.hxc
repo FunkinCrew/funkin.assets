@@ -139,27 +139,29 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     {
       // TODO: ACTUALLY play one of the three death animations here.
 
-      var deathSequenceEvents:Array<SequenceEvent> = [
-        {
-          time: 1.25,
-          callback: afterPicoDeathGutPunchIntro
-        }
-      ];
+      var deathSequenceEvents:Array<SequenceEvent> = [{
+        time: 1.25,
+        callback: afterPicoDeathGutPunchIntro
+      }];
 
       if (HapticUtil.hapticsAvailable)
       {
         deathSequenceEvents.push({
           time: 0.5,
-          callback: () -> {
+          callback: () ->
+          {
             // Pico falls on his knees.
             HapticUtil.vibrate(0, 0.1, 0.1, 1);
+          }
         });
 
         deathSequenceEvents.push({
           time: 1.1,
-          callback: () -> {
+          callback: () ->
+          {
             // Pico falls "asleep". :)
             HapticUtil.vibrate(0, 0.1, 0.1, 1);
+          }
         });
       }
 
