@@ -1,0 +1,55 @@
+import funkin.graphics.FunkinSprite;
+import funkin.play.PlayState;
+import flixel.FlxG;
+import funkin.Paths;
+import funkin.FunkinMemory;
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.util.FlxSignal;
+
+// a unique object for pico and girlfriend in the stress cutscene
+class StressSpeakerCutsceneSprite extends FunkinSprite
+{
+  public var onGirlfriendFell:FlxSignal;
+  public var calledGirlfriendFell:Bool;
+
+  public function new(x:Float, y:Float)
+  {
+    onGirlfriendFell = new FlxSignal();
+    calledGirlfriendFell = false;
+
+    super(x, y);
+
+    loadTextureAtlas("cutscene/pico", "week7",
+      {
+        swfMode: true
+      });
+
+    anim.addByFrameLabel("gfTurn", "gf turns demon", 24, false);
+    anim.addByFrameLabel("picoSaves", "obliteration", 24, false);
+    anim.addByFrameLabel("idle", "pico idle", 24, false);
+
+    anim.onFrameChange.add(onAnimationFrame);
+  }
+
+  public function playAnimation(animName:String, force:Bool = false, reversed:Bool = false, frame:Int = 0):Void
+  {
+    if (animName == 'picoSaves')
+    {
+      calledGirlfriendFell = false;
+    }
+
+    this.anim.play(animName, force, reversed, frame);
+  }
+
+  public function onAnimationFrame(name:String, frame:Int, _:Int):Void
+  {
+    if (name == 'picoSaves' && frame > (2 - 1) && !calledGirlfriendFell)
+    {
+      onGirlfriendFell.dispatch();
+
+      // Makes sure this gets called, even if the game lags.
+      calledGirlfriendFell = true;
+    }
+  }
+}
+
