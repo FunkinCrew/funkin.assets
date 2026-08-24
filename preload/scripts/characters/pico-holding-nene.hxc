@@ -25,12 +25,20 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 
     // NOTE: this.x and this.y are not properly set here.
 
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico-and-nene';
-
-    PauseSubState.musicSuffix = '-pico';
-
     this.animation.onFinish.add(onAnimationComplete);
+  }
+
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    if (characterType == CharacterType.BF)
+    {
+      GameOverSubState.musicSuffix = '-pico';
+      GameOverSubState.blueBallSuffix = '-pico-and-nene';
+
+      PauseSubState.musicSuffix = '-pico';
+    }
   }
 
   override function onSongRetry(event:ScriptEvent):Void
@@ -38,10 +46,13 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
     super.onSongRetry(event);
 
     // Reset to standard death animation.
-    GameOverSubState.musicSuffix = '-pico';
-    GameOverSubState.blueBallSuffix = '-pico-and-nene';
+    if (characterType == CharacterType.BF)
+    {
+      GameOverSubState.musicSuffix = '-pico';
+      GameOverSubState.blueBallSuffix = '-pico-and-nene';
 
-    PauseSubState.musicSuffix = '-pico';
+      PauseSubState.musicSuffix = '-pico';
+    }
   }
 
   override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
