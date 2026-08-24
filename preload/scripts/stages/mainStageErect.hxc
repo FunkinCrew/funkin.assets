@@ -63,6 +63,12 @@ class MainStageErectStage extends Stage
     super.onStepHit(event);
   }
 
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    getBoyfriend().shader = null;
+  }
+
   /**
    * Apply the shader to the character as it is added.
    */

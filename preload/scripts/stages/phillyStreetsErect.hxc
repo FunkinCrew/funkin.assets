@@ -620,6 +620,7 @@ class PhillyStreetsErectStage extends Stage
     super.onGameOver(event);
     // Make it so the rain shader doesn't show over the game over screen
     FlxG.camera.filters = [];
+    getBoyfriend().shader = null;
   }
 
   override function onSongRetry(event:ScriptEvent):Void
