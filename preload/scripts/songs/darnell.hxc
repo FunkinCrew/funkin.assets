@@ -310,7 +310,7 @@ class DarnellSong extends Song
   {
     var videoPath = 'darnellCutscene';
 
-    if (Constants.CENSOR_EXPLETIVES)
+    if (!Preferences.naughtyness || Constants.CENSOR_EXPLETIVES)
     {
       videoPath += '-censored';
     }
