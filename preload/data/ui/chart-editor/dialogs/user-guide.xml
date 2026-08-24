@@ -69,6 +69,8 @@
 					<item action="Select Inverse" keybind="Ctrl + I" />
 					<item action="Toggle Metronome" keybind="Shift + M" />
 					<item action="Toggle Hitsounds" keybind="Shift + H" />
+					<item action="Toggle Player Hitsounds" keybind="Ctrl + B" />	
+					<item action="Toggle Opponent Hitsounds" keybind="Ctrl + D" />
 					<item action="Toggle Instrumental" keybind="Shift + I" />
 					<item action="Toggle Vocals" keybind="Shift + V" />
 					<item action="Toggle Player Vocals" keybind="Shift + B" />
