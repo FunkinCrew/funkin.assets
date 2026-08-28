@@ -8,8 +8,7 @@ import funkin.graphics.shaders.AdjustColorShader;
 
 class OtisSpeakerCharacter extends AnimateAtlasCharacter
 {
-  var shootTimes:Array<Float> = [];
-  var shootDirs:Array<Int> = [];
+  var animNotes:Array<SongNoteData> = [];
 
   var pupilState:Int = 0;
 
@@ -140,7 +139,6 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   function initTimemap():Void
   {
     trace('Initializing Otis timings...');
-    shootTimes = [];
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
     var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
@@ -153,7 +151,8 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     {
       trace('Initializing Otis (speaker); found `picospeaker` chart, continuing...');
     }
-    var animNotes:Array<SongNoteData> = animChart.notes;
+
+    animNotes = animChart.notes;
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
     // i had to sort the whole pico chart by hand im gonna go insane
@@ -161,12 +160,6 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     {
       return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
     });
-
-    for (note in animNotes)
-    {
-      shootTimes.push(note.time);
-      shootDirs.push(note.data);
-    }
   }
 
   override public function onAdd(event:ScriptEvent):Void
@@ -221,12 +214,10 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     stereoBG.visible = this.visible;
 
     // Each Pico animation is shifted from the array when it's time to play it.
-    while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition)
+    while (animNotes.length > 0 && animNotes[0].time <= Conductor.instance.songPosition)
     {
-      var nextTime:Float = shootTimes.shift();
-      var nextDir:Int = shootDirs.shift();
-
-      playPicoAnimation(nextDir);
+      var data:SongNoteData = animNotes.shift();
+      playPicoAnimation(data.getDirection());
     }
   }
 
