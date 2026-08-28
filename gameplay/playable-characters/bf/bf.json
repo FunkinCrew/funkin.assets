@@ -132,7 +132,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickleFight",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickle-fight",
         "filter": "safe",
         "zIndex": 501,
         "delay": 4.41,
@@ -173,7 +173,7 @@
       },
       {
         "renderType": "animateatlas",
-        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickleFight",
+        "assetPath": "gameplay/playable-characters/bf/results/graphics/results-perfect/tickle-fight",
         "filter": "safe",
         "zIndex": 501,
         "delay": 4.41,
