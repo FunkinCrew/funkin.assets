@@ -27,6 +27,7 @@ class TwoHOTSong extends Song
 {
   var hasPlayedCutscene:Bool = false;
   var cutsceneConductor:Null<Conductor>;
+  var gunTimer:FlxTimer;
   var canVibrationPreset:VibrationPreset = {
     period: 0.1,
     duration: 0.1,
@@ -273,7 +274,7 @@ class TwoHOTSong extends Song
         // Do nothing, but place this such that the animation plays at the right time.
       case 'weekend-1-cockgun': // lol
         gunCocked = true;
-        new FlxTimer().start(1.0, function()
+        gunTimer = new FlxTimer().start(1.0, function()
         {
           gunCocked = false;
         });
@@ -505,5 +506,19 @@ class TwoHOTSong extends Song
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
+  }
+  
+  override function onPause(event:PauseScriptEvent)
+  {
+    super.onPause();
+	
+    gunTimer?.active = false;
+  }
+  
+  override function onResume(event:ScriptEvent)
+  {
+    super.onResume();
+	
+    gunTimer?.active = true;
   }
 }
