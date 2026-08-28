@@ -10,6 +10,12 @@ import funkin.graphics.FunkinSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class PicoCard extends BackingCard
 {
@@ -116,7 +122,7 @@ class PicoCard extends BackingCard
     scrollLower.velocity.x = -110;
     add(scrollLower);
 
-    var bitmap = BitmapUtil.scalePartByWidth(Assets.getBitmapData(Paths.image('ui/freeplay/styles/pico/backing-card/blue-bar')), FreeplayState.CUTOUT_WIDTH);
+    var bitmap = BitmapUtil.scalePartByWidth(NewAssets.getBitmapData(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar').withPixelData()), FreeplayState.CUTOUT_WIDTH);
     blueBar = new FlxSprite(0, 239).loadGraphic(bitmap);
     blueBar.blend = 9;
     blueBar.alpha = 0.4;
