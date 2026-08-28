@@ -4,7 +4,7 @@
   "assetPath": "shared:characters/gfCar",
   "renderType": "animateatlas",
   "startingAnimation": "danceRight",
-  "offsets": [0, 0],
+  "offsets": [50, -10],
   "cameraOffsets": [0, -199],
   "animations": [
     {

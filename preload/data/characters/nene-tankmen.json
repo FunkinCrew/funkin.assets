@@ -4,7 +4,7 @@
   "assetPath": "shared:characters/nene",
   "startingAnimation": "danceRight",
   "renderType": "animateatlas",
-  "offsets": [-44, -67],
+  "offsets": [4, -89],
   "cameraOffsets": [44, 56],
   "animations": [
     {
