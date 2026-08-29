@@ -61,20 +61,8 @@ class BlazinSong extends Song
     if (!this.hasHidden)
     {
       this.hasHidden = true;
-      hideOpponentStrumline();
+      PlayState.instance.opponentStrumline.visible = false;
       centerPlayerStrumline();
-    }
-  }
-
-  function hideOpponentStrumline()
-  {
-    var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
-    if (opponentStrumline != null)
-    {
-      for (arrow in opponentStrumline.members)
-      {
-        arrow.visible = false;
-      }
     }
   }
 
