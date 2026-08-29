@@ -21,6 +21,7 @@
     <menu-item id="menubarItemSaveChart" text="Save Chart" shortcutText="Ctrl+S" />
     <menu-item id="menubarItemSaveChartAs" text="Save Chart As..." shortcutText="Ctrl+Shift+S" />
     <menu-separator />
+    <menu-checkbox width="100%" id="menubarItemAutoSave" text="Auto Save" />
     <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
