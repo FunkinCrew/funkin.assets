@@ -24,7 +24,7 @@ class StressSong extends Song
     switch (type)
     {
       case "VIDEO":
-        if (Constants.CENSOR_EXPLETIVES) results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene-censored')]);
+        if (Constants.CENSOR_EXPLETIVES || Preferences.naughtyness) results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene-censored')]);
         else
           results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene')]);
       default:
