@@ -30,6 +30,11 @@
       "offsets": [0, -15]
     },
     {
+      "name": "combo200",
+      "prefix": "GF Cheer",
+      "offsets": [0, 0]
+    },
+    {
       "name": "drop70",
       "prefix": "gf sad",
       "animType": "symbol",
