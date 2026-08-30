@@ -9,12 +9,6 @@
   },
   "animations": [
     {
-      "name": "singUP",
-      "prefix": "BF Dead with GF Loop",
-      "assetPath": "characters/bfHoldingGF-DEAD",
-      "offsets": [0, 0]
-    },
-    {
       "name": "firstDeath",
       "prefix": "BF Dies with GF",
       "assetPath": "characters/bfHoldingGF-DEAD",
