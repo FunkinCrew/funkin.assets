@@ -31,11 +31,6 @@ class RosesDialogueBox extends DialogueBox
     super.onTypingComplete();
   }
 
-  public function onDialogueStart(event:DialogueScriptEvent):Void
-  {
-    super.onDialogueStart(event);
-  }
-
   public function onDialogueLine(event:DialogueScriptEvent):Void
   {
     // Override the default box animation behavior by switching the state
@@ -63,10 +58,5 @@ class RosesDialogueBox extends DialogueBox
     this.textDisplay.visible = false;
 
     playAnimation('exit', false);
-  }
-
-  override function onDestroy(event:ScriptEvent)
-  {
-    super.onDestroy(event);
   }
 }

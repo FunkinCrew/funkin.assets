@@ -109,8 +109,6 @@ class DarnellSong extends Song
 
     var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
       .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-    var nenePos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
     var darnellPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
     var cutsceneDelay:Float = 2;

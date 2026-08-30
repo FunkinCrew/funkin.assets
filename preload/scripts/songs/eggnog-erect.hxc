@@ -25,8 +25,6 @@ class EggnogErectSong extends Song
   var santaSound:FunkinSound;
   var shootSound:FunkinSound;
 
-  var debugTesting:Bool = false;
-
   var isMobilePauseButtonPressed:Bool = false;
 
   function new()
@@ -40,11 +38,6 @@ class EggnogErectSong extends Song
   {
     super.onCountdownStart(event);
     trace(PlayState.instance.currentVariation);
-  }
-
-  function onSongRetry(event:ScriptEvent)
-  {
-    super.onSongRetry(event);
   }
 
   public override function onSongEnd(event:CountdownScriptEvent):Void

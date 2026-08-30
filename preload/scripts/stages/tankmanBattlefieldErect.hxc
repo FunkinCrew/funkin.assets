@@ -13,11 +13,6 @@ class TankmanBattlefieldErectStage extends Stage
     super('tankmanBattlefieldErect');
   }
 
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
-  }
-
   var tankmanRim:DropShadowShader;
 
   public function onGameOver(event:ScriptEvent)
@@ -98,11 +93,6 @@ class TankmanBattlefieldErectStage extends Stage
     {
       tankmanRim.useAltMask = true;
     }
-  }
-
-  function onUpdate(event:UpdateScriptEvent):Void
-  {
-    super.onUpdate(event);
   }
 
   function onBeatHit(event:SongTimeScriptEvent):Void

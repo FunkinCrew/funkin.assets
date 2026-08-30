@@ -76,11 +76,6 @@ class StressPicoMixSong extends Song
     }
   }
 
-  function onSongStart(event:ScriptEvent):Void
-  {
-    super.onSongStart(event);
-  }
-
   function startVideo()
   {
     var videoPath = 'stressPicoCutscene';
@@ -188,11 +183,7 @@ class StressPicoMixSong extends Song
 
   function startEndCutscene()
   {
-    var picoPos:Array<Float> = [PlayState.instance.currentStage.getBoyfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-    var otisPos:Array<Float> = [PlayState.instance.currentStage.getGirlfriend()
-      .cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y];
-    var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+   var tankmanPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
 
     cutsceneTimerManager = new FlxTimerManager();
 

@@ -11,11 +11,6 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];
 
-  var pupilState:Int = 0;
-
-  var PUPIL_STATE_NORMAL = 0;
-  var PUPIL_STATE_LEFT = 1;
-
   var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FunkinSprite;
@@ -223,7 +218,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     // Each Pico animation is shifted from the array when it's time to play it.
     while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition)
     {
-      var nextTime:Float = shootTimes.shift();
+      shootTimes.shift();
       var nextDir:Int = shootDirs.shift();
 
       playPicoAnimation(nextDir);

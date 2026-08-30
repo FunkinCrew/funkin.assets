@@ -18,11 +18,6 @@ class MainStageErectStage extends Stage
   var colorShaderDad:AdjustColorShader;
   var colorShaderGf:AdjustColorShader;
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
-  {
-    super.onCountdownStart(event);
-  }
-
   function buildStage()
   {
     super.buildStage();

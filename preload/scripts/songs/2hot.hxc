@@ -52,11 +52,6 @@ class TwoHOTSong extends Song
     return [];
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
-  {
-    super.onCountdownStart(event);
-  }
-
   function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);

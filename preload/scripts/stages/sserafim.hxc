@@ -847,8 +847,6 @@ class SserafimStage extends Stage
       HapticUtil.vibrate(2 / 24, 20 / 24, 0.4, 0.4);
     });
 
-    var offsetLol:Float = 562;
-
     // car crash + flash
     new FlxTimer(cutsceneTimerManager).start(563 / 24, function(tmr)
     {
