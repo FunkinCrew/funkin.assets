@@ -46,16 +46,20 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     tankmanTimes = [];
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
-    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentVariation);
+    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentInstrumental);
     if (animChart == null)
     {
-      trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
-      return;
+      trace('TankmanSpriteGroup failed: no picospeaker chart for this variation.');
+      animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+      if (animChart == null)
+      {
+        trace('Skip initializing TankmanSpriteGroup: no picospeaker chart.');
+        return;
+      }
     }
-    else
-    {
-      trace('Found picospeaker chart for TankmanSpriteGroup.');
-    }
+
+    trace('Found picospeaker chart for TankmanSpriteGroup.');
+
     var animNotes:Array<SongNoteData> = animChart.notes;
 
     // turns out sorting functions are completely useless in polymod right now and do nothing

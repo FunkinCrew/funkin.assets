@@ -51,16 +51,20 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     shootTimes = [];
     // The tankmen's timings and directions are determined
     // by the chart, specifically the internal "picospeaker" difficulty.
-    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker');
+    var animChart:SongDifficulty = PlayState.instance.currentSong.getDifficulty('picospeaker', PlayState.instance.currentInstrumental);
     if (animChart == null)
     {
-      trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this song.');
-      return;
+      trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this variation.');
+      animChart = PlayState.instance.currentSong.getDifficulty('picospeaker');
+      if (animChart == null)
+      {
+        trace('Initializing Pico (speaker) failed; no `picospeaker` chart found for this song.');
+        return;
+      }
     }
-    else
-    {
-      trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
-    }
+
+    trace('Initializing Pico (speaker); found `picospeaker` chart, continuing...');
+
     var animNotes:Array<SongNoteData> = animChart.notes;
 
     // turns out sorting functions are completely useless in polymod right now and do nothing
