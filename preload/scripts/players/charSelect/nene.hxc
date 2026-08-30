@@ -1,0 +1,54 @@
+import flixel.FlxG;
+import funkin.ui.charSelect.character.CharSelectCharacter;
+import funkin.util.HostPlatform;
+import funkin.util.PlatformUtil;
+import funkin.vis.dsp.SpectralAnalyzer;
+
+class NeneCharSelectCharacter extends CharSelectCharacter
+{
+  var analyzerLevelsCache:Array<Bar> = [];
+  var analyzer:SpectralAnalyzer = null;
+
+  override function onCreate(event:ScriptEvent)
+  {
+    super.onCreate(event);
+
+    analyzer = new SpectralAnalyzer(FlxG.sound.music._channel.__audioSource, 7, 0.1);
+
+    // On native it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
+    // So we want to manually change it!
+    if (PlatformUtil.detectHostPlatform() != HostPlatform.HTML5) analyzer.fftN = 512;
+  }
+
+  override public function draw()
+  {
+    if (analyzer != null) drawFFT();
+    super.draw();
+  }
+
+  function drawFFT()
+  {
+    if (analyzer == null) return;
+
+    analyzerLevelsCache = analyzer.getLevels(analyzerLevelsCache);
+
+    var frame:Null<Frame> = this.timeline.getLayer("VIZ_bars")?.getFrameAtIndex(anim.curAnim.curFrame) ?? null;
+    var elements:Array<Element> = frame?.elements ?? [];
+    var len:Int = Math.min(elements.length, 7);
+
+    for (i in 0...len)
+    {
+      var animFrame:Int = (FlxG.sound.volume == 0 || FlxG.sound.muted) ? 0 : Math.round(analyzerLevelsCache[i].value * 12);
+
+      animFrame = Math.floor(Math.min(12, animFrame));
+      animFrame = Math.floor(Math.max(0, animFrame));
+
+      animFrame = Std.int(Math.abs(animFrame - 12)); // shitty dumbass flip, cuz dave got da shit backwards lol!
+
+      var convertedSymbol = elements[i].toSymbolInstance();
+      convertedSymbol.firstFrame = animFrame;
+
+      elements[i] = convertedSymbol;
+    }
+  }
+}

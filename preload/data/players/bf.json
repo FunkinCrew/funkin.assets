@@ -88,8 +88,7 @@
     "position": 4,
     "gf": {
       "assetPath": "charSelect/gfChill",
-      "animInfoPath": "charSelect/gfAnimInfo",
-      "visualizer": false
+      "animInfoPath": "charSelect/gfAnimInfo"
     }
   },
   "results": {

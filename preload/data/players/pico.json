@@ -79,7 +79,7 @@
     "gf": {
       "assetPath": "charSelect/neneChill",
       "animInfoPath": "charSelect/neneAnimInfo",
-      "visualizer": true
+      "scriptClass": "NeneCharSelectCharacter"
     }
   },
   "results": {
