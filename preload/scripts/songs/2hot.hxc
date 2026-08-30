@@ -1,3 +1,5 @@
+import lime.media.effects.FilterEffect;
+import lime.media.effects.FilterEffectType;
 import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -439,7 +441,6 @@ class TwoHOTSong extends Song
       trace('Died to the can! Use special death animation.');
 
       // Reset to standard death animation.
-      GameOverSubState.musicSuffix = '-pico-explode';
       GameOverSubState.blueBallSuffix = '-pico-explode';
       GameOverSubState.animationSuffix = '-explosion';
 
@@ -473,5 +474,35 @@ class TwoHOTSong extends Song
     FunkinMemory.cacheTexture(Paths.image("SpraypaintExplosion"));
     FunkinMemory.cacheTexture(Paths.image("spraypaintExplosionEZ"));
     FunkinMemory.cacheTexture(Paths.image("spraycanAtlas/spritemap1"));
+  }
+
+  /**
+   * Apply lowpass filter to the music if the player encountered a game over from darnell's can explosion.
+   */
+  function onGameOverStart(event:ScriptEvent):Void
+  {
+    super.onGameOverStart(event);
+
+    if (GameOverSubState.blueBallSuffix == '-pico-explode')
+    {
+      if (GameOverSubState.instance.gameOverMusic != null)
+      {
+        GameOverSubState.instance.gameOverMusic.addEffect(new FilterEffect(FilterEffectType.LOWPASS, 180));
+      }
+    }
+  }
+
+  function onGameOverMusicStart(event:ScriptEvent):Void
+  {
+    super.onGameOverMusicStart(event);
+
+    if (GameOverSubState.blueBallSuffix == '-pico-explode' && GameOverSubState.instance.gameOverMusic != null)
+    {
+      var effect = GameOverSubState.instance.gameOverMusic.getEffectAt(0);
+      if (effect != null)
+      {
+        FlxTween.tween(effect, {frequency: 24000}, 15.0, {ease: FlxEase.cubeIn});
+      }
+    }
   }
 }
