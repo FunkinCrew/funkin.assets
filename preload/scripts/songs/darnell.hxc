@@ -47,7 +47,7 @@ class DarnellSong extends Song
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
-    if (difficultyId == 'easy' || difficultyId == 'normal' || difficultyId == 'hard')
+    if (Constants.DEFAULT_DIFFICULTY_LIST.contains(difficultyId))
     {
       // NOTE: Pico will not have access to Boyfriend Mix instrumentals, so remove the BF instrumental.
       results = [for (id in results) if (id != 'bf') id];
