@@ -1,14 +1,9 @@
-import funkin.graphics.shaders.GaussianBlurShader;
-import flixel.FlxSprite;
-import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
-import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
-import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
 import funkin.util.MathUtil;
 import funkin.util.HapticUtil;

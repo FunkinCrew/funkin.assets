@@ -1,16 +1,7 @@
 import funkin.play.character.MultiAnimateAtlasCharacter;
-import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import flixel.util.FlxTimer;
-import funkin.graphics.FunkinSprite;
-import funkin.audio.FunkinSound;
-import flixel.FlxSprite;
-import flixel.group.FlxTypedSpriteGroup;
-import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
-import funkin.modding.module.ModuleHandler;
-import flixel.tweens.FlxTween;
 
 class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {

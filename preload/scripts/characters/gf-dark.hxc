@@ -1,10 +1,6 @@
-import funkin.audio.FunkinSound;
 import funkin.play.character.AnimateAtlasCharacter;
-import funkin.play.GameOverSubState;
 import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
-import funkin.play.character.CharacterType;
-import funkin.play.PlayState;
 
 class GirlfriendDarkCharacter extends AnimateAtlasCharacter
 {

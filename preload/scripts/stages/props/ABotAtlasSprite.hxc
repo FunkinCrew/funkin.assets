@@ -1,6 +1,4 @@
 import funkin.graphics.FunkinSprite;
-import flixel.math.FlxPoint;
-import funkin.Conductor;
 
 class ABotAtlasSprite extends FunkinSprite
 {

@@ -1,6 +1,4 @@
 import funkin.play.character.PackerCharacter;
-import funkin.play.PlayState;
-import flixel.addons.effects.FlxTrail;
 import funkin.effects.FunkTrail;
 
 class SpiritCharacter extends PackerCharacter

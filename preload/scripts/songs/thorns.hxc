@@ -1,6 +1,5 @@
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
-import flixel.FlxSprite;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
