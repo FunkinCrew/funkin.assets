@@ -60,10 +60,10 @@ class SpraycanAtlasSprite extends FunkinSprite
     explodeEZ.animation.play("idle");
 
     PlayState.instance.currentStage.add(explodeEZ);
-    explodeEZ.animation.finishCallback = () ->
+    explodeEZ.animation.onFinish.add(name ->
     {
       explodeEZ.kill();
-    };
+    });
   }
 
   public function playCanStart():Void
