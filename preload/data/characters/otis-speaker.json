@@ -7,6 +7,10 @@
   "singTime": 4.0,
   "offsets": [-13, -132],
   "cameraOffsets": [-27, 57],
+  "variations": {
+    "variationFor": "pico-speaker",
+    "variationName": "Otis"
+  },
   "animations": [
     {
       "name": "idle",
