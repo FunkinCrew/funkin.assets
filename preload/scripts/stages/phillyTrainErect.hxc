@@ -574,6 +574,7 @@ class PhillyTrainErectStage extends Stage
   {
     super.onSongRetry(event);
     trainReset();
+    trainEnabled = true;
 
     if (trainSound != null) trainSound.stop();
 
@@ -596,6 +597,19 @@ class PhillyTrainErectStage extends Stage
     }
 
     super.onSongEnd(event);
+  }
+
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    // Disable train movement sfx during game over
+    trainMoving = false;
+    trainEnabled = false;
+    if (trainSound != null)
+    {
+      trainSound.stop();
+    }
+
+    super.onGameOver(event);
   }
 
   function kill()
