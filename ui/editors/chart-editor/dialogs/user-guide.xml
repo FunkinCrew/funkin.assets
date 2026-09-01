@@ -60,6 +60,7 @@
 					<item action="Delete Selection" keybind="Delete" />
 					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Flip Selected Notes" keybind="Ctrl + F" />
+					<item action="Snap Selection to Current Note Snap" keybind="Shift + N" />
 					<item action="Mirror Notes Along X Axis" keybind="Ctrl + Shift + M" />
 					<item action="Mirror Notes Along Y Axis" keybind="Ctrl + Alt + M" />
 					<item action="Mirror Notes Along Both Axes" keybind="Ctrl + Shift + Alt + M" />
