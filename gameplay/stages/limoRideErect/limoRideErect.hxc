@@ -148,7 +148,7 @@ class LimoRideErectStage extends Stage
 
     getNamedProp('shootingStar').blend = 0;
 
-    carSequenceData = [
+    carSequence = new Sequence([
       {
         time: 1,
         callback: () -> doCarHaptics = true
@@ -161,14 +161,13 @@ class LimoRideErectStage extends Stage
         time: 2,
         callback: () -> resetFastCar()
       }
-    ];
+    ], 1, false, false);
 
     resetFastCar();
   }
 
   var _timer:Float = 0;
   var carSequence:Sequence;
-  var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
   override public function onUpdate(event:UpdateScriptEvent):Void
@@ -239,7 +238,7 @@ class LimoRideErectStage extends Stage
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
     fastCarCanDrive = false;
 
-    carSequence = new Sequence(carSequenceData);
+    carSequence.start();
   }
 
   /**
@@ -249,6 +248,8 @@ class LimoRideErectStage extends Stage
   {
     super.onSongRetry(event);
 
+    carSequence?.stop();
+    doCarHaptics = false;
     resetFastCar();
 
     shootingStarBeat = 0;

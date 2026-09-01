@@ -1,5 +1,4 @@
 import flixel.FlxSprite;
-import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.play.stage.Stage;
 import funkin.play.PlayState;
@@ -75,7 +74,7 @@ class LimoRideStage extends Stage
     // I don't know what it's for, but it's not used in the game.
     // If you want to re-add it, go find it in version control.
 
-    carSequenceData = [
+    carSequence = new Sequence([
       {
         time: 1,
         callback: () -> doCarHaptics = true
@@ -88,7 +87,7 @@ class LimoRideStage extends Stage
         time: 2,
         callback: () -> resetFastCar()
       }
-    ];
+    ], 1, false, false);
 
     resetFastCar();
   }
@@ -103,7 +102,6 @@ class LimoRideStage extends Stage
   }
 
   var carSequence:Sequence;
-  var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
   override public function onUpdate(event:UpdateScriptEvent):Void
@@ -142,7 +140,7 @@ class LimoRideStage extends Stage
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
     fastCarCanDrive = false;
 
-    carSequence = new Sequence(carSequenceData);
+    carSequence.start();
   }
 
   /**
@@ -151,6 +149,8 @@ class LimoRideStage extends Stage
   override public function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
+    carSequence?.stop();
+    doCarHaptics = false;
     resetFastCar();
   }
 
