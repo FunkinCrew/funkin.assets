@@ -5,17 +5,28 @@
   "healthIcon": {
     "id": "spooky"
   },
-  "startingAnimation": "danceRight",
+  "danceEvery": 0.5,
+  "startingAnimation": "dance1",
   "animations": [
     {
-      "name": "danceLeft",
+      "name": "dance1",
       "prefix": "spooky dance idle0",
-      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7]
+      "frameIndices": [0, 1, 2, 3]
     },
     {
-      "name": "danceRight",
+      "name": "dance2",
       "prefix": "spooky dance idle0",
-      "frameIndices": [8, 9, 10, 11, 12, 13, 14, 15]
+      "frameIndices": [4, 5, 6, 7]
+    },
+    {
+      "name": "dance3",
+      "prefix": "spooky dance idle0",
+      "frameIndices": [8, 9, 10, 11]
+    },
+    {
+      "name": "dance4",
+      "prefix": "spooky dance idle0",
+      "frameIndices": [12, 13, 14, 15]
     },
     {
       "name": "singLEFT",
