@@ -1,0 +1,22 @@
+{
+  "version": "2.2.4",
+  "songName": "Test",
+  "artist": "Kawai Sprite + MtH",
+  "charter": "MtH",
+  "offsets": {},
+  "playData": {
+    "difficulties": ["normal"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "bf-pixel",
+      "opponentVocals":["bf-pixel"],
+      "playerVocals":["bf"]
+    },
+    "stage": "mainStage",
+    "noteStyle": "funkin",
+    "ratings":{"normal":0}
+  },
+  "generatedBy": "Friday Night Funkin' - v0.8.5",
+  "timeChanges":[{"t":0,"b":0,"bpm":150,"n":4,"d":4,"bt":[ 4, 4, 4, 4]}]
+}
