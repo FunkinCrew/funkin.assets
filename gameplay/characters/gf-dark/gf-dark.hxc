@@ -1,3 +1,4 @@
+import funkin.play.character.GirlfriendCharacter;
 import funkin.audio.FunkinSound;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
@@ -5,8 +6,9 @@ import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterDataParser;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.graphics.FunkinSprite;
 
-class GirlfriendDarkCharacter extends AnimateAtlasCharacter
+class GirlfriendDarkCharacter extends GirlfriendCharacter
 {
   function new()
   {
@@ -66,5 +68,15 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
       currentStage.add(normalChar);
       currentStage.refresh(); // Apply z-index.
     }
+  }
+
+  override function dance(force:Bool):Void
+  {
+    //dance function gets called on beat so we play the NORMAL CHARACTERS* speakers bump animation here regardless if it was cancelled or not
+    //*the normal character underneath the dark character does not receive events so it doesnt become sentient, we have to call the animation here for it
+    if(normalChar != null && normalChar.speakers != null)
+      normalChar.speakers.animation.play('bump',true);
+
+    super.dance(force);
   }
 }

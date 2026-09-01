@@ -1,14 +1,74 @@
+package funkin.play.character;
+
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
+import animate.internal.elements.FlxSpriteElement;
+import animate.FlxAnimateFrames;
+import funkin.graphics.FunkinSprite;
 import funkin.play.PlayState;
 
 using StringTools;
 
 class GirlfriendCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  var speakers:FunkinSprite;
+  override function set_alpha(val:Float):Float
   {
-    super('gf');
+    super.set_alpha(val);
+
+    if(speakers != null && !this.useRenderTexture)
+      speakers.alpha = val;
+
+    return val;
+  }
+
+  public function new(characterId:String)
+  {
+    // This tells CharacterDataParser to load Gf instead of an invalid character!
+    if (characterId == "UNKNOWN")
+    {
+      characterId = "gf";
+    }
+
+    super(characterId);
+  }
+
+  override function loadAtlas()
+  {
+    super.loadAtlas();
+
+    this.library.getSymbol('speakers').timeline.forEachLayer((layer) -> 
+    {
+      layer.forEachFrame((frame) ->
+      {
+        frame.forEachElement((element) -> 
+        {
+          if((element.elementType == 'graphic' || element.elementType == 'movieclip') && element.symbolName == 'stereo boom')
+          {
+            //remove original speakers from atlas but keep its position
+            var elementPosition = frame.elements.indexOf(element);
+            element.destroy();
+            frame.elements.remove(element);
+
+            if(speakers == null)
+              createSpeakers();
+
+            //create and add an element to keep the sprite in so it renders and behaves like a normal atlas limb
+            var speakerElement:FlxSpriteElement = new FlxSpriteElement(speakers);
+            speakerElement.active = false;
+            frame.insert(elementPosition,speakerElement);
+          }
+        });
+      });
+    });
+  }
+
+  function createSpeakers()
+  {
+    speakers = new FunkinSprite(-14.85,0.2);
+    speakers.frames = this.frames;
+    speakers.animation.addBySymbol('bump','stereo boom',24,false,false,false);
+    speakers.animation.play('bump',true);
   }
 
   override function onAdd(event:ScriptEvent):Void
@@ -27,12 +87,34 @@ class GirlfriendCharacter extends AnimateAtlasCharacter
     }
   }
 
+  override function update(elapsed:Float):Void
+  {
+    super.update(elapsed);
+    //update the speakers in our characters update function because shaders fuck up the animation if it gets updated in the atlas for some reason
+    if(speakers != null)
+      speakers.update(elapsed);
+  }
+
   override function dance(force:Bool):Void
   {
+    //dance function gets called on beat so we play the speakers bump animation here regardless if it was cancelled or not
+    if(speakers != null)
+      speakers.animation.play('bump',true);
+
     // Fix animation glitches with Week 3.
     // Wait for 'hairBlow' to play, preventing dancing from interrupting it.
     if (!force && getCurrentAnimation().startsWith('hair') && !isAnimationFinished()) return;
 
     super.dance(force);
+  }
+
+  override function destroy()
+  {
+    super.destroy();
+    if(speakers != null)
+    {
+      speakers.destroy();
+      speakers = null;
+    }
   }
 }
