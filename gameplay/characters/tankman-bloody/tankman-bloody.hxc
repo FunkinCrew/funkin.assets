@@ -52,7 +52,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
       super.playAnimation(name, restart, ignoreOther, reversed);
     }
 
-    if (name == 'redheadsAnim') isBloody = true;
+    if (name == 'redheadsAnim' && PlayState.instance != null) isBloody = true;
 
     if (name == 'stressPicoEnding')
     {
