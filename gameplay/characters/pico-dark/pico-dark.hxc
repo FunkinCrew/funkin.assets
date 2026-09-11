@@ -1,4 +1,4 @@
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.character.PicoPlayerBaseCharacter;
 
 class PicoDarkCharacter extends PicoPlayerBaseCharacter
@@ -40,7 +40,7 @@ class PicoDarkCharacter extends PicoPlayerBaseCharacter
 
     if (!this.debug)
     {
-      normalChar = CharacterDataParser.fetchCharacter('pico-playable');
+      normalChar = CharacterRegistry.instance.fetchEntry('pico-playable');
       normalChar.zIndex = 199;
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;

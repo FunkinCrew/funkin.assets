@@ -1,7 +1,7 @@
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import funkin.audio.FunkinSound;
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.graphics.shaders.RuntimeRainShader;
 import funkin.play.PlayState;
 import funkin.play.character.BaseCharacter;

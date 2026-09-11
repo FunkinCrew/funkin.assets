@@ -1,4 +1,4 @@
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.graphics.shaders.TextureSwap;
 import flixel.util.FlxColor;
 import funkin.graphics.shaders.AdjustColorShader;
@@ -72,7 +72,7 @@ class NeneDarkCharacter extends NeneBaseCharacter
       spr.shader = vizAdjustColor;
     }
 
-    normalChar = CharacterDataParser.fetchCharacter('nene');
+    normalChar = CharacterRegistry.instance.fetchEntry('nene');
     normalChar.alpha = 0;
   }
 

@@ -166,7 +166,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
 
   public function new(characterId:String)
   {
-    // This tells CharacterDataParser to load Nene instead of an invalid character!
+    // This tells CharacterRegistry to load Nene instead of an invalid character!
     if (characterId == "UNKNOWN")
     {
       characterId = "nene";

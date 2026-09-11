@@ -2,7 +2,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.character.BaseCharacter;
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
@@ -23,7 +23,7 @@ class SpookyDarkCharacter extends SparrowCharacter
   {
     var results = super.queryAssets(type);
 
-    results = results.concat(CharacterDataParser.queryAssets("spooky", type));
+    results = results.concat(CharacterRegistry.instance.queryAssets("spooky", type));
 
     return results;
   }
@@ -77,7 +77,7 @@ class SpookyDarkCharacter extends SparrowCharacter
 
     if (!this.debug)
     {
-      normalChar = CharacterDataParser.fetchCharacter('spooky');
+      normalChar = CharacterRegistry.instance.fetchEntry('spooky');
       normalChar.zIndex = 199;
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
