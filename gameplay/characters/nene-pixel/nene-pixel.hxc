@@ -45,6 +45,8 @@ class NenePixelCharacter extends SparrowCharacter
   var abotSpeaker:FunkinSprite;
   var abot:FunkinSprite;
   var abotViz:ABotVis;
+  var abotHead:FunkinSprite;
+  var abotBack:FunkinSprite;
 
   function onCreate(event:ScriptEvent)
   {
