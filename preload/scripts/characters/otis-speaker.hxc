@@ -169,6 +169,47 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     }
   }
 
+  override public function onAdd(event:ScriptEvent):Void
+  {
+    super.onAdd(event);
+
+    setupAbot();
+  }
+
+  function setupAbot():Void
+  {
+    abot.x = this.x + 170 - (-this.globalOffsets[0] * this.scale.x);
+    abot.y = this.y + 455 - (-this.globalOffsets[1] * this.scale.y);
+    abot.zIndex = this.zIndex - 10;
+
+    currentStage.add(abot);
+
+    abotViz.x = abot.x + 207;
+    abotViz.y = abot.y + 84;
+    abotViz.zIndex = abot.zIndex - 1;
+    currentStage.add(abotViz);
+
+    eyeWhites.x = abot.x + 40;
+    eyeWhites.y = abot.y + 250;
+    eyeWhites.zIndex = abot.zIndex - 10;
+    currentStage.add(eyeWhites);
+
+    pupil.x = abot.x + 50;
+    pupil.y = abot.y + 238;
+    pupil.zIndex = eyeWhites.zIndex + 5;
+    currentStage.add(pupil);
+
+    stereoBG.x = abot.x + 150;
+    stereoBG.y = abot.y + 30;
+    stereoBG.zIndex = abot.zIndex - 8;
+    currentStage.add(stereoBG);
+
+    muzzleFlash.zIndex = this.zIndex - 1;
+    currentStage.add(muzzleFlash);
+
+    currentStage.refresh();
+  }
+
   override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
@@ -178,42 +219,6 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     pupil.visible = this.visible;
     eyeWhites.visible = this.visible;
     stereoBG.visible = this.visible;
-
-    // refreshes just for the zIndex shit!
-    if (!refershedLol)
-    {
-      abot.x = this.x + 170 - (-this.globalOffsets[0] * this.scale.x);
-      abot.y = this.y + 455 - (-this.globalOffsets[1] * this.scale.y);
-      abot.zIndex = this.zIndex - 10;
-
-      PlayState.instance.currentStage.add(abot);
-
-      abotViz.x = abot.x + 207;
-      abotViz.y = abot.y + 84;
-      abotViz.zIndex = abot.zIndex - 1;
-      PlayState.instance.currentStage.add(abotViz);
-
-      eyeWhites.x = abot.x + 40;
-      eyeWhites.y = abot.y + 250;
-      eyeWhites.zIndex = abot.zIndex - 10;
-      PlayState.instance.currentStage.add(eyeWhites);
-
-      pupil.x = abot.x + 50;
-      pupil.y = abot.y + 238;
-      pupil.zIndex = eyeWhites.zIndex + 5;
-      PlayState.instance.currentStage.add(pupil);
-
-      stereoBG.x = abot.x + 150;
-      stereoBG.y = abot.y + 30;
-      stereoBG.zIndex = abot.zIndex - 8;
-      PlayState.instance.currentStage.add(stereoBG);
-
-      muzzleFlash.zIndex = this.zIndex - 1;
-      PlayState.instance.currentStage.add(muzzleFlash);
-
-      PlayState.instance.currentStage.refresh();
-      refershedLol = true;
-    }
 
     // Each Pico animation is shifted from the array when it's time to play it.
     while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition)
