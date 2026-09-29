@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog id="addDifficultyDialog" width="300" height="210" title="Add Difficulty">
+<dialog id="addDifficultyDialog" width="300" height="265" title="Add Difficulty">
 	<vbox width="100%" height="100%">
 		<form id="difficultyForm" width="100%" height="100%">
 			<vbox width="100%" height="100%">
@@ -17,9 +17,13 @@
 					</dropdown>
 					<label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
 					<spacer />
-					<slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" />
+					<slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" tooltip="Adjust the relative speed at which the notes move." />
 					<spacer />
+					<label id="labelDifficultyRating" text="Difficulty Rank:" verticalAlign="center" />
+          <number-stepper id="inputDifficultyRating" pos="0" step="1" min="0" max="15" tooltip="Set the rating for this difficulty as shown in the Freeplay menu." />
 				</grid>
+					<checkbox id="inputAddToMetadata" selected="true" text="Add to Metadata" tooltip="Whether to add this difficulty to the Metadata or not.\nDisable this if you intend to hide resulting chart from song menus or\nuse it for something else, like the animations of a background asset." />
+					<checkbox id="inputAddToChart" selected="false" text="Add to Chartdata" tooltip="Whether to add this difficulty to the Chartdata for this variation.\nWARNING: Will destructively override the difficulty if it already exists." />
 			</vbox>
 		</form>
 		<hbox width="100%">
