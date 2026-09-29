@@ -39,6 +39,7 @@
     <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-item id="menubarItemDeleteStacked" text="Delete Stacked Notes" shortcutText="Shift + Delete" />
     <menu-separator />
+    <menu-item id="menubarItemSnap" text="Snap Selection" shortcutText="Shift+N" />
     <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" shortcutText="Ctrl+F" />
     <menu text="Mirror Notes">
         <menu-item id="menubarItemMirrorX" text="X Axis" shortcutText="Ctrl+Shift+M" />
