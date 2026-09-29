@@ -41,8 +41,8 @@ class LimoRideErectStage extends Stage
     {
       case 'IMAGE':
         results.push(NewPaths.image('gameplay/stages/limoRide/limo-overlay'));
-        results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-front'));
-        results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-back'));
+        results.push(NewPaths.image('gameplay/stages/phillyStreetsErect/mist-front'));
+        results.push(NewPaths.image('gameplay/stages/phillyStreetsErect/mist-back'));
         results.push(NewPaths.spritesheet('gameplay/stages/limoRide/limo-drive').image());
       case 'SOUND':
         results.push(NewPaths.sound('gameplay/stages/limoRide/sounds/car-pass-1'));
@@ -86,7 +86,7 @@ class LimoRideErectStage extends Stage
 
     colorShader = new AdjustColorShader();
 
-    mist1 = new FlxBackdrop(Paths.image('gameplay/stages/limoRideErect/mist-front'), 0x01);
+    mist1 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-front'), 0x01);
     mist1.setPosition(-650, -100);
     mist1.scrollFactor.set(1.1, 1.1);
     mist1.zIndex = 400;
@@ -97,7 +97,7 @@ class LimoRideErectStage extends Stage
 
     add(mist1);
 
-    mist2 = new FlxBackdrop(Paths.image('gameplay/stages/limoRideErect/mist-back'), 0x01);
+    mist2 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist2.setPosition(-650, -100);
     mist2.scrollFactor.set(1.2, 1.2);
     mist2.zIndex = 401;
@@ -109,7 +109,7 @@ class LimoRideErectStage extends Stage
 
     add(mist2);
 
-    mist3 = new FlxBackdrop(Paths.image('gameplay/stages/limoRideErect/mist-front'), 0x01);
+    mist3 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-front'), 0x01);
     mist3.setPosition(-650, -100);
     mist3.scrollFactor.set(0.8, 0.8);
     mist3.zIndex = 99;
@@ -121,7 +121,7 @@ class LimoRideErectStage extends Stage
 
     add(mist3);
 
-    mist4 = new FlxBackdrop(Paths.image('gameplay/stages/limoRideErect/mist-back'), 0x01);
+    mist4 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-back'), 0x01);
     mist4.setPosition(-650, -380);
     mist4.scrollFactor.set(0.6, 0.6);
     mist4.zIndex = 98;
@@ -133,7 +133,7 @@ class LimoRideErectStage extends Stage
 
     add(mist4);
 
-    mist5 = new FlxBackdrop(Paths.image('gameplay/stages/limoRideErect/mist-front'), 0x01);
+    mist5 = new FlxBackdrop(Paths.image('gameplay/stages/phillyStreetsErect/mist-front'), 0x01);
     mist5.setPosition(-650, -400);
     mist5.scrollFactor.set(0.2, 0.2);
     mist5.zIndex = 15;
