@@ -211,7 +211,6 @@ class EggnogErectSong extends Song
         }
       }
     }
-
     @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && canSkipCutscene && !cutsceneSkipped)
     {

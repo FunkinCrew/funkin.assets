@@ -286,7 +286,8 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     var deathSequenceEvents:Array<SequenceEvent> = [
       {
         time: 1.85,
-        callback: () -> {
+        callback: () ->
+        {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
         }

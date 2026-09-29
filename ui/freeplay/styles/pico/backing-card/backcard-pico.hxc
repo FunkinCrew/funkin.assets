@@ -57,7 +57,8 @@ class PicoCard extends BackingCard
     });
   }
 
-  override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
+  override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData,
+    ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
     super.applyExitMovers(exitMovers, exitMoversCharSel);
     if (exitMovers == null || exitMoversCharSel == null) return;
@@ -122,7 +123,10 @@ class PicoCard extends BackingCard
     scrollLower.velocity.x = -110;
     add(scrollLower);
 
-    var bitmap = BitmapUtil.scalePartByWidth(NewAssets.getBitmapData(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar').withPixelData()), FreeplayState.CUTOUT_WIDTH);
+    var bitmap = BitmapUtil.scalePartByWidth(
+      NewAssets.getBitmapData(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar').withPixelData()),
+      FreeplayState.CUTOUT_WIDTH
+    );
     blueBar = new FlxSprite(0, 239).loadGraphic(bitmap);
     blueBar.blend = 9;
     blueBar.alpha = 0.4;
@@ -169,7 +173,10 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = new FunkinSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120, 55).loadTextureAtlas('ui/freeplay/styles/pico/backing-card/pico-confirm');
+    confirmAtlas = new FunkinSprite(
+      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120,
+      55
+    ).loadTextureAtlas('ui/freeplay/styles/pico/backing-card/pico-confirm');
     confirmAtlas.animation.addBySymbol('wholeTimeline', confirmAtlas.getDefaultSymbol(), confirmAtlas.library.frameRate, false);
     confirmAtlas.visible = false;
     add(confirmAtlas);

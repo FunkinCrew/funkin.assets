@@ -13,7 +13,12 @@ class NeneCharacterSelect extends CharSelectCharacter
   var analyzerCache:Array<Bar> = [];
   var _initializedVisualizer:Bool = false;
 
-  public function new(playerId:String, x:Float, y:Float, isGF:Bool = false, data:Null<PlayerCharSelectCharacterData>, visualizer:Bool = false)
+  public function new(playerId:String,
+    x:Float,
+    y:Float,
+    isGF:Bool = false,
+    data:Null<PlayerCharSelectCharacterData>,
+    visualizer:Bool = false)
   {
     super(playerId, x, y, isGF, data, visualizer);
   }

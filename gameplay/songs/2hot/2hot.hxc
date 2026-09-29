@@ -496,18 +496,18 @@ class TwoHOTSong extends Song
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
   }
-  
+
   override function onPause(event:PauseScriptEvent)
   {
     super.onPause();
-	
+
     gunTimer?.active = false;
   }
-  
+
   override function onResume(event:ScriptEvent)
   {
     super.onResume();
-	
+
     gunTimer?.active = true;
   }
 }

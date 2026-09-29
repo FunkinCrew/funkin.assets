@@ -447,7 +447,6 @@ class PhillyTrainErectStage extends Stage
     #if mobile
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     #end
-
     @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
