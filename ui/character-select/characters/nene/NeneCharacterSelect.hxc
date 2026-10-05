@@ -13,7 +13,12 @@ class NeneCharacterSelect extends CharSelectCharacter
   var analyzerCache:Array<Bar> = [];
   var _initializedVisualizer:Bool = false;
 
-  public function new(playerId:String, x:Float, y:Float, isGF:Bool = false, data:Null<PlayerCharSelectCharacterData>, visualizer:Bool = false)
+  public function new(playerId:String,
+    x:Float,
+    y:Float,
+    isGF:Bool = false,
+    data:Null<PlayerCharSelectCharacterData>,
+    visualizer:Bool = false)
   {
     super(playerId, x, y, isGF, data, visualizer);
   }
@@ -67,20 +72,5 @@ class NeneCharacterSelect extends CharSelectCharacter
         elements[i] = convertedSymbol;
       }
     }
-  }
-
-  override function checkRenderTexture():Bool
-  {
-    // Nene has the HARDLIGHT blend mode in her idle animation
-    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
-    if (!FunkinCamera.hasKhronosExtension)
-    {
-      if (getCurrentAnimation() == CharacterAnimation.IDLE)
-      {
-        return true;
-      }
-    }
-
-    return super.checkRenderTexture();
   }
 }

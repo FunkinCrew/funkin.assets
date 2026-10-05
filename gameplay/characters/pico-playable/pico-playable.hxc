@@ -286,7 +286,8 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     var deathSequenceEvents:Array<SequenceEvent> = [
       {
         time: 1.85,
-        callback: () -> {
+        callback: () ->
+        {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
         }
@@ -337,18 +338,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     GameOverSubState.animationSuffix = '';
 
     PauseSubState.musicSuffix = '-pico';
-  }
-
-  override function checkRenderTexture():Bool
-  {
-    // Pico's `shootMISS` animation uses an overlay blend, which renders as a shader on some devices
-    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
-    if (!FunkinCamera.hasKhronosExtension && animation.curAnim.name == 'shootMISS')
-    {
-      return true;
-    }
-
-    return super.checkRenderTexture();
   }
 
   override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
