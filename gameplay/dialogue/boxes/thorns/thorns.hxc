@@ -53,7 +53,7 @@ class ThornsDialogueBox extends DialogueBox
   {
     super.onDialogueEnd(event);
     // Play 'enter' in reverse
-    this.textDisplay.visible = false;
+    this.textDisplay.localVisible = false;
 
     playAnimation('exit', false);
   }
