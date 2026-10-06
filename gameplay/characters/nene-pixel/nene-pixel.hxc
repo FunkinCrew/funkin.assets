@@ -7,6 +7,18 @@ import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.graphics.shaders.DropShadowShader;
 
+/**
+ * The various states pixel Nene can be in.
+ */
+enum NenePixelState
+{
+  DEFAULT;
+  PRE_RAISE;
+  RAISE;
+  READY;
+  LOWER;
+}
+
 class NenePixelCharacter extends SparrowCharacter
 {
   public function new()
@@ -117,60 +129,10 @@ class NenePixelCharacter extends SparrowCharacter
   var VULTURE_THRESHOLD = 0.25 * 2;
 
   /**
-   * Nene is in her default state. 'danceLeft' or 'danceRight' may be playing right now,
-   * or maybe her 'combo' or 'drop' animations are active.
-   *
-   * Transitions:
-   * If player health <= VULTURE_THRESHOLD, transition to STATE_PRE_RAISE.
-   */
-  var STATE_DEFAULT = 0;
-
-  /**
-   * Nene has recognized the player is at low health,
-   * but has to wait for the appropriate point in the animation to move on.
-   *
-   * Transitions:
-   * If player health > VULTURE_THRESHOLD, transition back to STATE_DEFAULT without changing animation.
-   * If current animation is combo or drop, transition when animation completes.
-   * If current animation is danceLeft, wait until frame 14 to transition to STATE_RAISE.
-   * If current animation is danceRight, wait until danceLeft starts.
-   */
-  var STATE_PRE_RAISE = 1;
-
-  /**
-   * Nene is raising her knife.
-   * When moving to this state, immediately play the 'raiseKnife' animation.
-   *
-   * Transitions:
-   * Once 'raiseKnife' animation completes, transition to STATE_READY.
-   */
-  var STATE_RAISE = 2;
-
-  /**
-   * Nene is holding her knife ready to strike.
-   * During this state, hold the animation on the first frame, and play it at random intervals.
-   * This makes the blink look less periodic.
-   *
-   * Transitions:
-   * If the player runs out of health, move to the GameOverSubState. No transition needed.
-   * If player health > VULTURE_THRESHOLD, transition to STATE_LOWER.
-   */
-  var STATE_READY = 3;
-
-  /**
-   * Nene is raising her knife.
-   * When moving to this state, immediately play the 'lowerKnife' animation.
-   *
-   * Transitions:
-   * Once 'lowerKnife' animation completes, transition to STATE_DEFAULT.
-   */
-  var STATE_LOWER = 4;
-
-  /**
    * Nene's animations are tracked in a simple state machine.
    * Given the current state and an incoming event, the state changes.
    */
-  var currentState:Int = STATE_DEFAULT;
+  var currentState:NenePixelState = NenePixelState.DEFAULT;
 
   /**
    * Nene blinks every X beats, with X being randomly generated each time.
@@ -219,7 +181,7 @@ class NenePixelCharacter extends SparrowCharacter
     // Then, perform the appropriate animation for the current state.
     switch (currentState)
     {
-      case STATE_DEFAULT:
+      case NenePixelState.DEFAULT:
         if (hasDanced)
         {
           playAnimation('danceRight', true);
@@ -231,10 +193,10 @@ class NenePixelCharacter extends SparrowCharacter
           if (abot?.animation != null) abot.animation.play("danceLeft", true);
         }
         hasDanced = !hasDanced;
-      case STATE_PRE_RAISE:
+      case NenePixelState.PRE_RAISE:
         playAnimation('danceLeft', false);
         hasDanced = false;
-      case STATE_READY:
+      case NenePixelState.READY:
         if (blinkCountdown == 0)
         {
           // trace('NENE: Blinking...');
@@ -368,7 +330,7 @@ class NenePixelCharacter extends SparrowCharacter
 
     switch (currentState)
     {
-      case STATE_RAISE, STATE_LOWER, STATE_READY:
+      case NenePixelState.RAISE, NenePixelState.LOWER, NenePixelState.READY:
         animationFinished = true;
         transitionState();
       default:
@@ -382,7 +344,7 @@ class NenePixelCharacter extends SparrowCharacter
 
     switch (currentState)
     {
-      case STATE_PRE_RAISE:
+      case NenePixelState.PRE_RAISE:
         if (name == "danceLeft" && frameNumber == 13)
         {
           animationFinished = true;
@@ -402,59 +364,59 @@ class NenePixelCharacter extends SparrowCharacter
   {
     switch (currentState)
     {
-      case STATE_DEFAULT:
+      case NenePixelState.DEFAULT:
         if (PlayState.instance?.health <= VULTURE_THRESHOLD)
         {
-          trace('NENE: Health is low, transitioning to STATE_PRE_RAISE');
-          currentState = STATE_PRE_RAISE;
+          trace('NENE: Health is low, transitioning to NenePixelState.PRE_RAISE');
+          currentState = NenePixelState.PRE_RAISE;
         }
         else
         {
-          currentState = STATE_DEFAULT;
+          currentState = NenePixelState.DEFAULT;
         }
-      case STATE_PRE_RAISE:
+      case NenePixelState.PRE_RAISE:
         if (PlayState.instance?.health > VULTURE_THRESHOLD)
         {
-          // trace('NENE: Health went back up, transitioning to STATE_DEFAULT');
-          currentState = STATE_DEFAULT;
+          // trace('NENE: Health went back up, transitioning to NenePixelState.DEFAULT');
+          currentState = NenePixelState.DEFAULT;
         }
         else if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_RAISE');
-          currentState = STATE_RAISE;
+          // trace('NENE: Animation finished, transitioning to NenePixelState.RAISE');
+          currentState = NenePixelState.RAISE;
           playAnimation('raiseKnife');
           animationFinished = false;
         }
-      case STATE_RAISE:
+      case NenePixelState.RAISE:
         if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_READY');
-          currentState = STATE_READY;
+          // trace('NENE: Animation finished, transitioning to NenePixelState.READY');
+          currentState = NenePixelState.READY;
           animationFinished = false;
         }
-      case STATE_READY:
+      case NenePixelState.READY:
         if (PlayState.instance?.health > VULTURE_THRESHOLD)
         {
-          // trace('NENE: Health went back up, transitioning to STATE_LOWER');
-          currentState = STATE_LOWER;
+          // trace('NENE: Health went back up, transitioning to NenePixelState.LOWER');
+          currentState = NenePixelState.LOWER;
           playAnimation('lowerKnife');
         }
         else if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_READY');
+          // trace('NENE: Animation finished, transitioning to NenePixelState.READY');
           playAnimation('idleKnife');
           animationFinished = false;
         }
-      case STATE_LOWER:
+      case NenePixelState.LOWER:
         if (animationFinished)
         {
-          // trace('NENE: Animation finished, transitioning to STATE_DEFAULT');
-          currentState = STATE_DEFAULT;
+          // trace('NENE: Animation finished, transitioning to NenePixelState.DEFAULT');
+          currentState = NenePixelState.DEFAULT;
           animationFinished = false;
         }
       default:
         // trace('UKNOWN STATE ' + currentState);
-        currentState = STATE_DEFAULT;
+        currentState = NenePixelState.DEFAULT;
     }
   }
 }
