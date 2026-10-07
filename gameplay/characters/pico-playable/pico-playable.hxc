@@ -71,7 +71,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
   public function new(characterId:String)
   {
-    // This tells CharacterDataParser to load Pico (Playable) instead of an invalid character!
+    // This tells CharacterRegistry to load Pico (Playable) instead of an invalid character!
     if (characterId == 'UNKNOWN')
     {
       characterId = 'pico-playable';

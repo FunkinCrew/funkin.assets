@@ -2,7 +2,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.GameOverSubState;
 import funkin.play.character.BaseCharacter;
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
@@ -21,7 +21,7 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
   {
     var results = super.queryAssets(type);
 
-    results = results.concat(CharacterDataParser.queryAssets("gf", type));
+    results = results.concat(CharacterRegistry.instance.queryAssets("gf", type));
 
     return results;
   }
@@ -58,7 +58,7 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
 
     if (!this.debug)
     {
-      normalChar = CharacterDataParser.fetchCharacter('gf');
+      normalChar = CharacterRegistry.instance.fetchEntry('gf');
       normalChar.zIndex = this.zIndex - 1;
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;

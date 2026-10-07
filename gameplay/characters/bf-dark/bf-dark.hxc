@@ -1,5 +1,5 @@
 import funkin.play.character.BaseCharacter;
-import funkin.data.character.CharacterDataParser;
+import funkin.data.character.CharacterRegistry;
 import funkin.play.PlayState;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.util.HapticUtil;
@@ -19,7 +19,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
   {
     var results = super.queryAssets(type);
 
-    results = results.concat(CharacterDataParser.queryAssets("bf", type));
+    results = results.concat(CharacterRegistry.instance.queryAssets("bf", type));
 
     return results;
   }
@@ -76,7 +76,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
 
     if (!this.debug)
     {
-      normalChar = CharacterDataParser.fetchCharacter('bf');
+      normalChar = CharacterRegistry.instance.fetchEntry('bf');
       normalChar.zIndex = 199;
       normalChar.alpha = 0.0001;
       normalChar.flipX = false;
