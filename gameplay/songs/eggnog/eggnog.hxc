@@ -1,5 +1,12 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.graphics.FunkinSprite;
+import flixel.util.FlxColor;
+import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
+import funkin.audio.FunkinSound;
+import funkin.data.song.SongRegistry;
+import funkin.ui.transition.LoadingState;
 
 class EggnogSong extends Song
 {
@@ -8,7 +15,7 @@ class EggnogSong extends Song
     super('eggnog');
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
@@ -20,5 +27,53 @@ class EggnogSong extends Song
     }
 
     return results;
+  }
+
+  override function onSongEnd(event:ScriptEvent):Void
+  {
+    event.cancel();
+
+    if (!Assets.exists(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off')))
+    {
+      nextSong();
+    }
+    else
+    {
+      var blackBG:FunkinSprite = new FunkinSprite(-FlxG.width * FlxG.camera.zoom, -FlxG.height * FlxG.camera.zoom);
+      blackBG.makeSolidColor(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+      blackBG.scrollFactor.set();
+
+      PlayState.instance.currentStage.add(blackBG);
+      PlayState.instance.isInCutscene = true;
+      PlayState.instance.camHUD.visible = false;
+
+      FunkinSound.playOnce(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off'), 1.0, () ->
+      {
+        nextSong();
+      });
+    }
+  }
+
+  /**
+   * Skips to the next song.
+   */
+  function nextSong():Void
+  {
+    // Pop the next song ID from the list.
+    // Returns null if the list is empty.
+    var targetSongId:Null<String> = PlayStatePlaylist.playlistSongIds.shift();
+
+    var targetSong:Song = SongRegistry.instance.fetchEntry(targetSongId) ?? throw 'Could not find a song with the ID $targetSongId';
+    var targetVariation:String = PlayState.instance.currentVariation;
+    if (!targetSong.hasDifficulty(PlayStatePlaylist.campaignDifficulty, PlayState.instance.currentVariation))
+    {
+      targetVariation = targetSong.getFirstValidVariation(PlayStatePlaylist.campaignDifficulty) ?? Constants.DEFAULT_VARIATION;
+    }
+    LoadingState.loadPlayState({
+      targetSong: targetSong,
+      targetDifficulty: PlayStatePlaylist.campaignDifficulty,
+      targetVariation: targetVariation,
+      cameraFollowPoint: PlayState.instance.cameraFollowPoint.getPosition(),
+    });
   }
 }
