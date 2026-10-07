@@ -13,7 +13,10 @@ class EggnogSong extends Song
   public function new()
   {
     super('eggnog');
+    shouldEndSong = true;
   }
+
+  var shouldEndSong:Bool = false;
 
   override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
@@ -31,11 +34,20 @@ class EggnogSong extends Song
 
   override function onSongEnd(event:ScriptEvent):Void
   {
+    if (!PlayStatePlaylist.isStoryMode) return;
+
+    if (shouldEndSong)
+    {
+      shouldEndSong = false;
+      return;
+    }
+
     event.cancel();
 
     if (!Assets.exists(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off')))
     {
-      nextSong();
+      shouldEndSong = true;
+      PlayState.instance.endSong(true);
     }
     else
     {
@@ -49,31 +61,9 @@ class EggnogSong extends Song
 
       FunkinSound.playOnce(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off'), 1.0, () ->
       {
-        nextSong();
+        shouldEndSong = true;
+        PlayState.instance.endSong(true);
       });
     }
-  }
-
-  /**
-   * Skips to the next song.
-   */
-  function nextSong():Void
-  {
-    // Pop the next song ID from the list.
-    // Returns null if the list is empty.
-    var targetSongId:Null<String> = PlayStatePlaylist.playlistSongIds.shift();
-
-    var targetSong:Song = SongRegistry.instance.fetchEntry(targetSongId) ?? throw 'Could not find a song with the ID $targetSongId';
-    var targetVariation:String = PlayState.instance.currentVariation;
-    if (!targetSong.hasDifficulty(PlayStatePlaylist.campaignDifficulty, PlayState.instance.currentVariation))
-    {
-      targetVariation = targetSong.getFirstValidVariation(PlayStatePlaylist.campaignDifficulty) ?? Constants.DEFAULT_VARIATION;
-    }
-    LoadingState.loadPlayState({
-      targetSong: targetSong,
-      targetDifficulty: PlayStatePlaylist.campaignDifficulty,
-      targetVariation: targetVariation,
-      cameraFollowPoint: PlayState.instance.cameraFollowPoint.getPosition(),
-    });
   }
 }
