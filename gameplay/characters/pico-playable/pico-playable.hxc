@@ -48,7 +48,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     ];
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -82,7 +82,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     ignoreExclusionPref.push('shoot');
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -121,7 +121,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
       deathSpriteNene.revive();
     }
 
-    deathSpriteNene = FunkinSprite.createSparrow(0, 0, 'gameplay/characters/nene/nene-knifetoss');
+    deathSpriteNene = new FunkinSprite().loadSparrow('gameplay/characters/nene/nene-knifetoss');
     deathSpriteNene.x = gf.originalPosition.x + 120;
     deathSpriteNene.y = gf.originalPosition.y;
     deathSpriteNene.zIndex = this.zIndex - 5;
@@ -132,7 +132,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     });
   }
 
-  override public function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     if (event.eventCanceled)
     {
@@ -166,7 +166,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function onNoteMiss(event:NoteScriptEvent):Void
+  override function onNoteMiss(event:NoteScriptEvent):Void
   {
     // Override the miss note animation.
     switch (event.note.kind)
@@ -180,7 +180,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     // Reset the volume of the vocals to ensure that the burps always play
     if (name == 'burpShit' || name == 'burpSmile' || name == 'burpSmileLong') PlayState.instance?.vocals?.playerVolume = 1;
@@ -234,7 +234,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function onPause(event:PauseScriptEvent):Void
+  override function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
@@ -245,7 +245,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 
@@ -255,7 +255,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function getDeathCameraOffsets():Array<Float>
+  override function getDeathCameraOffsets():Array<Float>
   {
     var result = super.getDeathCameraOffsets();
 
@@ -286,7 +286,8 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     var deathSequenceEvents:Array<SequenceEvent> = [
       {
         time: 1.85,
-        callback: () -> {
+        callback: () ->
+        {
           // Pico falls on his knees.
           HapticUtil.vibrate(0, 0.1, 0.1, 1);
         }
@@ -324,7 +325,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     deathSequence = null;
   }
 
-  override public function onSongRetry(event:ScriptEvent):Void
+  override function onSongRetry(event:ScriptEvent):Void
   {
     super.onSongRetry(event);
 
@@ -339,19 +340,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     PauseSubState.musicSuffix = '-pico';
   }
 
-  override function checkRenderTexture():Bool
-  {
-    // Pico's `shootMISS` animation uses an overlay blend, which renders as a shader on some devices
-    // We enable render texture here on devices that don't support KHR_blend_equation_advanced to save on performance
-    if (!FunkinCamera.hasKhronosExtension && animation.curAnim.name == 'shootMISS')
-    {
-      return true;
-    }
-
-    return super.checkRenderTexture();
-  }
-
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
@@ -492,7 +481,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function getDeathQuote():Null<String>
+  override function getDeathQuote():Null<String>
   {
     switch (PlayState.instance?.currentStage?.getDad()?.characterId)
     {

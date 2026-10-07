@@ -4,12 +4,12 @@ import StringTools;
 
 class DarnellBlazinCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('darnell-blazin');
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 
@@ -17,7 +17,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
     this.playAnimation('idle', true, false);
   }
 
-  function resetCharacter(resetCamera:Bool = true):Void
+  override function resetCharacter(resetCamera:Bool = true):Void
   {
     super.resetCharacter(resetCamera);
     this.danceEvery = 0;
@@ -25,7 +25,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
 
   var cantUppercut = false;
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     holdTimer = 0;
     if (!StringTools.startsWith(event?.note?.kind ?? '', 'weekend-1-')) return;
@@ -123,7 +123,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
     cantUppercut = false;
   }
 
-  function onNoteMiss(event:NoteScriptEvent)
+  override function onNoteMiss(event:NoteScriptEvent)
   {
     holdTimer = 0;
 
@@ -241,7 +241,7 @@ class DarnellBlazinCharacter extends AnimateAtlasCharacter
     return (PlayState.instance.health + event.healthChange) <= 0.0;
   }
 
-  function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
+  override function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
   {
     if (willMissBeLethal(event))
     {

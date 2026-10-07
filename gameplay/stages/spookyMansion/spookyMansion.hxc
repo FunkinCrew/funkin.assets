@@ -11,12 +11,12 @@ import funkin.assets.Paths as NewPaths;
 
 class SpookyMansionStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('spookyMansion');
   }
 
-  override public function queryAssets(type:String):Array<AssetPath>
+  function queryAssets(type:String):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -30,7 +30,7 @@ class SpookyMansionStage extends Stage
     return results;
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -75,7 +75,7 @@ class SpookyMansionStage extends Stage
     doPostShockHaptics = true;
   }
 
-  override public function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
 
@@ -99,7 +99,7 @@ class SpookyMansionStage extends Stage
   var postShockCounter:Int = 0;
   var counterTargetNum:Int = 10;
 
-  override public function onStepHit(event:SongTimeScriptEvent):Void
+  override function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
 
@@ -118,7 +118,7 @@ class SpookyMansionStage extends Stage
     }
   }
 
-  override public function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
@@ -127,7 +127,7 @@ class SpookyMansionStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  override public function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 

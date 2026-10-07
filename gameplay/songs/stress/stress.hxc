@@ -17,7 +17,7 @@ class StressSong extends Song
     hasPlayedCutscene = false;
   }
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -34,7 +34,7 @@ class StressSong extends Song
     return results;
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
@@ -48,7 +48,7 @@ class StressSong extends Song
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -113,7 +113,7 @@ class StressSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -134,7 +134,7 @@ class StressSong extends Song
   /**
    * Pause the tankman flicker when the game is paused
    */
-  function onPause(event:ScriptEvent):Void
+  override function onPause(event:ScriptEvent):Void
   {
     super.onPause(event);
     if (tankmanGroup != null)
@@ -146,7 +146,7 @@ class StressSong extends Song
     }
   }
 
-  function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
     if (tankmanGroup != null)
@@ -158,7 +158,7 @@ class StressSong extends Song
     }
   }
 
-  function onDestroy(event:ScriptEvent):Void
+  override function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
     cleanupTankmanGroup();
@@ -176,7 +176,7 @@ class StressSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

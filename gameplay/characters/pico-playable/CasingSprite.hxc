@@ -5,7 +5,7 @@ import funkin.graphics.FunkinSprite;
  */
 class CasingSprite extends FunkinSprite
 {
-  function new()
+  public function new()
   {
     super(0, 0);
 

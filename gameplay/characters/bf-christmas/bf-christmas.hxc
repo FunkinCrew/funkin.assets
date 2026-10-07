@@ -6,12 +6,12 @@ import funkin.util.HapticUtil;
 
 class BoyfriendChristmasCharacter extends MultiSparrowCharacter
 {
-  function new()
+  public function new()
   {
     super('bf-christmas');
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
@@ -30,7 +30,7 @@ class BoyfriendChristmasCharacter extends MultiSparrowCharacter
     }
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     if (event.eventCanceled)
     {

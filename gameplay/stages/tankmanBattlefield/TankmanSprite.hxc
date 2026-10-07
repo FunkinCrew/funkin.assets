@@ -18,7 +18,7 @@ class TankmanSprite extends FunkinSprite
   // the side the tankman is running from
   public var goingRight:Bool = false;
 
-  function new()
+  public function new()
   {
     super();
 
@@ -52,7 +52,7 @@ class TankmanSprite extends FunkinSprite
 
   var rim:DropShadowShader;
 
-  public function addRimlight()
+  function addRimlight()
   {
     rim = new DropShadowShader();
 
@@ -92,7 +92,7 @@ class TankmanSprite extends FunkinSprite
     offset.x = 0;
   }
 
-  function revive()
+  override function revive()
   {
     // Sprite has been revived! This allows it to be reused without reinstantiating.
     super.revive();
@@ -100,7 +100,7 @@ class TankmanSprite extends FunkinSprite
     initAnim();
   }
 
-  function update(elapsed:Float):Void
+  override function update(elapsed:Float):Void
   {
     super.update(elapsed);
 

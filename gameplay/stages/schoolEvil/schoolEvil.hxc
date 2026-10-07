@@ -7,7 +7,7 @@ import funkin.play.Countdown;
 
 class SchoolEvilStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('schoolEvil');
   }
@@ -50,7 +50,7 @@ class SchoolEvilStage extends Stage
     }
   }
 
-  function kill()
+  override function kill()
   {
     super.kill();
     wiggleBack = null;

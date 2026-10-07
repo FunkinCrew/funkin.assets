@@ -3,7 +3,7 @@ import funkin.save.Save;
 
 class PicoPlayableCharacter extends PlayableCharacter
 {
-  function new()
+  public function new()
   {
     super('pico');
   }

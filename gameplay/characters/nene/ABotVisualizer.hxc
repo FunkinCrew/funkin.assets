@@ -3,7 +3,7 @@ import flixel.group.FlxTypedSpriteGroup;
 
 class ABotVisualizer extends FlxTypedSpriteGroup
 {
-  function new()
+  public function new()
   {
     super(0, 0);
 

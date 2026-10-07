@@ -11,12 +11,12 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 {
   var deathSequence:Sequence;
 
-  function new()
+  public function new()
   {
     super('pico-blazin');
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 
@@ -31,7 +31,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     PauseSubState.musicSuffix = '-pico';
   }
 
-  function resetCharacter(resetCamera:Bool = true):Void
+  override function resetCharacter(resetCamera:Bool = true):Void
   {
     super.resetCharacter(resetCamera);
     this.danceEvery = 0;
@@ -39,7 +39,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   var cantUppercut = false;
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     holdTimer = 0;
 
@@ -133,7 +133,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     }
   }
 
-  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {
@@ -181,7 +181,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     playAnimation('deathLoop', true, false);
   }
 
-  function onNoteMiss(event:NoteScriptEvent)
+  override function onNoteMiss(event:NoteScriptEvent)
   {
     holdTimer = 0;
 
@@ -285,7 +285,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     return (PlayState.instance.health + event.healthChange) <= 0.0;
   }
 
-  function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
+  override function onNoteGhostMiss(event:GhostMissNoteScriptEvent)
   {
     if (willMissBeLethal(event))
     {

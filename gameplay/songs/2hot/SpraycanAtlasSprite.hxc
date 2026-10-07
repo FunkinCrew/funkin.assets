@@ -46,7 +46,7 @@ class SpraycanAtlasSprite extends FunkinSprite
     animation.addByFrameLabel('can-hit', 'Hit Pico', 24, false);
   }
 
-  public function finishCanAnimation(name:String):Void
+  function finishCanAnimation(name:String):Void
   {
     switch (name)
     {
@@ -60,11 +60,11 @@ class SpraycanAtlasSprite extends FunkinSprite
     }
   }
 
-  public function onCanFrame(name:String, frameNumber:Int, frameIndex:Int):Void
+  function onCanFrame(name:String, frameNumber:Int, frameIndex:Int):Void
   {
     if (frameNumber == 3 && name == 'can-shot')
     {
-      var explode:FunkinSprite = FunkinSprite.createSparrow(this.x + 150, this.y - 250, 'gameplay/songs/2hot/graphics/spraycan-explosion');
+      var explode:FunkinSprite = new FunkinSprite(this.x + 150, this.y - 250).loadSparrow('gameplay/songs/2hot/graphics/spraycan-explosion');
       explode.animation.addByPrefix('idle', 'Explosion 1 movie0', 24, false);
       PlayState.instance.currentStage.add(explode);
 
@@ -76,9 +76,9 @@ class SpraycanAtlasSprite extends FunkinSprite
     }
   }
 
-  public function playHitExplosion():Void
+  function playHitExplosion():Void
   {
-    var explodeEZ:FunkinSprite = FunkinSprite.createSparrow(this.x + 750, this.y - 100, 'gameplay/songs/2hot/graphics/spraycan-explosion-ez');
+    var explodeEZ:FunkinSprite = new FunkinSprite(this.x + 750, this.y - 100).loadSparrow('gameplay/songs/2hot/graphics/spraycan-explosion-ez');
     explodeEZ.animation.addByPrefix('idle', 'explosion round 1 short0', 24, false);
     explodeEZ.animation.play('idle');
 
@@ -89,18 +89,18 @@ class SpraycanAtlasSprite extends FunkinSprite
     };
   }
 
-  public function playCanStart():Void
+  function playCanStart():Void
   {
     this.animation.play('can-start');
     trace('playCanStart(): ${getCurrentAnimation()}');
   }
 
-  public function playCanShot():Void
+  function playCanShot():Void
   {
     this.animation.play('can-shot');
   }
 
-  public function playHitPico():Void
+  function playHitPico():Void
   {
     this.animation.play('can-hit');
   }

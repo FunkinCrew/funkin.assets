@@ -5,12 +5,12 @@ import funkin.util.HapticUtil;
 
 class BFHoldingGFCharacter extends MultiSparrowCharacter
 {
-  function new()
+  public function new()
   {
     super('bf-holding-gf');
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 

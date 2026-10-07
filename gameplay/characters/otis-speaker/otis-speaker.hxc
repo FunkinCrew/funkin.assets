@@ -50,7 +50,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     return results;
   }
 
-  function new()
+  public function new()
   {
     super('otis-speaker');
 
@@ -81,11 +81,11 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     vizAdjustColor.contrast = 0;
     vizAdjustColor.saturation = -10;
 
-    stereoBG = new FunkinSprite(0, 0, Paths.image('gameplay/characters/nene/stereo-bg'));
+    stereoBG = new FunkinSprite().loadTexture('gameplay/characters/nene/stereo-bg');
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = FunkinSprite.createTextureAtlas(0, 0, "gameplay/characters/nene/abot-eyes");
+    pupil = new FunkinSprite().loadTextureAtlas("gameplay/characters/nene/abot-eyes");
     pupil.x = this.x;
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
@@ -199,7 +199,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
 
   var refershedLol:Bool = false;
 
-  function reset():Void
+  override function reset():Void
   {
     initTimemap();
   }
@@ -244,7 +244,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function onAdd(event:ScriptEvent):Void
+  override function onAdd(event:ScriptEvent):Void
   {
     super.onAdd(event);
 
@@ -351,7 +351,7 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   /**
    * Called when the chart hits a song event.
    */
-  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  override function onSongEvent(scriptEvent:SongEventScriptEvent)
   {
     super.onSongEvent(scriptEvent);
     if (scriptEvent.eventData.eventKind == "FocusCamera")

@@ -32,12 +32,12 @@ class PicoDopplegangerSprite extends FunkinSprite
     animation.addByFrameLabel('loop', 'loop', 24, false);
   }
 
-  public function cancelSounds():Void
+  function cancelSounds():Void
   {
     if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
-  public function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager):Void
+  function doAnim(_suffix:String, shoot:Bool = false, explode:Bool = false, timerManager:FlxTimerManager):Void
   {
     suffix = _suffix;
 

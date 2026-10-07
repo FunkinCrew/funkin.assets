@@ -14,7 +14,7 @@ class DadShootsSprite extends FunkinSprite
     animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 
-  public function playCutscene():Void
+  function playCutscene():Void
   {
     this.animation.play('wholeTimeline');
   }

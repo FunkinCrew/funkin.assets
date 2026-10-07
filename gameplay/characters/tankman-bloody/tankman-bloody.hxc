@@ -18,7 +18,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     super('tankman-bloody');
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -31,7 +31,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     return results;
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -41,7 +41,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 
   var isBloody:Bool = false;
 
-  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     if (isBloody)
     {
@@ -60,14 +60,14 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
     isBloody = false;
   }
 
-  override public function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
 
@@ -88,7 +88,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function destroy():Void
+  override function destroy():Void
   {
     if (picoEndingSound != null) picoEndingSound.destroy();
 

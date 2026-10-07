@@ -15,7 +15,7 @@ class SenpaiSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -29,7 +29,7 @@ class SenpaiSong extends Song
     super('senpai');
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
@@ -43,7 +43,7 @@ class SenpaiSong extends Song
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -114,7 +114,7 @@ class SenpaiSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -124,17 +124,10 @@ class SenpaiSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     hasPlayedCutscene = false;
-  }
-
-  public override function onDialogueEnd()
-  {
-    // We may need to wait for the outro to play.
-    PlayState.instance.currentStage.resume();
-    Countdown.performCountdown();
   }
 }

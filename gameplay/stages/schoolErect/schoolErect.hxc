@@ -5,12 +5,12 @@ import funkin.graphics.shaders.DropShadowShader;
 
 class SchoolErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('schoolErect');
   }
 
-  function buildStage()
+  override function buildStage()
   {
     super.buildStage();
 
@@ -113,7 +113,7 @@ class SchoolErectStage extends Stage
     }
   }
 
-  function onSongEnd(event:ScriptEvent):Void
+  override function onSongEnd(event:ScriptEvent):Void
   {
     super.onSongEnd(event);
     if (event.eventcanceled)

@@ -15,7 +15,7 @@ class RosesSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -38,7 +38,7 @@ class RosesSong extends Song
     super('roses');
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
@@ -52,7 +52,7 @@ class RosesSong extends Song
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -96,7 +96,7 @@ class RosesSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -106,14 +106,14 @@ class RosesSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     hasPlayedCutscene = false;
   }
 
-  function onBeatHit(event:SongTimeScriptEvent)
+  override function onBeatHit(event:SongTimeScriptEvent)
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
@@ -141,11 +141,5 @@ class RosesSong extends Song
       });
       PlayState.instance.add(red);
     }
-  }
-
-  public override function onDialogueEnd()
-  {
-    // We may need to wait for the outro to play.
-    Countdown.performCountdown();
   }
 }

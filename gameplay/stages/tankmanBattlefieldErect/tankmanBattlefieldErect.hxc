@@ -8,19 +8,19 @@ import flixel.graphics.FlxGraphic;
 
 class TankmanBattlefieldErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('tankmanBattlefieldErect');
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
   }
 
   var tankmanRim:DropShadowShader;
 
-  public function onGameOver(event:ScriptEvent)
+  override function onGameOver(event:ScriptEvent)
   {
     super.onGameOver(event);
     getBoyfriend().shader = null;
@@ -55,8 +55,6 @@ class TankmanBattlefieldErectStage extends Stage
           rim.useAltMask = true;
         }
 
-        getNamedProp('tankBricks').setPosition(445, 774);
-
       case CharacterType.DAD:
         rim.angle = 25;
         rim.threshold = 0.3;
@@ -90,7 +88,7 @@ class TankmanBattlefieldErectStage extends Stage
   /**
    * Called when the chart hits a song event.
    */
-  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  override function onSongEvent(scriptEvent:SongEventScriptEvent)
   {
     super.onSongEvent(scriptEvent);
 
@@ -100,12 +98,7 @@ class TankmanBattlefieldErectStage extends Stage
     }
   }
 
-  function onUpdate(event:UpdateScriptEvent):Void
-  {
-    super.onUpdate(event);
-  }
-
-  function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
 
@@ -115,7 +108,7 @@ class TankmanBattlefieldErectStage extends Stage
     }
   }
 
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -123,7 +116,5 @@ class TankmanBattlefieldErectStage extends Stage
     {
       tankmanRim.useAltMask = false;
     }
-
-    getNamedProp('tankBricks').setPosition(445, 774);
   }
 }

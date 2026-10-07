@@ -21,7 +21,7 @@ class BlazinSong extends Song
     this.hasPlayedCutscene = false;
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -29,19 +29,19 @@ class BlazinSong extends Song
     this.hasPlayedCutscene = false;
   }
 
-  function onDestroy(event:ScriptEvent):Void
+  override function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
 
     this.hasHidden = false;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
   }
 
-  public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
+  override function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
     {
@@ -55,7 +55,7 @@ class BlazinSong extends Song
   var hasHidden = false;
   var hasPlayedCutscene:Bool = false;
 
-  function onUpdate(event:ScriptEvent):Void
+  override function onUpdate(event:ScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -94,7 +94,7 @@ class BlazinSong extends Song
     }
   }
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void
+  override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
 

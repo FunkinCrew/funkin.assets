@@ -11,7 +11,7 @@ class SserafimCutsceneSprite extends FunkinSprite
     animation.addBySymbol('wholeTimeline', this.getDefaultSymbol(), this.library.frameRate, false);
   }
 
-  public function doAnim():Void
+  function doAnim():Void
   {
     this.animation.play('wholeTimeline', true);
   }

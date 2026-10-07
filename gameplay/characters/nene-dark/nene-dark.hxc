@@ -50,7 +50,7 @@ class NeneDarkCharacter extends NeneBaseCharacter
     return results;
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -76,7 +76,7 @@ class NeneDarkCharacter extends NeneBaseCharacter
     normalChar.alpha = 0;
   }
 
-  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 

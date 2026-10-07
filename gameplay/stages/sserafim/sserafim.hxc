@@ -60,7 +60,7 @@ class SserafimStage extends Stage
   // Tracked FunkinTweens so we can cancel them on event reset without relying on FlxTween.cancelTweensOf.
   var _activeFunkinTweens:Array<FunkinVarTween> = [];
 
-  function new()
+  public function new()
   {
     super('sserafim');
 
@@ -68,7 +68,7 @@ class SserafimStage extends Stage
     hasPlayedCutscene = false;
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -79,15 +79,17 @@ class SserafimStage extends Stage
     cutsceneTimerManager = null;
   }
 
-  override public function onSongLoaded(event:SongLoadScriptEvent):Void
+  override function onSongLoaded(event:SongLoadScriptEvent):Void
   {
     super.onSongLoaded(event);
 
+    // @:privateAccess
     // PlayState.instance.comboPopUps.offsets = [510, 320]; actual values for if we ever wanna use it
+
     PlayState.instance.remove(PlayState.instance.comboPopUps);
   }
 
-  function onDestroy(event:ScriptEvent):Void
+  override function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
 
@@ -100,7 +102,7 @@ class SserafimStage extends Stage
   var dust3:FlxBackdrop;
   var dust4:FlxBackdrop;
 
-  function buildStage()
+  override function buildStage()
   {
     characterShader = new SserafimShader(true);
     stageShader = new SserafimShader();
@@ -193,7 +195,7 @@ class SserafimStage extends Stage
     if (PlayState.instance != null) createCutsceneSprites();
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     super.onNoteHit(event);
   }
@@ -236,7 +238,7 @@ class SserafimStage extends Stage
 
   // Reset events (like shown characters, singing, lights, dark, flash, etc)
 
-  public override function onEventReset():Void
+  override function onEventReset():Void
   {
     super.onEventReset();
 
@@ -280,7 +282,7 @@ class SserafimStage extends Stage
   /**
    * Called when the chart hits a song event.
    */
-  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  override function onSongEvent(scriptEvent:SongEventScriptEvent)
   {
     super.onSongEvent(scriptEvent);
 
@@ -431,7 +433,7 @@ class SserafimStage extends Stage
     character.shader = characterShader;
   }
 
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
     setCoverVisible(false);
@@ -622,7 +624,7 @@ class SserafimStage extends Stage
     });
   }
 
-  function onBeatHit(event:SongTimeScriptEvent)
+  override function onBeatHit(event:SongTimeScriptEvent)
   {
     super.onBeatHit(event);
 
@@ -636,7 +638,7 @@ class SserafimStage extends Stage
 
   var isMobilePauseButtonPressed:Bool = false;
 
-  function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -661,6 +663,7 @@ class SserafimStage extends Stage
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     #end
 
+    @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
       if (!canSkipCutscene)
@@ -681,6 +684,7 @@ class SserafimStage extends Stage
         }
       }
     }
+    @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped && canSkipCutscene)
     {
       skipCutscene();
@@ -698,12 +702,12 @@ class SserafimStage extends Stage
   var canSkipCutscene:Bool = false;
   var cutsceneTimerManager:FlxTimerManager;
 
-  public function cancelCutsceneSounds():Void
+  function cancelCutsceneSounds():Void
   {
     if (cutsceneSounds != null) cutsceneSounds.destroy();
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -878,6 +882,7 @@ class SserafimStage extends Stage
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
+    @:privateAccess
     skipText = new FlxText(
       936 * FullScreenScaleMode.wideScale.x,
       618 * FullScreenScaleMode.wideScale.y,

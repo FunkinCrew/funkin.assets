@@ -7,12 +7,12 @@ import flixel.FlxSprite;
 
 class BFPixelCharacter extends MultiSparrowCharacter
 {
-  function new()
+  public function new()
   {
     super('bf-pixel');
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
+  override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)
   {
     super.onAnimationFrame(name, frameNumber, frameIndex);
 
@@ -31,7 +31,7 @@ class BFPixelCharacter extends MultiSparrowCharacter
     }
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 
@@ -41,7 +41,7 @@ class BFPixelCharacter extends MultiSparrowCharacter
     PauseSubState.musicSuffix = '-pixel';
   }
 
-  function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     if (name == "firstDeath")
     {

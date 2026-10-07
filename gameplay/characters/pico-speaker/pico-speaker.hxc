@@ -16,7 +16,7 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
   var shootTimes:Array<Float> = [];
   var shootDirs:Array<Int> = [];
 
-  function new()
+  public function new()
   {
     super('pico-speaker');
 
@@ -43,7 +43,7 @@ class PicoSpeakerCharacter extends AnimateAtlasCharacter
     super.dance(force);
   }
 
-  function reset():Void
+  override function reset():Void
   {
     if (this.debug) return;
 

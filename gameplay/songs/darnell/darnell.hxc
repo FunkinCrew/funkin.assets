@@ -25,7 +25,7 @@ class DarnellSong extends Song
   var cutsceneConductor:Conductor;
   var bgSprite:FunkinSprite;
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -66,7 +66,7 @@ class DarnellSong extends Song
     hasPlayedInGameCutscene = false;
   }
 
-  public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
+  override function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
     {
@@ -77,7 +77,7 @@ class DarnellSong extends Song
     return [];
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 
@@ -90,7 +90,7 @@ class DarnellSong extends Song
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -171,7 +171,7 @@ class DarnellSong extends Song
 
     cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
-    var cutsceneCan:FunkinSprite = FunkinSprite.createSparrow(darnellPos[0], darnellPos[1], 'gameplay/songs/darnell/cutscene/cutscene-can');
+    var cutsceneCan:FunkinSprite = new FunkinSprite(darnellPos[0], darnellPos[1]).loadSparrow('gameplay/songs/darnell/cutscene/cutscene-can');
     cutsceneCan.animation.addByPrefix('forward', "can kick quick0", 24, false);
     cutsceneCan.animation.addByPrefix('up', "can kicked up0", 24, false);
     PlayState.instance.currentStage.add(cutsceneCan);
@@ -366,7 +366,7 @@ class DarnellSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -377,7 +377,7 @@ class DarnellSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -385,7 +385,7 @@ class DarnellSong extends Song
     hasPlayedInGameCutscene = false;
   }
 
-  function onUpdate(event:UpdateScriptEvent)
+  override function onUpdate(event:UpdateScriptEvent)
   {
     super.onUpdate(event);
 

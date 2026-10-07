@@ -31,7 +31,7 @@ class LimoRideErectStage extends Stage
   var shootingStarBeat:Int = 0;
   var shootingStarOffset:Int = 2;
 
-  override public function queryAssets(type:String):Array<AssetPath>
+  function queryAssets(type:String):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -171,7 +171,7 @@ class LimoRideErectStage extends Stage
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
-  override public function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -199,7 +199,7 @@ class LimoRideErectStage extends Stage
     shootingStarOffset = FlxG.random.int(4, 8);
   }
 
-  override public function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
@@ -245,7 +245,7 @@ class LimoRideErectStage extends Stage
   /**
    * Make sure the fast car is reset when the song restarts.
    */
-  override public function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
@@ -258,14 +258,14 @@ class LimoRideErectStage extends Stage
   /**
    * Make sure the fast car is reset when the song restarts.
    */
-  override public function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
     resetFastCar();
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -288,7 +288,7 @@ class LimoRideErectStage extends Stage
   /**
    * Apply the shader to the character as it is added.
    */
-  override public function addCharacter(character:BaseCharacter, charType:CharacterType):Void
+  override function addCharacter(character:BaseCharacter, charType:CharacterType):Void
   {
     // Apply the shader automatically to each character as it gets added.
     super.addCharacter(character, charType);
@@ -301,14 +301,14 @@ class LimoRideErectStage extends Stage
     character.useRenderTexture = true;
   }
 
-  override public function onPause(event:PauseScriptEvent):Void
+  override function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
     if (carSequence != null) carSequence.running = false;
   }
 
-  override public function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 

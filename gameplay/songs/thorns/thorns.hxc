@@ -12,7 +12,7 @@ class ThornsSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -38,7 +38,7 @@ class ThornsSong extends Song
     super('thorns');
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -74,7 +74,7 @@ class ThornsSong extends Song
     red.alpha = 1.0;
     PlayState.instance.add(red);
 
-    var senpaiCrazy = FunkinSprite.createSparrow(0, 0, 'gameplay/songs/thorns/cutscene/senpai-fucking-dies');
+    var senpaiCrazy = new FunkinSprite().loadSparrow('gameplay/songs/thorns/cutscene/senpai-fucking-dies');
     senpaiCrazy.cameras = [PlayState.instance.camCutscene];
     senpaiCrazy.animation.addByPrefix('idle', 'Senpai Pre Explosion instance 1', 24, false);
     senpaiCrazy.setGraphicSize(Std.int(senpaiCrazy.width * Constants.PIXEL_ART_SCALE));
@@ -153,7 +153,7 @@ class ThornsSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -163,16 +163,10 @@ class ThornsSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
     hasPlayedCutscene = false;
-  }
-
-  public override function onDialogueEnd()
-  {
-    // We may need to wait for the outro to play.
-    Countdown.performCountdown();
   }
 }

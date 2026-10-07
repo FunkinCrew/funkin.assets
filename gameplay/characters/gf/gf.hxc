@@ -6,7 +6,7 @@ using StringTools;
 
 class GirlfriendCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('gf');
   }

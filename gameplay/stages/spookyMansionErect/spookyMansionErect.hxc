@@ -24,7 +24,7 @@ class SpookyMansionErectStage extends Stage
     super('spookyMansionErect');
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -46,7 +46,7 @@ class SpookyMansionErectStage extends Stage
   var lightningSequence:Sequence;
   var lightningSequenceData:Array<SequenceData>;
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -103,7 +103,7 @@ class SpookyMansionErectStage extends Stage
     ];
   }
 
-  public function onBranchFrame(name:String, frameNum:Int, frameIndex:Int):Void
+  function onBranchFrame(name:String, frameNum:Int, frameIndex:Int):Void
   {
     rainShader.updateFrameInfo(rainShaderTarget.frame);
   }
@@ -116,7 +116,7 @@ class SpookyMansionErectStage extends Stage
     getNamedProp('stairsLight').alpha = 0.0001;
   }
 
-  override public function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -165,7 +165,7 @@ class SpookyMansionErectStage extends Stage
     doPostShockHaptics = true;
   }
 
-  override public function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
 
@@ -189,7 +189,7 @@ class SpookyMansionErectStage extends Stage
   var postShockCounter:Int = 0;
   var counterTargetNum:Int = 10;
 
-  override public function onStepHit(event:SongTimeScriptEvent):Void
+  override function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
 
@@ -208,7 +208,7 @@ class SpookyMansionErectStage extends Stage
     }
   }
 
-  override public function onPause(event:PauseScriptEvent):Void
+  override function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
@@ -222,7 +222,7 @@ class SpookyMansionErectStage extends Stage
     if (getGirlfriend() != null) FlxTweenUtil.pauseTweensOf(getGirlfriend(), ['alpha']);
   }
 
-  override public function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 
@@ -236,7 +236,7 @@ class SpookyMansionErectStage extends Stage
     if (getGirlfriend() != null) FlxTweenUtil.resumeTweensOf(getGirlfriend(), ['alpha']);
   }
 
-  override public function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
 
@@ -245,7 +245,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  override public function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -254,7 +254,7 @@ class SpookyMansionErectStage extends Stage
     lightningStrikeOffset = 8;
   }
 
-  override public function onGameOver(event:ScriptEvent):Void
+  override function onGameOver(event:ScriptEvent):Void
   {
     super.onGameOver(event);
 

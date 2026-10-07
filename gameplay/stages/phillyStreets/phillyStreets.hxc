@@ -38,7 +38,7 @@ class PhillyStreetsStage extends Stage
   var carsEnabled:Bool = true;
   var scrollingSky:FunkinTiledSprite;
 
-  function new()
+  public function new()
   {
     super('phillyStreets');
   }
@@ -437,7 +437,7 @@ class PhillyStreetsStage extends Stage
     // }
   }
 
-  function onBeatHit(event:SongTimeScriptEvent)
+  override function onBeatHit(event:SongTimeScriptEvent)
   {
     super.onBeatHit(event);
 
@@ -467,7 +467,7 @@ class PhillyStreetsStage extends Stage
     if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);
   }
 
-  override function setupFrameBuffers()
+  function setupFrameBuffers()
   {
     // frameBufferMan.createFrameBuffer("mask", 0xFF000000);
     // frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
@@ -484,7 +484,7 @@ class PhillyStreetsStage extends Stage
     // rainShader.blurredScreen = screen;
   }
 
-  public override function onPause(event:PauseScriptEvent)
+  override function onPause(event:PauseScriptEvent)
   {
     super.onPause(event);
 
@@ -499,7 +499,7 @@ class PhillyStreetsStage extends Stage
     // }
   }
 
-  public override function onResume(event:ScriptEvent)
+  override function onResume(event:ScriptEvent)
   {
     super.onResume(event);
 

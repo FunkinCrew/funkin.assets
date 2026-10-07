@@ -14,12 +14,12 @@ import funkin.assets.Paths as NewPaths;
 
 class PicoPixelCharacter extends SparrowCharacter
 {
-  function new()
+  public function new()
   {
     super('pico-pixel');
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -49,7 +49,7 @@ class PicoPixelCharacter extends SparrowCharacter
       deathSpriteNene.revive();
     }
 
-    deathSpriteNene = FunkinSprite.createSparrow(0, 0, 'gameplay/characters/nene-pixel/nene-pixel-knifetoss');
+    deathSpriteNene = new FunkinSprite().loadSparrow('gameplay/characters/nene-pixel/nene-pixel-knifetoss');
     deathSpriteNene.x = gf.originalPosition.x + 280 - (-gf.globalOffsets[0] * 6);
     deathSpriteNene.y = gf.originalPosition.y + 170 - (-gf.globalOffsets[1] * 6);
     deathSpriteNene.animation.addByPrefix('throw', 'knifetosscolor0', 24, false);
@@ -61,7 +61,7 @@ class PicoPixelCharacter extends SparrowCharacter
     });
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -74,7 +74,7 @@ class PicoPixelCharacter extends SparrowCharacter
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/characters/nene-pixel/nene-pixel-knifetoss'));
   }
 
-  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     if (name == 'firstDeath')
     {

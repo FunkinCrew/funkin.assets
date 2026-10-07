@@ -4,7 +4,7 @@ import funkin.play.cutscene.dialogue.Conversation;
 
 class SenpaiPicoConversation extends Conversation
 {
-  function new()
+  public function new()
   {
     super('senpai-pico');
   }

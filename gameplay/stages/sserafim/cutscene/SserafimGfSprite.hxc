@@ -19,12 +19,12 @@ class SserafimGfSprite extends FunkinSprite
     animation.addByFrameLabel('getup', 'getup', 24, false);
   }
 
-  public function resetAnim():Void
+  function resetAnim():Void
   {
     this.animation.play('static', true);
   }
 
-  public function doAnim():Void
+  function doAnim():Void
   {
     this.animation.play('getup', true);
   }

@@ -8,7 +8,7 @@ import funkin.play.PlayState;
 
 class SpookyDarkCharacter extends SparrowCharacter
 {
-  function new()
+  public function new()
   {
     super('spooky-dark');
 
@@ -44,7 +44,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     return val;
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     super.onNoteHit(event);
 
@@ -71,7 +71,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     }
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 

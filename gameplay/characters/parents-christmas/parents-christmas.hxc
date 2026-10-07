@@ -4,12 +4,12 @@ import funkin.play.PlayState;
 
 class ParentsChristmasCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('parents-christmas');
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     // Override the hit note animation.
     switch (event.note.kind)

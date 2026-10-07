@@ -10,7 +10,7 @@ class PicoGreatResults extends FunkinSprite
    */
   final FLASH_POSITION_OFFSET:Float = 500;
 
-  function new(x:Float, y:Float)
+  public function new(x:Float, y:Float)
   {
     super(x, y);
 

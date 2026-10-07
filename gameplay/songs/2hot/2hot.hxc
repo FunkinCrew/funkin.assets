@@ -44,7 +44,7 @@ class TwoHOTSong extends Song
   final STATE_SHOT:Int = 3; // Hit by the player.
   final STATE_IMPACTED:Int = 4; // Impacted the player.
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -81,7 +81,7 @@ class TwoHOTSong extends Song
     hasPlayedCutscene = false;
   }
 
-  override public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool, showHidden:Bool):Array<String>
+  override function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool, showHidden:Bool):Array<String>
   {
     if (showLocked || Save.instance.hasBeatenLevel('weekend1'))
     {
@@ -92,7 +92,7 @@ class TwoHOTSong extends Song
     return [];
   }
 
-  override public function onSongRetry(event:ScriptEvent):Void
+  override function onSongRetry(event:ScriptEvent):Void
   {
     super.onSongRetry(event);
 
@@ -100,7 +100,7 @@ class TwoHOTSong extends Song
     gunCocked = false;
   }
 
-  override public function onSongEnd(event:CountdownScriptEvent):Void
+  override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
 
@@ -133,6 +133,7 @@ class TwoHOTSong extends Song
     VideoCutscene.hideVideo();
 
     // This ensures Nene plays 'danceLeft' so that she syncs correctly with the cutscene video
+    @:privateAccess
     PlayState.instance.currentStage.getGirlfriend().hasDanced = false;
     PlayState.instance.currentStage.getGirlfriend().dance(true);
 
@@ -222,18 +223,6 @@ class TwoHOTSong extends Song
     spawnedCans = [];
   }
 
-  override public function onStateChangeEnd(event:StateChangeScriptEvent):Void
-  {
-    super.onStateChangeEnd(event);
-
-    if ((Std.isOfType(event.targetState, PlayState)))
-    {
-      return;
-    }
-
-    hardClear();
-  }
-
   function hardClear():Void
   {
     removeCans();
@@ -244,7 +233,7 @@ class TwoHOTSong extends Song
   var gunCocked:Bool = false;
   var spawnedCans:Array<SpraycanAtlasSprite> = [];
 
-  override public function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
 
@@ -310,7 +299,7 @@ class TwoHOTSong extends Song
     return null;
   }
 
-  override public function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     cutsceneConductor?.update(cutsceneConductor.songPosition + event.elapsed * 1000);
   }
@@ -420,7 +409,7 @@ class TwoHOTSong extends Song
 
   function spawnImpactParticle():Void
   {
-    var impactParticle:FunkinSprite = FunkinSprite.createSparrow(0, 0, 'gameplay/songs/2hot/graphics/can-impact');
+    var impactParticle:FunkinSprite = new FunkinSprite().loadSparrow('gameplay/songs/2hot/graphics/can-impact');
     impactParticle.animation.addByPrefix('idle', 'CanImpactParticle0', 24, false);
     impactParticle.animation.play('idle');
     impactParticle.x = PlayState.instance.currentStage.getBoyfriend().x + 400;
@@ -433,7 +422,7 @@ class TwoHOTSong extends Song
     };
   }
 
-  override public function onNoteMiss(event:NoteScriptEvent):Void
+  override function onNoteMiss(event:NoteScriptEvent):Void
   {
     super.onNoteMiss(event);
 
@@ -494,7 +483,7 @@ class TwoHOTSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

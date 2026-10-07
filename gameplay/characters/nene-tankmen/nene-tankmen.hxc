@@ -13,7 +13,7 @@ class NeneTankmenCharacter extends NeneBaseCharacter
   var vizAdjustColor:AdjustColorShader;
   var comboHeart:FunkinSprite;
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -40,7 +40,7 @@ class NeneTankmenCharacter extends NeneBaseCharacter
       spr.shader = vizAdjustColor;
     }
 
-    comboHeart = FunkinSprite.createSparrow(0, 0, "gameplay/characters/nene-tankmen/nene-combo-heart");
+    comboHeart = new FunkinSprite().loadSparrow("gameplay/characters/nene-tankmen/nene-combo-heart");
     comboHeart.animation.addByPrefix("idle", "hearts aflutter", 24, false);
     comboHeart.shader = adjustColor;
     comboHeart.zIndex = this.zIndex + 1;
@@ -52,7 +52,7 @@ class NeneTankmenCharacter extends NeneBaseCharacter
     });
   }
 
-  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 

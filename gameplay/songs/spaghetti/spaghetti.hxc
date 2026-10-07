@@ -8,7 +8,7 @@ class SpaghettiSong extends Song
     super('spaghetti');
   }
 
-  public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
+  override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
   {
     return !Save.instance.hasSongScore(this.id, null, this.variation);
   }

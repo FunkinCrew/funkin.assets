@@ -27,25 +27,25 @@ class EggnogErectSong extends Song
   var debugTesting:Bool = false;
   var isMobilePauseButtonPressed:Bool = false;
 
-  function new()
+  public function new()
   {
     super('eggnog', {
       variation: 'erect'
     });
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
     trace(PlayState.instance.currentVariation);
   }
 
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
   }
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void
+  override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
 
@@ -73,6 +73,7 @@ class EggnogErectSong extends Song
 
   function startCutscene()
   {
+    @:privateAccess
     skipText = new FlxText(
       936 * FullScreenScaleMode.wideScale.x,
       618 * FullScreenScaleMode.wideScale.y,
@@ -181,7 +182,7 @@ class EggnogErectSong extends Song
     });
   }
 
-  function onUpdate(event:UpdateScriptEvent)
+  override function onUpdate(event:UpdateScriptEvent)
   {
     super.onUpdate(event);
 
@@ -191,6 +192,7 @@ class EggnogErectSong extends Song
 
     if (PlayState.instance.isInCutscene)
     {
+      @:privateAccess
       if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
       {
         if (!canSkipCutscene)
@@ -210,6 +212,7 @@ class EggnogErectSong extends Song
       }
     }
 
+    @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && canSkipCutscene && !cutsceneSkipped)
     {
       PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
@@ -231,7 +234,7 @@ class EggnogErectSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
     cutsceneSkipped = false;

@@ -17,7 +17,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     super('bf');
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -34,7 +34,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     return results;
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -61,7 +61,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
@@ -86,7 +86,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     });
   }
 
-  override public function getDeathQuote():Null<String>
+  override function getDeathQuote():Null<String>
   {
     switch (PlayState.instance?.currentStage?.getDad()?.characterId)
     {

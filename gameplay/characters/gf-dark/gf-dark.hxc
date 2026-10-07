@@ -8,7 +8,7 @@ import funkin.play.PlayState;
 
 class GirlfriendDarkCharacter extends AnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('gf-dark');
   }
@@ -52,7 +52,7 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     }
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 

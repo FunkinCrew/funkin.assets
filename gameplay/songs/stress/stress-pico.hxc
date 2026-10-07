@@ -28,7 +28,7 @@ class StressPicoMixSong extends Song
     hasPlayedCutscene = false;
   }
 
-  public override function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results = super.queryAssets(type);
 
@@ -51,7 +51,7 @@ class StressPicoMixSong extends Song
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -100,7 +100,7 @@ class StressPicoMixSong extends Song
     }
   }
 
-  function onSongStart(event:ScriptEvent):Void
+  override function onSongStart(event:ScriptEvent):Void
   {
     super.onSongStart(event);
   }
@@ -121,7 +121,7 @@ class StressPicoMixSong extends Song
   /**
    * Don't replay the cutscene between restarts.
    */
-  function onSongRetry(event:ScriptEvent)
+  override function onSongRetry(event:ScriptEvent)
   {
     super.onSongRetry(event);
 
@@ -154,7 +154,7 @@ class StressPicoMixSong extends Song
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -163,7 +163,7 @@ class StressPicoMixSong extends Song
 
   var hasPlayedEndCutscene:Bool = false;
 
-  function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -175,7 +175,7 @@ class StressPicoMixSong extends Song
 
   var bgSprite:FunkinSprite;
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void
+  override function onSongEnd(event:CountdownScriptEvent):Void
   {
     super.onSongEnd(event);
 
@@ -189,7 +189,7 @@ class StressPicoMixSong extends Song
       event.cancel();
 
       // trace('Adding black background behind cutscene over UI');
-      bgSprite = new FunkinSprite(0, 0);
+      bgSprite = new FunkinSprite();
       bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
       bgSprite.cameras = [PlayState.instance.camCutscene]; // Show over the HUD but below the video.
       // this
@@ -268,7 +268,7 @@ class StressPicoMixSong extends Song
   /**
    * Pause the tankman flicker when the game is paused
    */
-  function onPause(event:ScriptEvent):Void
+  override function onPause(event:ScriptEvent):Void
   {
     super.onPause(event);
     if (tankmanGroup != null)
@@ -280,7 +280,7 @@ class StressPicoMixSong extends Song
     }
   }
 
-  function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
     if (tankmanGroup != null)
@@ -292,7 +292,7 @@ class StressPicoMixSong extends Song
     }
   }
 
-  function onDestroy(event:ScriptEvent):Void
+  override function onDestroy(event:ScriptEvent):Void
   {
     super.onDestroy(event);
     cleanupTankmanGroup();

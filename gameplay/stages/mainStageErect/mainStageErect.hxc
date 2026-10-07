@@ -9,7 +9,7 @@ import funkin.play.character.CharacterType;
 
 class MainStageErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('mainStageErect');
   }
@@ -35,12 +35,12 @@ class MainStageErectStage extends Stage
     return results;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
   }
 
-  function buildStage()
+  override function buildStage()
   {
     super.buildStage();
 
@@ -70,12 +70,12 @@ class MainStageErectStage extends Stage
     getNamedProp('lightAbove').blend = 0;
   }
 
-  function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
   }
 
-  function onStepHit(event:SongTimeScriptEvent):Void
+  override function onStepHit(event:SongTimeScriptEvent):Void
   {
     super.onStepHit(event);
   }

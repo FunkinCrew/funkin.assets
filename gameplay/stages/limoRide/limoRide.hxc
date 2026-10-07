@@ -22,7 +22,7 @@ class LimoRideStage extends Stage
 
   var carsEnabled:Bool = true;
 
-  override public function queryAssets(type:String):Array<AssetPath>
+  function queryAssets(type:String):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -38,7 +38,7 @@ class LimoRideStage extends Stage
     return results;
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -93,7 +93,7 @@ class LimoRideStage extends Stage
     resetFastCar();
   }
 
-  override public function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     // When overriding onBeatHit, make sure to call super.onBeatHit,
     // otherwise boppers will not work.
@@ -106,7 +106,7 @@ class LimoRideStage extends Stage
   var carSequenceData:Array<SequenceData>;
   var doCarHaptics:Bool = false;
 
-  override public function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -148,20 +148,20 @@ class LimoRideStage extends Stage
   /**
    * Make sure the fast car is reset when the song restarts.
    */
-  override public function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry(event);
     resetFastCar();
   }
 
-  override public function onPause(event:PauseScriptEvent):Void
+  override function onPause(event:PauseScriptEvent):Void
   {
     super.onPause(event);
 
     if (carSequence != null) carSequence.running = false;
   }
 
-  override public function onResume(event:ScriptEvent):Void
+  override function onResume(event:ScriptEvent):Void
   {
     super.onResume(event);
 

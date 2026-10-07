@@ -204,15 +204,15 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     return results;
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
-    stereoBG = new FunkinSprite(0, 0, Paths.image('gameplay/characters/nene/stereo-bg'));
+    stereoBG = new FunkinSprite().loadTexture('gameplay/characters/nene/stereo-bg');
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = FunkinSprite.createTextureAtlas(0, 0, "gameplay/characters/nene/abot-eyes");
+    pupil = new FunkinSprite().loadTextureAtlas("gameplay/characters/nene/abot-eyes");
     pupil.x = this.x;
     pupil.y = this.y;
     pupil.zIndex = this.zIndex - 5;
@@ -276,7 +276,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     abotViz.alpha = 0;
   }
 
-  public override function dance(forceRestart:Bool):Void
+  override function dance(forceRestart:Bool):Void
   {
     if (abot?.animation != null)
     {
@@ -323,7 +323,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   /**
    * Called when the chart hits a song event.
    */
-  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  override function onSongEvent(scriptEvent:SongEventScriptEvent)
   {
     super.onSongEvent(scriptEvent);
     if (scriptEvent.eventData.eventKind == "FocusCamera")
@@ -355,7 +355,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   function moveByNoteKind(kind:String):Void
   {
     // Force ABot to look where the action is happening.
-    switch (event.note.kind)
+    switch (kind)
     {
       case "weekend-1-lightcan":
         movePupilsLeft();
@@ -371,19 +371,19 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     }
   }
 
-  public override function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     super.onNoteHit(event);
     moveByNoteKind(event.note.kind);
   }
 
-  public override function onNoteMiss(event:NoteScriptEvent):Void
+  override function onNoteMiss(event:NoteScriptEvent):Void
   {
     super.onNoteMiss(event);
     moveByNoteKind(event.note.kind);
   }
 
-  public override function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -423,7 +423,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function onAdd(event:ScriptEvent):Void
+  override function onAdd(event:ScriptEvent):Void
   {
     super.onAdd(event);
 
@@ -459,7 +459,6 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     currentStage.add(stereoBG);
 
     currentStage.refresh();
-    hasSetupAbot = true;
   }
 
   var currentShader:FlxRuntimeShader = null;
@@ -483,20 +482,20 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     trace("Synchronized shader between children!");
   }
 
-  public override function onSongStart(event:ScriptEvent):Void
+  override function onSongStart(event:ScriptEvent):Void
   {
     abotViz.snd = FlxG.sound.music;
     abotViz.initAnalyzer();
     abotViz.alpha = 1;
   }
 
-  public override function onSongRetry(event:SongRetryEvent):Void
+  override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry();
     abotViz.dumpSound();
   }
 
-  public override function onSongEnd(event:ScriptEvent):Void
+  override function onSongEnd(event:ScriptEvent):Void
   {
     super.onSongEnd();
     abotViz.dumpSound();

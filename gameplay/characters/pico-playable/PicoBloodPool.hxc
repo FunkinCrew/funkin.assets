@@ -19,13 +19,13 @@ class PicoBloodPool extends FunkinSprite
     this.visible = false;
   }
 
-  public function doAnim():Void
+  function doAnim():Void
   {
     animation.play('wholeTimeline', true);
     this.visible = true;
   }
 
-  override public function update(elapsed:Float)
+  override function update(elapsed:Float)
   {
     super.update(elapsed);
 

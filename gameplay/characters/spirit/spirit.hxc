@@ -5,12 +5,12 @@ import funkin.effects.FunkTrail;
 
 class SpiritCharacter extends PackerCharacter
 {
-  function new()
+  public function new()
   {
     super('spirit');
   }
 
-  function onCreate(event:ScriptEvent)
+  override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
 

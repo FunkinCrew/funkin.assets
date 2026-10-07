@@ -21,12 +21,13 @@ import funkin.ui.FullScreenScaleMode;
 
 class PhillyTrainErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('phillyTrainErect');
     hasPlayedInGameCutscene = false;
   }
 
+  var curLight:Int;
   var lightColors:Array<FlxColor> = [
     0xFFB66F43,
     0xFF329A6D,
@@ -68,7 +69,7 @@ class PhillyTrainErectStage extends Stage
   /**
    * Replay the cutscene after leaving the song.
    */
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -81,7 +82,7 @@ class PhillyTrainErectStage extends Stage
     cutsceneConductor = null;
   }
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
 
@@ -120,6 +121,7 @@ class PhillyTrainErectStage extends Stage
     PlayState.instance.isInCutscene = true;
     PlayState.instance.mayPauseGame = false;
 
+    @:privateAccess
     skipText = new FlxText(
       936 * FullScreenScaleMode.wideScale.x,
       618 * FullScreenScaleMode.wideScale.y,
@@ -327,7 +329,6 @@ class PhillyTrainErectStage extends Stage
         PlayState.instance.startCountdown();
       }
 
-      hasPlayedCutscene = true;
       cutsceneMusic.stop();
     });
   }
@@ -336,7 +337,6 @@ class PhillyTrainErectStage extends Stage
   {
     cutsceneSkipped = true;
     explode = false;
-    hasPlayedCutscene = true;
     PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
     cutsceneMusic.fadeOut(0.5, 0);
 
@@ -370,7 +370,7 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     super.onNoteHit(event);
     if (PlayState.instance.currentStage == null) return;
@@ -382,7 +382,7 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  function buildStage()
+  override function buildStage()
   {
     super.buildStage();
 
@@ -407,7 +407,7 @@ class PhillyTrainErectStage extends Stage
     lightWindow.shader = lightShader;
   }
 
-  function fetchAssetPaths():Array<String>
+  override function fetchAssetPaths():Array<String>
   {
     var results:Array<String> = super.fetchAssetPaths();
     results.push(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
@@ -420,7 +420,7 @@ class PhillyTrainErectStage extends Stage
   var trainFinishing:Bool = false;
   var trainCooldown:Int = 0;
 
-  function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
     if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
@@ -448,6 +448,7 @@ class PhillyTrainErectStage extends Stage
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     #end
 
+    @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)
     {
       if (!canSkipCutscene)
@@ -468,6 +469,7 @@ class PhillyTrainErectStage extends Stage
         }
       }
     }
+    @:privateAccess
     if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped && canSkipCutscene)
     {
       skipCutscene();
@@ -500,7 +502,7 @@ class PhillyTrainErectStage extends Stage
     character.useRenderTexture = true;
   }
 
-  function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
     if (trainEnabled)
@@ -528,7 +530,7 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  function onStepHit(event:SongTimeScriptEvent):Void
+  override function onStepHit(event:SongTimeScriptEvent):Void
   {
     if (trainEnabled && trainSound?.time >= 4700 && trainMoving)
     {
@@ -616,7 +618,7 @@ class PhillyTrainErectStage extends Stage
     }
   }
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void
+  override function onSongEnd(event:CountdownScriptEvent):Void
   {
     // Disable train movement sfx during song ending.
     trainMoving = false;
@@ -630,7 +632,7 @@ class PhillyTrainErectStage extends Stage
     super.onSongEnd(event);
   }
 
-  function kill()
+  override function kill()
   {
     super.kill();
     if (cutsceneTimerManager != null) cutsceneTimerManager.destroy();

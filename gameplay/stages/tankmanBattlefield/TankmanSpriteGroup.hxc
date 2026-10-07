@@ -31,12 +31,12 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
   }
 
-  public function isValid():Bool
+  function isValid():Bool
   {
     return group != null;
   }
 
-  override public function reset(X:Float, Y:Float):Void
+  override function reset(X:Float, Y:Float):Void
   {
     group.clear();
 
@@ -44,7 +44,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     initTimemap();
   }
 
-  public function initTimemap():Void
+  function initTimemap():Void
   {
     trace('Initializing Tankman timings...');
 
@@ -87,7 +87,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
   /**
    * Creates a Tankman sprite and adds it to the group.
    */
-  public function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
+  function createTankman(initX:Float, initY:Float, strumTime:Float, goingRight:Bool, scale:Float)
   {
     // recycle() is neat; it looks for a sprite which has completed its animation and resets it,
     // rather than calling the constructor again. It only calls the constructor if it can't find one.
@@ -117,7 +117,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     return result;
   }
 
-  override public function update(elapsed:Float):Void
+  override function update(elapsed:Float):Void
   {
     super.update(elapsed);
 
@@ -141,7 +141,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     }
   }
 
-  override public function kill():Void
+  override function kill():Void
   {
     super.kill();
     tankmanTimes = [];

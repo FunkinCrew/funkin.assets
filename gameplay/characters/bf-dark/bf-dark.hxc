@@ -6,7 +6,7 @@ import funkin.util.HapticUtil;
 
 class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('bf-dark');
   }
@@ -59,7 +59,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     return val;
   }
 
-  public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
@@ -70,7 +70,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

@@ -3,12 +3,12 @@ import funkin.save.Save;
 
 class BlammedSong extends Song
 {
-  function new()
+  public function new()
   {
     super('blammed');
   }
 
-  public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
+  override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
     var results:Array<String> = super.listAltInstrumentalIds(difficultyId, variationId);
 

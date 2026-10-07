@@ -53,7 +53,7 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
   /**
    * Set the positions of both objects...
    */
-  public function setPositions(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
+  function setPositions(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
   {
     bottomObj.setPosition(bottomX, bottomY);
     topObj.setPosition(topX, topY);
@@ -62,7 +62,7 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
   /**
    * Set the scrollFactors of both objects...
    */
-  public function setScrollFactors(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
+  function setScrollFactors(bottomX:Float, bottomY:Float, topX:Float, topY:Float):Void
   {
     bottomObj.scrollFactor.set(bottomX, bottomY);
     topObj.scrollFactor.set(topX, topY);
@@ -72,7 +72,7 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
    * Positions the bottom-center of the sprite on the bottom point, and correctly skews the top-center to the second point.
    * @param targetCam	The camera to use for positioning. (Defaults to FlxG.camera)
    */
-  public function updateSkew(targetCam:FlxCamera, vcamPoint:FlxPoint):Void
+  function updateSkew(targetCam:FlxCamera, vcamPoint:FlxPoint):Void
   {
     if (targetCam == null) targetCam = FlxG.camera;
 
@@ -123,7 +123,7 @@ class PerspectiveSprite extends FlxTypedSpriteGroup
     correctedTop.put();
   }
 
-  override public function isOnScreen(camera:FlxCamera):Bool
+  override function isOnScreen(camera:FlxCamera):Bool
   {
     // Turns out skewing an image like crazy fucks up its rendering... oops!
     return true;

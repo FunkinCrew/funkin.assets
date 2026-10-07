@@ -90,7 +90,7 @@
 {"SPRITE":{"name":"88","x":1475,"y":374,"w":25,"h":61,"rotated":false}},
 {"SPRITE":{"name":"89","x":408,"y":436,"w":33,"h":34,"rotated":false}},
 {"SPRITE":{"name":"90","x":1286,"y":571,"w":30,"h":40,"rotated":false}},
-{"SPRITE":{"name":"91","x":376,"y":509,"w":29,"h":43,"rotated":true}},
+{"SPRITE":{"name":"91","x":375,"y":509,"w":29,"h":43,"rotated":true}},
 {"SPRITE":{"name":"92","x":1317,"y":571,"w":30,"h":38,"rotated":false}},
 {"SPRITE":{"name":"93","x":1361,"y":333,"w":22,"h":30,"rotated":true}},
 {"SPRITE":{"name":"94","x":526,"y":473,"w":19,"h":22,"rotated":false}},

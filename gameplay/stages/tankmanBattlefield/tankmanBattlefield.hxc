@@ -9,7 +9,7 @@ import funkin.Conductor;
 
 class TankmanBattlefieldStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('tankmanBattlefield');
   }
@@ -31,7 +31,7 @@ class TankmanBattlefieldStage extends Stage
     return results;
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
   }
@@ -131,7 +131,7 @@ class TankmanBattlefieldStage extends Stage
     trace(_exitTween.active);
   }
 
-  function onUpdate(event:UpdateScriptEvent):Void
+  override function onUpdate(event:UpdateScriptEvent):Void
   {
     super.onUpdate(event);
 
@@ -140,12 +140,12 @@ class TankmanBattlefieldStage extends Stage
       applyTankPosition(getTankAngle());
   }
 
-  function onBeatHit(event:SongTimeScriptEvent):Void
+  override function onBeatHit(event:SongTimeScriptEvent):Void
   {
     super.onBeatHit(event);
   }
 
-  function onSongStart(event:ScriptEvent):Void
+  override function onSongStart(event:ScriptEvent):Void
   {
     super.onSongStart(event);
 
@@ -158,7 +158,7 @@ class TankmanBattlefieldStage extends Stage
     tankStartMs = 0;
   }
 
-  function onSongRetry(event)
+  override function onSongRetry(event)
   {
     super.onSongRetry(event);
     trace('Retrying song, starting exit tween');

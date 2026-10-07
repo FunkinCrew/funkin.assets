@@ -14,7 +14,7 @@ import flixel.tweens.FlxTween;
 
 class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('pico-holding-nene');
   }
@@ -77,7 +77,7 @@ class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  function getDeathQuote():Null<String>
+  override function getDeathQuote():Null<String>
   {
     var randomCensor:Array<Int> = [];
 

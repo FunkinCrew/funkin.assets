@@ -21,7 +21,7 @@ class BoyfriendCard extends BackingCard
   var glow:FlxSprite;
   var glowDark:FlxSprite;
 
-  public override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
+  override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
     super.applyExitMovers(exitMovers, exitMoversCharSel);
     if (exitMovers == null || exitMoversCharSel == null) return;
@@ -66,7 +66,7 @@ class BoyfriendCard extends BackingCard
     });
   }
 
-  public override function enterCharSel():Void
+  override function enterCharSel():Void
   {
     FlxTween.tween(funnyScroll, {
       speed: 0
@@ -100,7 +100,7 @@ class BoyfriendCard extends BackingCard
     });
   }
 
-  public override function new()
+  public function new()
   {
     super('bf');
 
@@ -113,7 +113,7 @@ class BoyfriendCard extends BackingCard
     funnyScroll3 = new BGScrollingText(0, orangeBackShit.y + 10, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     FlxTween.tween(pinkBack, {
       x: 0
@@ -198,7 +198,7 @@ class BoyfriendCard extends BackingCard
   var beatFreq:Int = 1;
   var beatFreqList:Array<Int> = [1, 2, 4, 8];
 
-  public override function beatHit():Void
+  override function beatHit():Void
   {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
     beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
@@ -221,7 +221,7 @@ class BoyfriendCard extends BackingCard
     });
   }
 
-  public override function introDone():Void
+  override function introDone():Void
   {
     super.introDone();
     moreWays.visible = true;
@@ -235,7 +235,7 @@ class BoyfriendCard extends BackingCard
     glow.visible = true;
   }
 
-  public override function confirm():Void
+  override function confirm():Void
   {
     super.confirm();
     // FlxTween.color(bgDad, 0.33, 0xFFFFFFFF, 0xFF555555, {ease: FlxEase.quadOut});
@@ -250,7 +250,7 @@ class BoyfriendCard extends BackingCard
     glow.visible = false;
   }
 
-  public override function disappear():Void
+  override function disappear():Void
   {
     super.disappear();
 
@@ -269,7 +269,7 @@ class BoyfriendCard extends BackingCard
   /**
    * Called when a capsule is selected.
    */
-  public function onCapsuleSelected(event:CapsuleScriptEvent):Void
+  override function onCapsuleSelected(event:CapsuleScriptEvent):Void
   {
     super.onCapsuleSelected(event);
 

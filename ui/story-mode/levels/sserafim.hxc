@@ -2,7 +2,7 @@ import funkin.ui.story.Level;
 
 class SserafimLevel extends Level
 {
-  function new()
+  public function new()
   {
     super('sserafim');
   }

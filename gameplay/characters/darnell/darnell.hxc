@@ -17,7 +17,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
     super('darnell');
   }
 
-  override public function queryAssets(type:AssetType):Array<AssetPath>
+  function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
 
@@ -33,7 +33,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
     return results;
   }
 
-  override public function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -44,7 +44,7 @@ class DarnellCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override public function onNoteHit(event:HitNoteScriptEvent):Void
+  override function onNoteHit(event:HitNoteScriptEvent):Void
   {
     // Override the hit note animation.
     switch (event.note.kind)

@@ -9,7 +9,7 @@ import funkin.play.character.CharacterType;
 
 class MallXmasErectStage extends Stage
 {
-  function new()
+  public function new()
   {
     super('mallXmasErect');
   }
@@ -33,7 +33,7 @@ class MallXmasErectStage extends Stage
     return results;
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

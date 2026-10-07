@@ -10,6 +10,12 @@ import funkin.graphics.FunkinSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
+//
+// ~Imports for the new Paths system.~
+// Temporary import aliases until we decide to remove backwards compatibility for mods.
+//
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class PicoCard extends BackingCard
 {
@@ -27,7 +33,7 @@ class PicoCard extends BackingCard
     super('pico');
   }
 
-  public override function enterCharSel():Void
+  override function enterCharSel():Void
   {
     FlxTween.tween(scrollBack.velocity, {
       x: 0
@@ -51,7 +57,7 @@ class PicoCard extends BackingCard
     });
   }
 
-  public override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
+  override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
     super.applyExitMovers(exitMovers, exitMoversCharSel);
     if (exitMovers == null || exitMoversCharSel == null) return;
@@ -87,7 +93,7 @@ class PicoCard extends BackingCard
     });
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     FlxTween.tween(pinkBack, {
       x: 0
@@ -116,7 +122,7 @@ class PicoCard extends BackingCard
     scrollLower.velocity.x = -110;
     add(scrollLower);
 
-    var bitmap = BitmapUtil.scalePartByWidth(Assets.getBitmapData(Paths.image('ui/freeplay/styles/pico/backing-card/blue-bar')), FreeplayState.CUTOUT_WIDTH);
+    var bitmap = BitmapUtil.scalePartByWidth(NewAssets.getBitmapData(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar').withPixelData()), FreeplayState.CUTOUT_WIDTH);
     blueBar = new FlxSprite(0, 239).loadGraphic(bitmap);
     blueBar.blend = 9;
     blueBar.alpha = 0.4;
@@ -163,11 +169,7 @@ class PicoCard extends BackingCard
     glow.visible = false;
     glowDark.visible = false;
 
-    confirmAtlas = FunkinSprite.createTextureAtlas(
-      (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120,
-      55,
-      'ui/freeplay/styles/pico/backing-card/pico-confirm'
-    );
+    confirmAtlas = new FunkinSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) - 120, 55).loadTextureAtlas('ui/freeplay/styles/pico/backing-card/pico-confirm');
     confirmAtlas.animation.addBySymbol('wholeTimeline', confirmAtlas.getDefaultSymbol(), confirmAtlas.library.frameRate, false);
     confirmAtlas.visible = false;
     add(confirmAtlas);
@@ -188,7 +190,7 @@ class PicoCard extends BackingCard
     add(cardGlow);
   }
 
-  override public function confirm():Void
+  override function confirm():Void
   {
     confirmAtlas.visible = true;
     confirmAtlas.animation.play('wholeTimeline');
@@ -265,7 +267,7 @@ class PicoCard extends BackingCard
   var beatFreq:Int = 1;
   var beatFreqList:Array<Int> = [1, 2, 4, 8];
 
-  public override function beatHit():Void
+  override function beatHit():Void
   {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
     beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
@@ -288,7 +290,7 @@ class PicoCard extends BackingCard
     });
   }
 
-  public override function introDone():Void
+  override function introDone():Void
   {
     pinkBack.color = 0xFF98A2F3;
 
@@ -314,7 +316,7 @@ class PicoCard extends BackingCard
     });
   }
 
-  public override function disappear():Void
+  override function disappear():Void
   {
     FlxTween.color(pinkBack, 0.25, 0xFF98A2F3, 0xFFFFD0D5, {
       ease: FlxEase.quadOut
@@ -344,7 +346,7 @@ class PicoCard extends BackingCard
     });
   }
 
-  override public function update(elapsed:Float):Void
+  override function update(elapsed:Float):Void
   {
     super.update(elapsed);
     var scrollProgress:Float = Math.abs(scrollTop.x % (scrollTop.frameWidth + 20));

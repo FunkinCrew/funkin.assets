@@ -4,12 +4,12 @@ import funkin.play.PlayState;
 
 class TankmanCharacter extends MultiAnimateAtlasCharacter
 {
-  function new()
+  public function new()
   {
     super('tankman');
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     // Override the hit note animation.
     switch (event.note.kind)

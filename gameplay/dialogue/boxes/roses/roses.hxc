@@ -6,12 +6,12 @@ import funkin.audio.FunkinSound;
 
 class RosesDialogueBox extends DialogueBox
 {
-  function new()
+  public function new()
   {
     super('roses');
   }
 
-  function onAnimationFinished(name:String):Void
+  override function onAnimationFinished(name:String):Void
   {
     super.onAnimationFinished(name);
 
@@ -25,20 +25,16 @@ class RosesDialogueBox extends DialogueBox
     }
   }
 
-  function onTypingComplete():Void
+  override function onTypingComplete():Void
   {
     playAnimation('sentenceEnd');
     super.onTypingComplete();
   }
 
-  public function onDialogueStart(event:DialogueScriptEvent):Void
-  {
-    super.onDialogueStart(event);
-  }
-
-  public function onDialogueLine(event:DialogueScriptEvent):Void
+  override function onDialogueLine(event:DialogueScriptEvent):Void
   {
     // Override the default box animation behavior by switching the state
+    @:privateAccess
     event.conversation.state = ConversationState.Opening;
 
     FunkinSound.playOnce(Paths.sound('gameplay/dialogue/boxes/roses/click-advance'), 0.6);
@@ -56,17 +52,12 @@ class RosesDialogueBox extends DialogueBox
     }
   }
 
-  public function onDialogueEnd(event:DialogueScriptEvent):Void
+  override function onDialogueEnd(event:DialogueScriptEvent):Void
   {
     super.onDialogueEnd(event);
     // Play 'enter' in reverse
-    this.textDisplay.visible = false;
+    this.textDisplay.localVisible = false;
 
     playAnimation('exit', false);
-  }
-
-  override function onDestroy(event:ScriptEvent)
-  {
-    super.onDestroy(event);
   }
 }

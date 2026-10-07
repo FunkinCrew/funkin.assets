@@ -57,12 +57,12 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     }
   ];
 
-  function new()
+  public function new()
   {
     super('sserafim-sakura');
   }
 
-  function onCreate(event:ScriptEvent):Void
+  override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
@@ -78,7 +78,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  function onNoteHit(event:HitNoteScriptEvent)
+  override function onNoteHit(event:HitNoteScriptEvent)
   {
     // Override the hit note animation.
     switch (event.note.kind)
@@ -100,7 +100,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     super.onNoteHit(event);
   }
 
-  function onNoteMiss(event:NoteScriptEvent)
+  override function onNoteMiss(event:NoteScriptEvent)
   {
     // Override the miss note animation.
     switch (event.note.kind)
@@ -116,7 +116,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     super.onNoteMiss(event);
   }
 
-  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
