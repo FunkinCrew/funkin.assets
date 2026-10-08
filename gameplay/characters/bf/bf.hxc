@@ -120,4 +120,12 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
         return null;
     }
   }
+
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    super.onGameOver(event);
+    
+    // remove stage shaders during the game over
+		PlayState.instance.currentStage.getBoyfriend().shader = null;
+  }
 }
