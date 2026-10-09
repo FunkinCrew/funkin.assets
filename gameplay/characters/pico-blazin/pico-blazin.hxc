@@ -327,16 +327,14 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 
   function moveToBack()
   {
-    if (this.debug) return;
     this.zIndex = 2000;
-    currentStage.refresh();
+    if (currentStage != null) currentStage.refresh();
   }
 
   function moveToFront()
   {
-    if (this.debug) return;
     this.zIndex = 3000;
-    currentStage.refresh();
+    if (currentStage != null) currentStage.refresh();
   }
 
   function isDarnellPreppingUppercut():Void
