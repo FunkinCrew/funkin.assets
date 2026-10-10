@@ -8,6 +8,6 @@
     </hbox>
   </header>
   <box width="100%" height="100%">
-    <textfield text="Placeholder Comment Text" verticalAlign="top" horizontalAlign="left" id="commentCardTextField" width="100%" height="100%" autoFocus="false" />
+    <textarea text="Placeholder Comment Text" verticalAlign="top" horizontalAlign="left" id="commentCardTextField" width="100%" height="100%" autoFocus="false" />
   </box>
 </panel>
