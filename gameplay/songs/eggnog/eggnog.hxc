@@ -5,15 +5,13 @@ import flixel.util.FlxColor;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.audio.FunkinSound;
-import funkin.data.song.SongRegistry;
-import funkin.ui.transition.LoadingState;
 
 class EggnogSong extends Song
 {
   public function new()
   {
     super('eggnog');
-    shouldEndSong = true;
+    shouldEndSong = false;
   }
 
   var shouldEndSong:Bool = false;
