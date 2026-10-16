@@ -21,7 +21,7 @@
       "name": "stageFront",
       "isPixel": false,
       "assetPath": "stagefront",
-      "scroll": [0.9, 0.9],
+      "scroll": [1, 1],
       "animations": []
     },
     {
