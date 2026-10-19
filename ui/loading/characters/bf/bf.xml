@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="bf.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<!-- Sparrow-EX v0.0.1 -->
+	<SubTexture name="run0000" x="556" y="0" width="541" height="685" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0001" x="556" y="0" width="541" height="685" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0002" x="556" y="0" width="541" height="685" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0003" x="534" y="691" width="691" height="556" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0004" x="534" y="691" width="691" height="556" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0005" x="534" y="691" width="691" height="556" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0006" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0007" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0008" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0009" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0010" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0011" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0012" x="0" y="1255" width="685" height="541" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0013" x="0" y="1255" width="685" height="541" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0014" x="0" y="1255" width="685" height="541" frameX="-15" frameY="0" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0015" x="0" y="0" width="556" height="691" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0016" x="0" y="0" width="556" height="691" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0017" x="0" y="0" width="556" height="691" frameX="0" frameY="-2" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0018" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0019" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0020" x="0" y="691" width="534" height="564" frameX="-25" frameY="-47" frameWidth="700" frameHeight="612" rotated="false"/>
+	<SubTexture name="run0021" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0022" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+	<SubTexture name="run0023" x="685" y="1255" width="564" height="511" frameX="-58" frameY="-48" frameWidth="700" frameHeight="612" rotated="true"/>
+</TextureAtlas>
