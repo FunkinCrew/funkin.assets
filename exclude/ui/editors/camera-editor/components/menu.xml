@@ -45,6 +45,7 @@
     </menu-checkbox>
     <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
     <menu-checkbox width="100%" id="menubarItemDoSongEvents" text="Play Song Events" selected="true" />
+    <menu-checkbox width="100%" id="menubarItemZoomToPlayhead" text="Timeline Zooms to Playhead" />
     <menu-separator />
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View">
