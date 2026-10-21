@@ -14,6 +14,7 @@
 		<number-stepper width="50%" id="contextmenuPosition" pos="0"  />
 	</grid>
 	<menu-item id="contextmenuEdit" text="Edit Note" />
+	<menu-item id="contextmenuSnap" text="Snap Note" shortcutText="Shift+N" />
 	<menu-item id="contextmenuFlip" text="Flip Note" shortcutText="Ctrl+F" />
 	<menu-item id="contextmenuMirrorX" text="Mirror Note X Axis" shortcutText="Ctrl+Shift+M" />
 	<menu-item id="contextmenuAddHold" text="Add Hold" />
