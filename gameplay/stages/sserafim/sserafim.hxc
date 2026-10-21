@@ -915,7 +915,13 @@ class SserafimStage extends Stage
 
     new FlxTimer(cutsceneTimerManager).start(14.5 / 24, function(tmr)
     {
-      cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stages/sserafim/sounds/cutscene/start-cutscene'), 1.0, false, true, true);
+      cutsceneSounds = FunkinSound.load(Paths.sound('gameplay/stagescutscene/startCutscene'), 1.0, false, true, true);
+	  if (Preferences.subtitles)
+     {
+		     PlayState.instance.subtitles.offsets = [0, 42];
+             var subtitlesFile:String = 'songs/spaghetti/subtitles/start-cutscene';
+             if (PlayState.instance.subtitles != null) PlayState.instance.subtitles.assignSubtitles(subtitlesFile, cutsceneSounds);
+		 }	 
     });
 
     PlayState.instance.tweenCameraZoom(0.7, 3, true, FlxEase.circOut);
@@ -1059,6 +1065,13 @@ class SserafimStage extends Stage
     new FlxTimer(cutsceneTimerManager).start(730 / 24, function(tmr)
     {
       PlayState.instance.isInCutscene = false;
+      if (Preferences.subtitles)
+      {
+	        PlayState.instance.subtitles.offsets = [0, 130];
+          PlayState.instance.subtitles.assignedSound = PlayState.instance.subtitles.subtitlesData = null;
+          PlayState.instance.subtitles.setText([], true);
+      }
+
       PlayState.instance.startCountdown();
 
       PlayState.instance.togglePauseButton(true);
@@ -1084,6 +1097,12 @@ class SserafimStage extends Stage
       cutsceneSounds.stop();
 
       PlayState.instance.isInCutscene = false;
+      if (Preferences.subtitles)
+      {
+	        PlayState.instance.subtitles.offsets = [0, 130];
+          PlayState.instance.subtitles.assignedSound = PlayState.instance.subtitles.subtitlesData = null;
+          PlayState.instance.subtitles.setText([], true);
+      }
       PlayState.instance.mayPauseGame = true;
       PlayState.instance.startCountdown();
 
