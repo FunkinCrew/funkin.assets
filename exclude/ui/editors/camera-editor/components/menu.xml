@@ -59,6 +59,7 @@
     <menu-separator />
     <menu-item id="menubarItemResetCameraScroll" text="Reset Camera Scroll" shortcutText="Ctrl+R" />
     <menu-item id="menubarItemResetCameraZoom" text="Reset Camera Zoom" shortcutText="Ctrl+G" />
+    <menu-item id="menubarItemSetDefaultFocusZoom" text="Set Default Focus/Zoom" shortcutText="Ctrl+P" />
   </menu>
 
   <menu text="Playback">
