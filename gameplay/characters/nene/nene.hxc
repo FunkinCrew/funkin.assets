@@ -4,6 +4,7 @@ import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.group.FunkinGroup;
 
 /**
  * One of two states that the A-Bot's pupils can be in.
@@ -175,6 +176,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     super(characterId);
   }
 
+  var abotGroup:FunkinGroup;
   var abot:FunkinSprite;
   var abotViz:ABotVis;
   var stereoBG:FunkinSprite;
@@ -207,6 +209,8 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
+
+    abotGroup = new FunkinGroup();
 
     stereoBG = new FunkinSprite().loadTexture('gameplay/characters/nene/stereo-bg');
 
@@ -390,10 +394,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
     synchronizeShader();
 
     // Set the visibility of ABot to match Nene's.
-    abot.visible = this.visible;
-    pupil.visible = this.visible;
-    eyeWhites.visible = this.visible;
-    stereoBG.visible = this.visible;
+    abotGroup.visible = this.visible;
 
     if (pupil?.anim?.isPlaying)
     {
@@ -432,31 +433,35 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
 
   function setupAbot():Void
   {
-    abot.x = this.x - 95 - (-this.globalOffsets[0] * this.scale.x);
-    abot.y = this.y + 384 - (-this.globalOffsets[1] * this.scale.y);
-    abot.zIndex = this.zIndex - 10;
+    abotGroup.x = this.x - 95 - (-this.globalOffsets[0] * this.scale.x);
+    abotGroup.y = this.y + 384 - (-this.globalOffsets[1] * this.scale.y);
+    abotGroup.zIndex = this.zIndex - 1;
+    
+    abot.zIndex = 5;
+    abotGroup.add(abot);
+    
+    eyeWhites.localX = abot.localX + 40;
+    eyeWhites.localY = abot.localY + 250;
+    eyeWhites.zIndex = abot.zIndex - 4;
+    abotGroup.add(eyeWhites);
+    
+    pupil.localX = abot.localX + 50;
+    pupil.localY = abot.localY + 238;
+    pupil.zIndex = eyeWhites.zIndex + 1;
+    abotGroup.add(pupil);
+    
+    stereoBG.localX = abot.localX + 150;
+    stereoBG.localY = abot.localY + 30;
+    stereoBG.zIndex = abot.zIndex - 2;
+    abotGroup.add(stereoBG);
 
-    currentStage.add(abot);
-
-    abotViz.x = abot.x + 207;
-    abotViz.y = abot.y + 84;
-    abotViz.zIndex = abot.zIndex - 1;
-    currentStage.add(abotViz);
-
-    eyeWhites.x = abot.x + 40;
-    eyeWhites.y = abot.y + 250;
-    eyeWhites.zIndex = abot.zIndex - 10;
-    currentStage.add(eyeWhites);
-
-    pupil.x = abot.x + 50;
-    pupil.y = abot.y + 238;
-    pupil.zIndex = eyeWhites.zIndex + 5;
-    currentStage.add(pupil);
-
-    stereoBG.x = abot.x + 150;
-    stereoBG.y = abot.y + 30;
-    stereoBG.zIndex = abot.zIndex - 8;
-    currentStage.add(stereoBG);
+    abotViz.localX = abot.localX + 207;
+    abotViz.localY = abot.localY + 84;
+    abotViz.zIndex = stereoBG.zIndex + 1;
+    abotGroup.add(abotViz);
+    
+    abotGroup.refresh();
+    currentStage.add(abotGroup);
 
     currentStage.refresh();
   }
