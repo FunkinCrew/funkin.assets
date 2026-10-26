@@ -8,6 +8,7 @@ import flixel.util.FlxSpriteUtil;
 import funkin.ui.freeplay.charselect.PlayableCharacter;
 import funkin.data.freeplay.player.PlayerRegistry;
 import funkin.Conductor;
+import funkin.assets.Assets.AssetType;
 
 class BoyfriendCard extends BackingCard
 {
@@ -20,6 +21,33 @@ class BoyfriendCard extends BackingCard
 
   var glow:FlxSprite;
   var glowDark:FlxSprite;
+
+    /**
+   * Get the list of assets that are required to display the default backing card.
+   *
+   * @param type The type of asset to query for.
+   * @return A list of asset paths.
+   */
+  public static function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = [];
+    results = results.concat(BackingCard.queryAssets(type));
+
+    switch (type)
+    {
+      case AssetType.IMAGE:
+        results = results.concat(AssetPaths.animateAtlas('ui/freeplay/styles/bf/backing-card').image());
+      case AssetType.JSON:
+        results = results.concat(AssetPaths.animateAtlas('ui/freeplay/styles/bf/backing-card').json());
+
+      case AssetType.XML:
+        // Nothing
+      default:
+        // Nothing
+    }
+
+    return results;
+  }
 
   override public function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
