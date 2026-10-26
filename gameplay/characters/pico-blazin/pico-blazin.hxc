@@ -139,6 +139,10 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
     {
       // TODO: ACTUALLY play one of the three death animations here.
 
+      // Snap the camera in place.
+      PlayState.instance.cameraFollowPoint.y += 350;
+      PlayState.instance.resetCamera(false, true);
+
       var deathSequenceEvents:Array<SequenceEvent> = [{
         time: 1.25,
         callback: afterPicoDeathGutPunchIntro
