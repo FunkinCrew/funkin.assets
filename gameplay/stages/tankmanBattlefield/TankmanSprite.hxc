@@ -36,7 +36,7 @@ class TankmanSprite extends FunkinSprite
   // shamelessly stolen from pico thank u ericc
   var tankmanFlicker:FlxFlicker = null;
 
-  function deathFlicker()
+  public function deathFlicker()
   {
     // ERIC: You have to use super instead of this or it breaks.
     // This is because typeof(this) is PolymodAbstractClass.
@@ -81,7 +81,7 @@ class TankmanSprite extends FunkinSprite
     rim.angle = 135; // goingRight ? 135 : 45;
   }
 
-  function initAnim()
+  public function initAnim()
   {
     // Called when the sprite is created as well as when it is revived.
 
@@ -92,7 +92,7 @@ class TankmanSprite extends FunkinSprite
     offset.x = 0;
   }
 
-  override function revive()
+  override public function revive()
   {
     // Sprite has been revived! This allows it to be reused without reinstantiating.
     super.revive();
@@ -100,7 +100,7 @@ class TankmanSprite extends FunkinSprite
     initAnim();
   }
 
-  override function update(elapsed:Float):Void
+  override public function update(elapsed:Float):Void
   {
     super.update(elapsed);
 
