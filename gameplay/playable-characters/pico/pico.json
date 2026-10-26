@@ -142,6 +142,7 @@
     "good": [
       {
         "renderType": "animateatlas",
+        "assetPath": "gameplay/playable-characters/pico/results/graphics/results-good",
         "scriptClass": "PicoGoodResults",
         "zIndex": 500,
         "scale": 1.25,
