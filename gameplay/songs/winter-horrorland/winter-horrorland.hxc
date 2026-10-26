@@ -8,6 +8,10 @@ import funkin.audio.FunkinSound;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.util.HapticUtil;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
+
 
 class WinterHorrorlandSong extends Song
 {
@@ -87,5 +91,16 @@ class WinterHorrorlandSong extends Song
         PlayState.instance.startCountdown();
       });
     });
+  }
+
+  public static function queryAssets(type:AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
+    switch (type)
+    {
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/stages/mallEvil/sounds/lights-on'));
+    }
+    return results;
   }
 }

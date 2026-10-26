@@ -16,6 +16,7 @@ import funkin.play.cutscene.VideoCutscene;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class DarnellSong extends Song
 {
@@ -25,34 +26,36 @@ class DarnellSong extends Song
   var cutsceneConductor:Conductor;
   var bgSprite:FunkinSprite;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     switch (type)
     {
       case "SOUND":
-        results.push(Paths.sound('gameplay/characters/pico-playable/gun-prep'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/shot-1'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/shot-2'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/shot-3'));
-        results.push(Paths.sound('gameplay/characters/pico-playable/shot-4'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/darnell-lighter'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/kick-can-forward'));
-        results.push(Paths.sound('gameplay/songs/2hot/sounds/kick-can-up'));
-        results.push(Paths.sound('gameplay/songs/darnell/cutscene/darnell-laugh'));
-        results.push(Paths.sound('gameplay/songs/darnell/cutscene/nene-laugh'));
-        results.push(Paths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene"));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/gun-prep'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/shot-1'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/shot-2'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/shot-3'));
+        results.push(NewPaths.sound('gameplay/characters/pico-playable/shot-4'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/darnell-lighter'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-forward'));
+        results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-up'));
+        results.push(NewPaths.sound('gameplay/songs/darnell/cutscene/darnell-laugh'));
+        results.push(NewPaths.sound('gameplay/songs/darnell/cutscene/nene-laugh'));
+        results.push(NewPaths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene").audio());
       case "JSON":
-        results.push(Paths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene").metadata());
-        results.push(Paths.animateAtlas('gameplay/songs/2hot/spraycan').json());
+        results.push(NewPaths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene").metadata());
+        results = results.concat(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').json());
       case "IMAGE":
-        results.push(Paths.spritesheet('gameplay/songs/darnell/cutscene/cutscene-can').image());
-        results.push(Paths.spritesheet('gameplay/characters/pico-playable/pico-casing').image());
-        results.push(Paths.animateAtlas('gameplay/songs/2hot/spraycan').image());
+        results.push(NewPaths.image('gameplay/songs/darnell/cutscene/cutscene-can'));
+        results.push(NewPaths.image('gameplay/characters/pico-playable/pico-casing'));
+        results.push(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results = results.concat(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').image());
       case "XML":
-        results.push(Paths.spritesheet('gameplay/songs/darnell/cutscene/cutscene-can').xml());
-        results.push(Paths.spritesheet('gameplay/characters/pico-playable/pico-casing').xml());
+        results.push(NewPaths.xml('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results.push(NewPaths.xml('gameplay/songs/darnell/cutscene/cutscene-can'));
+        results.push(NewPaths.xml('gameplay/characters/pico-playable/pico-casing'));
     }
 
     return results;

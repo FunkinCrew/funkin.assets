@@ -1,5 +1,8 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class EggnogSong extends Song
 {
@@ -19,6 +22,17 @@ class EggnogSong extends Song
       if (!hasBeatenPicoMix) results = [for (id in results) if (id != 'pico') id];
     }
 
+    return results;
+  }
+
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
+    switch (type)
+    {
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/stages/mallEvil/sounds/lights-off'));
+    }
     return results;
   }
 }

@@ -8,6 +8,9 @@ import flixel.tweens.FlxTween;
 import funkin.save.Save;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
+import funkin.data.dialogue.ConversationRegistry;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 
 class RosesPicoMixSong extends Song
 {
@@ -20,9 +23,9 @@ class RosesPicoMixSong extends Song
     });
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     results = results.concat(ConversationRegistry.instance.queryAssets(type, 'roses-pico'));
     results = results.concat(ConversationRegistry.instance.queryAssets(type, 'roses-pico-censored'));
@@ -30,7 +33,7 @@ class RosesPicoMixSong extends Song
     switch (type)
     {
       case "SOUND":
-        results.push(Paths.sound('gameplay/dialogue/boxes/roses/angry-appear'));
+        results.push(NewPaths.sound('gameplay/dialogue/boxes/roses/angry-appear'));
       default:
         // nothing
     }
