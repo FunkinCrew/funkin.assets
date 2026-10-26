@@ -5,6 +5,9 @@ import funkin.Conductor;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.util.HapticUtil;
+import funkin.assets.Paths as NewPaths;
+import funkin.play.stage.Stage;
+
 
 class PhillyTrainStage extends Stage
 {
@@ -26,9 +29,9 @@ class PhillyTrainStage extends Stage
   var trainSound:FunkinSound;
   var trainEnabled:Bool = true;
 
-  function queryAssets(type:String):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results = Stage.queryAssets(type, id, params);
 
     trace('Querying train stage assets for ' + type);
 
@@ -37,9 +40,9 @@ class PhillyTrainStage extends Stage
     switch (type)
     {
       case "SOUND":
-        results.push(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
+        results.push(NewPaths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/building'));
+        results.push(NewPaths.frag('ui/shaders/building'));
       default:
         // nothing
     }
@@ -60,13 +63,6 @@ class PhillyTrainStage extends Stage
 
     lightWindow = getNamedProp('lights');
     lightWindow.shader = lightShader;
-  }
-
-  override function fetchAssetPaths():Array<String>
-  {
-    var results:Array<String> = super.fetchAssetPaths();
-    results.push(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
-    return results;
   }
 
   var trainMoving:Bool = false;

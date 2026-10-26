@@ -22,9 +22,9 @@ class LimoRideStage extends Stage
 
   var carsEnabled:Bool = true;
 
-  function queryAssets(type:String):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results = Stage.queryAssets(type, id, params);
 
     switch (type)
     {

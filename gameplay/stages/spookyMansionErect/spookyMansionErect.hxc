@@ -16,6 +16,7 @@ import funkin.util.Sequence;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class SpookyMansionErectStage extends Stage
 {
@@ -24,14 +25,13 @@ class SpookyMansionErectStage extends Stage
     super('spookyMansionErect');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
-
+    var results = Stage.queryAssets(type, id, params);
     switch (type)
     {
-      case 'SHADER':
-        results.push(Paths.frag('ui/shaders/rain'));
+      case "SHADER":
+        results.push(NewPaths.frag('ui/shaders/rain'));
       default:
         // nothing
     }

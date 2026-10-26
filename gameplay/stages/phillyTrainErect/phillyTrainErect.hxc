@@ -18,6 +18,9 @@ import flixel.tweens.FlxTween;
 import funkin.util.TouchUtil;
 import funkin.util.HapticUtil;
 import funkin.ui.FullScreenScaleMode;
+import funkin.assets.Paths as NewPaths;
+import funkin.play.stage.Stage;
+
 
 class PhillyTrainErectStage extends Stage
 {
@@ -46,22 +49,29 @@ class PhillyTrainErectStage extends Stage
   var trainEnabled:Bool = true;
   var isMobilePauseButtonPressed:Bool = false;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
-    // These files get used by the script, but the loading screen has no way of knowing we need them.
-    // So we have to declare them here.
+    var results = Stage.queryAssets(type, id, params);
     switch (type)
     {
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/stages/phillyTrainErect/cigarette'));
+      case "XML":
+        results.push(NewPaths.xml('gameplay/stages/phillyTrainErect/cigarette'));
+
       case "SOUND":
-        results.push(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
+        results.push(NewPaths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
+        results.push(NewPaths.music("gameplay/stages/phillyTrainErect/cutscene/cutscene").audio());
+        results.push(NewPaths.sound("gameplay/stages/phillyTrainErect/cutscene/cutscene/cutscene2"));
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/building'));
-        results.push(Paths.frag('ui/shaders/adjust-color'));
+        results.push(NewPaths.frag('ui/shaders/building'));
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
       default:
         // nothing
     }
+
+    results = results.concat(PicoBloodPool.queryAssets(type));
+    results = results.concat(PicoDopplegangerSprite.queryAssets(type));
 
     return results;
   }
@@ -405,13 +415,6 @@ class PhillyTrainErectStage extends Stage
 
     lightWindow = getNamedProp('lights');
     lightWindow.shader = lightShader;
-  }
-
-  override function fetchAssetPaths():Array<String>
-  {
-    var results:Array<String> = super.fetchAssetPaths();
-    results.push(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'));
-    return results;
   }
 
   var trainMoving:Bool = false;

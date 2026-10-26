@@ -25,6 +25,8 @@ import funkin.tweens.FunkinVarTween;
 import funkin.Conductor;
 import funkin.util.HapticUtil;
 import funkin.util.TouchUtil;
+import funkin.assets.Paths as NewPaths;
+import funkin.data.character.CharacterRegistry;
 
 class SserafimStage extends Stage
 {
@@ -66,6 +68,49 @@ class SserafimStage extends Stage
 
     this.hasHidden = false;
     hasPlayedCutscene = false;
+  }
+
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
+  {
+    var results = Stage.queryAssets(type, id, params);
+  
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-yunjin"));
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-chaewon"));
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-eunchae"));
+    //TODO: Maybe move animateAtlas cases into their own scripted classes and then do this ^
+    switch (type)
+    {
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/stages/sserafim/dust/dust-mid'));
+        results.push(NewPaths.image('gameplay/stages/sserafim/dust/dust-back'));
+        results.push(NewPaths.image('gameplay/stages/sserafim/cutscene/floor-cutscene'));
+        results.push(NewPaths.image('gameplay/stages/sserafim/end/end-1'));
+        results.push(NewPaths.image('gameplay/stages/sserafim/end/end-2'));
+        
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync-yunjin').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/cutscene-main').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/bf-get-up').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/gf-get-up').image());
+        
+      case 'JSON':
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync').json());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync-yunjin').json());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/cutscene-main').json());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/bf-get-up').json());
+        results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/gf-get-up').json());
+
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/door-kick-1'));
+        results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/door-kick-2'));
+        results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/end-1'));
+        results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/end-2'));
+        results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/start-cutscene'));
+      default:
+        // nothing
+    }
+    
+    return results;
   }
 
   override function onCreate(event:ScriptEvent):Void

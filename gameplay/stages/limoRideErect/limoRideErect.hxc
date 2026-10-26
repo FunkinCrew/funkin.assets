@@ -31,24 +31,21 @@ class LimoRideErectStage extends Stage
   var shootingStarBeat:Int = 0;
   var shootingStarOffset:Int = 2;
 
-  function queryAssets(type:String):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
-
-    // These files get used by the script, but the loading screen has no way of knowing we need them.
-    // So we have to declare them here.
+    var results = Stage.queryAssets(type, id, params);
     switch (type)
     {
       case 'IMAGE':
         results.push(NewPaths.image('gameplay/stages/limoRide/limo-overlay'));
         results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-front'));
         results.push(NewPaths.image('gameplay/stages/limoRideErect/mist-back'));
-        results.push(NewPaths.spritesheet('gameplay/stages/limoRide/limo-drive').image());
+        results.push(NewPaths.image('gameplay/stages/limoRide/limo-drive'));
       case 'SOUND':
         results.push(NewPaths.sound('gameplay/stages/limoRide/sounds/car-pass-1'));
         results.push(NewPaths.sound('gameplay/stages/limoRide/sounds/car-pass-2'));
       case 'XML':
-        results.push(NewPaths.spritesheet('gameplay/stages/limoRide/limo-drive').xml());
+        results.push(NewPaths.xml('gameplay/stages/limoRide/limo-drive'));
       case 'SHADER':
         results.push(NewPaths.frag('ui/shaders/adjust-color'));
       default:

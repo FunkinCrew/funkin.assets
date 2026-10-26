@@ -2,6 +2,9 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.DropShadowShader;
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
+
 
 class SchoolErectStage extends Stage
 {
@@ -9,6 +12,25 @@ class SchoolErectStage extends Stage
   {
     super('schoolErect');
   }
+
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
+  {
+    var results = Stage.queryAssets(type, id, params);
+    switch (type)
+    {
+      case 'IMAGE':
+        results.push(NewPaths.image('gameplay/characters/nene-pixel/nene-pixel-mask'));
+        results.push(NewPaths.image('gameplay/characters/pico-pixel/pico-pixel-mask'));
+        results.push(NewPaths.image('gameplay/characters/bf-pixel/bf-pixel-mask'));
+        results.push(NewPaths.image('gameplay/characters/gf-pixel/gf-pixel-mask'));
+        results.push(NewPaths.image('gameplay/characters/senpai/senpai-mask'));
+      default:
+        // nothing
+    }
+
+    return results;
+  }
+
 
   override function buildStage()
   {
