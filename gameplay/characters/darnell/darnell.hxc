@@ -36,12 +36,6 @@ class DarnellCharacter extends AnimateAtlasCharacter
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
-
-    // Precache the sounds used in 2hot.
-    for (snd in ['darnell-lighter', 'kick-can-up', 'kick-can-forward'])
-    {
-      NewAssets.cacheSound(NewPaths.sound('gameplay/songs/2hot/sounds/$snd'));
-    }
   }
 
   override function onNoteHit(event:HitNoteScriptEvent):Void

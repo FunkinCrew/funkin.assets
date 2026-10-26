@@ -33,21 +33,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     ];
   }
 
-  public var CACHE_SOUND_PATHS(get, never):Array<String>;
-
-  function get_CACHE_SOUND_PATHS():Array<String>
-  {
-    return [
-      'gameplay/characters/pico-playable/sounds/singed',
-      'gameplay/characters/pico-playable/sounds/gun-prep',
-      'gameplay/characters/pico-playable/sounds/bonk',
-      'gameplay/characters/pico-playable/sounds/shot-1',
-      'gameplay/characters/pico-playable/sounds/shot-2',
-      'gameplay/characters/pico-playable/sounds/shot-3',
-      'gameplay/characters/pico-playable/sounds/shot-4'
-    ];
-  }
-
   function queryAssets(type:AssetType):Array<AssetPath>
   {
     var results:Array<AssetPath> = super.queryAssets(type);
@@ -58,11 +43,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
         for (img in CACHE_IMAGE_PATHS)
         {
           results.push(NewPaths.image(img));
-        }
-      case 'SOUND':
-        for (snd in CACHE_SOUND_PATHS)
-        {
-          results.push(NewPaths.sound(snd));
         }
     }
 
@@ -95,15 +75,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     for (img in CACHE_IMAGE_PATHS)
     {
       NewAssets.cacheFlxGraphic(NewPaths.image(img));
-    }
-
-    // We don't need these sounds outside of Weekend 1.
-    if (Paths.currentLevel == 'weekend1')
-    {
-      for (snd in CACHE_SOUND_PATHS)
-      {
-        NewAssets.cacheSound(NewPaths.sound(snd, 'weekend1'));
-      }
     }
   }
 
