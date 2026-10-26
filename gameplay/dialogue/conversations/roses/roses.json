@@ -23,7 +23,8 @@
       "speaker": "senpai-angry",
       "speakerAnimation": "talk",
       "box": "roses",
-      "boxAnimation": "idle",
+      "boxAnimation": "angrySenpai",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": ["Not bad for an ugly worm."]
     },
@@ -32,6 +33,7 @@
       "speakerAnimation": "talk",
       "box": "roses",
       "boxAnimation": "idle",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": [
         "But this time I'll rip your nuts off right after your girlfriend finishes gargling mine."

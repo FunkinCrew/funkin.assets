@@ -23,7 +23,8 @@
       "speaker": "senpai-angry",
       "speakerAnimation": "talk",
       "box": "roses",
-      "boxAnimation": "idle",
+      "boxAnimation": "angrySenpai",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": ["You disgusting orange boy and your awful way of 'singing'."]
     },
@@ -32,6 +33,7 @@
       "speakerAnimation": "talk",
       "box": "roses",
       "boxAnimation": "idle",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": ["You'll ruin the neighborhood acting like that."]
     },
@@ -40,6 +42,7 @@
       "speakerAnimation": "talk",
       "box": "roses",
       "boxAnimation": "idle",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": [
         "Keep it up and I'll show your girlfriend here a better time tonight than you ever could."
@@ -58,6 +61,7 @@
       "speakerAnimation": "talk",
       "box": "roses",
       "boxAnimation": "idle",
+      "sounds": ["gameplay/dialogue/boxes/roses/angry-click"],
 
       "text": [
         "I'll enjoy watching you both cry like dogs once I tell the authorities you brought a fake gun to school!"

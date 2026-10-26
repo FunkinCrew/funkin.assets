@@ -8,7 +8,7 @@
   },
 
   "music": {
-    "asset": "gameplay/dialogue/conversations/senpai/lunchbox/lunchbox",
+    "asset": "gameplay/dialogue/conversations/senpai/lunchbox",
     "fadeTime": 2.0,
     "looped": true
   },
@@ -23,6 +23,7 @@
       "speaker": "senpai",
       "speakerAnimation": "talkEnter",
       "box": "roses",
+      "autoAdvance": true,
       "boxAnimation": "enter",
 
       "text": ["Ah, another lovely fair maiden has graced m-"]
@@ -123,6 +124,7 @@
       "speaker": "nene-pixel",
       "speakerAnimation": "talk",
       "box": "roses",
+      "autoAdvance": true,
       "boxAnimation": "speaking",
 
       "text": ["No that's real it-"]
