@@ -114,7 +114,7 @@ class PhillyTrainStage extends Stage
       lightShader.reset();
 
       // Switch to a different light
-      curLight = FlxG.random.int(0, lightColors.length - 1);
+      var curLight = FlxG.random.int(0, lightColors.length - 1);
       lightWindow.color = lightColors[curLight];
     }
   }
