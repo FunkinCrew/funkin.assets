@@ -5,6 +5,11 @@ import funkin.graphics.FunkinCamera;
 import funkin.ui.freeplay.dj.AnimateAtlasFreeplayDJ;
 import funkin.ui.freeplay.dj.FreeplayDJAnimation;
 import funkin.ui.freeplay.dj.FreeplayDJState;
+import funkin.ui.freeplay.backcards.BackingCard;
+import funkin.assets.Assets;
+import funkin.assets.Paths.AssetPath;
+import funkin.assets.Paths as AssetPaths;
+import funkin.assets.Assets.AssetType;
 
 using StringTools;
 
@@ -36,6 +41,42 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
   var currentCartoonFrame:Int = 60;
   var _cartoonSound:Null<FunkinSound> = null;
 
+
+  /**
+   * Get the list of assets that are required to display the Freeplay DJ.
+   * NOTE: You only need this if you have additional custom assets that aren't pointed to in the JSON data.
+   *
+   * @param type The type of asset to query for.
+   * @return A list of asset paths.
+   */
+  public static function queryAssets(type:String, characterId:String):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = AnimateAtlasFreeplayDJ.queryAssets(type, characterId);
+
+    switch (type)
+    {
+      case "SOUND":
+        results = results.concat([
+          AssetPaths.sound('ui/freeplay/dj/bf/remote-click'),
+          AssetPaths.sound('ui/freeplay/dj/bf/tv-on'),
+          AssetPaths.sound('ui/freeplay/dj/bf/channel-switch'),
+        ]);
+        var cartoonList:Array<AssetPath> = Assets.list().filter((path) -> return path.startsWith('assets/ui/freeplay/dj/bf/cartoons/'));
+        // TODO: Do we need to cache every cartoon?
+        results = results.concat(cartoonList);
+      default:
+        // Nothing
+    }
+	trace(results);
+
+    return results;
+  }
+
+  public static function getCharacterId():String
+    {
+    return 'bf';
+  }
+	
   public function new(x:Float, y:Float, characterId:String)
   {
     super(x, y, characterId);
