@@ -6,6 +6,8 @@ import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.graphics.shaders.DropShadowShader;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 
 /**
  * The various states pixel Nene can be in.
@@ -26,24 +28,27 @@ class NenePixelCharacter extends SparrowCharacter
     super('nene-pixel');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
+    var results = SparrowCharacter.queryAssets(type, charId);
     switch (type)
     {
       case "IMAGE":
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-head").image());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-body").image());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-back").image());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker").image());
-        results.push(Paths.image("gameplay/characters/nene-pixel/nene-pixel-mask"));
-        results.push(Paths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker-mask"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-head"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-body"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-back"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/nene-pixel-mask"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-viz"));
+        results.push(NewPaths.image("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker-mask"));
       case "XML":
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-head").xml());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-body").xml());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-back").xml());
-        results.push(Paths.spritesheet("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker").xml());
+        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-head"));
+        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-body"));
+        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-back"));
+        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker"));
+        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-viz"));
+      case "SHADER":
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
     }
 
     return results;

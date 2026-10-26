@@ -9,6 +9,7 @@ import funkin.Conductor;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class DarnellCharacter extends AnimateAtlasCharacter
 {
@@ -17,16 +18,16 @@ class DarnellCharacter extends AnimateAtlasCharacter
     super('darnell');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results = AnimateAtlasCharacter.queryAssets(type, charId);
 
     switch (type)
     {
       case 'SOUND':
         for (snd in ['darnell-lighter', 'kick-can-up', 'kick-can-forward'])
         {
-          results.push(Paths.sound('gameplay/songs/2hot/sounds/$snd'));
+          results.push(NewPaths.sound('gameplay/songs/2hot/sounds/$snd'));
         }
     }
 

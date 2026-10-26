@@ -7,6 +7,7 @@ import funkin.util.HapticUtil;
 // ~Imports for the new Paths system.~
 // Temporary import aliases until we decide to remove backwards compatibility for mods.
 //
+import funkin.assets.Assets.AssetType;
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
 
@@ -17,18 +18,20 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
     super('bf');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
 
     switch (type)
     {
       case 'IMAGE':
-        results.push(NewPaths.animateAtlas('gameplay/characters/bf/bf-fakeout').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/characters/bf/bf-fakeout').image());
       case 'JSON':
         results = results.concat(NewPaths.animateAtlas('gameplay/characters/bf/bf-fakeout').json());
       case 'SOUND':
         results.push(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout'));
+        for (i in 1...25)
+          results.push(NewPaths.sound('gameplay/characters/bf-holding-gf/sounds/jeff-gameover-$i'));
     }
 
     return results;

@@ -2,12 +2,26 @@ import funkin.audio.FunkinSound;
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.GameOverSubState;
 import funkin.util.HapticUtil;
+import funkin.assets.Paths as NewPaths;
 
 class BFHoldingGFCharacter extends MultiSparrowCharacter
 {
   public function new()
   {
     super('bf-holding-gf');
+  }
+
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
+  {
+    var results = MultiSparrowCharacter.queryAssets(type, charId);
+
+    switch (type)
+    {
+      case 'SOUND':
+        for (i in 1...25)
+          results.push(NewPaths.sound('gameplay/characters/bf-holding-gf/sounds/jeff-gameover-$i'));
+    }
+    return results;
   }
 
   override function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int)

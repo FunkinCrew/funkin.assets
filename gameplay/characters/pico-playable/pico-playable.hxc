@@ -19,33 +19,38 @@ import funkin.util.HapticUtil;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 {
-  public var CACHE_IMAGE_PATHS(get, never):Array<String>;
-
-  function get_CACHE_IMAGE_PATHS():Array<String>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    return [
-      'gameplay/characters/nene/nene-knifetoss',
-      'gameplay/characters/pico-playable/pico-death-explosion/spritemap1',
-      'gameplay/characters/pico-playable/pico-casing'
-    ];
-  }
-
-  function queryAssets(type:AssetType):Array<AssetPath>
-  {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
 
     switch (type)
     {
-      case 'IMAGE':
-        for (img in CACHE_IMAGE_PATHS)
-        {
-          results.push(NewPaths.image(img));
-        }
-    }
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/characters/nene/nene-knifetoss'));
+        results.push(NewPaths.image('gameplay/characters/pico-playable/pico-casing'));
 
+      case "XML":
+        results.push(NewPaths.xml('gameplay/characters/nene/nene-knifetoss'));
+        results.push(NewPaths.xml('gameplay/characters/pico-playable/pico-casing'));
+
+      case "SOUND":
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/singed"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/gun-prep"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/bonk"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/shot-1"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/shot-2"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/shot-3"));
+          results.push(NewPaths.sound("gameplay/characters/pico-playable/sounds/shot-4"));
+          for (i in 1...10)
+            results.push(NewPaths.sound('gameplay/characters/pico-holding-nene/sounds/jeff-gameover-$i'));
+
+      default:
+        // nothing
+    }
     return results;
   }
 
@@ -71,11 +76,6 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     GameOverSubState.animationSuffix = '';
 
     PauseSubState.musicSuffix = '-pico';
-
-    for (img in CACHE_IMAGE_PATHS)
-    {
-      NewAssets.cacheFlxGraphic(NewPaths.image(img));
-    }
   }
 
   var deathSpriteNene:FunkinSprite;

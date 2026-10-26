@@ -5,6 +5,7 @@ import funkin.play.PlayState;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
 import funkin.audio.FunkinSound;
+import funkin.assets.Paths as NewPaths;
 
 class PicoDopplegangerSprite extends FunkinSprite
 {
@@ -93,5 +94,26 @@ class PicoDopplegangerSprite extends FunkinSprite
   {
     animation.play('loop' + suffix, true);
     animation.curAnim.looped = true;
+  }
+
+  public static function queryAssets(type:AssetType):Array<funkin.assets.Paths.AssetPath>
+  {
+    switch (type)
+    {
+      case 'IMAGE':
+        return NewPaths.animateAtlas('gameplay/stages/phillyTrainErect/pico-doppelganger').image();
+      case 'JSON':
+        return NewPaths.animateAtlas('gameplay/stages/phillyTrainErect/pico-doppelganger').json();
+      case 'SOUND':
+        return [NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-gasp'), 
+          NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-shoot'), 
+          NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-spin'), 
+          NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-cigarette-2'),
+          NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-explode'),
+          NewPaths.sound('gameplay/stages/phillyTrainErect/cutscene/pico-cigarette-1')
+        ];
+      default:
+        return [];
+    }
   }
 }

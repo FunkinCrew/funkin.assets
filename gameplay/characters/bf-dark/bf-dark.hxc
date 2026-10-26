@@ -3,6 +3,7 @@ import funkin.data.character.CharacterRegistry;
 import funkin.play.PlayState;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.util.HapticUtil;
+import funkin.assets.Assets.AssetType;
 
 class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
 {
@@ -11,16 +12,10 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     super('bf-dark');
   }
 
-  /**
-   * If your character uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
-    results = results.concat(CharacterRegistry.instance.queryAssets("bf", type));
-
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "bf"));
     return results;
   }
 

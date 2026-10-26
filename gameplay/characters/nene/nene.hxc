@@ -4,6 +4,9 @@ import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
+
 
 /**
  * One of two states that the A-Bot's pupils can be in.
@@ -181,22 +184,22 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   var eyeWhites:FunkinSprite;
   var pupil:FunkinSprite;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results = AnimateAtlasCharacter.queryAssets(type, charId);
 
     switch (type)
     {
       case "IMAGE":
-        results.push(Paths.image('gameplay/characters/nene/stereo-bg'));
-        results.push(Paths.animateAtlas("gameplay/characters/nene/abot-eyes").image());
-        results.push(Paths.animateAtlas("gameplay/characters/nene/abot-system").image());
-        results.push(Paths.spritesheet('gameplay/characters/nene/abot-viz').image());
+        results.push(NewPaths.image('gameplay/characters/nene/stereo-bg'));
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-eyes").image());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-system").image());
+        results.push(NewPaths.image('gameplay/characters/nene/abot-viz'));
       case "JSON":
-        results = results.concat(Paths.animateAtlas("gameplay/characters/nene/abot-eyes").json());
-        results = results.concat(Paths.animateAtlas("gameplay/characters/nene/abot-system").json());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-eyes").json());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-system").json());
       case "XML":
-        results.push(Paths.spritesheet("gameplay/characters/nene/abot-viz").xml());
+        results.push(NewPaths.xml("gameplay/characters/nene/abot-viz"));
       default:
         // nothing
     }

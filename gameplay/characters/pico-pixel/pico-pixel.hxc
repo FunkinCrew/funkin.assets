@@ -11,6 +11,7 @@ import funkin.graphics.FunkinSprite;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class PicoPixelCharacter extends SparrowCharacter
 {
@@ -19,16 +20,16 @@ class PicoPixelCharacter extends SparrowCharacter
     super('pico-pixel');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results = SparrowCharacter.queryAssets(type, charId);
 
     switch (type)
     {
       case 'IMAGE':
-        results.push(Paths.spritesheet('characters/nene-pixel/nene-pixel-knifetoss').image());
+        results.push(NewPaths.image('gameplay/characters/nene-pixel/nene-pixel-knifetoss'));
       case 'XML':
-        results.push(Paths.spritesheet('characters/nene-pixel/nene-pixel-knifetoss').xml());
+        results.push(NewPaths.xml('gameplay/characters/nene-pixel/nene-pixel-knifetoss'));
     }
 
     return results;

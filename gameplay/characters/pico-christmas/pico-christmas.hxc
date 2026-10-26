@@ -1,16 +1,25 @@
 import funkin.play.character.PicoPlayerBaseCharacter;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.graphics.FunkinSprite;
+import funkin.assets.Paths as NewPaths;
 
 class PicoChristmasCharacter extends PicoPlayerBaseCharacter
 {
-  override function get_CACHE_IMAGE_PATHS():Array<String>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    return ["gameplay/characters/nene-christmas/nene-christmas-knife"];
-  }
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
 
-  override function get_CACHE_SOUND_PATHS():Array<String>
-  {
-    return [];
+    switch (type)
+    {
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/characters/nene-christmas/nene-christmas-knife'));
+      case "XML":
+        results.push(NewPaths.xml('gameplay/characters/nene-christmas/nene-christmas-knife'));
+
+      default:
+        // nothing
+    }
+    return results;
   }
 
   public function new()

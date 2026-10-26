@@ -1,9 +1,16 @@
 import funkin.play.character.NeneBaseCharacter;
+import funkin.assets.Paths as NewPaths;
 
 class NeneChristmasCharacter extends NeneBaseCharacter
 {
   public function new()
   {
     super('nene-christmas');
+  }
+
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
+  {
+    var results = NeneBaseCharacter.queryAssets(type, charId);
+    return results;
   }
 }

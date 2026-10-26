@@ -1,16 +1,14 @@
 import funkin.data.character.CharacterRegistry;
 import funkin.play.character.PicoPlayerBaseCharacter;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 
 class PicoDarkCharacter extends PicoPlayerBaseCharacter
 {
-  override function get_CACHE_IMAGE_PATHS():Array<String>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    return ["gameplay/characters/nene/nene-knifetoss"];
-  }
-
-  override function get_CACHE_SOUND_PATHS():Array<String>
-  {
-    return [];
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "pico-playable"));
+    return results;
   }
 
   public function new()

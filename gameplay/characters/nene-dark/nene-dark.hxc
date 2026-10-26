@@ -3,6 +3,8 @@ import funkin.graphics.shaders.TextureSwap;
 import flixel.util.FlxColor;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.character.NeneBaseCharacter;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 
 class NeneDarkCharacter extends NeneBaseCharacter
 {
@@ -33,24 +35,24 @@ class NeneDarkCharacter extends NeneBaseCharacter
     return val;
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
-    // These files get used by the script, but the loading screen has no way of knowing we need them.
-    // So we have to declare them here.
+    var results = NeneBaseCharacter.queryAssets(type, charId);
+    results = results.concat(NeneBaseCharacter.queryAssets(type, "nene"));
+    
     switch (type)
     {
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/characters/nene-dark/abot-system-dark/spritemap1'));
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/adjust-color'));
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
       default:
         // nothing
     }
-
     return results;
   }
 
-  override function onCreate(event:ScriptEvent):Void
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

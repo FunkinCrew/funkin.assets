@@ -5,6 +5,7 @@ import funkin.play.character.BaseCharacter;
 import funkin.data.character.CharacterRegistry;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
+import funkin.assets.Assets.AssetType;
 
 class GirlfriendDarkCharacter extends AnimateAtlasCharacter
 {
@@ -13,16 +14,10 @@ class GirlfriendDarkCharacter extends AnimateAtlasCharacter
     super('gf-dark');
   }
 
-  /**
-   * If your character uses additional assets not specified in the JSON,
-   * make sure to specify them like this, or they won't get cached in the loading screen.
-   */
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
-    results = results.concat(CharacterRegistry.instance.queryAssets("gf", type));
-
+    var results = AnimateAtlasCharacter.queryAssets(type, charId);
+    results = results.concat(CharacterRegistry.instance.queryAssets(type, "gf"));
     return results;
   }
 
