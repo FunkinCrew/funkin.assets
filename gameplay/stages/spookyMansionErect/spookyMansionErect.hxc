@@ -40,7 +40,7 @@ class SpookyMansionErectStage extends Stage
   }
 
   var rainShaderTarget:FlxSprite;
-  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var rainShader:RuntimeRainShader;
   var lightningStrikeBeat:Int = 0;
   var lightningStrikeOffset:Int = 8;
   var lightningSequence:Sequence;
@@ -49,7 +49,7 @@ class SpookyMansionErectStage extends Stage
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
-
+    rainShader ??= new RuntimeRainShader();
     // adjust this value so that the rain looks nice
     rainShader.scale = FlxG.height / 200 * 2;
     rainShader.intensity = 0.4;

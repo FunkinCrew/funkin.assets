@@ -28,7 +28,7 @@ class PhillyBlazinStage extends Stage
     super('phillyBlazin');
   }
 
-  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var rainShader:RuntimeRainShader;
   var rainShaderFilter:ShaderFilter;
   var scrollingSky:FlxTiledSprite;
 
@@ -56,6 +56,7 @@ class PhillyBlazinStage extends Stage
   override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
+    rainShader ??= new RuntimeRainShader();
     cameraInitialized = false;
     cameraDarkened = false;
     lightningActive = true;

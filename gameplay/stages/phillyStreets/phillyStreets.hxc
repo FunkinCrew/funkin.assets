@@ -22,7 +22,7 @@ import funkin.assets.Paths as NewPaths;
 
 class PhillyStreetsStage extends Stage
 {
-  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var rainShader:RuntimeRainShader;
   var rainShaderFilter:ShaderFilter;
   var blurFilter:BlurFilter = new BlurFilter(6, 6);
   // as song goes on, these are used to make the rain more intense throught the song
@@ -127,6 +127,7 @@ class PhillyStreetsStage extends Stage
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
+    rainShader ??= new RuntimeRainShader();
 
     // rainSndAmbience = FunkinSound.load(Paths.sound("gameplay/stages/phillyStreets/sounds/ambience-rain", "weekend1"), true, false, true);
     // rainSndAmbience.volume = 0;
