@@ -44,4 +44,6 @@
   width: 24px;
   height: 24px;
   background-color: "#FFFFFF";
+  border: $normal-border-size solid $normal-border-color;
+  border-radius: $normal-border-radius;
 }
