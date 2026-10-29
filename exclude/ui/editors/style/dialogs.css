@@ -47,3 +47,7 @@
   border: $normal-border-size solid $normal-border-color;
   border-radius: $normal-border-radius;
 }
+
+#colorPicker .controls-container .label {
+  width: 75px;
+}
