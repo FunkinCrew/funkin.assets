@@ -6,6 +6,8 @@ import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.assets.Assets.AssetType;
 import funkin.assets.Paths as NewPaths;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.graphics.shaders.DropShadowShader;
 
 
 /**
@@ -465,12 +467,22 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   }
 
   var currentShader:FlxRuntimeShader = null;
+  var aBotColorShader:AdjustColorShader;
 
   function synchronizeShader():Void
   {
     if (currentShader == this.shader) return;
 
     currentShader = this.shader;
+
+    if (Std.isOfType(this.shader, DropShadowShader)) {
+      aBotColorShader = new AdjustColorShader();
+			aBotColorShader.brightness = this.shader.baseBrightness;
+			aBotColorShader.hue = this.shader.baseHue;
+			aBotColorShader.contrast = this.shader.baseContrast;
+			aBotColorShader.saturation = this.shader.baseSaturation;
+			currentShader = aBotColorShader;
+    }
 
     abot.shader = currentShader;
     abotViz.shader = currentShader;
