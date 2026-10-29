@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <dialog width="500" height="600" title="Help">
 	<tabview width="100%" height="100%">
@@ -83,6 +82,8 @@
 					<item action="Test Song (Minimal Mode)" keybind="Shift + Enter" />
 					<item action="Switch to Easier Difficulty" keybind="Ctrl + Left Arrow" />
 					<item action="Switch to Harder Difficulty" keybind="Ctrl + Right Arrow" />
+					<item action="Increase Notes Length" keybind="E" />
+					<item action="Decrease Notes Length" keybind="Q" />
 				</data>
 			</tableview>
 		</box>
