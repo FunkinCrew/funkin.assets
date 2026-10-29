@@ -45,3 +45,7 @@
   height: 24px;
   background-color: "#FFFFFF";
 }
+
+#colorPicker .controls-container .label {
+  width: 75px;
+}

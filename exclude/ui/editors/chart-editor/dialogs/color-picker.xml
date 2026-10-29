@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dialog width="260" title="Color Picker">
+<dialog width="280" title="Color Picker">
 	<vbox width="100%">
-    <color-picker id="colorPicker" width="240" />
+    <color-picker id="colorPicker" width="260" />
     <hbox width="100%" horizontalAlign="center">
       <spacer width="100%"/>
       <box id="colorPalette1" styleName="color-picker-palette-item" />
