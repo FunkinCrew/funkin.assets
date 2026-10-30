@@ -13,6 +13,7 @@ import Lambda;
 class SserafimChaewonCharacter extends AnimateAtlasCharacter
 {
   var lipSyncSprite:SserafimLipSyncSprite;
+  var lipSyncElement:FlxSpriteElement;
 
   /**
    * A map of animation names to lip sync data.
@@ -53,19 +54,27 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     lipSyncSprite = new SserafimLipSyncSprite(0, 0);
     lipSyncSprite.alpha = 0.5;
 
-    var element:FlxSpriteElement = new FlxSpriteElement(lipSyncSprite);
-    element.active = false; // We disable the element here so we can control when it updates.
+    lipSyncElement = new FlxSpriteElement(lipSyncSprite);
+    lipSyncElement.active = false; // We disable the element here so we can control when it updates.
+    lipSyncElement.owner = this;
 
     for (frame in this.getFramesWithKeyword("mouth default"))
     {
-      frame.add(element);
+      frame.add(lipSyncElement);
     }
+
+    applyLipSyncData('idle');
   }
 
   override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
+    applyLipSyncData(name);
+  }
+
+  function applyLipSyncData(name:String):Void
+  {
     if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
     {
       var data:LipSyncData = LIP_SYNC_OFFSETS.get(name);
@@ -75,12 +84,22 @@ class SserafimChaewonCharacter extends AnimateAtlasCharacter
     }
   }
 
+  override function destroy():Void
+  {
+    for (frame in this.getFramesWithKeyword("mouth default"))
+    {
+      frame.remove(lipSyncElement);
+    }
+
+    super.destroy();
+  }
+
   override function update(elapsed:Float):Void
   {
     super.update(elapsed);
     lipSyncSprite.update(elapsed);
 
-    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF;
+    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && !this.debug;
 
     synchronizeShader();
   }

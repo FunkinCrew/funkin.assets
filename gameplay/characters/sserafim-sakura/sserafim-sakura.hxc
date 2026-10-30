@@ -13,6 +13,7 @@ import Lambda;
 class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
 {
   var lipSyncSprite:SserafimLipSyncSprite;
+  var lipSyncElement:FlxSpriteElement;
 
   /**
    * A map of animation names to lip sync data.
@@ -69,13 +70,16 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     lipSyncSprite = new SserafimLipSyncSprite(0, 0);
     lipSyncSprite.flipX = true;
 
-    var element:FlxSpriteElement = new FlxSpriteElement(lipSyncSprite);
-    element.active = false; // We disable the element here so we can control when it updates.
+    lipSyncElement = new FlxSpriteElement(lipSyncSprite);
+    lipSyncElement.active = false; // We disable the element here so we can control when it updates.
+    lipSyncElement.owner = this;
 
     for (frame in this.getFramesWithKeyword("mouth edit"))
     {
-      frame.add(element);
+      frame.add(lipSyncElement);
     }
+
+    applyLipSyncData('idle');
   }
 
   override function onNoteHit(event:HitNoteScriptEvent)
@@ -120,13 +124,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
-    if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
-    {
-      var data:LipSyncData = LIP_SYNC_OFFSETS.get(name);
-
-      lipSyncSprite.offset.set(data.offset[0], data.offset[1]);
-      lipSyncSprite.angle = data.angle;
-    }
+    applyLipSyncData(name);
 
     if (name == "firstDeath")
     {
@@ -143,12 +141,33 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
+  function applyLipSyncData(name:String):Void
+  {
+    if (LIP_SYNC_OFFSETS.exists(name) && lipSyncSprite != null)
+    {
+      var data:LipSyncData = LIP_SYNC_OFFSETS.get(name);
+
+      lipSyncSprite.offset.set(data.offset[0], data.offset[1]);
+      lipSyncSprite.angle = data.angle;
+    }
+  }
+
+  override function destroy():Void
+  {
+    for (frame in this.getFramesWithKeyword("mouth edit"))
+    {
+      frame.remove(lipSyncElement);
+    }
+
+    super.destroy();
+  }
+
   override function update(elapsed:Float):Void
   {
     super.update(elapsed);
     lipSyncSprite.update(elapsed);
 
-    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF;
+    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && !this.debug;
 
     synchronizeShader();
   }
