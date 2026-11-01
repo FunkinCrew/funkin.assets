@@ -6,9 +6,9 @@
 	<hbox>
 		<label horizontalAlign="left" id="playbarSongPos" text="0:32" styleName="playbarDuration" />
 		<rule direction="vertical" height="80%" />
-		<label horizontalAlign="left" verticalAlign="center" id="playbarBeatNum" text="Beat: 0" styleName="playbarStatus" tooltip="The current position in the song in beats and fractions of a measure." />
+		<label horizontalAlign="left" verticalAlign="center" id="playbarBeatNum" text="Beat: 0" styleName="playbarTimeStatus" tooltip="The current position in the song in beats and fractions of a measure." />
 		<rule direction="vertical" height="80%" />
-		<label horizontalAlign="left" verticalAlign="center" id="playbarStepNum" text="Step: 0" styleName="playbarStatus" tooltip="The current position in the song in steps." />
+		<label horizontalAlign="left" verticalAlign="center" id="playbarStepNum" text="Step: 0" styleName="playbarTimeStatus" tooltip="The current position in the song in steps." />
 	</hbox>
 	<hbox horizontalAlign="center">
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
