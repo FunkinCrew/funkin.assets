@@ -25,7 +25,7 @@
       "name": "singDOWN",
       "prefix": "spirit down_",
       "frameIndices": [],
-      "offsets": [65, 64]
+      "offsets": [1, 0]
     },
     {
       "name": "singUP",
