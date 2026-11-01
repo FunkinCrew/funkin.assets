@@ -498,6 +498,30 @@ class TwoHOTSong extends Song
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
+
+    warmCans();
+  }
+
+  // Warms up the SpraycanAtlasSprite and its animation frames before the song actually starts 
+  // to force GPU texture upload and asset parsing. This prevents the lag spike 
+  function warmCans():Void
+  {
+    var warmUpCan:SpraycanAtlasSprite = new SpraycanAtlasSprite(0, 0);
+
+    function finishWarmCanAnimation(name:String)
+    {
+      if(name == 'can-start')
+      {
+        warmUpCan.playHitExplosion();
+        warmUpCan.explodeEZ.alpha = 0.000001;
+      }
+    }
+    
+    warmUpCan.animation.onFinish.remove(warmUpCan.finishCanAnimation);
+    warmUpCan.animation.onFinish.add(finishWarmCanAnimation);
+    warmUpCan.alpha = 0.000001;
+    PlayState.instance.currentStage.add(warmUpCan);
+    warmUpCan.playCanStart();
   }
 
   override function onPause(event:PauseScriptEvent)
