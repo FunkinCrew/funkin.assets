@@ -76,9 +76,10 @@ class SpraycanAtlasSprite extends FunkinSprite
     }
   }
 
+  var explodeEZ:FunkinSprite;
   function playHitExplosion():Void
   {
-    var explodeEZ:FunkinSprite = new FunkinSprite(this.x + 750, this.y - 100).loadSparrow('gameplay/songs/2hot/graphics/spraycan-explosion-ez');
+    explodeEZ = new FunkinSprite(this.x + 750, this.y - 100).loadSparrow('gameplay/songs/2hot/graphics/spraycan-explosion-ez');
     explodeEZ.animation.addByPrefix('idle', 'explosion round 1 short0', 24, false);
     explodeEZ.animation.play('idle');
 
