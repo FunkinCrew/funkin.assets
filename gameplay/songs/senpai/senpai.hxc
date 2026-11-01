@@ -10,17 +10,16 @@ import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.data.dialogue.ConversationRegistry;
 import funkin.effects.RetroCameraFade;
+import funkin.assets.Assets.AssetType;
 
 class SenpaiSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
-
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
     results = results.concat(ConversationRegistry.instance.queryAssets(type, 'senpai'));
-
     return results;
   }
 

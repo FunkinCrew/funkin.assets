@@ -5,6 +5,9 @@ import funkin.Conductor;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
+
 #if FEATURE_CAMERA_EDITOR
 import funkin.ui.debug.cameraeditor.CameraEditorState;
 #end
@@ -23,26 +26,26 @@ class OtisSpeakerCharacter extends AnimateAtlasCharacter
   var pupil:FunkinSprite;
   var muzzleFlash:FlxSprite;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results = AnimateAtlasCharacter.queryAssets(type, charId);
 
     switch (type)
     {
       case "IMAGE":
-        results.push(Paths.image('gameplay/characters/nene/stereo-bg'));
-        results.push(Paths.animateAtlas("gameplay/characters/nene/abot-eyes").image());
-        results.push(Paths.animateAtlas("gameplay/characters/nene/abot-system").image());
-        results.push(Paths.spritesheet('gameplay/characters/nene/abot-viz').image());
-        results.push(Paths.spritesheet('gameplay/characters/otis-speaker/otis-flashes').image());
+        results.push(NewPaths.image('gameplay/characters/nene/stereo-bg'));
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-eyes").image());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-system").image());
+        results.push(NewPaths.image('gameplay/characters/nene/abot-viz'));
+        results.push(NewPaths.image('gameplay/characters/otis-speaker/otis-flashes'));
       case "JSON":
-        results = results.concat(Paths.animateAtlas("gameplay/characters/nene/abot-eyes").json());
-        results = results.concat(Paths.animateAtlas("gameplay/characters/nene/abot-system").json());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-eyes").json());
+        results = results.concat(NewPaths.animateAtlas("gameplay/characters/nene/abot-system").json());
       case "XML":
-        results.push(Paths.spritesheet("gameplay/characters/nene/abot-viz").xml());
-        results.push(Paths.spritesheet("gameplay/characters/otis-speaker/otis-flashes").xml());
+        results.push(NewPaths.xml("gameplay/characters/nene/abot-viz"));
+        results.push(NewPaths.xml("gameplay/characters/otis-speaker/otis-flashes"));
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/adjust-color'));
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
       default:
         // nothing
     }

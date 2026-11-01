@@ -13,6 +13,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class StressPicoMixSong extends Song
 {
@@ -28,18 +29,21 @@ class StressPicoMixSong extends Song
     hasPlayedCutscene = false;
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     switch (type)
     {
       case "IMAGE":
-        results.push(Paths.animateAtlas("gameplay/songs/stress/pico/tankman-ending").image());
+        results.push(NewPaths.animateAtlas("gameplay/songs/stress/pico/tankman-ending").image());
+        results.push(Paths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
+      case "XML":
+        results.push(Paths.xml('gameplay/stages/tankmanBattlefield/tankman-killed'));
       case "JSON":
-        results = results.concat(Paths.animateAtlas("gameplay/songs/stress/pico/tankman-ending").json());
+        results = results.concat(NewPaths.animateAtlas("gameplay/songs/stress/pico/tankman-ending").json());
       case "SOUND":
-        results.push(Paths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
+        results.push(NewPaths.sound('gameplay/songs/stress/pico/sounds/end-cutscene'));
       case "VIDEO":
         if (Constants.CENSOR_EXPLETIVES) results = results.concat([NewPaths.video('gameplay/songs/stress/pico/cutscene-censored', 'mkv')]);
         else

@@ -1,12 +1,32 @@
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.character.NeneBaseCharacter;
+import funkin.assets.Paths as NewPaths;
 
 class NeneTankmenCharacter extends NeneBaseCharacter
 {
   public function new()
   {
     super('nene-tankmen');
+  }
+
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
+  {
+    var results = NeneBaseCharacter.queryAssets(type, charId);
+
+    switch (type)
+    {
+      case "IMAGE":
+        results.push(NewPaths.image('gameplay/characters/nene-tankmen/nene-combo-heart'));
+      case "XML":
+        results.push(NewPaths.xml("gameplay/characters/nene-tankmen/nene-combo-heart"));
+      case "SHADER":
+        results.push(NewPaths.frag('ui/shaders/adjust-color'));
+      default:
+        // nothing
+    }
+
+    return results;
   }
 
   var adjustColor:AdjustColorShader;

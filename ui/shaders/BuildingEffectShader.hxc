@@ -13,18 +13,18 @@ class BuildingEffectShader extends FlxRuntimeShader
     this.effectSpeed = speed;
   }
 
-  function setAlpha(value:Float):Void
+  public function setAlpha(value:Float):Void
   {
     this.effectAlpha = value;
     this.setFloat('alphaShit', this.effectAlpha);
   }
 
-  function update(elapsed:Float):Void
+  public function update(elapsed:Float):Void
   {
     setAlpha(effectAlpha + effectSpeed * elapsed);
   }
 
-  function reset()
+  public function reset()
   {
     setAlpha(0);
   }

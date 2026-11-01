@@ -92,8 +92,8 @@
                 <grid columns="2">
                     <label text="BPM:" verticalAlign="center" />
                     <number-stepper id="inputBPM" pos="100" step="1" min="10" max="500" precision="3" horizontalAlign="right" width="160" tooltip="Adjust the BPM of the song, which helps align the grid and character animations to the music." />
-                    <label id="labelTimeStamp" text="Timestamp:" verticalAlign="center" />
-                    <number-stepper id="inputTimeStamp" pos="100" step="150" precision="4" horizontalAlign="right" width="160" tooltip="Adjust the timestamp of when the currently selected time change will start occurring in the song." />
+                    <label id="labelTimeStamp" text="Start Beat:" verticalAlign="center" />
+                    <number-stepper id="inputTimeStamp" pos="0" step="0.25" precision="4" horizontalAlign="right" width="160" tooltip="Adjust the beat at which the currently selected time change starts occurring in the song. Saved to the chart as milliseconds." />
                     <label text="Time Signature" verticalAlign="center" />
                     <spacer />
                     <label text="Numerator:" verticalAlign="center" />

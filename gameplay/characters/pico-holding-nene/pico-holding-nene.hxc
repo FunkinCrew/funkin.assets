@@ -11,12 +11,26 @@ import flixel.effects.FlxFlicker;
 import funkin.play.PauseSubState;
 import funkin.modding.module.ModuleHandler;
 import flixel.tweens.FlxTween;
+import funkin.assets.Paths as NewPaths;
 
 class PicoHoldingNeneCharacter extends MultiAnimateAtlasCharacter
 {
   public function new()
   {
     super('pico-holding-nene');
+  }
+
+  public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
+  {
+    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
+
+    switch (type)
+    {
+      case 'SOUND':
+        for (i in 1...10)
+          results.push(NewPaths.sound('gameplay/characters/pico-holding-nene/sounds/jeff-gameover-$i'));
+    }
+    return results;
   }
 
   override function onCreate(event:ScriptEvent):Void

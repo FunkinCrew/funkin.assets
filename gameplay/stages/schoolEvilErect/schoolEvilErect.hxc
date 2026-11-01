@@ -4,12 +4,29 @@ import funkin.graphics.shaders.WiggleEffectRuntime;
 import funkin.graphics.shaders.WiggleEffectType;
 import flixel.addons.effects.FlxTrail;
 import funkin.play.Countdown;
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
 
 class SchoolEvilErectStage extends Stage
 {
   public function new()
   {
     super('schoolEvilErect');
+  }
+
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
+  {
+    var results = Stage.queryAssets(type, id, params);
+
+    switch (type)
+    {
+      case "SHADER":
+        results.push(NewPaths.frag('ui/shaders/wiggle'));
+      default:
+        // nothing
+    }
+
+    return results;
   }
 
   var wiggleBack:FlxRuntimeShader = null;

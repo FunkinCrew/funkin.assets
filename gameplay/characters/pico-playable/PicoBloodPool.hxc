@@ -1,4 +1,5 @@
 import funkin.graphics.FunkinSprite;
+import funkin.assets.Paths as NewPaths;
 
 class PicoBloodPool extends FunkinSprite
 {
@@ -33,6 +34,19 @@ class PicoBloodPool extends FunkinSprite
     {
       var extendFactor:Float = 0.02 * elapsed;
       this.scale.set(this.scale.x + extendFactor, this.scale.y + extendFactor);
+    }
+  }
+    
+  public static function queryAssets(type:AssetType):Array<funkin.assets.Paths.AssetPath>
+  {
+    switch (type)
+    {
+      case 'IMAGE':
+        return NewPaths.animateAtlas('gameplay/stages/phillyTrainErect/blood-pool').image();
+      case 'JSON':
+        return NewPaths.animateAtlas('gameplay/stages/phillyTrainErect/blood-pool').json();
+      default:
+        return [];
     }
   }
 }

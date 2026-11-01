@@ -12,6 +12,8 @@ import funkin.play.stage.StageProp;
 import flixel.addons.display.FlxTiledSprite;
 import funkin.util.MathUtil;
 import funkin.util.HapticUtil;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 #if FEATURE_CAMERA_EDITOR
 import funkin.ui.debug.cameraeditor.CameraEditorState;
 #end
@@ -26,30 +28,24 @@ class PhillyBlazinStage extends Stage
     super('phillyBlazin');
   }
 
-  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var rainShader:RuntimeRainShader;
   var rainShaderFilter:ShaderFilter;
   var scrollingSky:FlxTiledSprite;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results = Stage.queryAssets(type, id, params);
 
-    // These files get used by the script, but the loading screen has no way of knowing we need them.
-    // So we have to declare them here.
     switch (type)
     {
-      case "IMAGE":
-        results.push(Paths.spritesheet('gameplay/stages/phillyBlazin/sky-blur').image());
-        results.push(Paths.image('gameplay/stages/phillyBlazin/lightning'));
-        results.push(Paths.image('gameplay/stages/phillyBlazin/street-blur'));
       case "SOUND":
-        results.push(Paths.sound('gameplay/stages/phillyBlazin/sounds/lightning-1'));
-        results.push(Paths.sound('gameplay/stages/phillyBlazin/sounds/lightning-2'));
-        results.push(Paths.sound('gameplay/stages/phillyBlazin/sounds/lightning-3'));
-      case "XML":
-        results.push(Paths.spritesheet('gameplay/stages/phillyBlazin/sky-blur').xml());
+        results.push(NewPaths.sound('gameplay/stages/phillyBlazin/sounds/lightning-1'));
+        results.push(NewPaths.sound('gameplay/stages/phillyBlazin/sounds/lightning-2'));
+        results.push(NewPaths.sound('gameplay/stages/phillyBlazin/sounds/lightning-3'));
+
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/rain'));
+        results.push(NewPaths.frag('ui/shaders/rain'));
+
       default:
         // nothing
     }
@@ -60,6 +56,7 @@ class PhillyBlazinStage extends Stage
   override function onCreate(event:ScriptEvent)
   {
     super.onCreate(event);
+    rainShader ??= new RuntimeRainShader();
     cameraInitialized = false;
     cameraDarkened = false;
     lightningActive = true;
@@ -71,11 +68,14 @@ class PhillyBlazinStage extends Stage
     FlxG.camera.filters = [rainShaderFilter];
   }
 
+  var hasDied:Bool = false;
   override function onGameOver(event:ScriptEvent):Void
   {
     super.onGameOver(event);
     // Make it so the rain shader doesn't show over the game over screen
     FlxG.camera.filters = [];
+
+    hasDied = true;
   }
 
   override function onSongRetry(event:ScriptEvent):Void
@@ -84,6 +84,12 @@ class PhillyBlazinStage extends Stage
     // Make it so the rain shader doesn't show over the game over screen
     FlxG.camera.filters = [rainShaderFilter];
     lightningActive = true;
+
+    if (hasDied)
+    {
+      cameraInitialized = false;
+      hasDied = false;
+    }
   }
 
   override function buildStage()

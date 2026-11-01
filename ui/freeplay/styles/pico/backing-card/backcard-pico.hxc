@@ -16,6 +16,7 @@ import funkin.Conductor;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class PicoCard extends BackingCard
 {
@@ -27,6 +28,48 @@ class PicoCard extends BackingCard
   var glowDark:FlxSprite;
   var blueBar:FlxSprite;
   var confirmAtlas:FunkinSprite;
+
+  /**
+   * Get the list of assets that are required to display the default backing card.
+   *
+   * @param type The type of asset to query for.
+   * @return A list of asset paths.
+   */
+  public static function queryAssets(type:AssetType):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = [];
+
+    switch (type)
+    {
+      case 'IMAGE':
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/top-loop'));
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/middle-loop'));
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/lower-loop'));
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/glow'));
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar'));
+        results.push(NewPaths.image('ui/freeplay/interface/confirm-glow-1'));
+        results.push(NewPaths.image('ui/freeplay/interface/glowing-text'));
+        results.push(NewPaths.image('ui/freeplay/interface/confirm-glow-2'));
+
+        results = results.concat(NewPaths.animateAtlas("ui/freeplay/styles/pico/backing-card/pico-confirm").image());
+      case 'XML':
+        results = results.concat([
+          NewPaths.xml('ui/freeplay/styles/pico/backing-card/top-loop'),
+        ]);
+      case 'JSON':
+        results = results.concat(NewPaths.animateAtlas("ui/freeplay/styles/pico/backing-card/pico-confirm").json());
+        // Nothing
+      default:
+        // Nothing
+    }
+    trace(results);
+    return results;
+  }
+
+  public static function getCharacterId():String
+  {
+    return 'pico';
+  }
 
   public function new()
   {

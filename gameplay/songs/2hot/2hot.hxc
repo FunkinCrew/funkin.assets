@@ -22,6 +22,7 @@ import funkin.memory.FunkinMemory;
 //
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class TwoHOTSong extends Song
 {
@@ -44,9 +45,9 @@ class TwoHOTSong extends Song
   final STATE_SHOT:Int = 3; // Hit by the player.
   final STATE_IMPACTED:Int = 4; // Impacted the player.
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results:Array<AssetPath> = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     switch (type)
     {
@@ -61,14 +62,16 @@ class TwoHOTSong extends Song
         results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-forward'));
         results.push(NewPaths.sound('gameplay/songs/2hot/sounds/kick-can-up'));
       case 'JSON':
-        results.push(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').json());
+        results = results.concat(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').json());
       case 'IMAGE':
-        results.push(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').image());
-        results.push(NewPaths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').image());
-        results.push(NewPaths.spritesheet('gameplay/characters/pico-playable/pico-casing').image());
+        results = results.concat(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').image());
+        results.push(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
+        results.push(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results.push(NewPaths.image('gameplay/characters/pico-playable/pico-casing'));
       case 'XML':
-        results.push(NewPaths.spritesheet('gameplay/songs/2hot/graphics/spraycan-explosion-ez').xml());
-        results.push(NewPaths.spritesheet('gameplay/characters/pico-playable/pico-casing').xml());
+        results.push(NewPaths.xml('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
+        results.push(NewPaths.xml('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results.push(NewPaths.xml('gameplay/characters/pico-playable/pico-casing'));
     }
 
     return results;
@@ -496,18 +499,18 @@ class TwoHOTSong extends Song
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
     NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
   }
-  
+
   override function onPause(event:PauseScriptEvent)
   {
     super.onPause();
-	
+
     gunTimer?.active = false;
   }
-  
+
   override function onResume(event:ScriptEvent)
   {
     super.onResume();
-	
+
     gunTimer?.active = true;
   }
 }

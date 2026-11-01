@@ -12,7 +12,7 @@ class DarkenColorShader extends FlxRuntimeShader
     setColor(color);
   }
 
-  function setColor(value:Int):Void
+  public function setColor(value:Int):Void
   {
     this.color = value;
 

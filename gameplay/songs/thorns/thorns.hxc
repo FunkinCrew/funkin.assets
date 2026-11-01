@@ -7,27 +7,27 @@ import funkin.play.PlayStatePlaylist;
 import flixel.util.FlxTimer;
 import funkin.effects.RetroCameraFade;
 import funkin.data.dialogue.ConversationRegistry;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 
 class ThornsSong extends Song
 {
   var hasPlayedCutscene:Bool;
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     results = results.concat(ConversationRegistry.instance.queryAssets(type, 'thorns'));
 
     switch (type)
     {
       case "IMAGE":
-        results = results.concat([Paths.spritesheet('gameplay/songs/thorns/cutscene/senpai-fucking-dies').image()]);
+        results.push(NewPaths.image('gameplay/songs/thorns/cutscene/senpai-fucking-dies'));
       case "XML":
-        results = results.concat([Paths.spritesheet('gameplay/songs/thorns/cutscene/senpai-fucking-dies').xml()]);
+        results.push(NewPaths.xml('gameplay/songs/thorns/cutscene/senpai-fucking-dies'));
       case "SOUND":
-        results = results.concat([Paths.sound('gameplay/songs/thorns/cutscene/senpai-fucking-dies')]);
-      case "SHADER":
-        results = results.concat([Paths.frag('ui/shaders/wiggle'),]);
+        results.push(NewPaths.sound('gameplay/songs/thorns/cutscene/senpai-fucking-dies'));
     }
 
     return results;

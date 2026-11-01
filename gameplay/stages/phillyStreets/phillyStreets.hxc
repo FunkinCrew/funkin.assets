@@ -17,10 +17,12 @@ import openfl.filters.ShaderFilter;
 import funkin.util.FlxTweenUtil;
 import funkin.graphics.FunkinTiledSprite;
 import StringTools;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Paths as NewPaths;
 
 class PhillyStreetsStage extends Stage
 {
-  var rainShader:RuntimeRainShader = new RuntimeRainShader();
+  var rainShader:RuntimeRainShader;
   var rainShaderFilter:ShaderFilter;
   var blurFilter:BlurFilter = new BlurFilter(6, 6);
   // as song goes on, these are used to make the rain more intense throught the song
@@ -43,17 +45,16 @@ class PhillyStreetsStage extends Stage
     super('phillyStreets');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
-    trace('Querying assets for Philly Streets...');
-    var results = super.queryAssets(type);
+    var results = Stage.queryAssets(type, id, params);
 
     switch (type)
     {
       case "IMAGE":
-        results.push(Paths.image('gameplay/stages/phillyStreets/philly-skybox'));
+        results.push(NewPaths.image('gameplay/stages/phillyStreets/philly-skybox'));
       case "SHADER":
-        results.push(Paths.frag('ui/shaders/rain'));
+        results.push(NewPaths.frag('ui/shaders/rain'));
       default:
         // nothing
     }
@@ -126,6 +127,7 @@ class PhillyStreetsStage extends Stage
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
+    rainShader ??= new RuntimeRainShader();
 
     // rainSndAmbience = FunkinSound.load(Paths.sound("gameplay/stages/phillyStreets/sounds/ambience-rain", "weekend1"), true, false, true);
     // rainSndAmbience.volume = 0;

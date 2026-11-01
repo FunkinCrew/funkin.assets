@@ -32,7 +32,7 @@ class NeneCharacterSelect extends CharSelectCharacter
       _initializedVisualizer = true;
 
       @:privateAccess
-      this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._channel.__audioSource, 7, 0.1);
+      this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._source, 7, 0.1);
       #if sys
       // On native it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
       // So we want to manually change it!

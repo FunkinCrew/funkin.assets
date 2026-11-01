@@ -14,23 +14,6 @@ class TankmanBattlefieldStage extends Stage
     super('tankmanBattlefield');
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
-  {
-    var results = super.queryAssets(type);
-
-    switch (type)
-    {
-      case "IMAGE":
-        results.push(Paths.spritesheet('gameplay/stages/tankmanBattlefield/tankman-killed').image());
-      case "XML":
-        results.push(Paths.spritesheet('gameplay/stages/tankmanBattlefield/tankman-killed').xml());
-      default:
-        // nothing
-    }
-
-    return results;
-  }
-
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);

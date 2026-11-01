@@ -8,7 +8,7 @@
   },
 
   "music": {
-    "asset": "gameplay/dialogue/conversations/senpai/lunchbox/lunchbox",
+    "asset": "gameplay/dialogue/conversations/senpai/lunchbox",
     "fadeTime": 2.0,
     "looped": true
   },

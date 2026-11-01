@@ -32,10 +32,10 @@
 	<SubTexture name="+0001" x="172" y="574" width="42" height="39" />
 	<SubTexture name="+0002" x="216" y="574" width="42" height="39" />
 	<SubTexture name="+0003" x="216" y="574" width="42" height="39" />
-	<SubTexture name="-dash-0000" x="260" y="574" width="37" height="13" />
-	<SubTexture name="-dash-0001" x="260" y="574" width="37" height="13" />
-	<SubTexture name="-dash-0002" x="299" y="574" width="37" height="13" />
-	<SubTexture name="-dash-0003" x="299" y="574" width="37" height="13" />
+	<SubTexture name="-dash-0000" x="260" y="574" width="37" height="13" frameX="0" frameY="20" frameWidth="37" frameHeight="13" />
+	<SubTexture name="-dash-0001" x="260" y="574" width="37" height="13" frameX="0" frameY="20" frameWidth="37" frameHeight="13" />
+	<SubTexture name="-dash-0002" x="299" y="574" width="37" height="13" frameX="0" frameY="20" frameWidth="37" frameHeight="13" />
+	<SubTexture name="-dash-0003" x="299" y="574" width="37" height="13" frameX="0" frameY="20" frameWidth="37" frameHeight="13" />
 	<SubTexture name="-angry faic-0000" x="338" y="574" width="54" height="54" />
 	<SubTexture name="-angry faic-0001" x="338" y="574" width="54" height="54" />
 	<SubTexture name="-angry faic-0002" x="394" y="574" width="54" height="54" />

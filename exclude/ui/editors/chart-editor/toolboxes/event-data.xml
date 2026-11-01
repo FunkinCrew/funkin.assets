@@ -7,6 +7,11 @@
 				<data />
 			</dropdown>
 		</grid>
+		<hbox id="toolboxEventsCycleBox" width="100%" horizontalAlign="center" hidden="true">
+			<button id="toolboxEventsCyclePrev" text="&lt;" width="40" />
+			<label id="toolboxEventsCycleLabel" text="Select Event: 1/1" verticalAlign="center" />
+			<button id="toolboxEventsCycleNext" text="&gt;" width="40" />
+		</hbox>
 		<frame id="toolboxEventsDataFrame" text="Event Data" width="100%">
 			<vbox id="toolboxEventsDataBox" width="100%"/>
 		</frame>

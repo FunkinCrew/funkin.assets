@@ -5,12 +5,30 @@ import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.character.CharacterType;
 import openfl.display.BitmapData;
 import flixel.graphics.FlxGraphic;
+import funkin.assets.Paths as NewPaths;
 
 class TankmanBattlefieldErectStage extends Stage
 {
   public function new()
   {
     super('tankmanBattlefieldErect');
+  }
+
+  public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
+  {
+    var results = Stage.queryAssets(type, id, params);
+    switch (type)
+    {
+      case 'IMAGE':
+        results.push(NewPaths.image('gameplay/stages/tankmanBattlefieldErect/masks/mask-tankman-bloody'));
+        results.push(NewPaths.image('gameplay/stages/tankmanBattlefieldErect/masks/mask-gf-tankmen'));
+        results.push(NewPaths.image('gameplay/stages/tankmanBattlefieldErect/masks/mask-nene-tankmen'));
+        
+      default:
+        // nothing
+    }
+
+    return results;
   }
 
   override function onCreate(event:ScriptEvent):Void

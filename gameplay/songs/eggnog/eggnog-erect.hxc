@@ -16,6 +16,10 @@ import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
 import funkin.util.TouchUtil;
 import funkin.ui.FullScreenScaleMode;
+import funkin.assets.Assets.AssetType;
+import funkin.assets.Assets as NewAssets;
+import funkin.assets.Paths as NewPaths;
+
 
 class EggnogErectSong extends Song
 {
@@ -240,5 +244,21 @@ class EggnogErectSong extends Song
     cutsceneSkipped = false;
     canSkipCutscene = false;
     hasPlayedCutscene = false;
+  }
+
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
+  {
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
+    switch (type)
+    {
+      case 'SOUND':
+        results.push(NewPaths.sound('gameplay/stages/mallXmasErect/cutscene/santa-speaks'));
+        results.push(NewPaths.sound('gameplay/stages/mallXmasErect/cutscene/parents-shoot'));
+      case 'TEXT':
+        results.push(NewPaths.srt('gameplay/songs/eggnog/subtitles/erect/santa-emotions'));
+    }
+    results = results.concat(SantaDiesSprite.queryAssets(type));
+    results = results.concat(DadShootsSprite.queryAssets(type));
+    return results;
   }
 }

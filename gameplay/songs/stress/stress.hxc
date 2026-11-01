@@ -4,6 +4,7 @@ import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.assets.Paths as NewPaths;
+import funkin.assets.Assets.AssetType;
 
 class StressSong extends Song
 {
@@ -17,9 +18,9 @@ class StressSong extends Song
     hasPlayedCutscene = false;
   }
 
-  function queryAssets(type:AssetType):Array<AssetPath>
+  public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
-    var results = super.queryAssets(type);
+    var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
 
     switch (type)
     {
@@ -27,6 +28,10 @@ class StressSong extends Song
         if (Constants.CENSOR_EXPLETIVES) results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene-censored')]);
         else
           results = results.concat([NewPaths.video('gameplay/songs/stress/story/cutscene')]);
+      case "IMAGE":
+        results.push(Paths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
+      case "XML":
+        results.push(Paths.xml('gameplay/stages/tankmanBattlefield/tankman-killed'));
       default:
         // nothing
     }
