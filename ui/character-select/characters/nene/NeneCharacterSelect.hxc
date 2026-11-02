@@ -2,6 +2,7 @@ package funkin.ui.charSelect.characters;
 
 import funkin.ui.charSelect.characters.CharSelectCharacter;
 import funkin.ui.charSelect.characters.CharacterAnimation;
+import funkin.vis.dsp.Bar;
 import funkin.vis.dsp.SpectralAnalyzer;
 import funkin.graphics.FunkinCamera;
 
@@ -9,9 +10,9 @@ class NeneCharacterSelect extends CharSelectCharacter
 {
   static final VIZ_LAYER_NAME:String = 'VIZ_bars';
 
-  var analyzerVis:Null<SpectralAnalyzer>;
+  var analyzer:Null<SpectralAnalyzer>;
   var analyzerCache:Array<Bar> = [];
-  var _initializedVisualizer:Bool = false;
+  var initializedVisualizer:Bool = false;
 
   public function new(playerId:String,
     x:Float,
@@ -27,32 +28,23 @@ class NeneCharacterSelect extends CharSelectCharacter
   {
     super.onCreate(event);
 
-    if (!_initializedVisualizer && FlxG.sound.music != null)
+    if (!initializedVisualizer && FlxG.sound.music != null)
     {
-      _initializedVisualizer = true;
+      if (analyzer != null) analyzer.dispose();
 
       @:privateAccess
-      this.analyzerVis = new SpectralAnalyzer(FlxG.sound.music._source, 7, 0.1);
-      #if sys
-      // On native it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
-      // So we want to manually change it!
-      this.analyzerVis.fftN = 512;
-      #end
+      this.analyzer = new SpectralAnalyzer(FlxG.sound.music._source, 7, 0.1);
+
+      initializedVisualizer = true;
     }
   }
 
   override public function draw():Void
   {
-    if (analyzerVis != null) drawVis();
-
-    super.draw();
-  }
-
-  function drawVis():Void
-  {
-    if (analyzerVis != null)
+    if (analyzer != null)
     {
-      analyzerCache = analyzerVis.getLevels(analyzerCache);
+      analyzerCache = analyzer.getLevels(analyzerCache);
+
       var frame:Null<animate.internal.Frame> = this.timeline.getLayer(VIZ_LAYER_NAME)?.getFrameAtIndex(animation.curAnim.curFrame) ?? null;
       var elements:Array<animate.internal.elements.Element> = frame?.elements ?? [];
       var len:Int = cast Math.min(elements.length, 7);
@@ -71,6 +63,20 @@ class NeneCharacterSelect extends CharSelectCharacter
 
         elements[i] = convertedSymbol;
       }
+
     }
+
+    super.draw();
+  }
+
+  override function destroy():Void
+  {
+    if (analyzer != null)
+    {
+      analyzer.dispose();
+      analyzer = null;
+    }
+
+    super.destroy();
   }
 }
