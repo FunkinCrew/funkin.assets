@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="300" height="460">
-    <vbox>
-        <frame text="Select Difficulty">
-            <tree-view id="difficultyToolboxTree" width="260" height="200" />
+<collapsible-dialog id="toolboxDifficulty" title="Difficulty" width="380" height="460">
+    <vbox width="100%" height="100%" style="spacing: 6px;">
+        <scrollview width="100%" height="100%" contentWidth="100%">
+            <vbox id="difficultyToolboxRows" width="100%" style="spacing: 1px;" />
+        </scrollview>
+        <frame id="difficultyToolboxDetails" text="Difficulty: Normal" width="100%">
+            <vbox width="100%" style="spacing: 6px;">
+                <hbox width="100%">
+                    <label id="difficultyLabelScrollSpeed" text="Scroll speed: 1x" width="150" verticalAlign="center" />
+                    <slider id="difficultyInputScrollSpeed" styleName="compact" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" width="100%" verticalAlign="center" tooltip="How fast the notes move. Right click to reset." />
+                </hbox>
+                <hbox width="100%">
+                    <label text="Difficulty rank:" width="150" verticalAlign="center" />
+                    <number-stepper id="difficultyInputRating" pos="0" step="1" min="0" max="15" width="80" verticalAlign="center" tooltip="The rating shown for this difficulty in the Freeplay menu." />
+                    <button allowFocus="false" id="difficultyEstimateRating" text="Estimate" verticalAlign="center" tooltip="Fill in the rank from how hard the player's notes are." />
+                </hbox>
+            </vbox>
         </frame>
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxAddVariation" text="Add Variation" tooltip="Add a new variation to the song."/>
-            <button allowFocus="false" id="difficultyToolboxAddDifficulty" text="Add Difficulty" tooltip="Add a new difficulty to a given variation."/>
-        </hbox>
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxMoveDifficulty" text="Move Difficulty" tooltip="Rename the selected difficulty, or move it to a different variation." />
-            <button allowFocus="false" id="difficultyToolboxCloneDifficulty" text="Clone Difficulty" tooltip="Make a new difficulty with all notes and events of the current difficulty." />
-        </hbox>
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxRemoveDifficulty" text="Remove Difficulty" tooltip="Delete the selected difficulty." />
-        </hbox>
-        <rule />
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxSaveMetadata" text="Save Metadata File" tooltip="Save just the JSON metadata for the current variation." />
-            <button allowFocus="false" id="difficultyToolboxSaveChart" text="Save Chart File" tooltip="Save just the JSON chart data for the current variation." />
-        </hbox>
-        <hbox>
-            <button allowFocus="false" id="difficultyToolboxLoadMetadata" text="Load Metadata File" tooltip="Load a variation's metadata directly from a JSON file." />
-            <button allowFocus="false" id="difficultyToolboxLoadChart" text="Load Chart File" tooltip="Load a variation's chart data directly from a JSON file." />
-        </hbox>
     </vbox>
 </collapsible-dialog>

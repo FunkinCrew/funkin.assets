@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxNotes" title="Notes" width="250" height="100">
-	<vbox width="100%" height="100%">
-		<grid id="toolboxNotesGrid" columns="2" width="100%">
-			<label text="Note Kind" verticalAlign="center" horizontalAlign="right" />
-			<dropdown id="toolboxNotesNoteKind" width="100%" value="" dropdownSize="10" dropdownWidth="300" searchable="true">
-				<data>
-					<item id="" text="Default" />
-					<item id="~CUSTOM~" text="Custom" />
-				</data>
-			</dropdown>
-			<label id="toolboxNotesCustomKindLabel" text="Custom Note Type" hidden="true" />
-			<textfield id="toolboxNotesCustomKind" style="font-size: 10px" placeholder="Kind..." width="100%" hidden="true" />
-		</grid>
+<collapsible-dialog id="toolboxNotes" title="Notes" width="320" height="440">
+	<vbox width="100%" height="100%" style="spacing: 6px;">
+		<hbox width="100%" style="padding: 4px; padding-top: 2px; border-bottom: 1px solid #555555;">
+			<label id="toolboxNotesSummary" text="NEW NOTES" width="100%" verticalAlign="center" style="font-bold: true; color: #8FB8F0;" />
+		</hbox>
+		<scrollview id="toolboxNotesKindScroll" width="100%" height="100%" contentWidth="100%">
+			<vbox id="toolboxNotesKindRows" width="100%" style="spacing: 1px;" />
+		</scrollview>
+		<hbox id="toolboxNotesCustomBox" width="100%" hidden="true" style="padding-left: 4px;">
+			<label text="Custom kind" verticalAlign="center" width="40%" />
+			<textfield id="toolboxNotesCustomKind" placeholder="kind-id" width="60%" tooltip="A note kind id that isn't registered. Applied when you press Enter or click away." />
+		</hbox>
+		<frame id="toolboxNotesParamsFrame" text="Params" width="100%">
+			<scrollview id="toolboxNotesParamsScroll" width="100%" height="110" contentWidth="100%">
+				<grid id="toolboxNotesParamsGrid" columns="2" width="100%" />
+			</scrollview>
+		</frame>
 	</vbox>
 </collapsible-dialog>

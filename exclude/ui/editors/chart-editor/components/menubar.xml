@@ -24,11 +24,11 @@
       <menu-item id="menubarItemExportChartAsFolder" text="Folder" />
     </menu>
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-item id="menubarItemPreferences" text="Preferences" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
-  <menu text="Edit" width="208px;">
+  <menu text="Edit" width="280px;">
     <menu-item id="menubarItemUndo" text="Undo" shortcutText="Ctrl+Z" />
     <menu-item id="menubarItemRedo" text="Redo" shortcutText="Ctrl+Y" />
     <menu-separator />
@@ -57,96 +57,40 @@
     <menu-item id="menubarItemSelectBeforePlayhead" text="Select Before Playhead" shortcutText="Shift+Home" />
     <menu-item id="menubarItemSelectAfterPlayhead" text="Select After Playhead" shortcutText="Shift+End" />
     <menu-separator />
-    <hbox>
-      <label text="Note Stack Threshold" styleName="menuLabel" paddingLeft="12px;" horizontalAlign="left" verticalAlign="center" />
-      <dropdown id="menuBarStackedNoteThreshold" width="100%">
-        <data>
-          <item text="Exact" />
-        </data>
-      </dropdown>
-    </hbox>
-    <menu-separator />
     <menu text="Note Snapping">
       <menu-item id="menuBarItemNoteSnapDecrease" text="Decrease Note Snap Precision" shortcutText="Left Arrow" />
       <menu-item id="menuBarItemNoteSnapIncrease" text="Increase Note Snap Precision" shortcutText="Right Arrow" />
-    </menu>
-    <menu text="Live Input Mode">
-      <menu-option-box id="menuBarItemInputStyleNone" text="None" group="menubarItemInputStyleGroup" />
-      <menu-option-box id="menuBarItemInputStyleNumberKeys" text="Number Keys" group="menubarItemInputStyleGroup" />
-      <menu-option-box id="menuBarItemInputStyleWASD" text="WASD+Arrows" group="menubarItemInputStyleGroup" />
     </menu>
   </menu>
   <menu text="View">
     <menu-item id="menubarItemCommandPalette" text="Open Command Palette" shortcutText="Ctrl+P" />
     <menu-separator />
     <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
-    <menu text="Theme">
-      <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" />
-      <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
-    </menu>
-    <menu-separator />
-    <menu-checkbox width="100%" id="menubarItemViewIndicators" text="Note Kind Indicator" tooltip="Show an indicator if a note is of a non-default kind." />
-    <menu-checkbox width="100%" id="menubarItemViewSubtitles" text="Subtitles" tooltip="Show subtitles." />
+    <menu-item id="menubarItemZoomIn" text="Zoom In" shortcutText="Ctrl+Scroll Up" />
+    <menu-item id="menubarItemZoomOut" text="Zoom Out" shortcutText="Ctrl+Scroll Down" />
+    <menu-item id="menubarItemZoomReset" text="Reset Zoom" />
     <menu-separator />
     <menu-checkbox width="100%" id="menubarItemViewWaveforms" text="Waveforms" />
-    <menu text="Waveform Position">
-      <menu-option-box id="menubarItemWaveformPosAdjacent" text="Adjacent" group="menubarItemWaveformPosGroup" />
-      <menu-option-box id="menubarItemWaveformPosOverlay" text="Overlay" group="menubarItemWaveformPosGroup" />
-    </menu>
+    <menu-checkbox width="100%" id="menubarItemViewDifficultyHeatmap" text="Difficulty Heatmap" tooltip="Show what the calculator thinks is hard." />
     <menu-separator />
     <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
     <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
   </menu>
-  <menu text="Audio">
+  <menu text="Audio" width="260px;">
     <menu-item id="menubarItemPlayPause" text="Play/Pause" shortcutText="Space" />
+    <menu-separator />
+    <menu-checkbox width="100%" id="menubarItemMuteMetronome" text="Mute Metronome" shortcutText="Shift+M" tooltip="Silence the metronome without changing its volume." />
+    <menu-checkbox width="100%" id="menubarItemMuteHitsounds" text="Mute Hitsounds" shortcutText="Shift+H" tooltip="Silence the hitsounds without changing their volumes." />
+    <menu-checkbox width="100%" id="menubarItemMuteInstrumental" text="Mute Instrumental" shortcutText="Shift+I" tooltip="Silence the instrumental without changing its volume." />
+    <menu-checkbox width="100%" id="menubarItemMuteOpponentVocals" text="Mute Opponent Vocals" shortcutText="Shift+D" tooltip="Silence the opponent's vocals without changing their volume. Shift+V toggles both vocals." />
+    <menu-checkbox width="100%" id="menubarItemMutePlayerVocals" text="Mute Player Vocals" shortcutText="Shift+B" tooltip="Silence the player's vocals without changing their volume. Shift+V toggles both vocals." />
     <menu-separator />
     <menu-item id="menubarItemLoadInstrumental" text="Load Instrumental" />
     <menu-item id="menubarItemLoadVocals" text="Load Vocals" />
     <menu-separator />
-    <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelVolumeMetronome" styleName="menuLabel" text="Metronome - 100%" />
-      <slider id="menubarItemVolumeMetronome" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-    </vbox>
-    <menu-separator />
-    <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelHitsoundVolume" width="100%" styleName="menuHeader" text="HITSOUNDS" />
-      <hbox width="100%">
-        <vbox width="50%">
-          <label id="menubarLabelVolumeHitsoundOpponent" styleName="menuLabel" text="Opponent - 100%" />
-          <slider id="menubarItemVolumeHitsoundOpponent" width="100%" majorTicks="20" minorTicks="10" pos="100" />
-        </vbox>
-        <vbox width="50%">
-          <label id="menubarLabelVolumeHitsoundPlayer" styleName="menuLabel" text="Player - 100%" />
-          <slider id="menubarItemVolumeHitsoundPlayer" width="100%" majorTicks="20" minorTicks="10" pos="100" />
-        </vbox>
-      </hbox>
-    </vbox>
-    <menu-separator />
-    <vbox width="100%" style="padding-bottom: 9px;">
-      <vbox width="100%" style="padding: 5px;">
-        <label id="menubarLabelSongVolume" width="100%" styleName="menuHeader" text="SONG" />
-        <label id="menubarLabelVolumeInstrumental" styleName="menuLabel" text="Instrumental - 100%" />
-        <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
-      </vbox>
-      <hbox width="100%" style="padding: 5px;">
-        <vbox width="50%">
-          <label id="menubarLabelVolumeVocalsOpponent" styleName="menuLabel" text="Opponent - 100%" />
-          <slider id="menubarItemVolumeVocalsOpponent" width="100%" majorTicks="20" minorTicks="10" pos="100" />
-        </vbox>
-        <vbox width="50%">
-          <label id="menubarLabelVolumeVocalsPlayer" styleName="menuLabel" text="Player - 100%" />
-          <slider id="menubarItemVolumeVocalsPlayer" width="100%" majorTicks="20" minorTicks="10" pos="100" />
-        </vbox>
-      </hbox>
-    </vbox>
-    <menu-separator />
-    <vbox width="100%" style="padding: 5px;">
+    <vbox width="100%" style="padding: 5px; spacing: 2px;">
       <label id="menubarLabelPlaybackSpeed" styleName="menuLabel" text="Playback Speed - 100%" />
-      <slider id="menubarItemPlaybackSpeed" width="100%" majorTicks="10" minorTicks="5" pos="50" />
-    </vbox>
-    <menu-separator />
-    <vbox width="100%">
-    <menu-checkbox width="100%" id="menubarItemThemeMusic" text="Play Theme Music" />
+      <slider id="menubarItemPlaybackSpeed" styleName="compact" width="100%" majorTicks="10" minorTicks="5" pos="50" tooltip="Shift+Left/Right to change by 0.1x\nRight click to reset" />
     </vbox>
   </menu>
   <menu text="Test">
@@ -157,11 +101,9 @@
     <vbox width="100%">
     <menu-checkbox width="100%" id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxMetadata" text="Metadata" />
-    <menu-checkbox width="100%" id="menubarItemToggleToolboxOffsets" text="Offsets" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxTiming" text="Timing" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxNoteData" text="Notes" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxEventData" text="Events" />
-    <menu-checkbox width="100%" id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
-    <menu-checkbox width="100%" id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
     </vbox>

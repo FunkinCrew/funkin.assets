@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxEvents" title="Events" width="360" style="minHeight:200">
-	<vbox width="100%">
+<collapsible-dialog id="toolboxEvents" title="Events" width="360">
+	<vbox width="100%" style="spacing: 6px;">
+		<vbox id="toolboxEventsChainBox" width="100%" hidden="true" style="spacing: 4px;">
+			<hbox width="100%" style="padding: 4px; padding-top: 2px; border-bottom: 1px solid #555555;">
+				<label id="toolboxEventsChainTitle" text="EVENT" width="100%" verticalAlign="center" style="font-bold: true; color: #8FB8F0;" />
+			</hbox>
+			<hbox width="100%" style="padding-left: 4px;">
+				<label text="Beat" verticalAlign="center" width="50%" />
+				<number-stepper id="toolboxEventsChainBeat" pos="0" step="0.25" precision="3" min="0" width="50%" tooltip="The beat these events happen on. Saved to the chart as milliseconds." />
+			</hbox>
+			<scrollview id="toolboxEventsChainScroll" width="100%" height="64" contentWidth="100%">
+				<vbox id="toolboxEventsChainList" width="100%" style="spacing: 1px;" />
+			</scrollview>
+		</vbox>
 		<grid columns="2" width="100%">
 			<label text="Event Type" verticalAlign="center" />
 			<dropdown id="toolboxEventsEventKind" width="100%" value="normal" dropdownSize="10" dropdownWidth="300" searchable="true">
 				<data />
 			</dropdown>
 		</grid>
-		<hbox id="toolboxEventsCycleBox" width="100%" horizontalAlign="center" hidden="true">
-			<button id="toolboxEventsCyclePrev" text="&lt;" width="40" />
-			<label id="toolboxEventsCycleLabel" text="Select Event: 1/1" verticalAlign="center" />
-			<button id="toolboxEventsCycleNext" text="&gt;" width="40" />
-		</hbox>
 		<frame id="toolboxEventsDataFrame" text="Event Data" width="100%">
-			<vbox id="toolboxEventsDataBox" width="100%"/>
+			<scrollview id="toolboxEventsDataScroll" width="100%" height="240" contentWidth="100%">
+				<vbox id="toolboxEventsDataBox" width="100%"/>
+			</scrollview>
 		</frame>
 	</vbox>
 </collapsible-dialog>

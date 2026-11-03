@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog id="toolboxPreferences" title="Preferences" width="440" style="minHeight:200">
+	<tabview width="100%" height="360" styleName="full-width-buttons">
+		<scrollview width="100%" height="100%" contentWidth="100%" text="Display">
+			<vbox width="100%" style="spacing: 8px; padding-bottom: 8px;">
+			<hbox width="100%">
+				<label text="Theme" verticalAlign="center" width="40%" />
+				<dropdown height="32" id="preferencesTheme" width="60%">
+					<data>
+						<item text="Light" />
+						<item text="Dark" />
+					</data>
+				</dropdown>
+			</hbox>
+			<checkbox id="preferencesNoteKindIndicators" text="Note kind indicators" tooltip="Show an indicator if a note is of a non-default kind." />
+			<checkbox id="preferencesSubtitles" text="Subtitles" tooltip="Show subtitles." />
+			<checkbox id="preferencesBeatLines" text="Beat lines" tooltip="Show a line on every beat, in addition to measure lines." />
+			<checkbox id="preferencesCursorLine" text="Cursor snap line" tooltip="Show a line at the snap the cursor would place a note on." />
+			<checkbox id="preferencesConstantScroll" text="Constant scroll" tooltip="Scroll at a constant speed (regardless of Scroll Changes)." />
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesConstantScrollSpeedLabel" text="Constant scroll speed - 1.00x" />
+				<slider step="5" styleName="compact" id="preferencesConstantScrollSpeed" width="100%" min="10" max="400" majorTicks="50" minorTicks="10" pos="100" tooltip="The speed of the constant scroll." />
+			</vbox>
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesUIScaleLabel" text="UI scale - 145%" />
+				<slider step="5" styleName="compact" id="preferencesUIScale" width="100%" min="50" max="200" majorTicks="50" minorTicks="10" pos="145" tooltip="How large the chart editor is drawn." />
+			</vbox>
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesBackingOpacityLabel" text="Notefield backing opacity - 92%" />
+				<slider step="1" styleName="compact" id="preferencesBackingOpacity" width="100%" majorTicks="10" minorTicks="5" pos="92" tooltip="How much the background shows through the notefield." />
+			</vbox>
+			<hbox width="100%">
+				<label text="Waveform position" verticalAlign="center" width="40%" />
+				<dropdown height="32" id="preferencesWaveformPosition" width="60%">
+					<data>
+						<item text="Overlay" />
+						<item text="Adjacent" />
+					</data>
+				</dropdown>
+			</hbox>
+			<checkbox id="preferencesInstrumentalWaveform" text="Instrumental waveform" tooltip="Switch to the instrumental waveform" />
+			<rule width="100%" />
+			<label text="Waveform Filter Overlay" />
+			<hbox width="100%">
+				<label text="Filter" verticalAlign="center" width="40%" />
+				<dropdown height="32" id="preferencesWaveformFilter" width="60%" tooltip="Apply a filter to the waveform overlay.">
+					<data>
+						<item text="None" />
+						<item text="Low Pass" />
+						<item text="High Pass" />
+					</data>
+				</dropdown>
+			</hbox>
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesWaveformFilterStrengthLabel" text="Filter strength - 50%" />
+				<slider step="1" styleName="compact" id="preferencesWaveformFilterStrength" width="100%" majorTicks="10" minorTicks="5" pos="50" tooltip="Adjust the strength of the waveform filter." />
+			</vbox>
+			</vbox>
+		</scrollview>
+		<vbox width="100%" text="Editing" style="spacing: 8px; padding-bottom: 8px;">
+			<hbox width="100%">
+				<label text="Live input" verticalAlign="center" width="40%" />
+				<dropdown height="32" id="preferencesLiveInput" width="60%">
+					<data>
+						<item text="None" />
+						<item text="Number Keys" />
+						<item text="WASD+Arrows" />
+					</data>
+				</dropdown>
+			</hbox>
+			<hbox width="100%">
+				<label text="Note stack threshold" verticalAlign="center" width="40%" tooltip="How close two notes must be to be highlighted as stacked." />
+				<dropdown height="32" id="preferencesStackThreshold" width="60%">
+					<data>
+						<item text="Exact" />
+					</data>
+				</dropdown>
+			</hbox>
+		</vbox>
+		<scrollview width="100%" height="100%" contentWidth="100%" text="Audio">
+				<vbox width="100%" style="spacing: 8px; padding-bottom: 8px;">
+					<checkbox id="preferencesThemeMusic" text="Play theme music" />
+					<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+						<label id="preferencesLabelVolumeMetronome" text="Metronome - 100%" />
+						<slider step="1" styleName="compact" id="preferencesVolumeMetronome" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+					</vbox>
+					<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+						<label id="preferencesLabelVolumeInstrumental" text="Instrumental - 100%" />
+						<slider step="1" styleName="compact" id="preferencesVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+					</vbox>
+					<label text="Vocals" />
+					<hbox width="100%" style="spacing: 24px;">
+						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+							<label id="preferencesLabelVolumeVocalsOpponent" text="Opponent - 100%" />
+							<slider step="1" styleName="compact" id="preferencesVolumeVocalsOpponent" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+						</vbox>
+						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+							<label id="preferencesLabelVolumeVocalsPlayer" text="Player - 100%" />
+							<slider step="1" styleName="compact" id="preferencesVolumeVocalsPlayer" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+						</vbox>
+					</hbox>
+					<label text="Hitsounds" />
+					<hbox width="100%" style="spacing: 24px;">
+						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+							<label id="preferencesLabelVolumeHitsoundOpponent" text="Opponent - 100%" />
+							<slider step="1" styleName="compact" id="preferencesVolumeHitsoundOpponent" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+						</vbox>
+						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+							<label id="preferencesLabelVolumeHitsoundPlayer" text="Player - 100%" />
+							<slider step="1" styleName="compact" id="preferencesVolumeHitsoundPlayer" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
+						</vbox>
+					</hbox>
+				</vbox>
+		</scrollview>
+		<vbox width="100%" text="Playtest" style="spacing: 8px; padding-bottom: 8px;">
+			<checkbox id="practiceModeCheckbox" text="Practice mode" tooltip="Whether or not you die/game over when you lose all health" />
+			<checkbox id="playtestBotPlayCheckbox" text="Bot Play mode" tooltip="Whether or not the computer plays the chart for you" />
+			<checkbox id="playtestShowResultsCheckbox" text="Show Results" tooltip="Whether or not the results screen is shown after the song finishes" />
+			<checkbox id="playtestStartTimeCheckbox" text="Start at Current time" tooltip="Starts the song at current time from the chart editor when playtesting" />
+			<checkbox id="playtestSongScriptsCheckbox" text="Enable Song Scripts" tooltip="Enable .hxc scripts tied to the given song" />
+			<checkbox id="playtestAudioSettingsCheckbox" text="Use Editor Audio Settings" tooltip="Makes the playtest audio use the same volumes as the audio settings" />
+		</vbox>
+	</tabview>
+</collapsible-dialog>

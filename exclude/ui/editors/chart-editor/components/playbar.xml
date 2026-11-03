@@ -24,6 +24,8 @@
 		<rule direction="vertical" height="80%" />
 		<label id="playbarNoteSnap" verticalAlign="center" text="1/4" styleName="playbarStatus" tooltip="Note Snap Level\nLeft Click to Increase\nRight Click to Decrease\nShift+Click to set to default snapping (1/16)" />
 		<rule direction="vertical" height="80%" />
+		<label id="playbarZoom" verticalAlign="center" text="1x" styleName="playbarStatus" tooltip="Grid Zoom\nLeft Click or Ctrl+Scroll Up to Zoom In\nRight Click or Ctrl+Scroll Down to Zoom Out\nShift+Click to reset" />
+		<rule direction="vertical" height="80%" />
 		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
 	</hbox>
 </box>
