@@ -1,8 +1,8 @@
 {
-  "charOffsets": [40, 105],
-  "charScale": 0.38,
-  "charAntialiasing": true,
-  "charFlipX": false,
+  "offsets": [40, 105],
+  "scale": 0.38,
+  "antialiasing": true,
+  "flipX": false,
   "weight": 400,
   "barOffsets": [0, 0],
   "barScale": 0.34,
