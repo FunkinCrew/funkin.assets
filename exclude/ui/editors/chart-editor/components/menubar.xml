@@ -72,6 +72,7 @@
     <menu-separator />
     <menu-checkbox width="100%" id="menubarItemViewWaveforms" text="Waveforms" />
     <menu-checkbox width="100%" id="menubarItemViewDifficultyHeatmap" text="Difficulty Heatmap" tooltip="Show what the calculator thinks is hard." />
+    <menu-checkbox width="100%" id="menubarItemViewPlayerView" text="Player View" tooltip="Shade the part of the chart the player sees on screen at the playhead." />
     <menu-separator />
     <menu-item id="menubarItemDifficultyUp" text="Increase Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Left" />
     <menu-item id="menubarItemDifficultyDown" text="Decrease Difficulty" tooltip="Manage Difficulties with the Difficulty Toolbox" shortcutText="Ctrl+Right" />
