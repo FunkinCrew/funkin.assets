@@ -20,6 +20,17 @@
 					<item action="Select Box" keybind="Shift + Left Click and Drag" />
 					<item action="Remove Note/Event" keybind="Right Click on Note" />
 					<item action="Show Note Options" keybind="Shift + Right Click on Note" />
+					<item action="Clear Note Kind from Cursor" keybind="Right Click on Empty Grid" />
+					<item action="Open Note in Notes Panel" keybind="Double Click on Note" />
+					<item action="Open Event in Events Panel" keybind="Double Click on Event" />
+					<item action="Select BPM/Time Signature Change" keybind="Left Click on Tag" />
+					<item action="Open Time Change in Timing Panel" keybind="Left Click on Selected Tag" />
+					<item action="Add Tag/Comment/Sub-Beat to Selection" keybind="Ctrl + Left Click" />
+					<item action="Move Time Change/Comment/Sub-Beat" keybind="Left Click and Drag on Tag or Header" />
+					<item action="Select Time Changes/Comments/Sub-Beats" keybind="Select Box Reaching Their Tags or Panels" />
+					<item action="Open/Close Comment" keybind="Left Click on Comment Header" />
+					<item action="Add/Remove Sub-Beat at Mouse" keybind="B" />
+					<item action="Select Region (Start/End)" keybind="Tab" />
 					<item action="Place/Remove Opponent Note at Playhead" keybind="1/2/3/4 (Live Input: Number Keys)" />
 					<item action="Place/Remove Player Note at Playhead" keybind="5/6/7/8 (Live Input: Number Keys)" />
 					<item action="Place Hold Note at Playhead" keybind="Hold 1-8 While Playing" />
@@ -42,7 +53,7 @@
 					<item action="Open Command Palette (Go to Measure)" keybind="Ctrl + G" />
 					<item action="Open Command Palette (Search for Comment)" keybind="Ctrl + B" />
 					<item action="Open Command Palette (Open Toolbox)" keybind="Ctrl + W" />
-					<item action="Place New Comment at Playhead" keybind="B" />
+					<item action="Place New Comment at Playhead" keybind="Alt + B" />
 					<item action="Jump to Start" keybind="Home" />
 					<item action="Jump Back" keybind="Page Up" />
 					<item action="Jump Forward" keybind="Page Down" />
@@ -50,20 +61,21 @@
 					<item action="Play/Pause" keybind="Space" />
 					<item action="Increase Note Snap" keybind="Right Arrow / ]" />
 					<item action="Decrease Note Snap" keybind="Left Arrow / [" />
-					<item action="Increase Playback Speed (0.1x)" keybind="Ctrl + Plus" />
-					<item action="Decrease Playback Speed (0.1x)" keybind="Ctrl + Minus" />
+					<item action="Increase Playback Speed (0.1x)" keybind="Shift + Right Arrow" />
+					<item action="Decrease Playback Speed (0.1x)" keybind="Shift + Left Arrow" />
 					<item action="New Chart" keybind="Ctrl + N" />
 					<item action="Open Chart" keybind="Ctrl + O" />
 					<item action="Save Chart" keybind="Ctrl + S" />
 					<item action="Save Chart As..." keybind="Ctrl + Shift + S" />
 					<item action="Quit to Menu" keybind="Ctrl + Q" />
-					<item action="Undo" keybind="Ctrl + Z" />
-					<item action="Redo" keybind="Ctrl + Y" />
+					<item action="Undo (Works in Panels Too)" keybind="Ctrl + Z" />
+					<item action="Redo (Works in Panels Too)" keybind="Ctrl + Y" />
 					<item action="Copy Selection" keybind="Ctrl + C" />
 					<item action="Cut Selection" keybind="Ctrl + X" />
-					<item action="Paste" keybind="Ctrl + V" />
+					<item action="Paste (Last Copied Kind of Item)" keybind="Ctrl + V" />
 					<item action="Paste Unsnapped" keybind="Ctrl + Shift + V" />
 					<item action="Delete Selection" keybind="Delete" />
+					<item action="Copy/Paste/Delete in a Picked List (Timing, Difficulty, Events Chain, Comments, Sub-Beats)" keybind="Ctrl + C / Ctrl + V / Delete" />
 					<item action="Delete Stacked Notes" keybind="Shift + Delete" />
 					<item action="Flip Selected Notes" keybind="Ctrl + F" />
 					<item action="Mirror Notes Along X Axis" keybind="Ctrl + Shift + M" />
