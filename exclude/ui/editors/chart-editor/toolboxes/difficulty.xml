@@ -12,7 +12,7 @@
                 </hbox>
                 <hbox width="100%">
                     <label text="Difficulty rank:" width="150" verticalAlign="center" />
-                    <number-stepper id="difficultyInputRating" pos="0" step="1" min="0" max="15" width="80" verticalAlign="center" tooltip="The rating shown for this difficulty in the Freeplay menu." />
+                    <number-stepper id="difficultyInputRating" pos="0" step="1" min="0" max="99" width="80" verticalAlign="center" tooltip="The rating shown for this difficulty in the Freeplay menu." />
                     <button allowFocus="false" id="difficultyEstimateRating" text="Estimate" verticalAlign="center" tooltip="Fill in the rank from how hard the player's notes are." />
                 </hbox>
             </vbox>
