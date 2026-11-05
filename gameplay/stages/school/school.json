@@ -124,7 +124,7 @@
           "offsets": [0, 0],
           "prefix": "BG girls group",
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "looped": true,
+          "looped": false,
           "flipX": false,
           "name": "danceLeft",
           "flipY": false,
@@ -136,7 +136,7 @@
           "frameIndices": [
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
-          "looped": true,
+          "looped": false,
           "flipX": false,
           "name": "danceRight",
           "flipY": false,
@@ -146,7 +146,7 @@
           "offsets": [0, 0],
           "prefix": "BG fangirls dissuaded",
           "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          "looped": true,
+          "looped": false,
           "flipX": false,
           "name": "danceLeft-scared",
           "flipY": false,
@@ -158,7 +158,7 @@
           "frameIndices": [
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
           ],
-          "looped": true,
+          "looped": false,
           "flipX": false,
           "name": "danceRight-scared",
           "flipY": false,
