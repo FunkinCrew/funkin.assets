@@ -17,7 +17,7 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "album": "volume2",
-    "stickerPack": "default",
+    "stickerPack": "standard-bf",
     "previewStart": 0.234602668755228,
     "previewEnd": 0.299483667829459,
     "freeplayIcon": { "offsets": [-2, -10] }
