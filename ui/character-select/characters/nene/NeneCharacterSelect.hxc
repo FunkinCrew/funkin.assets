@@ -8,21 +8,10 @@ import funkin.graphics.FunkinCamera;
 
 class NeneCharacterSelect extends CharSelectCharacter
 {
-  static final VIZ_LAYER_NAME:String = 'VIZ_bars';
 
+  var initializedVisualizer:Bool = false;
   var analyzer:Null<SpectralAnalyzer>;
   var analyzerCache:Array<Bar> = [];
-  var initializedVisualizer:Bool = false;
-
-  public function new(playerId:String,
-    x:Float,
-    y:Float,
-    isGF:Bool = false,
-    data:Null<PlayerCharSelectCharacterData>,
-    visualizer:Bool = false)
-  {
-    super(playerId, x, y, isGF, data, visualizer);
-  }
 
   override public function onCreate(event:ScriptEvent):Void
   {
@@ -30,10 +19,13 @@ class NeneCharacterSelect extends CharSelectCharacter
 
     if (!initializedVisualizer && FlxG.sound.music != null)
     {
-      if (analyzer != null) analyzer.dispose();
+      if (analyzer != null)
+      {
+        analyzer.dispose();
+      }
 
       @:privateAccess
-      this.analyzer = new SpectralAnalyzer(FlxG.sound.music._source, 7, 0.1);
+      analyzer = new SpectralAnalyzer(FlxG.sound.music._source, 7, 0.1);
 
       initializedVisualizer = true;
     }
@@ -45,25 +37,24 @@ class NeneCharacterSelect extends CharSelectCharacter
     {
       analyzerCache = analyzer.getLevels(analyzerCache);
 
-      var frame:Null<animate.internal.Frame> = this.timeline.getLayer(VIZ_LAYER_NAME)?.getFrameAtIndex(animation.curAnim.curFrame) ?? null;
-      var elements:Array<animate.internal.elements.Element> = frame?.elements ?? [];
-      var len:Int = cast Math.min(elements.length, 7);
+      var frame:Null<animate.internal.Frame> = timeline.getLayer('VIZ_bars')?.getFrameAtIndex(animation.curAnim.curFrame) ?? null;
 
-      for (i in 0...len)
+      var elements:Array<animate.internal.elements.Element> = frame?.elements ?? [];
+
+      for (i in 0...Std.int(Math.min(elements.length, analyzerCache.length)))
       {
         var animFrame:Int = (FlxG.sound.volume == 0 || FlxG.sound.muted) ? 0 : Math.round(analyzerCache[i].value * 12);
 
         animFrame = Math.floor(Math.min(12, animFrame));
         animFrame = Math.floor(Math.max(0, animFrame));
-
         animFrame = Std.int(Math.abs(animFrame - 12));
 
         var convertedSymbol = elements[i].toSymbolInstance();
+
         convertedSymbol.firstFrame = animFrame;
 
         elements[i] = convertedSymbol;
       }
-
     }
 
     super.draw();
