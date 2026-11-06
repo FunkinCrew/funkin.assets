@@ -15,6 +15,7 @@
 			<checkbox id="preferencesNoteKindIndicators" text="Note kind indicators" tooltip="Show an indicator if a note is of a non-default kind." />
 			<checkbox id="preferencesSubtitles" text="Subtitles" tooltip="Show subtitles." />
 			<checkbox id="preferencesBeatLines" text="Beat lines" tooltip="Show a line on every beat, in addition to measure lines." />
+			<checkbox id="preferencesSnapLines" text="Snap lines" tooltip="Show a dim line on every snap of the current note snap." />
 			<checkbox id="preferencesCursorLine" text="Cursor snap line" tooltip="Show a line at the snap the cursor would place a note on." />
 			<checkbox id="preferencesConstantScroll" text="Constant scroll" tooltip="Scroll at a constant speed (regardless of Scroll Changes)." />
 			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
