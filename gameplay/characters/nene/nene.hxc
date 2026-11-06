@@ -495,7 +495,7 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   override function onSongRetry(event:SongRetryEvent):Void
   {
     super.onSongRetry();
-    abotViz.dumpSound();
+    abotViz.alpha = 0;
   }
 
   override function onSongEnd(event:ScriptEvent):Void
