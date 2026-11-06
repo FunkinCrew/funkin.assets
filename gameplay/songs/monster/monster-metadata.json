@@ -19,10 +19,9 @@
     "album": "volume2",
     "stickerPack": "default",
     "previewStart": 0.234602668755228,
-    "previewEnd": 0.299483667829459,
-    "freeplayIcon": { "offsets": [-2, -10] }
+    "previewEnd": 0.299483667829459
   },
-  "generatedBy": "Friday Night Funkin' - v0.9.0",
+  "generatedBy": "Friday Night Funkin' - v0.8.7",
   "timeChanges": [
     { "t": 0, "b": 0, "bpm": 95, "bt": [4, 4, 4, 4] },
     { "t": 41770, "b": 66.1358, "bpm": 95, "bt": [4, 4, 4, 4] },
