@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Exit Mod",
+  "icon": "back",
+  "description": "Return to the base game's title screen.",
+  "action": "exitToTitle",
+  "panel": "default",
+  "order": 0
+}

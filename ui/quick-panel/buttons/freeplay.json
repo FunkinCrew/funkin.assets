@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Freeplay",
+  "icon": "freeplay",
+  "description": "Choose and play any song you've previously unlocked.",
+  "action": "freeplay",
+  "panel": "default",
+  "order": 2
+}

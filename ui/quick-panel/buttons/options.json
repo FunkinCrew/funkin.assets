@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Options",
+  "icon": "options",
+  "description": "Configure various gameplay and visual settings.",
+  "action": "options",
+  "panel": "default",
+  "order": 4
+}

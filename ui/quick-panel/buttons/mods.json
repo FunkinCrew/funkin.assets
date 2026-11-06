@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Mods",
+  "icon": "mods",
+  "description": "Add, remove or install custom content for the game.",
+  "action": "mods",
+  "panel": "default",
+  "order": 1
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "text": "Online",
+  "icon": "online",
+  "description": "Play against friends, or with people around the world.",
+  "action": "none",
+  "panel": "default",
+  "order": 3,
+  "disabled": true
+}
