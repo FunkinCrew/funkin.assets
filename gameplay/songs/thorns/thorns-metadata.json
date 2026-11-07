@@ -16,7 +16,7 @@
     },
     "stage": "schoolEvil",
     "noteStyle": "pixel",
-    "ratings": { "easy": 2, "normal": 3, "hard": 3 },
+    "ratings": { "easy": 1, "normal": 2, "hard": 3 },
     "album": "volume2"
   },
   "generatedBy": "Friday Night Funkin' - v0.8.1",
