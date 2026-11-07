@@ -1,0 +1,25 @@
+package funkin.levels;
+
+import funkin.ui.quickpanel.PanelEntry;
+import funkin.ui.transition.Transition;
+import funkin.ui.transition.Transition.TransitionType;
+import funkin.ui.quickpanel.QuickPanelState;
+import funkin.ui.quickpanel.PanelActions;
+
+
+class cameraEditor extends PanelEntry
+{
+  public function new()
+  {
+    super('cameraEditor');
+  }
+
+  override public function onAccept():Void
+  {
+    QuickPanelState.stopMusic();
+    Transition.switchState(() -> new funkin.ui.debug.cameraeditor.CameraEditorState(), {
+      transition: TransitionType.None,
+      assetQuery: funkin.ui.transition.Transition.NO_ASSETS
+    });
+  }
+}

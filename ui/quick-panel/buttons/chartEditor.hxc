@@ -1,0 +1,27 @@
+package funkin.levels;
+
+import funkin.ui.quickpanel.PanelEntry;
+import funkin.ui.transition.Transition;
+import funkin.ui.transition.Transition.TransitionType;
+import funkin.ui.quickpanel.QuickPanelState;
+import funkin.ui.quickpanel.PanelActions;
+
+
+class chartEditor extends PanelEntry
+{
+  public function new()
+  {
+    super('chartEditor');
+  }
+
+  override public function onAccept():Void
+  {
+    QuickPanelState.stopMusic();
+    Transition.switchState(() -> new funkin.ui.debug.charting.ChartEditorState({
+    }), {
+      transition: TransitionType.Throbber,
+      assetQuery: funkin.ui.debug.charting.ChartEditorState.queryAssets.bind(_, {
+      })
+    });
+  }
+}

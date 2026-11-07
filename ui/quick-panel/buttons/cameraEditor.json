@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Camera Editor",
+  "icon": "camera-editor",
+  "description": "Camera song events editor.",
+  "action": "none",
+  "panel": "mainmenu",
+  "order": 1
+}

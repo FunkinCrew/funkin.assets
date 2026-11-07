@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "text": "Chart Editor",
+  "icon": "chart-editor",
+  "description": "Create or Edit song charts.",
+  "action": "none",
+  "panel": "mainmenu",
+  "order": 0
+}
