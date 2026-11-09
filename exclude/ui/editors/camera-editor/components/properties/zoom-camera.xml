@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vbox width="100%" height="100%" id="propertiesContainer">
   <LabeledRow text="Zoom">
-    <number-stepper pos="1.0" step="0.05" width="160" min="0.1" max="5.0" id="zoomCameraZoomLevel" />
+    <number-stepper pos="1.0" step="0.05" width="160" min="0.05" max="10.0" id="zoomCameraZoomLevel" />
   </LabeledRow>
-  <slider pos="1.0" minorTicks="0.2" majorTicks="1" precision="2" step="0.05" min="0.1" max="5.0" width="100%" id="zoomCameraZoomLevelSlider"/>
+  <slider pos="1.0" minorTicks="0.2" majorTicks="1" precision="2" step="0.05" min="0.05" max="10.0" width="100%" id="zoomCameraZoomLevelSlider"/>
   <LabeledRow text="Mode">
     <dropdown text="Mode" width="160" id="zoomCameraMode">
       <data>
