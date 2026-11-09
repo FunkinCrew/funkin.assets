@@ -1,5 +1,3 @@
-package funkin.levels;
-
 import funkin.ui.quickpanel.PanelEntry;
 import funkin.ui.transition.Transition;
 import funkin.ui.transition.Transition.TransitionType;
