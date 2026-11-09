@@ -27,7 +27,7 @@
     <menu-separator />
     <menu id="menubarLoadVariation" text="Load Variation" />
     <menu-separator />
-    <menu-item id="menubarItemPreferences" text="Preferences" disabled="true" />
+    <menu-item id="menubarItemPreferences" text="Preferences" />
     <menu-separator />
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Ctrl+Q" />
   </menu>
@@ -39,13 +39,11 @@
   </menu>
 
   <menu text="View">
-    <menu-checkbox width="100%" id="menubarItemFitCameraToViewport" text="Fit Camera to Viewport" />
     <menu-checkbox width="100%" id="menubarItemExtendedBounds" text="Show Extended Bounds" >
       <image resource="assets/ui/editors/camera-editor/menu-bar/extended_vcam.png" width="16" height="16" />
     </menu-checkbox>
     <menu-checkbox width="100%" id="menubarItemDoBopping" text="Camera Bop" />
     <menu-checkbox width="100%" id="menubarItemDoSongEvents" text="Play Song Events" selected="true" />
-    <menu-checkbox width="100%" id="menubarItemZoomToPlayhead" text="Timeline Zooms to Playhead" />
     <menu-separator />
     <vbox width="100%">
       <menu-checkbox width="100%" id="menubarItemRelativeView" text="Relative View">

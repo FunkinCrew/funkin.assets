@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="440" title="Preferences" closable="true">
+	<tabview width="100%" height="300">
+		<vbox width="100%" text="Display" style="spacing: 8px; padding-bottom: 8px;">
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesUIScaleLabel" text="UI scale - 145%" />
+				<slider step="5" id="preferencesUIScale" width="100%" min="50" max="200" majorTicks="50" minorTicks="10" pos="145" tooltip="How large the editor is drawn. Shared with the Chart Editor." />
+			</vbox>
+			<checkbox id="preferencesFitCameraToViewport" text="Fit camera to viewport" tooltip="Show exactly what the gameplay camera sees, fitted above the timeline." />
+			<checkbox id="preferencesZoomToPlayhead" text="Timeline zooms to playhead" tooltip="Zoom the timeline around the playhead rather than the cursor." />
+		</vbox>
+		<vbox width="100%" text="Audio" style="spacing: 8px; padding-bottom: 8px;">
+			<checkbox id="preferencesThemeMusic" text="Play theme music" />
+			<vbox width="100%" style="spacing: 2px; padding-top: 4px;">
+				<label id="preferencesLabelVolumeInstrumental" text="Instrumental - 100%" />
+				<slider step="1" id="preferencesVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+			</vbox>
+			<label text="Vocals" />
+			<hbox width="100%" style="spacing: 24px;">
+				<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+					<label id="preferencesLabelVolumeVocalsOpponent" text="Opponent - 100%" />
+					<slider step="1" id="preferencesVolumeVocalsOpponent" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+				</vbox>
+				<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+					<label id="preferencesLabelVolumeVocalsPlayer" text="Player - 100%" />
+					<slider step="1" id="preferencesVolumeVocalsPlayer" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+				</vbox>
+			</hbox>
+		</vbox>
+	</tabview>
+</dialog>
