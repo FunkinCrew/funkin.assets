@@ -91,22 +91,22 @@
 					</vbox>
 					<label text="Vocals" />
 					<hbox width="100%" style="spacing: 24px;">
-						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+						<vbox width="50%" style="spacing: 2px; padding-top: 4px;">
 							<label id="preferencesLabelVolumeVocalsOpponent" text="Opponent - 100%" />
 							<slider step="1" styleName="compact" id="preferencesVolumeVocalsOpponent" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
 						</vbox>
-						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+						<vbox width="50%" style="spacing: 2px; padding-top: 4px;">
 							<label id="preferencesLabelVolumeVocalsPlayer" text="Player - 100%" />
 							<slider step="1" styleName="compact" id="preferencesVolumeVocalsPlayer" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
 						</vbox>
 					</hbox>
 					<label text="Hitsounds" />
 					<hbox width="100%" style="spacing: 24px;">
-						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+						<vbox width="50%" style="spacing: 2px; padding-top: 4px;">
 							<label id="preferencesLabelVolumeHitsoundOpponent" text="Opponent - 100%" />
 							<slider step="1" styleName="compact" id="preferencesVolumeHitsoundOpponent" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
 						</vbox>
-						<vbox width="47%" style="spacing: 2px; padding-top: 4px;">
+						<vbox width="50%" style="spacing: 2px; padding-top: 4px;">
 							<label id="preferencesLabelVolumeHitsoundPlayer" text="Player - 100%" />
 							<slider step="1" styleName="compact" id="preferencesVolumeHitsoundPlayer" width="100%" majorTicks="10" minorTicks="5" pos="100" tooltip="Right click to mute or unmute." />
 						</vbox>
