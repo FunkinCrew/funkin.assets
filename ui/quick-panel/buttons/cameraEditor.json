@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Camera Editor",
   "icon": "camera-editor",
-  "description": "Camera song events editor.",
+  "description": "Create or edit camera events for charts.",
   "action": "none",
   "panel": "mainmenu",
   "order": 1

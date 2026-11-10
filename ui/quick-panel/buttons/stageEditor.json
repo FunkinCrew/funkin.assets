@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Stage Editor",
   "icon": "stage-editor",
-  "description": "Edit and manage song stages.",
+  "description": "Create or edit stages.",
   "action": "none",
   "panel": "mainmenu",
   "order": 3

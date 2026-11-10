@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Open Crash Logs Folder",
   "icon": "crash-log",
-  "description": "Zeep.. zlorp! Something went wrong?",
+  "description": "Zeep zlorp! Something went wrong?",
   "action": "crash",
   "panel": "mainmenu",
   "transitioning": false,

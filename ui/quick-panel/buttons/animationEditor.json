@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Animation Editor",
   "icon": "animation-editor",
-  "description": "Edit and manage animations for songs.",
+  "description": "View and edit character animations.",
   "action": "none",
   "panel": "mainmenu",
   "order": 2
