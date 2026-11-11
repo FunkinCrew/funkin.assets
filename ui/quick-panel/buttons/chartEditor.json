@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Chart Editor",
   "icon": "chart-editor",
-  "description": "Create or edit song charts.",
+  "description": "Create or configure notes and events for songs.",
   "action": "none",
   "panel": "mainmenu",
   "order": 0

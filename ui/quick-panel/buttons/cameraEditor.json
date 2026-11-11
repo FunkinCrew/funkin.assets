@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "text": "Camera Editor",
   "icon": "camera-editor",
-  "description": "Create or edit camera events for charts.",
+  "description": "Preview and modify a chart's camera movements.",
   "action": "none",
   "panel": "mainmenu",
   "order": 1
