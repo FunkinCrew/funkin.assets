@@ -1,3 +1,4 @@
+import funkin.ui.debug.cameraeditor.CameraEditorState;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
@@ -97,8 +98,7 @@ class SserafimEunchaeCharacter extends AnimateAtlasCharacter
   {
     super.update(elapsed);
     lipSyncSprite.update(elapsed);
-
-    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && !this.debug;
+    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && (!this.debug || Std.isOfType(FlxG.state, CameraEditorState));
 
     synchronizeShader();
   }

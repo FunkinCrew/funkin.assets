@@ -1,3 +1,4 @@
+import funkin.play.event.CustomSongEvent;
 import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
@@ -31,11 +32,11 @@ class SserafimGirlfriendCharacter extends AnimateAtlasCharacter
     }
   }
 
-  override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  override function onCustomEvent(event:CustomEventScriptEvent)
   {
-    super.onSongEvent(scriptEvent);
+    super.onCustomEvent(event);
 
-    if (scriptEvent.eventData.eventKind == 'sserafimBeautiful') isBeautiful = scriptEvent.eventData.getBool('beautiful');
+    if (event.name == 'sserafimBeautiful' && event.isFirst) isBeautiful = CustomSongEvent.paramBool(event.eventData, 'beautiful');
   }
 
   override function onSongRetry(event:ScriptEvent):Void

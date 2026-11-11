@@ -1,3 +1,4 @@
+import funkin.ui.debug.cameraeditor.CameraEditorState;
 import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
@@ -166,8 +167,7 @@ class SserafimSakuraCharacter extends MultiAnimateAtlasCharacter
   {
     super.update(elapsed);
     lipSyncSprite.update(elapsed);
-
-    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && !this.debug;
+    lipSyncSprite.shouldSing = this.characterType == CharacterType.BF && (!this.debug || Std.isOfType(FlxG.state, CameraEditorState));
 
     synchronizeShader();
   }

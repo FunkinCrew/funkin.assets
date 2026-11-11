@@ -20,6 +20,7 @@ import funkin.audio.FunkinSound;
 import funkin.play.cutscene.CutsceneType;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.stage.Stage;
+import funkin.play.event.CustomSongEvent;
 import funkin.tweens.FunkinTween;
 import funkin.tweens.FunkinVarTween;
 import funkin.Conductor;
@@ -73,7 +74,7 @@ class SserafimStage extends Stage
   public static function queryAssets(type:String, id:String, params:Dynamic):Array<AssetPath>
   {
     var results = Stage.queryAssets(type, id, params);
-  
+
     results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-yunjin"));
     results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-chaewon"));
     results = results.concat(CharacterRegistry.instance.queryAssets(type, "sserafim-eunchae"));
@@ -86,13 +87,13 @@ class SserafimStage extends Stage
         results.push(NewPaths.image('gameplay/stages/sserafim/cutscene/floor-cutscene'));
         results.push(NewPaths.image('gameplay/stages/sserafim/end/end-1'));
         results.push(NewPaths.image('gameplay/stages/sserafim/end/end-2'));
-        
+
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync').image());
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync-yunjin').image());
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/cutscene-main').image());
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/bf-get-up').image());
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/cutscene/gf-get-up').image());
-        
+
       case 'JSON':
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync').json());
         results = results.concat(NewPaths.animateAtlas('gameplay/stages/sserafim/sserafim-lipsync-yunjin').json());
@@ -109,7 +110,7 @@ class SserafimStage extends Stage
       default:
         // nothing
     }
-    
+
     return results;
   }
 
@@ -287,25 +288,19 @@ class SserafimStage extends Stage
   {
     super.onEventReset();
 
-    // Cancel FunkinTweens first so they don't write stale values after the reset.
     cancelAllEventTweens();
 
-    if (PlayState.instance == null)
-    {
-      getBoyfriend()?.visible = true;
-      getGirlfriend()?.visible = true;
-    }
+    setCutsceneVisibility(false);
+    resetClear();
 
     setCoverVisible(false);
     setGirlsVisible(baseVisible);
     setGirlsSinging(baseSinging);
     setLightState(false);
 
-    // Also cancel any legacy FlxTweens still on the shaders (e.g. from introCutscene).
     FlxTween.cancelTweensOf(characterShader);
     FlxTween.cancelTweensOf(stageShader);
 
-    // Set shader values directly — no tween, no flicker.
     characterShader.darkenAmount = 0;
     stageShader.darkenAmount = 0;
 
@@ -317,96 +312,110 @@ class SserafimStage extends Stage
     getNamedProp('backLightColor').alpha = 0.0;
     getNamedProp('backLightWhite').alpha = 0.0;
 
-    // Reset shader light strengths to match the zeroed props.
     characterShader.truckLightStrength = 0;
     stageShader.truckLightStrength = 0;
     characterShader.pulseLightStrength = 0;
     stageShader.pulseLightStrength = 0;
   }
 
-  /**
-   * Called when the chart hits a song event.
-   */
-  override function onSongEvent(scriptEvent:SongEventScriptEvent)
-  {
-    super.onSongEvent(scriptEvent);
+  var darkFrom:Float = 0;
 
-    switch (scriptEvent.eventData.eventKind)
+  /**
+   * Called every frame while a Custom Event runs.
+   */
+  override function onCustomEvent(event:CustomEventScriptEvent)
+  {
+    super.onCustomEvent(event);
+
+    var data = event.eventData;
+    switch (event.name)
     {
       case 'sserafimGuitarVibration':
-        HapticUtil.increasingVibrate(Constants.MIN_VIBRATION_AMPLITUDE, Constants.MAX_VIBRATION_AMPLITUDE / 2, scriptEvent.eventData.getFloat('duration'));
+        HapticUtil.increasingVibrate(Constants.MIN_VIBRATION_AMPLITUDE, Constants.MAX_VIBRATION_AMPLITUDE / 2, CustomSongEvent.paramFloat(data, 'duration'));
       case 'sserafimShow':
-        setGirlsVisible(scriptEvent.eventData.getBoolArray('visible'));
+        if (event.isFirst) setGirlsVisible(CustomSongEvent.paramBoolList(data, 'visible'));
       case 'sserafimSing':
-        setGirlsSinging(scriptEvent.eventData.getBoolArray('singing'));
+        if (event.isFirst) setGirlsSinging(CustomSongEvent.paramBoolList(data, 'singing'));
       case 'sserafimDark':
-        setDarkenAmt(scriptEvent.eventData.getFloat('amount'), scriptEvent.eventData.getFloat('duration'));
+        if (event.isFirst) darkFrom = characterShader.darkenAmount;
+        var dark:Float = darkFrom + (CustomSongEvent.paramFloat(data, 'amount') - darkFrom) * event.eased;
+        characterShader.darkenAmount = dark;
+        stageShader.darkenAmount = dark;
       case 'sserafimLights':
-        flashTruckLights(scriptEvent.eventData.getFloat('amount'), scriptEvent.eventData.getFloat('duration'));
+        var amount:Float = CustomSongEvent.paramFloat(data, 'amount');
+        if (event.isFirst) HapticUtil.vibrate(0, event.durationMs / 2000, amount / 2, 0);
+        var light:Float = amount * (1 - event.eased);
+        getNamedProp('truckLight1').alpha = light;
+        getNamedProp('truckLight2').alpha = light;
+        characterShader.truckLightStrength = light;
+        stageShader.truckLightStrength = light;
       case 'sserafimCover':
-        setCoverVisible(scriptEvent.eventData.getBool('visible'));
+        if (event.isFirst) setCoverVisible(CustomSongEvent.paramBool(data, 'visible'));
       case 'sserafimFlash':
-        if (PlayState.instance != null) flashScreen(scriptEvent.eventData.getFloat('duration'));
+        if (event.isFirst && PlayState.instance != null) flashScreen(CustomSongEvent.paramFloat(data, 'duration'));
       case 'sserafimPulseLights':
-        setLightState(
-          scriptEvent.eventData.getBool('enabled'),
-          scriptEvent.eventData.getArray('colors'),
-          scriptEvent.eventData.getArray('durations'),
-          scriptEvent.eventData.getArray('intensities')
-        );
-      case 'sserafimKick':
-        if (PlayState.instance != null)
+        if (event.isFirst)
         {
-          if (scriptEvent.eventData.getBool('final'))
-          {
-            // play second kick anim + reset her idle back to normal
-            yunjin.playAnimation('kick2', true, false);
-            FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-2'), 1.0);
-            yunjin.danceEvery = 1;
-
-            HapticUtil.vibrate(0, 0.2, 0.8, 0);
-
-            // Show the opponent health icon at this point
-            PlayState.instance.iconP2.visible = true;
-
-            // hide the cutscene characters if theyre present!
-            if (sserafimGf != null)
-            {
-              // and show the REAL gf
-              getGirlfriend()?.visible = true;
-
-              sserafimGf.visible = false;
-              sserafimBf.visible = false;
-            }
-
-            yunjin.animation.onFrameChange.removeAll();
-
-            yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int)
-            {
-              // at this point in the animation, the door is no longer part of her animation...
-              // show a static one!
-              if (frameNumber == 23) getNamedProp('truckDoor').visible = true;
-            });
-
-            yunjin.animation.onFinish.addOnce(function(animName:String)
-            {
-              yunjin.animation.onFrameChange.removeAll();
-            });
-
-            // start the dust clearing
-            if (PlayState.instance != null) startClear();
-          }
-          else
-          {
-            // play first kick anim
-            yunjin.playAnimation('kick1', true, false);
-            FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-1'), 1.0);
-
-            HapticUtil.vibrate(0, 0.2, 0.4, 0);
-          }
+          var colors:Array<String> = CustomSongEvent.paramList(data, 'colors');
+          setLightState(CustomSongEvent.paramBool(data, 'enabled'), colors.length > 0 ? colors : null, CustomSongEvent.paramFloatList(data, 'durations'),
+            CustomSongEvent.paramFloatList(data, 'intensities'));
         }
+      case 'sserafimKick':
+        var isFinal:Bool = CustomSongEvent.paramBool(data, 'final');
+        if (event.isFirst) kick(isFinal);
+        if (isFinal) applyClear(event.elapsedMs);
       case 'sserafimEnd':
-        if (PlayState.instance != null) endStuff();
+        if (event.isFirst && PlayState.instance != null) endStuff();
+    }
+  }
+
+  function kick(isFinal:Bool):Void
+  {
+    if (isFinal)
+    {
+      // play second kick anim + reset her idle back to normal
+      yunjin.playAnimation('kick2', true, false);
+      FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-2'), 1.0);
+      yunjin.danceEvery = 1;
+
+      HapticUtil.vibrate(0, 0.2, 0.8, 0.25);
+
+      // Show the opponent health icon at this point
+      if (PlayState.instance != null) PlayState.instance.iconP2.visible = true;
+
+      // show the REAL gf
+      getGirlfriend()?.visible = true;
+
+      // hide the cutscene characters if theyre present!
+      if (sserafimGf != null)
+      {
+        sserafimGf.visible = false;
+        sserafimBf.visible = false;
+      }
+
+      yunjin.animation.onFrameChange.removeAll();
+
+      yunjin.animation.onFrameChange.add(function(animName:String, frameNumber:Int, index:Int)
+      {
+        // at this point in the animation, the door is no longer part of her animation...
+        // show a static one!
+        // At or past it, seeking can land beyond frame 23.
+        if (frameNumber >= 23) getNamedProp('truckDoor').visible = true;
+      });
+
+      yunjin.animation.onFinish.addOnce(function(animName:String)
+      {
+        yunjin.animation.onFrameChange.removeAll();
+      });
+
+    }
+    else
+    {
+      // play first kick anim
+      yunjin.playAnimation('kick1', true, false);
+      FunkinSound.playOnce(Paths.sound('gameplay/stages/sserafim/sounds/door-kick-1'), 1.0);
+
+      HapticUtil.vibrate(0, 0.2, 0.4, 0.1);
     }
   }
 
@@ -1188,6 +1197,30 @@ class SserafimStage extends Stage
     dust2.alpha = 1;
     dust3.alpha = 1;
     dust4.alpha = 1;
+  }
+
+  /**
+   * The dust clearing after the final kick, from how long ago it was. Same timings and eases as startClear's tweens.
+   */
+  function applyClear(elapsedMs:Float):Void
+  {
+    var seconds:Float = elapsedMs / 1000;
+    var shade:Float = 1 - FlxEase.sineOut(Math.min(1, seconds / 24));
+    stageShader.setAdjustColor(-24 * shade, 6 * shade, -26 * shade, -74 * shade);
+    characterShader.setAdjustColor(-24 * shade, 6 * shade, -26 * shade, -74 * shade);
+
+    clearDust(dust1, seconds / 20, -400, 100, 350);
+    clearDust(dust2, seconds / 16, -450, 200, -300);
+    clearDust(dust3, seconds / 24, -600, 150, -200);
+    clearDust(dust4, seconds / 16, -1500, 100, -150);
+  }
+
+  function clearDust(dust:FlxBackdrop, progress:Float, startY:Float, drop:Float, speed:Float):Void
+  {
+    var eased:Float = FlxEase.sineOut(Math.min(1, Math.max(0, progress)));
+    dust.alpha = 1 - eased;
+    dust.y = startY + drop * eased;
+    dust.velocity.x = speed * (1 - eased);
   }
 
   function startClear()
