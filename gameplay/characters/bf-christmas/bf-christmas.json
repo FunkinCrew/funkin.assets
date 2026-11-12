@@ -6,6 +6,10 @@
   "healthIcon": {
     "id": "bf"
   },
+  "variation": {
+    "parent": "bf",
+    "name": "Christmas"
+  },
   "renderType": "multisparrow",
   "singTime": 8.0,
   "animations": [

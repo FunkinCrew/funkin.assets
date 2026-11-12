@@ -9,6 +9,10 @@
   "flipX": true,
   "offsets": [17, 3],
   "cameraOffsets": [-17, 36],
+  "variation": {
+    "parent": "bf",
+    "name": "Car"
+  },
   "death": {
     "cameraOffsets": [-62, 42]
   },

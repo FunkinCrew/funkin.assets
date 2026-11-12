@@ -14,6 +14,10 @@
   "renderType": "multianimateatlas",
   "offsets": [43, 32],
   "cameraOffsets": [47, 132],
+  "variation": {
+    "parent": "pico-playable",
+    "name": "Christmas"
+  },
   "animations": [
     {
       "name": "idle",
