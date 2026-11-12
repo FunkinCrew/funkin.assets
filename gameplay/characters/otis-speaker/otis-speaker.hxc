@@ -7,7 +7,6 @@ import funkin.audio.visualize.ABotVis;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.assets.Assets.AssetType;
 import funkin.assets.Paths as NewPaths;
-
 #if FEATURE_CAMERA_EDITOR
 import funkin.ui.debug.cameraeditor.CameraEditorState;
 #end
