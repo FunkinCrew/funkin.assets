@@ -7,6 +7,10 @@
   "scale": 6,
   "offsets": [-7, -23],
   "cameraOffsets": [-7, -107],
+  "variation": {
+    "parent": "nene",
+    "name": "Pixel"
+  },
   "animations": [
     {
       "name": "danceLeft",

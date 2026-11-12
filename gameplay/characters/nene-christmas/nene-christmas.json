@@ -6,6 +6,10 @@
   "renderType": "animateatlas",
   "offsets": [-16, -89],
   "cameraOffsets": [-24, 34],
+  "variation": {
+    "parent": "nene",
+    "name": "Christmas"
+  },
   "animations": [
     {
       "name": "danceLeft",
