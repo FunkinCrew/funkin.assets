@@ -59,7 +59,7 @@ class SserafimKazuhaCharacter extends AnimateAtlasCharacter
 
     lipSyncElement = new FlxSpriteElement(lipSyncSprite);
     lipSyncElement.active = false; // We disable the element here so we can control when it updates.
-    lipSyncElement.owner = this;
+    if (this.debug) lipSyncElement.owner = this;
 
     // hideDefaultMouth();
 
