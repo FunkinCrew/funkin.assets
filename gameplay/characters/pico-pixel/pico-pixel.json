@@ -18,6 +18,10 @@
   "renderType": "sparrow",
   "offsets": [15, 0],
   "cameraOffsets": [15, 0],
+  "variation": {
+    "parent": "pico-playable",
+    "name": "Pixel"
+  },
   "animations": [
     {
       "name": "idle",

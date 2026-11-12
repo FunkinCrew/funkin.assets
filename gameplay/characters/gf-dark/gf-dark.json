@@ -6,6 +6,10 @@
   "startingAnimation": "danceRight",
   "offsets": [-12, 4],
   "cameraOffsets": [12, 8],
+  "variation": {
+    "parent": "gf",
+    "name": "Dark"
+  },
   "atlasSettings": {
     "useRenderTexture": true
   },

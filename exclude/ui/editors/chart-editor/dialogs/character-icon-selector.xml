@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu id="iconSelector" width="410" height="185" padding="8">
+<menu id="iconSelector" width="575" height="190" padding="8">
   <vbox width="100%" height="100%">
-    <scrollview id="charSelectScroll" width="390" height="150" contentWidth="100%" />
-    <label id="charIconName" text="(choose a character)" />
+    <hbox width="100%" height="150">
+      <scrollview id="charSelectScroll" width="390" height="150" contentWidth="100%" />
+      <vbox width="162" height="100%">
+        <label text="Variation" />
+        <dropdown id="charVariationDropdown" width="100%" dropdownWidth="180" dropdownSize="4" searchable="true" searchPrompt="Search variation..." />
+      </vbox>
+    </hbox>
+    <label id="charIconName" width="100%" text="(choose a character)" />
   </vbox>
 </menu>

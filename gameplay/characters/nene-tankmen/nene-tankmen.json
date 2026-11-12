@@ -6,6 +6,10 @@
   "renderType": "animateatlas",
   "offsets": [-44, -67],
   "cameraOffsets": [44, 56],
+  "variation": {
+    "parent": "nene",
+    "name": "Tankmen"
+  },
   "animations": [
     {
       "name": "danceLeft",

@@ -7,6 +7,10 @@
   "healthIcon": {
     "id": "bf"
   },
+  "variation": {
+    "parent": "bf",
+    "name": "Holding GF"
+  },
   "animations": [
     {
       "name": "firstDeath",

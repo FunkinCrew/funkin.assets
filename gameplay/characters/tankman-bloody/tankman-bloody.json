@@ -8,6 +8,10 @@
   "healthIcon": {
     "id": "tankman"
   },
+  "variation": {
+    "parent": "tankman",
+    "name": "Bloody"
+  },
   "animations": [
     {
       "name": "idle",

@@ -9,6 +9,10 @@
   "atlasSettings": {
     "useRenderTexture": true
   },
+  "variation": {
+    "parent": "nene",
+    "name": "Dark"
+  },
   "animations": [
     {
       "name": "danceLeft",

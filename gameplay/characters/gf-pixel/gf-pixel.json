@@ -5,6 +5,10 @@
   "startingAnimation": "danceRight",
   "isPixel": true,
   "scale": 6,
+  "variation": {
+    "parent": "gf",
+    "name": "Pixel"
+  },
   "animations": [
     {
       "name": "danceLeft",
