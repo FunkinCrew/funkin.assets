@@ -18,8 +18,9 @@ class SpookyDarkCharacter extends SparrowCharacter
 
   public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = SparrowCharacter.queryAssets(type, charId);
-    results = results.concat(CharacterRegistry.instance.queryAssets(type, "spooky"));
+    var results:Array<AssetPath> = SparrowCharacter.queryAssets(type, charId);
+    results = results.concat(SparrowCharacter.queryAssets(type, 'spooky'));
+
     return results;
   }
 
@@ -56,7 +57,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     }
   }
 
-  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false)
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
     if (normalChar != null)
@@ -66,7 +67,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     }
   }
 
-  override function onCreate(event:ScriptEvent)
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 

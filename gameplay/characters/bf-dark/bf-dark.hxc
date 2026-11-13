@@ -14,8 +14,9 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
 
   public static function queryAssets(type:AssetType, charId:String):Array<AssetPath>
   {
-    var results = MultiAnimateAtlasCharacter.queryAssets(type, charId);
-    results = results.concat(CharacterRegistry.instance.queryAssets(type, "bf"));
+    var results:Array<AssetPath> = MultiAnimateAtlasCharacter.queryAssets(type, charId);
+    results = results.concat(MultiAnimateAtlasCharacter.queryAssets(type, 'bf'));
+
     return results;
   }
 
@@ -54,7 +55,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     return val;
   }
 
-  override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
+  override public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
   {
     super.playAnimation(name, restart, ignoreOther, reversed);
 
@@ -65,7 +66,7 @@ class BoyfriendDarkCharacter extends MultiAnimateAtlasCharacter
     }
   }
 
-  override function onCreate(event:ScriptEvent):Void
+  override public function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
 
