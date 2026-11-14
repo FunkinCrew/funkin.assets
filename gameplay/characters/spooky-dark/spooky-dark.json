@@ -5,6 +5,10 @@
   "healthIcon": {
     "id": "spooky"
   },
+  "variation": {
+    "parent": "spooky",
+    "name": "Dark"
+  },
   "startingAnimation": "danceRight",
   "animations": [
     {

@@ -8,6 +8,10 @@
   "renderType": "animateatlas",
   "offsets": [0, 1],
   "cameraOffsets": [0, 12],
+  "variation": {
+    "parent": "monster",
+    "name": "Christmas"
+  },
   "animations": [
     {
       "name": "idle",
