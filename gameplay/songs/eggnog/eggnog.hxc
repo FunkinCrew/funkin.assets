@@ -1,5 +1,10 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.graphics.FunkinSprite;
+import flixel.util.FlxColor;
+import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
+import funkin.audio.FunkinSound;
 import funkin.assets.Assets.AssetType;
 import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths as NewPaths;
@@ -9,7 +14,10 @@ class EggnogSong extends Song
   public function new()
   {
     super('eggnog');
+    shouldEndSong = false;
   }
+
+  var shouldEndSong:Bool = false;
 
   override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String>
   {
@@ -25,6 +33,39 @@ class EggnogSong extends Song
     return results;
   }
 
+  override function onSongEnd(event:ScriptEvent):Void
+  {
+    if (!PlayStatePlaylist.isStoryMode) return;
+
+    if (shouldEndSong)
+    {
+      shouldEndSong = false;
+      return;
+    }
+
+    event.cancel();
+
+    if (!Assets.exists(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off')))
+    {
+      shouldEndSong = true;
+      PlayState.instance.endSong(true);
+    }
+    else
+    {
+      var blackBG:FunkinSprite = new FunkinSprite(-FlxG.width * FlxG.camera.zoom, -FlxG.height * FlxG.camera.zoom);
+      blackBG.makeSolidColor(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+      blackBG.scrollFactor.set();
+
+      PlayState.instance.currentStage.add(blackBG);
+      PlayState.instance.isInCutscene = true;
+      PlayState.instance.camHUD.visible = false;
+
+      FunkinSound.playOnce(Paths.sound('gameplay/stages/mallEvil/sounds/lights-off'), 1.0, () ->
+      {
+        shouldEndSong = true;
+        PlayState.instance.endSong(true);
+      });
+    }
   public static function queryAssets(type:funkin.assets.Assets.AssetType, entryId:String, ?params:SongEntryParams):Array<AssetPath>
   {
     var results:Array<AssetPath> = Song.queryAssets(type, entryId, params);
