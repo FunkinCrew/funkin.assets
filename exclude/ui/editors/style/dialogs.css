@@ -35,6 +35,10 @@
 	background-color: $selection-background-color;
 }
 
+.modal-background {
+  cursor: "default";
+}
+
 .comment-panel-header {
   background-color: "#FFFFFF";
 }
