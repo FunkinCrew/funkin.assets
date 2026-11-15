@@ -44,7 +44,6 @@ class NenePixelCharacter extends SparrowCharacter
       case "XML":
         results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-head"));
         results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-body"));
-        results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-back"));
         results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-speaker"));
         results.push(NewPaths.xml("gameplay/characters/nene-pixel/abot-pixel/abot-pixel-viz"));
       case "SHADER":

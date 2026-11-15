@@ -156,7 +156,7 @@ class PhillyTrainErectStage extends Stage
     cutsceneTimerManager = new FlxTimerManager();
 
     cutsceneConductor = new Conductor();
-    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('cutscene');
+    var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('assets/gameplay/stages/phillyTrainErect/cutscene/cutscene/cutscene');
     if (songMusicData != null)
     {
       cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
