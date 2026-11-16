@@ -890,8 +890,7 @@ class SserafimStage extends Stage
       getNamedProp('solidCover').alpha = 1;
       PlayState.instance.camHUD.visible = false;
       PlayState.instance.togglePauseButton();
-      PlayState.instance.isInCutscene = true;
-      PlayState.instance.mayPauseGame = false;
+      PlayState.instance.gameplayState.enterCutscene();
     });
 
     new FlxTimer().start(4, function(tmr)
@@ -935,8 +934,7 @@ class SserafimStage extends Stage
 
   function introCutscene()
   {
-    PlayState.instance.isInCutscene = true;
-    PlayState.instance.mayPauseGame = false;
+    PlayState.instance.gameplayState.enterCutscene();
 
     @:privateAccess
     skipText = new FlxText(
@@ -1114,12 +1112,9 @@ class SserafimStage extends Stage
     // actually start song
     new FlxTimer(cutsceneTimerManager).start(730 / 24, function(tmr)
     {
-      PlayState.instance.isInCutscene = false;
       PlayState.instance.startCountdown();
 
       PlayState.instance.togglePauseButton(true);
-      PlayState.instance.isInCutscene = false;
-      PlayState.instance.mayPauseGame = true;
     });
   }
 
@@ -1139,8 +1134,6 @@ class SserafimStage extends Stage
       cutsceneTimerManager.clear();
       cutsceneSounds.stop();
 
-      PlayState.instance.isInCutscene = false;
-      PlayState.instance.mayPauseGame = true;
       PlayState.instance.startCountdown();
 
       skipText.visible = false;

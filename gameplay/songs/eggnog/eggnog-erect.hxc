@@ -128,7 +128,8 @@ class EggnogErectSong extends Song
 
     // FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, 1);
 
-    PlayState.instance.isInCutscene = true;
+    PlayState.instance.gameplayState.enterCutscene();
+
     hasPlayedCutscene = true;
 
     PlayState.instance.currentStage.getBoyfriend().danceEvery = 0;
@@ -194,7 +195,7 @@ class EggnogErectSong extends Song
     isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
     #end
 
-    if (PlayState.instance.isInCutscene)
+    if (PlayState.instance.gameplayState.isCutscene())
     {
       @:privateAccess
       if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && !cutsceneSkipped)

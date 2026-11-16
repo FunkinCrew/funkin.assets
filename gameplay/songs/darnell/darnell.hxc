@@ -141,8 +141,8 @@ class DarnellSong extends Song
   function introCutscene()
   {
     PlayState.instance.togglePauseButton();
-    PlayState.instance.isInCutscene = true;
-    PlayState.instance.mayPauseGame = false;
+
+    PlayState.instance.gameplayState.enterCutscene();
 
     var picoPos:Array<Float> = [
       PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
@@ -294,13 +294,10 @@ class DarnellSong extends Song
     {
       PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
       PlayState.instance.tweenCameraToPosition(darnellPos[0] + 180, darnellPos[1], 2, FlxEase.sineInOut);
-      PlayState.instance.isInCutscene = false;
       PlayState.instance.startCountdown();
       cutsceneMusic.stop(); // stop the music!!!!!!
 
       PlayState.instance.togglePauseButton(true);
-      PlayState.instance.isInCutscene = false;
-      PlayState.instance.mayPauseGame = true;
     });
   }
 

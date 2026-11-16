@@ -171,7 +171,7 @@ class StressPicoMixSong extends Song
   {
     super.onUpdate(event);
 
-    if (PlayState.instance.isInCutscene)
+    if (PlayState.instance.gameplayState.isCutscene())
     {
       if (cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
     }
@@ -232,7 +232,7 @@ class StressPicoMixSong extends Song
     cutsceneTimerManager = new FlxTimerManager();
 
     // Disable player input during cutscene, so you can't get a gameover during cutscene
-    PlayState.instance.isInCutscene = true;
+   PlayState.instance.gameplayState.enterCutscene();
     PlayState.instance.camHUD.visible = false;
 
     PlayState.instance.tweenCameraToPosition(tankmanPos[0] + 320, tankmanPos[1] - 70, 2.8, FlxEase.expoOut);

@@ -53,7 +53,7 @@ class WinterHorrorlandSong extends Song
    */
   function playHorrorStartCutscene():Void
   {
-    PlayState.instance.isInCutscene = true;
+    PlayState.instance.gameplayState.enterCutscene();
     PlayState.instance.camHUD.visible = false;
 
     blackScreen = new FlxSprite(-200, -200).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
