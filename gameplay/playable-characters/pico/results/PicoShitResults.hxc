@@ -1,0 +1,18 @@
+import funkin.graphics.FunkinSprite;
+
+class PicoShitResults extends FunkinSprite
+{
+  /**
+   * The offset for the spritemap.
+   * This is to make sure you dont see the edge of it.
+   */
+  final POSITION_OFFSET_X:Float = 50;
+
+  public function new(x:Float, y:Float)
+  {
+    super(x, y);
+    this.x += POSITION_OFFSET_X;
+
+    loadTextureAtlas('gameplay/playable-characters/pico/results/graphics/results-shit');
+  }
+}
