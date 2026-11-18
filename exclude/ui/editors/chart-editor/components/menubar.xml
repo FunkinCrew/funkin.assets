@@ -65,7 +65,7 @@
   <menu text="View">
     <menu-item id="menubarItemCommandPalette" text="Open Command Palette" shortcutText="Ctrl+P" />
     <menu-separator />
-    <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    <menu-checkbox width="100%" id="menubarItemDownscroll" text="Downscroll" />
     <menu-item id="menubarItemZoomIn" text="Zoom In" shortcutText="Ctrl+Scroll Up" />
     <menu-item id="menubarItemZoomOut" text="Zoom Out" shortcutText="Ctrl+Scroll Down" />
     <menu-item id="menubarItemZoomReset" text="Reset Zoom" />
