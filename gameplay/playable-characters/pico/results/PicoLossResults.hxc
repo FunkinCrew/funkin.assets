@@ -1,0 +1,22 @@
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import funkin.graphics.FunkinSprite;
+import funkin.util.EaseUtil;
+
+class PicoLossResults extends FunkinSprite
+{
+  final PAN_DISTANCE:Float = 720;
+  final PAN_DURATION:Float = 2.0;
+
+  public function new(x:Float, y:Float)
+  {
+    super(x, y + PAN_DISTANCE);
+
+    loadTextureAtlas('gameplay/playable-characters/pico/results/graphics/results-shit');
+
+    animation.onFrameChange.addOnce((animation:String, frame:Int) ->
+    {
+      FlxTween.num(this.y, this.y - PAN_DISTANCE, PAN_DURATION, {ease: EaseUtil.steppedTime(PAN_DURATION, 48, FlxEase.cubeOut)}, (value:Float) -> this.y = value);
+    });
+  }
+}

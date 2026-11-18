@@ -153,6 +153,7 @@
       {
         "renderType": "animateatlas",
         "assetPath": "gameplay/playable-characters/pico/results/graphics/results-shit",
+        "scriptClass": "PicoLossResults",
         "zIndex": 500,
         "offsets": [-50, 60],
         "loopFrame": 0
