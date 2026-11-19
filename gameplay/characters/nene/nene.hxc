@@ -6,6 +6,8 @@ import funkin.graphics.FunkinSprite;
 import funkin.audio.visualize.ABotVis;
 import funkin.assets.Assets.AssetType;
 import funkin.assets.Paths as NewPaths;
+import funkin.graphics.shaders.AdjustColorShader;
+import funkin.graphics.shaders.DropShadowShader;
 
 
 /**
@@ -465,21 +467,33 @@ class NeneBaseCharacter extends AnimateAtlasCharacter
   }
 
   var currentShader:FlxRuntimeShader = null;
+  var aBotColorShader:AdjustColorShader;
+  var finalShader:FlxRuntimeShader = null;
 
   function synchronizeShader():Void
   {
     if (currentShader == this.shader) return;
 
     currentShader = this.shader;
+    finalShader = currentShader;
 
-    abot.shader = currentShader;
-    abotViz.shader = currentShader;
-    stereoBG.shader = currentShader;
-    eyeWhites.shader = currentShader;
+    if (Std.isOfType(this.shader, DropShadowShader)) {
+      aBotColorShader = new AdjustColorShader();
+			aBotColorShader.brightness = this.shader.baseBrightness;
+			aBotColorShader.hue = this.shader.baseHue;
+			aBotColorShader.contrast = this.shader.baseContrast;
+			aBotColorShader.saturation = this.shader.baseSaturation;
+			finalShader = aBotColorShader;
+    }
+
+    abot.shader = finalShader;
+    abotViz.shader = finalShader;
+    stereoBG.shader = finalShader;
+    eyeWhites.shader = finalShader;
 
     for (member in abotViz.members)
     {
-      member.shader = currentShader;
+      member.shader = finalShader;
     }
 
     trace("Synchronized shader between children!");
