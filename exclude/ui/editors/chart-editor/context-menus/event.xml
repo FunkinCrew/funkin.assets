@@ -12,5 +12,6 @@
 		<number-stepper width="50%" id="contextmenuPosition" pos="0"  />
 	</grid>
 	<menu-item id="contextmenuEdit" text="Edit Event" />
+	<menu-item id="contextmenuSnap" text="Snap Event" shortcutText="Shift+N" />
 	<menu-item id="contextmenuDelete" text="Delete Event" shortcutText="Delete" />
 </menu>
