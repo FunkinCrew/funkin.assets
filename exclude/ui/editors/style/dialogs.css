@@ -51,3 +51,19 @@
 #colorPicker .controls-container .label {
   width: 75px;
 }
+
+.dialog-transparency-button {
+  resource: "assets/ui/editors/chart-editor/transparent.png";
+  vertical-align: "center";
+  cursor: "pointer";
+  pointer-events: true;
+  padding: 3px;
+  border-radius: 2px;
+}
+.dialog-transparency-button:hover {
+  background-color: $selection-background-color;
+}
+.dialog-transparency-button.on {
+  background-color: $selection-background-color;
+}
+
