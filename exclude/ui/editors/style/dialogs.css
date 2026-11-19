@@ -34,6 +34,18 @@
 	resource: "assets/ui/editors/chart-editor/maximize.png";
 	background-color: $selection-background-color;
 }
+.dialog-settings-button {
+  resource: "assets/ui/editors/chart-editor/settings.png";
+  vertical-align: "center";
+  cursor: "pointer";
+  pointer-events: true;
+  padding: 3px;
+  border-radius: 2px;
+}
+.dialog-settings-button:hover {
+  resource: "assets/ui/editors/chart-editor/settings.png";
+  background-color: $selection-background-color;
+}
 
 .comment-panel-header {
   background-color: "#FFFFFF";
