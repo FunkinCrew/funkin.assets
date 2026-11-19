@@ -11,6 +11,10 @@
     "cameraOffsets": [-100, 25]
   },
   "flipX": true,
+  "variation": {
+    "parent": "pico-playable",
+    "name": "Holding Nene"
+  },
   "renderType": "multianimateatlas",
   "animations": [
     {

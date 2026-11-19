@@ -3,6 +3,10 @@
   "name": "Girlfriend (Tankman Stickup)",
   "assetPath": "gameplay/characters/gf-tankmen/gf-tankmen",
   "startingAnimation": "danceLeft",
+  "variation": {
+    "parent": "gf",
+    "name": "Tankmen"
+  },
   "animations": [
     {
       "name": "danceLeft",

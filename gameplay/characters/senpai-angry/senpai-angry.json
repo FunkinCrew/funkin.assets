@@ -9,6 +9,10 @@
     "id": "senpai-angry",
     "isPixel": true
   },
+  "variation": {
+    "parent": "senpai",
+    "name": "Angry"
+  },
   "animations": [
     {
       "name": "idle",

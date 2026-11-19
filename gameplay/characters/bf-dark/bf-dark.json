@@ -12,6 +12,10 @@
   "healthIcon": {
     "id": "bf"
   },
+  "variation": {
+    "parent": "bf",
+    "name": "Dark"
+  },
   "atlasSettings": {
     "useRenderTexture": true
   },

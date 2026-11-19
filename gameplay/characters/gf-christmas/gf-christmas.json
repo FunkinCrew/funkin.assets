@@ -6,6 +6,10 @@
   "startingAnimation": "danceRight",
   "offsets": [-1, 5],
   "cameraOffsets": [1, 8],
+  "variation": {
+    "parent": "gf",
+    "name": "Christmas"
+  },
   "animations": [
     {
       "name": "danceLeft",

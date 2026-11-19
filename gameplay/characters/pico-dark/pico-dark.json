@@ -14,6 +14,10 @@
   "renderType": "multianimateatlas",
   "offsets": [19, 1],
   "cameraOffsets": [-19, 32],
+  "variation": {
+    "parent": "pico-playable",
+    "name": "Dark"
+  },
   "atlasSettings": {
     "useRenderTexture": true
   },
