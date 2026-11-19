@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<collapsible-dialog id="toolboxPreferences" title="Preferences" width="440" style="minHeight:200">
-	<tabview width="100%" height="360" styleName="full-width-buttons">
+<collapsible-dialog id="toolboxPreferences" title="Preferences" width="440" height="420">
+	<tabview width="100%" height="100%" styleName="full-width-buttons">
 		<scrollview width="100%" height="100%" contentWidth="100%" text="Display">
 			<vbox width="100%" style="spacing: 8px; padding-bottom: 8px;">
 			<hbox width="100%">

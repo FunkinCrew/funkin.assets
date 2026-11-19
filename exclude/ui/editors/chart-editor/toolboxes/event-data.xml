@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <collapsible-dialog id="toolboxEvents" title="Events" width="360">
-	<vbox width="100%" style="spacing: 6px;">
+	<vbox id="toolboxEventsRoot" width="100%" style="spacing: 6px;">
 		<vbox id="toolboxEventsChainBox" width="100%" hidden="true" style="spacing: 4px;">
 			<hbox width="100%" style="padding: 4px; padding-top: 2px; border-bottom: 1px solid #555555;">
 				<label id="toolboxEventsChainTitle" text="EVENT" width="100%" verticalAlign="center" style="font-bold: true; color: #8FB8F0;" />
