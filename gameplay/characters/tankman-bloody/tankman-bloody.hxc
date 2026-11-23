@@ -54,7 +54,7 @@ class TankmanBloodyCharacter extends MultiAnimateAtlasCharacter
 
     if (name == 'redheadsAnim') isBloody = true;
 
-    if (name == 'stressPicoEnding')
+    if (name == 'stressPicoEnding' && !this.debug)
     {
       picoEndingSound = FunkinSound.load(NewPaths.sound('gameplay/songs/stress/pico/sounds/end-cutscene').toFlxSoundAsset(), 1.0, false, true, true);
     }
