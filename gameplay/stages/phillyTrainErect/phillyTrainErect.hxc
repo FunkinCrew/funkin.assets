@@ -411,8 +411,6 @@ class PhillyTrainErectStage extends Stage
 
     getNamedProp('train').shader = colorShader;
 
-    FlxG.sound.list.add(trainSound);
-
     lightWindow = getNamedProp('lights');
     lightWindow.shader = lightShader;
   }
