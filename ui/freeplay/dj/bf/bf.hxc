@@ -55,19 +55,18 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
 
     switch (type)
     {
+      case "MUSIC":
+        for (music in Assets.listInPath('ui/freeplay/dj/bf/cartoons/', 'SOUND'))
+        {
+          results.push(music);
+        }
       case "SOUND":
-        results = results.concat([
-          AssetPaths.sound('ui/freeplay/dj/bf/remote-click'),
-          AssetPaths.sound('ui/freeplay/dj/bf/tv-on'),
-          AssetPaths.sound('ui/freeplay/dj/bf/channel-switch'),
-        ]);
-        var cartoonList:Array<AssetPath> = Assets.list().filter((path) -> return path.startsWith('assets/ui/freeplay/dj/bf/cartoons/'));
-        // TODO: Do we need to cache every cartoon?
-        results = results.concat(cartoonList);
+        results.push(AssetPaths.sound('ui/freeplay/dj/bf/remote-click'));
+        results.push(AssetPaths.sound('ui/freeplay/dj/bf/tv-on'));
+        results.push(AssetPaths.sound('ui/freeplay/dj/bf/channel-switch'));
       default:
-        // Nothing
+        // No assets.
     }
-	trace(results);
 
     return results;
   }
@@ -76,7 +75,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     {
     return 'bf';
   }
-	
+
   public function new(x:Float, y:Float, characterId:String)
   {
     super(x, y, characterId);

@@ -106,6 +106,8 @@ class SserafimStage extends Stage
         results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/door-kick-2'));
         results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/end-1'));
         results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/end-2'));
+
+      case 'MUSIC': // we want to strean cutscene audio too
         results.push(NewPaths.sound('gameplay/stages/sserafim/sounds/cutscene/start-cutscene'));
       default:
         // nothing
