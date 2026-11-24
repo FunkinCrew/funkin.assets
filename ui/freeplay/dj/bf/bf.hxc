@@ -6,7 +6,7 @@ import funkin.ui.freeplay.dj.AnimateAtlasFreeplayDJ;
 import funkin.ui.freeplay.dj.FreeplayDJAnimation;
 import funkin.ui.freeplay.dj.FreeplayDJState;
 import funkin.ui.freeplay.backcards.BackingCard;
-import funkin.assets.Assets;
+import funkin.assets.Assets as NewAssets;
 import funkin.assets.Paths.AssetPath;
 import funkin.assets.Paths as AssetPaths;
 import funkin.assets.Assets.AssetType;
@@ -24,7 +24,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
    * The list of available cartoons.
    * This is loaded from `assets/ui/freeplay/dj/bf/cartoons/`!!
    */
-  public final CARTOON_LIST:Array<String> = Assets.list().filter((path) -> return path.startsWith('assets/ui/freeplay/dj/bf/cartoons/'));
+  public final CARTOON_LIST:Array<String> = NewAssets.listInPath("ui/freeplay/dj/bf/cartoons/", 'SOUND');
 
   /**
    * The name of the symbol that contains the cartoon animation.
@@ -56,7 +56,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     switch (type)
     {
       case "MUSIC":
-        for (music in Assets.listInPath('ui/freeplay/dj/bf/cartoons/', 'SOUND'))
+        for (music in NewAssets.listInPath('ui/freeplay/dj/bf/cartoons/', 'SOUND'))
         {
           results.push(music);
         }
@@ -85,7 +85,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
     {
       if (name == CARTOON_ANIMATION_NAME)
       {
-        if (number == getCartoonFrame('REMOTE_CLICK')) FunkinSound.playOnce(Paths.sound('ui/freeplay/dj/bf/remote-click'));
+        if (number == getCartoonFrame('REMOTE_CLICK')) FunkinSound.playSoundOnce(AssetPaths.sound('ui/freeplay/dj/bf/remote-click'));
         if (number == getCartoonFrame('TV_SOUND')) _runTVLogic();
       }
     });
@@ -136,10 +136,10 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
   {
     var soundPath:String = (_cartoonSound == null) ? 'ui/freeplay/dj/bf/tv-on' : 'ui/freeplay/dj/bf/channel-switch';
 
-    FunkinSound.playOnce(Paths.sound(soundPath), 1.0, () ->
+    FunkinSound.playSoundOnce(AssetPaths.sound(soundPath), {volume: 1.0, onComplete: () ->
     {
       loadCartoon();
-    });
+    }});
   }
 
   public function getCartoonFrame(frameLabel:String):Int
@@ -160,12 +160,12 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
       _cartoonSound = null;
     }
 
-    var randomCartoon:String = CARTOON_LIST[FlxG.random.int(0, CARTOON_LIST.length - 1)].trim();
+    var randomCartoon = CARTOON_LIST[FlxG.random.int(0, CARTOON_LIST.length - 1)].trim();
 
-    _cartoonSound = FunkinSound.load(randomCartoon, 1.0, false, true, true, false, () ->
+    _cartoonSound = FunkinSound.loadSound(randomCartoon, {volune: 1.0, looped: false, autoDestroy: true, autoPlay: true, persist: false, onComplete: () ->
     {
       playAnimation(CARTOON_ANIMATION_NAME, true, false, false, getCartoonFrame('CHANGE_CHANNEL'));
-    });
+    }, stream: true});
 
     // Fade out music to 40% volume over 1 second.
     // This helps make the TV a bit more audible.
