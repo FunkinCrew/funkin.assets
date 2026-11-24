@@ -101,8 +101,8 @@
   </menu>
   <menu text="Window">
     <vbox width="100%">
-    <menu-checkbox width="100%" id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <menu-checkbox width="100%" id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxTiming" text="Timing" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxNoteData" text="Notes" />
     <menu-checkbox width="100%" id="menubarItemToggleToolboxEventData" text="Events" />

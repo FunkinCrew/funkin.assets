@@ -26,6 +26,8 @@
 		<rule direction="vertical" height="80%" />
 		<label id="playbarZoom" verticalAlign="center" text="1x" styleName="playbarStatus" tooltip="Grid Zoom\nLeft Click or Ctrl+Scroll Up to Zoom In\nRight Click or Ctrl+Scroll Down to Zoom Out\nShift+Click to reset" />
 		<rule direction="vertical" height="80%" />
+		<label id="playbarSpeed" verticalAlign="center" text="Speed: 1x" styleName="playbarStatus" tooltip="Playback Speed\nLeft Click or Shift+Right Arrow to Speed Up\nRight Click or Shift+Left Arrow to Slow Down\nShift+Click to reset" />
+		<rule direction="vertical" height="80%" />
 		<label id="playbarSongRemaining" text="-1:00" styleName="playbarDuration" />
 	</hbox>
 </box>
