@@ -76,7 +76,7 @@ class BoyfriendCharacter extends MultiAnimateAtlasCharacter
 
   function doFakeoutDeath():Void
   {
-    FunkinSound.playOnce(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout').toFlxSoundAsset(), 1.0);
+    FunkinSound.playSoundOnce(NewPaths.sound('gameplay/playable-characters/bf/game-over/loss-sfx-fakeout'), {volume: 1.0});
 
     // We don't want people to miss this.
     GameOverSubState.instance.mustNotExit = true;

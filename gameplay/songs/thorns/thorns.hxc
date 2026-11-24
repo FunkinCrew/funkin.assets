@@ -109,7 +109,7 @@ class ThornsSong extends Song
 
         // Play the SFX alongside it.
         trace('Playing senpai death SFX.');
-        FunkinSound.playOnce(Paths.sound('gameplay/songs/thorns/cutscene/senpai-fucking-dies'), 1.0, function()
+        FunkinSound.playSoundOnce(NewPaths.sound('gameplay/songs/thorns/cutscene/senpai-fucking-dies'), {volume: 1.0, onComplete: function()
         {
           trace('Senpai death SFX done.');
           // Called when the sound completes. Clean up the cutscene here.
@@ -123,7 +123,7 @@ class ThornsSong extends Song
             startDialogue();
           });
           // PlayState.instance.camCutscene.fade(0xFFEEEEEE, 0.8, true);
-        });
+        }});
 
         // Fade to white 3.2 seconds into the cutscene.
         new FlxTimer().start(3.2, function(deadTime:FlxTimer)

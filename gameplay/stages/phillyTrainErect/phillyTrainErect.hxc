@@ -241,11 +241,11 @@ class PhillyTrainErectStage extends Stage
 
     if (!explode)
     {
-      cutsceneMusic = FunkinSound.load(Paths.music("gameplay/stages/phillyTrainErect/cutscene/cutscene/cutscene"), true);
+      cutsceneMusic = FunkinSound.loadSound(NewPaths.music("gameplay/stages/phillyTrainErect/cutscene/cutscene").audio(), {looped: true});
     }
     else
     {
-      cutsceneMusic = FunkinSound.load(Paths.music("gameplay/stages/phillyTrainErect/cutscene/cutscene/cutscene2"), true);
+      cutsceneMusic = FunkinSound.loadSound(NewPaths.sound("gameplay/stages/phillyTrainErect/cutscene/cutscene/cutscene2"), {looped: true});
     }
     cutsceneMusic.volume = 1;
     cutsceneMusic.play(false);
@@ -401,7 +401,7 @@ class PhillyTrainErectStage extends Stage
 
     // NOTE: You pass the constructor variables directly, not as an array.
     lightShader = new BuildingEffectShader(1.0);
-    trainSound = FunkinSound.load(Paths.sound('gameplay/stages/phillyTrain/sounds/train-passes'), 1.0, false, false, false);
+    trainSound = FunkinSound.loadSound(NewPaths.sound('gameplay/stages/phillyTrain/sounds/train-passes'), {volume: 1.0, looped: false, autoDestroy: false, autoPlay: false});
 
     colorShader = new AdjustColorShader();
     colorShader.hue = -26;

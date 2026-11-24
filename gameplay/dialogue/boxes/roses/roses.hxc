@@ -55,7 +55,7 @@ class RosesDialogueBox extends DialogueBox
     @:privateAccess
     event.conversation.state = ConversationState.Opening;
 
-    FunkinSound.playOnce(Paths.sound('gameplay/dialogue/boxes/roses/click-advance'), 0.6);
+    FunkinSound.playSoundOnce(NewPaths.sound('gameplay/dialogue/boxes/roses/click-advance'), {volume: 0.6});
 
     super.onDialogueLine(event);
 

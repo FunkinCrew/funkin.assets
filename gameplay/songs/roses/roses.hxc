@@ -73,7 +73,7 @@ class RosesSong extends Song
       event.cancel(); // CANCEL THE COUNTDOWN!
 
       // Play a SFX
-      FunkinSound.playOnce(Paths.sound('gameplay/dialogue/boxes/roses/angry-appear'), 1.0);
+      FunkinSound.playSoundOnce(NewPaths.sound('gameplay/dialogue/boxes/roses/angry-appear'), {volume: 1.0});
 
       HapticUtil.vibrate(0.1, 0.5, 1, 1);
 

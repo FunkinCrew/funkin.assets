@@ -280,7 +280,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
     // Start the (standard) death music, 3.5 seconds after the explosion starts,
     // not when the explosion sound finishes or when the loop starts.
     GameOverSubState.instance.startDeathMusic(1.0, false);
-    singed = FunkinSound.load(NewPaths.sound('gameplay/characters/pico-playable/sounds/singed').toFlxSoundAsset(), true, false, true);
+    singed = FunkinSound.loadSound(NewPaths.sound('gameplay/characters/pico-playable/sounds/singed'), {looped: true, autoDestroy: false, autoPlay: true});
     // singed.fadeIn(0.5, 0.3, 1.0);
   }
 
@@ -413,7 +413,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
 
     addToStage(picoFade);
 
-    FunkinSound.playOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/gun-prep').toFlxSoundAsset(), 1.0);
+    FunkinSound.playSoundOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/gun-prep'), {volume: 1.0});
   }
 
   /**
@@ -422,7 +422,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   function playFireGunAnim():Void
   {
     this.playAnimation('shoot', true, true);
-    FunkinSound.playOnce(NewPaths.soundRandom('gameplay/characters/pico-playable/sounds/shot-', 1, 4).toFlxSoundAsset());
+    FunkinSound.playSoundOnce(NewPaths.soundRandom('gameplay/characters/pico-playable/sounds/shot-', 1, 4));
   }
 
   /**
@@ -432,7 +432,7 @@ class PicoPlayerBaseCharacter extends MultiAnimateAtlasCharacter
   {
     this.playAnimation('shootMISS', true, true);
     // Donk.
-    FunkinSound.playOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/bonk').toFlxSoundAsset(), 1.0);
+    FunkinSound.playSoundOnce(NewPaths.sound('gameplay/characters/pico-playable/sounds/bonk'), {volume: 1.0});
   }
 
   function addToStage(sprite:FunkinSprite):Void

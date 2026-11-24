@@ -129,7 +129,7 @@ class SpookyMansionErectStage extends Stage
 
     if (playSound)
     {
-      FunkinSound.playOnce(NewPaths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2).toFlxSoundAsset(), 1.0);
+      FunkinSound.playSoundOnce(NewPaths.soundRandom('gameplay/stages/spookyMansion/sounds/thunder-', 1, 2), {volume: 1.0});
     }
 
     getNamedProp('bgLight').alpha = 1;

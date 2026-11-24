@@ -230,7 +230,7 @@ class LimoRideErectStage extends Stage
 
   function fastCarDrive():Void
   {
-    FunkinSound.playOnce(NewPaths.soundRandom('gameplay/stages/limoRide/sounds/car-pass-', 1, 2).toFlxSoundAsset(), 0.7);
+    FunkinSound.playSoundOnce(NewPaths.soundRandom('gameplay/stages/limoRide/sounds/car-pass-', 1, 2), {volume: 0.7});
 
     var fastCar = getNamedProp('fastCar');
     fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
