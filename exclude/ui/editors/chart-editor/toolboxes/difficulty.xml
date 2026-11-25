@@ -7,12 +7,12 @@
         <frame id="difficultyToolboxDetails" text="Difficulty: Normal" width="100%">
             <vbox width="100%" style="spacing: 6px;">
                 <hbox width="100%">
-                    <label id="difficultyLabelScrollSpeed" text="Scroll speed: 1x" width="150" verticalAlign="center" />
+                    <label id="difficultyLabelScrollSpeed" text="Scroll speed: 1x" width="120" verticalAlign="center" />
                     <slider id="difficultyInputScrollSpeed" styleName="compact" pos="1.0" step="0.1" precision="1" min="0.5" max="5.0" width="100%" verticalAlign="center" tooltip="How fast the notes move. Right click to reset." />
                 </hbox>
                 <hbox width="100%">
-                    <label text="Difficulty rank:" width="150" verticalAlign="center" />
-                    <number-stepper id="difficultyInputRating" pos="0" step="1" min="0" max="99" width="80" verticalAlign="center" tooltip="The rating shown for this difficulty in the Freeplay menu." />
+                    <label text="Difficulty rank:" width="120" verticalAlign="center" />
+                    <number-stepper id="difficultyInputRating" pos="0" step="1" min="0" max="99" width="100%" verticalAlign="center" tooltip="The rating shown for this difficulty in the Freeplay menu." />
                     <button allowFocus="false" id="difficultyEstimateRating" text="Estimate" verticalAlign="center" tooltip="Fill in the rank from how hard the player's notes are." />
                 </hbox>
             </vbox>

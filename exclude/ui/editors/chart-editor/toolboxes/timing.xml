@@ -7,13 +7,13 @@
         <frame id="timingToolboxDetails" text="Time Change" width="100%">
             <grid columns="2" width="100%">
                 <label text="BPM:" verticalAlign="center" />
-                <number-stepper id="timingInputBPM" pos="100" step="1" min="10" max="500" precision="3" width="140" tooltip="The tempo from this time change on." />
+                <number-stepper id="timingInputBPM" pos="100" step="1" min="10" max="500" precision="3" width="100%" tooltip="The tempo from this time change on." />
                 <label id="timingLabelStart" text="Start beat:" verticalAlign="center" />
-                <number-stepper id="timingInputStart" pos="0" step="0.25" precision="4" width="140" tooltip="The beat this time change starts on. Saved to the chart as milliseconds." />
+                <number-stepper id="timingInputStart" pos="0" step="0.25" precision="4" width="100%" tooltip="The beat this time change starts on. Saved to the chart as milliseconds." />
                 <label text="Beats per measure:" verticalAlign="center" />
-                <number-stepper id="timingInputNumerator" pos="4" step="1" min="1" max="32" precision="0" width="140" tooltip="The top number of the time signature." />
+                <number-stepper id="timingInputNumerator" pos="4" step="1" min="1" max="32" precision="0" width="100%" tooltip="The top number of the time signature." />
                 <label text="Beat note:" verticalAlign="center" />
-                <dropdown id="timingInputDenominator" width="140" tooltip="The bottom number of the time signature.">
+                <dropdown id="timingInputDenominator" width="100%" tooltip="The bottom number of the time signature.">
                     <data>
                         <item text="2" />
                         <item text="4" />

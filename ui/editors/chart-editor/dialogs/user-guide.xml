@@ -40,12 +40,12 @@
 					<item action="Scroll Up/Down" keybind="Mouse Wheel" />
 					<item action="Scroll Up/Down (Fast)" keybind="Shift + Mouse Wheel" />
 					<item action="Zoom In/Out" keybind="Ctrl + Mouse Wheel" />
-					<item action="Scroll Up" keybind="Up Arrow/W" />
-					<item action="Scroll Up (Fast)" keybind="Shift + Up Arrow/W" />
-					<item action="Scroll Up (Precise)" keybind="Ctrl + Up Arrow" />
-					<item action="Scroll Down" keybind="Down Arrow/S" />
-					<item action="Scroll Down (Fast)" keybind="Shift + Down Arrow/S" />
-					<item action="Scroll Down (Precise)" keybind="Ctrl + Down Arrow" />
+					<item action="Move Up One Snap" keybind="Up Arrow/W" />
+					<item action="Move Up Two Snaps" keybind="Shift + Up Arrow/W" />
+					<item action="Move Up One Beat" keybind="Ctrl + Up Arrow" />
+					<item action="Move Down One Snap" keybind="Down Arrow/S" />
+					<item action="Move Down Two Snaps" keybind="Shift + Down Arrow/S" />
+					<item action="Move Down One Beat" keybind="Ctrl + Down Arrow" />
 					<item action="Scroll, Leave Playhead Stationary" keybind="Middle Click + Arrows/Mouse Wheel" />
 					<item action="Scroll (Playhead Only)" keybind="Alt + Arrows/Mouse Wheel" />
 					<item action="Open Command Palette" keybind="Ctrl + P" />
