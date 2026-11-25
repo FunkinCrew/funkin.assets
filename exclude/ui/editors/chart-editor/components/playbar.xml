@@ -10,7 +10,7 @@
 		<rule direction="vertical" height="80%" />
 		<label horizontalAlign="left" verticalAlign="center" id="playbarStepNum" text="Step: 0" styleName="playbarTimeStatus" tooltip="The current position in the song in steps." />
 	</hbox>
-	<hbox horizontalAlign="center">
+	<hbox id="playbarControls" horizontalAlign="center">
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip to Start" id="playbarStart" text="|<" />
 		<button allowFocus="false" styleName="playbarButton" tooltip="Skip Back" id="playbarBack" text="<<" />
 		<button allowFocus="false" styleName="playbarButton" tooltip="Play/Pause" id="playbarPlay" text=">" />
