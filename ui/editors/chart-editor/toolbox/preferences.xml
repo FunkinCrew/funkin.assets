@@ -66,6 +66,8 @@
 						<item text="None" />
 						<item text="Number Keys" />
 						<item text="WASD+Arrows" />
+						<item text="Number Keys (Condensed)" />
+						<item text="WASD (Condensed)" />
 					</data>
 				</dropdown>
 			</hbox>
