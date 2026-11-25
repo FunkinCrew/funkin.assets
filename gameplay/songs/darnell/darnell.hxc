@@ -159,13 +159,13 @@ class DarnellSong extends Song
 
     var cutsceneDelay:Float = 2;
 
-    cutsceneMusic = FunkinSound.loadSound(NewPaths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene/darnell-can-cutscene").audio(), {autoPlay: true});
+    cutsceneMusic = FunkinSound.loadSound(NewPaths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene").audio(), {autoPlay: true});
     cutsceneMusic.volume = 1;
 
     cutsceneConductor = new Conductor();
 
     var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData(
-      Paths.json('gameplay/songs/darnell/cutscene/darnell-can-cutscene/darnell-can-cutscene')
+      NewPaths.music("gameplay/songs/darnell/cutscene/darnell-can-cutscene").metadata()
     );
     if (songMusicData != null)
     {
