@@ -160,7 +160,7 @@ class BoyfriendFreeplayDJ extends AnimateAtlasFreeplayDJ
       _cartoonSound = null;
     }
 
-    var randomCartoon = CARTOON_LIST[FlxG.random.int(0, CARTOON_LIST.length - 1)].trim();
+    var randomCartoon = CARTOON_LIST[FlxG.random.int(0, CARTOON_LIST.length - 1)];
 
     _cartoonSound = FunkinSound.loadSound(randomCartoon, {volune: 1.0, looped: false, autoDestroy: true, autoPlay: true, persist: false, onComplete: () ->
     {
