@@ -5,11 +5,13 @@
   "charter": "ninjamuffin99 + MtH + Spazkid",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-car",
       "girlfriend": "gf-car",
       "opponent": "mom-car",
+      "altInstrumentals": [],
       "opponentVocals": ["mom-car"],
       "playerVocals": ["bf-car"]
     },

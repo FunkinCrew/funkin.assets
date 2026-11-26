@@ -11,6 +11,7 @@
       "player": "bf-pixel",
       "girlfriend": "gf-pixel",
       "opponent": "spirit",
+      "altInstrumentals": [],
       "opponentVocals": ["spirit"],
       "playerVocals": ["bf-pixel"]
     },

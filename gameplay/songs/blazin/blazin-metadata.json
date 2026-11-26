@@ -5,11 +5,13 @@
   "charter": "fabs + PhantomArcade",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-blazin",
       "girlfriend": "nene",
-      "opponent": "darnell-blazin"
+      "opponent": "darnell-blazin",
+      "altInstrumentals": []
     },
     "stage": "phillyBlazin",
     "noteStyle": "funkin",

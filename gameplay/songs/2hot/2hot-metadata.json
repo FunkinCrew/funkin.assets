@@ -5,11 +5,13 @@
   "charter": "Jenny Crowe + Spazkid + ninjamuffin99",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "pico-playable",
       "girlfriend": "nene",
       "opponent": "darnell",
+      "altInstrumentals": [],
       "opponentVocals": ["darnell"],
       "playerVocals": ["pico-playable"]
     },

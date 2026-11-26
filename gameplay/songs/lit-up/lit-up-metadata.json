@@ -11,6 +11,7 @@
       "player": "pico-playable",
       "girlfriend": "nene",
       "opponent": "darnell",
+      "altInstrumentals": [],
       "opponentVocals": ["darnell"],
       "playerVocals": ["pico-playable"]
     },

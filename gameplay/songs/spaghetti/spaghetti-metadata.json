@@ -5,11 +5,13 @@
   "charter": "fabs + Spazkid",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "sserafim-sakura",
       "girlfriend": "sserafim-gf",
       "opponent": "sserafim-kazuha",
+      "altInstrumentals": [],
       "opponentVocals": [],
       "playerVocals": ["sserafim-sakura"]
     },

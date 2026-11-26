@@ -5,10 +5,12 @@
   "charter": "ninjamuffin99 + MtH",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "opponent": "gf",
+      "altInstrumentals": [],
       "opponentVocals": ["gf"],
       "playerVocals": ["bf"]
     },

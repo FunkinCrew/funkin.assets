@@ -5,11 +5,13 @@
   "charter": "Kade",
   "offsets": {},
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf",
       "girlfriend": "gf",
       "opponent": "monster",
+      "altInstrumentals": [],
       "opponentVocals": ["monster"],
       "playerVocals": ["bf"]
     },
