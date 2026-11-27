@@ -46,7 +46,7 @@ class PicoCard extends BackingCard
         results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/middle-loop'));
         results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/lower-loop'));
         results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/glow'));
-        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar'));
+        results.push(NewPaths.image('ui/freeplay/styles/pico/backing-card/blue-bar').withPixelData());
         results.push(NewPaths.image('ui/freeplay/interface/confirm-glow-1'));
         results.push(NewPaths.image('ui/freeplay/interface/glowing-text'));
         results.push(NewPaths.image('ui/freeplay/interface/confirm-glow-2'));
