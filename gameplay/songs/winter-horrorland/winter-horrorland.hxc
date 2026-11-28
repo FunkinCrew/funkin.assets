@@ -72,7 +72,7 @@ class WinterHorrorlandSong extends Song
       FlxG.camera.zoom = 2.5;
 
       // Play the Sound effect.
-      HapticManager.instance.playVibration(0.1, 0.5, 1, 0);
+      HapticUtil.vibrate(0.1, 0.5, 1, 1);
 
       FunkinSound.playSoundOnce(NewPaths.sound('gameplay/stages/mallEvil/sounds/lights-on'), {volume: 1.0, onComplete: function()
       {
